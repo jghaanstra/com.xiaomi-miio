@@ -1,0 +1,126 @@
+<script type="text/javascript">
+
+Homey.setTitle( __('pair.title') );
+
+Homey.on('error', function( errortype, callback ) {
+
+    if (errortype == 'error') {
+		Homey.alert(__('pair.error'), 'error');
+        $('.mi-robot-err-msg').show();
+		$('.mi-robot-err').html( __('pair.error') );
+	}
+	if (errortype == 'nosettings') {
+		Homey.alert(__('pair.nosettings'), 'error');
+        $('.mi-robot-err-msg').show();
+		$('.mi-robot-err').html( __('pair.nosettings') );
+	}
+
+});
+
+Homey.on('continue', function( success, callback ) {
+	Homey.showView('list_devices');
+});
+
+$(function() {
+    $('#test-connection').click(function(){
+
+		var inputaddress = $('#address').val();
+		var inputtoken = $('#token').val();
+
+        if( inputaddress != '' && inputtoken != '') {
+            var device_data = {
+                address: inputaddress,
+                token: inputtoken
+            };
+
+            Homey.emit( 'test-connection', device_data, function( err, result ) {
+                if(err) {
+                    $('.mi-robot-error').show();
+                    $('.mi-robot-error-msg').html( err );
+                } else {
+                    $('.mi-robot-test').show();
+                    $('#connect').prop('disabled', false);
+                }
+            });
+
+        } else {
+            $('.mi-robot-error').show();
+            $('.mi-robot-error-msg').html( __('pair.nosettings') );
+        }
+
+	});
+
+	$('#connect').click(function(){
+
+		var inputaddress = $('#address').val();
+		var inputtoken = $('#token').val();
+
+        if( inputaddress != '' && inputtoken != '') {
+            var device_data = {
+                id: inputtoken
+            };
+            var device_settings = {
+                address: inputaddress,
+                token: inputtoken
+            };
+
+            Homey.addDevice({
+                name	: 'Mi Robot',
+                data 	: device_data,
+                settings: device_settings
+            }, function( err, result ) {
+                if ( err ) {
+                    $('.mi-robot-test').hide();
+                    $('.mi-robot-error').show();
+                    $('.mi-robot-error-msg').html( err.message || err.toString() );
+                }
+                $('.mi-robot-test').hide();
+                $('.mi-robot-ok').show();
+                Homey.emit('add_device', device_data, function( err, result ){
+					if( err ) return Homey.alert(err.message || err.toString());
+					return Homey.done();
+				})
+            })
+
+        } else {
+            $('.mi-robot-test').hide();
+            $('.mi-robot-error').show();
+            $('.mi-robot-error-msg').html( __('pair.nosettings') );
+        }
+
+	});
+})
+</script>
+
+<style type="text/css">
+	.mi-robot-status {
+		display: none;
+	}
+    .form-group input[type="text"] {
+        width: 80% !important;
+    }
+    .buttons, .messages {
+        padding-top: 14px;
+    }
+</style>
+
+<p data-i18n="pair.intro">Enter the details of your Xiaomi Mi Robot Vacuum Cleaner.</p>
+
+<div class="form-group">
+    <label for="address" data-i18n="pair.address">IP address</label>
+    <input type="text" class="form-control" id="address" placeholder="192.168.0.100">
+</div>
+<div class="form-group">
+	<label for="token" data-i18n="pair.token">Token</label>
+	<input type="text" class="form-control" id="token" placeholder="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF">
+</div>
+<div class="form-group buttons">
+    <button id="test-connection" class="button" data-i18n="pair.test">Test Connection</button>
+    <button id="connect" class="button" data-i18n="pair.connect" disabled>Connect</button>
+</div>
+
+<div class="messages">
+    <p class="mi-robot-status mi-robot-test" style="color: #008C23;"><i class="fa fa-check"></i> <span data-i18n="pair.testing">Mi Robot find message send succesfully, did you hear the robot?</span></p>
+    <p class="mi-robot-status mi-robot-ok" style="color: #008C23;"><i class="fa fa-check"></i> <span data-i18n="pair.success">Mi Robot added succesfully</span></p>
+    <p class="mi-robot-status mi-robot-error" style="color: #ff6300;"><i class="fa fa-times"></i> <span class="mi-robot-error-msg"></span></p>
+</div>

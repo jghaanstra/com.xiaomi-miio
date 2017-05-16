@@ -1,0 +1,260 @@
+{
+	"id": "com.xiaomi-miio",
+	"name": {
+		"en": "Xiaomi Mi Home",
+		"nl": "Xiaomi Mi Home"
+},
+	"version": "2.0.0",
+	"compatibility": "0.x || 1.x",
+	"author": {
+		"name": "Jelger Haanstra",
+		"email": "homey@solidewebservices.com"
+	},
+    "images": {
+        "large": "./assets/images/large.jpg",
+        "small": "./assets/images/small.jpg"
+    },
+	"category": "appliances",
+	"description": {
+		"en": "Control Xiaomi Mi Home devices",
+		"nl": "Bestuur Xiaomi Mi Home apparaten"
+	},
+	"dependencies": {
+		"net": "*"
+	},
+	"drivers": [
+		{
+			"id": "mi-robot",
+			"name": {
+				"en": "Mi Robot Vacuum Cleaner",
+				"nl": "Mi Robot Stofzuiger"
+			},
+			"images": {
+				"large": "drivers/mi-robot/assets/images/large.jpg",
+				"small": "drivers/mi-robot/assets/images/small.jpg"
+			},
+			"class": "other",
+			"capabilities": [],
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "Mi Robot settings",
+						"nl": "Mi Robot instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "Mi Robot Token",
+						        "nl": "Mi Robot Token"
+					        }
+				        }
+		            ]
+		        }
+		    ]
+		}
+	],
+	"flow": {
+		"actions": [
+			{
+				"id": "start",
+				"title": {
+					"en": "Start vacuum cleaning",
+					"nl": "Start stofzuigen"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+			{
+				"id": "pause",
+				"title": {
+					"en": "Pause vacuum cleaning",
+					"nl": "Pauzeer stofzuigen"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+            {
+				"id": "stop",
+				"title": {
+					"en": "Stop vacuum cleaning without docking",
+					"nl": "Stop stofzuigen zonder naar de dock te gaan"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+			{
+				"id": "charge",
+				"title": {
+					"en": "Stop cleaning and go to dock",
+					"nl": "Stop stofzuigen en naar dock"
+				},
+				"args": [
+					  {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					  }
+				]
+			},
+            {
+				"id": "spotClean",
+				"title": {
+					"en": "Start spot vacuum cleaning",
+					"nl": "Start spot stofzuigen"
+				},
+				"args": [
+					  {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					  }
+				]
+			},
+            {
+				"id": "find",
+				"title": {
+					"en": "Find vacuum cleaner",
+					"nl": "Vind stofzuiger"
+				},
+				"args": [
+					  {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					  }
+				]
+			}
+		],
+        "conditions": [
+			{
+				"id": "cleaning",
+				"title": {
+                    "en": "!{{is|is not}} cleaning",
+                    "nl": "!{{is|is niet}} aan het stofzuigen"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+            {
+				"id": "charging",
+				"title": {
+                    "en": "!{{is|is not}} charging",
+                    "nl": "!{{is|is niet}} aan het opladen"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+            {
+				"id": "returning",
+				"title": {
+                    "en": "!{{is|is not}} returning to dock",
+                    "nl": "!{{is|is niet}} aan het terugkeren naar de dock"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+            {
+				"id": "paused",
+				"title": {
+                    "en": "!{{is|is not}} paused",
+                    "nl": "!{{is|is niet}} gepauzeerd"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			}
+        ]
+	}
+}

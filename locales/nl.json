@@ -1,0 +1,13 @@
+{
+    "pair": {
+		"title": "Xiaomi Mi Robot Stofzuiger toevoegen",
+        "nosettings": "Vul a.u.b. alle velden in.",
+        "intro": "Vul de details van je Xiaomi Mi Robot Stofzuiger in.",
+        "address": "IP adres",
+        "token": "Token",
+        "success": "Mi Robot succesvol toegevoegd",
+        "test" : "Test verbinding",
+        "testing" : "Mi Robot zoek bericht succesvol verzonden, heeft de Mi Robot gereageerd?",
+        "connect": "Verbind"
+	}
+}
