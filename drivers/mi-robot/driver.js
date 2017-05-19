@@ -1,6 +1,6 @@
 "use strict";
 
-const mirobot = require('miio');
+var utils = require('/lib/utils.js');
 var robots = {};
 
 /* SELF */
@@ -9,9 +9,7 @@ var self = {
         devices_data.forEach(function(device_data) {
             initDevice(device_data);
     	});
-
-        Homey.log ("Xiaomi Mi Robot - Init done");
-
+        Homey.log('Driver Mi Robot initialized ...');
     	callback (null, true);
     },
     pair: function (socket) {
@@ -20,19 +18,17 @@ var self = {
         });
 
         socket.on('test-connection', function( data, callback ) {
-            miio.device({
-            	address: data.address,
-                token: data.token
-            }).then(device => {
-            	device.find();
-                callback(null, "Command send succesfully");
-            }).catch(function (err) {
-                Homey.log('Cannot send command: ' + err);
-                callback(err, null);
+            utils.testConnection('find', data, function( err, result ) {
+                if (err) {
+                    Homey.log('Cannot send command: ' + err);
+                    callback(err, null);
+                } else {
+                    callback(null, "Command send succesfully");
+                }
             });
         });
 
-        socket.on('add_device', function( device_data, callback ){
+        socket.on('add_device', function( device_data, callback ) {
             initDevice( device_data );
             callback( null, true );
         });
@@ -42,112 +38,76 @@ var self = {
         callback( null, true );
     },
     settings: function (device_data, newSettingsObj, oldSettingsObj, changedKeysArr, callback) {
-        Homey.log ('Mi Robot changed settings: ' + JSON.stringify(device_data) + ' / ' + JSON.stringify(newSettingsObj) + ' / old = ' + JSON.stringify(oldSettingsObj));
-
         try {
             changedKeysArr.forEach(function (key) {
-                robots[device_data.id].settings[key] = newSettingsObj[key]
+                robots[device_data.id].data[key] = newSettingsObj[key]
             })
             callback(null, true)
         } catch (error) {
             callback(error)
         }
     },
+    capabilities: {
+        vacuumcleaner_state: {
+            get: function (device_data, callback) {
+                utils.sendCommand('state', device_data.address, device_data.token, function( err, result ) {
+                    if (err) {
+                        callback(err, false);
+                    } else {
+                        switch (result) {
+                            case 'cleaning':
+                            case 'returning':
+                                callback(null, 'cleaning');
+                                break;
+                            case 'spot-cleaning':
+                                callback(null, 'spot_cleaning');
+                                break;
+                            case 'charging':
+                                callback(null, 'charging');
+                                break;
+                            case 'paused':
+                                callback(null, 'stopped');
+                                break;
+                            default:
+                                callback(null, 'stopped');
+                        }
+                    }
+                });
+            }
+        },
+        measure_battery: {
+    		get: function (device_data, callback) {
+                utils.sendCommand('battery', device_data.address, device_data.token, function( err, result ) {
+                    if (err) {
+                        callback(err, false);
+                    } else {
+                        callback(null, result);
+                    }
+                });
+    		}
+    	}
+    }
 }
 
 module.exports = self
 
 /* HELPER FUNCTIONS */
 function initDevice(device_data) {
-
-    robots[device_data.id] = {};
-
-    module.exports.getSettings(device_data, function (err, settings) {
-        if( err ) return Homey.error(err);
-        robots[device_data.id] = {
-            name: 'Mi Robot',
-            data: device_data,
-            settings: settings
+    robots[device_data.id] = {
+        name: 'Mi Robot',
+        data: {
+            id: device_data.id,
+            address: device_data.address,
+            token: device_data.token
         }
+    }
 
-        //TODO : resolve all vacuum cleaners under their own device id during initialization instead for every seperate command
-    });
+    //TODO : resolve all robots under their own device id during initialization instead for every seperate command
 }
-
-function sendCommand(command, args, callback) {
-
-    //TODO : resolve all vacuum cleaners under their own device id during initialization instead for every seperate command
-
-    mirobot.device({
-        address: robots[args.device.id].settings.address,
-        token: robots[args.device.id].settings.token
-    }).then(device => {
-        Homey.log("Device with id "+ args.device.id +" resolvec succesfully");
-
-        switch(command) {
-            case 'start':
-                device.start();
-                break;
-            case 'pause':
-                device.pause();
-                break;
-            case 'stop':
-                device.stop();
-                break;
-            case 'charge':
-                device.charge();
-                break;
-            case 'spotclean':
-                device.spotClean();
-                break;
-            case 'find':
-                device.find();
-                break;
-            case 'state':
-                callback(null, device.state);
-                break
-            default:
-                device.find();
-        }
-
-        callback(null, "Command send succesfully");
-
-    }).catch(function (err) {
-        Homey.log("Can not resolve device with id "+ args.device.id +" because of error " + err);
-        callback(err, null);
-    });
-
-
-}
-
-// FLOW ACTION HANDLERS
-Homey.manager('flow').on('action.start', function( callback, args ) {
-    sendCommand('start', args, callback);
-});
-
-Homey.manager('flow').on('action.pause', function( callback, args ) {
-    sendCommand('pause', args, callback);
-});
-
-Homey.manager('flow').on('action.stop', function( callback, args ) {
-    sendCommand('stop', args, callback);
-});
-
-Homey.manager('flow').on('action.charge', function( callback, args ) {
-    sendCommand('charge', args, callback);
-});
-
-Homey.manager('flow').on('action.spotClean', function( callback, args ) {
-    sendCommand('charge', args, callback);
-});
-
-Homey.manager('flow').on('action.find', function( callback, args ) {
-    sendCommand('find', args, callback);
-});
 
 // FLOW CONDITION HANDLERS
-Homey.manager('flow').on('condition.cleaning', function( callback, args ) {
-    sendCommand('state', args, function( err, result ) {
+Homey.manager('flow').on('condition.cleaningVacuum', function( callback, args ) {
+    utils.sendCommand('state', robots[args.device.id].data.address, robots[args.device.id].data.token, function( err, result ) {
         if (result == 'cleaning') {
             callback(null, true);
         } else {
@@ -156,8 +116,8 @@ Homey.manager('flow').on('condition.cleaning', function( callback, args ) {
     });
 });
 
-Homey.manager('flow').on('condition.charging', function( callback, args ) {
-    sendCommand('state', args, function( err, result ) {
+Homey.manager('flow').on('condition.chargingVacuum', function( callback, args ) {
+    utils.sendCommand('state', robots[args.device.id].data.address, robots[args.device.id].data.token, function( err, result ) {
         if (result == 'charging') {
             callback(null, true);
         } else {
@@ -166,8 +126,8 @@ Homey.manager('flow').on('condition.charging', function( callback, args ) {
     });
 });
 
-Homey.manager('flow').on('condition.returning', function( callback, args ) {
-    sendCommand('state', args, function( err, result ) {
+Homey.manager('flow').on('condition.returningVacuum', function( callback, args ) {
+    utils.sendCommand('state', robots[args.device.id].data.address, robots[args.device.id].data.token, function( err, result ) {
         if (result == 'returning') {
             callback(null, true);
         } else {
@@ -176,12 +136,41 @@ Homey.manager('flow').on('condition.returning', function( callback, args ) {
     });
 });
 
-Homey.manager('flow').on('condition.paused', function( callback, args ) {
-    sendCommand('state', args, function( err, result ) {
+Homey.manager('flow').on('condition.pausedVacuum', function( callback, args ) {
+    utils.sendCommand('state', robots[args.device.id].data.address, robots[args.device.id].data.token, function( err, result ) {
         if (result == 'paused') {
             callback(null, true);
         } else {
             callback(null, false);
         }
     });
+});
+
+// FLOW ACTION HANDLERS
+Homey.manager('flow').on('action.startVacuum', function( callback, args ) {
+    utils.sendCommand('start', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+});
+
+Homey.manager('flow').on('action.pauseVacuum', function( callback, args ) {
+    utils.sendCommand('pause', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+});
+
+Homey.manager('flow').on('action.stopVacuum', function( callback, args ) {
+    utils.sendCommand('stop', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+});
+
+Homey.manager('flow').on('action.chargeVacuum', function( callback, args ) {
+    utils.sendCommand('charge', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+});
+
+Homey.manager('flow').on('action.spotCleanVacuum', function( callback, args ) {
+    utils.sendCommand('charge', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+});
+
+Homey.manager('flow').on('action.findVacuum', function( callback, args ) {
+    utils.sendCommand('find', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+});
+
+Homey.manager('flow').on('action.fanPowerVacuum', function( callback, args ) {
+    utils.sendCommand('fanPower', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
 });

@@ -63,7 +63,7 @@ $(function() {
             };
 
             Homey.addDevice({
-                name	: 'Mi Robot',
+                name	: 'Mi Humidifier',
                 data 	: device_data
             }, function( err, result ) {
                 if ( err ) {
@@ -117,7 +117,7 @@ $(function() {
 </div>
 
 <div class="messages">
-    <p class="mi-device-status mi-device-test" style="color: #008C23;"><i class="fa fa-check"></i> <span data-i18n="pair.testingVacuum">Mi Robot find message send succesfully, did you hear the robot?</span></p>
+    <p class="mi-device-status mi-device-test" style="color: #008C23;"><i class="fa fa-check"></i> <span data-i18n="pair.testing">Connection test successfull, you can now connect the device.</span></p>
     <p class="mi-device-status mi-device-ok" style="color: #008C23;"><i class="fa fa-check"></i> <span data-i18n="pair.success">Mi Home device added succesfully.</span></p>
     <p class="mi-device-status mi-device-error" style="color: #ff6300;"><i class="fa fa-times"></i> <span class="mi-device-error-msg"></span></p>
 </div>

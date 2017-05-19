@@ -33,8 +33,32 @@
 				"large": "drivers/mi-robot/assets/images/large.jpg",
 				"small": "drivers/mi-robot/assets/images/small.jpg"
 			},
-			"class": "other",
-			"capabilities": [],
+			"class": "vacuumcleaner",
+			"capabilities": [
+                "vacuumcleaner_state",
+                "measure_battery"
+            ],
+            "mobile": {
+                "components": [
+                    {
+                        "capabilities": [
+                            "measure_battery"
+                        ],
+                        "id": "battery"
+                    },
+                    {
+                        "capabilities": [
+                        ],
+                        "id": "icon"
+                    },
+                    {
+                        "capabilities": [
+                            "vacuumcleaner_state"
+                        ],
+                        "id": "picker"
+                    }
+                ]
+            },
 			"pair": [
 				{
 					"id": "start"
@@ -44,8 +68,8 @@
 			    {
                     "type": "group",
                     "label": {
-                        "en": "Mi Robot settings",
-						"nl": "Mi Robot instellingen"
+                        "en": "Mi Robot Settings",
+						"nl": "Mi Robot Instellingen"
                     },
 					"children": [
 				        {
@@ -69,122 +93,106 @@
 		            ]
 		        }
 		    ]
+		},
+        {
+			"id": "mi-airpurifier",
+			"name": {
+				"en": "Mi Air Purifier",
+				"nl": "Mi Luchtreiniger"
+			},
+			"images": {
+				"large": "drivers/mi-airpurifier/assets/images/large.jpg",
+				"small": "drivers/mi-airpurifier/assets/images/small.jpg"
+			},
+			"class": "other",
+			"capabilities": [],
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "Mi Air Purifier Settings",
+						"nl": "Mi Luchtreiniger Instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "Mi Air Purifier Token",
+						        "nl": "Mi Luchtreiniger Token"
+					        }
+				        }
+		            ]
+		        }
+		    ]
+		},
+        {
+			"id": "mi-humidifier",
+			"name": {
+				"en": "Mi Humidifier",
+				"nl": "Mi Luchtbevochtiger"
+			},
+			"images": {
+				"large": "drivers/mi-humidifier/assets/images/large.jpg",
+				"small": "drivers/mi-humidifier/assets/images/small.jpg"
+			},
+			"class": "other",
+			"capabilities": [],
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "Mi Humidifier Settings",
+						"nl": "Mi Luchtbevochtiger Instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "Mi Humidifier Token",
+						        "nl": "Mi Luchtbevochtiger Token"
+					        }
+				        }
+		            ]
+		        }
+		    ]
 		}
 	],
 	"flow": {
-		"actions": [
-			{
-				"id": "start",
-				"title": {
-					"en": "Start vacuum cleaning",
-					"nl": "Start stofzuigen"
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"placeholder": {
-							"en": "Select Mi Robot",
-							"nl": "Selecteer Mi Robot"
-						},
-						"filter": "driver_id=mi-robot"
-					}
-				]
-			},
-			{
-				"id": "pause",
-				"title": {
-					"en": "Pause vacuum cleaning",
-					"nl": "Pauzeer stofzuigen"
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-                        "placeholder": {
-							"en": "Select Mi Robot",
-							"nl": "Selecteer Mi Robot"
-						},
-						"filter": "driver_id=mi-robot"
-					}
-				]
-			},
-            {
-				"id": "stop",
-				"title": {
-					"en": "Stop vacuum cleaning without docking",
-					"nl": "Stop stofzuigen zonder naar de dock te gaan"
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-                        "placeholder": {
-							"en": "Select Mi Robot",
-							"nl": "Selecteer Mi Robot"
-						},
-						"filter": "driver_id=mi-robot"
-					}
-				]
-			},
-			{
-				"id": "charge",
-				"title": {
-					"en": "Stop cleaning and go to dock",
-					"nl": "Stop stofzuigen en naar dock"
-				},
-				"args": [
-					  {
-						"name": "device",
-						"type": "device",
-                        "placeholder": {
-							"en": "Select Mi Robot",
-							"nl": "Selecteer Mi Robot"
-						},
-						"filter": "driver_id=mi-robot"
-					  }
-				]
-			},
-            {
-				"id": "spotClean",
-				"title": {
-					"en": "Start spot vacuum cleaning",
-					"nl": "Start spot stofzuigen"
-				},
-				"args": [
-					  {
-						"name": "device",
-						"type": "device",
-                        "placeholder": {
-							"en": "Select Mi Robot",
-							"nl": "Selecteer Mi Robot"
-						},
-						"filter": "driver_id=mi-robot"
-					  }
-				]
-			},
-            {
-				"id": "find",
-				"title": {
-					"en": "Find vacuum cleaner",
-					"nl": "Vind stofzuiger"
-				},
-				"args": [
-					  {
-						"name": "device",
-						"type": "device",
-                        "placeholder": {
-							"en": "Select Mi Robot",
-							"nl": "Selecteer Mi Robot"
-						},
-						"filter": "driver_id=mi-robot"
-					  }
-				]
-			}
-		],
         "conditions": [
 			{
-				"id": "cleaning",
+				"id": "cleaningVacuum",
 				"title": {
                     "en": "!{{is|is not}} cleaning",
                     "nl": "!{{is|is niet}} aan het stofzuigen"
@@ -202,7 +210,7 @@
 				]
 			},
             {
-				"id": "charging",
+				"id": "chargingVacuum",
 				"title": {
                     "en": "!{{is|is not}} charging",
                     "nl": "!{{is|is niet}} aan het opladen"
@@ -220,7 +228,7 @@
 				]
 			},
             {
-				"id": "returning",
+				"id": "returningVacuum",
 				"title": {
                     "en": "!{{is|is not}} returning to dock",
                     "nl": "!{{is|is niet}} aan het terugkeren naar de dock"
@@ -238,7 +246,7 @@
 				]
 			},
             {
-				"id": "paused",
+				"id": "pausedVacuum",
 				"title": {
                     "en": "!{{is|is not}} paused",
                     "nl": "!{{is|is niet}} gepauzeerd"
@@ -254,7 +262,388 @@
 						"filter": "driver_id=mi-robot"
 					}
 				]
+			},
+            {
+				"id": "poweredAirpurifier",
+				"title": {
+                    "en": "!{{is|is not}} powered on",
+                    "nl": "!{{is|is niet}} aangezet"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"placeholder": {
+							"en": "Select Mi Air Purifier",
+							"nl": "Selecteer Mi Luchtreiniger"
+						},
+						"filter": "driver_id=mi-airpurifier"
+					}
+				]
+			},
+            {
+				"id": "poweredHumidifier",
+				"title": {
+                    "en": "!{{is|is not}} powered on",
+                    "nl": "!{{is|is niet}} aangezet"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"placeholder": {
+							"en": "Select Mi Humidifier",
+							"nl": "Selecteer Mi Luchtbevochtiger"
+						},
+						"filter": "driver_id=mi-humidifier"
+					}
+				]
 			}
-        ]
+        ],
+		"actions": [
+			{
+				"id": "startVacuum",
+				"title": {
+					"en": "Start vacuum cleaning",
+					"nl": "Start stofzuigen"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+			{
+				"id": "pauseVacuum",
+				"title": {
+					"en": "Pause vacuum cleaning",
+					"nl": "Pauzeer stofzuigen"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+            {
+				"id": "stopVacuum",
+				"title": {
+					"en": "Stop vacuum cleaning without docking",
+					"nl": "Stop stofzuigen zonder naar de dock te gaan"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+			{
+				"id": "chargeVacuum",
+				"title": {
+					"en": "Stop cleaning and go to dock",
+					"nl": "Stop stofzuigen en naar dock"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+            {
+				"id": "spotCleanVacuum",
+				"title": {
+					"en": "Start spot vacuum cleaning",
+					"nl": "Start spot stofzuigen"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+            {
+				"id": "findVacuum",
+				"title": {
+					"en": "Find vacuum cleaner",
+					"nl": "Vind stofzuiger"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+            {
+				"id": "fanPowerVacuum",
+				"title": {
+					"en": "Set Fan Power",
+					"nl": "Stel ventilator kracht in"
+				},
+				"args": [
+                    {
+						"name": "fanspeed",
+						"type": "dropdown",
+                        "values": [
+                            {
+                                "id": "quiet",
+                                "label": {
+                                    "en": "Quiet",
+                                    "nl": "Stil"
+                                }
+                            },
+                            {
+                                "id": "balanced",
+                                "label": {
+                                    "en": "Balanced",
+                                    "nl": "Gebalanceerd"
+                                }
+                            },
+                            {
+                                "id": "turbo",
+                                "label": {
+                                    "en": "Turbo",
+                                    "nl": "Turbo"
+                                }
+                            },
+                            {
+                                "id": "full",
+                                "label": {
+                                    "en": "Full Speed",
+                                    "nl": "Maximum"
+                                }
+                            }
+                        ]
+                    },
+                    {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+                    }
+				]
+			},
+            {
+				"id": "airpurifierOn",
+				"title": {
+					"en": "Turn on",
+					"nl": "Zet aan"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Air Purifier",
+							"nl": "Selecteer Mi Luchtreiniger"
+						},
+						"filter": "driver_id=mi-airpurifier"
+					}
+				]
+			},
+            {
+				"id": "airpurifierOff",
+				"title": {
+					"en": "Turn off",
+					"nl": "Zet uit"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Air Purifier",
+							"nl": "Selecteer Mi Luchtreiniger"
+						},
+						"filter": "driver_id=mi-airpurifier"
+					}
+				]
+			},
+            {
+				"id": "modeAirpurifier",
+				"title": {
+					"en": "Set Speed",
+					"nl": "Stel snelheid in"
+				},
+				"args": [
+                    {
+						"name": "mode",
+						"type": "dropdown",
+                        "values": [
+                            {
+                                "id": "idle",
+                                "label": {
+                                    "en": "Idle",
+                                    "nl": "Standby"
+                                }
+                            },
+                            {
+                                "id": "auto",
+                                "label": {
+                                    "en": "Auto",
+                                    "nl": "Auto"
+                                }
+                            },
+                            {
+                                "id": "silent",
+                                "label": {
+                                    "en": "Silent",
+                                    "nl": "Stil"
+                                }
+                            },
+                            {
+                                "id": "low",
+                                "label": {
+                                    "en": "Low",
+                                    "nl": "Laag"
+                                }
+                            },
+                            {
+                                "id": "medium",
+                                "label": {
+                                    "en": "Medium",
+                                    "nl": "Middel"
+                                }
+                            },
+                            {
+                                "id": "high",
+                                "label": {
+                                    "en": "High",
+                                    "nl": "Hoog"
+                                }
+                            }
+                        ]
+                    },
+                    {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Air Purifier",
+							"nl": "Selecteer Mi Luchtreiniger"
+						},
+						"filter": "driver_id=mi-airpurifier"
+                    }
+				]
+			},
+            {
+				"id": "humidifierOn",
+				"title": {
+					"en": "Turn on",
+					"nl": "Zet aan"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Humidifier",
+							"nl": "Selecteer Mi Luchtbevochtiger"
+						},
+						"filter": "driver_id=mi-humidifier"
+					}
+				]
+			},
+            {
+				"id": "humidifierOff",
+				"title": {
+					"en": "Turn off",
+					"nl": "Zet uit"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Humidifier",
+							"nl": "Selecteer Mi Luchtbevochtiger"
+						},
+						"filter": "driver_id=mi-humidifier"
+					}
+				]
+			},
+            {
+				"id": "modeHumidifier",
+				"title": {
+					"en": "Set Speed",
+					"nl": "Stel snelheid in"
+				},
+				"args": [
+                    {
+						"name": "mode",
+						"type": "dropdown",
+                        "values": [
+                            {
+                                "id": "silent",
+                                "label": {
+                                    "en": "Silent",
+                                    "nl": "Stil"
+                                }
+                            },
+                            {
+                                "id": "medium",
+                                "label": {
+                                    "en": "Medium",
+                                    "nl": "Middel"
+                                }
+                            },
+                            {
+                                "id": "high",
+                                "label": {
+                                    "en": "High",
+                                    "nl": "Hoog"
+                                }
+                            }
+                        ]
+                    },
+                    {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Humidifier",
+							"nl": "Selecteer Mi Luchtbevochtiger"
+						},
+						"filter": "driver_id=mi-humidifier"
+                    }
+				]
+			}
+		]
 	}
 }

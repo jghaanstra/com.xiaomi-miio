@@ -1,13 +1,14 @@
 {
     "pair": {
-		"title": "Add Xiaomi Mi Robot Vacuum Cleaner",
+		"title": "Add Mi Home device",
         "nosettings": "Please fill in all the fields.",
-        "intro": "Enter the details of your Xiaomi Mi Robot Vacuum Cleaner.",
+        "intro": "Enter the details of your Mi Home device.",
         "address": "IP Address",
         "token": "Token",
-        "success": "Mi Robot added succesfully",
+        "success": "Mi Home device added succesfully.",
         "test" : "Test Connection",
-        "testing" : "Mi Robot find message send succesfully, did you hear the Mi Robot?",
+        "testing" : "Connection test successfull, you can now connect the device.",
+        "testingVacuum" : "Mi Robot find message send succesfully, did you hear the Mi Robot?",
         "connect": "Connect"
 	}
 }
