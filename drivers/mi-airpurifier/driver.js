@@ -47,6 +47,56 @@ var self = {
             callback(error)
         }
     },
+    capabilities: {
+        onoff: {
+    		get: function (device_data, callback) {
+                utils.sendCommand('powered', 0, device_data.address, device_data.token, function( err, result ) {
+                    if (err) {
+                        callback(true, false);
+                    } else {
+                        callback(null, true);
+                    }
+                });
+    		},
+    		set: function (device_data, onoff, callback) {
+                utils.sendCommand('toggle', 0, device_data.address, device_data.token, callback );
+                return callback(null, true);
+    		}
+    	},
+        measure_temperature: {
+    		get: function (device_data, callback) {
+                utils.sendCommand('temperature', 0, device_data.address, device_data.token, function( err, result ) {
+                    if (err) {
+                        callback(null, 0);
+                    } else {
+                        callback(null, result);
+                    }
+                });
+    		}
+    	},
+        measure_humidity: {
+    		get: function (device_data, callback) {
+                utils.sendCommand('humidity', 0, device_data.address, device_data.token, function( err, result ) {
+                    if (err) {
+                        callback(null, 0);
+                    } else {
+                        callback(null, result);
+                    }
+                });
+    		}
+    	},
+        measure_aqi: {
+    		get: function (device_data, callback) {
+                utils.sendCommand('aqi', 0, device_data.address, device_data.token, function( err, result ) {
+                    if (err) {
+                        callback(null, 0);
+                    } else {
+                        callback(null, result);
+                    }
+                });
+    		}
+    	}
+    }
 }
 
 module.exports = self
@@ -67,18 +117,18 @@ function initDevice(device_data) {
 
 // FLOW CONDITION HANDLERS
 Homey.manager('flow').on('condition.poweredAirpurifier', function( callback, args ) {
-    utils.sendCommand('powered', airpurifiers[args.device.id].data.address, airpurifiers[args.device.id].data.token, callback);
+    utils.sendCommand('powered', 0, airpurifiers[args.device.id].data.address, airpurifiers[args.device.id].data.token, callback);
 });
 
 // FLOW ACTION HANDLERS
 Homey.manager('flow').on('action.modeAirpurifier', function( callback, args ) {
-    utils.sendCommand('mode', airpurifiers[args.device.id].data.address, airpurifiers[args.device.id].data.token, callback);
+    utils.sendCommand('mode', 0, airpurifiers[args.device.id].data.address, airpurifiers[args.device.id].data.token, callback);
 });
 
 Homey.manager('flow').on('action.airpurifierOn', function( callback, args ) {
-    utils.sendCommand('turnon', airpurifiers[args.device.id].data.address, airpurifiers[args.device.id].data.token, callback);
+    utils.sendCommand('turnon', 0, airpurifiers[args.device.id].data.address, airpurifiers[args.device.id].data.token, callback);
 });
 
 Homey.manager('flow').on('action.airpurifierOff', function( callback, args ) {
-    utils.sendCommand('turnoff', airpurifiers[args.device.id].data.address, airpurifiers[args.device.id].data.token, callback);
+    utils.sendCommand('turnoff', 0, airpurifiers[args.device.id].data.address, airpurifiers[args.device.id].data.token, callback);
 });

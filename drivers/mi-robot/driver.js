@@ -73,11 +73,54 @@ var self = {
                         }
                     }
                 });
+            },
+            set: function (device_data, command, callback) {
+                switch (command) {
+					case "cleaning":
+                        utils.sendCommand('start', 0, device_data.address, device_data.token, function( err, result ) {
+                            if (err) {
+                                callback(err, false);
+                            } else {
+                                callback(null, true);
+                            }
+                        });
+                        break;
+                    case "spot_cleaning":
+                        utils.sendCommand('spotclean', 0, device_data.address, device_data.token, function( err, result ) {
+                            if (err) {
+                                callback(err, false);
+                            } else {
+                                callback(null, true);
+                            }
+                        });
+                        break;
+                    case "stopped":
+                        utils.sendCommand('stop', 0, device_data.address, device_data.token, function( err, result ) {
+                            if (err) {
+                                callback(err, false);
+                            } else {
+                                callback(null, true);
+                            }
+                        });
+                        break;
+                    case "docked":
+                    case "charging":
+                        utils.sendCommand('charge', 0, device_data.address, device_data.token, function( err, result ) {
+                            if (err) {
+                                callback(err, false);
+                            } else {
+                                callback(null, true);
+                            }
+                        });
+                        break;
+                    default:
+                        Homey.log("Not a valid vacuumcleaner_state");
+                }
             }
         },
         measure_battery: {
     		get: function (device_data, callback) {
-                utils.sendCommand('battery', device_data.address, device_data.token, function( err, result ) {
+                utils.sendCommand('battery', 0, device_data.address, device_data.token, function( err, result ) {
                     if (err) {
                         callback(err, false);
                     } else {
@@ -107,7 +150,7 @@ function initDevice(device_data) {
 
 // FLOW CONDITION HANDLERS
 Homey.manager('flow').on('condition.cleaningVacuum', function( callback, args ) {
-    utils.sendCommand('state', robots[args.device.id].data.address, robots[args.device.id].data.token, function( err, result ) {
+    utils.sendCommand('state', 0, robots[args.device.id].data.address, robots[args.device.id].data.token, function( err, result ) {
         if (result == 'cleaning') {
             callback(null, true);
         } else {
@@ -117,7 +160,7 @@ Homey.manager('flow').on('condition.cleaningVacuum', function( callback, args ) 
 });
 
 Homey.manager('flow').on('condition.chargingVacuum', function( callback, args ) {
-    utils.sendCommand('state', robots[args.device.id].data.address, robots[args.device.id].data.token, function( err, result ) {
+    utils.sendCommand('state', 0, robots[args.device.id].data.address, robots[args.device.id].data.token, function( err, result ) {
         if (result == 'charging') {
             callback(null, true);
         } else {
@@ -127,7 +170,7 @@ Homey.manager('flow').on('condition.chargingVacuum', function( callback, args ) 
 });
 
 Homey.manager('flow').on('condition.returningVacuum', function( callback, args ) {
-    utils.sendCommand('state', robots[args.device.id].data.address, robots[args.device.id].data.token, function( err, result ) {
+    utils.sendCommand('state', 0, robots[args.device.id].data.address, robots[args.device.id].data.token, function( err, result ) {
         if (result == 'returning') {
             callback(null, true);
         } else {
@@ -137,7 +180,7 @@ Homey.manager('flow').on('condition.returningVacuum', function( callback, args )
 });
 
 Homey.manager('flow').on('condition.pausedVacuum', function( callback, args ) {
-    utils.sendCommand('state', robots[args.device.id].data.address, robots[args.device.id].data.token, function( err, result ) {
+    utils.sendCommand('state', 0, robots[args.device.id].data.address, robots[args.device.id].data.token, function( err, result ) {
         if (result == 'paused') {
             callback(null, true);
         } else {
@@ -148,29 +191,29 @@ Homey.manager('flow').on('condition.pausedVacuum', function( callback, args ) {
 
 // FLOW ACTION HANDLERS
 Homey.manager('flow').on('action.startVacuum', function( callback, args ) {
-    utils.sendCommand('start', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+    utils.sendCommand('start', 0, robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
 });
 
 Homey.manager('flow').on('action.pauseVacuum', function( callback, args ) {
-    utils.sendCommand('pause', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+    utils.sendCommand('pause', 0, robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
 });
 
 Homey.manager('flow').on('action.stopVacuum', function( callback, args ) {
-    utils.sendCommand('stop', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+    utils.sendCommand('stop', 0, robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
 });
 
 Homey.manager('flow').on('action.chargeVacuum', function( callback, args ) {
-    utils.sendCommand('charge', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+    utils.sendCommand('charge', 0, robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
 });
 
 Homey.manager('flow').on('action.spotCleanVacuum', function( callback, args ) {
-    utils.sendCommand('charge', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+    utils.sendCommand('spotclean', 0, robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
 });
 
 Homey.manager('flow').on('action.findVacuum', function( callback, args ) {
-    utils.sendCommand('find', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+    utils.sendCommand('find', 0, robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
 });
 
 Homey.manager('flow').on('action.fanPowerVacuum', function( callback, args ) {
-    utils.sendCommand('fanPower', robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
+    utils.sendCommand('fanPower', 0, robots[args.device.id].data.address, robots[args.device.id].data.token, callback);
 });

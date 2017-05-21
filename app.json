@@ -3,7 +3,7 @@
 	"name": {
 		"en": "Xiaomi Mi Home",
 		"nl": "Xiaomi Mi Home"
-},
+    },
 	"version": "2.0.0",
 	"compatibility": "0.x || 1.x",
 	"author": {
@@ -22,6 +22,23 @@
 	"dependencies": {
 		"net": "*"
 	},
+    "capabilities": {
+        "measure_aqi": {
+            "type": "number",
+            "title": {
+                "en": "Air Quality Index",
+                "nl": "Luchtkwaliteitsindex"
+            },
+            "getable": true,
+            "setable": false,
+            "units": {
+                "en": "aqi",
+                "nl": "aqi"
+            },
+            "min": 0,
+            "max": 500
+        }
+    },
 	"drivers": [
 		{
 			"id": "mi-robot",
@@ -41,21 +58,20 @@
             "mobile": {
                 "components": [
                     {
+                        "id": "battery",
                         "capabilities": [
                             "measure_battery"
-                        ],
-                        "id": "battery"
+                        ]
                     },
                     {
-                        "capabilities": [
-                        ],
-                        "id": "icon"
+                        "id": "icon",
+                        "capabilities": []
                     },
                     {
+                        "id": "picker",
                         "capabilities": [
                             "vacuumcleaner_state"
-                        ],
-                        "id": "picker"
+                        ]
                     }
                 ]
             },
@@ -104,8 +120,46 @@
 				"large": "drivers/mi-airpurifier/assets/images/large.jpg",
 				"small": "drivers/mi-airpurifier/assets/images/small.jpg"
 			},
-			"class": "other",
-			"capabilities": [],
+			"class": "sensor",
+			"capabilities": [
+                "onoff",
+                "measure_temperature",
+                "measure_humidity",
+                "measure_aqi"
+            ],
+            "mobile": {
+                "components": [
+                    {
+                        "id": "icon",
+                        "capabilities": [
+                            "onoff"
+                        ]
+                    },
+                    {
+                        "id": "sensor",
+                        "capabilities": [
+                            "measure_temperature"
+                        ]
+                    },
+                    {
+                        "id": "sensor",
+                        "capabilities": [
+                            "measure_humidity"
+                        ]
+                    },
+                    {
+                        "id": "sensor",
+                        "capabilities": [
+                            "measure_aqi"
+                        ],
+                        "options": {
+                            "icons": {
+                                "Air Quality Index": "/drivers/mi-airpurifier/assets/images/aqi.svg"
+                            }
+                        }
+                    }
+                ]
+            },
 			"pair": [
 				{
 					"id": "start"
@@ -152,7 +206,33 @@
 				"small": "drivers/mi-humidifier/assets/images/small.jpg"
 			},
 			"class": "other",
-			"capabilities": [],
+            "capabilities": [
+                "onoff",
+                "measure_temperature",
+                "measure_humidity"
+            ],
+            "mobile": {
+                "components": [
+                    {
+                        "id": "icon",
+                        "capabilities": [
+                            "onoff"
+                        ]
+                    },
+                    {
+                        "id": "sensor",
+                        "capabilities": [
+                            "measure_temperature"
+                        ]
+                    },
+                    {
+                        "id": "sensor",
+                        "capabilities": [
+                            "measure_humidity"
+                        ]
+                    }
+                ]
+            },
 			"pair": [
 				{
 					"id": "start"
@@ -182,6 +262,58 @@
 					        "label": {
 						        "en": "Mi Humidifier Token",
 						        "nl": "Mi Luchtbevochtiger Token"
+					        }
+				        }
+		            ]
+		        }
+		    ]
+		},
+        {
+			"id": "yeelight-color",
+			"name": {
+				"en": "Yeelight Color",
+				"nl": "Yeelight Kleur"
+			},
+			"images": {
+				"large": "drivers/yeelight-color/assets/images/large.jpg",
+				"small": "drivers/yeelight-color/assets/images/small.jpg"
+			},
+			"class": "light",
+            "capabilities": [
+                "onoff",
+                "dim",
+                "light_temperature",
+                "light_mode"
+            ],
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "Yeelight Color Settings",
+						"nl": "Yeelight Kleur Instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "Yeelight Color Token",
+						        "nl": "Yeelight Kleur Token"
 					        }
 				        }
 		            ]

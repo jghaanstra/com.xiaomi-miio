@@ -47,6 +47,45 @@ var self = {
             callback(error)
         }
     },
+    capabilities: {
+        onoff: {
+    		get: function (device_data, callback) {
+                utils.sendCommand('powered', 0, device_data.address, device_data.token, function( err, result ) {
+                    if (err) {
+                        callback(true, false);
+                    } else {
+                        callback(null, true);
+                    }
+                });
+    		},
+    		set: function (device_data, onoff, callback) {
+                utils.sendCommand('toggle', 0, device_data.address, device_data.token, callback );
+                return callback(null, true);
+    		}
+    	},
+        measure_temperature: {
+    		get: function (device_data, callback) {
+                utils.sendCommand('temperature', 0, device_data.address, device_data.token, function( err, result ) {
+                    if (err) {
+                        callback(null, 0);
+                    } else {
+                        callback(null, result);
+                    }
+                });
+    		}
+    	},
+        measure_humidity: {
+    		get: function (device_data, callback) {
+                utils.sendCommand('humidity', 0, device_data.address, device_data.token, function( err, result ) {
+                    if (err) {
+                        callback(null, 0);
+                    } else {
+                        callback(null, result);
+                    }
+                });
+    		}
+    	}
+    }
 }
 
 module.exports = self
@@ -67,18 +106,18 @@ function initDevice(device_data) {
 
 // FLOW CONDITION HANDLERS
 Homey.manager('flow').on('condition.poweredHumidifier', function( callback, args ) {
-    utils.sendCommand('powered', humidifiers[args.device.id].data.address, humidifiers[args.device.id].data.token, callback);
+    utils.sendCommand('powered', 0, humidifiers[args.device.id].data.address, humidifiers[args.device.id].data.token, callback);
 });
 
 // FLOW ACTION HANDLERS
 Homey.manager('flow').on('action.modeHumidifier', function( callback, args ) {
-    utils.sendCommand('mode', humidifiers[args.device.id].data.address, humidifiers[args.device.id].data.token, callback);
+    utils.sendCommand('mode', 0, humidifiers[args.device.id].data.address, humidifiers[args.device.id].data.token, callback);
 });
 
 Homey.manager('flow').on('action.humidifierOn', function( callback, args ) {
-    utils.sendCommand('turnon', humidifiers[args.device.id].data.address, humidifiers[args.device.id].data.token, callback);
+    utils.sendCommand('turnon', 0, humidifiers[args.device.id].data.address, humidifiers[args.device.id].data.token, callback);
 });
 
 Homey.manager('flow').on('action.humidifierOff', function( callback, args ) {
-    utils.sendCommand('turnoff', humidifiers[args.device.id].data.address, humidifiers[args.device.id].data.token, callback);
+    utils.sendCommand('turnoff', 0, humidifiers[args.device.id].data.address, humidifiers[args.device.id].data.token, callback);
 });
