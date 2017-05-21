@@ -1,7 +1,7 @@
 "use strict";
 
 var utils = require('/lib/utils.js');
-var yeelights-color = {};
+var yeelights_color = {};
 
 /* SELF */
 var self = {
@@ -34,13 +34,13 @@ var self = {
         });
     },
     deleted: function (device_data, callback) {
-        delete yeelights-color[device_data.id];
+        delete yeelights_color[device_data.id];
         callback( null, true );
     },
     settings: function (device_data, newSettingsObj, oldSettingsObj, changedKeysArr, callback) {
         try {
             changedKeysArr.forEach(function (key) {
-                yeelights-color[device_data.id].data[key] = newSettingsObj[key]
+                yeelights_color[device_data.id].data[key] = newSettingsObj[key]
             })
             callback(null, true)
         } catch (error) {
@@ -59,7 +59,7 @@ var self = {
                 });
     		},
     		set: function (device_data, onoff, callback) {
-                utils.sendCommand('toggle', 0, device_data.address, device_data.token, callback );
+                utils.sendCommand('toggle', 0, device_data.address, device_data.token, callback);
                 return callback(null, true);
     		}
     	},
@@ -170,7 +170,7 @@ module.exports = self
 
 /* HELPER FUNCTIONS */
 function initDevice(device_data) {
-    yeelights-color[device_data.id] = {
+    yeelights_color[device_data.id] = {
         name: 'Yeelight Color',
         data: {
             id: device_data.id,
