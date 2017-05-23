@@ -40,6 +40,111 @@
         }
     },
 	"drivers": [
+        {
+			"id": "yeelight-bulb-color",
+			"name": {
+				"en": "Yeelight Bulb Color",
+				"nl": "Yeelight Bulb Kleur"
+			},
+			"images": {
+				"large": "drivers/yeelight-bulb-color/assets/images/large.jpg",
+				"small": "drivers/yeelight-bulb-color/assets/images/small.jpg"
+			},
+			"class": "light",
+            "capabilities": [
+                "onoff",
+                "dim",
+                "light_hue",
+                "light_saturation",
+                "light_temperature",
+                "light_mode"
+            ],
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "Yeelight Bulb Color Settings",
+						"nl": "Yeelight Bulb Kleur Instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "Yeelight Bulb Color Token",
+						        "nl": "Yeelight Bulb Kleur Token"
+					        }
+				        }
+		            ]
+		        }
+		    ]
+		},
+        {
+			"id": "yeelight-bulb-white",
+			"name": {
+				"en": "Yeelight Bulb White",
+				"nl": "Yeelight Bulb Wit"
+			},
+			"images": {
+				"large": "drivers/yeelight-bulb-white/assets/images/large.jpg",
+				"small": "drivers/yeelight-bulb-white/assets/images/small.jpg"
+			},
+			"class": "light",
+            "capabilities": [
+                "onoff",
+                "dim",
+                "light_temperature"
+            ],
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "Yeelight Bulb White Settings",
+						"nl": "Yeelight Bulb Wit Instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "Yeelight Bulb White Token",
+						        "nl": "Yeelight Bulb Wit Token"
+					        }
+				        }
+		            ]
+		        }
+		    ]
+		},
 		{
 			"id": "mi-robot",
 			"name": {
@@ -262,58 +367,6 @@
 					        "label": {
 						        "en": "Mi Humidifier Token",
 						        "nl": "Mi Luchtbevochtiger Token"
-					        }
-				        }
-		            ]
-		        }
-		    ]
-		},
-        {
-			"id": "yeelight-color",
-			"name": {
-				"en": "Yeelight Color",
-				"nl": "Yeelight Kleur"
-			},
-			"images": {
-				"large": "drivers/yeelight-color/assets/images/large.jpg",
-				"small": "drivers/yeelight-color/assets/images/small.jpg"
-			},
-			"class": "light",
-            "capabilities": [
-                "onoff",
-                "dim",
-                "light_temperature",
-                "light_mode"
-            ],
-			"pair": [
-				{
-					"id": "start"
-				}
-			],
-			"settings": [
-			    {
-                    "type": "group",
-                    "label": {
-                        "en": "Yeelight Color Settings",
-						"nl": "Yeelight Kleur Instellingen"
-                    },
-					"children": [
-				        {
-				            "id": "address",
-				            "type": "text",
-				            "value": "0.0.0.0",
-				            "label": {
-				                "en": "IP Address",
-				                "nl": "IP Adres"
-				            }
-				        },
-				        {
-					        "id": "token",
-					        "type": "text",
-					        "value": "",
-					        "label": {
-						        "en": "Yeelight Color Token",
-						        "nl": "Yeelight Kleur Token"
 					        }
 				        }
 		            ]

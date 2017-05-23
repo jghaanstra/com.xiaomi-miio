@@ -1,17 +1,20 @@
-# Control Xiaomi Mi Home devices with the miIO protocol
-Use [Homey](https://www.athom.com/) to control Xiaomi Mi Home devices that use the miIO protocol. Currently Xiaomi does not offer an open API for controlling these devices. This app uses an unofficial library called the [miIO Device Library](https://github.com/aholstenson/miio) for communication with these devices, credits go out to the author of this library.
+# Control Xiaomi Mi Home Wi-Fi devices
+Use [Homey](https://www.athom.com/) to control Xiaomi Mi Home devices (the Mi Home Ecosystem is also branded as MiJia) that use the miIO protocol. Currently Xiaomi does not offer an open API for controlling these devices. This app uses an unofficial library called the [miIO Device Library](https://github.com/aholstenson/miio) for communication with these devices, credits go out to the author of this library. This Homey app only adds support for some of the devices that can be controlled directly through Wi-Fi, there is a whole range of Mi Home sensors that can only be used together with the Xiaomi Smart Home Gateway (which uses ZigBee) but this is out the scope of this app.
 
 ## Warning
 For Homey to be able to communicate with these devices a unique device token needs to be obtained. Most of the miIO devices hide their token and some technical skills are needed for retrieving these tokens. If your are not to tech-savvy this app might not be of any use to you. That being said, below is explained on how to obtain your token.
 
 ## Supported devices
-Below is a list of currently supported devices and devices that might be supported in the future.
-* Yeelight Color Wi-Fi (partially supported but untested yet)
-* Mi Robot Vacuum Cleaner (supported and tested)
-* Air Purifiers 1, 2 and Pro (supported but untested)
-* Mi Humidifier (supported but untested)
-* NOT SUPPORTED YET: Mi Smart Socket Plug and Power Strips
-* NOT SUPPORTED YET: Mi Smart Home Gateway (Aqara) and accessories
+Below is a list of currently supported devices and devices that might be supported in the future if there is demand for this. Post a comment in the app store if you would like to see support for a specific device.
+* Yeelight Bulbs Wi-Fi, both color and white (partially supported but untested yet)
+* Robot Vacuum Cleaner (tested)
+* Air Purifiers 1, 2 and Pro (untested)
+* Humidifier (untested)
+* NOT SUPPORTED: Yeelight Desk Lamp, Yeelight LED Strip, Yeelight Ceiling Lamp, Yeelight Bed Lamp
+* NOT SUPPORTED: Smart Socket Plug and Power Strips
+* NOT SUPPORTED: Lunar Smart Sleep Sensor
+* NOT SUPPORTED: Air Quality Monitor (PM2.5)
+
 
 ## Obtaining tokens
 To make communication between Homey and Mi Home devices possible you will need to retrieve the unique device token. There are currently two ways of doing this.
@@ -33,7 +36,7 @@ During setup of Mi Home devices the device tokens an be retrieved by sending a p
 * Disconnect your computer from the devices network, you can now use the Mi Home app to setup the device and connect it to your Wi-Fi network.
 
 ## Supported Cards
-### Yeelight Color Wi-Fi
+### Yeelight Bulbs Wi-Fi
 * Default flow cards for light capabilities class
 
 ### Mi Robot Vacuum Cleaner
@@ -54,6 +57,6 @@ During setup of Mi Home devices the device tokens an be retrieved by sending a p
 * use the miIO device library
 
 ## To Do List
-* Finish driver for Yeelight Color (add hue and saturation)
+* Finish driver for Yeelight Bulbs (add hue and saturation)
 * Add other devices
 * Resolve devices under their own handle during initialization so the app can listen to device events
