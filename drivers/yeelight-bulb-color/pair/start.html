@@ -61,10 +61,15 @@ $(function() {
                 address: inputaddress,
                 token: inputtoken
             };
+            var settings = {
+                address: inputaddress,
+                token: inputtoken
+            };
 
             Homey.addDevice({
-                name	: 'Yeelight Bulb Color',
-                data 	: device_data
+                name  	 : 'Yeelight Bulb Color',
+                data 	 : device_data,
+                settings : settings
             }, function( err, result ) {
                 if ( err ) {
                     $('.mi-device-test').hide();

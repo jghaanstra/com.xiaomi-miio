@@ -54,8 +54,6 @@
             "capabilities": [
                 "onoff",
                 "dim",
-                "light_hue",
-                "light_saturation",
                 "light_temperature",
                 "light_mode"
             ],
@@ -416,7 +414,7 @@
 				"id": "returningVacuum",
 				"title": {
                     "en": "!{{is|is not}} returning to dock",
-                    "nl": "!{{is|is niet}} aan het terugkeren naar de dock"
+                    "nl": "!{{is|is niet}} terugkerende naar de dock"
 				},
 				"args": [
 					{
@@ -525,8 +523,12 @@
             {
 				"id": "stopVacuum",
 				"title": {
-					"en": "Stop vacuum cleaning without docking",
-					"nl": "Stop stofzuigen zonder naar de dock te gaan"
+					"en": "Stop cleaning without docking",
+					"nl": "Stop stofzuigen zonder te docken"
+				},
+                "hint": {
+					"en": "Stop vacuum cleaning without going back to the dock",
+					"nl": "Stop stofzuigen zonder terug te gaan naar de dock"
 				},
 				"args": [
 					{
@@ -546,6 +548,10 @@
 					"en": "Stop cleaning and go to dock",
 					"nl": "Stop stofzuigen en naar dock"
 				},
+                "hint": {
+					"en": "Stop vacuum cleaning and go back to the dock",
+					"nl": "Stop stofzuigen en ga terug naar de dock"
+				},
 				"args": [
 					{
 						"name": "device",
@@ -561,7 +567,7 @@
             {
 				"id": "spotCleanVacuum",
 				"title": {
-					"en": "Start spot vacuum cleaning",
+					"en": "Start spot cleaning",
 					"nl": "Start spot stofzuigen"
 				},
 				"args": [
@@ -582,6 +588,10 @@
 					"en": "Find vacuum cleaner",
 					"nl": "Vind stofzuiger"
 				},
+                "hint": {
+					"en": "Let the vacuum cleaner tell you where it's at",
+					"nl": "Laat de stofzuiger vertellen waar hij is"
+				},
 				"args": [
 					{
 						"name": "device",
@@ -598,7 +608,7 @@
 				"id": "fanPowerVacuum",
 				"title": {
 					"en": "Set Fan Power",
-					"nl": "Stel ventilator kracht in"
+					"nl": "Stel ventilator in"
 				},
 				"args": [
                     {

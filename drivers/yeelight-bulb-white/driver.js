@@ -40,7 +40,8 @@ var self = {
     settings: function (device_data, newSettingsObj, oldSettingsObj, changedKeysArr, callback) {
         try {
             changedKeysArr.forEach(function (key) {
-                yeelights_white[device_data.id].data[key] = newSettingsObj[key]
+                yeelights_white[device_data.id].data[key] = newSettingsObj[key];
+                yeelights_white[device_data.id].settings[key] = newSettingsObj[key];
             })
             callback(null, true)
         } catch (error) {
@@ -59,8 +60,15 @@ var self = {
                 });
     		},
     		set: function (device_data, onoff, callback) {
-                utils.sendCommand('toggle', 0, device_data.address, device_data.token, callback);
-                return callback(null, true);
+                if (onoff) {
+                    utils.sendCommand('turnon', 0, device_data.address, device_data.token, callback);
+					module.exports.realtime(device_data, 'onoff', true);
+					callback(null, true);
+				} else {
+                    utils.sendCommand('turnoff', 0, device_data.address, device_data.token, callback);
+					module.exports.realtime(device_data, 'onoff', false);
+					callback(null, false);
+                }
     		}
     	},
         dim: {
@@ -78,6 +86,7 @@ var self = {
                     if (err) {
                         callback(err, dim);
                     } else {
+                        module.exports.realtime(device_data, 'dim', dim);
                         callback(null, dim);
                     }
                 });
@@ -98,6 +107,7 @@ var self = {
                     if (err) {
                         callback(err, light_temperature);
                     } else {
+                        module.exports.realtime(device_data, 'light_temperature', light_temperature);
                         callback(null, light_temperature);
                     }
                 });
@@ -110,14 +120,19 @@ module.exports = self
 
 /* HELPER FUNCTIONS */
 function initDevice(device_data) {
-    yeelights_white[device_data.id] = {
-        name: 'Yeelight Bulb White',
-        data: {
-            id: device_data.id,
-            address: device_data.address,
-            token: device_data.token
-        }
-    }
+    Homey.manager('drivers').getDriver('yeelight-bulb-white').getName(device_data, function (err, name) {
+        module.exports.getSettings(device_data, function( err, settings ) {
+            yeelights_white[device_data.id] = {
+                name: name,
+                data: {
+                    id: device_data.id,
+                    address: settings.address,
+                    token: settings.token
+                }
+            }
+            yeelights_white[device_data.id].settings = settings;
+        })
+    })
 
     //TODO : resolve all yeelight bulbs white under their own device id during initialization instead for every seperate command
 }

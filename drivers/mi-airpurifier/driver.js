@@ -40,7 +40,8 @@ var self = {
     settings: function (device_data, newSettingsObj, oldSettingsObj, changedKeysArr, callback) {
         try {
             changedKeysArr.forEach(function (key) {
-                airpurifiers[device_data.id].data[key] = newSettingsObj[key]
+                airpurifiers[device_data.id].data[key] = newSettingsObj[key];
+                airpurifiers[device_data.id].settings[key] = newSettingsObj[key]
             })
             callback(null, true)
         } catch (error) {
@@ -103,32 +104,37 @@ module.exports = self
 
 /* HELPER FUNCTIONS */
 function initDevice(device_data) {
-    airpurifiers[device_data.id] = {
-        name: 'Mi Air Purifier',
-        data: {
-            id: device_data.id,
-            address: device_data.address,
-            token: device_data.token
-        }
-    }
+    Homey.manager('drivers').getDriver('mi-airpurifier').getName(device_data, function (err, name) {
+        module.exports.getSettings(device_data, function( err, settings ) {
+            airpurifiers[device_data.id] = {
+                name: name,
+                data: {
+                    id: device_data.id,
+                    address: settings.address,
+                    token: settings.token
+                }
+            }
+            airpurifiers[device_data.id].settings = settings;
+        })
+    })
 
     //TODO : resolve all air purifiers under their own device id during initialization instead for every seperate command
 }
 
 // FLOW CONDITION HANDLERS
 Homey.manager('flow').on('condition.poweredAirpurifier', function( callback, args ) {
-    utils.sendCommand('powered', 0, airpurifiers[args.device.id].data.address, airpurifiers[args.device.id].data.token, callback);
+    utils.sendCommand('powered', 0, airpurifiers[args.device.id].settings.address, airpurifiers[args.device.id].settings.token, callback);
 });
 
 // FLOW ACTION HANDLERS
 Homey.manager('flow').on('action.modeAirpurifier', function( callback, args ) {
-    utils.sendCommand('mode', 0, airpurifiers[args.device.id].data.address, airpurifiers[args.device.id].data.token, callback);
+    utils.sendCommand('mode', 0, airpurifiers[args.device.id].settings.address, airpurifiers[args.device.id].settings.token, callback);
 });
 
 Homey.manager('flow').on('action.airpurifierOn', function( callback, args ) {
-    utils.sendCommand('turnon', 0, airpurifiers[args.device.id].data.address, airpurifiers[args.device.id].data.token, callback);
+    utils.sendCommand('turnon', 0, airpurifiers[args.device.id].settings.address, airpurifiers[args.device.id].settings.token, callback);
 });
 
 Homey.manager('flow').on('action.airpurifierOff', function( callback, args ) {
-    utils.sendCommand('turnoff', 0, airpurifiers[args.device.id].data.address, airpurifiers[args.device.id].data.token, callback);
+    utils.sendCommand('turnoff', 0, airpurifiers[args.device.id].settings.address, airpurifiers[args.device.id].settings.token, callback);
 });
