@@ -4,6 +4,10 @@
 		"en": "Xiaomi Mi Home",
 		"nl": "Xiaomi Mi Home"
     },
+    "tags": {
+		"en": [ "Xiaomi", "Mi", "Mi Home", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier" ],
+		"nl": [ "Xiaomi", "Mi", "Mi home", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger" ]
+	},
 	"version": "2.0.0",
 	"compatibility": "0.x || 1.x",
 	"author": {
