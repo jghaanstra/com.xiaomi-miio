@@ -8,7 +8,7 @@ For Homey to be able to communicate with these devices a unique device token nee
 Below is a list of currently supported devices and devices that might be supported in the future if there is demand for this. Post a comment in the app store if you would like to see support for a specific device.
 * Yeelight Bulbs Wi-Fi, both color and white (partially supported, no hue and saturation and tested)
 * Robot Vacuum Cleaner (tested)
-* Air Purifiers 2 and Pro (untested)
+* Air Purifiers 2 and Pro (tested)
 * Humidifier (untested)
 * NOT SUPPORTED: Yeelight Desk Lamp, Yeelight LED Strip, Yeelight Ceiling Lamp
 * NOT SUPPORTED: Smart Socket Plug and Power Strips
@@ -55,6 +55,10 @@ Donating is completely optional.
 [![Donate](https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_donate_92x26.png)](https://paypal.me/jghaanstra)
 
 ## Changelog
+### 2017-06-09 -- v2.0.1
+* fixed issue with setting fanspeed purifier and humidifier
+* better field validation for token
+
 ### 2017-06-01 -- v2.0.0
 * rebuild from version 1.0.0 of the [Xiaomi Vacuum Cleaner app](https://github.com/jghaanstra/com.robot.xiaomi-mi)
 * use the miIO device library

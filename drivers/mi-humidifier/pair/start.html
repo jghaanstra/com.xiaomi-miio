@@ -36,7 +36,7 @@ $(function() {
             Homey.emit( 'test-connection', device_data, function( err, result ) {
                 if(err) {
                     $('.mi-device-error').show();
-                    $('.mi-device-error-msg').html( err );
+                    $('.mi-device-error-msg').html( err.message || err.toString() );
                 } else {
                     $('.mi-device-test').show();
                     $('#connect').prop('disabled', false);
@@ -114,7 +114,7 @@ $(function() {
 </div>
 <div class="form-group">
 	<label for="token" data-i18n="pair.token">Token (32 characters of numbers and letters)</label>
-	<input type="text" class="form-control" id="token" pattern="[a-zA-Z0-9-]+{32}" placeholder="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF">
+	<input type="text" class="form-control" id="token" pattern="[a-zA-Z0-9]{32}" placeholder="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF">
 </div>
 <div class="form-group buttons">
     <button id="test-connection" class="button" data-i18n="pair.test">Test Connection</button>

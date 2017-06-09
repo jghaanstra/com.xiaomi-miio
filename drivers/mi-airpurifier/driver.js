@@ -21,7 +21,7 @@ var self = {
             utils.testConnection('buzzer', data, function( err, result ) {
                 if (err) {
                     Homey.log('Cannot send command: ' + err);
-                    callback(err, null);
+                    callback(err, false);
                 } else {
                     callback(null, "Command send succesfully");
                 }
@@ -68,7 +68,7 @@ var self = {
     		get: function (device_data, callback) {
                 utils.sendCommand('temperature', 0, device_data.address, device_data.token, function( err, result ) {
                     if (err) {
-                        callback(null, 0);
+                        callback(null, false);
                     } else {
                         callback(null, result);
                     }
@@ -79,7 +79,7 @@ var self = {
     		get: function (device_data, callback) {
                 utils.sendCommand('humidity', 0, device_data.address, device_data.token, function( err, result ) {
                     if (err) {
-                        callback(null, 0);
+                        callback(null, false);
                     } else {
                         callback(null, result);
                     }
@@ -90,7 +90,7 @@ var self = {
     		get: function (device_data, callback) {
                 utils.sendCommand('aqi', 0, device_data.address, device_data.token, function( err, result ) {
                     if (err) {
-                        callback(null, 0);
+                        callback(null, false);
                     } else {
                         callback(null, result);
                     }

@@ -261,7 +261,7 @@
                         ],
                         "options": {
                             "icons": {
-                                "Air Quality Index": "/drivers/mi-airpurifier/assets/images/aqi.svg"
+                                "measure_aqi": "/drivers/mi-airpurifier/assets/images/aqi.svg"
                             }
                         }
                     }
@@ -312,7 +312,7 @@
 				"large": "drivers/mi-humidifier/assets/images/large.jpg",
 				"small": "drivers/mi-humidifier/assets/images/small.jpg"
 			},
-			"class": "other",
+			"class": "sensor",
             "capabilities": [
                 "onoff",
                 "measure_temperature",
