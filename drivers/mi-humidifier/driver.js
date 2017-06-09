@@ -117,7 +117,7 @@ Homey.manager('flow').on('condition.poweredHumidifier', function( callback, args
 
 // FLOW ACTION HANDLERS
 Homey.manager('flow').on('action.modeHumidifier', function( callback, args ) {
-    utils.sendCommand('mode', 0, humidifiers[args.device.id].settings.address, humidifiers[args.device.id].settings.token, callback);
+    utils.sendCommand('mode', args.mode, humidifiers[args.device.id].settings.address, humidifiers[args.device.id].settings.token, callback);
 });
 
 Homey.manager('flow').on('action.humidifierOn', function( callback, args ) {

@@ -157,9 +157,13 @@ var self = {
 		    get: function (device_data, callback) {
                 utils.sendCommand('colormode', 0, device_data.address, device_data.token, function( err, result ) {
                     if (err) {
-                        callback(null, 'color');
+                        callback(err, 'color');
                     } else {
-                        callback(null, result);
+                        if (result == 'colorTemperature') {
+                            callback(null, 'temperature');
+                        } else {
+                            callback(null, 'color');
+                        }
                     }
                 });
             }

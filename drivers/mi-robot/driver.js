@@ -221,5 +221,5 @@ Homey.manager('flow').on('action.findVacuum', function( callback, args ) {
 });
 
 Homey.manager('flow').on('action.fanPowerVacuum', function( callback, args ) {
-    utils.sendCommand('fanPower', 0, robots[args.device.id].settings.address, robots[args.device.id].settings.token, callback);
+    utils.sendCommand('fanPower', args.fanspeed, robots[args.device.id].settings.address, robots[args.device.id].settings.token, callback);
 });

@@ -4,7 +4,7 @@
         "nosettings": "Vul a.u.b. alle velden in.",
         "intro": "Vul de details van je Mi Home apparaat in.",
         "address": "IP adres",
-        "token": "Token",
+        "token": "Token (minimum van 32 karakters in cijfers en letters)",
         "success": "Apparaat succesvol toegevoegd.",
         "test" : "Test verbinding",
         "testing" : "Connectie test succesvol, je kan het apparaat nu verbinden.",

@@ -128,7 +128,7 @@ Homey.manager('flow').on('condition.poweredAirpurifier', function( callback, arg
 
 // FLOW ACTION HANDLERS
 Homey.manager('flow').on('action.modeAirpurifier', function( callback, args ) {
-    utils.sendCommand('mode', 0, airpurifiers[args.device.id].settings.address, airpurifiers[args.device.id].settings.token, callback);
+    utils.sendCommand('mode', args.mode, airpurifiers[args.device.id].settings.address, airpurifiers[args.device.id].settings.token, callback);
 });
 
 Homey.manager('flow').on('action.airpurifierOn', function( callback, args ) {
