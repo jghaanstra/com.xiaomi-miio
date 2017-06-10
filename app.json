@@ -246,7 +246,12 @@
                         "id": "sensor",
                         "capabilities": [
                             "measure_temperature",
-                            "measure_humidity",
+                            "measure_humidity"
+                        ]
+                    },
+                    {
+                        "id": "sensor",
+                        "capabilities": [
                             "measure_aqi"
                         ],
                         "options": {

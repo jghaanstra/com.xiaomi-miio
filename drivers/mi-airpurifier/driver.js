@@ -68,10 +68,10 @@ var self = {
     		get: function (device_data, callback) {
                 utils.sendCommand('temperature', 0, device_data.address, device_data.token, function( err, result ) {
                     if (err) {
-                        Homey.log("Error temperature: "+ err);
+                        Homey.log("Error temperature in driver: "+ err);
                         callback(null, false);
                     } else {
-                        Homey.log("Error temperature: "+ result);
+                        Homey.log("Result temperature in driver: "+ result);
                         callback(null, result);
                     }
                 });
@@ -81,10 +81,10 @@ var self = {
     		get: function (device_data, callback) {
                 utils.sendCommand('humidity', 0, device_data.address, device_data.token, function( err, result ) {
                     if (err) {
-                        Homey.log("Error humidity: "+ err);
+                        Homey.log("Error humidity in driver: "+ err);
                         callback(null, false);
                     } else {
-                        Homey.log("Result humidity: "+ result);
+                        Homey.log("Result humidity in driver: "+ result);
                         callback(null, result);
                     }
                 });
@@ -94,10 +94,10 @@ var self = {
     		get: function (device_data, callback) {
                 utils.sendCommand('aqi', 0, device_data.address, device_data.token, function( err, result ) {
                     if (err) {
-                        Homey.log("Error aqi: "+ err);
+                        Homey.log("Error aqi in driver: "+ err);
                         callback(null, false);
                     } else {
-                        Homey.log("Result aqi: "+ result);
+                        Homey.log("Result aqi in driver: "+ result);
                         callback(null, result);
                     }
                 });
