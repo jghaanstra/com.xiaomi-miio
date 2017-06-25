@@ -28,7 +28,7 @@ var self = {
             });
         });
 
-        socket.on('add_device', function( device_data, callback ) {
+        socket.on('add_device', function(device_data, callback) {
             initDevice( device_data );
             callback( null, true );
         });
