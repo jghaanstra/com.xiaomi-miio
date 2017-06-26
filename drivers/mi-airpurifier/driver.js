@@ -60,12 +60,13 @@ var self = {
                 return callback(null, device.state.onoff);
     		},
     		set: function (device_data, onoff, callback) {
-                utils.sendCommand('toggle', 0, device_data.address, device_data.token, function(error, result) {
+                var device = getDeviceByData(device_data);
+                if (device instanceof Error) return callback(device);
+
+                utils.sendCommand('toggle', 0, device.settings.address, device.settings.token, function(error, result) {
                     if (error) {
                         callback(null, false);
                     } else {
-                        var device = getDeviceByData(device_data);
-                        if (device instanceof Error) return callback(device);
                         device.state.onoff = onoff;
                         module.exports.realtime(device_data, 'onoff', device.state.onoff);
                         callback(null, device.state.onoff);
@@ -112,7 +113,7 @@ function initDevice(device_data) {
                     id: device_data.id
                 }
             }
-            
+
             if (settings.polling == undefined) {
                 settings.polling = 60;
             };
