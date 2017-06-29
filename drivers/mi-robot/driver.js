@@ -17,11 +17,11 @@ var self = {
             Homey.log ("User aborted pairing, or pairing is finished");
         });
 
-        socket.on('test-connection', function( data, callback ) {
-            utils.testConnection('find', data, function( err, result ) {
-                if (err) {
-                    Homey.log('Cannot send command: ' + err);
-                    callback(err, null);
+        socket.on('test-connection', function(data, callback) {
+            utils.sendCommand('find', 0, data.address, data.token, function(error, result) {
+                if (error) {
+                    Homey.log('Cannot send command: ' + error);
+                    callback(error, null);
                 } else {
                     callback(null, "Command send succesfully");
                 }

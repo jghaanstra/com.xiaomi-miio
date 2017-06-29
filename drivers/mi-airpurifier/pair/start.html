@@ -23,7 +23,6 @@ Homey.on('continue', function( success, callback ) {
 
 $(function() {
     $('#test-connection').click(function(){
-
 		var inputaddress = $('#address').val();
 		var inputtoken = $('#token').val();
 
@@ -33,11 +32,15 @@ $(function() {
                 token: inputtoken
             };
 
-            Homey.emit( 'test-connection', device_data, function( err, result ) {
+            Homey.emit('test-connection', device_data, function(err, result) {
                 if(err) {
                     $('.mi-device-error').show();
                     $('.mi-device-error-msg').html( err.message || err.toString() );
                 } else {
+                    var powered = ((result.onoff) ? "On" : "Off");
+                    var mideviceinfo = "<h2 data-i18n='pair.airpurifier'>Airpurifier</h2><div class='info-row'><span class='info-label' data-i18n='pair.powered'>Powered:</span><span class='info-value'> "+ powered +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.mode'>Mode:</span><span class='info-value'> "+ result.mode +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.temperature'>Temperature:</span><span class='info-value'> "+ result.temperature +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.humidity'>Humidity:</span><span class='info-value'> "+ result.humidity +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.aqi'>Air Quality Index:</span><span class='info-value'> "+ result.aqi +"</span></div>";
+                    $('.mi-device-info').show();
+                    $('.mi-device-info').html(mideviceinfo);
                     $('.mi-device-test').show();
                     $('#connect').prop('disabled', false);
                 }
@@ -51,25 +54,32 @@ $(function() {
 	});
 
 	$('#connect').click(function(){
-
 		var inputaddress = $('#address').val();
 		var inputtoken = $('#token').val();
+        var inputpolling = $('#polling').val() || 60;
 
-        if( inputaddress != '' && inputtoken != '') {
+        if( inputaddress != '' && inputtoken != '' && inputpolling != '') {
             var device_data = {
-                id: inputtoken,
-                address: inputaddress,
-                token: inputtoken
+                id: inputtoken
             };
             var settings = {
                 address: inputaddress,
-                token: inputtoken
+                token: inputtoken,
+                polling: inputpolling
+            };
+            var state = {
+                onoff: false,
+                mode: 'medium',
+                temperature: 0,
+                humidity: 0,
+                aqi: 0
             };
 
             Homey.addDevice({
                 name  	 : 'Mi Air Purifier',
                 data 	 : device_data,
-                settings : settings
+                settings : settings,
+                state    : state
             }, function( err, result ) {
                 if ( err ) {
                     $('.mi-device-test').hide();
@@ -95,6 +105,25 @@ $(function() {
 </script>
 
 <style type="text/css">
+    .mi-device-pairing {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .mi-device-pairing .col1, .mi-device-pairing .col2 {
+        width: 48%;
+    }
+    .mi-device-info {
+        font-size: 12px;
+    }
+    .mi-device-info .info-row {
+        padding-bottom: 4px;
+    }
+    .mi-device-info .info-label {
+        display: inline-block;
+        min-width: 100px;
+        font-weight: 700;
+    }
 	.mi-device-status {
 		display: none;
 	}
@@ -107,18 +136,28 @@ $(function() {
 </style>
 
 <p data-i18n="pair.intro">Enter the details of your Mi Home device.</p>
-
-<div class="form-group">
-    <label for="address" data-i18n="pair.address">IP address</label>
-    <input type="text" class="form-control" id="address" placeholder="192.168.0.100">
-</div>
-<div class="form-group">
-	<label for="token" data-i18n="pair.token">Token (32 characters of numbers and letters)</label>
-	<input type="text" class="form-control" id="token" pattern="[a-zA-Z0-9]{32}" placeholder="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF">
-</div>
-<div class="form-group buttons">
-    <button id="test-connection" class="button" data-i18n="pair.test">Test Connection</button>
-    <button id="connect" class="button" data-i18n="pair.connect" disabled>Connect</button>
+<div class="mi-device-pairing">
+    <div class="col1">
+        <div class="form-group">
+            <label for="address" data-i18n="pair.address">IP address</label>
+            <input type="text" class="form-control" id="address" placeholder="192.168.0.100">
+        </div>
+        <div class="form-group">
+        	<label for="token" data-i18n="pair.token">Token (32 characters of numbers and letters)</label>
+        	<input type="text" class="form-control" id="token" pattern="[a-zA-Z0-9]{32}" placeholder="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF">
+        </div>
+        <div class="form-group">
+        	<label for="polling" data-i18n="pair.polling">Polling Frequency</label>
+        	<input type="number" class="form-control" id="polling" min="10" max="3600" placeholder="60">
+        </div>
+        <div class="form-group buttons">
+            <button id="test-connection" class="button" data-i18n="pair.test">Test Connection</button>
+            <button id="connect" class="button" data-i18n="pair.connect" disabled>Connect</button>
+        </div>
+    </div>
+    <div class="col2">
+        <div class="mi-device-info"></div>
+    </div>
 </div>
 
 <div class="messages">

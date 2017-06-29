@@ -2,6 +2,7 @@
 
 var utils = require('/lib/utils.js');
 var airpurifiers = {};
+var intervalId = {};
 
 /* SELF */
 var self = {
@@ -17,23 +18,23 @@ var self = {
             Homey.log ("User aborted pairing, or pairing is finished");
         });
 
-        socket.on('test-connection', function( data, callback ) {
-            utils.testConnection('buzzer', data, function( err, result ) {
-                if (err) {
-                    Homey.log('Cannot send command: ' + err);
-                    callback(err, false);
+        socket.on('test-connection', function(data, callback) {
+            utils.getAirPurifier(data.address, data.token, function(error, result) {
+                if (error) {
+                    callback(error, false);
                 } else {
-                    callback(null, "Command send succesfully");
+                    callback(null, result);
                 }
             });
         });
 
-        socket.on('add_device', function( device_data, callback ){
-            initDevice( device_data );
-            callback( null, true );
+        socket.on('add_device', function(device_data, callback) {
+            initDevice(device_data);
+            callback(null, true);
         });
     },
     deleted: function (device_data, callback) {
+        clearInterval(intervalId[device_data.id]);
         delete airpurifiers[device_data.id];
         callback( null, true );
     },
@@ -43,6 +44,8 @@ var self = {
                 airpurifiers[device_data.id].data[key] = newSettingsObj[key];
                 airpurifiers[device_data.id].settings[key] = newSettingsObj[key]
             })
+            clearInterval(intervalId[device_data.id]);
+            pollDevices(device_data);
             callback(null, true)
         } catch (error) {
             callback(error)
@@ -51,56 +54,47 @@ var self = {
     capabilities: {
         onoff: {
     		get: function (device_data, callback) {
-                utils.sendCommand('powered', 0, device_data.address, device_data.token, function( err, result ) {
-                    if (err) {
-                        callback(true, false);
-                    } else {
-                        callback(null, true);
-                    }
-                });
+                var device = getDeviceByData(device_data);
+                if (device instanceof Error) return callback(device);
+
+                return callback(null, device.state.onoff);
     		},
     		set: function (device_data, onoff, callback) {
-                utils.sendCommand('toggle', 0, device_data.address, device_data.token, callback );
-                return callback(null, true);
+                utils.sendCommand('toggle', 0, device_data.address, device_data.token, function(error, result) {
+                    if (error) {
+                        callback(null, false);
+                    } else {
+                        var device = getDeviceByData(device_data);
+                        if (device instanceof Error) return callback(device);
+                        device.state.onoff = onoff;
+                        module.exports.realtime(device_data, 'onoff', device.state.onoff);
+                        callback(null, device.state.onoff);
+                    }
+                });
     		}
     	},
         measure_temperature: {
     		get: function (device_data, callback) {
-                utils.sendCommand('temperature', 0, device_data.address, device_data.token, function( err, result ) {
-                    if (err) {
-                        Homey.log("Error temperature in driver: "+ err);
-                        callback(null, false);
-                    } else {
-                        Homey.log("Result temperature in driver: "+ result);
-                        callback(null, result);
-                    }
-                });
+                var device = getDeviceByData(device_data);
+                if (device instanceof Error) return callback(device);
+
+                return callback(null, device.state.temperature);
     		}
     	},
         measure_humidity: {
     		get: function (device_data, callback) {
-                utils.sendCommand('humidity', 0, device_data.address, device_data.token, function( err, result ) {
-                    if (err) {
-                        Homey.log("Error humidity in driver: "+ err);
-                        callback(null, false);
-                    } else {
-                        Homey.log("Result humidity in driver: "+ result);
-                        callback(null, result);
-                    }
-                });
+                var device = getDeviceByData(device_data);
+                if (device instanceof Error) return callback(device);
+
+                return callback(null, device.state.humidity);
     		}
     	},
         measure_aqi: {
     		get: function (device_data, callback) {
-                utils.sendCommand('aqi', 0, device_data.address, device_data.token, function( err, result ) {
-                    if (err) {
-                        Homey.log("Error aqi in driver: "+ err);
-                        callback(null, false);
-                    } else {
-                        Homey.log("Result aqi in driver: "+ result);
-                        callback(null, result);
-                    }
-                });
+                var device = getDeviceByData(device_data);
+                if (device instanceof Error) return callback(device);
+
+                return callback(null, device.state.aqi);
     		}
     	}
     }
@@ -115,16 +109,67 @@ function initDevice(device_data) {
             airpurifiers[device_data.id] = {
                 name: name,
                 data: {
-                    id: device_data.id,
-                    address: settings.address,
-                    token: settings.token
+                    id: device_data.id
                 }
             }
             airpurifiers[device_data.id].settings = settings;
+
+            utils.getAirPurifier(settings.address, settings.token, function(error, result) {
+                var state = {
+                    onoff: result.onoff || false,
+                    mode: result.mode || 'medium',
+                    temperature: result.temperature || 0,
+                    humidity: result.humidity || 0,
+                    aqi: result.aqi || 0
+                }
+                airpurifiers[device_data.id].state = state;
+            })
+
+            pollDevices(device_data);
         })
     })
+}
 
-    //TODO : resolve all air purifiers under their own device id during initialization instead for every seperate command
+function pollDevices(device_data) {
+    var device = getDeviceByData(device_data);
+    if (device instanceof Error) return callback(device);
+
+    var interval = device.settings.polling || 60;
+
+    intervalId[device_data.id] = setInterval(function () {
+        utils.getAirPurifier(device.settings.address, device.settings.token, function(error, result) {
+            if (result != null) {
+                if (airpurifiers[device_data.id].state.onoff != result.onoff) {
+                    airpurifiers[device_data.id].state.onoff = result.onoff;
+                    module.exports.realtime(device_data, "onoff", result.onoff);
+                }
+                if (airpurifiers[device_data.id].state.mode != result.mode) {
+                    airpurifiers[device_data.id].state.mode = result.mode;
+                }
+                if (airpurifiers[device_data.id].state.temperature != result.temperature) {
+                    airpurifiers[device_data.id].state.temperature = result.temperature;
+                    module.exports.realtime(device_data, "measure_temperature", result.temperature);
+                }
+                if (airpurifiers[device_data.id].state.humidity != result.humidity) {
+                    airpurifiers[device_data.id].state.humidity = result.humidity;
+                    module.exports.realtime(device_data, "measure_humidity", result.humidity);
+                }
+                if (airpurifiers[device_data.id].state.aqi != result.aqi) {
+                    airpurifiers[device_data.id].state.aqi = result.aqi;
+                    module.exports.realtime(device_data, "measure_aqi", result.aqi);
+                }
+            }
+        });
+    }, 1000 * interval);
+}
+
+function getDeviceByData(device_data) {
+    var device = airpurifiers[device_data.id];
+    if (typeof device === 'undefined') {
+        return new Error("invalid_device");
+    } else {
+        return device;
+    }
 }
 
 // FLOW CONDITION HANDLERS

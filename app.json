@@ -59,42 +59,23 @@
                 "onoff",
                 "dim",
                 "light_temperature",
+                "light_hue",
+                "light_saturation",
                 "light_mode"
             ],
-			"pair": [
-				{
-					"id": "start"
-				}
-			],
-			"settings": [
-			    {
-                    "type": "group",
-                    "label": {
-                        "en": "Yeelight Bulb Color Settings",
-						"nl": "Yeelight Bulb Kleur Instellingen"
-                    },
-					"children": [
-				        {
-				            "id": "address",
-				            "type": "text",
-				            "value": "0.0.0.0",
-				            "label": {
-				                "en": "IP Address",
-				                "nl": "IP Adres"
-				            }
-				        },
-				        {
-					        "id": "token",
-					        "type": "text",
-					        "value": "",
-					        "label": {
-						        "en": "Yeelight Bulb Color Token",
-						        "nl": "Yeelight Bulb Kleur Token"
-					        }
-				        }
-		            ]
-		        }
-		    ]
+            "pair": [
+                {
+                    "id": "list_devices",
+                    "template": "list_devices",
+                    "navigation": {
+                        "next": "add_yeelight_bulb"
+                    }
+                },
+                {
+                    "id": "add_yeelight_bulb",
+                    "template": "add_devices"
+                }
+            ]
 		},
         {
 			"id": "yeelight-bulb-white",
@@ -112,11 +93,19 @@
                 "dim",
                 "light_temperature"
             ],
-			"pair": [
-				{
-					"id": "start"
-				}
-			],
+            "pair": [
+                {
+                    "id": "list_devices",
+                    "template": "list_devices",
+                    "navigation": {
+                        "next": "add_yeelight_bulb"
+                    }
+                },
+                {
+                    "id": "add_yeelight_bulb",
+                    "template": "add_devices"
+                }
+            ],
 			"settings": [
 			    {
                     "type": "group",
@@ -292,6 +281,15 @@
 						        "en": "Mi Air Purifier Token",
 						        "nl": "Mi Luchtreiniger Token"
 					        }
+				        },
+                        {
+					        "id": "polling",
+					        "type": "number",
+					        "value": 60,
+					        "label": {
+						        "en": "Mi Air Purifier Polling",
+						        "nl": "Mi Luchtreiniger Polling"
+					        }
 				        }
 		            ]
 		        }
@@ -364,6 +362,15 @@
 					        "label": {
 						        "en": "Mi Humidifier Token",
 						        "nl": "Mi Luchtbevochtiger Token"
+					        }
+				        },
+                        {
+					        "id": "polling",
+					        "type": "number",
+					        "value": 60,
+					        "label": {
+						        "en": "Mi Humidifier Polling",
+						        "nl": "Mi Luchtbevochtiger Polling"
 					        }
 				        }
 		            ]
