@@ -112,6 +112,11 @@ function initDevice(device_data) {
                     id: device_data.id
                 }
             }
+            
+            if (settings.polling == undefined) {
+                settings.polling = 60;
+            };
+
             airpurifiers[device_data.id].settings = settings;
 
             utils.getAirPurifier(settings.address, settings.token, function(error, result) {

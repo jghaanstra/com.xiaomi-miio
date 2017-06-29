@@ -104,6 +104,11 @@ function initDevice(device_data) {
                     id: device_data.id
                 }
             }
+
+            if (settings.polling == undefined) {
+                settings.polling = 60;
+            };
+            
             humidifiers[device_data.id].settings = settings;
 
             utils.getHumidifier(settings.address, settings.token, function(error, result) {

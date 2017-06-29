@@ -56,8 +56,9 @@ Donating is completely optional.
 
 ## Changelog
 ### 2017-06-09 -- v2.0.1
-* FIX: fixed issue with setting fanspeed purifier and humidifier
 * IMPROVEMENT: better field validation for token
+* IMPROVEMENT: change getting capabilities for Air Purifier and Humidifier to polling mechanism
+* FIX: fixed issue with setting fanspeed purifier and humidifier
 
 ### 2017-06-01 -- v2.0.0
 * rebuild from version 1.0.0 of the [Xiaomi Vacuum Cleaner app](https://github.com/jghaanstra/com.robot.xiaomi-mi)
