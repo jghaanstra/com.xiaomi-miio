@@ -44,7 +44,8 @@ Donating is completely optional.
 [![Donate](https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_donate_92x26.png)](https://paypal.me/jghaanstra)
 
 ## Changelog
-### 2017-06-27 -- v2.1.0 beta
+### 2017-06-27 -- v2.1.0
+This update requires you to re-pair the Yeelights, Air Purifier and Humidifier.
 * NEW: changed from miio protocol to direct API for Yeelights, now using auto discovery and hue and saturation are working
 * IMPROVEMENT: better field validation for tokens in pairing wizard for miIO devices
 * IMPROVEMENT: use polling mechanism to get the capabilities for Air Purifier and Humidifier
