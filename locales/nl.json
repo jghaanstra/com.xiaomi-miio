@@ -18,5 +18,8 @@
         "testing" : "Connectie test succesvol, je kan het apparaat nu verbinden.",
         "testingVacuum" : "Mi Robot zoek bericht succesvol verzonden, heeft de Mi Robot gereageerd?",
         "connect": "Verbind"
-	}
+	},
+    "yeelight_bulb_color": "Yeelight Bulb Kleur",
+    "yeelight_bulb_white": "Yeelight Bulb Wit",
+    "unreachable": "Niet beschikbaar"
 }

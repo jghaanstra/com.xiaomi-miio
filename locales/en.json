@@ -18,5 +18,8 @@
         "testing" : "Connection test successfull, you can now connect the device.",
         "testingVacuum" : "Mi Robot find message send succesfully, did you hear the Mi Robot?",
         "connect": "Connect"
-	}
+	},
+    "yeelight_bulb_color": "Yeelight Bulb Color",
+    "yeelight_bulb_white": "Yeelight Bulb White",
+    "unreachable": "Offline"
 }
