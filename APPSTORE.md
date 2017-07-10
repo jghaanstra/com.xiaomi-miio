@@ -44,6 +44,9 @@ Donating is completely optional.
 [![Donate](https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_donate_92x26.png)](https://paypal.me/jghaanstra)
 
 ## Changelog
+### 2017-07-10 -- v2.1.1
+* FIX: fixed app crashing due to error in connection with Yeelight (which could be the case then the Yeelight is unplugged)
+
 ### 2017-06-27 -- v2.1.0
 This update requires you to re-pair the Yeelights, Air Purifier and Humidifier.
 * NEW: changed from miio protocol to direct API for Yeelights, now using auto discovery and hue and saturation are working

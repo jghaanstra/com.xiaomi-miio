@@ -226,10 +226,12 @@ function createDeviceSocket(device_data) {
     });
 
     device.socket.on('error', function(error) {
-        device.socket.destroy();
+        module.exports.setUnavailable(device_data, __('unreachable'));
+    });
+
+    device.socket.on('close', function(error) {
         device.socket = null;
         device.state.connected = false;
-        module.exports.setUnavailable(device_data, __('unreachable'));
     });
 
     process.nextTick(function() {
