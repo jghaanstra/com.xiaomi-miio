@@ -21,6 +21,7 @@ Use these methods to obtain the device token for the Mi Robot Vacuum Cleaner wit
 * Open /com.xiaomi.smarthome/database/miio2.db with a SQLite browser (for instance http://sqlitebrowser.org/)
 * Execute the query "select token from devicerecord where localIP is '192.168.0.1'" where you replace the IP address with the IP address of the Mi Home device you want to get the token from. It will show you the 32 character device token for your Mi Home device.
 
+## iOS users
 ## Non-Jailbroken iOS users
 * Setup your iOS device with the Mi Home app
 * Create an unencrypted backup of your iOS device on your computer using iTunes. In case you are unable to disable encryption you probably have a profile preventing this that enforces certain security policies (like work related accounts). Delete these profiles or use another iOS device to continu.
