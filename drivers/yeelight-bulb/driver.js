@@ -240,73 +240,84 @@ function createDeviceSocket(device_data) {
             var result = result.replace('{"id":1, "result":["ok"]}','');
             var result = result.replace('\r\n','');
             if (result.includes('props')) {
-                var result = JSON.parse(result);
-                var key = Object.keys(result.params)[0];
+                try {
+                    var result = JSON.parse(result);
+                    var key = Object.keys(result.params)[0];
 
-                switch (key) {
-                    case 'power':
-                        if(result.params.power == 'on') {
-                            device.state.onoff = true;
-                            module.exports.realtime(device_data, 'onoff', true);
-                        } else {
-                            device.state.onoff = false;
-                            module.exports.realtime(device_data, 'onoff', false);
-                        }
-                        break;
-                    case 'bright':
-                        device.state.dim = result.params.bright;
-                        var dim = result.params.bright / 100;
-                        module.exports.realtime(device_data, 'dim', dim);
-                        break;
-                    case 'ct':
-                        device.state.temperature = result.params.ct;
-                        var color_temp = utils.normalize(result.params.ct, 1700, 6500);
-                        module.exports.realtime(device_data, 'light_temperature', color_temp);
-                        break;
-                    case 'rgb':
-                        device.state.rgb = result.params.rgb;
-                        var color = tinycolor(result.params.rgb.toString(16));
-                        var hsv = color.toHsv();
-                        var hue = Math.round(hsv.h) / 359;
-                        var saturation = Math.round(hsv.s);
-                        module.exports.realtime(device_data, 'light_hue', hue);
-                        module.exports.realtime(device_data, 'light_saturation', saturation);
-                        break;
-                    case 'hue':
-                        device.state.hue = result.params.hue;
-                        var hue = result.params.hue / 359;
-                        module.exports.realtime(device_data, 'light_hue', hue);
-                        break;
-                    case 'sat':
-                        device.state.saturation = result.params.sat;
-                        var saturation = result.params.sat / 100;
-                        module.exports.realtime(device_data, 'light_saturation', saturation);
-                        break;
-                    case 'color_mode':
-                        device.state.mode = result.params.color_mode;
-                        if (result.params.color_mode == 2) {
-                            module.exports.realtime(device_data, 'light_mode', 'temperature');
-                        } else {
-                            module.exports.realtime(device_data, 'light_mode', 'color');
-                        }
-                        break;
-                    default:
-                        break;
+                    switch (key) {
+                        case 'power':
+                            if(result.params.power == 'on') {
+                                device.state.onoff = true;
+                                module.exports.realtime(device_data, 'onoff', true);
+                            } else {
+                                device.state.onoff = false;
+                                module.exports.realtime(device_data, 'onoff', false);
+                            }
+                            break;
+                        case 'bright':
+                            device.state.dim = result.params.bright;
+                            var dim = result.params.bright / 100;
+                            module.exports.realtime(device_data, 'dim', dim);
+                            break;
+                        case 'ct':
+                            device.state.temperature = result.params.ct;
+                            var color_temp = utils.normalize(result.params.ct, 1700, 6500);
+                            module.exports.realtime(device_data, 'light_temperature', color_temp);
+                            break;
+                        case 'rgb':
+                            device.state.rgb = result.params.rgb;
+                            var color = tinycolor(result.params.rgb.toString(16));
+                            var hsv = color.toHsv();
+                            var hue = Math.round(hsv.h) / 359;
+                            var saturation = Math.round(hsv.s);
+                            module.exports.realtime(device_data, 'light_hue', hue);
+                            module.exports.realtime(device_data, 'light_saturation', saturation);
+                            break;
+                        case 'hue':
+                            device.state.hue = result.params.hue;
+                            var hue = result.params.hue / 359;
+                            module.exports.realtime(device_data, 'light_hue', hue);
+                            break;
+                        case 'sat':
+                            device.state.saturation = result.params.sat;
+                            var saturation = result.params.sat / 100;
+                            module.exports.realtime(device_data, 'light_saturation', saturation);
+                            break;
+                        case 'color_mode':
+                            device.state.mode = result.params.color_mode;
+                            if (result.params.color_mode == 2) {
+                                module.exports.realtime(device_data, 'light_mode', 'temperature');
+                            } else {
+                                module.exports.realtime(device_data, 'light_mode', 'color');
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
+                } catch (err) {
+                    Homey.log('Unable to process message because of error: '+ err);
                 }
             } else if (result.includes('result')) {
-                var result = JSON.parse(result);
+                try {
+                    var result = JSON.parse(result);
 
-                if(result.result[0] == 'on') {
-                    device.state.onoff = true;
-                } else {
-                    device.state.onoff = false;
+                    if(result.result[0] == 'on') {
+                        device.state.onoff = true;
+                    } else {
+                        device.state.onoff = false;
+                    }
+                    device.state.dim = result.result[1];
+                    device.state.mode = result.result[2];
+                    device.state.temperature = result.result[3];
+                    device.state.rgb = result.result[4];
+                    device.state.hue = result.result[5];
+                    device.state.saturation = result.result[6];
+                } catch (err) {
+                    Homey.log('Unable to process message because of error: '+ err);
                 }
-                device.state.dim = result.result[1];
-                device.state.mode = result.result[2];
-                device.state.temperature = result.result[3];
-                device.state.rgb = result.result[4];
-                device.state.hue = result.result[5];
-                device.state.saturation = result.result[6];
+
+
             }
     	}.bind(this));
     }.bind(this));
