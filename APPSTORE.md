@@ -42,7 +42,7 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * [ACTIONS] Power on/off, Set speed
 
 ## Changelog
-### 2018-01-01 -- v2.2.0
+### 2017-10-15 -- v2.2.0
 * UPDATE: code rewrite for SDK2
 * IMPROVEMENT: use polling mechanism for Mi Robot Vacuum Cleaner (requires repairing)
 * IMPROVEMENT: switched from custom capability for air quality to the new default pm2.5 capability for the Air Purifier (require repairing of the air purifier)
