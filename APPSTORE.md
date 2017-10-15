@@ -15,6 +15,9 @@ Below is a list of  supported devices and devices that might be supported in the
 * NOT SUPPORTED: Lunar Smart Sleep Sensor
 * NOT SUPPORTED: Air Quality Monitor (PM2.5)
 
+## Supported topic
+For support please use the official support topic on the forum [here](https://forum.athom.com/discussion/3295/).
+
 ## Adding Yeelights
 This Homey app supports direct control for Yeelights. Before being able to add your Yeelights as devices in Homey you will need to enable the "Developer Mode". You can do this by using the official Yeelight app on your smartphone (not the Xiaomi Mi Home app but the actual Yeelight app). In this app go into the settings of your bulb and you will see a menu item called Developer Mode. This contains a toggle to enable the developer mode. After enabling this the Homey app will be able to autodiscover your bulb when adding it as new device.
 
