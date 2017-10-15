@@ -1,5 +1,6 @@
 {
 	"id": "com.xiaomi-miio",
+    "sdk": 2,
 	"name": {
 		"en": "Xiaomi Mi Home",
 		"nl": "Xiaomi Mi Home"
@@ -8,12 +9,20 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger" ]
 	},
-	"version": "2.1.2",
-	"compatibility": "0.x || 1.x",
+	"version": "2.2.0",
+	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
 		"email": "homey@solidewebservices.com"
 	},
+    "contributing": {
+        "donate": {
+            "paypal": {
+                "email": "paypal@solidewebservices.com",
+                "currency": "EUR"
+            }
+        }
+    },
     "images": {
         "large": "./assets/images/large.jpg",
         "small": "./assets/images/small.jpg"
@@ -26,33 +35,16 @@
 	"dependencies": {
 		"net": "*"
 	},
-    "capabilities": {
-        "measure_aqi": {
-            "type": "number",
-            "title": {
-                "en": "Air Quality Index",
-                "nl": "Luchtkwaliteitsindex"
-            },
-            "getable": true,
-            "setable": false,
-            "units": {
-                "en": "aqi",
-                "nl": "aqi"
-            },
-            "min": 0,
-            "max": 500
-        }
-    },
 	"drivers": [
         {
-			"id": "yeelight-bulb",
+			"id": "yeelights",
 			"name": {
-				"en": "Yeelight Bulb",
-				"nl": "Yeelight Bulb"
+				"en": "Yeelights",
+				"nl": "Yeelights"
 			},
 			"images": {
-				"large": "drivers/yeelight-bulb/assets/images/large.jpg",
-				"small": "drivers/yeelight-bulb/assets/images/small.jpg"
+				"large": "drivers/yeelights/assets/images/large.jpg",
+				"small": "drivers/yeelights/assets/images/small.jpg"
 			},
 			"class": "light",
             "capabilities": [
@@ -68,11 +60,11 @@
                     "id": "list_devices",
                     "template": "list_devices",
                     "navigation": {
-                        "next": "add_yeelight_bulb"
+                        "next": "add_yeelights"
                     }
                 },
                 {
-                    "id": "add_yeelight_bulb",
+                    "id": "add_yeelights",
                     "template": "add_devices"
                 }
             ]
@@ -89,6 +81,7 @@
 			},
 			"class": "vacuumcleaner",
 			"capabilities": [
+                "onoff",
                 "vacuumcleaner_state",
                 "measure_battery"
             ],
@@ -96,19 +89,15 @@
                 "components": [
                     {
                         "id": "battery",
-                        "capabilities": [
-                            "measure_battery"
-                        ]
+                        "capabilities": [ "measure_battery" ]
                     },
                     {
                         "id": "icon",
-                        "capabilities": []
+                        "capabilities": [ "onoff" ]
                     },
                     {
                         "id": "picker",
-                        "capabilities": [
-                            "vacuumcleaner_state"
-                        ]
+                        "capabilities": [ "vacuumcleaner_state" ]
                     }
                 ]
             },
@@ -142,6 +131,15 @@
 						        "en": "Mi Robot Token",
 						        "nl": "Mi Robot Token"
 					        }
+				        },
+                        {
+					        "id": "polling",
+					        "type": "number",
+					        "value": 60,
+					        "label": {
+						        "en": "Mi Robot Polling",
+						        "nl": "Mi Robot Polling"
+					        }
 				        }
 		            ]
 		        }
@@ -162,15 +160,13 @@
                 "onoff",
                 "measure_temperature",
                 "measure_humidity",
-                "measure_aqi"
+                "measure_pm25"
             ],
             "mobile": {
                 "components": [
                     {
                         "id": "icon",
-                        "capabilities": [
-                            "onoff"
-                        ]
+                        "capabilities": [ "onoff" ]
                     },
                     {
                         "id": "sensor",
@@ -181,14 +177,7 @@
                     },
                     {
                         "id": "sensor",
-                        "capabilities": [
-                            "measure_aqi"
-                        ],
-                        "options": {
-                            "icons": {
-                                "measure_aqi": "/drivers/mi-airpurifier/assets/images/aqi.svg"
-                            }
-                        }
+                        "capabilities": [ "measure_pm25" ]
                     }
                 ]
             },
@@ -256,21 +245,15 @@
                 "components": [
                     {
                         "id": "icon",
-                        "capabilities": [
-                            "onoff"
-                        ]
+                        "capabilities": [ "onoff" ]
                     },
                     {
                         "id": "sensor",
-                        "capabilities": [
-                            "measure_temperature"
-                        ]
+                        "capabilities": [ "measure_temperature" ]
                     },
                     {
                         "id": "sensor",
-                        "capabilities": [
-                            "measure_humidity"
-                        ]
+                        "capabilities": [ "measure_humidity" ]
                     }
                 ]
             },
@@ -431,7 +414,133 @@
 			}
         ],
 		"actions": [
-			{
+            {
+				"id": "yeelightDefault",
+				"title": {
+					"en": "Set default on state",
+					"nl": "Stel standaard opstart status in"
+				},
+				"args": [
+                    {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Yeelight",
+							"nl": "Selecteer Yeelight"
+						},
+						"filter": "driver_id=yeelights"
+                    }
+				]
+			},
+            {
+				"id": "yeelightFlowBrightness",
+				"title": {
+					"en": "Change brightness over time",
+					"nl": "Wijzig helderheid over tijd"
+				},
+				"args": [
+                    {
+						"name": "action",
+						"type": "dropdown",
+                        "placeholder": {
+                            "en": "Finish action",
+                            "nl": "Afrondactie"
+                        },
+                        "values": [
+                            {
+                                "id": "0",
+                                "label": {
+                                    "en": "Recover to previous state",
+                                    "nl": "Terug naar oorspronkelijke staat"
+                                }
+                            },
+                            {
+                                "id": "1",
+                                "label": {
+                                    "en": "Stay at the state",
+                                    "nl": "Behoud staat"
+                                }
+                            },
+                            {
+                                "id": "2",
+                                "label": {
+                                    "en": "Turn off light",
+                                    "nl": "Licht uit"
+                                }
+                            }
+                        ]
+                    },
+                    {
+						"name": "duration",
+						"type": "number",
+                        "placeholder": {
+                            "en": "Duration in milliseconds",
+                            "nl": "Doorlooptijd in milliseconden"
+                        },
+                        "min": 100,
+                        "max": 30000,
+                        "step": 1
+                    },
+                    {
+						"name": "temperature",
+						"type": "number",
+                        "placeholder": {
+                            "en": "Target color temperature",
+                            "nl": "Doel kleurtemperatuur"
+                        },
+                        "min": 2700,
+                        "max": 6500,
+                        "step": 1
+                    },
+                    {
+						"name": "brightness",
+						"type": "number",
+                        "placeholder": {
+                            "en": "Target brightness",
+                            "nl": "Doel helderheid"
+                        },
+                        "min": 0,
+                        "max": 100,
+                        "step": 1
+                    },
+                    {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Yeelight",
+							"nl": "Selecteer Yeelight"
+						},
+						"filter": "driver_id=yeelights"
+                    }
+				]
+			},
+            {
+				"id": "yeelightCustomCommand",
+				"title": {
+					"en": "Send command (advanced)",
+					"nl": "Verstuur commando (geadvanceerd)"
+				},
+				"args": [
+                    {
+						"name": "command",
+						"type": "text",
+                        "placeholder": {
+                            "en": "Custom command",
+                            "nl": "Aangepast commando"
+                        }
+                    },
+                    {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Yeelight",
+							"nl": "Selecteer Yeelight"
+						},
+						"filter": "driver_id=yeelights"
+                    }
+				]
+			},
+            {
 				"id": "startVacuum",
 				"title": {
 					"en": "Start vacuum cleaning",

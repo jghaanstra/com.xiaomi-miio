@@ -2,27 +2,11 @@
 
 Homey.setTitle( __('pair.title') );
 
-Homey.on('error', function( errortype, callback ) {
-
-    if (errortype == 'error') {
-		Homey.alert(__('pair.error'), 'error');
-        $('.mi-device-err-msg').show();
-		$('.mi-device-err').html( __('pair.error') );
-	}
-	if (errortype == 'nosettings') {
-		Homey.alert(__('pair.nosettings'), 'error');
-        $('.mi-device-err-msg').show();
-		$('.mi-device-err').html( __('pair.nosettings') );
-	}
-
-});
-
-Homey.on('continue', function( success, callback ) {
-	Homey.showView('list_devices');
-});
-
 $(function() {
-    $('#test-connection').click(function(){
+    $('#test-connection').click(function() {
+        $('.mi-device-test').hide();
+        $('.mi-device-error').hide();
+        $('.mi-device-ok').hide();
 
 		var inputaddress = $('#address').val();
 		var inputtoken = $('#token').val();
@@ -33,10 +17,10 @@ $(function() {
                 token: inputtoken
             };
 
-            Homey.emit( 'test-connection', device_data, function( err, result ) {
-                if(err) {
+            Homey.emit('test-connection', device_data, function(error, result) {
+                if(error) {
                     $('.mi-device-error').show();
-                    $('.mi-device-error-msg').html( err.message || err.toString() );
+                    $('.mi-device-error-msg').html(error.message || error.toString());
                 } else {
                     $('.mi-device-test').show();
                     $('#connect').prop('disabled', false);
@@ -51,37 +35,39 @@ $(function() {
 	});
 
 	$('#connect').click(function(){
-
 		var inputaddress = $('#address').val();
 		var inputtoken = $('#token').val();
+        var inputpolling = $('#polling').val() || 60;
 
-        if( inputaddress != '' && inputtoken != '') {
+        if( inputaddress != '' && inputtoken != '' && inputpolling != '') {
             var device_data = {
-                id: inputtoken,
-                address: inputaddress,
-                token: inputtoken
+                id: inputtoken
             };
             var settings = {
                 address: inputaddress,
                 token: inputtoken
             };
+            var state = {
+                onoff: false,
+                state: 'charging',
+                battery: 100
+            };
 
             Homey.addDevice({
                 name	 : 'Mi Robot',
                 data 	 : device_data,
-                settings : settings
-            }, function( err, result ) {
-                if ( err ) {
+                settings : settings,
+                state    : state
+            }, function(error, result) {
+                if (error) {
                     $('.mi-device-test').hide();
                     $('.mi-device-error').show();
-                    $('.mi-device-error-msg').html( err.message || err.toString() );
+                    $('.mi-device-error-msg').html(error.message || error.toString());
                 }
                 $('.mi-device-test').hide();
                 $('.mi-device-ok').show();
-                Homey.emit('add_device', device_data, function( err, result ){
-					if( err ) return Homey.alert(err.message || err.toString());
-					return Homey.done();
-				})
+
+                return Homey.done();
             })
 
         } else {
@@ -115,6 +101,10 @@ $(function() {
 <div class="form-group">
 	<label for="token" data-i18n="pair.token">Token (32 characters of numbers and letters)</label>
 	<input type="text" class="form-control" id="token" pattern="[a-zA-Z0-9]{32}" placeholder="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF">
+</div>
+<div class="form-group">
+    <label for="polling" data-i18n="pair.polling">Polling Frequency</label>
+    <input type="number" class="form-control" id="polling" min="10" max="3600" placeholder="60">
 </div>
 <div class="form-group buttons">
     <button id="test-connection" class="button" data-i18n="pair.test">Test Connection</button>

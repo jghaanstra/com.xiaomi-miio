@@ -2,27 +2,12 @@
 
 Homey.setTitle( __('pair.title') );
 
-Homey.on('error', function( errortype, callback ) {
-
-    if (errortype == 'error') {
-		Homey.alert(__('pair.error'), 'error');
-        $('.mi-device-err-msg').show();
-		$('.mi-device-err').html( __('pair.error') );
-	}
-	if (errortype == 'nosettings') {
-		Homey.alert(__('pair.nosettings'), 'error');
-        $('.mi-device-err-msg').show();
-		$('.mi-device-err').html( __('pair.nosettings') );
-	}
-
-});
-
-Homey.on('continue', function( success, callback ) {
-	Homey.showView('list_devices');
-});
-
 $(function() {
-    $('#test-connection').click(function(){
+    $('#test-connection').click(function() {
+        $('.mi-device-test').hide();
+        $('.mi-device-error').hide();
+        $('.mi-device-ok').hide();
+
 		var inputaddress = $('#address').val();
 		var inputtoken = $('#token').val();
 
@@ -32,10 +17,10 @@ $(function() {
                 token: inputtoken
             };
 
-            Homey.emit('test-connection', device_data, function(err, result) {
-                if(err) {
+            Homey.emit('test-connection', device_data, function(error, result) {
+                if(error) {
                     $('.mi-device-error').show();
-                    $('.mi-device-error-msg').html( err.message || err.toString() );
+                    $('.mi-device-error-msg').html( error.message || error.toString() );
                 } else {
                     var powered = ((result.onoff) ? "On" : "Off");
                     var mideviceinfo = "<h2 data-i18n='pair.humidifier'>Humidifier</h2><div class='info-row'><span class='info-label' data-i18n='pair.powered'>Powered:</span><span class='info-value'> "+ powered +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.mode'>Mode:</span><span class='info-value'> "+ result.mode +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.temperature'>Temperature:</span><span class='info-value'> "+ result.temperature +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.humidity'>Humidity:</span><span class='info-value'> "+ result.humidity +"</span></div>";
@@ -67,7 +52,7 @@ $(function() {
                 token: inputtoken,
                 polling: inputpolling
             };
-            var state = {
+            var store = {
                 onoff: false,
                 mode: 'medium',
                 temperature: 0,
@@ -78,19 +63,17 @@ $(function() {
                 name	 : 'Mi Humidifier',
                 data 	 : device_data,
                 settings : settings,
-                state    : state
-            }, function( err, result ) {
-                if ( err ) {
+                store    : store
+            }, function(error, result) {
+                if (error) {
                     $('.mi-device-test').hide();
                     $('.mi-device-error').show();
-                    $('.mi-device-error-msg').html( err.message || err.toString() );
+                    $('.mi-device-error-msg').html(error.message || error.toString());
                 }
                 $('.mi-device-test').hide();
                 $('.mi-device-ok').show();
-                Homey.emit('add_device', device_data, function( err, result ){
-					if( err ) return Homey.alert(err.message || err.toString());
-					return Homey.done();
-				})
+
+                return Homey.done();
             })
 
         } else {

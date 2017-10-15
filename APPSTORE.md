@@ -1,15 +1,16 @@
 # Control Xiaomi Mi Home Wi-Fi devices
-Use Homey to control Xiaomi Mi Home devices (the Mi Home Ecosystem is also branded as MiJia). Currently Xiaomi does not officialy support controlling most of it's devices from outside the Mi Home app with the exception of Yeelights. Yeelights can be added to Homey quite easy but for all other devices additional steps are needed that require technical skills setting up. These steps are described below but Xiaomi can make changes to it's eco system at any time resulting in devices that can not be added or controlled by Homey anymore.
+Use Homey to control Xiaomi Mi Home devices (the Mi Home Ecosystem is also branded as MiJia). Currently Xiaomi does not officialy support controlling most of it's devices from outside the Mi Home app with the exception of Yeelights. Yeelights can be added to Homey quite easy but for all other devices additional steps are needed that require technical skills setting up. These steps are described but Xiaomi can make changes to it's eco system at any time resulting in devices that can not be added or controlled by Homey anymore.
 
-This app uses an unofficial library called the [miIO Device Library](https://github.com/aholstenson/miio) for communication with those devices whoch lack official support for controlling externally, credits go out to the author of this library. This Homey app also only adds support for the devices that can be controlled directly through Wi-Fi, there is a whole range of Mi Home sensors that can only be used together with the Xiaomi Smart Home Gateway (which uses ZigBee) but this is currently out the scope of this app.
+This app uses an unofficial library called the [miIO Device Library](https://github.com/aholstenson/miio) for communication with those devices which lack official support for controlling externally, credits go out to the author of this library. This Homey app also only adds support for the devices that can be controlled directly through Wi-Fi, there is a whole range of Mi Home sensors that can only be used together with the Xiaomi Smart Home Gateway (which uses ZigBee) but this is currently out the scope of this app.
 
 ## Supported devices
 Below is a list of  supported devices and devices that might be supported in the future if there is demand for this. Post a comment in the app store if you would like to see support for a specific device.
 * Yeelight Bulbs Wi-Fi (tested)
+* Yeelight LED strips (untested)
 * Robot Vacuum Cleaner (tested)
 * Air Purifiers 2 and Pro (tested)
 * Humidifier (untested)
-* NOT SUPPORTED: Yeelight Desk Lamp, Yeelight LED Strip, Yeelight Ceiling Lamp
+* NOT SUPPORTED: Yeelight Desk Lamp, Yeelight Ceiling Lamp
 * NOT SUPPORTED: Smart Socket Plug and Power Strips
 * NOT SUPPORTED: Lunar Smart Sleep Sensor
 * NOT SUPPORTED: Air Quality Monitor (PM2.5)
@@ -26,6 +27,7 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 ## Supported Cards
 ### Yeelight Bulbs Wi-Fi
 * Default flow cards for light capabilities class
+* [ACTIONS] Change brightness over time, Custom command (advanced), Set default on state
 
 ### Mi Robot Vacuum Cleaner
 * [CONDITIONS] Cleaning, Charging, Paused, Returning to dock
@@ -39,11 +41,15 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * [CONDITIONS] Powered
 * [ACTIONS] Power on/off, Set speed
 
-## Donate
-Donating is completely optional.
-[![Donate](https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_donate_92x26.png)](https://paypal.me/jghaanstra)
-
 ## Changelog
+### 2018-01-01 -- v2.2.0
+* UPDATE: code rewrite for SDK2
+* IMPROVEMENT: use polling mechanism for Mi Robot Vacuum Cleaner (requires repairing)
+* IMPROVEMENT: switched from custom capability for air quality to the new default pm2.5 capability for the Air Purifier (require repairing of the air purifier)
+* NEW: changed Yeelight driver to support Yeelight LED strip (require repairing of **ALL** Yeelight devices)
+* NEW: added extra action cards for Yeelights: Change brightness over time, Custom command (advanced), Set default on state
+* UPDATE: made use of official donation button feature of Homey app store
+
 ### 2017-07-11 -- v2.1.2
 * FIX: fixed app crashing due to error in processing Yeelight status
 
