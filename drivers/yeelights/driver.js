@@ -43,13 +43,6 @@ class YeelightDriver extends Homey.Driver {
                         },
                         capabilities: typeCapabilityMap[result[i].model],
                         store: {
-                            onoff: result[i].onoff || true,
-                            dim: result[i].dim || 100,
-                            mode: result[i].mode || 2,
-                            temperature: result[i].temperature || 4000,
-                            rgb: result[i].rgb || 16711680,
-                            hue: result[i].hue || 359,
-                            saturation: result[i].saturation || 100,
                             connected: false
                         },
                         icon: typeIconMap[result[i].model]

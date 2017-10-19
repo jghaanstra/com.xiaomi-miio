@@ -27,7 +27,6 @@ class MiAirPurifierDevice extends Homey.Device {
             if (error) {
                 callback(error, false);
             } else {
-                this.setStoreValue('onoff', value);
                 this.setCapabilityValue('onoff', value);
                 callback(null, value);
             }
@@ -41,23 +40,19 @@ class MiAirPurifierDevice extends Homey.Device {
         this.pollingInterval = setInterval(() => {
             util.getAirPurifier(this.getSetting('address'), this.getSetting('token'))
                 .then(result => {
-                    if (this.getStoreValue('onoff') != result.onoff) {
-                        this.setStoreValue('onoff', result.onoff);
+                    if (this.getCapabilityValue('onoff') != result.onoff) {
                         this.setCapabilityValue('onoff', result.onoff);
                     }
                     if (this.getStoreValue('mode') != result.mode) {
                         this.setStoreValue('mode', result.mode);
                     }
-                    if (this.getStoreValue('temperature') != result.temperature) {
-                        this.setStoreValue('temperature', result.temperature);
+                    if (this.getCapabilityValue('measure_temperature') != result.temperature) {
                         this.setCapabilityValue('measure_temperature', result.temperature);
                     }
-                    if (this.getStoreValue('humidity') != result.humidity) {
-                        this.setStoreValue('humidity', result.humidity);
+                    if (this.getCapabilityValue('measure_humidity') != result.humidity) {
                         this.setCapabilityValue('measure_humidity', result.humidity);
                     }
-                    if (this.getStoreValue('aqi') != result.aqi) {
-                        this.setStoreValue('aqi', result.aqi);
+                    if (this.getCapabilityValue('measure_pm25') != result.aqi) {
                         this.setCapabilityValue('measure_pm25', result.aqi);
                     }
                 })

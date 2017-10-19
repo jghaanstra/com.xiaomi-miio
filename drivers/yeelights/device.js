@@ -15,6 +15,7 @@ class YeelightDevice extends Homey.Device {
         this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
         this.registerCapabilityListener('light_hue', this.onCapabilityLightHue.bind(this));
         this.registerCapabilityListener('light_saturation', this.onCapabilityLightSaturation.bind(this));
+        //this.registerMultipleCapabilityListener(['light_hue', 'light_saturation'], this.onCapabilityHueSaturation.bind(this), 500);
         this.registerCapabilityListener('light_temperature', this.onCapabilityLightTemperature.bind(this));
 
         this.setStoreValue('connected', false);
@@ -48,40 +49,40 @@ class YeelightDevice extends Homey.Device {
         } else {
             this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["off", "smooth", 500]}');
         }
-        this.setStoreValue('onoff', value);
         callback(null, value);
     }
 
     onCapabilityDim(value, opts, callback) {
         var brightness = value * 100;
         this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", 500]}');
-        this.setStoreValue('dim', brightness);
         callback(null, value);
     }
 
     onCapabilityLightHue(value, opts, callback) {
         var hue = value * 359;
-        var brightness = this.getStoreValue('dim') / 100;
-        this.sendCommand(this.getData().id, '{"id":1,"method":"set_hsv","params":['+ hue +','+ this.getStoreValue('saturation') +', "smooth", 500]}');
-        this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", 500]}');
-        this.setStoreValue('hue', hue);
-        this.setStoreValue('mode', 3);
+        var saturation = this.getCapabilityValue('light_saturation') * 100;
+        this.sendCommand(this.getData().id, '{"id":1,"method":"set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
+        //this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ this.getCapabilityValue('dim') +', "smooth", 500]}');
         callback(null, value);
     }
 
     onCapabilityLightSaturation(value, opts, callback) {
         var saturation = value * 100;
-        this.sendCommand(this.getData().id, '{"id":1,"method":"set_hsv","params":['+ this.getStoreValue('hue') +','+ saturation +', "smooth", 500]}');
-        this.setStoreValue('saturation', saturation);
-        this.setStoreValue('mode', 3);
+        var hue = this.getCapabilityValue('light_hue') * 359;
+        this.sendCommand(this.getData().id, '{"id":1,"method":"set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
         callback(null, value);
+    }
+
+    onCapabilityHueSaturation(valueObj, optsObj) {
+        var hue = valueObj.light_hue * 359;
+        var saturation = valueObj.light_saturation * 100;
+        this.sendCommand(this.getData().id, '{"id":1,"method":"set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
+        return Promise.resolve();
     }
 
     onCapabilityLightTemperature(value, opts, callback) {
         var color_temp = yeelight.denormalize(value, 1700, 6500);
         this.sendCommand(this.getData().id, '{"id":1,"method":"set_ct_abx","params":['+ color_temp +', "smooth", 500]}');
-        this.setStoreValue('temperature', color_temp);
-        this.setStoreValue('mode', 2);
         callback(null, value);
     }
 
@@ -128,8 +129,7 @@ class YeelightDevice extends Homey.Device {
         process.nextTick(function() {
             yeelights[id].socket.on('data', function(message, address) {
                 var result = message.toString();
-                var result = result.replace('\r\n','');
-                var result = result.replace(/{"id":1, "result":["ok"]}/g,'');
+                var result = result.replace(/{"id":1, "result":\["ok"\]}/g, "").replace(/\r\n/g,'');
 
                 if (result.includes('props')) {
                     try {
@@ -139,25 +139,20 @@ class YeelightDevice extends Homey.Device {
                         switch (key) {
                             case 'power':
                                 if(result.params.power == 'on') {
-                                    device.setStoreValue('onoff', true);
                                     device.setCapabilityValue('onoff', true);
                                 } else {
-                                    device.setStoreValue('onoff', false);
                                     device.setCapabilityValue('onoff', false);
                                 }
                                 break;
                             case 'bright':
-                                device.setStoreValue('dim', result.params.bright);
                                 var dim = result.params.bright / 100;
                                 device.setCapabilityValue('dim', dim);
                                 break;
                             case 'ct':
-                                device.setStoreValue('temperature', result.params.ct);
                                 var color_temp = yeelight.normalize(result.params.ct, 1700, 6500);
                                 device.setCapabilityValue('light_temperature', color_temp);
                                 break;
                             case 'rgb':
-                                device.setStoreValue('rgb', result.params.rgb);
                                 var color = tinycolor(result.params.rgb.toString(16));
                                 var hsv = color.toHsv();
                                 var hue = Math.round(hsv.h) / 359;
@@ -166,17 +161,14 @@ class YeelightDevice extends Homey.Device {
                                 device.setCapabilityValue('light_saturation', saturation);
                                 break;
                             case 'hue':
-                                device.setStoreValue('hue', result.params.hue);
                                 var hue = result.params.hue / 359;
                                 device.setCapabilityValue('light_hue', hue);
                                 break;
                             case 'sat':
-                                device.setStoreValue('saturation', result.params.sat);
                                 var saturation = result.params.sat / 100;
                                 device.setCapabilityValue('light_saturation', saturation);
                                 break;
                             case 'color_mode':
-                                device.setStoreValue('mode', result.params.color_mode);
                                 if (result.params.color_mode == 2) {
                                     device.setCapabilityValue('light_mode', 'temperature');
                                 } else {
@@ -194,30 +186,34 @@ class YeelightDevice extends Homey.Device {
                     try {
                         var result = JSON.parse(result);
 
-                        if(result.result[0] == 'on') {
-                            device.setStoreValue('onoff', true);
-                        } else {
-                            device.setStoreValue('onoff', false);
-                        }
-                        var dim = result.result[1] / 100;
-                        var hue = result.result[5] / 359;
-                        var saturation = result.result[6] / 100;
-                        var color_temp = yeelight.normalize(result.result[3], 1700, 6500);
+                        if (result.result[0] != "ok") {
 
-                        device.setStoreValue('dim', result.result[1]);
-                        device.setCapabilityValue('dim', dim);
-                        device.setStoreValue('mode', result.result[2]);
-                        device.setStoreValue('temperature', result.result[3]);
-                        device.setCapabilityValue('light_temperature', color_temp);
-                        device.setStoreValue('rgb', result.result[4]);
-                        device.setStoreValue('hue', result.result[5]);
-                        device.setCapabilityValue('light_hue', hue);
-                        device.setStoreValue('saturation', result.result[6]);
-                        device.setCapabilityValue('light_saturation', saturation);
+                            var dim = result.result[1] / 100;
+                            var hue = result.result[5] / 359;
+                            var saturation = result.result[6] / 100;
+                            var color_temp = yeelight.normalize(result.result[3], 1700, 6500);
+                            if(result.result[2] == 2) {
+                                var color_mode = 'temperature';
+                            } else {
+                                var color_mode = 'color';
+                            }
+
+                            if(result.result[0] == 'on') {
+                                device.setCapabilityValue('onoff', true);
+                            } else {
+                                device.setCapabilityValue('onoff', false);
+                            }
+                            device.setCapabilityValue('dim', dim);
+                            device.setCapabilityValue('light_mode', color_mode);
+                            device.setCapabilityValue('light_temperature', color_temp);
+                            device.setCapabilityValue('light_hue', hue);
+                            device.setCapabilityValue('light_saturation', saturation);
+                        }
                     } catch (error) {
                         this.log('Unable to process message because of error: '+ error);
                     }
                 }
+
         	}.bind(this));
         }.bind(this));
     }
