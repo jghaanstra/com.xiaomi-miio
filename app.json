@@ -9,7 +9,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "yeelight", "yeelights", "purifier", "humidifier" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger" ]
 	},
-	"version": "2.2.1",
+	"version": "2.3.0",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -272,6 +272,10 @@
 					"en": "Set default on state",
 					"nl": "Stel standaard opstart status in"
 				},
+                "hint": {
+					"en": "Use this card to save the current state as the default on state of your Yeelight",
+					"nl": "Gebruik deze actie om de huidige status op te slaan als de standaard aan status van je Yeelight"
+				},
 				"args": [
                     {
 						"name": "device",
@@ -289,6 +293,10 @@
 				"title": {
 					"en": "Change brightness over time",
 					"nl": "Wijzig helderheid over tijd"
+				},
+                "hint": {
+					"en": "Use this card to create a changing effect of temperature and brightness over time (duration in milliseconds, temperature in Kelvin 2700-6500 and brightness in percentage)",
+					"nl": "Gebruik deze actie voor een veranderd effect van licht temperatuur en helderheid over tijd (doorlooptijd in milliseconden, temperatuur in Kelvin 2700-6500 en helderheid in percentage)"
 				},
 				"args": [
                     {
@@ -336,8 +344,8 @@
 						"name": "temperature",
 						"type": "number",
                         "placeholder": {
-                            "en": "Target color temperature",
-                            "nl": "Doel kleurtemperatuur"
+                            "en": "Temperature",
+                            "nl": "Temperatuur"
                         },
                         "min": 2700,
                         "max": 6500,
@@ -347,8 +355,89 @@
 						"name": "brightness",
 						"type": "number",
                         "placeholder": {
-                            "en": "Target brightness",
-                            "nl": "Doel helderheid"
+                            "en": "Brightness",
+                            "nl": "Helderheid"
+                        },
+                        "min": 0,
+                        "max": 100,
+                        "step": 1
+                    },
+                    {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Yeelight",
+							"nl": "Selecteer Yeelight"
+						},
+						"filter": "driver_id=yeelights"
+                    }
+				]
+			},
+            {
+				"id": "yeelightTemperatureScene",
+				"title": {
+					"en": "Temperature and brightness",
+					"nl": "Temperatuur en helderheid"
+				},
+                "hint": {
+					"en": "Use this card to set the temperature and brightness directly (temperature in Kelvin 2700-6500 and brightness in percentage)",
+					"nl": "Gebruik deze actie om de temperatuur en helderheid direct in te stellen (temperatuur in Kelvin 2700-6500 en helderheid in percentage)"
+				},
+				"args": [
+                    {
+						"name": "temperature",
+						"type": "number",
+                        "placeholder": {
+                            "en": "Temperature",
+                            "nl": "Temperatuur"
+                        },
+                        "min": 2700,
+                        "max": 6500,
+                        "step": 1
+                    },
+                    {
+						"name": "brightness",
+						"type": "number",
+                        "placeholder": {
+                            "en": "Brightness",
+                            "nl": "Helderheid"
+                        },
+                        "min": 0,
+                        "max": 100,
+                        "step": 1
+                    },
+                    {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Yeelight",
+							"nl": "Selecteer Yeelight"
+						},
+						"filter": "driver_id=yeelights"
+                    }
+				]
+			},
+            {
+				"id": "yeelightColorScene",
+				"title": {
+					"en": "Color and brightness",
+					"nl": "Kleur en helderheid"
+				},
+                "hint": {
+					"en": "Use this card to set the color and brightness directly (brightness in percentage)",
+					"nl": "Gebruik deze actie om de kleur en helderheid direct in te stellen (helderheid in percentage)"
+				},
+				"args": [
+                    {
+						"name": "color",
+						"type": "color"
+                    },
+                    {
+						"name": "brightness",
+						"type": "number",
+                        "placeholder": {
+                            "en": "Brightness",
+                            "nl": "Helderheid"
                         },
                         "min": 0,
                         "max": 100,
@@ -370,6 +459,10 @@
 				"title": {
 					"en": "Send command (advanced)",
 					"nl": "Verstuur commando (geadvanceerd)"
+				},
+                "hint": {
+					"en": "Advanced users can use this card to send any custom command, see the Yeelight documentation for options",
+					"nl": "Geadvanceerde gebruikers kunnen deze actie gebruiken om maatwerk commands te versturen, zie de Yeelight documentatie voor opties"
 				},
 				"args": [
                     {

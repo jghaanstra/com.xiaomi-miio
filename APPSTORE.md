@@ -6,11 +6,11 @@ This app uses an unofficial library called the [miIO Device Library](https://git
 ## Supported devices
 Below is a list of  supported devices and devices that might be supported in the future if there is demand for this. Post a comment in the app store if you would like to see support for a specific device.
 * Yeelight Bulbs Wi-Fi (tested)
-* Yeelight LED strips (untested)
+* Yeelight LED strips (tested)
 * Air Purifiers 2 and Pro (tested)
 * Humidifier (untested)
-* NOT SUPPORTED ANYMORE: Robot Vacuum Cleaner (times out with latest firmware)
-* NOT SUPPORTED: Yeelight Desk Lamp, Yeelight Ceiling Lamp
+* NOT SUPPORTED ANYMORE: Robot Vacuum Cleaner (commands time out with latest firmware)
+* NOT SUPPORTED: Yeelight Desk Lamp, Yeelight Ceiling Lamp, Yeelight Bedside Lamp
 * NOT SUPPORTED: Smart Socket Plug and Power Strips
 * NOT SUPPORTED: Lunar Smart Sleep Sensor
 * NOT SUPPORTED: Air Quality Monitor (PM2.5)
@@ -22,15 +22,14 @@ For support please use the official support topic on the forum [here](https://fo
 This Homey app supports direct control for Yeelights. Before being able to add your Yeelights as devices in Homey you will need to enable the "Developer Mode". You can do this by using the official Yeelight app on your smartphone (not the Xiaomi Mi Home app but the actual Yeelight app). In this app go into the settings of your bulb and you will see a menu item called Developer Mode. This contains a toggle to enable the developer mode. After enabling this the Homey app will be able to autodiscover your bulb when adding it as new device.
 
 ## Adding miIO devices (Air Purifier and Humidifier)
-For Homey to be able to communicate with devices over the miIO protocol a unique device token needs to be obtained. Some technical skills are needed for retrieving these tokens. If your are not to tech-savvy using this app for any other device than the Yeelights might be challenging. That being said, below are several methods for obtaining the token. Choose the method for your device.
+For Homey to be able to communicate with devices over the miIO protocol a unique device token needs to be obtained. Some technical skills are needed for retrieving these tokens. If your are not to tech-savvy using this app for any other device than the Yeelights might be challenging. See the instructions below.
 
-* [Mi Robot Vacuum Cleaner with firmware lower as 3.3.9_003077, the Air Purifier and the Humidifier](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/obtain_token.md).
-* [Mi Robot Vacuum Cleaner with firmware same or higher as 3.3.9_003077](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/obtain_token_mirobot_new.md).
+* [Air Purifier and Humidifier](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/obtain_token.md).
 
 ## Supported Cards
 ### Yeelight Bulbs Wi-Fi
 * Default flow cards for light capabilities class
-* [ACTIONS] Change brightness over time, Custom command (advanced), Set default on state
+* [ACTIONS] Change brightness over time, Temperature/brightness scene, Color/brightness scene, Custom command (advanced), Set default on state
 
 ### Mi Air Purifiers
 * [CONDITIONS] Powered
@@ -41,14 +40,15 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * [ACTIONS] Power on/off, Set speed
 
 ## Changelog
-### 2017-10-30 -- v2.2.1 - beta
+### 2017-10-28 -- v2.3.0 - beta
 * REMOVED: driver for the Mi Robot Vacuum Cleaner since it's not working anymore with the latest firmware update of the cleaner
 * IMPROVEMENT: removed the maximum time for the changing brightness over time
-* FIX: fixed issue with stuttering within the new mobile app
+* FIX: fixed issue with stuttering when changing colors for Yeelights within the new mobile app
+* FIX: fixed error due to destroying a non existent connection socket on Yeelighs
+* NEW: added extra action cards for Yeelights: Temperature/brightness scene, Color/brightness scene
 
 ### 2017-10-15 -- v2.2.0 - beta
 * UPDATE: code rewrite for SDK2
-* IMPROVEMENT: use polling mechanism for Mi Robot Vacuum Cleaner (requires repairing)
 * IMPROVEMENT: switched from custom capability for air quality to the new default pm2.5 capability for the Air Purifier (require repairing of the air purifier)
 * NEW: changed Yeelight driver to support Yeelight LED strip (require repairing of **ALL** Yeelight devices)
 * NEW: added extra action cards for Yeelights: Change brightness over time, Custom command (advanced), Set default on state

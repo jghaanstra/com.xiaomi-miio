@@ -3,8 +3,6 @@
 const Homey = require('homey');
 const yeelight = require('/lib/yeelight.js');
 const net = require('net');
-const dgram = require('dgram');
-const advertisements = dgram.createSocket('udp4');
 const tinycolor = require("tinycolor2");
 var yeelights = {};
 
@@ -13,9 +11,7 @@ class YeelightDevice extends Homey.Device {
     onInit() {
         this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
         this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
-        this.registerCapabilityListener('light_hue', this.onCapabilityLightHue.bind(this));
-        this.registerCapabilityListener('light_saturation', this.onCapabilityLightSaturation.bind(this));
-        //this.registerMultipleCapabilityListener(['light_hue', 'light_saturation'], this.onCapabilityHueSaturation.bind(this), 500);
+        this.registerMultipleCapabilityListener(['light_hue', 'light_saturation'], this.onCapabilityHueSaturation.bind(this), 500);
         this.registerCapabilityListener('light_temperature', this.onCapabilityLightTemperature.bind(this));
 
         this.setStoreValue('connected', false);
@@ -58,24 +54,21 @@ class YeelightDevice extends Homey.Device {
         callback(null, value);
     }
 
-    onCapabilityLightHue(value, opts, callback) {
-        var hue = value * 359;
-        var saturation = this.getCapabilityValue('light_saturation') * 100;
-        this.sendCommand(this.getData().id, '{"id":1,"method":"set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
-        //this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ this.getCapabilityValue('dim') +', "smooth", 500]}');
-        callback(null, value);
-    }
-
-    onCapabilityLightSaturation(value, opts, callback) {
-        var saturation = value * 100;
-        var hue = this.getCapabilityValue('light_hue') * 359;
-        this.sendCommand(this.getData().id, '{"id":1,"method":"set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
-        callback(null, value);
-    }
-
     onCapabilityHueSaturation(valueObj, optsObj) {
-        var hue = valueObj.light_hue * 359;
-        var saturation = valueObj.light_saturation * 100;
+        if (typeof valueObj.light_hue !== 'undefined') {
+            var hue_value = valueObj.light_hue;
+        } else {
+            var hue_value = this.getCapabilityValue('light_hue');
+        }
+
+        if (typeof valueObj.light_saturation !== 'undefined') {
+            var saturation_value = valueObj.light_saturation;
+        } else {
+            var saturation_value = this.getCapabilityValue('light_saturation');
+        }
+
+        var hue = hue_value * 359;
+        var saturation = saturation_value * 100;
         this.sendCommand(this.getData().id, '{"id":1,"method":"set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
         return Promise.resolve();
     }
@@ -97,37 +90,42 @@ class YeelightDevice extends Homey.Device {
             if (yeelights[id].socket === null) {
         		yeelights[id].socket = new net.Socket();
                 yeelights[id].socket.connect(yeelights[id].data.port, yeelights[id].data.address);
-        	}
+            }
         } catch (error) {
     		console.log("Yeelight: error creating socket " + error);
     	}
 
-        yeelights[id].socket.on('connect', function() {
+        yeelights[id].socket.on('connect', () => {
             device.setStoreValue('connected', true);
             device.setAvailable();
-            yeelights[id].socket.write('{"id":1,"method":"get_prop","params":["power", "bright", "color_mode", "ct", "rgb", "hue", "sat"]}' + '\r\n');
+
+            setTimeout(() => {
+                yeelights[id].socket.write('{"id":1,"method":"get_prop","params":["power", "bright", "color_mode", "ct", "rgb", "hue", "sat"]}' + '\r\n');
+            }, 4000);
         });
 
-        yeelights[id].socket.on('error', function(error) {
-            device.setUnavailable(Homey.__('unreachable'));
+        yeelights[id].socket.on('error', (error) => {
+            yeelights[id].socket.destroy();
+            yeelights[id].socket.unref();
             console.log("Yeelight: error on socket "+ error);
         });
 
-        yeelights[id].socket.on('timeout', function() {
-            yeelights[id].socket.end(Homey.__('unreachable'));
-            device.setUnavailable(Homey.__('unreachable'));
-            console.log("Yeelight: time on socket");
+        yeelights[id].socket.on('timeout', () => {
+            yeelights[id].socket.destroy();
+            yeelights[id].socket.unref();
+            console.log("Yeelight: timeout on socket");
         });
 
-        yeelights[id].socket.on('close', function(error) {
-            yeelights[id].socket.destroy();
-            yeelights[id].socket = null;
+        yeelights[id].socket.on('close', (error) => {
             device.setUnavailable(Homey.__('unreachable'));
+            yeelights[id].socket = null;
             device.setStoreValue('connected', false);
         });
 
-        process.nextTick(function() {
-            yeelights[id].socket.on('data', function(message, address) {
+        process.nextTick(() => {
+            yeelights[id].socket.on('data', (message, address) => {
+                clearTimeout(yeelights[id].timeout);
+
                 var result = message.toString();
                 var result = result.replace(/{"id":1, "result":\["ok"\]}/g, "").replace(/\r\n/g,'');
 
@@ -214,17 +212,23 @@ class YeelightDevice extends Homey.Device {
                     }
                 }
 
-        	}.bind(this));
-        }.bind(this));
+        	});
+        });
     }
 
     /* send commands to devices using their socket connection */
     sendCommand(id, command) {
-    	if (yeelights[id].socket === null) {
+    	if (yeelights[id].socket === null || this.getStoreValue('connected') === false) {
     		this.log('Connection to device broken');
             this.createDeviceSocket(id);
     	} else {
             yeelights[id].socket.write(command + '\r\n');
+
+            yeelights[id].timeout = setTimeout(() => {
+                yeelights[id].socket.destroy();
+                yeelights[id].socket.unref();
+                this.log("Yeelight: error on sending command");
+            }, 5000);
         }
     }
 
