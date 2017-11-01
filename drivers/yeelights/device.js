@@ -19,6 +19,7 @@ class YeelightDevice extends Homey.Device {
         yeelights[id] = {};
         yeelights[id].data = this.getData();
         yeelights[id].socket = null;
+        yeelights[id].timeout = null;
 
         this.createDeviceSocket(id);
     }
@@ -29,6 +30,7 @@ class YeelightDevice extends Homey.Device {
         yeelights[id] = {};
         yeelights[id].data = this.getData();
         yeelights[id].socket = null;
+        yeelights[id].timeout = null;
 
         this.createDeviceSocket(id);
     }
@@ -50,7 +52,11 @@ class YeelightDevice extends Homey.Device {
 
     onCapabilityDim(value, opts, callback) {
         var brightness = value * 100;
-        this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", 500]}');
+        if(typeof opts.duration !== 'undefined') {
+            this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", '+ opts.duration +']}');
+        } else {
+            this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", 500]}');
+        }
         callback(null, value);
     }
 
@@ -100,7 +106,9 @@ class YeelightDevice extends Homey.Device {
             device.setAvailable();
 
             setTimeout(() => {
-                yeelights[id].socket.write('{"id":1,"method":"get_prop","params":["power", "bright", "color_mode", "ct", "rgb", "hue", "sat"]}' + '\r\n');
+                if (yeelights[id].socket !== null) {
+                    yeelights[id].socket.write('{"id":1,"method":"get_prop","params":["power", "bright", "color_mode", "ct", "rgb", "hue", "sat"]}' + '\r\n');
+                }
             }, 4000);
         });
 
@@ -125,6 +133,7 @@ class YeelightDevice extends Homey.Device {
         process.nextTick(() => {
             yeelights[id].socket.on('data', (message, address) => {
                 clearTimeout(yeelights[id].timeout);
+                yeelights[id].timeout = null;
 
                 var result = message.toString();
                 var result = result.replace(/{"id":1, "result":\["ok"\]}/g, "").replace(/\r\n/g,'');
@@ -224,11 +233,15 @@ class YeelightDevice extends Homey.Device {
     	} else {
             yeelights[id].socket.write(command + '\r\n');
 
-            yeelights[id].timeout = setTimeout(() => {
-                yeelights[id].socket.destroy();
-                yeelights[id].socket.unref();
-                this.log("Yeelight: error on sending command");
-            }, 5000);
+            if (yeelights[id].timeout === null) {
+                yeelights[id].timeout = setTimeout(() => {
+                    if (yeelights[id].socket !== null) {
+                        yeelights[id].socket.destroy();
+                        yeelights[id].socket.unref();
+                    }
+                    this.log("Yeelight: error on sending command");
+                }, 6000);
+            }
         }
     }
 

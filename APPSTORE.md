@@ -7,10 +7,12 @@ This app uses an unofficial library called the [miIO Device Library](https://git
 Below is a list of  supported devices and devices that might be supported in the future if there is demand for this. Post a comment in the app store if you would like to see support for a specific device.
 * Yeelight Bulbs Wi-Fi (tested)
 * Yeelight LED strips (tested)
+* Yeelight Ceiling Light (untested)
+* Yeelight Bedside Lamp II (untested)
 * Air Purifiers 2 and Pro (tested)
 * Humidifier (untested)
 * NOT SUPPORTED ANYMORE: Robot Vacuum Cleaner (commands time out with latest firmware)
-* NOT SUPPORTED: Yeelight Desk Lamp, Yeelight Ceiling Lamp, Yeelight Bedside Lamp
+* NOT SUPPORTED: Yeelight Desk Lamp
 * NOT SUPPORTED: Smart Socket Plug and Power Strips
 * NOT SUPPORTED: Lunar Smart Sleep Sensor
 * NOT SUPPORTED: Air Quality Monitor (PM2.5)
@@ -40,6 +42,11 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * [ACTIONS] Power on/off, Set speed
 
 ## Changelog
+### 2017-10-28 -- v2.3.1 - beta
+* NEW: added support for the default dim over time action card for Yeelights
+* NEW: added support for Yeelight Bedside Lamp II (WiFi) and Yeelight Ceiling Light
+* FIX: hopefully fixed two bugs cause crashes and Yeelights showing as offline incorrectly
+
 ### 2017-10-28 -- v2.3.0 - beta
 * REMOVED: driver for the Mi Robot Vacuum Cleaner since it's not working anymore with the latest firmware update of the cleaner
 * IMPROVEMENT: removed the maximum time for the changing brightness over time

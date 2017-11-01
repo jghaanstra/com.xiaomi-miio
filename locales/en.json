@@ -22,5 +22,7 @@
     "yeelight_bulb_color": "Yeelight Bulb Color",
     "yeelight_bulb_white": "Yeelight Bulb White",
     "yeelight_led_stripe": "Yeelight LED Strip",
+    "yeelight_bedside_lamp": "Yeelight Bedside Lamp",
+    "yeelight_ceiling_light": "Yeelight Ceiling Light",
     "unreachable": "Offline"
 }

@@ -6,13 +6,17 @@ const yeelight = require('/lib/yeelight.js');
 const typeCapabilityMap = {
 	'mono'   : [ 'onoff', 'dim' ],
 	'color'  : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
-    'stripe' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ]
+    'stripe' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
+    'bslamp' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
+    'ceiling' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
 }
 
 const typeIconMap = {
 	'mono'   : 'bulb.svg',
 	'color'  : 'bulb.svg',
-    'stripe' : 'strip.svg'
+    'stripe' : 'strip.svg',
+    'bslamp' : 'bslamp.svg',
+    'ceiling': 'ceiling.svg'
 }
 
 class YeelightDriver extends Homey.Driver {
@@ -32,6 +36,10 @@ class YeelightDriver extends Homey.Driver {
                         var name = Homey.__('yeelight_bulb_white')+ ' (' + result[i].address + ')';
                     } else if (result[i].model == 'stripe') {
                         var name = Homey.__('yeelight_led_strip')+ ' (' + result[i].address + ')';
+                    } else if (result[i].model == 'bslamp') {
+                        var name = Homey.__('yeelight_bedside_lamp')+ ' (' + result[i].address + ')';
+                    } else if (result[i].model == 'ceiling') {
+                        var name = Homey.__('yeelight_ceiling_light')+ ' (' + result[i].address + ')';
                     }
                     devices.push({
                         name: name,
