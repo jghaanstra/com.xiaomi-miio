@@ -140,6 +140,140 @@ class XiaomiMiioApp extends Homey.App {
                         return Promise.reject(error);
                     })
             })
+
+        // MI ROBOT: CONDITION AND ACTION FLOW CARDS
+        // TODO: maintain support for the Mi Robot?
+        new Homey.FlowCardCondition('cleaningVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('state', 'cleaning', args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
+
+        new Homey.FlowCardCondition('chargingVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('state', 'charging', args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
+
+        new Homey.FlowCardCondition('returningVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('state', 'returning', args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
+
+        new Homey.FlowCardCondition('pausedVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('state', 'paused', args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
+
+        new Homey.FlowCardAction('startVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('start', 0, args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
+
+        new Homey.FlowCardAction('pauseVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('pause', 0, args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
+
+        new Homey.FlowCardAction('stopVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('stop', 0, args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
+
+        new Homey.FlowCardAction('chargeVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('charge', 0, args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
+
+        new Homey.FlowCardAction('spotCleanVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('spotclean', 0, args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
+
+        new Homey.FlowCardAction('findVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('find', 0, args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
+
+        new Homey.FlowCardAction('fanPowerVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('fanPower', args.fanspeed, args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
     }
 }
 
