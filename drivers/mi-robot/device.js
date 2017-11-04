@@ -28,7 +28,6 @@ class MiRobotDevice extends Homey.Device {
             if (error) {
                 callback(error, false);
             } else {
-                this._device.state.onoff = value;
                 this.setCapabilityValue('onoff', value);
                 callback(null, value);
             }
@@ -39,20 +38,16 @@ class MiRobotDevice extends Homey.Device {
         switch (value) {
             case "cleaning":
                 var vacuum_state = 'start';
-                this._device.state.state = 'cleaning';
                 break;
             case "spot_cleaning":
                 var vacuum_state = 'spotclean';
-                this._device.state.state = 'spot_cleaning';
                 break;
             case "stopped":
                 var vacuum_state = 'stop';
-                this._device.state.state = 'stopped';
                 break;
             case "docked":
             case "charging":
                 var vacuum_state = 'charge';
-                this._device.state.state = 'charging';
                 break;
             default:
                 this.log("Not a valid vacuumcleaner_state");
@@ -77,43 +72,39 @@ class MiRobotDevice extends Homey.Device {
         this.pollingInterval = setInterval(() => {
             util.getVacuumCleaner(this.getSetting('address'), this.getSetting('token'))
                 .then(result => {
-                    if (this._device.state.onoff != result.onoff) {
-                        this._device.state.onoff = result.onoff;
+                    if (this.getCapabilityValue('onoff') != result.onoff) {
                         this.setCapabilityValue('onoff', result.onoff);
                     }
-                    if (this._device.state.battery != result.battery) {
-                        this._device.state.battery = result.battery;
+                    if (this.getCapabilityValue('measure_battery') != result.battery) {
                         this.setCapabilityValue('measure_battery', result.battery);
                     }
+
+                    var vacuumcleanerState = this.getCapabilityValue('vacuumcleaner_state');
 
                     switch (result.state) {
                         case 'cleaning':
                         case 'returning':
-                            if (this._device.state.state != 'cleaning') {
-                                this._device.state.state = 'cleaning';
+                            if (vacuumcleanerState != 'cleaning') {
                                 this.setCapabilityValue('vacuumcleaner_state', 'cleaning');
                             }
                             break;
                         case 'spot-cleaning':
-                            if (this._device.state.state != 'spot_cleaning') {
-                                this._device.state.state = 'spot_cleaning';
+                            if (vacuumcleanerState != 'spot_cleaning') {
                                 this.setCapabilityValue('vacuumcleaner_state', 'spot_cleaning');
                             }
                             break;
                         case 'charging':
-                            if (this._device.state.state != 'charging') {
-                                this._device.state.state = 'charging';
+                            if (vacuumcleanerState != 'charging') {
                                 this.setCapabilityValue('vacuumcleaner_state', 'charging');
                             }
                             break;
                         case 'paused':
-                            if (this._device.state.state != 'stopped') {
-                                this._device.state.state = 'stopped';
+                            if (vacuumcleanerState != 'stopped') {
                                 this.setCapabilityValue('vacuumcleaner_state', 'stopped');
                             }
                             break;
                         default:
-                            this._device.state.state = 'stopped';
+                            vacuumcleanerState = 'stopped';
                             this.setCapabilityValue('vacuumcleaner_state', 'stopped');
                     }
 

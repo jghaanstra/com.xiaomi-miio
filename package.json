@@ -4,7 +4,7 @@
   "description": "Xiaomi Mi Home",
   "main": "app.js",
   "dependencies": {
-    "miio": "^0.13.0",
+    "miio": "^0.14.0",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {},
