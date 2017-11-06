@@ -42,21 +42,12 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * [ACTIONS] Power on/off, Set speed
 
 ## Changelog
-### 2017-10-28 -- v2.3.1 - beta
+### 2017-11-06 -- v2.3.1
+* UPDATE: code rewrite for SDK2
+* UPDATE: made use of official donation button feature of Homey app store
+* REMOVED: driver for the Mi Robot Vacuum Cleaner since it's not working anymore with the latest firmware update of the cleaner (if you still want to use/try it you can do a local install from the [beta branch on GitHub](https://github.com/jghaanstra/com.xiaomi-miio/tree/beta) )
+* NEW: changed Yeelight driver to support Yeelight LED strip (require repairing of **ALL** Yeelight devices)
+* NEW: added extra action cards for Yeelights: Change brightness over time, Custom command (advanced), Set default on state, Temperature/brightness scene, Color/brightness scene
 * NEW: added support for the default dim over time action card for Yeelights
 * NEW: added support for Yeelight Bedside Lamp II (WiFi) and Yeelight Ceiling Light
-* FIX: hopefully fixed two bugs cause crashes and Yeelights showing as offline incorrectly
-
-### 2017-10-28 -- v2.3.0 - beta
-* REMOVED: driver for the Mi Robot Vacuum Cleaner since it's not working anymore with the latest firmware update of the cleaner
-* IMPROVEMENT: removed the maximum time for the changing brightness over time
-* FIX: fixed issue with stuttering when changing colors for Yeelights within the new mobile app
-* FIX: fixed error due to destroying a non existent connection socket on Yeelighs
-* NEW: added extra action cards for Yeelights: Temperature/brightness scene, Color/brightness scene
-
-### 2017-10-15 -- v2.2.0 - beta
-* UPDATE: code rewrite for SDK2
-* IMPROVEMENT: switched from custom capability for air quality to the new default pm2.5 capability for the Air Purifier (require repairing of the air purifier)
-* NEW: changed Yeelight driver to support Yeelight LED strip (require repairing of **ALL** Yeelight devices)
-* NEW: added extra action cards for Yeelights: Change brightness over time, Custom command (advanced), Set default on state
-* UPDATE: made use of official donation button feature of Homey app store
+* IMPROVEMENT: switched from custom capability for air quality to the new default pm2.5 capability for the Air Purifier (requires repairing of the air purifier)
