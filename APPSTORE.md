@@ -42,6 +42,9 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * [ACTIONS] Power on/off, Set speed
 
 ## Changelog
+### 2017-11-11 -- v2.3.2
+* FIX: added a keep-alive to Yeelight connections to maintain the connection over time
+
 ### 2017-11-06 -- v2.3.1
 * UPDATE: code rewrite for SDK2
 * UPDATE: made use of official donation button feature of Homey app store

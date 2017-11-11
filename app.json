@@ -9,7 +9,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "yeelight", "yeelights", "purifier", "humidifier" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger" ]
 	},
-	"version": "2.3.1",
+	"version": "2.3.2",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",

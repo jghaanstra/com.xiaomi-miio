@@ -96,6 +96,7 @@ class YeelightDevice extends Homey.Device {
             if (yeelights[id].socket === null) {
         		yeelights[id].socket = new net.Socket();
                 yeelights[id].socket.connect(yeelights[id].data.port, yeelights[id].data.address);
+                socket.setKeepAlive(true, 60000);
             }
         } catch (error) {
     		console.log("Yeelight: error creating socket " + error);
