@@ -42,8 +42,9 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * [ACTIONS] Power on/off, Set speed
 
 ## Changelog
-### 2017-11-11 -- v2.3.2
+### 2017-11-30 -- v2.3.2
 * FIX: added a keep-alive to Yeelight connections to maintain the connection over time
+* FIX: fixed pairing wizard for Humidifier and Purifier
 
 ### 2017-11-06 -- v2.3.1
 * UPDATE: code rewrite for SDK2

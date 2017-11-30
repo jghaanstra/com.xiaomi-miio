@@ -17,7 +17,7 @@ $(function() {
                 token: inputtoken
             };
 
-            Homey.emit('test-connection', device_data, function(error, result) {
+            Homey.emit('testConnection', device_data, function(error, result) {
                 if(error) {
                     $('.mi-device-error').show();
                     $('.mi-device-error-msg').html( error.message || error.toString() );

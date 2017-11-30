@@ -18,10 +18,12 @@
     "contributing": {
         "donate": {
             "paypal": {
-                "email": "paypal@solidewebservices.com",
-                "currency": "EUR"
+                "username": "jghaanstra"
             }
         }
+    },
+    "bugs": {
+        "url": "https://github.com/jghaanstra/com.xiaomi-miio/issues"
     },
     "images": {
         "large": "./assets/images/large.jpg",
