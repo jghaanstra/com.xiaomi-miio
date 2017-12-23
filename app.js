@@ -140,6 +140,32 @@ class XiaomiMiioApp extends Homey.App {
                         return Promise.reject(error);
                     })
             })
+
+        // PHILIPS EYECARE LAMP: CONDITION AND ACTION FLOW CARDS
+        new Homey.FlowCardAction('enableEyecare')
+            .register()
+            .registerRunListener((args, state) => {
+                var eyecare = args.eyecare == 'on' ? true : false;
+                util.sendCommand('eyecare', eyecare, args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
+
+        new Homey.FlowCardAction('modeEyecare')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('mode', args.mode, args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
     }
 }
 

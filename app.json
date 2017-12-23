@@ -6,10 +6,10 @@
 		"nl": "Xiaomi Mi Home"
     },
     "tags": {
-		"en": [ "Xiaomi", "Mi", "Mi Home", "yeelight", "yeelights", "purifier", "humidifier" ],
-		"nl": [ "Xiaomi", "Mi", "Mi home", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger" ]
+		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug" ],
+		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug" ]
 	},
-	"version": "2.3.2",
+	"version": "2.4.0",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -77,6 +77,133 @@
                     "template": "add_devices"
                 }
             ]
+		},
+        {
+			"id": "philips-bulb",
+			"name": {
+				"en": "Philips Light Bulb",
+				"nl": "Philips Light Bulb"
+			},
+			"images": {
+				"large": "drivers/philips-bulb/assets/images/large.jpg",
+				"small": "drivers/philips-bulb/assets/images/small.jpg"
+			},
+			"class": "light",
+            "capabilities": [
+                "onoff",
+                "dim",
+                "light_temperature"
+            ],
+            "pair": [
+				{
+					"id": "start"
+				}
+			],
+            "settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "Philips Light Bulb Settings",
+						"nl": "Philips Light Bulb Instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "Philips Light Bulb Token",
+						        "nl": "Philips Light Bulb Token"
+					        }
+				        },
+                        {
+					        "id": "polling",
+					        "type": "number",
+					        "value": 10,
+                            "attr": {
+                                "min": 5,
+                                "max": 3600
+                            },
+					        "label": {
+						        "en": "Philips Light Bulb Polling",
+						        "nl": "Philips Light Bulb Polling"
+					        }
+				        }
+		            ]
+		        }
+		    ]
+		},
+        {
+			"id": "philips-eyecare",
+			"name": {
+				"en": "Philips Eyecare Lamp",
+				"nl": "Philips Eyecare Lamp"
+			},
+			"images": {
+				"large": "drivers/philips-eyecare/assets/images/large.jpg",
+				"small": "drivers/philips-eyecare/assets/images/small.jpg"
+			},
+			"class": "light",
+            "capabilities": [
+                "onoff",
+                "dim"
+            ],
+            "pair": [
+				{
+					"id": "start"
+				}
+			],
+            "settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "Philips Eyecare Lamp Settings",
+						"nl": "Philips Eyecare Lamp Instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "Philips Light Bulb Token",
+						        "nl": "Philips Light Bulb Token"
+					        }
+				        },
+                        {
+					        "id": "polling",
+					        "type": "number",
+					        "value": 10,
+                            "attr": {
+                                "min": 5,
+                                "max": 3600
+                            },
+					        "label": {
+						        "en": "Philips Light Bulb Polling",
+						        "nl": "Philips Light Bulb Polling"
+					        }
+				        }
+		            ]
+		        }
+		    ]
 		},
         {
 			"id": "mi-airpurifier",
@@ -149,6 +276,10 @@
 					        "id": "polling",
 					        "type": "number",
 					        "value": 60,
+                            "attr": {
+                                "min": 5,
+                                "max": 3600
+                            },
 					        "label": {
 						        "en": "Mi Air Purifier Polling",
 						        "nl": "Mi Luchtreiniger Polling"
@@ -225,9 +356,93 @@
 					        "id": "polling",
 					        "type": "number",
 					        "value": 60,
+                            "attr": {
+                                "min": 5,
+                                "max": 3600
+                            },
 					        "label": {
 						        "en": "Mi Humidifier Polling",
 						        "nl": "Mi Luchtbevochtiger Polling"
+					        }
+				        }
+		            ]
+		        }
+		    ]
+		},
+        {
+			"id": "mi-power-plug",
+			"name": {
+				"en": "Mi Power Plug",
+				"nl": "Mi Power Plug"
+			},
+			"images": {
+				"large": "drivers/mi-power-plug/assets/images/large.jpg",
+				"small": "drivers/mi-power-plug/assets/images/small.jpg"
+			},
+			"class": "sensor",
+            "capabilities": [
+                "onoff",
+                "measure_power",
+                "meter_power"
+            ],
+            "mobile": {
+                "components": [
+                    {
+                        "id": "icon",
+                        "capabilities": [ "onoff" ]
+                    },
+                    {
+                        "id": "sensor",
+                        "capabilities": [ "measure_power" ]
+                    },
+                    {
+                        "id": "sensor",
+                        "capabilities": [ "meter_power" ]
+                    }
+                ]
+            },
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "Mi Power Plug Settings",
+						"nl": "Mi Power Plug Instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "Mi Power Plug Token",
+						        "nl": "Mi Power Plug Token"
+					        }
+				        },
+                        {
+					        "id": "polling",
+					        "type": "number",
+					        "value": 30,
+                            "attr": {
+                                "min": 5,
+                                "max": 3600
+                            },
+					        "label": {
+						        "en": "Mi Power Plug Polling",
+						        "nl": "Mi Power Plug Polling"
 					        }
 				        }
 		            ]
@@ -673,6 +888,96 @@
 							"nl": "Selecteer Mi Luchtbevochtiger"
 						},
 						"filter": "driver_id=mi-humidifier"
+                    }
+				]
+			},
+            {
+				"id": "enableEyecare",
+				"title": {
+					"en": "Switch Eyecare",
+					"nl": "Eyecare schakelen"
+				},
+				"args": [
+                    {
+						"name": "eyecare",
+						"type": "dropdown",
+                        "values": [
+                            {
+                                "id": "on",
+                                "label": {
+                                    "en": "On",
+                                    "nl": "Aan"
+                                }
+                            },
+                            {
+                                "id": "off",
+                                "label": {
+                                    "en": "Off",
+                                    "nl": "Uit"
+                                }
+                            },
+                            {
+                                "id": "phone",
+                                "label": {
+                                    "en": "Phone",
+                                    "nl": "Telefoon"
+                                }
+                            }
+                        ]
+                    },
+                    {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Philips Eyecare Lamp",
+							"nl": "Selecteer Philips Eyecare Lamp"
+						},
+						"filter": "driver_id=philips-eyecare"
+                    }
+				]
+			},
+            {
+				"id": "modeEyecare",
+				"title": {
+					"en": "Set Mode",
+					"nl": "Stel modus in"
+				},
+				"args": [
+                    {
+						"name": "mode",
+						"type": "dropdown",
+                        "values": [
+                            {
+                                "id": "study",
+                                "label": {
+                                    "en": "Study",
+                                    "nl": "Studeer"
+                                }
+                            },
+                            {
+                                "id": "reading",
+                                "label": {
+                                    "en": "Reading",
+                                    "nl": "Lezen"
+                                }
+                            },
+                            {
+                                "id": "phone",
+                                "label": {
+                                    "en": "Phone",
+                                    "nl": "Telefoon"
+                                }
+                            }
+                        ]
+                    },
+                    {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Philips Eyecare Lamp",
+							"nl": "Selecteer Philips Eyecare Lamp"
+						},
+						"filter": "driver_id=philips-eyecare"
                     }
 				]
 			}

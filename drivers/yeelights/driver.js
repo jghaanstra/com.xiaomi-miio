@@ -4,19 +4,21 @@ const Homey = require('homey');
 const yeelight = require('/lib/yeelight.js');
 
 const typeCapabilityMap = {
-	'mono'   : [ 'onoff', 'dim' ],
-	'color'  : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
-    'stripe' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
-    'bslamp' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
-    'ceiling' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
+	'mono'     : [ 'onoff', 'dim' ],
+	'color'    : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
+    'stripe'   : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
+    'bslamp'   : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
+    'ceiling'  : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
+    'ceiling4' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
 }
 
 const typeIconMap = {
-	'mono'   : 'bulb.svg',
-	'color'  : 'bulb.svg',
-    'stripe' : 'strip.svg',
-    'bslamp' : 'bslamp.svg',
-    'ceiling': 'ceiling.svg'
+	'mono'    : 'bulb.svg',
+	'color'   : 'bulb.svg',
+    'stripe'  : 'strip.svg',
+    'bslamp'  : 'bslamp.svg',
+    'ceiling' : 'ceiling.svg',
+    'ceiling4': 'ceiling4.svg'
 }
 
 class YeelightDriver extends Homey.Driver {
@@ -38,7 +40,7 @@ class YeelightDriver extends Homey.Driver {
                         var name = Homey.__('yeelight_led_strip')+ ' (' + result[i].address + ')';
                     } else if (result[i].model == 'bslamp') {
                         var name = Homey.__('yeelight_bedside_lamp')+ ' (' + result[i].address + ')';
-                    } else if (result[i].model == 'ceiling') {
+                    } else if (result[i].model == 'ceiling' || result[i].model == 'ceiling4') {
                         var name = Homey.__('yeelight_ceiling_light')+ ' (' + result[i].address + ')';
                     }
                     devices.push({
