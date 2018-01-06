@@ -53,7 +53,8 @@ class PhilipsBulbDevice extends Homey.Device {
     }
 
     onCapabilityLightTemperature(value, opts, callback) {
-        util.sendCommand('colortemperature', value, this.getSetting('address'), this.getSetting('token'), function(error, result) {
+        var color_temp = util.denormalize(value, 3000, 5700);
+        util.sendCommand('colortemperature', color_temp, this.getSetting('address'), this.getSetting('token'), function(error, result) {
             if (error) {
                 callback(error, false);
             } else {

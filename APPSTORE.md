@@ -5,7 +5,7 @@ This app uses an unofficial library called the [miIO Device Library](https://git
 
 ## Supported devices
 Below is a list of  supported devices and devices that might be supported in the future if there is demand for this. Post a comment in the app store if you would like to see support for a specific device.
-* Yeelights: Bulbs Wi-Fi (tested), LED strips (tested), Bedside Lamp II (tested), Ceiling Lights (untested)
+* Yeelights: Bulbs Wi-Fi (tested), LED strips (tested), Bedside Lamp II (tested), Ceiling Lights (tested)
 * Xiaomi Philips: Light Bulbs (untested), Eyecare Lamp 2 (untested)
 * Xiaomi Air Purifiers 2 and Pro (tested)
 * Xiamomi Humidifier (untested)
@@ -45,7 +45,11 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * Default flow cards for on/off, measure power and meter power capabilities class
 
 ## Changelog
-### 2017-12-20 -- v2.4.0 - beta
+### 2018-01-06 -- v2.4.1
+* FIX: some tweaks for the Yeelight JIAOYUE 650 Ceiling Light as it has seperate white (main lamp) and color (background color ring) capabilities
+* FIX: probable fix for temperature setting on Philips Light Bulbs
+
+### 2017-12-20 -- v2.4.0
 * NEW: added support for the Philips Xiaomi Light Bulbs (untested)
 * NEW: added support for the Philips Xiaomi Eyecare Lamp 2 (untested)
 * NEW: added support for the Xiaomi Single Power Plug (untested)

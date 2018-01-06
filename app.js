@@ -34,7 +34,11 @@ class XiaomiMiioApp extends Homey.App {
                 var color = tinycolor(args.color);
                 var rgb = color.toRgb();
                 var colordecimal = (rgb.r * 65536) + (rgb.g * 256) + rgb.b;
-                args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"set_scene", "params":["color", '+ colordecimal +', '+ args.brightness +']}')
+                if(args.device.getData().model == 'ceiling4') {
+                    args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"bg_set_scene", "params":["color", '+ colordecimal +', '+ args.brightness +']}')
+                } else {
+                    args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"set_scene", "params":["color", '+ colordecimal +', '+ args.brightness +']}')
+                }
             })
 
         new Homey.FlowCardAction('yeelightCustomCommand')

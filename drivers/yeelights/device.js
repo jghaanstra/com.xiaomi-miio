@@ -51,7 +51,11 @@ class YeelightDevice extends Homey.Device {
     }
 
     onCapabilityDim(value, opts, callback) {
-        var brightness = value * 100;
+        if(value == 0) {
+            var brightness = 1;
+        } else {
+            var brightness = value * 100;
+        }
         if(typeof opts.duration !== 'undefined') {
             this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", '+ opts.duration +']}');
         } else {
@@ -75,12 +79,21 @@ class YeelightDevice extends Homey.Device {
 
         var hue = hue_value * 359;
         var saturation = saturation_value * 100;
-        this.sendCommand(this.getData().id, '{"id":1,"method":"set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
+
+        if (this.getData().model == 'ceiling4') {
+            this.sendCommand(this.getData().id, '{"id":1,"method":"bg_set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
+        } else {
+            this.sendCommand(this.getData().id, '{"id":1,"method":"set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
+        }
         return Promise.resolve();
     }
 
     onCapabilityLightTemperature(value, opts, callback) {
-        var color_temp = yeelight.denormalize(value, 1700, 6500);
+        if (this.getData().model == 'ceiling4') {
+            var color_temp = yeelight.denormalize(value, 2700, 6000);
+        } else {
+            var color_temp = yeelight.denormalize(value, 1700, 6500);
+        }
         this.sendCommand(this.getData().id, '{"id":1,"method":"set_ct_abx","params":['+ color_temp +', "smooth", 500]}');
         callback(null, value);
     }
@@ -157,7 +170,11 @@ class YeelightDevice extends Homey.Device {
                                 device.setCapabilityValue('dim', dim);
                                 break;
                             case 'ct':
-                                var color_temp = yeelight.normalize(result.params.ct, 1700, 6500);
+                                if (device.getData().model == 'ceiling4') {
+                                    var color_temp = yeelight.normalize(result.params.ct, 2700, 6000);
+                                } else {
+                                    var color_temp = yeelight.normalize(result.params.ct, 1700, 6500);
+                                }
                                 device.setCapabilityValue('light_temperature', color_temp);
                                 break;
                             case 'rgb':
@@ -199,7 +216,11 @@ class YeelightDevice extends Homey.Device {
                             var dim = result.result[1] / 100;
                             var hue = result.result[5] / 359;
                             var saturation = result.result[6] / 100;
-                            var color_temp = yeelight.normalize(result.result[3], 1700, 6500);
+                            if (device.getData().model == 'ceiling4') {
+                                var color_temp = yeelight.normalize(result.result[3], 2700, 6000);
+                            } else {
+                                var color_temp = yeelight.normalize(result.result[3], 1700, 6500);
+                            }
                             if(result.result[2] == 2) {
                                 var color_mode = 'temperature';
                             } else {
