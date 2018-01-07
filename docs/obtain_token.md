@@ -63,9 +63,9 @@ Use these methods to obtain the device token for devices that hide their tokens 
 ## Jailbroken iOS users
 * Setup your iOS device with the Mi Home app
 * Use something like Forklift sFTP to connect to your iOS device and copy this file to your computer: /var/mobile/Containers/Data/Application/514106F3-C854-45E9-A45C-119CB4FFC235/Documents/USERID_mihome.sqlite
- * username: root
- * IP address: your phones IP address
- * password: alpine (unless you changed it something else)
+    * username: root
+    * IP address: your phones IP address
+    * password: alpine (unless you changed it something else)
 * Open this file with a SQLite browser (for instance http://sqlitebrowser.org/)
 * Execute the query "select ZTOKEN from ZDEVICE where ZLOCALIP is '192.168.0.1'" where you replace the IP address with the IP address of the Mi Home device you want to get the token from. It will show you the 32 character device token for your Mi Home device.
 * The latest Mi Home app store the tokens encrypted into a 96 character key and require an extra step to decode this into the actual token. Visit [this](http://aes.online-domain-tools.com/) website and enter the details as shown below:
