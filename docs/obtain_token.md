@@ -50,6 +50,15 @@ Use these methods to obtain the device token for devices that hide their tokens 
 * Navigate to the com.xiaomi.mihome folder which you just saved somewhere and inside this folder navigate to the /Documents/ subfolder. In this folder there is a file named <userid>_mihome.sqlite where your userid is specific for your account.
 * Open this file with a SQLite browser (for instance http://sqlitebrowser.org/)
 * Execute the query "select ZTOKEN from ZDEVICE where ZLOCALIP is '192.168.0.1'" where you replace the IP address with the IP address of the Mi Home device you want to get the token from. It will show you the 32 character device token for your Mi Home device.
+* The latest Mi Home app store the tokens encrypted into a 96 character key and require an extra step to decode this into the actual token. Visit [this](http://aes.online-domain-tools.com/) website and enter the details as shown below:
+** __Input type:__ text
+** __Input text (hex):__ your 96 character key
+** __Selectbox Plaintext / Hex:__ Hex
+** __Function:__ AES
+** __Mode:__ ECB
+** __Key (hex):__ 00000000000000000000000000000000
+** __Selectbox Plaintext / Hex:__ Hex
+* Hit the decrypt button. Your token are the first two lines of the right block of code. These two lines should contain a token of 32 characters and should be the correct token for your device.
 
 ## Jailbroken iOS users
 * Setup your iOS device with the Mi Home app
@@ -59,3 +68,12 @@ Use these methods to obtain the device token for devices that hide their tokens 
 ** password: alpine (unless you changed it something else)
 * Open this file with a SQLite browser (for instance http://sqlitebrowser.org/)
 * Execute the query "select ZTOKEN from ZDEVICE where ZLOCALIP is '192.168.0.1'" where you replace the IP address with the IP address of the Mi Home device you want to get the token from. It will show you the 32 character device token for your Mi Home device.
+* The latest Mi Home app store the tokens encrypted into a 96 character key and require an extra step to decode this into the actual token. Visit [this](http://aes.online-domain-tools.com/) website and enter the details as shown below:
+** __Input type:__ text
+** __Input text (hex):__ your 96 character key
+** __Selectbox Plaintext / Hex:__ Hex
+** __Function:__ AES
+** __Mode:__ ECB
+** __Key (hex):__ 00000000000000000000000000000000
+** __Selectbox Plaintext / Hex:__ Hex
+* Hit the decrypt button. Your token are the first two lines of the right block of code. These two lines should contain a token of 32 characters and should be the correct token for your device.
