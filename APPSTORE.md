@@ -45,9 +45,10 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * Default flow cards for on/off, measure power and meter power capabilities class
 
 ## Changelog
-### 2018-01-06 -- v2.4.1
+### 2018-01-07 -- v2.4.1
 * FIX: some tweaks for the Yeelight JIAOYUE 650 Ceiling Light as it has seperate white (main lamp) and color (background color ring) capabilities
 * FIX: probable fix for temperature setting on Philips Light Bulbs
+* UPDATE: updated miio library to 0.14.1 to support latest model air purifier
 
 ### 2017-12-20 -- v2.4.0
 * NEW: added support for the Philips Xiaomi Light Bulbs (untested)
