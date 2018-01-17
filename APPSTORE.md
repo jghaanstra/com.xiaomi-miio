@@ -4,7 +4,7 @@ Use Homey to control Xiaomi Mi Home devices (the Mi Home Ecosystem is also brand
 This app uses an unofficial library called the [miIO Device Library](https://github.com/aholstenson/miio) for communication with those devices which lack official support for controlling externally, credits go out to the author of this library. This Homey app also only adds support for the devices that can be controlled directly through Wi-Fi, there is a whole range of Mi Home sensors that can only be used together with the Xiaomi Smart Home Gateway (which uses ZigBee) but this is currently out the scope of this app.
 
 ## Supported devices
-Below is a list of  supported devices and devices that might be supported in the future if there is demand for this. Post a comment in the app store if you would like to see support for a specific device.
+Below is a list of  supported devices and devices that might be supported in the future if there is demand for this. Post a comment in the app store if you would like to see support for a specific device, some devices might already be supported but just need to be implemented. For other devices you may need some technical knowledge to discover the device properties yourself as described [here](https://github.com/aholstenson/miio/blob/master/docs/missing-devices.md).
 * Yeelights: Bulbs Wi-Fi (tested), LED strips (tested), Bedside Lamp II (tested), Ceiling Lights (tested)
 * Xiaomi Philips: Light Bulbs (untested), Eyecare Lamp 2 (untested)
 * Xiaomi Air Purifiers 2 and Pro (tested)
@@ -45,6 +45,11 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * Default flow cards for on/off, measure power and meter power capabilities class
 
 ## Changelog
+### 2018-01-17 -- v2.4.2
+* FIX: some improvements for the Yeelights which will hopefully fix devices as appearing offline in Homey
+* UPDATE: added favorite mode as option for Air Purifiers
+* UPDATE: added card to set the speed of the favorite mode for Air Purifiers
+
 ### 2018-01-07 -- v2.4.1
 * FIX: some tweaks for the Yeelight JIAOYUE 650 Ceiling Light as it has seperate white (main lamp) and color (background color ring) capabilities
 * FIX: probable fix for temperature setting on Philips Light Bulbs
@@ -54,17 +59,3 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * NEW: added support for the Philips Xiaomi Light Bulbs (untested)
 * NEW: added support for the Philips Xiaomi Eyecare Lamp 2 (untested)
 * NEW: added support for the Xiaomi Single Power Plug (untested)
-
-### 2017-11-30 -- v2.3.2
-* FIX: added a keep-alive to Yeelight connections to maintain the connection over time
-* FIX: fixed pairing wizard for Humidifier and Purifier
-
-### 2017-11-06 -- v2.3.1
-* UPDATE: code rewrite for SDK2
-* UPDATE: made use of official donation button feature of Homey app store
-* REMOVED: driver for the Mi Robot Vacuum Cleaner since it's not working anymore with the latest firmware update of the cleaner (if you still want to use/try it you can do a local install from an archive [beta branch on GitHub](https://github.com/jghaanstra/com.xiaomi-miio/releases/tag/2.3.1-beta) )
-* NEW: changed Yeelight driver to support Yeelight LED strip (require repairing of **ALL** Yeelight devices)
-* NEW: added extra action cards for Yeelights: Change brightness over time, Custom command (advanced), Set default on state, Temperature/brightness scene, Color/brightness scene
-* NEW: added support for the default dim over time action card for Yeelights
-* NEW: added support for Yeelight Bedside Lamp II (WiFi) and Yeelight Ceiling Light
-* IMPROVEMENT: switched from custom capability for air quality to the new default pm2.5 capability for the Air Purifier (requires repairing of the air purifier)

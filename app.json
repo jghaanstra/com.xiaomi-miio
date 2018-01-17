@@ -9,7 +9,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug" ]
 	},
-	"version": "2.4.1",
+	"version": "2.4.2",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -519,8 +519,8 @@
 					"nl": "Wijzig helderheid over tijd"
 				},
                 "hint": {
-					"en": "Use this card to create a changing effect of temperature and brightness over time (duration in milliseconds, temperature in Kelvin 2700-6500 and brightness in percentage)",
-					"nl": "Gebruik deze actie voor een veranderd effect van licht temperatuur en helderheid over tijd (doorlooptijd in milliseconden, temperatuur in Kelvin 2700-6500 en helderheid in percentage)"
+					"en": "Use this card to create a changing effect of temperature and brightness over time (duration in milliseconds, temperature in Kelvin 1700-6500 and brightness in percentage)",
+					"nl": "Gebruik deze actie voor een veranderd effect van licht temperatuur en helderheid over tijd (doorlooptijd in milliseconden, temperatuur in Kelvin 1700-6500 en helderheid in percentage)"
 				},
 				"args": [
                     {
@@ -571,7 +571,7 @@
                             "en": "Temperature",
                             "nl": "Temperatuur"
                         },
-                        "min": 2700,
+                        "min": 1700,
                         "max": 6500,
                         "step": 1
                     },
@@ -604,8 +604,8 @@
 					"nl": "Temperatuur en helderheid"
 				},
                 "hint": {
-					"en": "Use this card to set the temperature and brightness directly (temperature in Kelvin 2700-6500 and brightness in percentage)",
-					"nl": "Gebruik deze actie om de temperatuur en helderheid direct in te stellen (temperatuur in Kelvin 2700-6500 en helderheid in percentage)"
+					"en": "Use this card to set the temperature and brightness directly (temperature in Kelvin 1700-6500 and brightness in percentage)",
+					"nl": "Gebruik deze actie om de temperatuur en helderheid direct in te stellen (temperatuur in Kelvin 1700-6500 en helderheid in percentage)"
 				},
 				"args": [
                     {
@@ -615,7 +615,7 @@
                             "en": "Temperature",
                             "nl": "Temperatuur"
                         },
-                        "min": 2700,
+                        "min": 1700,
                         "max": 6500,
                         "step": 1
                     },
@@ -777,24 +777,10 @@
                                 }
                             },
                             {
-                                "id": "low",
+                                "id": "favorite",
                                 "label": {
-                                    "en": "Low",
-                                    "nl": "Laag"
-                                }
-                            },
-                            {
-                                "id": "medium",
-                                "label": {
-                                    "en": "Medium",
-                                    "nl": "Middel"
-                                }
-                            },
-                            {
-                                "id": "high",
-                                "label": {
-                                    "en": "High",
-                                    "nl": "Hoog"
+                                    "en": "Favorite",
+                                    "nl": "Favorite"
                                 }
                             }
                         ]
@@ -808,6 +794,142 @@
 						},
 						"filter": "driver_id=mi-airpurifier"
                     }
+				]
+			},
+            {
+				"id": "airpurifierSetFavorite",
+				"title": {
+					"en": "Set Favorite Speed",
+					"nl": "Favoriete snelheid instellen"
+				},
+				"args": [
+                    {
+						"name": "favorite",
+						"type": "dropdown",
+                        "values": [
+                            {
+                                "id": "1",
+                                "label": {
+                                    "en": "1",
+                                    "nl": "1"
+                                }
+                            },
+                            {
+                                "id": "2",
+                                "label": {
+                                    "en": "2",
+                                    "nl": "2"
+                                }
+                            },
+                            {
+                                "id": "3",
+                                "label": {
+                                    "en": "3",
+                                    "nl": "3"
+                                }
+                            },
+                            {
+                                "id": "4",
+                                "label": {
+                                    "en": "4",
+                                    "nl": "4"
+                                }
+                            },
+                            {
+                                "id": "5",
+                                "label": {
+                                    "en": "5",
+                                    "nl": "5"
+                                }
+                            },
+                            {
+                                "id": "6",
+                                "label": {
+                                    "en": "6",
+                                    "nl": "6"
+                                }
+                            },
+                            {
+                                "id": "7",
+                                "label": {
+                                    "en": "7",
+                                    "nl": "7"
+                                }
+                            },
+                            {
+                                "id": "8",
+                                "label": {
+                                    "en": "8",
+                                    "nl": "8"
+                                }
+                            },
+                            {
+                                "id": "9",
+                                "label": {
+                                    "en": "9",
+                                    "nl": "9"
+                                }
+                            },
+                            {
+                                "id": "10",
+                                "label": {
+                                    "en": "10",
+                                    "nl": "10"
+                                }
+                            },
+                            {
+                                "id": "11",
+                                "label": {
+                                    "en": "11",
+                                    "nl": "11"
+                                }
+                            },
+                            {
+                                "id": "12",
+                                "label": {
+                                    "en": "12",
+                                    "nl": "12"
+                                }
+                            },
+                            {
+                                "id": "13",
+                                "label": {
+                                    "en": "13",
+                                    "nl": "13"
+                                }
+                            },
+                            {
+                                "id": "14",
+                                "label": {
+                                    "en": "14",
+                                    "nl": "14"
+                                }
+                            },
+                            {
+                                "id": "15",
+                                "label": {
+                                    "en": "15",
+                                    "nl": "15"
+                                }
+                            },
+                            {
+                                "id": "16",
+                                "label": {
+                                    "en": "16",
+                                    "nl": "16"
+                                }
+                            }
+                        ]
+                    },
+                    {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Air Purifier",
+							"nl": "Selecteer Mi Luchtreiniger"
+						},
+						"filter": "driver_id=mi-airpurifier"
+					}
 				]
 			},
             {

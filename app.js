@@ -72,6 +72,18 @@ class XiaomiMiioApp extends Homey.App {
                     })
             })
 
+        new Homey.FlowCardAction('airpurifierSetFavorite')
+            .register()
+            .registerRunListener((args, state) => {
+                util.sendCommand('setfavorite', args.favorite, args.device.getSetting('address'), args.device.getSetting('token'))
+                    .then(result => {
+                        return Promise.resolve(result);
+                    })
+                    .catch(error => {
+                        return Promise.reject(error);
+                    })
+            })
+
         new Homey.FlowCardAction('airpurifierOn')
             .register()
             .registerRunListener((args, state) => {

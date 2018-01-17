@@ -52,9 +52,6 @@ class YeelightDriver extends Homey.Driver {
                             model: result[i].model
                         },
                         capabilities: typeCapabilityMap[result[i].model],
-                        store: {
-                            connected: false
-                        },
                         icon: typeIconMap[result[i].model]
                     });
                 }
