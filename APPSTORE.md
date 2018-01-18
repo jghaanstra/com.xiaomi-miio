@@ -45,6 +45,9 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * Default flow cards for on/off, measure power and meter power capabilities class
 
 ## Changelog
+### 2018-01-18 -- v2.4.3
+* FIX: fixed issue with setting the favorite mode for Air Purifiers
+
 ### 2018-01-17 -- v2.4.2
 * FIX: some improvements for the Yeelights which will hopefully fix devices as appearing offline in Homey
 * UPDATE: added favorite mode as option for Air Purifiers
