@@ -6,10 +6,10 @@
 		"nl": "Xiaomi Mi Home"
     },
     "tags": {
-		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug" ],
-		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug" ]
+		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug" ],
+		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug" ]
 	},
-	"version": "2.4.3",
+	"version": "2.5.0",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -199,6 +199,82 @@
 					        "label": {
 						        "en": "Philips Light Bulb Polling",
 						        "nl": "Philips Light Bulb Polling"
+					        }
+				        }
+		            ]
+		        }
+		    ]
+		},
+        {
+			"id": "mi-robot",
+			"name": {
+				"en": "Mi Robot Vacuum Cleaner",
+				"nl": "Mi Robot Stofzuiger"
+			},
+			"images": {
+				"large": "drivers/mi-robot/assets/images/large.jpg",
+				"small": "drivers/mi-robot/assets/images/small.jpg"
+			},
+			"class": "vacuumcleaner",
+			"capabilities": [
+                "onoff",
+                "vacuumcleaner_state",
+                "measure_battery"
+            ],
+            "mobile": {
+                "components": [
+                    {
+                        "id": "battery",
+                        "capabilities": [ "measure_battery" ]
+                    },
+                    {
+                        "id": "icon",
+                        "capabilities": [ "onoff" ]
+                    },
+                    {
+                        "id": "picker",
+                        "capabilities": [ "vacuumcleaner_state" ]
+                    }
+                ]
+            },
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "Mi Robot Settings",
+						"nl": "Mi Robot Instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "Mi Robot Token",
+						        "nl": "Mi Robot Token"
+					        }
+				        },
+                        {
+					        "id": "polling",
+					        "type": "number",
+					        "value": 60,
+					        "label": {
+						        "en": "Mi Robot Polling",
+						        "nl": "Mi Robot Polling"
 					        }
 				        }
 		            ]
@@ -452,7 +528,7 @@
 	],
 	"flow": {
         "conditions": [
-			{
+            {
 				"id": "poweredAirpurifier",
 				"title": {
                     "en": "!{{is|is not}} powered on",
@@ -705,6 +781,80 @@
 							"nl": "Selecteer Yeelight"
 						},
 						"filter": "driver_id=yeelights"
+                    }
+				]
+			},
+            {
+				"id": "findVacuum",
+				"title": {
+					"en": "Find vacuum cleaner",
+					"nl": "Vind stofzuiger"
+				},
+                "hint": {
+					"en": "Let the vacuum cleaner tell you where it's at",
+					"nl": "Laat de stofzuiger vertellen waar hij is"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+            {
+				"id": "fanPowerVacuum",
+				"title": {
+					"en": "Set Fan Power",
+					"nl": "Stel ventilator in"
+				},
+				"args": [
+                    {
+						"name": "fanspeed",
+						"type": "dropdown",
+                        "values": [
+                            {
+                                "id": "38",
+                                "label": {
+                                    "en": "Quiet",
+                                    "nl": "Stil"
+                                }
+                            },
+                            {
+                                "id": "66",
+                                "label": {
+                                    "en": "Balanced",
+                                    "nl": "Gebalanceerd"
+                                }
+                            },
+                            {
+                                "id": "77",
+                                "label": {
+                                    "en": "Turbo",
+                                    "nl": "Turbo"
+                                }
+                            },
+                            {
+                                "id": "90",
+                                "label": {
+                                    "en": "Full Speed",
+                                    "nl": "Maximum"
+                                }
+                            }
+                        ]
+                    },
+                    {
+						"name": "device",
+						"type": "device",
+                        "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
                     }
 				]
 			},

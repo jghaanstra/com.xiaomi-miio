@@ -1,19 +1,39 @@
 "use strict";
 
 const Homey = require('homey');
-const util = require('/lib/util.js');
+const miio = require('miio');
 
 class MiAirPurifierDriver extends Homey.Driver {
 
     onPair(socket) {
         socket.on('testConnection', function(data, callback) {
-            util.getAirPurifier(data.address, data.token)
-                .then(result => {
-                    callback(null, result);
-                })
-                .catch(error => {
-                    callback(error, false);
-                })
+            miio.device({
+                    address: data.address,
+                    token: data.token
+                }).then(device => {
+
+                    const getData = async () => {
+                        const power = await device.power();
+                        const temp = await device.temperature()
+                        const rh = await device.relativeHumidity();
+                        const aqi = await device.pm2_5();
+                        const mode = await device.mode();
+
+                        let result = {
+                            onoff: power,
+                            temperature: temp.celcius,
+                            humidity: rh,
+                            aqi: aqi,
+                            mode: mode
+                        }
+
+                        callback(null, result);
+                    }
+                    getData();
+                    
+                }).catch(function (error) {
+                    callback(error, null);
+                });
         });
     }
 

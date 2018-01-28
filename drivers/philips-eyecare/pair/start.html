@@ -21,14 +21,20 @@ $(function() {
                 if(error) {
                     $('.mi-device-error').show();
                     $('.mi-device-error-msg').html(error.message || error.toString());
-                } else {
+                } else if (result) {
+                    $('#mode').val(result.mode);
                     var powered = ((result.onoff) ? "On" : "Off");
-                    var mideviceinfo = "<h2 data-i18n='pair.philipseyecare'>Philips Eyecare Lamp</h2><div class='info-row'><span class='info-label' data-i18n='pair.powered'>Powered:</span><span class='info-value'> "+ powered +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.dim'>Dim Level:</span><span class='info-value'> "+ result.brightness +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.mode'>Mode:</span><span class='info-value'> "+ result.mode +"</span></div>";
+                    var eyecare = ((result.eyecare) ? "On" : "Off");
+                    var mideviceinfo = "<h2 data-i18n='pair.philipseyecare'>Philips Eyecare Lamp</h2><div class='info-row'><span class='info-label' data-i18n='pair.powered'>Powered:</span><span class='info-value'> "+ powered +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.dim'>Dim Level:</span><span class='info-value'> "+ result.brightness +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.mode'>Mode:</span><span class='info-value'> "+ result.mode +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.eyecare'>Eyecare:</span><span class='info-value'> "+ result.eyecare +"</span></div>";
                     $('.mi-device-info').show();
                     $('.mi-device-info').html(mideviceinfo);
                     $('.mi-device-test').show();
                     $('#connect').prop('disabled', false);
+                } else {
+                    $('.mi-device-error').show();
+                    $('.mi-device-error-msg').html( __('pair.unknownerror') );
                 }
+            });
             });
 
         } else {
@@ -42,6 +48,7 @@ $(function() {
 		var inputaddress = $('#address').val();
 		var inputtoken = $('#token').val();
         var inputpolling = $('#polling').val() || 60;
+        var inputmode = $('#mode').val() || 'reading';
 
         if( inputaddress != '' && inputtoken != '' && inputpolling != '') {
             var device_data = {
@@ -53,7 +60,8 @@ $(function() {
                 polling: inputpolling
             };
             var store = {
-                mode: 'reading'
+                mode: inputmode,
+                eyecare: false
             };
 
             Homey.addDevice({
@@ -92,20 +100,22 @@ $(function() {
     .mi-device-pairing .col1, .mi-device-pairing .col2 {
         width: 48%;
     }
+    .mi-device-status, .mi-device-info {
+		display: none;
+	}
     .mi-device-info {
         font-size: 12px;
     }
     .mi-device-info .info-row {
+        min-width: 150px;
         padding-bottom: 4px;
+        font-weight: 700;
     }
     .mi-device-info .info-label {
         display: inline-block;
         min-width: 100px;
         font-weight: 700;
     }
-	.mi-device-status {
-		display: none;
-	}
     .form-group input[type="text"] {
         width: 80% !important;
     }
@@ -129,6 +139,7 @@ $(function() {
         	<label for="polling" data-i18n="pair.polling">Polling Frequency</label>
         	<input type="number" class="form-control" id="polling" min="10" max="3600" placeholder="10">
         </div>
+        <input type="hidden" id="mode" value="">
         <div class="form-group buttons">
             <button id="test-connection" class="button" data-i18n="pair.test">Test Connection</button>
             <button id="connect" class="button" data-i18n="pair.connect" disabled>Connect</button>

@@ -1,20 +1,14 @@
 'use strict';
 
 const Homey = require('homey');
-const util = require('/lib/util.js');
+const miio = require('miio');
 
 class PowerPlugDevice extends Homey.Device {
 
     onInit() {
+        this.createDevice();
+
         this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
-
-        var interval = this.getSetting('polling') || 60;
-        this.pollDevice(interval);
-    }
-
-    onAdded() {
-        var interval = this.getSetting('polling') || 60;
-        this.pollDevice(interval);
     }
 
     onDeleted() {
@@ -23,41 +17,46 @@ class PowerPlugDevice extends Homey.Device {
 
     // LISTENERS FOR UPDATING CAPABILITIES
     onCapabilityOnoff(value, opts, callback) {
-        if(value == 'on') {
-            var power = 'turnon';
-        } else {
-            var power = 'turnoff';
-        }
-        util.sendCommand(power, 0, this.getSetting('address'), this.getSetting('token'), function(error, result) {
-            if (error) {
-                callback(error, false);
-            } else {
-                this.setCapabilityValue('onoff', value);
-                callback(null, value);
-            }
-        });
+        this.miio.setPower(value)
+            .then(result => { callback(null, value) })
+            .catch(error => { callback(error, false) });
     }
 
     // HELPER FUNCTIONS
+    createDevice() {
+        miio.device({
+                address: this.getSetting('address'),
+                token: this.getSetting('token')
+            }).then(miiodevice => {
+                this.miio = miiodevice;
+
+                var interval = this.getSetting('polling') || 30;
+                this.pollDevice(interval);
+        }).catch(function (error) {
+            return reject(error);
+        });
+    }
+
     pollDevice(interval) {
         clearInterval(this.pollingInterval);
 
         this.pollingInterval = setInterval(() => {
-            util.getPowerPlug(this.getSetting('address'), this.getSetting('token'))
-                .then(result => {
-                    if (this.getCapabilityValue('onoff') != result.onoff) {
-                        this.setCapabilityValue('onoff', result.onoff);
-                    }
-                    if (this.getCapabilityValue('measure_power') != result.load) {
-                        this.setCapabilityValue('measure_power', result.load);
-                    }
-                    if (this.getCapabilityValue('meter_power') != result.consumed) {
-                        this.setCapabilityValue('meter_power', result.consumed);
-                    }
-                })
-                .catch(error => {
-                    this.log(error);
-                })
+            const getData = async () => {
+                const power = await device.power();
+
+                if (this.getCapabilityValue('onoff') != power) {
+                    this.setCapabilityValue('onoff', power);
+                }
+            }
+            getData();
+
+            // TODO: fix measure power and meter power
+            if (this.getCapabilityValue('measure_power') != 0) {
+                this.setCapabilityValue('measure_power', 0);
+            }
+            if (this.getCapabilityValue('meter_power') != 0) {
+                this.setCapabilityValue('meter_power', 0);
+            }
         }, 1000 * interval);
     }
 

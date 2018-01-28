@@ -26,20 +26,6 @@ class YeelightDevice extends Homey.Device {
         this.createDeviceSocket(id);
     }
 
-    onAdded() {
-        this.setStoreValue('connected', false);
-        let id = this.getData().id;
-        yeelights[id] = {};
-        yeelights[id].data = this.getData();
-        yeelights[id].socket = null;
-        yeelights[id].timeout = null;
-        yeelights[id].reconnect = null;
-        yeelights[id].connecting = false;
-        yeelights[id].connected = false;
-
-        this.createDeviceSocket(id);
-    }
-
     onDeleted() {
         let id = this.getData().id;
         delete yeelights[id];

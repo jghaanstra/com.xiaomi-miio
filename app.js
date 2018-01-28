@@ -47,114 +47,120 @@ class XiaomiMiioApp extends Homey.App {
                 args.device.sendCommand(args.device.getData().id, args.command)
             })
 
+        // MI ROBOT: CONDITION AND ACTION FLOW CARDS
+        new Homey.FlowCardAction('findVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                args.device.miio.find()
+                    .then(result => { return Promise.resolve(result) })
+                    .catch(error => { return Promise.reject(error) });
+            })
+
+        new Homey.FlowCardAction('fanPowerVacuum')
+            .register()
+            .registerRunListener((args, state) => {
+                args.device.miio.changeFanSpeed(Number(args.fanspeed))
+                    .then(result => {
+                        args.device.setStoreValue('fanspeed', args.fanspeed);
+                        return Promise.resolve(true)
+                    })
+                    .catch(error => { return Promise.reject(error) });
+            })
+
         // MI AIR PURIFIER: CONDITION AND ACTION FLOW CARDS
         new Homey.FlowCardCondition('poweredAirpurifier')
             .register()
             .registerRunListener((args, state) => {
-                util.sendCommand('powered', 0, args.device.getSetting('address'), args.device.getSetting('token'))
-                    .then(result => {
-                        return Promise.resolve(result);
-                    })
-                    .catch(error => {
-                        return Promise.reject(error);
-                    })
+                if (args.device.setCapabilityValue('onoff')) {
+                    return Promise.resolve(true);
+                } else {
+                    return Promise.reject(false);
+                }
             })
 
         new Homey.FlowCardAction('modeAirpurifier')
             .register()
             .registerRunListener((args, state) => {
-                util.sendCommand('mode', args.mode, args.device.getSetting('address'), args.device.getSetting('token'))
+                args.device.miio.mode(args.mode)
                     .then(result => {
-                        return Promise.resolve(result);
+                        args.device.setStoreValue('mode', args.mode);
+                        return Promise.resolve(result)
                     })
-                    .catch(error => {
-                        return Promise.reject(error);
-                    })
+                    .catch(error => { return Promise.reject(error) });
             })
 
         new Homey.FlowCardAction('airpurifierSetFavorite')
             .register()
             .registerRunListener((args, state) => {
-                util.sendCommand('setfavorite', args.favorite, args.device.getSetting('address'), args.device.getSetting('token'))
-                    .then(result => {
-                        return Promise.resolve(result);
-                    })
-                    .catch(error => {
-                        return Promise.reject(error);
-                    })
+                args.device.miio.favoriteLevel(args.favorite)
+                    .then(result => { return Promise.resolve(result) })
+                    .catch(error => { return Promise.reject(error) });
             })
 
         new Homey.FlowCardAction('airpurifierOn')
             .register()
             .registerRunListener((args, state) => {
-                util.sendCommand('turnon', 0, args.device.getSetting('address'), args.device.getSetting('token'))
+                args.device.miio.setPower(true)
                     .then(result => {
-                        return Promise.resolve(result);
+                        args.device.setCapabilityValue('onoff', true);
+                        return Promise.resolve(result)
                     })
-                    .catch(error => {
-                        return Promise.reject(error);
-                    })
+                    .catch(error => { return Promise.reject(error) });
             })
 
         new Homey.FlowCardAction('airpurifierOff')
             .register()
             .registerRunListener((args, state) => {
-                util.sendCommand('turnoff', 0, args.device.getSetting('address'), args.device.getSetting('token'))
+                args.device.miio.setPower(false)
                     .then(result => {
-                        return Promise.resolve(result);
+                        args.device.setCapabilityValue('onoff', false);
+                        return Promise.resolve(result)
                     })
-                    .catch(error => {
-                        return Promise.reject(error);
-                    })
+                    .catch(error => { return Promise.reject(error) });
             })
 
         // MI HUMDIFIER: CONDITION AND ACTION FLOW CARDS
         new Homey.FlowCardCondition('poweredHumidifier')
             .register()
             .registerRunListener((args, state) => {
-                util.sendCommand('powered', 0, args.device.getSetting('address'), args.device.getSetting('token'))
-                    .then(result => {
-                        return Promise.resolve(result);
-                    })
-                    .catch(error => {
-                        return Promise.reject(error);
-                    })
+                if (args.device.setCapabilityValue('onoff')) {
+                    return Promise.resolve(true);
+                } else {
+                    return Promise.reject(false);
+                }
             })
 
         new Homey.FlowCardAction('modeHumidifier')
             .register()
             .registerRunListener((args, state) => {
-                util.sendCommand('mode', args.mode, args.device.getSetting('address'), args.device.getSetting('token'))
+                args.device.miio.mode(args.mode)
                     .then(result => {
-                        return Promise.resolve(result);
+                        args.device.setStoreValue('mode', args.mode);
+                        return Promise.resolve(result)
                     })
-                    .catch(error => {
-                        return Promise.reject(error);
-                    })
+                    .catch(error => { return Promise.reject(error) });
             })
 
         new Homey.FlowCardAction('humidifierOn')
             .register()
             .registerRunListener((args, state) => {
-                util.sendCommand('turnon', 0, args.device.getSetting('address'), args.device.getSetting('token'))
+                args.device.miio.setPower(true)
                     .then(result => {
-                        return Promise.resolve(result);
+                        args.device.setCapabilityValue('onoff', true);
+                        return Promise.resolve(result)
                     })
-                    .catch(error => {
-                        return Promise.reject(error);
-                    })
+                    .catch(error => { return Promise.reject(error) });
             })
 
         new Homey.FlowCardAction('humidifierOff')
             .register()
             .registerRunListener((args, state) => {
-                util.sendCommand('turnoff', 0, args.device.getSetting('address'), args.device.getSetting('token'))
+                args.device.miio.setPower(false)
                     .then(result => {
-                        return Promise.resolve(result);
+                        args.device.setCapabilityValue('onoff', false);
+                        return Promise.resolve(result)
                     })
-                    .catch(error => {
-                        return Promise.reject(error);
-                    })
+                    .catch(error => { return Promise.reject(error) });
             })
 
         // PHILIPS EYECARE LAMP: CONDITION AND ACTION FLOW CARDS
@@ -162,25 +168,17 @@ class XiaomiMiioApp extends Homey.App {
             .register()
             .registerRunListener((args, state) => {
                 var eyecare = args.eyecare == 'on' ? true : false;
-                util.sendCommand('eyecare', eyecare, args.device.getSetting('address'), args.device.getSetting('token'))
-                    .then(result => {
-                        return Promise.resolve(result);
-                    })
-                    .catch(error => {
-                        return Promise.reject(error);
-                    })
+                args.device.setEyeCare(eyecare)
+                    .then(result => { return Promise.resolve(true) })
+                    .catch(error => { return Promise.reject(error) });
             })
 
         new Homey.FlowCardAction('modeEyecare')
             .register()
             .registerRunListener((args, state) => {
-                util.sendCommand('mode', args.mode, args.device.getSetting('address'), args.device.getSetting('token'))
-                    .then(result => {
-                        return Promise.resolve(result);
-                    })
-                    .catch(error => {
-                        return Promise.reject(error);
-                    })
+                args.device.mode(args.mode)
+                    .then(result => { return Promise.resolve(true) })
+                    .catch(error => { return Promise.reject(error) });
             })
     }
 }

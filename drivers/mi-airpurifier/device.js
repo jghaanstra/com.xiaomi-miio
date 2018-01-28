@@ -1,67 +1,73 @@
 'use strict';
 
 const Homey = require('homey');
-const util = require('/lib/util.js');
+const miio = require('miio');
 
 class MiAirPurifierDevice extends Homey.Device {
 
     onInit() {
+        this.createDevice();
+
         this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
-
-        var interval = this.getSetting('polling') || 60;
-        this.pollDevice(interval);
-    }
-
-    onAdded() {
-        var interval = this.getSetting('polling') || 60;
-        this.pollDevice(interval);
     }
 
     onDeleted() {
         clearInterval(this.pollingInterval);
+        this.miio.destroy();
     }
 
     // LISTENERS FOR UPDATING CAPABILITIES
     onCapabilityOnoff(value, opts, callback) {
-        util.sendCommand('toggle', 0, this.getSetting('address'), this.getSetting('token'), function(error, result) {
-            if (error) {
-                callback(error, false);
-            } else {
-                this.setCapabilityValue('onoff', value);
-                callback(null, value);
-            }
-        });
+        this.miio.setPower(value)
+            .then(result => { callback(null, value) })
+            .catch(error => { callback(error, false) });
     }
 
     // HELPER FUNCTIONS
+    createDevice() {
+        miio.device({
+                address: this.getSetting('address'),
+                token: this.getSetting('token')
+            }).then(miiodevice => {
+                this.miio = miiodevice;
+
+                var interval = this.getSetting('polling') || 60;
+                this.pollDevice(interval);
+        }).catch(function (error) {
+            return reject(error);
+        });
+    }
+
     pollDevice(interval) {
         clearInterval(this.pollingInterval);
 
         this.pollingInterval = setInterval(() => {
-            util.getAirPurifier(this.getSetting('address'), this.getSetting('token'))
-                .then(result => {
-                    if (this.getCapabilityValue('onoff') != result.onoff) {
-                        this.setCapabilityValue('onoff', result.onoff);
-                    }
-                    if (this.getStoreValue('mode') != result.mode) {
-                        this.setStoreValue('mode', result.mode);
-                    }
-                    if (this.getCapabilityValue('measure_temperature') != result.temperature) {
-                        this.setCapabilityValue('measure_temperature', result.temperature);
-                    }
-                    if (this.getCapabilityValue('measure_humidity') != result.humidity) {
-                        this.setCapabilityValue('measure_humidity', result.humidity);
-                    }
-                    if (this.getCapabilityValue('measure_pm25') != result.aqi) {
-                        this.setCapabilityValue('measure_pm25', result.aqi);
-                    }
-                })
-                .catch(error => {
-                    this.log(error);
-                })
+            const getData = async () => {
+                const power = await this.miio.power();
+                const temp = await this.miio.temperature()
+                const rh = await this.miio.relativeHumidity();
+                const aqi = await this.miio.pm2_5();
+                const mode = await this.miio.mode();
+
+                if (this.getCapabilityValue('onoff') != power) {
+                    this.setCapabilityValue('onoff', power);
+                }
+                if (this.getCapabilityValue('measure_temperature') != temp.celcius) {
+                    this.setCapabilityValue('measure_temperature', temp.celcius);
+                }
+                if (this.getCapabilityValue('measure_humidity') != rh) {
+                    this.setCapabilityValue('measure_humidity', rh);
+                }
+                if (this.getCapabilityValue('measure_pm25') != pm2_5) {
+                    this.setCapabilityValue('measure_pm25', pm2_5);
+                }
+                if (this.getStoreValue('mode') != mode) {
+                    this.setStoreValue('mode', mode);
+                }
+            }
+            getData();
         }, 1000 * interval);
     }
-
 }
 
 module.exports = MiAirPurifierDevice;

@@ -17,6 +17,7 @@
         "consumed": "Verbruikte stroom in kWh:",
         "humidity": "Luchtvochtigheid:",
         "aqi": "Air Quality Index:",
+        "eyecare": "Eyecare:",
         "address": "IP adres",
         "token": "Token (minimum van 32 karakters in cijfers en letters)",
         "polling": "Polling frequentie",
@@ -24,7 +25,11 @@
         "test" : "Test verbinding",
         "testing" : "Connectie test succesvol, je kan het apparaat nu verbinden.",
         "testingVacuum" : "Mi Robot zoek bericht succesvol verzonden, heeft de Mi Robot gereageerd?",
-        "connect": "Verbind"
+        "connect": "Verbind",
+        "unknownerror": "Onbekende fout, weet je zeker dat je het juist IP adres en token hebt opgegeven en dat het Mi Home apparaat op hetzelfde netwerk zit als Homey? Controleer a.u.b. je instellingen en probeer het nog eens.",
+        "state" : "Status:",
+        "battery" : "Battery niveau:",
+        "fanspeed" : "Ventilator snelheid:"
 	},
     "yeelight_bulb_color": "Yeelight Bulb Kleur",
     "yeelight_bulb_white": "Yeelight Bulb Wit",

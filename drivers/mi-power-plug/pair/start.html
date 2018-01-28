@@ -21,13 +21,16 @@ $(function() {
                 if(error) {
                     $('.mi-device-error').show();
                     $('.mi-device-error-msg').html(error.message || error.toString());
-                } else {
+                } else if (result) {
                     var powered = ((result.onoff) ? "On" : "Off");
-                    var mideviceinfo = "<h2 data-i18n='pair.powerplug'>Mi Power Plug</h2><div class='info-row'><span class='info-label' data-i18n='pair.powered'>Powered:</span><span class='info-value'> "+ powered +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.load'>Current load in Watt:</span><span class='info-value'> "+ result.load +" W</span></div><div class='info-row'><span class='info-label' data-i18n='pair.consumed'>Consumed Power in kWh:</span><span class='info-value'> "+ result.consumed +" kWh</span></div>";
+                    var mideviceinfo = "<h2 data-i18n='pair.powerplug'>Mi Power Plug</h2><div class='info-row'><span class='info-label' data-i18n='pair.powered'>Powered:</span><span class='info-value'> "+ powered +"</span></div>";
                     $('.mi-device-info').show();
                     $('.mi-device-info').html(mideviceinfo);
                     $('.mi-device-test').show();
                     $('#connect').prop('disabled', false);
+                } else {
+                    $('.mi-device-error').show();
+                    $('.mi-device-error-msg').html( __('pair.unknownerror') );
                 }
             });
 

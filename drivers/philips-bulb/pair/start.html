@@ -21,14 +21,18 @@ $(function() {
                 if(error) {
                     $('.mi-device-error').show();
                     $('.mi-device-error-msg').html(error.message || error.toString());
-                } else {
+                } else if (result) {
                     var powered = ((result.onoff) ? "On" : "Off");
                     var mideviceinfo = "<h2 data-i18n='pair.philipsbulb'>Philips Light Bulb</h2><div class='info-row'><span class='info-label' data-i18n='pair.powered'>Powered:</span><span class='info-value'> "+ powered +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.dim'>Dim Level:</span><span class='info-value'> "+ result.brightness +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.colortemperature'>Color Temperature:</span><span class='info-value'> "+ result.colorTemperature +"</span></div>";
                     $('.mi-device-info').show();
                     $('.mi-device-info').html(mideviceinfo);
                     $('.mi-device-test').show();
                     $('#connect').prop('disabled', false);
+                } else {
+                    $('.mi-device-error').show();
+                    $('.mi-device-error-msg').html( __('pair.unknownerror') );
                 }
+            });
             });
 
         } else {
@@ -88,20 +92,22 @@ $(function() {
     .mi-device-pairing .col1, .mi-device-pairing .col2 {
         width: 48%;
     }
+    .mi-device-status, .mi-device-info {
+		display: none;
+	}
     .mi-device-info {
         font-size: 12px;
     }
     .mi-device-info .info-row {
+        min-width: 150px;
         padding-bottom: 4px;
+        font-weight: 700;
     }
     .mi-device-info .info-label {
         display: inline-block;
         min-width: 100px;
         font-weight: 700;
     }
-	.mi-device-status {
-		display: none;
-	}
     .form-group input[type="text"] {
         width: 80% !important;
     }

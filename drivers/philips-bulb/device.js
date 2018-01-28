@@ -2,89 +2,83 @@
 
 const Homey = require('homey');
 const util = require('/lib/util.js');
+const miio = require('miio');
 
 class PhilipsBulbDevice extends Homey.Device {
 
     onInit() {
+        this.createDevice();
+
         this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
         this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
         this.registerCapabilityListener('light_temperature', this.onCapabilityLightTemperature.bind(this));
-
-        var interval = this.getSetting('polling') || 60;
-        this.pollDevice(interval);
-    }
-
-    onAdded() {
-        var interval = this.getSetting('polling') || 60;
-        this.pollDevice(interval);
     }
 
     onDeleted() {
         clearInterval(this.pollingInterval);
+        this.miio.destroy();
     }
 
     // LISTENERS FOR UPDATING CAPABILITIES
     onCapabilityOnoff(value, opts, callback) {
-        if(value == 'on') {
-            var power = 'turnon';
-        } else {
-            var power = 'turnoff';
-        }
-        util.sendCommand(power, 0, this.getSetting('address'), this.getSetting('token'), function(error, result) {
-            if (error) {
-                callback(error, false);
-            } else {
-                this.setCapabilityValue('onoff', value);
-                callback(null, value);
-            }
-        });
+        this.miio.setPower(value)
+            .then(result => { callback(null, value) })
+            .catch(error => { callback(error, false) });
     }
 
     onCapabilityDim(value, opts, callback) {
         var brightness = value * 100;
-        util.sendCommand('dim', brightness, this.getSetting('address'), this.getSetting('token'), function(error, result) {
-            if (error) {
-                callback(error, false);
-            } else {
-                this.setCapabilityValue('dim', value);
-                callback(null, value);
-            }
-        });
+        this.miio.setBrightness(brightness)
+            .then(result => { callback(null, value) })
+            .catch(error => { callback(error, false) });
     }
 
     onCapabilityLightTemperature(value, opts, callback) {
-        var color_temp = util.denormalize(value, 3000, 5700);
-        util.sendCommand('colortemperature', color_temp, this.getSetting('address'), this.getSetting('token'), function(error, result) {
-            if (error) {
-                callback(error, false);
-            } else {
-                this.setCapabilityValue('light_temperature', value);
-                callback(null, value);
-            }
-        });
+        var colorvalue = util.denormalize(value, 3000, 5700);
+        var colortemp = ''+ colorvalue +'K';
+        device.color(colortemp)
+            .then(result => { callback(null, value) })
+            .catch(error => { callback(error, false) });
     }
 
     // HELPER FUNCTIONS
+    createDevice() {
+        miio.device({
+                address: this.getSetting('address'),
+                token: this.getSetting('token')
+            }).then(miiodevice => {
+                this.miio = miiodevice;
+
+                var interval = this.getSetting('polling') || 60;
+                this.pollDevice(interval);
+        }).catch(function (error) {
+            return reject(error);
+        });
+    }
+
     pollDevice(interval) {
         clearInterval(this.pollingInterval);
 
         this.pollingInterval = setInterval(() => {
-            util.getPhilipsBulb(this.getSetting('address'), this.getSetting('token'))
-                .then(result => {
-                    var dim = result.brightness / 100;
-                    if (this.getCapabilityValue('onoff') != result.onoff) {
-                        this.setCapabilityValue('onoff', result.onoff);
-                    }
-                    if (this.getCapabilityValue('dim') != dim) {
-                        this.setCapabilityValue('dim', dim);
-                    }
-                    if (this.getCapabilityValue('light_temperature') != result.colorTemperature) {
-                        this.setCapabilityValue('light_temperature', result.colorTemperature);
-                    }
-                })
-                .catch(error => {
-                    this.log(error);
-                })
+            const getData = async () => {
+                const power = await device.power();
+                const brightness = await device.brightness()
+                const colorTemperature = await device.color();
+
+                if (this.getCapabilityValue('onoff') != power) {
+                    this.setCapabilityValue('onoff', power);
+                }
+                var dim = brightness / 100;
+                if (this.getCapabilityValue('dim') != dim) {
+                    this.setCapabilityValue('dim', dim);
+                }
+                var colorvalue = colorTemperature.replace('K', '');
+                var colortemp = util.normalize(colorvalue, 3000, 5700);
+                if (this.getCapabilityValue('light_temperature') != colortemp) {
+                    this.setCapabilityValue('light_temperature', colortemp);
+                }
+            }
+            getData();
         }, 1000 * interval);
     }
 
