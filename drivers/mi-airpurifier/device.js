@@ -58,8 +58,8 @@ class MiAirPurifierDevice extends Homey.Device {
                 if (this.getCapabilityValue('measure_humidity') != rh) {
                     this.setCapabilityValue('measure_humidity', rh);
                 }
-                if (this.getCapabilityValue('measure_pm25') != pm2_5) {
-                    this.setCapabilityValue('measure_pm25', pm2_5);
+                if (this.getCapabilityValue('measure_pm25') != aqi) {
+                    this.setCapabilityValue('measure_pm25', aqi);
                 }
                 if (this.getStoreValue('mode') != mode) {
                     this.setStoreValue('mode', mode);
