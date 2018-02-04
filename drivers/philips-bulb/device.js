@@ -61,21 +61,29 @@ class PhilipsBulbDevice extends Homey.Device {
 
         this.pollingInterval = setInterval(() => {
             const getData = async () => {
-                const power = await device.power();
-                const brightness = await device.brightness()
-                const colorTemperature = await device.color();
+                try {
+                    const power = await device.power();
+                    const brightness = await device.brightness()
+                    const colorTemperature = await device.color();
 
-                if (this.getCapabilityValue('onoff') != power) {
-                    this.setCapabilityValue('onoff', power);
-                }
-                var dim = brightness / 100;
-                if (this.getCapabilityValue('dim') != dim) {
-                    this.setCapabilityValue('dim', dim);
-                }
-                var colorvalue = colorTemperature.replace('K', '');
-                var colortemp = util.normalize(colorvalue, 3000, 5700);
-                if (this.getCapabilityValue('light_temperature') != colortemp) {
-                    this.setCapabilityValue('light_temperature', colortemp);
+                    if (this.getCapabilityValue('onoff') != power) {
+                        this.setCapabilityValue('onoff', power);
+                    }
+                    var dim = brightness / 100;
+                    if (this.getCapabilityValue('dim') != dim) {
+                        this.setCapabilityValue('dim', dim);
+                    }
+                    var colorvalue = colorTemperature.replace('K', '');
+                    var colortemp = util.normalize(colorvalue, 3000, 5700);
+                    if (this.getCapabilityValue('light_temperature') != colortemp) {
+                        this.setCapabilityValue('light_temperature', colortemp);
+                    }
+                    if (!this.getAvailable()) {
+                        this.setAvailable();
+                    }
+                } catch (error) {
+                    this.setUnavailable(Homey.__('unreachable'));
+                    this.log(error);
                 }
             }
             getData();

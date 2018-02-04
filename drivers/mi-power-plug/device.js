@@ -42,10 +42,18 @@ class PowerPlugDevice extends Homey.Device {
 
         this.pollingInterval = setInterval(() => {
             const getData = async () => {
-                const power = await device.power();
+                try {
+                    const power = await device.power();
 
-                if (this.getCapabilityValue('onoff') != power) {
-                    this.setCapabilityValue('onoff', power);
+                    if (this.getCapabilityValue('onoff') != power) {
+                        this.setCapabilityValue('onoff', power);
+                    }
+                    if (!this.getAvailable()) {
+                        this.setAvailable();
+                    }
+                } catch (error) {
+                    this.setUnavailable(Homey.__('unreachable'));
+                    this.log(error);
                 }
             }
             getData();

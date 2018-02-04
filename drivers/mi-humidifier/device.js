@@ -43,22 +43,30 @@ class MiHumidifierDevice extends Homey.Device {
 
         this.pollingInterval = setInterval(() => {
             const getData = async () => {
-                const power = await this.miio.power();
-                const temp = await this.miio.temperature()
-                const rh = await this.miio.relativeHumidity();
-                const mode = await this.miio.mode();
+                try {
+                    const power = await this.miio.power();
+                    const temp = await this.miio.temperature()
+                    const rh = await this.miio.relativeHumidity();
+                    const mode = await this.miio.mode();
 
-                if (this.getCapabilityValue('onoff') != power) {
-                    this.setCapabilityValue('onoff', power);
-                }
-                if (this.getCapabilityValue('measure_temperature') != temp.celcius) {
-                    this.setCapabilityValue('measure_temperature', temp.celcius);
-                }
-                if (this.getCapabilityValue('measure_humidity') != rh) {
-                    this.setCapabilityValue('measure_humidity', rh);
-                }
-                if (this.getStoreValue('mode') != mode) {
-                    this.setStoreValue('mode', mode);
+                    if (this.getCapabilityValue('onoff') != power) {
+                        this.setCapabilityValue('onoff', power);
+                    }
+                    if (this.getCapabilityValue('measure_temperature') != temp.celcius) {
+                        this.setCapabilityValue('measure_temperature', temp.celcius);
+                    }
+                    if (this.getCapabilityValue('measure_humidity') != rh) {
+                        this.setCapabilityValue('measure_humidity', rh);
+                    }
+                    if (this.getStoreValue('mode') != mode) {
+                        this.setStoreValue('mode', mode);
+                    }
+                    if (!this.getAvailable()) {
+                        this.setAvailable();
+                    }
+                } catch (error) {
+                    this.setUnavailable(Homey.__('unreachable'));
+                    this.log(error);
                 }
             }
             getData();

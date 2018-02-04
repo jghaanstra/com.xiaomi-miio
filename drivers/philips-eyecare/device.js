@@ -52,27 +52,34 @@ class PhilipsEyecareDevice extends Homey.Device {
 
         this.pollingInterval = setInterval(() => {
             const getData = async () => {
-                const power = await device.power();
-                const brightness = await device.brightness()
-                const mode = await device.mode();
-                const eyecare = await device.eyeCareMode();
+                try {
+                    const power = await device.power();
+                    const brightness = await device.brightness()
+                    const mode = await device.mode();
+                    const eyecare = await device.eyeCareMode();
 
-                if (this.getCapabilityValue('onoff') != power) {
-                    this.setCapabilityValue('onoff', power);
-                }
-                var dim = brightness / 100;
-                if (this.getCapabilityValue('dim') != dim) {
-                    this.setCapabilityValue('dim', dim);
-                }
-                if (this.getStoreValue('mode') != mode) {
-                    this.setStoreValue('mode', mode);
-                }
-                if (this.getStoreValue('eyecare') != eyecare) {
-                    this.setStoreValue('eyecare', eyecare);
+                    if (this.getCapabilityValue('onoff') != power) {
+                        this.setCapabilityValue('onoff', power);
+                    }
+                    var dim = brightness / 100;
+                    if (this.getCapabilityValue('dim') != dim) {
+                        this.setCapabilityValue('dim', dim);
+                    }
+                    if (this.getStoreValue('mode') != mode) {
+                        this.setStoreValue('mode', mode);
+                    }
+                    if (this.getStoreValue('eyecare') != eyecare) {
+                        this.setStoreValue('eyecare', eyecare);
+                    }
+                    if (!this.getAvailable()) {
+                        this.setAvailable();
+                    }
+                } catch (error) {
+                    this.setUnavailable(Homey.__('unreachable'));
+                    this.log(error);
                 }
             }
             getData();
-
         }, 1000 * interval);
     }
 }
