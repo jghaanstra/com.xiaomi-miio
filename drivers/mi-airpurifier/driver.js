@@ -11,26 +11,28 @@ class MiAirPurifierDriver extends Homey.Driver {
                     address: data.address,
                     token: data.token
                 }).then(device => {
-
                     const getData = async () => {
-                        const power = await device.power();
-                        const temp = await device.temperature()
-                        const rh = await device.relativeHumidity();
-                        const aqi = await device.pm2_5();
-                        const mode = await device.mode();
+                        try {
+                            const power = await device.power();
+                            const temp = await device.temperature()
+                            const rh = await device.relativeHumidity();
+                            const aqi = await device.pm2_5();
+                            const mode = await device.mode();
 
-                        let result = {
-                            onoff: power,
-                            temperature: temp.celcius,
-                            humidity: rh,
-                            aqi: aqi,
-                            mode: mode
+                            let result = {
+                                onoff: power,
+                                temperature: temp.celcius,
+                                humidity: rh,
+                                aqi: aqi,
+                                mode: mode
+                            }
+
+                            callback(null, result);
+                        } catch (error) {
+                            callback(error, null);
                         }
-
-                        callback(null, result);
                     }
                     getData();
-                    
                 }).catch(function (error) {
                     callback(error, null);
                 });

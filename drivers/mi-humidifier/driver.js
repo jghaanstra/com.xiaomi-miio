@@ -11,21 +11,24 @@ class MiHumidifierDriver extends Homey.Driver {
                     address: data.address,
                     token: data.token
                 }).then(device => {
-
                     const getData = async () => {
-                        const power = await device.power();
-                        const temp = await device.temperature()
-                        const rh = await device.relativeHumidity();
-                        const mode = await device.mode();
+                        try {
+                            const power = await device.power();
+                            const temp = await device.temperature()
+                            const rh = await device.relativeHumidity();
+                            const mode = await device.mode();
 
-                        let result = {
-                            onoff: power,
-                            temperature: temp.celcius,
-                            humidity: rh,
-                            mode: mode
+                            let result = {
+                                onoff: power,
+                                temperature: temp.celcius,
+                                humidity: rh,
+                                mode: mode
+                            }
+
+                            callback(null, result);
+                        } catch (error) {
+                            callback(error, null);
                         }
-
-                        callback(null, result);
                     }
                     getData();
                 }).catch(function (error) {

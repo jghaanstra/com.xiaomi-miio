@@ -62,9 +62,9 @@ class PhilipsBulbDevice extends Homey.Device {
         this.pollingInterval = setInterval(() => {
             const getData = async () => {
                 try {
-                    const power = await device.power();
-                    const brightness = await device.brightness()
-                    const colorTemperature = await device.color();
+                    const power = await this.miio.power();
+                    const brightness = await this.miio.brightness()
+                    const colorTemperature = await this.miio.color();
 
                     if (this.getCapabilityValue('onoff') != power) {
                         this.setCapabilityValue('onoff', power);

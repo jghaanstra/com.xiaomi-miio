@@ -11,22 +11,24 @@ class PhilipsBulbDriver extends Homey.Driver {
                     address: data.address,
                     token: data.token
                 }).then(device => {
-
                     const getData = async () => {
-                        const power = await device.power();
-                        const brightness = await device.brightness()
-                        const colorTemperature = await device.color();
+                        try {
+                            const power = await device.power();
+                            const brightness = await device.brightness()
+                            const colorTemperature = await device.color();
 
-                        let result = {
-                            onoff: power,
-                            brightness: brightness,
-                            colorTemperature: colorTemperature
+                            let result = {
+                                onoff: power,
+                                brightness: brightness,
+                                colorTemperature: colorTemperature
+                            }
+
+                            callback(null, result);
+                        } catch (error) {
+                            callback(error, null);
                         }
-
-                        callback(null, result);
                     }
                     getData();
-                    
                 }).catch(function (error) {
                     callback(error, null);
                 });

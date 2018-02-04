@@ -11,16 +11,24 @@ class PowerPlugDriver extends Homey.Driver {
                     address: data.address,
                     token: data.token
                 }).then(device => {
-
-                    // TODO: fix measure power and meter power
                     const getData = async () => {
-                        const power = await device.power();
+                        try {
+                            const power = await device.power();
+                            const powerConsumed = await device.powerConsumed();
+                            const powerLoad = await device.powerLoad();
 
-                        let result = {
-                            onoff: power
+                            const kwh = powerConsumed.wattHours / 1000;
+
+                            let result = {
+                                onoff: power,
+                                load: powerLoad.watts,
+                                consumed: kwh
+                            }
+
+                            callback(null, result);
+                        } catch (error) {
+                            callback(error, null);
                         }
-
-                        callback(null, result);
                     }
                     getData();
                 }).catch(function (error) {

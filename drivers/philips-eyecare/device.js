@@ -53,10 +53,10 @@ class PhilipsEyecareDevice extends Homey.Device {
         this.pollingInterval = setInterval(() => {
             const getData = async () => {
                 try {
-                    const power = await device.power();
-                    const brightness = await device.brightness()
-                    const mode = await device.mode();
-                    const eyecare = await device.eyeCareMode();
+                    const power = await this.miio.power();
+                    const brightness = await this.miio.brightness()
+                    const mode = await this.miio.mode();
+                    const eyecare = await this.miio.eyeCareMode();
 
                     if (this.getCapabilityValue('onoff') != power) {
                         this.setCapabilityValue('onoff', power);

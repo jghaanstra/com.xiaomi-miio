@@ -43,10 +43,20 @@ class PowerPlugDevice extends Homey.Device {
         this.pollingInterval = setInterval(() => {
             const getData = async () => {
                 try {
-                    const power = await device.power();
+                    const power = await this.miio.power();
+                    const powerConsumed = await this.miio.powerConsumed();
+                    const powerLoad = await this.miio.powerLoad();
+
+                    const kwh = powerConsumed.wattHours / 1000;
 
                     if (this.getCapabilityValue('onoff') != power) {
                         this.setCapabilityValue('onoff', power);
+                    }
+                    if (this.getCapabilityValue('meter_power') != kwh) {
+                        this.setCapabilityValue('meter_power', kwh);
+                    }
+                    if (this.getCapabilityValue('measure_power') != powerLoad.watts) {
+                        this.setCapabilityValue('measure_power', powerLoad.watts);
                     }
                     if (!this.getAvailable()) {
                         this.setAvailable();
@@ -57,14 +67,6 @@ class PowerPlugDevice extends Homey.Device {
                 }
             }
             getData();
-
-            // TODO: fix measure power and meter power
-            if (this.getCapabilityValue('measure_power') != 0) {
-                this.setCapabilityValue('measure_power', 0);
-            }
-            if (this.getCapabilityValue('meter_power') != 0) {
-                this.setCapabilityValue('meter_power', 0);
-            }
         }, 1000 * interval);
     }
 
