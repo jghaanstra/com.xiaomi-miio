@@ -45,7 +45,7 @@ $(function() {
 	$('#connect').click(function(){
 		var inputaddress = $('#address').val();
 		var inputtoken = $('#token').val();
-        var inputpolling = $('#polling').val() || 60;
+        var inputpolling = Number($('#polling').val()) || 60;
         var inputmode = $('#mode').val() || 'medium';
 
         if( inputaddress != '' && inputtoken != '' && inputpolling != '') {
@@ -134,7 +134,7 @@ $(function() {
         </div>
         <div class="form-group">
         	<label for="polling" data-i18n="pair.polling">Polling Frequency</label>
-        	<input type="number" class="form-control" id="polling" min="10" max="3600" placeholder="60">
+        	<input type="number" class="form-control" id="polling" min="60" max="3600" placeholder="60">
         </div>
         <input type="hidden" id="mode" value="">
         <div class="form-group buttons">
