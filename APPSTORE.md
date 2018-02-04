@@ -45,6 +45,6 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * Default flow cards for on/off, measure power and meter power capabilities class
 
 ## Changelog
-### 2018-01-30 -- v2.5.0
-* UPDATE: updated the miio library to 0.15.5 and rewritten all device drivers (they need testing as there will be bugs)
-* UPDATE: reintroduced support for the Mi Robot Vacuum Cleaner
+### 2018-02-04 -- v2.5.0
+* UPDATE: updated the miio library to 0.15.5 and rewritten all device drivers
+* UPDATE: reintroduced support for the Mi Robot Vacuum Cleaner (needs re-pairing the device if coming from an older version)
