@@ -44,19 +44,24 @@ class PowerPlugDevice extends Homey.Device {
             const getData = async () => {
                 try {
                     const power = await this.miio.power();
-                    const powerConsumed = await this.miio.powerConsumed();
-                    const powerLoad = await this.miio.powerLoad();
+                    // TODO: fix powerLoad and powerConsumed: https://github.com/aholstenson/miio/issues/113
+                    //const powerConsumed = await this.miio.powerConsumed();
+                    //const powerLoad = await this.miio.powerLoad();
+                    //const kwh = powerConsumed.wattHours / 1000;
 
-                    const kwh = powerConsumed.wattHours / 1000;
+                    const kwh = 0;
 
                     if (this.getCapabilityValue('onoff') != power) {
                         this.setCapabilityValue('onoff', power);
                     }
                     if (this.getCapabilityValue('meter_power') != kwh) {
                         this.setCapabilityValue('meter_power', kwh);
-                    }
+                    }/*
                     if (this.getCapabilityValue('measure_power') != powerLoad.watts) {
                         this.setCapabilityValue('measure_power', powerLoad.watts);
+                    }*/
+                    if (this.getCapabilityValue('measure_power') != 0) {
+                        this.setCapabilityValue('measure_power', 0);
                     }
                     if (!this.getAvailable()) {
                         this.setAvailable();
