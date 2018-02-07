@@ -459,22 +459,6 @@
             "capabilities": [
                 "onoff"
             ],
-            "mobile": {
-                "components": [
-                    {
-                        "id": "icon",
-                        "capabilities": [ "onoff" ]
-                    },
-                    {
-                        "id": "sensor",
-                        "capabilities": [ "measure_power" ]
-                    },
-                    {
-                        "id": "sensor",
-                        "capabilities": [ "meter_power" ]
-                    }
-                ]
-            },
 			"pair": [
 				{
 					"id": "start"
