@@ -457,9 +457,7 @@
 			},
 			"class": "sensor",
             "capabilities": [
-                "onoff",
-                "measure_power",
-                "meter_power"
+                "onoff"
             ],
             "mobile": {
                 "components": [

@@ -14,21 +14,9 @@ class PowerPlugDriver extends Homey.Driver {
                     const getData = async () => {
                         try {
                             const power = await device.power();
-                            // TODO: fix powerLoad and powerConsumed: https://github.com/aholstenson/miio/issues/113
-                            //const powerConsumed = await device.powerConsumed();
-                            //const powerLoad = await device.powerLoad();
-                            //const kwh = powerConsumed.wattHours / 1000;
-
-                            /*let result = {
-                                onoff: power,
-                                load: powerLoad.watts,
-                                consumed: kwh
-                            }*/
 
                             let result = {
-                                onoff: power,
-                                load: 0,
-                                consumed: 0
+                                onoff: power
                             }
 
                             callback(null, result);

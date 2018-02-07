@@ -46,7 +46,7 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 
 ## Changelog
 ### 2018-02-07 -- v2.5.2
-* FIX: removed powerLoad and powerConsumed capability in WiFi plug driver, it's not implemented yet in the miio library v0.15.x
+* FIX: removed powerLoad and powerConsumed capability in WiFi plug driver as these capabilities are not available for this device
 
 ### 2018-02-04 -- v2.5.1
 * UPDATE: updated the miio library to 0.15.5 and rewritten all device drivers
