@@ -45,6 +45,9 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * Default flow cards for on/off, measure power and meter power capabilities class
 
 ## Changelog
+### 2018-02-12 -- v2.5.3
+* FIX: update vacuumcleaner state directly when using onoff capability
+
 ### 2018-02-07 -- v2.5.2
 * FIX: removed powerLoad and powerConsumed capability in WiFi plug driver as these capabilities are not available for this device
 

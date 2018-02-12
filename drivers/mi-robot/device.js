@@ -21,11 +21,17 @@ class MiRobotDevice extends Homey.Device {
     onCapabilityOnoff(value, opts, callback) {
         if (value) {
             this.miio.clean()
-                .then(result => { callback(null, value) })
+                .then(result => {
+                    this.setCapabilityValue('vacuumcleaner_state', 'cleaning');
+                    callback(null, value)
+                })
                 .catch(error => { callback(error, false) });
         } else {
             this.miio.stop()
-                .then(result => { callback(null, value) })
+                .then(result => {
+                    this.setCapabilityValue('vacuumcleaner_state', 'stopped');
+                    callback(null, value)
+                })
                 .catch(error => { callback(error, false) });
         }
     }
