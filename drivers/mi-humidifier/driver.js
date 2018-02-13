@@ -20,7 +20,7 @@ class MiHumidifierDriver extends Homey.Driver {
 
                             let result = {
                                 onoff: power,
-                                temperature: temp.celcius,
+                                temperature: temp.value,
                                 humidity: rh,
                                 mode: mode
                             }

@@ -52,8 +52,8 @@ class MiHumidifierDevice extends Homey.Device {
                     if (this.getCapabilityValue('onoff') != power) {
                         this.setCapabilityValue('onoff', power);
                     }
-                    if (this.getCapabilityValue('measure_temperature') != temp.celcius) {
-                        this.setCapabilityValue('measure_temperature', temp.celcius);
+                    if (this.getCapabilityValue('measure_temperature') != temp.value) {
+                        this.setCapabilityValue('measure_temperature', temp.value);
                     }
                     if (this.getCapabilityValue('measure_humidity') != rh) {
                         this.setCapabilityValue('measure_humidity', rh);

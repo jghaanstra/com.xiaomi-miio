@@ -48,6 +48,7 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 ### 2018-02-13 -- v2.5.3
 * FIX: update vacuumcleaner state directly when using onoff capability
 * FIX: fix flow cards not showing (un)succesful execution status
+* FIX: possible fix for showing temperature for purifiers and humidifiers
 
 ### 2018-02-07 -- v2.5.2
 * FIX: removed powerLoad and powerConsumed capability in WiFi plug driver as these capabilities are not available for this device

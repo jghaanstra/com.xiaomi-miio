@@ -21,7 +21,7 @@ class MiAirPurifierDriver extends Homey.Driver {
 
                             let result = {
                                 onoff: power,
-                                temperature: temp.celcius,
+                                temperature: temp.value,
                                 humidity: rh,
                                 aqi: aqi,
                                 mode: mode
