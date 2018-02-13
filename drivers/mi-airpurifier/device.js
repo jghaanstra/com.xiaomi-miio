@@ -45,7 +45,7 @@ class MiAirPurifierDevice extends Homey.Device {
             const getData = async () => {
                 try {
                     const power = await this.miio.power();
-                    const temp = await this.miio.temperature()
+                    const temp = await this.miio.temperature();
                     const rh = await this.miio.relativeHumidity();
                     const aqi = await this.miio.pm2_5();
                     const mode = await this.miio.mode();
