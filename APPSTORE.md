@@ -45,7 +45,10 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * Default flow cards for on/off, measure power and meter power capabilities class
 
 ## Changelog
-### 2018-02-13 -- v2.5.3
+### 2018-02-17 -- v2.5.3
+* UPDATE: update miio library to 0.15.6 which fixes:
+ * Power and color temperature setting fixed for Philips Light Bulbs
+ * Refreshing of vacuumcleaner state after starting and stopping cleaning
 * FIX: update vacuumcleaner state directly when using onoff capability
 * FIX: fix flow cards not showing (un)succesful execution status
 * FIX: possible fix for showing temperature for purifiers and humidifiers
