@@ -40,23 +40,35 @@ class MiRobotDevice extends Homey.Device {
         switch (value) {
             case "cleaning":
                 this.miio.clean()
-                    .then(result => { callback(null, value) })
+                    .then(result => {
+                        this.setCapabilityValue('onoff', true);
+                        callback(null, value);
+                    })
                     .catch(error => { callback(error, false) });
                 break;
             case "spot_cleaning":
                 this.miio.cleanSpot()
-                    .then(result => { callback(null, value) })
+                    .then(result => {
+                        this.setCapabilityValue('onoff', true);
+                        callback(null, value);
+                    })
                     .catch(error => { callback(error, false) });
                 break;
             case "stopped":
                 this.miio.stop()
-                    .then(result => { callback(null, value) })
+                    .then(result => {
+                        this.setCapabilityValue('onoff', false);
+                        callback(null, value);
+                    })
                     .catch(error => { callback(error, false) });
                 break;
             case "docked":
             case "charging":
                 this.miio.charge()
-                    .then(result => { callback(null, value) })
+                    .then(result => {
+                        this.setCapabilityValue('onoff', false);
+                        callback(null, value);
+                    })
                     .catch(error => { callback(error, false) });
                 break;
             default:
@@ -86,10 +98,10 @@ class MiRobotDevice extends Homey.Device {
             if (this.miio.property('state') == 'charging') {
                 var onoff = false;
                 var state = 'charging';
-            } else if (this.miio.property('state') == 'docked' || this.miio.property('state') == 'full') {
+            } else if (this.miio.property('state') == 'docked' || this.miio.property('state') == 'full' || this.miio.property('state') == 'returning') {
                 var onoff = false;
                 var state = 'docked';
-            } else if (this.miio.property('state') == 'cleaning' || this.miio.property('state') == 'returning') {
+            } else if (this.miio.property('state') == 'cleaning' || this.miio.property('state') == 'zone-cleaning') {
                 var onoff = true;
                 var state = 'cleaning';
             } else if (this.miio.property('state') == 'waiting' || this.miio.property('state') == 'paused') {
