@@ -98,7 +98,7 @@ class MiRobotDevice extends Homey.Device {
             if (this.miio.property('state') == 'charging') {
                 var onoff = false;
                 var state = 'charging';
-            } else if (this.miio.property('state') == 'docked' || this.miio.property('state') == 'full' || this.miio.property('state') == 'returning') {
+            } else if (this.miio.property('state') == 'docking' || this.miio.property('state') == 'full' || this.miio.property('state') == 'returning') {
                 var onoff = false;
                 var state = 'docked';
             } else if (this.miio.property('state') == 'cleaning' || this.miio.property('state') == 'zone-cleaning') {
