@@ -10,7 +10,8 @@ Below is a list of supported devices and devices. Post a comment in the [support
 * Xiaomi Robot Vacuum Cleaner (tested)
 * Xiaomi Air Purifiers 2, 2S and Pro (tested)
 * Xiamomi Humidifier (tested)
-* Xiaomi Single Power Plug WiFi version (untested)
+* Xiaomi Single Power Plug and Power Strip WiFi version (tested)
+* Xiaomi PM2.5 Air Monitor (tested)
 
 ## Support topic
 For support please use the official support topic on the forum [here](https://forum.athom.com/discussion/3295/).
@@ -45,17 +46,12 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * Default flow cards for on/off, measure power and meter power capabilities class
 
 ## Changelog
-### 2018-02-17 -- v2.5.3
+### 2018-02-18 -- v2.6.0
+* NEW: add support for PM2.5 sensor
+* NEW: add basic support for WiFi power strips (power load and power consumed are not available for now)
 * UPDATE: update miio library to 0.15.6 which fixes:
    * Power and color temperature setting fixed for Philips Light Bulbs
    * Refreshing of vacuumcleaner state after starting and stopping cleaning
 * FIX: update vacuumcleaner state directly when using onoff capability
 * FIX: fix flow cards not showing (un)succesful execution status
 * FIX: possible fix for showing temperature for purifiers and humidifiers
-
-### 2018-02-07 -- v2.5.2
-* FIX: removed powerLoad and powerConsumed capability in WiFi plug driver as these capabilities are not available for this device
-
-### 2018-02-04 -- v2.5.1
-* UPDATE: updated the miio library to 0.15.5 and rewritten all device drivers
-* UPDATE: reintroduced support for the Mi Robot Vacuum Cleaner (needs re-pairing the device if coming from an older version)

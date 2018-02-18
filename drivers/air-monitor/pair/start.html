@@ -23,7 +23,7 @@ $(function() {
                     $('.mi-device-error-msg').html(error.message || error.toString());
                 } else if (result) {
                     var powered = ((result.onoff) ? "On" : "Off");
-                    var mideviceinfo = "<h2 data-i18n='pair.powerplug'>Mi Power Plug</h2><div class='info-row'><span class='info-label' data-i18n='pair.powered'>Powered:</span><span class='info-value'> "+ powered +"</span></div>";
+                    var mideviceinfo = "<h2 data-i18n='pair.airmonitor'>PM2.5 Air Monitor</h2><div class='info-row'><span class='info-label' data-i18n='pair.powered'>Powered:</span><span class='info-value'> "+ powered +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.battery'>Batterylevel:</span><span class='info-value'> "+ result.battery +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.aqi'>Air Quality Index:</span><span class='info-value'> "+ result.aqi +"</span></div>";
                     $('.mi-device-info').show();
                     $('.mi-device-info').html(mideviceinfo);
                     $('.mi-device-test').show();
@@ -44,7 +44,7 @@ $(function() {
 	$('#connect').click(function(){
 		var inputaddress = $('#address').val();
 		var inputtoken = $('#token').val();
-        var inputpolling = $('#polling').val() || 60;
+        var inputpolling = Number($('#polling').val()) || 60;
 
         if( inputaddress != '' && inputtoken != '' && inputpolling != '') {
             var device_data = {
@@ -57,7 +57,7 @@ $(function() {
             };
 
             Homey.addDevice({
-                name  	 : 'Philips Light Bulb',
+                name  	 : 'Mi Air Purifier',
                 data 	 : device_data,
                 settings : settings
             }, function(error, result) {
@@ -91,20 +91,22 @@ $(function() {
     .mi-device-pairing .col1, .mi-device-pairing .col2 {
         width: 48%;
     }
+    .mi-device-status, .mi-device-info {
+		display: none;
+	}
     .mi-device-info {
         font-size: 12px;
     }
     .mi-device-info .info-row {
+        min-width: 150px;
         padding-bottom: 4px;
+        font-weight: 700;
     }
     .mi-device-info .info-label {
         display: inline-block;
         min-width: 100px;
         font-weight: 700;
     }
-	.mi-device-status {
-		display: none;
-	}
     .form-group input[type="text"] {
         width: 80% !important;
     }
@@ -126,11 +128,11 @@ $(function() {
         </div>
         <div class="form-group">
         	<label for="polling" data-i18n="pair.polling">Polling Frequency</label>
-        	<input type="number" class="form-control" id="polling" min="5" max="3600" placeholder="30">
+        	<input type="number" class="form-control" id="polling" min="60" max="3600" placeholder="60">
         </div>
         <div class="form-group buttons">
             <button id="test-connection" class="button" data-i18n="pair.test">Test Connection</button>
-            <button id="connect" class="button" data-i18n="pair.connect" disabled>Connect</button>
+            <button id="connect" class="button" data-i18n="pair.connect">Connect</button>
         </div>
     </div>
     <div class="col2">

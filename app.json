@@ -9,7 +9,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug" ]
 	},
-	"version": "2.5.3",
+	"version": "2.6.0",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -234,6 +234,10 @@
                     {
                         "id": "picker",
                         "capabilities": [ "vacuumcleaner_state" ]
+                    },
+                    {
+                        "id": "toggle",
+                        "capabilities": [ "onoff" ]
                     }
                 ]
             },
@@ -271,7 +275,11 @@
                         {
 					        "id": "polling",
 					        "type": "number",
-					        "value": 60,
+					        "value": 30,
+                            "attr": {
+                                "min": 30,
+                                "max": 3600
+                            },
 					        "label": {
 						        "en": "Mi Robot Polling",
 						        "nl": "Mi Robot Polling"
@@ -308,12 +316,13 @@
                         "id": "sensor",
                         "capabilities": [
                             "measure_temperature",
-                            "measure_humidity"
+                            "measure_humidity",
+                            "measure_pm25"
                         ]
                     },
                     {
-                        "id": "sensor",
-                        "capabilities": [ "measure_pm25" ]
+                        "id": "toggle",
+                        "capabilities": [ "onoff" ]
                     }
                 ]
             },
@@ -389,11 +398,14 @@
                     },
                     {
                         "id": "sensor",
-                        "capabilities": [ "measure_temperature" ]
+                        "capabilities": [
+                            "measure_temperature",
+                            "measure_humidity"
+                        ]
                     },
                     {
-                        "id": "sensor",
-                        "capabilities": [ "measure_humidity" ]
+                        "id": "toggle",
+                        "capabilities": [ "onoff" ]
                     }
                 ]
             },
@@ -439,6 +451,86 @@
 					        "label": {
 						        "en": "Mi Humidifier Polling",
 						        "nl": "Mi Luchtbevochtiger Polling"
+					        }
+				        }
+		            ]
+		        }
+		    ]
+		},
+        {
+			"id": "air-monitor",
+			"name": {
+				"en": "PM2.5 Air Monitor",
+				"nl": "PM2.5 Air Monitor"
+			},
+			"images": {
+				"large": "drivers/air-monitor/assets/images/large.jpg",
+				"small": "drivers/air-monitor/assets/images/small.jpg"
+			},
+			"class": "sensor",
+			"capabilities": [
+                "onoff",
+                "measure_battery",
+                "measure_pm25"
+            ],
+            "mobile": {
+                "components": [
+                    {
+                        "id": "icon",
+                        "capabilities": [ "onoff" ]
+                    },
+                    {
+                        "id": "sensor",
+                        "capabilities": [ "measure_pm25" ]
+                    },
+                    {
+                        "id": "toggle",
+                        "capabilities": [ "onoff" ]
+                    }
+                ]
+            },
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "PM2.5 Air Monitor Settings",
+						"nl": "PM2.5 Air Monitor Instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "PM2.5 Air Monitor Token",
+						        "nl": "PM2.5 Air Monitor Token"
+					        }
+				        },
+                        {
+					        "id": "polling",
+					        "type": "number",
+					        "value": 60,
+                            "attr": {
+                                "min": 5,
+                                "max": 3600
+                            },
+					        "label": {
+						        "en": "PM2.5 Air Monitor Polling",
+						        "nl": "PM2.5 Air Monitor Polling"
 					        }
 				        }
 		            ]
@@ -501,6 +593,70 @@
 					        "label": {
 						        "en": "Mi Power Plug Polling",
 						        "nl": "Mi Power Plug Polling"
+					        }
+				        }
+		            ]
+		        }
+		    ]
+		},
+        {
+			"id": "mi-power-strip",
+			"name": {
+				"en": "Mi Power Strip",
+				"nl": "Mi Power Strip"
+			},
+			"images": {
+				"large": "drivers/mi-power-strip/assets/images/large.jpg",
+				"small": "drivers/mi-power-strip/assets/images/small.jpg"
+			},
+			"class": "sensor",
+            "capabilities": [
+                "onoff",
+                "measure_power",
+                "meter_power"
+            ],
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "Mi Power Strip Settings",
+						"nl": "Mi Power Strip Instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "Mi Power Strip Token",
+						        "nl": "Mi Power Strip Token"
+					        }
+				        },
+                        {
+					        "id": "polling",
+					        "type": "number",
+					        "value": 30,
+                            "attr": {
+                                "min": 5,
+                                "max": 3600
+                            },
+					        "label": {
+						        "en": "Mi Power Strip Polling",
+						        "nl": "Mi Power Strip Polling"
 					        }
 				        }
 		            ]

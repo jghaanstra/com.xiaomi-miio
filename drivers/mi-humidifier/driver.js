@@ -14,7 +14,7 @@ class MiHumidifierDriver extends Homey.Driver {
                     const getData = async () => {
                         try {
                             const power = await device.power();
-                            const temp = await device.temperature()
+                            const temp = await device.temperature();
                             const rh = await device.relativeHumidity();
                             const mode = await device.mode();
 

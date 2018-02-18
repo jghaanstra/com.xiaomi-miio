@@ -3,7 +3,7 @@
 const Homey = require('homey');
 const miio = require('miio');
 
-class MiAirPurifierDriver extends Homey.Driver {
+class PowerStripDriver extends Homey.Driver {
 
     onPair(socket) {
         socket.on('testConnection', function(data, callback) {
@@ -13,18 +13,15 @@ class MiAirPurifierDriver extends Homey.Driver {
                 }).then(device => {
                     const getData = async () => {
                         try {
+                            // TODO: implement measure_power and meter_power capability
                             const power = await device.power();
-                            const temp = await device.temperature();
-                            const rh = await device.relativeHumidity();
-                            const aqi = await device.pm2_5();
-                            const mode = await device.mode();
+                            const powerload = 0;
+                            const powerconsumed = 0;
 
                             let result = {
                                 onoff: power,
-                                temperature: temp.value,
-                                humidity: rh,
-                                aqi: aqi,
-                                mode: mode
+                                powerload: powerload,
+                                powerconsumed: powerconsumed
                             }
 
                             callback(null, result);
@@ -41,4 +38,4 @@ class MiAirPurifierDriver extends Homey.Driver {
 
 }
 
-module.exports = MiAirPurifierDriver;
+module.exports = PowerStripDriver;
