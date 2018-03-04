@@ -46,6 +46,10 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * Default flow cards for on/off, measure power and meter power capabilities class
 
 ## Changelog
+### 2018-03-04 -- v2.6.1
+* CHANGE: updated device class of Mi Power Plug and Mi Power Strip to "socket" (this require re-pairing of these devices)
+* FIX: solved small device naming issue in pair wizard
+
 ### 2018-02-18 -- v2.6.0
 * NEW: add support for PM2.5 sensor
 * NEW: add basic support for WiFi power strips (power load and power consumed are not available for now)

@@ -9,7 +9,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug" ]
 	},
-	"version": "2.6.0",
+	"version": "2.6.1",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -25,6 +25,7 @@
     "bugs": {
         "url": "https://github.com/jghaanstra/com.xiaomi-miio/issues"
     },
+    "athomForumDiscussionId": 3295,
     "images": {
         "large": "./assets/images/large.jpg",
         "small": "./assets/images/small.jpg"
@@ -547,7 +548,7 @@
 				"large": "drivers/mi-power-plug/assets/images/large.jpg",
 				"small": "drivers/mi-power-plug/assets/images/small.jpg"
 			},
-			"class": "sensor",
+			"class": "socket",
             "capabilities": [
                 "onoff"
             ],
@@ -609,7 +610,7 @@
 				"large": "drivers/mi-power-strip/assets/images/large.jpg",
 				"small": "drivers/mi-power-strip/assets/images/small.jpg"
 			},
-			"class": "sensor",
+			"class": "socket",
             "capabilities": [
                 "onoff",
                 "measure_power",
