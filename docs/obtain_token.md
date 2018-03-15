@@ -17,6 +17,16 @@ During setup of Mi Home devices the device tokens an be retrieved by sending a p
 * Click send and the device will respond with an answer which contains the unique device token. In the last 16 bytes (32 characters) of the devices response is the device token. Copy and save it somewhere.
 * Disconnect your computer from the devices network, you can now use the Mi Home app to setup the device and connect it to your Wi-Fi network.
 
+## Method 2b - netcat and Wireshark / tcpdump
+Like above you can also use this shell command to send the magic package:
+
+```sh
+echo -ne '\x21\x31\x00\x20\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff' | nc -u 192.168.8.1 54321
+```
+
+While running this you have to listen with Wireshark or tcpdump for UDP packages sent as anser by the robot.
+Extract the last 16 bytes of the answer and convert them to a (32 characters) hexadecimal string using `xxd -p`.
+
 ## Method 3 - Obtain Mi Home device token for devices that hide their tokens after setup
 Use these methods to obtain the device token for devices that hide their tokens after setup in the Mi Home App (like the Mi Robot Vacuum Cleaner with firmware 3.3.9_003077 or higher).
 
