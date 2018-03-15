@@ -12,6 +12,7 @@ Below is a list of supported devices and devices. Post a comment in the [support
 * Xiamomi Humidifier (tested)
 * Xiaomi Single Power Plug and Power Strip WiFi version (tested)
 * Xiaomi PM2.5 Air Monitor (tested)
+* Xiaomi Gateway Light - alarm not supported yet and subdevices are supported directly with the Xiaomi ZigBee app (tested)
 
 ## Support topic
 For support please use the official support topic on the forum [here](https://forum.athom.com/discussion/3295/).
@@ -46,6 +47,11 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 * Default flow cards for on/off, measure power and meter power capabilities class
 
 ## Changelog
+### 2018-03-15 -- v2.6.2
+* NEW: add support for the Xiaomi Gateway Light - alarm not supported yet and subdevices are supported directly with the Xiaomi ZigBee app
+* FIX: fix for pairing wizard Philips Light Bulbs
+* FIX: small fix in Yeelights driver
+
 ### 2018-03-04 -- v2.6.1
 * CHANGE: updated device class of Mi Power Plug and Mi Power Strip to "socket" (this require re-pairing of these devices)
 * FIX: solved small device naming issue in pair wizard

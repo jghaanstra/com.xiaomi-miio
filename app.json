@@ -6,10 +6,10 @@
 		"nl": "Xiaomi Mi Home"
     },
     "tags": {
-		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug" ],
-		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug" ]
+		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
+		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.6.1",
+	"version": "2.6.2",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -658,6 +658,92 @@
 					        "label": {
 						        "en": "Mi Power Strip Polling",
 						        "nl": "Mi Power Strip Polling"
+					        }
+				        }
+		            ]
+		        }
+		    ]
+		},
+        {
+			"id": "gateway",
+			"name": {
+				"en": "Gateway",
+				"nl": "Gateway"
+			},
+			"images": {
+				"large": "drivers/gateway/assets/images/large.jpg",
+				"small": "drivers/gateway/assets/images/small.jpg"
+			},
+			"class": "other",
+			"capabilities": [
+                "onoff",
+                "dim",
+                "light_hue",
+                "light_saturation",
+                "measure_luminance"
+            ],
+            "mobile": {
+                "components": [
+                    {
+                        "id": "icon",
+                        "capabilities": [ "onoff" ]
+                    },
+                    {
+                        "id": "sensor",
+                        "capabilities": [ "measure_luminance" ]
+                    },
+                    {
+                        "id": "slider",
+                        "capabilities": [ "dim" ]
+                    },
+                    {
+                        "id": "color",
+                        "capabilities": [ "light_hue", "light_saturation" ]
+                    }
+                ]
+            },
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			    {
+                    "type": "group",
+                    "label": {
+                        "en": "Gateway Settings",
+						"nl": "Gateway Instellingen"
+                    },
+					"children": [
+				        {
+				            "id": "address",
+				            "type": "text",
+				            "value": "0.0.0.0",
+				            "label": {
+				                "en": "IP Address",
+				                "nl": "IP Adres"
+				            }
+				        },
+				        {
+					        "id": "token",
+					        "type": "text",
+					        "value": "",
+					        "label": {
+						        "en": "Gateway Token",
+						        "nl": "Gateway Token"
+					        }
+				        },
+                        {
+					        "id": "polling",
+					        "type": "number",
+					        "value": 60,
+                            "attr": {
+                                "min": 5,
+                                "max": 3600
+                            },
+					        "label": {
+						        "en": "Gateway Polling",
+						        "nl": "Gateway Polling"
 					        }
 				        }
 		            ]

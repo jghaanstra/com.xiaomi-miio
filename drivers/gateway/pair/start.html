@@ -22,8 +22,7 @@ $(function() {
                     $('.mi-device-error').show();
                     $('.mi-device-error-msg').html(error.message || error.toString());
                 } else if (result) {
-                    var powered = ((result.onoff) ? "On" : "Off");
-                    var mideviceinfo = "<h2 data-i18n='pair.airmonitor'>PM2.5 Air Monitor</h2><div class='info-row'><span class='info-label' data-i18n='pair.powered'>Powered:</span><span class='info-value'> "+ powered +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.battery'>Batterylevel:</span><span class='info-value'> "+ result.battery +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.aqi'>Air Quality Index:</span><span class='info-value'> "+ result.aqi +"</span></div>";
+                    var mideviceinfo = "<h2 data-i18n='pair.gateway'>Xiaomi Gateway</h2><div class='info-row'><span class='info-label' data-i18n='pair.lux'>Lux:</span><span class='info-value'> "+ result.lux +"</span></div>";
                     $('.mi-device-info').show();
                     $('.mi-device-info').html(mideviceinfo);
                     $('.mi-device-test').show();
@@ -57,7 +56,7 @@ $(function() {
             };
 
             Homey.addDevice({
-                name  	 : 'PM2.5 Air Monitor',
+                name  	 : 'Gateway',
                 data 	 : device_data,
                 settings : settings
             }, function(error, result) {

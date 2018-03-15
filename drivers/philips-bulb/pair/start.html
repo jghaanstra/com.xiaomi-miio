@@ -11,7 +11,7 @@ $(function() {
 		var inputaddress = $('#address').val();
 		var inputtoken = $('#token').val();
 
-        if( inputaddress != '' && inputtoken != '') {
+        if (inputaddress != '' && inputtoken != '') {
             var device_data = {
                 address: inputaddress,
                 token: inputtoken
@@ -32,7 +32,6 @@ $(function() {
                     $('.mi-device-error').show();
                     $('.mi-device-error-msg').html( __('pair.unknownerror') );
                 }
-            });
             });
 
         } else {

@@ -257,14 +257,16 @@ class YeelightDevice extends Homey.Device {
 
     /* send commands to devices using their socket connection */
     sendCommand(id, command) {
-    	if (yeelights[id].connected === false) {
+    	if (yeelights[id].connected === false && yeelights[id].socket !== null) {
             yeelights[id].socket.emit('error', new Error('Connection to device broken'));
     	} else {
             yeelights[id].socket.write(command + '\r\n');
 
             if (yeelights[id].timeout === null) {
                 yeelights[id].timeout = setTimeout(() => {
-                    yeelights[id].socket.emit('error', new Error('Error sending command'));
+                    if (yeelights[id].connected === true && yeelights[id].socket !== null) {
+                        yeelights[id].socket.emit('error', new Error('Error sending command'));
+                    }
                 }, 3000);
             }
         }
