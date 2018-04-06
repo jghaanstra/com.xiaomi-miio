@@ -68,7 +68,6 @@ class GatewayDevice extends Homey.Device {
                 this.miio.light = miiodevice.child('light');
 
                 this.miio.on('illuminanceChanged', illuminance => {
-                    console.log(illuminance);
                     if (this.getCapabilityValue('measure_luminance') != illuminance.value) {
                         this.setCapabilityValue('measure_luminance', illuminance.value);
                         Homey.ManagerFlow.getCard('trigger', 'gatewayLuminance').trigger(this, {luminance: illuminance.value}, {})
