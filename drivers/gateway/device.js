@@ -8,6 +8,8 @@ const tinycolor = require("tinycolor2");
 class GatewayDevice extends Homey.Device {
 
     onInit() {
+        new Homey.FlowCardTriggerDevice('gatewayLuminance').register();
+
         this.createDevice();
 
         this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
@@ -65,9 +67,11 @@ class GatewayDevice extends Homey.Device {
                 this.miio = miiodevice;
                 this.miio.light = miiodevice.child('light');
 
-                miiodevice.on('illuminanceChanged', illuminance => {
+                this.miio.on('illuminanceChanged', illuminance => {
+                    console.log(illuminance);
                     if (this.getCapabilityValue('measure_luminance') != illuminance.value) {
                         this.setCapabilityValue('measure_luminance', illuminance.value);
+                        Homey.ManagerFlow.getCard('trigger', 'gatewayLuminance').trigger(this, {luminance: illuminance.value}, {})
                     }
                 });
 
@@ -100,7 +104,7 @@ class GatewayDevice extends Homey.Device {
             const getData = async () => {
                 try {
                     const power = await this.miio.light.power();
-                    const brightness = await this.miio.light.brightness()
+                    const brightness = await this.miio.light.brightness();
 
                     if (this.getCapabilityValue('onoff') != power) {
                         this.setCapabilityValue('onoff', power);

@@ -9,7 +9,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.6.2",
+	"version": "2.6.3",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -674,7 +674,7 @@
 				"large": "drivers/gateway/assets/images/large.jpg",
 				"small": "drivers/gateway/assets/images/small.jpg"
 			},
-			"class": "other",
+			"class": "light",
 			"capabilities": [
                 "onoff",
                 "dim",
@@ -752,6 +752,37 @@
 		}
 	],
 	"flow": {
+        "triggers": [
+            {
+				"id": "gatewayLuminance",
+				"title": {
+                    "en": "Luminance has changed",
+                    "nl": "De helderheid is veranderd"
+				},
+                "tokens": [
+                    {
+                        "name": "luminance",
+                        "type": "number",
+                        "title": {
+                            "en": "luminance",
+                            "nl": "helderheid"
+                        },
+                        "example": 0
+                    }
+                ],
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"placeholder": {
+							"en": "Select Gateway",
+							"nl": "Selecteer Gateway"
+						},
+						"filter": "driver_id=gateway"
+					}
+				]
+			}
+        ],
         "conditions": [
             {
 				"id": "poweredAirpurifier",

@@ -23,45 +23,8 @@ This Homey app supports direct control for Yeelights. Before being able to add y
 ## Adding miIO devices
 For Homey to be able to communicate with devices over the miIO protocol a unique device token needs to be obtained. Technical knowledge is needed for retrieving these tokens. If your are not to tech-savvy using this app for any other devices than the Yeelights might be challenging. See the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/obtain_token.md) on retrieving device tokens.
 
-## Supported Cards
-### Yeelights
-* Default flow cards for light capabilities class
-* [ACTIONS] Change brightness over time, Temperature/brightness scene, Color/brightness scene, Custom command (advanced), Set default on state
-
-### Xiaomi Philips Light Bulbs
-* Default flow cards for light capabilities class
-
-### Xiaomi Mi Robot Vacuumcleaner
-* Default flow cards for vacuumcleaner_state capabilities class
-* [ACTIONS] Find the robot, Set fanspeed
-
-### Xiaomi Mi Air Purifiers
-* [CONDITIONS] Powered
-* [ACTIONS] Power on/off, Set speed
-
-### Xiaomi Mi Humidifiers
-* [CONDITIONS] Powered
-* [ACTIONS] Power on/off, Set speed
-
-### Xiaomi Single Power Plug
-* Default flow cards for on/off, measure power and meter power capabilities class
-
 ## Changelog
-### 2018-03-15 -- v2.6.2
-* NEW: add support for the Xiaomi Gateway Light - alarm not supported yet and subdevices are supported directly with the Xiaomi ZigBee app
-* FIX: fix for pairing wizard Philips Light Bulbs
-* FIX: small fix in Yeelights driver
-
-### 2018-03-04 -- v2.6.1
-* CHANGE: updated device class of Mi Power Plug and Mi Power Strip to "socket" (this require re-pairing of these devices)
-* FIX: solved small device naming issue in pair wizard
-
-### 2018-02-18 -- v2.6.0
-* NEW: add support for PM2.5 sensor
-* NEW: add basic support for WiFi power strips (power load and power consumed are not available for now)
-* UPDATE: update miio library to 0.15.6 which fixes:
-   * Power and color temperature setting fixed for Philips Light Bulbs
-   * Refreshing of vacuumcleaner state after starting and stopping cleaning
-* FIX: update vacuumcleaner state directly when using onoff capability
-* FIX: fix flow cards not showing (un)succesful execution status
-* FIX: possible fix for showing temperature for purifiers and humidifiers
+### 2018-04-06 -- v2.6.3
+* UPDATE: changed device class from Xiaomi Gateway to light (repair if you want to use the light flow cards)
+* NEW: added trigger card for changes in luminance for Xiaomi Gateway
+* FIX: fixed an error with setting the light temperature for the Philips Bulbs
