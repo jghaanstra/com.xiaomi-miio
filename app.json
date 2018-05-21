@@ -1,35 +1,35 @@
 {
 	"id": "com.xiaomi-miio",
-    "sdk": 2,
+  "sdk": 2,
 	"name": {
 		"en": "Xiaomi Mi Home",
 		"nl": "Xiaomi Mi Home"
-    },
-    "tags": {
+  },
+  "tags": {
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.6.3",
+	"version": "2.6.4",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
 		"email": "homey@solidewebservices.com"
 	},
-    "contributing": {
-        "donate": {
-            "paypal": {
-                "username": "jghaanstra"
-            }
-        }
-    },
-    "bugs": {
-        "url": "https://github.com/jghaanstra/com.xiaomi-miio/issues"
-    },
-    "athomForumDiscussionId": 3295,
-    "images": {
-        "large": "./assets/images/large.jpg",
-        "small": "./assets/images/small.jpg"
-    },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "jghaanstra"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/jghaanstra/com.xiaomi-miio/issues"
+  },
+  "athomForumDiscussionId": 3295,
+  "images": {
+    "large": "./assets/images/large.jpg",
+    "small": "./assets/images/small.jpg"
+  },
 	"category": "appliances",
 	"description": {
 		"en": "Control Xiaomi Mi Home devices",
@@ -39,7 +39,7 @@
 		"net": "*"
 	},
 	"drivers": [
-        {
+    {
 			"id": "yeelights",
 			"name": {
 				"en": "Yeelights",
@@ -50,36 +50,36 @@
 				"small": "drivers/yeelights/assets/images/small.jpg"
 			},
 			"class": "light",
-            "capabilities": [
-                "onoff",
-                "dim",
-                "light_temperature",
-                "light_hue",
-                "light_saturation",
-                "light_mode"
-            ],
-            "capabilitiesOptions": {
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_temperature",
+        "light_hue",
+        "light_saturation",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
 				"dim": {
 					"opts": {
 						"duration": true
 					}
 				}
 			},
-            "pair": [
-                {
-                    "id": "list_devices",
-                    "template": "list_devices",
-                    "navigation": {
-                        "next": "add_yeelights"
-                    }
-                },
-                {
-                    "id": "add_yeelights",
-                    "template": "add_devices"
-                }
-            ]
-		},
+      "pair": [
         {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_yeelights"
+          }
+        },
+        {
+          "id": "add_yeelights",
+          "template": "add_devices"
+        }
+      ]
+		},
+    {
 			"id": "philips-bulb",
 			"name": {
 				"en": "Philips Light Bulb",
@@ -90,60 +90,60 @@
 				"small": "drivers/philips-bulb/assets/images/small.jpg"
 			},
 			"class": "light",
-            "capabilities": [
-                "onoff",
-                "dim",
-                "light_temperature"
-            ],
-            "pair": [
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_temperature"
+      ],
+      "pair": [
 				{
 					"id": "start"
 				}
 			],
-            "settings": [
-			    {
-                    "type": "group",
-                    "label": {
-                        "en": "Philips Light Bulb Settings",
+      "settings": [
+			  {
+          "type": "group",
+          "label": {
+            "en": "Philips Light Bulb Settings",
 						"nl": "Philips Light Bulb Instellingen"
-                    },
+          },
 					"children": [
-				        {
-				            "id": "address",
-				            "type": "text",
-				            "value": "0.0.0.0",
-				            "label": {
-				                "en": "IP Address",
-				                "nl": "IP Adres"
-				            }
-				        },
-				        {
-					        "id": "token",
-					        "type": "text",
-					        "value": "",
-					        "label": {
-						        "en": "Philips Light Bulb Token",
-						        "nl": "Philips Light Bulb Token"
-					        }
-				        },
-                        {
-					        "id": "polling",
-					        "type": "number",
-					        "value": 10,
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            },
-					        "label": {
-						        "en": "Philips Light Bulb Polling",
-						        "nl": "Philips Light Bulb Polling"
-					        }
-				        }
-		            ]
-		        }
-		    ]
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "0.0.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "Philips Light Bulb Token",
+						    "nl": "Philips Light Bulb Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 10,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "Philips Light Bulb Polling",
+						    "nl": "Philips Light Bulb Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
 		},
-        {
+    {
 			"id": "philips-eyecare",
 			"name": {
 				"en": "Philips Eyecare Lamp",
@@ -154,59 +154,59 @@
 				"small": "drivers/philips-eyecare/assets/images/small.jpg"
 			},
 			"class": "light",
-            "capabilities": [
-                "onoff",
-                "dim"
-            ],
-            "pair": [
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "pair": [
 				{
 					"id": "start"
 				}
 			],
-            "settings": [
-			    {
-                    "type": "group",
-                    "label": {
-                        "en": "Philips Eyecare Lamp Settings",
+      "settings": [
+			  {
+          "type": "group",
+          "label": {
+            "en": "Philips Eyecare Lamp Settings",
 						"nl": "Philips Eyecare Lamp Instellingen"
-                    },
+          },
 					"children": [
-				        {
-				            "id": "address",
-				            "type": "text",
-				            "value": "0.0.0.0",
-				            "label": {
-				                "en": "IP Address",
-				                "nl": "IP Adres"
-				            }
-				        },
-				        {
-					        "id": "token",
-					        "type": "text",
-					        "value": "",
-					        "label": {
-						        "en": "Philips Light Bulb Token",
-						        "nl": "Philips Light Bulb Token"
-					        }
-				        },
-                        {
-					        "id": "polling",
-					        "type": "number",
-					        "value": 10,
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            },
-					        "label": {
-						        "en": "Philips Light Bulb Polling",
-						        "nl": "Philips Light Bulb Polling"
-					        }
-				        }
-		            ]
-		        }
-		    ]
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "0.0.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "Philips Light Bulb Token",
+						    "nl": "Philips Light Bulb Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 10,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "Philips Light Bulb Polling",
+						    "nl": "Philips Light Bulb Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
 		},
-        {
+    {
 			"id": "mi-robot",
 			"name": {
 				"en": "Mi Robot Vacuum Cleaner",
@@ -218,79 +218,79 @@
 			},
 			"class": "vacuumcleaner",
 			"capabilities": [
-                "onoff",
-                "vacuumcleaner_state",
-                "measure_battery"
-            ],
-            "mobile": {
-                "components": [
-                    {
-                        "id": "battery",
-                        "capabilities": [ "measure_battery" ]
-                    },
-                    {
-                        "id": "icon",
-                        "capabilities": [ "onoff" ]
-                    },
-                    {
-                        "id": "picker",
-                        "capabilities": [ "vacuumcleaner_state" ]
-                    },
-                    {
-                        "id": "toggle",
-                        "capabilities": [ "onoff" ]
-                    }
-                ]
-            },
+        "onoff",
+        "vacuumcleaner_state",
+        "measure_battery"
+      ],
+      "mobile": {
+        "components": [
+          {
+            "id": "battery",
+            "capabilities": [ "measure_battery" ]
+          },
+          {
+            "id": "icon",
+            "capabilities": [ "onoff" ]
+          },
+          {
+            "id": "picker",
+            "capabilities": [ "vacuumcleaner_state" ]
+          },
+          {
+            "id": "toggle",
+            "capabilities": [ "onoff" ]
+          }
+        ]
+      },
 			"pair": [
 				{
 					"id": "start"
 				}
 			],
 			"settings": [
-			    {
-                    "type": "group",
-                    "label": {
-                        "en": "Mi Robot Settings",
+			  {
+          "type": "group",
+          "label": {
+            "en": "Mi Robot Settings",
 						"nl": "Mi Robot Instellingen"
-                    },
+          },
 					"children": [
-				        {
-				            "id": "address",
-				            "type": "text",
-				            "value": "0.0.0.0",
-				            "label": {
-				                "en": "IP Address",
-				                "nl": "IP Adres"
-				            }
-				        },
-				        {
-					        "id": "token",
-					        "type": "text",
-					        "value": "",
-					        "label": {
-						        "en": "Mi Robot Token",
-						        "nl": "Mi Robot Token"
-					        }
-				        },
-                        {
-					        "id": "polling",
-					        "type": "number",
-					        "value": 30,
-                            "attr": {
-                                "min": 30,
-                                "max": 3600
-                            },
-					        "label": {
-						        "en": "Mi Robot Polling",
-						        "nl": "Mi Robot Polling"
-					        }
-				        }
-		            ]
-		        }
-		    ]
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "0.0.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "Mi Robot Token",
+						    "nl": "Mi Robot Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 30,
+              "attr": {
+                "min": 30,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "Mi Robot Polling",
+						    "nl": "Mi Robot Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
 		},
-        {
+    {
 			"id": "mi-airpurifier",
 			"name": {
 				"en": "Mi Air Purifier",
@@ -302,80 +302,80 @@
 			},
 			"class": "sensor",
 			"capabilities": [
-                "onoff",
-                "measure_temperature",
-                "measure_humidity",
-                "measure_pm25"
-            ],
-            "mobile": {
-                "components": [
-                    {
-                        "id": "icon",
-                        "capabilities": [ "onoff" ]
-                    },
-                    {
-                        "id": "sensor",
-                        "capabilities": [
-                            "measure_temperature",
-                            "measure_humidity",
-                            "measure_pm25"
-                        ]
-                    },
-                    {
-                        "id": "toggle",
-                        "capabilities": [ "onoff" ]
-                    }
-                ]
-            },
+        "onoff",
+        "measure_temperature",
+        "measure_humidity",
+        "measure_pm25"
+      ],
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": [ "onoff" ]
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "measure_temperature",
+              "measure_humidity",
+              "measure_pm25"
+            ]
+          },
+          {
+            "id": "toggle",
+            "capabilities": [ "onoff" ]
+          }
+        ]
+      },
 			"pair": [
 				{
 					"id": "start"
 				}
 			],
 			"settings": [
-			    {
-                    "type": "group",
-                    "label": {
-                        "en": "Mi Air Purifier Settings",
+			  {
+          "type": "group",
+          "label": {
+            "en": "Mi Air Purifier Settings",
 						"nl": "Mi Luchtreiniger Instellingen"
-                    },
+          },
 					"children": [
-				        {
-				            "id": "address",
-				            "type": "text",
-				            "value": "0.0.0.0",
-				            "label": {
-				                "en": "IP Address",
-				                "nl": "IP Adres"
-				            }
-				        },
-				        {
-					        "id": "token",
-					        "type": "text",
-					        "value": "",
-					        "label": {
-						        "en": "Mi Air Purifier Token",
-						        "nl": "Mi Luchtreiniger Token"
-					        }
-				        },
-                        {
-					        "id": "polling",
-					        "type": "number",
-					        "value": 60,
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            },
-					        "label": {
-						        "en": "Mi Air Purifier Polling",
-						        "nl": "Mi Luchtreiniger Polling"
-					        }
-				        }
-		            ]
-		        }
-		    ]
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "0.0.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "Mi Air Purifier Token",
+						    "nl": "Mi Luchtreiniger Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "Mi Air Purifier Polling",
+						    "nl": "Mi Luchtreiniger Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
 		},
-        {
+    {
 			"id": "mi-humidifier",
 			"name": {
 				"en": "Mi Humidifier",
@@ -386,79 +386,79 @@
 				"small": "drivers/mi-humidifier/assets/images/small.jpg"
 			},
 			"class": "sensor",
+      "capabilities": [
+        "onoff",
+        "measure_temperature",
+        "measure_humidity"
+      ],
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": [ "onoff" ]
+          },
+          {
+            "id": "sensor",
             "capabilities": [
-                "onoff",
-                "measure_temperature",
-                "measure_humidity"
-            ],
-            "mobile": {
-                "components": [
-                    {
-                        "id": "icon",
-                        "capabilities": [ "onoff" ]
-                    },
-                    {
-                        "id": "sensor",
-                        "capabilities": [
-                            "measure_temperature",
-                            "measure_humidity"
-                        ]
-                    },
-                    {
-                        "id": "toggle",
-                        "capabilities": [ "onoff" ]
-                    }
-                ]
-            },
+              "measure_temperature",
+              "measure_humidity"
+            ]
+          },
+          {
+            "id": "toggle",
+            "capabilities": [ "onoff" ]
+          }
+        ]
+      },
 			"pair": [
 				{
 					"id": "start"
 				}
 			],
 			"settings": [
-			    {
-                    "type": "group",
-                    "label": {
-                        "en": "Mi Humidifier Settings",
+			  {
+          "type": "group",
+          "label": {
+            "en": "Mi Humidifier Settings",
 						"nl": "Mi Luchtbevochtiger Instellingen"
-                    },
+          },
 					"children": [
-				        {
-				            "id": "address",
-				            "type": "text",
-				            "value": "0.0.0.0",
-				            "label": {
-				                "en": "IP Address",
-				                "nl": "IP Adres"
-				            }
-				        },
-				        {
-					        "id": "token",
-					        "type": "text",
-					        "value": "",
-					        "label": {
-						        "en": "Mi Humidifier Token",
-						        "nl": "Mi Luchtbevochtiger Token"
-					        }
-				        },
-                        {
-					        "id": "polling",
-					        "type": "number",
-					        "value": 60,
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            },
-					        "label": {
-						        "en": "Mi Humidifier Polling",
-						        "nl": "Mi Luchtbevochtiger Polling"
-					        }
-				        }
-		            ]
-		        }
-		    ]
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "0.0.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "Mi Humidifier Token",
+						    "nl": "Mi Luchtbevochtiger Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "Mi Humidifier Polling",
+						    "nl": "Mi Luchtbevochtiger Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
 		},
-        {
+    {
 			"id": "air-monitor",
 			"name": {
 				"en": "PM2.5 Air Monitor",
@@ -470,75 +470,75 @@
 			},
 			"class": "sensor",
 			"capabilities": [
-                "onoff",
-                "measure_battery",
-                "measure_pm25"
-            ],
-            "mobile": {
-                "components": [
-                    {
-                        "id": "icon",
-                        "capabilities": [ "onoff" ]
-                    },
-                    {
-                        "id": "sensor",
-                        "capabilities": [ "measure_pm25" ]
-                    },
-                    {
-                        "id": "toggle",
-                        "capabilities": [ "onoff" ]
-                    }
-                ]
-            },
+        "onoff",
+        "measure_battery",
+        "measure_pm25"
+      ],
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": [ "onoff" ]
+          },
+          {
+            "id": "sensor",
+            "capabilities": [ "measure_pm25" ]
+          },
+          {
+            "id": "toggle",
+            "capabilities": [ "onoff" ]
+          }
+        ]
+      },
 			"pair": [
 				{
 					"id": "start"
 				}
 			],
 			"settings": [
-			    {
-                    "type": "group",
-                    "label": {
-                        "en": "PM2.5 Air Monitor Settings",
+			  {
+          "type": "group",
+          "label": {
+            "en": "PM2.5 Air Monitor Settings",
 						"nl": "PM2.5 Air Monitor Instellingen"
-                    },
+          },
 					"children": [
-				        {
-				            "id": "address",
-				            "type": "text",
-				            "value": "0.0.0.0",
-				            "label": {
-				                "en": "IP Address",
-				                "nl": "IP Adres"
-				            }
-				        },
-				        {
-					        "id": "token",
-					        "type": "text",
-					        "value": "",
-					        "label": {
-						        "en": "PM2.5 Air Monitor Token",
-						        "nl": "PM2.5 Air Monitor Token"
-					        }
-				        },
-                        {
-					        "id": "polling",
-					        "type": "number",
-					        "value": 60,
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            },
-					        "label": {
-						        "en": "PM2.5 Air Monitor Polling",
-						        "nl": "PM2.5 Air Monitor Polling"
-					        }
-				        }
-		            ]
-		        }
-		    ]
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "0.0.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "PM2.5 Air Monitor Token",
+						    "nl": "PM2.5 Air Monitor Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "PM2.5 Air Monitor Polling",
+						    "nl": "PM2.5 Air Monitor Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
 		},
-        {
+    {
 			"id": "mi-power-plug",
 			"name": {
 				"en": "Mi Power Plug",
@@ -549,58 +549,58 @@
 				"small": "drivers/mi-power-plug/assets/images/small.jpg"
 			},
 			"class": "socket",
-            "capabilities": [
-                "onoff"
-            ],
+      "capabilities": [
+        "onoff"
+      ],
 			"pair": [
 				{
 					"id": "start"
 				}
 			],
 			"settings": [
-			    {
-                    "type": "group",
-                    "label": {
-                        "en": "Mi Power Plug Settings",
+			  {
+          "type": "group",
+          "label": {
+            "en": "Mi Power Plug Settings",
 						"nl": "Mi Power Plug Instellingen"
-                    },
+          },
 					"children": [
-				        {
-				            "id": "address",
-				            "type": "text",
-				            "value": "0.0.0.0",
-				            "label": {
-				                "en": "IP Address",
-				                "nl": "IP Adres"
-				            }
-				        },
-				        {
-					        "id": "token",
-					        "type": "text",
-					        "value": "",
-					        "label": {
-						        "en": "Mi Power Plug Token",
-						        "nl": "Mi Power Plug Token"
-					        }
-				        },
-                        {
-					        "id": "polling",
-					        "type": "number",
-					        "value": 30,
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            },
-					        "label": {
-						        "en": "Mi Power Plug Polling",
-						        "nl": "Mi Power Plug Polling"
-					        }
-				        }
-		            ]
-		        }
-		    ]
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "0.0.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "Mi Power Plug Token",
+						    "nl": "Mi Power Plug Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 30,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "Mi Power Plug Polling",
+						    "nl": "Mi Power Plug Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
 		},
-        {
+    {
 			"id": "mi-power-strip",
 			"name": {
 				"en": "Mi Power Strip",
@@ -611,60 +611,60 @@
 				"small": "drivers/mi-power-strip/assets/images/small.jpg"
 			},
 			"class": "socket",
-            "capabilities": [
-                "onoff",
-                "measure_power",
-                "meter_power"
-            ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power"
+      ],
 			"pair": [
 				{
 					"id": "start"
 				}
 			],
 			"settings": [
-			    {
-                    "type": "group",
-                    "label": {
-                        "en": "Mi Power Strip Settings",
+			  {
+          "type": "group",
+          "label": {
+            "en": "Mi Power Strip Settings",
 						"nl": "Mi Power Strip Instellingen"
-                    },
+          },
 					"children": [
-				        {
-				            "id": "address",
-				            "type": "text",
-				            "value": "0.0.0.0",
-				            "label": {
-				                "en": "IP Address",
-				                "nl": "IP Adres"
-				            }
-				        },
-				        {
-					        "id": "token",
-					        "type": "text",
-					        "value": "",
-					        "label": {
-						        "en": "Mi Power Strip Token",
-						        "nl": "Mi Power Strip Token"
-					        }
-				        },
-                        {
-					        "id": "polling",
-					        "type": "number",
-					        "value": 30,
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            },
-					        "label": {
-						        "en": "Mi Power Strip Polling",
-						        "nl": "Mi Power Strip Polling"
-					        }
-				        }
-		            ]
-		        }
-		    ]
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "0.0.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "Mi Power Strip Token",
+						    "nl": "Mi Power Strip Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 30,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "Mi Power Strip Polling",
+						    "nl": "Mi Power Strip Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
 		},
-        {
+    {
 			"id": "gateway",
 			"name": {
 				"en": "Gateway",
@@ -676,100 +676,100 @@
 			},
 			"class": "light",
 			"capabilities": [
-                "onoff",
-                "dim",
-                "light_hue",
-                "light_saturation",
-                "measure_luminance"
-            ],
-            "mobile": {
-                "components": [
-                    {
-                        "id": "icon",
-                        "capabilities": [ "onoff" ]
-                    },
-                    {
-                        "id": "sensor",
-                        "capabilities": [ "measure_luminance" ]
-                    },
-                    {
-                        "id": "slider",
-                        "capabilities": [ "dim" ]
-                    },
-                    {
-                        "id": "color",
-                        "capabilities": [ "light_hue", "light_saturation" ]
-                    }
-                ]
-            },
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "measure_luminance"
+      ],
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": [ "onoff" ]
+          },
+          {
+            "id": "sensor",
+            "capabilities": [ "measure_luminance" ]
+          },
+          {
+            "id": "slider",
+            "capabilities": [ "dim" ]
+          },
+          {
+            "id": "color",
+            "capabilities": [ "light_hue", "light_saturation" ]
+          }
+        ]
+      },
 			"pair": [
 				{
 					"id": "start"
 				}
 			],
 			"settings": [
-			    {
-                    "type": "group",
-                    "label": {
-                        "en": "Gateway Settings",
+			  {
+          "type": "group",
+          "label": {
+            "en": "Gateway Settings",
 						"nl": "Gateway Instellingen"
-                    },
+          },
 					"children": [
-				        {
-				            "id": "address",
-				            "type": "text",
-				            "value": "0.0.0.0",
-				            "label": {
-				                "en": "IP Address",
-				                "nl": "IP Adres"
-				            }
-				        },
-				        {
-					        "id": "token",
-					        "type": "text",
-					        "value": "",
-					        "label": {
-						        "en": "Gateway Token",
-						        "nl": "Gateway Token"
-					        }
-				        },
-                        {
-					        "id": "polling",
-					        "type": "number",
-					        "value": 60,
-                            "attr": {
-                                "min": 5,
-                                "max": 3600
-                            },
-					        "label": {
-						        "en": "Gateway Polling",
-						        "nl": "Gateway Polling"
-					        }
-				        }
-		            ]
-		        }
-		    ]
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "0.0.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "Gateway Token",
+						    "nl": "Gateway Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "Gateway Polling",
+						    "nl": "Gateway Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
 		}
 	],
 	"flow": {
-        "triggers": [
-            {
+    "triggers": [
+      {
 				"id": "gatewayLuminance",
 				"title": {
-                    "en": "Luminance has changed",
-                    "nl": "De helderheid is veranderd"
+          "en": "Luminance has changed",
+          "nl": "De helderheid is veranderd"
 				},
-                "tokens": [
-                    {
-                        "name": "luminance",
-                        "type": "number",
-                        "title": {
-                            "en": "luminance",
-                            "nl": "helderheid"
-                        },
-                        "example": 0
-                    }
-                ],
+        "tokens": [
+          {
+            "name": "luminance",
+            "type": "number",
+            "title": {
+              "en": "luminance",
+              "nl": "helderheid"
+            },
+            "example": 0
+          }
+        ],
 				"args": [
 					{
 						"name": "device",
@@ -781,14 +781,43 @@
 						"filter": "driver_id=gateway"
 					}
 				]
-			}
+			},
+      {
+				"id": "statusVacuum",
+				"title": {
+          "en": "Status has changed",
+          "nl": "Status is gewijzigd"
+				},
+        "tokens": [
+          {
+            "name": "status",
+            "type": "string",
+            "title": {
+              "en": "status",
+              "nl": "status"
+            },
+            "example": "stopped"
+          }
         ],
-        "conditions": [
-            {
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			}
+    ],
+    "conditions": [
+      {
 				"id": "poweredAirpurifier",
 				"title": {
-                    "en": "!{{is|is not}} powered on",
-                    "nl": "!{{is|is niet}} aangezet"
+          "en": "!{{is|is not}} powered on",
+          "nl": "!{{is|is niet}} aangezet"
 				},
 				"args": [
 					{
@@ -802,11 +831,11 @@
 					}
 				]
 			},
-            {
+      {
 				"id": "poweredHumidifier",
 				"title": {
-                    "en": "!{{is|is not}} powered on",
-                    "nl": "!{{is|is niet}} aangezet"
+          "en": "!{{is|is not}} powered on",
+          "nl": "!{{is|is niet}} aangezet"
 				},
 				"args": [
 					{
@@ -820,233 +849,233 @@
 					}
 				]
 			}
-        ],
+    ],
 		"actions": [
-            {
+      {
 				"id": "yeelightDefault",
 				"title": {
 					"en": "Set default on state",
 					"nl": "Stel standaard opstart status in"
 				},
-                "hint": {
+        "hint": {
 					"en": "Use this card to save the current state as the default on state of your Yeelight",
 					"nl": "Gebruik deze actie om de huidige status op te slaan als de standaard aan status van je Yeelight"
 				},
 				"args": [
-                    {
+          {
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Yeelight",
 							"nl": "Selecteer Yeelight"
 						},
 						"filter": "driver_id=yeelights"
-                    }
+          }
 				]
 			},
-            {
+      {
 				"id": "yeelightFlowBrightness",
 				"title": {
 					"en": "Change brightness over time",
 					"nl": "Wijzig helderheid over tijd"
 				},
-                "hint": {
+        "hint": {
 					"en": "Use this card to create a changing effect of temperature and brightness over time (duration in milliseconds, temperature in Kelvin 1700-6500 and brightness in percentage)",
 					"nl": "Gebruik deze actie voor een veranderd effect van licht temperatuur en helderheid over tijd (doorlooptijd in milliseconden, temperatuur in Kelvin 1700-6500 en helderheid in percentage)"
 				},
 				"args": [
-                    {
+          {
 						"name": "action",
 						"type": "dropdown",
-                        "placeholder": {
-                            "en": "Finish action",
-                            "nl": "Afrondactie"
-                        },
-                        "values": [
-                            {
-                                "id": "0",
-                                "label": {
-                                    "en": "Recover to previous state",
-                                    "nl": "Terug naar oorspronkelijke staat"
-                                }
-                            },
-                            {
-                                "id": "1",
-                                "label": {
-                                    "en": "Stay at the state",
-                                    "nl": "Behoud staat"
-                                }
-                            },
-                            {
-                                "id": "2",
-                                "label": {
-                                    "en": "Turn off light",
-                                    "nl": "Licht uit"
-                                }
-                            }
-                        ]
-                    },
-                    {
+            "placeholder": {
+              "en": "Finish action",
+              "nl": "Afrondactie"
+            },
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Recover to previous state",
+                  "nl": "Terug naar oorspronkelijke staat"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Stay at the state",
+                  "nl": "Behoud staat"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Turn off light",
+                  "nl": "Licht uit"
+                }
+              }
+            ]
+          },
+          {
 						"name": "duration",
 						"type": "number",
-                        "placeholder": {
-                            "en": "Duration in milliseconds",
-                            "nl": "Doorlooptijd in milliseconden"
-                        },
-                        "min": 50,
-                        "step": 1
-                    },
-                    {
+            "placeholder": {
+              "en": "Duration in milliseconds",
+              "nl": "Doorlooptijd in milliseconden"
+            },
+            "min": 50,
+            "step": 1
+          },
+          {
 						"name": "temperature",
 						"type": "number",
-                        "placeholder": {
-                            "en": "Temperature",
-                            "nl": "Temperatuur"
-                        },
-                        "min": 1700,
-                        "max": 6500,
-                        "step": 1
-                    },
-                    {
+            "placeholder": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "min": 1700,
+            "max": 6500,
+            "step": 1
+          },
+          {
 						"name": "brightness",
 						"type": "number",
-                        "placeholder": {
-                            "en": "Brightness",
-                            "nl": "Helderheid"
-                        },
-                        "min": 0,
-                        "max": 100,
-                        "step": 1
-                    },
-                    {
+            "placeholder": {
+              "en": "Brightness",
+              "nl": "Helderheid"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Yeelight",
 							"nl": "Selecteer Yeelight"
 						},
 						"filter": "driver_id=yeelights"
-                    }
+          }
 				]
 			},
-            {
+      {
 				"id": "yeelightTemperatureScene",
 				"title": {
 					"en": "Temperature and brightness",
 					"nl": "Temperatuur en helderheid"
 				},
-                "hint": {
+        "hint": {
 					"en": "Use this card to set the temperature and brightness directly (temperature in Kelvin 1700-6500 and brightness in percentage)",
 					"nl": "Gebruik deze actie om de temperatuur en helderheid direct in te stellen (temperatuur in Kelvin 1700-6500 en helderheid in percentage)"
 				},
 				"args": [
-                    {
+          {
 						"name": "temperature",
 						"type": "number",
-                        "placeholder": {
-                            "en": "Temperature",
-                            "nl": "Temperatuur"
-                        },
-                        "min": 1700,
-                        "max": 6500,
-                        "step": 1
-                    },
-                    {
+            "placeholder": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "min": 1700,
+            "max": 6500,
+            "step": 1
+          },
+          {
 						"name": "brightness",
 						"type": "number",
-                        "placeholder": {
-                            "en": "Brightness",
-                            "nl": "Helderheid"
-                        },
-                        "min": 0,
-                        "max": 100,
-                        "step": 1
-                    },
-                    {
+            "placeholder": {
+              "en": "Brightness",
+              "nl": "Helderheid"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Yeelight",
 							"nl": "Selecteer Yeelight"
 						},
 						"filter": "driver_id=yeelights"
-                    }
+          }
 				]
 			},
-            {
+      {
 				"id": "yeelightColorScene",
 				"title": {
 					"en": "Color and brightness",
 					"nl": "Kleur en helderheid"
 				},
-                "hint": {
+        "hint": {
 					"en": "Use this card to set the color and brightness directly (brightness in percentage)",
 					"nl": "Gebruik deze actie om de kleur en helderheid direct in te stellen (helderheid in percentage)"
 				},
 				"args": [
-                    {
+          {
 						"name": "color",
 						"type": "color"
-                    },
-                    {
+          },
+          {
 						"name": "brightness",
 						"type": "number",
-                        "placeholder": {
-                            "en": "Brightness",
-                            "nl": "Helderheid"
-                        },
-                        "min": 0,
-                        "max": 100,
-                        "step": 1
-                    },
-                    {
+            "placeholder": {
+              "en": "Brightness",
+              "nl": "Helderheid"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Yeelight",
 							"nl": "Selecteer Yeelight"
 						},
 						"filter": "driver_id=yeelights"
-                    }
+          }
 				]
 			},
-            {
+      {
 				"id": "yeelightCustomCommand",
 				"title": {
 					"en": "Send command (advanced)",
 					"nl": "Verstuur commando (geadvanceerd)"
 				},
-                "hint": {
+        "hint": {
 					"en": "Advanced users can use this card to send any custom command, see the Yeelight documentation for options",
 					"nl": "Geadvanceerde gebruikers kunnen deze actie gebruiken om maatwerk commands te versturen, zie de Yeelight documentatie voor opties"
 				},
 				"args": [
-                    {
+          {
 						"name": "command",
 						"type": "text",
-                        "placeholder": {
-                            "en": "Custom command",
-                            "nl": "Aangepast commando"
-                        }
-                    },
-                    {
+            "placeholder": {
+              "en": "Custom command",
+              "nl": "Aangepast commando"
+            }
+          },
+          {
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Yeelight",
 							"nl": "Selecteer Yeelight"
 						},
 						"filter": "driver_id=yeelights"
-                    }
+          }
 				]
 			},
-            {
+      {
 				"id": "findVacuum",
 				"title": {
 					"en": "Find vacuum cleaner",
 					"nl": "Vind stofzuiger"
 				},
-                "hint": {
+        "hint": {
 					"en": "Let the vacuum cleaner tell you where it's at",
 					"nl": "Laat de stofzuiger vertellen waar hij is"
 				},
@@ -1054,7 +1083,7 @@
 					{
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Mi Robot",
 							"nl": "Selecteer Mi Robot"
 						},
@@ -1062,59 +1091,59 @@
 					}
 				]
 			},
-            {
+      {
 				"id": "fanPowerVacuum",
 				"title": {
 					"en": "Set Fan Power",
 					"nl": "Stel ventilator in"
 				},
 				"args": [
-                    {
+          {
 						"name": "fanspeed",
 						"type": "dropdown",
-                        "values": [
-                            {
-                                "id": "38",
-                                "label": {
-                                    "en": "Quiet",
-                                    "nl": "Stil"
-                                }
-                            },
-                            {
-                                "id": "66",
-                                "label": {
-                                    "en": "Balanced",
-                                    "nl": "Gebalanceerd"
-                                }
-                            },
-                            {
-                                "id": "77",
-                                "label": {
-                                    "en": "Turbo",
-                                    "nl": "Turbo"
-                                }
-                            },
-                            {
-                                "id": "90",
-                                "label": {
-                                    "en": "Full Speed",
-                                    "nl": "Maximum"
-                                }
-                            }
-                        ]
-                    },
-                    {
+            "values": [
+              {
+                "id": "38",
+                "label": {
+                  "en": "Quiet",
+                  "nl": "Stil"
+                }
+              },
+              {
+                "id": "66",
+                "label": {
+                  "en": "Balanced",
+                  "nl": "Gebalanceerd"
+                }
+              },
+              {
+                "id": "77",
+                "label": {
+                  "en": "Turbo",
+                  "nl": "Turbo"
+                }
+              },
+              {
+                "id": "90",
+                "label": {
+                  "en": "Full Speed",
+                  "nl": "Maximum"
+                }
+              }
+            ]
+          },
+          {
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Mi Robot",
 							"nl": "Selecteer Mi Robot"
 						},
 						"filter": "driver_id=mi-robot"
-                    }
+          }
 				]
 			},
-            {
+      {
 				"id": "airpurifierOn",
 				"title": {
 					"en": "Turn on",
@@ -1124,7 +1153,7 @@
 					{
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Mi Air Purifier",
 							"nl": "Selecteer Mi Luchtreiniger"
 						},
@@ -1132,7 +1161,7 @@
 					}
 				]
 			},
-            {
+      {
 				"id": "airpurifierOff",
 				"title": {
 					"en": "Turn off",
@@ -1142,7 +1171,7 @@
 					{
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Mi Air Purifier",
 							"nl": "Selecteer Mi Luchtreiniger"
 						},
@@ -1150,187 +1179,187 @@
 					}
 				]
 			},
-            {
+      {
 				"id": "modeAirpurifier",
 				"title": {
 					"en": "Set Speed",
 					"nl": "Stel snelheid in"
 				},
 				"args": [
-                    {
+          {
 						"name": "mode",
 						"type": "dropdown",
-                        "values": [
-                            {
-                                "id": "idle",
-                                "label": {
-                                    "en": "Idle",
-                                    "nl": "Standby"
-                                }
-                            },
-                            {
-                                "id": "auto",
-                                "label": {
-                                    "en": "Auto",
-                                    "nl": "Auto"
-                                }
-                            },
-                            {
-                                "id": "silent",
-                                "label": {
-                                    "en": "Silent",
-                                    "nl": "Stil"
-                                }
-                            },
-                            {
-                                "id": "favorite",
-                                "label": {
-                                    "en": "Favorite",
-                                    "nl": "Favorite"
-                                }
-                            }
-                        ]
-                    },
-                    {
+            "values": [
+              {
+                "id": "idle",
+                "label": {
+                  "en": "Idle",
+                  "nl": "Standby"
+                }
+              },
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "silent",
+                "label": {
+                  "en": "Silent",
+                  "nl": "Stil"
+                }
+              },
+              {
+                "id": "favorite",
+                "label": {
+                  "en": "Favorite",
+                  "nl": "Favorite"
+                }
+              }
+            ]
+          },
+          {
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Mi Air Purifier",
 							"nl": "Selecteer Mi Luchtreiniger"
 						},
 						"filter": "driver_id=mi-airpurifier"
-                    }
+          }
 				]
 			},
-            {
+      {
 				"id": "airpurifierSetFavorite",
 				"title": {
 					"en": "Set Favorite Speed",
 					"nl": "Favoriete snelheid instellen"
 				},
 				"args": [
-                    {
+          {
 						"name": "favorite",
 						"type": "dropdown",
-                        "values": [
-                            {
-                                "id": "1",
-                                "label": {
-                                    "en": "1",
-                                    "nl": "1"
-                                }
-                            },
-                            {
-                                "id": "2",
-                                "label": {
-                                    "en": "2",
-                                    "nl": "2"
-                                }
-                            },
-                            {
-                                "id": "3",
-                                "label": {
-                                    "en": "3",
-                                    "nl": "3"
-                                }
-                            },
-                            {
-                                "id": "4",
-                                "label": {
-                                    "en": "4",
-                                    "nl": "4"
-                                }
-                            },
-                            {
-                                "id": "5",
-                                "label": {
-                                    "en": "5",
-                                    "nl": "5"
-                                }
-                            },
-                            {
-                                "id": "6",
-                                "label": {
-                                    "en": "6",
-                                    "nl": "6"
-                                }
-                            },
-                            {
-                                "id": "7",
-                                "label": {
-                                    "en": "7",
-                                    "nl": "7"
-                                }
-                            },
-                            {
-                                "id": "8",
-                                "label": {
-                                    "en": "8",
-                                    "nl": "8"
-                                }
-                            },
-                            {
-                                "id": "9",
-                                "label": {
-                                    "en": "9",
-                                    "nl": "9"
-                                }
-                            },
-                            {
-                                "id": "10",
-                                "label": {
-                                    "en": "10",
-                                    "nl": "10"
-                                }
-                            },
-                            {
-                                "id": "11",
-                                "label": {
-                                    "en": "11",
-                                    "nl": "11"
-                                }
-                            },
-                            {
-                                "id": "12",
-                                "label": {
-                                    "en": "12",
-                                    "nl": "12"
-                                }
-                            },
-                            {
-                                "id": "13",
-                                "label": {
-                                    "en": "13",
-                                    "nl": "13"
-                                }
-                            },
-                            {
-                                "id": "14",
-                                "label": {
-                                    "en": "14",
-                                    "nl": "14"
-                                }
-                            },
-                            {
-                                "id": "15",
-                                "label": {
-                                    "en": "15",
-                                    "nl": "15"
-                                }
-                            },
-                            {
-                                "id": "16",
-                                "label": {
-                                    "en": "16",
-                                    "nl": "16"
-                                }
-                            }
-                        ]
-                    },
-                    {
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "1",
+                  "nl": "1"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "2",
+                  "nl": "2"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "3",
+                  "nl": "3"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "4",
+                  "nl": "4"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "5",
+                  "nl": "5"
+                }
+              },
+              {
+                "id": "6",
+                "label": {
+                  "en": "6",
+                  "nl": "6"
+                }
+              },
+              {
+                "id": "7",
+                "label": {
+                  "en": "7",
+                  "nl": "7"
+                }
+              },
+              {
+                "id": "8",
+                "label": {
+                  "en": "8",
+                  "nl": "8"
+                }
+              },
+              {
+                "id": "9",
+                "label": {
+                  "en": "9",
+                  "nl": "9"
+                }
+              },
+              {
+                "id": "10",
+                "label": {
+                  "en": "10",
+                  "nl": "10"
+                }
+              },
+              {
+                "id": "11",
+                "label": {
+                  "en": "11",
+                  "nl": "11"
+                }
+              },
+              {
+                "id": "12",
+                "label": {
+                  "en": "12",
+                  "nl": "12"
+                }
+              },
+              {
+                "id": "13",
+                "label": {
+                  "en": "13",
+                  "nl": "13"
+                }
+              },
+              {
+                "id": "14",
+                "label": {
+                  "en": "14",
+                  "nl": "14"
+                }
+              },
+              {
+                "id": "15",
+                "label": {
+                  "en": "15",
+                  "nl": "15"
+                }
+              },
+              {
+                "id": "16",
+                "label": {
+                  "en": "16",
+                  "nl": "16"
+                }
+              }
+            ]
+          },
+          {
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Mi Air Purifier",
 							"nl": "Selecteer Mi Luchtreiniger"
 						},
@@ -1338,7 +1367,7 @@
 					}
 				]
 			},
-            {
+      {
 				"id": "humidifierOn",
 				"title": {
 					"en": "Turn on",
@@ -1348,7 +1377,7 @@
 					{
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Mi Humidifier",
 							"nl": "Selecteer Mi Luchtbevochtiger"
 						},
@@ -1356,7 +1385,7 @@
 					}
 				]
 			},
-            {
+      {
 				"id": "humidifierOff",
 				"title": {
 					"en": "Turn off",
@@ -1366,7 +1395,7 @@
 					{
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Mi Humidifier",
 							"nl": "Selecteer Mi Luchtbevochtiger"
 						},
@@ -1374,139 +1403,139 @@
 					}
 				]
 			},
-            {
+      {
 				"id": "modeHumidifier",
 				"title": {
 					"en": "Set Speed",
 					"nl": "Stel snelheid in"
 				},
 				"args": [
-                    {
+          {
 						"name": "mode",
 						"type": "dropdown",
-                        "values": [
-                            {
-                                "id": "silent",
-                                "label": {
-                                    "en": "Silent",
-                                    "nl": "Stil"
-                                }
-                            },
-                            {
-                                "id": "medium",
-                                "label": {
-                                    "en": "Medium",
-                                    "nl": "Middel"
-                                }
-                            },
-                            {
-                                "id": "high",
-                                "label": {
-                                    "en": "High",
-                                    "nl": "Hoog"
-                                }
-                            }
-                        ]
-                    },
-                    {
+            "values": [
+              {
+                "id": "silent",
+                "label": {
+                  "en": "Silent",
+                  "nl": "Stil"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "Medium",
+                  "nl": "Middel"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog"
+                }
+              }
+            ]
+          },
+          {
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Mi Humidifier",
 							"nl": "Selecteer Mi Luchtbevochtiger"
 						},
 						"filter": "driver_id=mi-humidifier"
-                    }
+          }
 				]
 			},
-            {
+      {
 				"id": "enableEyecare",
 				"title": {
 					"en": "Switch Eyecare",
 					"nl": "Eyecare schakelen"
 				},
 				"args": [
-                    {
+          {
 						"name": "eyecare",
 						"type": "dropdown",
-                        "values": [
-                            {
-                                "id": "on",
-                                "label": {
-                                    "en": "On",
-                                    "nl": "Aan"
-                                }
-                            },
-                            {
-                                "id": "off",
-                                "label": {
-                                    "en": "Off",
-                                    "nl": "Uit"
-                                }
-                            },
-                            {
-                                "id": "phone",
-                                "label": {
-                                    "en": "Phone",
-                                    "nl": "Telefoon"
-                                }
-                            }
-                        ]
-                    },
-                    {
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "phone",
+                "label": {
+                  "en": "Phone",
+                  "nl": "Telefoon"
+                }
+              }
+            ]
+          },
+          {
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Philips Eyecare Lamp",
 							"nl": "Selecteer Philips Eyecare Lamp"
 						},
 						"filter": "driver_id=philips-eyecare"
-                    }
+          }
 				]
 			},
-            {
+      {
 				"id": "modeEyecare",
 				"title": {
 					"en": "Set Mode",
 					"nl": "Stel modus in"
 				},
 				"args": [
-                    {
+          {
 						"name": "mode",
 						"type": "dropdown",
-                        "values": [
-                            {
-                                "id": "study",
-                                "label": {
-                                    "en": "Study",
-                                    "nl": "Studeer"
-                                }
-                            },
-                            {
-                                "id": "reading",
-                                "label": {
-                                    "en": "Reading",
-                                    "nl": "Lezen"
-                                }
-                            },
-                            {
-                                "id": "phone",
-                                "label": {
-                                    "en": "Phone",
-                                    "nl": "Telefoon"
-                                }
-                            }
-                        ]
-                    },
-                    {
+            "values": [
+              {
+                "id": "study",
+                "label": {
+                  "en": "Study",
+                  "nl": "Studeer"
+                }
+              },
+              {
+                "id": "reading",
+                "label": {
+                  "en": "Reading",
+                  "nl": "Lezen"
+                }
+              },
+              {
+                "id": "phone",
+                "label": {
+                  "en": "Phone",
+                  "nl": "Telefoon"
+                }
+              }
+            ]
+          },
+          {
 						"name": "device",
 						"type": "device",
-                        "placeholder": {
+            "placeholder": {
 							"en": "Select Philips Eyecare Lamp",
 							"nl": "Selecteer Philips Eyecare Lamp"
 						},
 						"filter": "driver_id=philips-eyecare"
-                    }
+          }
 				]
 			}
 		]
