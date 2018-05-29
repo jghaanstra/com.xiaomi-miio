@@ -81,15 +81,15 @@ class MiRobotDevice extends Homey.Device {
   // HELPER FUNCTIONS
   createDevice() {
     miio.device({
-        address: this.getSetting('address'),
-        token: this.getSetting('token')
-      }).then(miiodevice => {
-        this.miio = miiodevice;
+      address: this.getSetting('address'),
+      token: this.getSetting('token')
+    }).then(miiodevice => {
+      this.miio = miiodevice;
 
-        var interval = this.getSetting('polling') || 60;
-        this.pollDevice(interval);
+      var interval = this.getSetting('polling') || 60;
+      this.pollDevice(interval);
     }).catch(function (error) {
-      return reject(error);
+      this.log(error);
     });
   }
 
