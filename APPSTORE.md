@@ -5,7 +5,7 @@ This app uses an unofficial library called the [miIO Device Library](https://git
 
 ## Supported devices
 Below is a list of supported devices and devices. Post a comment in the [support topic](https://forum.athom.com/discussion/3295/) if you would like to see support for a specific device, some devices might already be supported by the miio library but just need to be implemented. For devices not yet support by the miio library you need technical knowledge to discover the device properties yourself as described [here](https://github.com/aholstenson/miio/blob/master/docs/missing-devices.md).
-* Yeelights: Bulbs Wi-Fi (tested), LED strips (tested), Bedside Lamp II (tested), Ceiling Lights (tested)
+* Yeelights: Bulbs Wi-Fi (tested), LED strips (tested), Bedside Lamp II (tested), Ceiling Lights (tested), Desk Lamp (tested)
 * Xiaomi Philips: Light Bulbs (tested), Eyecare Lamp 2 (untested)
 * Xiaomi Robot Vacuum Cleaner V1 (tested) and Xiaomi Robot Vacuum Cleaner V2 (untested)
 * Xiaomi Air Purifiers 2, 2S and Pro (tested)
@@ -24,5 +24,6 @@ This Homey app supports direct control for Yeelights. Before being able to add y
 For Homey to be able to communicate with devices over the miIO protocol a unique device token needs to be obtained. Technical knowledge is needed for retrieving these tokens. If your are not to tech-savvy using this app for any other devices than the Yeelights might be challenging. See the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/obtain_token.md) on retrieving device tokens.
 
 ## Changelog
-### 2018-05-29 -- v2.6.5
+### 2018-06-04 -- v2.6.5
+* NEW: add support for Yeelight Desk Lamp
 * FIX: fixed issues with color temperature for Xiaomi Philips Light Bulbs
