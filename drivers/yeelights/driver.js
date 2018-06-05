@@ -8,7 +8,7 @@ const typeCapabilityMap = {
 	'color'    : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
   'stripe'   : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
   'bslamp'   : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
-  'ceiling'  : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
+  'ceiling'  : [ 'onoff', 'dim', 'light_temperature', 'light_mode' ],
   'ceiling4' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
   'desklamp' : [ 'onoff', 'dim', 'light_temperature', 'light_mode' ]
 }
