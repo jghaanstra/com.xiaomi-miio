@@ -53,6 +53,12 @@ class XiaomiMiioApp extends Homey.App {
         return Promise.resolve(customcommand);
       })
 
+    new Homey.FlowCardAction('yeelightNightMode')
+      .register()
+      .registerRunListener((args, state) => {
+        return args.device.triggerCapabilityListener('night_mode', args.value === 'true');
+      })
+
     // MI ROBOT: CONDITION AND ACTION FLOW CARDS
     new Homey.FlowCardAction('findVacuum')
       .register()
