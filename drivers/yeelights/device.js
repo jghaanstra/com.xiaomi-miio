@@ -13,6 +13,7 @@ class YeelightDevice extends Homey.Device {
     this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
     this.registerMultipleCapabilityListener(['light_hue', 'light_saturation'], this.onCapabilityHueSaturation.bind(this), 500);
     this.registerCapabilityListener('light_temperature', this.onCapabilityLightTemperature.bind(this));
+    this.registerCapabilityListener('night_mode', this.onCapabilityNightMode.bind(this));
 
     let id = this.getData().id;
     yeelights[id] = {};
@@ -37,6 +38,15 @@ class YeelightDevice extends Homey.Device {
       this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["on", "smooth", 500]}');
     } else {
       this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["off", "smooth", 500]}');
+    }
+    callback(null, value);
+  }
+
+  onCapabilityNightMode(value, opts, callback) {
+    if (value) {
+      this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["on", "smooth", 500, 5]}');
+    } else {
+      this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["on", "smooth", 500, 1]}');
     }
     callback(null, value);
   }

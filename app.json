@@ -38,6 +38,16 @@
 	"dependencies": {
 		"net": "*"
 	},
+	"capabilities": {
+		"night_mode": {
+			"type": "boolean",
+			"title": {
+				"en": "Night Mode"
+			},
+			"getable": true,
+			"setable": true
+		}
+	},
 	"drivers": [
     {
 			"id": "yeelights",
@@ -1067,6 +1077,52 @@
 						},
 						"filter": "driver_id=yeelights"
           }
+				]
+			},
+			{
+				"id": "yeelightNightMode",
+				"title": {
+					"en": "Toggle Night Mode",
+					"nl": "Schakel Nacht Modus"
+				},
+				"hint": {
+					"en": "Use this card to switch the light between night mode and normal mode",
+					"nl": "Gebruik deze actie om de lamp tussen nacht modus en gewone modus te schakelen"
+				},
+				"args": [
+					{
+						"name": "value",
+						"type": "dropdown",
+						"placeholder": {
+							"en": "Finish action",
+							"nl": "Afrondactie"
+						},
+						"values": [
+							{
+								"id": "false",
+								"label": {
+									"en": "Normal Mode",
+									"nl": "Normale Modus"
+								}
+							},
+							{
+								"id": "true",
+								"label": {
+									"en": "Night Mode",
+									"nl": "Nacht Modus"
+								}
+							}
+						]
+					},
+					{
+						"name": "device",
+						"type": "device",
+						"placeholder": {
+							"en": "Select Yeelight",
+							"nl": "Selecteer Yeelight"
+						},
+						"filter": "driver_id=yeelights&capabilities=night_mode"
+					}
 				]
 			},
       {
