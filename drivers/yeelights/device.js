@@ -309,8 +309,9 @@ class YeelightDevice extends Homey.Device {
 
   /* send commands to devices using their socket connection */
   sendCommand(id, command) {
-    console.log(command);
-  	if (yeelights[id].connected === false && yeelights[id].socket !== null) {
+    if(yeelights[id].connecting && yeelights[id].connected === false){
+      this.log('Unable to send command because socket is still connecting');
+    } else if (yeelights[id].connected === false && yeelights[id].socket !== null) {
       yeelights[id].socket.emit('error', new Error('Connection to device broken'));
     } else if (yeelights[id].socket === null) {
       this.log('Unable to send command because socket is not available');
@@ -322,7 +323,7 @@ class YeelightDevice extends Homey.Device {
           if (yeelights[id].connected === true && yeelights[id].socket !== null) {
             yeelights[id].socket.emit('error', new Error('Error sending command'));
           }
-        }, 3000);
+        }, 6000);
       }
     }
   }
