@@ -13,6 +13,7 @@ class YeelightDevice extends Homey.Device {
     this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
     this.registerMultipleCapabilityListener(['light_hue', 'light_saturation'], this.onCapabilityHueSaturation.bind(this), 500);
     this.registerCapabilityListener('light_temperature', this.onCapabilityLightTemperature.bind(this));
+    this.registerCapabilityListener('night_mode', this.onCapabilityNightMode.bind(this));
 
     let id = this.getData().id;
     yeelights[id] = {};
@@ -79,7 +80,6 @@ class YeelightDevice extends Homey.Device {
         this.dimMinTime = 0;
         this.dimMaxTime = 0;
       }
-    }
 
     if(typeof opts.duration !== 'undefined') {
       this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", '+ opts.duration +']}');
@@ -92,6 +92,15 @@ class YeelightDevice extends Homey.Device {
     if(overWriteDimVal !== undefined) {
       this.setCapabilityValue('dim', overWriteDimVal);
     }
+  }
+      
+  onCapabilityNightMode(value, opts, callback) {
+    if (value) {
+      this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["on", "smooth", 500, 5]}');
+    } else {
+      this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["on", "smooth", 500, 1]}');
+    }
+    callback(null, value);
   }
 
   onCapabilityHueSaturation(valueObj, optsObj) {
@@ -126,6 +135,10 @@ class YeelightDevice extends Homey.Device {
     }
     this.sendCommand(this.getData().id, '{"id":1,"method":"set_ct_abx","params":['+ color_temp +', "smooth", 500]}');
     callback(null, value);
+
+    if(this.hasCapability('night_mode')){
+      this.setCapabilityValue('night_mode', false);
+    }
   }
 
   // HELPER FUNCTIONS
@@ -296,6 +309,7 @@ class YeelightDevice extends Homey.Device {
 
   /* send commands to devices using their socket connection */
   sendCommand(id, command) {
+    console.log(command);
   	if (yeelights[id].connected === false && yeelights[id].socket !== null) {
       yeelights[id].socket.emit('error', new Error('Connection to device broken'));
     } else if (yeelights[id].socket === null) {
