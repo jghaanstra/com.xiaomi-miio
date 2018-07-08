@@ -53,35 +53,35 @@ class YeelightDevice extends Homey.Device {
           const initialNightModeValue = this.getCapabilityValue('night_mode');
           await this.triggerCapabilityListener('night_mode', true);
           // If we think we really toggled the night mode we will set the brightness of night mode to 100
-          if(initialNightModeValue === false) {
+          if (initialNightModeValue === false) {
             value = 1;
             overWriteDimVal = 1;
             brightness = 100;
           }
           this.dimMinTime = 0;
-        }else {
+        } else {
           this.dimMinTime = Date.now();
         }
-      }else if (value === 1){
+      } else if (value === 1) {
         if (this.dimMaxTime + 5000 > Date.now()) {
           const initialNightModeValue = this.getCapabilityValue('night_mode');
           await this.triggerCapabilityListener('night_mode', false);
           // If we think we really toggled the night mode we will set the brightness of normal mode to 1
-          if(initialNightModeValue === true) {
+          if (initialNightModeValue === true) {
             value = 0;
             overWriteDimVal = 0;
             brightness = 1;
           }
           this.dimMaxTime = 0;
-        }else {
+        } else {
           this.dimMaxTime = Date.now();
         }
-      }else {
+      } else {
         this.dimMinTime = 0;
         this.dimMaxTime = 0;
       }
 
-    if(typeof opts.duration !== 'undefined') {
+    if (typeof opts.duration !== 'undefined') {
       this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", '+ opts.duration +']}');
     } else {
       this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", 500]}');
@@ -89,11 +89,11 @@ class YeelightDevice extends Homey.Device {
     callback(null, value);
 
     // "hack" to fix dim bar behaviour in the homey UI
-    if(overWriteDimVal !== undefined) {
+    if (overWriteDimVal !== undefined) {
       this.setCapabilityValue('dim', overWriteDimVal);
     }
   }
-      
+
   onCapabilityNightMode(value, opts, callback) {
     if (value) {
       this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["on", "smooth", 500, 5]}');
@@ -204,7 +204,6 @@ class YeelightDevice extends Homey.Device {
     yeelights[id].socket.on('data', (message, address) => {
       clearTimeout(yeelights[id].timeout);
       clearTimeout(yeelights[id].reconnect);
-      yeelights[id].timeout = null;
       yeelights[id].reconnect = null;
 
       if(!device.getAvailable()) {
@@ -318,13 +317,12 @@ class YeelightDevice extends Homey.Device {
   	} else {
       yeelights[id].socket.write(command + '\r\n');
 
-      if (yeelights[id].timeout === null) {
-        yeelights[id].timeout = setTimeout(() => {
-          if (yeelights[id].connected === true && yeelights[id].socket !== null) {
-            yeelights[id].socket.emit('error', new Error('Error sending command'));
-          }
-        }, 6000);
-      }
+      clearTimeout(yeelights[id].timeout);
+      yeelights[id].timeout = setTimeout(() => {
+        if (yeelights[id].connected === true && yeelights[id].socket !== null) {
+          yeelights[id].socket.emit('error', new Error('Error sending command'));
+        }
+      }, 6000);
     }
   }
 

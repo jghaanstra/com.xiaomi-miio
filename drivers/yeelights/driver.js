@@ -9,7 +9,7 @@ const typeCapabilityMap = {
   'stripe'   : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
   'bslamp'   : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
   'ceiling'  : [ 'onoff', 'dim', 'light_temperature', 'light_mode', 'night_mode' ],
-  'ceiling4' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
+  'ceiling4' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode', 'night_mode' ],
   'desklamp' : [ 'onoff', 'dim', 'light_temperature', 'light_mode' ]
 }
 
@@ -44,7 +44,6 @@ class YeelightDriver extends Homey.Driver {
             var name = Homey.__('yeelight_bedside_lamp')+ ' (' + result[i].address + ')';
           } else if (result[i].model.startsWith('ceiling')) {
             if(result[i].model !== 'ceiling4') {
-              // Default the ceiling light to the default ceiling light.
               result[i].model = 'ceiling';
             }
             var name = Homey.__('yeelight_ceiling_light')+ ' (' + result[i].address + ')';

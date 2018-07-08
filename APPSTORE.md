@@ -24,8 +24,10 @@ This Homey app supports direct control for Yeelights. Before being able to add y
 For Homey to be able to communicate with devices over the miIO protocol a unique device token needs to be obtained. Technical knowledge is needed for retrieving these tokens. If your are not to tech-savvy using this app for any other devices than the Yeelights might be challenging. See the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/obtain_token.md) on retrieving device tokens.
 
 ## Changelog
-### 2018-06-05 -- v2.6.5
-* NEW: add support for Yeelight Desk Lamp
-* FIX: remove color capabilities for regular Yeelight ceiling lamp
-* FIX: fix type-o in temperature range for Yeelight ceiling lamp
-* FIX: fixed issues with color temperature for Xiaomi Philips Light Bulbs
+### 2018-07-08 -- v2.7.0
+* Merged Pull Requests by Bas Kiers
+  * FIX: Yeelights connection issues (sending commands while Yeelight is connecting and sending multiple commands)
+  * NEW: Add support for Yeelight with model identifier ceiling1
+  * NEW: Add action card for setting night mode, available for (some) Yeelight ceiling lights
+  * NEW: Auto toggle nightmode when setting brightness to 0 or 100 twice within 5 seconds
+* UPDATE: Update docs, the latest version of the Mi Home smartpone app dont hold the token in the database anymore.
