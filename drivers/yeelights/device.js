@@ -47,7 +47,7 @@ class YeelightDevice extends Homey.Device {
     let overWriteDimVal;
 
     // Logic which will toggle between night_mode and normal_mode when brightness is set to 0 or 100 two times within 5 seconds
-    if(this.hasCapability('night_mode') && opts.duration === undefined) {
+    if (this.hasCapability('night_mode') && opts.duration === undefined) {
       if (value === 0) {
         if (this.dimMinTime + 5000 > Date.now()) {
           const initialNightModeValue = this.getCapabilityValue('night_mode');
@@ -80,6 +80,7 @@ class YeelightDevice extends Homey.Device {
         this.dimMinTime = 0;
         this.dimMaxTime = 0;
       }
+    }
 
     if (typeof opts.duration !== 'undefined') {
       this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", '+ opts.duration +']}');
