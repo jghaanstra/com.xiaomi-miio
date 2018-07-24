@@ -5,6 +5,7 @@ const yeelight = require('/lib/yeelight.js');
 
 const typeCapabilityMap = {
 	'mono'     : [ 'onoff', 'dim' ],
+  'ct'       : [ 'onoff', 'dim', 'light_temperature' ],
 	'color'    : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
   'stripe'   : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
   'bslamp'   : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
@@ -38,6 +39,8 @@ class YeelightDriver extends Homey.Driver {
             var name = Homey.__('yeelight_bulb_color')+ ' (' + result[i].address + ')';
           } else if (result[i].model == 'mono') {
             var name = Homey.__('yeelight_bulb_white')+ ' (' + result[i].address + ')';
+          } else if (result[i].model == 'ct') {
+            var name = Homey.__('yeelight_bulb_white_v2')+ ' (' + result[i].address + ')';
           } else if (result[i].model == 'stripe') {
             var name = Homey.__('yeelight_led_strip')+ ' (' + result[i].address + ')';
           } else if (result[i].model == 'bslamp') {

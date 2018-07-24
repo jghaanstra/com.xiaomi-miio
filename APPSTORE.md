@@ -23,11 +23,12 @@ This Homey app supports direct control for Yeelights. Before being able to add y
 ## Adding miIO devices
 For Homey to be able to communicate with devices over the miIO protocol a unique device token needs to be obtained. Technical knowledge is needed for retrieving these tokens. If your are not to tech-savvy using this app for any other devices than the Yeelights might be challenging. See the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/obtain_token.md) on retrieving device tokens.
 
+## Using Target and Zone Cleanup for Xiaomi Mi Robot
+Xiaomi has recently released an update for its v1 vacuum that enabled it for the zoned cleaning and goto function that was previously only available to the v2 vacuum. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
+
 ## Changelog
-### 2018-07-08 -- v2.7.0
-* Merged Pull Requests by Bas Kiers
-  * FIX: Yeelights connection issues (sending commands while Yeelight is connecting and sending multiple commands)
-  * NEW: Add support for Yeelight with model identifier ceiling1
-  * NEW: Add action card for setting night mode, available for (some) Yeelight ceiling lights
-  * NEW: Auto toggle nightmode when setting brightness to 0 or 100 twice within 5 seconds
-* UPDATE: Update docs, the latest version of the Mi Home smartpone app dont hold the token in the database anymore.
+### 2018-xx-xx -- v2.8.0
+* NEW: support for Yeelight White Tunable (V2) and Yeelight Color V2
+* NEW: add action card for Xiaomi Mi Robot to send the robot to a specific target (see instructions)
+* NEW: add action card for Xiaomi Mi Robot to do a zone(s) cleanup (see instructions)
+* FIX: fix temperature range for Yeelight color bulbs

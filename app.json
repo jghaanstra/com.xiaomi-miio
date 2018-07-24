@@ -9,7 +9,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.7.0",
+	"version": "2.8.0",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -1197,6 +1197,74 @@
 						},
 						"filter": "driver_id=mi-robot"
           }
+				]
+			},
+      {
+				"id": "goToTargetVacuum",
+				"title": {
+					"en": "Send vacuum cleaner to target",
+					"nl": "Stuur stofzuiger naar doel"
+				},
+        "hint": {
+					"en": "Enter the x and y coordinates of the target: ex. 25000 and 28000",
+					"nl": "Voer de x en y coördinaten van het doel in: bv. 25000 en 28000"
+				},
+				"args": [
+          {
+						"name": "xcoordinate",
+						"type": "number",
+            "placeholder": {
+              "en": "X Coordinate",
+              "nl": "X coördinaat"
+            }
+          },
+          {
+						"name": "ycoordinate",
+						"type": "number",
+            "placeholder": {
+              "en": "Y Coordinate",
+              "nl": "Y coördinaat"
+            }
+          },
+					{
+						"name": "device",
+						"type": "device",
+            "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
+				]
+			},
+      {
+				"id": "cleanZoneVacuum",
+				"title": {
+					"en": "Start zone cleaning",
+					"nl": "Start zone schoonmaken"
+				},
+        "hint": {
+					"en": "Takes in an a list of zones and the number of times to clean. Each zone contains an array of 5 values: bottom-left-x, bottom-left-y, top-right-x, top-right-y, number of clean times. Zones example: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
+					"nl": "Voer een lijst met zones in en het aantal keren om schoon te maken. Elke zone bevat een array met 5 waarden: bottom-left-x, bottom-left-y, top-right-x, top-right-y, number of clean times. Zones voorbeeld: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]"
+				},
+				"args": [
+          {
+						"name": "zones",
+						"type": "text",
+            "placeholder": {
+              "en": "Zones",
+              "nl": "Zones"
+            }
+          },
+					{
+						"name": "device",
+						"type": "device",
+            "placeholder": {
+							"en": "Select Mi Robot",
+							"nl": "Selecteer Mi Robot"
+						},
+						"filter": "driver_id=mi-robot"
+					}
 				]
 			},
       {

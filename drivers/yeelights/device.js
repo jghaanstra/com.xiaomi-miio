@@ -131,6 +131,8 @@ class YeelightDevice extends Homey.Device {
   onCapabilityLightTemperature(value, opts, callback) {
     if (this.getData().model == 'ceiling4') {
       var color_temp = yeelight.denormalize(value, 2700, 6000);
+    } else if (this.getData().model == 'color') {
+      var color_temp = yeelight.denormalize(value, 1700, 6500);
     } else {
       var color_temp = yeelight.denormalize(value, 2700, 6500);
     }
@@ -234,6 +236,8 @@ class YeelightDevice extends Homey.Device {
             case 'ct':
               if (device.getData().model == 'ceiling4') {
                 var color_temp = yeelight.normalize(result.params.ct, 2700, 6000);
+              } else if (device.getData().model == 'color') {
+                var color_temp = yeelight.normalize(result.params.ct, 1700, 6500);
               } else {
                 var color_temp = yeelight.normalize(result.params.ct, 2700, 6500);
               }
@@ -280,6 +284,8 @@ class YeelightDevice extends Homey.Device {
             var saturation = result.result[6] / 100;
             if (device.getData().model == 'ceiling4') {
               var color_temp = yeelight.normalize(result.result[3], 2700, 6000);
+            } else if (device.getData().model == 'color') {
+              var color_temp = yeelight.normalize(result.result[3], 1700, 6500);
             } else {
               var color_temp = yeelight.normalize(result.result[3], 2700, 6500);
             }

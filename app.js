@@ -59,7 +59,7 @@ class XiaomiMiioApp extends Homey.App {
         return args.device.triggerCapabilityListener('night_mode', args.value === 'true');
       })
 
-    // MI ROBOT: CONDITION AND ACTION FLOW CARDS
+    // MI ROBOT: ACTION FLOW CARDS
     new Homey.FlowCardAction('findVacuum')
       .register()
       .registerRunListener((args, state) => {
@@ -75,6 +75,21 @@ class XiaomiMiioApp extends Homey.App {
             args.device.setStoreValue('fanspeed', args.fanspeed);
           });
         return Promise.resolve(fanspeed);
+      })
+
+    new Homey.FlowCardAction('goToTargetVacuum')
+      .register()
+      .registerRunListener((args, state) => {
+        let target = args.device.miio.goToTarget([args.xcoordinate, args.ycoordinate]);
+        return Promise.resolve(target);
+      })
+
+    new Homey.FlowCardAction('cleanZoneVacuum')
+      .register()
+      .registerRunListener((args, state) => {
+        var zones = JSON.parse("[" + args.zones + "]");
+        let zoneclean = args.device.miio.activateZoneClean(zones);
+        return Promise.resolve(zoneclean);
       })
 
     // MI AIR PURIFIER: CONDITION AND ACTION FLOW CARDS
