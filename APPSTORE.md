@@ -15,7 +15,7 @@ Below is a list of supported devices and devices. Post a comment in the [support
 * Xiaomi Gateway Light - alarm not supported yet and subdevices are supported directly with the Xiaomi ZigBee app (tested)
 
 ## Support topic
-For support please use the official support topic on the forum [here](https://forum.athom.com/discussion/3295/).
+For support please use the official support topic on the forum [here](https://community.athom.com/t/118).
 
 ## Adding Yeelights
 This Homey app supports direct control for Yeelights. Before being able to add your Yeelights as devices in Homey you will need to enable the "Developer Mode" or "LAN control" in the official Yeelight app. You can do this by using the official Yeelight app on your smartphone (not the Xiaomi Mi Home app but the actual Yeelight app). In this app go into the settings of your bulb and you will see a menu item called Developer Mode. This contains a toggle to enable the developer mode. After enabling this the Homey app will be able to autodiscover your bulb when adding it as new device.
@@ -27,8 +27,5 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 Xiaomi has recently released an update for its v1 vacuum that enabled it for the zoned cleaning and goto function that was previously only available to the v2 vacuum. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
 
 ## Changelog
-### 2018-07-24 -- v2.8.0
-* NEW: support for Yeelight White Tunable (V2) and Yeelight Color V2
-* NEW: add action card for Xiaomi Mi Robot to send the robot to a specific target (see instructions)
-* NEW: add action card for Xiaomi Mi Robot to do a zone(s) cleanup (see instructions)
-* FIX: fix temperature range for Yeelight color bulbs
+### 2018-08-22 - v2.8.1
+* UPDATE: updated app manifest to include id of new forum support topic

@@ -9,7 +9,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.8.0",
+	"version": "2.8.1",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -26,6 +26,7 @@
     "url": "https://github.com/jghaanstra/com.xiaomi-miio/issues"
   },
   "athomForumDiscussionId": 3295,
+  "homeyCommunityTopicId": 118,
   "images": {
     "large": "./assets/images/large.jpg",
     "small": "./assets/images/small.jpg"

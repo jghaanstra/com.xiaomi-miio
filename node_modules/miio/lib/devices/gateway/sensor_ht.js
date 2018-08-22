@@ -3,9 +3,8 @@
 
 const SubDevice = require('./subdevice');
 const { Temperature, Humidity } = require('../capabilities/sensor');
-const Voltage = require('./voltage');
 
-module.exports = class SensorHT extends SubDevice.with(Temperature, Humidity, Voltage) {
+module.exports = class SensorHT extends SubDevice.with(Temperature, Humidity) {
 	constructor(parent, info) {
 		super(parent, info);
 
