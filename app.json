@@ -9,7 +9,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.8.1",
+	"version": "2.8.2",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -117,69 +117,6 @@
           "label": {
             "en": "Philips Light Bulb Settings",
 						"nl": "Philips Light Bulb Instellingen"
-          },
-					"children": [
-				    {
-				      "id": "address",
-				      "type": "text",
-				      "value": "0.0.0.0",
-				      "label": {
-				        "en": "IP Address",
-				        "nl": "IP Adres"
-				      }
-				    },
-				    {
-					    "id": "token",
-					    "type": "text",
-					    "value": "",
-					    "label": {
-						    "en": "Philips Light Bulb Token",
-						    "nl": "Philips Light Bulb Token"
-					    }
-				    },
-            {
-					    "id": "polling",
-					    "type": "number",
-					    "value": 10,
-              "attr": {
-                "min": 5,
-                "max": 3600
-              },
-					    "label": {
-						    "en": "Philips Light Bulb Polling",
-						    "nl": "Philips Light Bulb Polling"
-					    }
-				    }
-		      ]
-		    }
-		  ]
-		},
-    {
-			"id": "philips-eyecare",
-			"name": {
-				"en": "Philips Eyecare Lamp",
-				"nl": "Philips Eyecare Lamp"
-			},
-			"images": {
-				"large": "drivers/philips-eyecare/assets/images/large.jpg",
-				"small": "drivers/philips-eyecare/assets/images/small.jpg"
-			},
-			"class": "light",
-      "capabilities": [
-        "onoff",
-        "dim"
-      ],
-      "pair": [
-				{
-					"id": "start"
-				}
-			],
-      "settings": [
-			  {
-          "type": "group",
-          "label": {
-            "en": "Philips Eyecare Lamp Settings",
-						"nl": "Philips Eyecare Lamp Instellingen"
           },
 					"children": [
 				    {

@@ -41,7 +41,7 @@ class MiRobotDevice extends Homey.Device {
   onCapabilityVacuumcleanerState(value, opts, callback) {
     switch (value) {
       case "cleaning":
-        this.miio.clean()
+        this.miio.activateCleaning()
           .then(result => {
             this.setCapabilityValue('onoff', true);
             callback(null, value);
@@ -49,7 +49,7 @@ class MiRobotDevice extends Homey.Device {
           .catch(error => { callback(error, false) });
         break;
       case "spot_cleaning":
-        this.miio.spotClean()
+        this.miio.activateSpotClean()
           .then(result => {
             this.setCapabilityValue('onoff', true);
             callback(null, value);
@@ -57,7 +57,7 @@ class MiRobotDevice extends Homey.Device {
           .catch(error => { callback(error, false) });
         break;
       case "stopped":
-        this.miio.stop()
+        this.miio.pause()
           .then(result => {
             this.setCapabilityValue('onoff', false);
             callback(null, value);
@@ -66,12 +66,16 @@ class MiRobotDevice extends Homey.Device {
         break;
       case "docked":
       case "charging":
-        this.miio.charge()
-          .then(result => {
-            this.setCapabilityValue('onoff', false);
-            callback(null, value);
-          })
+        this.miio.pause()
           .catch(error => { callback(error, false) });
+        setTimeout(() => {
+          this.miio.activateCharging()
+            .then(result => {
+              this.setCapabilityValue('onoff', false);
+              callback(null, value);
+            })
+            .catch(error => { callback(error, false) });
+        }, 4000)
         break;
       default:
         this.log("Not a valid vacuumcleaner_state");

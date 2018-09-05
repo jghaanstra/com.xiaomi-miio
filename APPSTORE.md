@@ -6,7 +6,7 @@ This app uses an unofficial library called the [miIO Device Library](https://git
 ## Supported devices
 Below is a list of supported devices and devices. Post a comment in the [support topic](https://forum.athom.com/discussion/3295/) if you would like to see support for a specific device, some devices might already be supported by the miio library but just need to be implemented. For devices not yet support by the miio library you need technical knowledge to discover the device properties yourself as described [here](https://github.com/aholstenson/miio/blob/master/docs/missing-devices.md).
 * Yeelights: Bulbs Wi-Fi (tested), LED strips (tested), Bedside Lamp II (tested), Ceiling Lights (tested), Desk Lamp (tested)
-* Xiaomi Philips: Light Bulbs (tested), Eyecare Lamp 2 (untested)
+* Xiaomi Philips: Light Bulbs (tested)
 * Xiaomi Robot Vacuum Cleaner V1 (tested) and Xiaomi Robot Vacuum Cleaner V2 (untested)
 * Xiaomi Air Purifiers 2, 2S and Pro (tested)
 * Xiamomi Humidifier (tested)
@@ -27,5 +27,9 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 Xiaomi has recently released an update for its v1 vacuum that enabled it for the zoned cleaning and goto function that was previously only available to the v2 vacuum. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
 
 ## Changelog
+### 2018-09-05 - v2.8.2
+* FIX: fixed bug with return to dock action card for Xiaomi Vacuum Cleaner
+* UPDATE: removed support for Philips Eyecare since there is a bug in the miio library for this device (see https://github.com/aholstenson/miio/issues/145)
+
 ### 2018-08-22 - v2.8.1
 * UPDATE: updated app manifest to include id of new forum support topic
