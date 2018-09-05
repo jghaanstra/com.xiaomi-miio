@@ -101,10 +101,13 @@ class MiRobotDevice extends Homey.Device {
     clearInterval(this.pollingInterval);
 
     this.pollingInterval = setInterval(() => {
-      if (this.miio.property('state') == 'charging') {
+      var battery = this.miio.getState('batteryLevel');
+      var fanspeed = this.miio.getState('fanSpeed');
+
+      if (this.miio.property('state') == 'charging' && battery !== 100) {
         var onoff = false;
         var state = 'charging';
-      } else if (this.miio.property('state') == 'docking' || this.miio.property('state') == 'full' || this.miio.property('state') == 'returning' || this.miio.property('state') == 'waiting') {
+      } else if (this.miio.property('state') == 'docking' || this.miio.property('state') == 'full' || this.miio.property('state') == 'returning' || this.miio.property('state') == 'waiting' || this.miio.property('state') == 'charging') {
         var onoff = false;
         var state = 'docked';
       } else if (this.miio.property('state') == 'cleaning' || this.miio.property('state') == 'zone-cleaning') {
@@ -117,8 +120,6 @@ class MiRobotDevice extends Homey.Device {
         var onoff = false;
         var state = 'stopped';
       }
-      var battery = this.miio.getState('batteryLevel');
-      var fanspeed = this.miio.getState('fanSpeed');
 
       if (this.getCapabilityValue('onoff') != onoff) {
         this.setCapabilityValue('onoff', onoff);
