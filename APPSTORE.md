@@ -30,6 +30,7 @@ Xiaomi has recently released an update for its v1 vacuum that enabled it for the
 ### 2018-09-05 - v2.8.2
 * FIX: fixed bug with return to dock action card for Vacuum Cleaner
 * FIX: fixed where the Vacuum Cleaner always shows as charging even thought the battery is full
+* IMPROVEMENT: better error catching in polling mechanism for miio devices
 * UPDATE: removed support for Philips Eyecare since there is a bug in the miio library for this device (see https://github.com/aholstenson/miio/issues/145)
 
 ### 2018-08-22 - v2.8.1

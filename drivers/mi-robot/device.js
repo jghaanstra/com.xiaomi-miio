@@ -88,6 +88,9 @@ class MiRobotDevice extends Homey.Device {
       address: this.getSetting('address'),
       token: this.getSetting('token')
     }).then(miiodevice => {
+      if (!this.getAvailable()) {
+        this.setAvailable();
+      }
       this.miio = miiodevice;
 
       var interval = this.getSetting('polling') || 60;
@@ -101,42 +104,55 @@ class MiRobotDevice extends Homey.Device {
     clearInterval(this.pollingInterval);
 
     this.pollingInterval = setInterval(() => {
-      var battery = this.miio.getState('batteryLevel');
-      var fanspeed = this.miio.getState('fanSpeed');
+      const getData = async () => {
+        try {
+          var battery = this.miio.getState('batteryLevel');
+          var fanspeed = this.miio.getState('fanSpeed');
 
-      if (this.miio.property('state') == 'charging' && battery !== 100) {
-        var onoff = false;
-        var state = 'charging';
-      } else if (this.miio.property('state') == 'docking' || this.miio.property('state') == 'full' || this.miio.property('state') == 'returning' || this.miio.property('state') == 'waiting' || this.miio.property('state') == 'charging') {
-        var onoff = false;
-        var state = 'docked';
-      } else if (this.miio.property('state') == 'cleaning' || this.miio.property('state') == 'zone-cleaning') {
-        var onoff = true;
-        var state = 'cleaning';
-      } else if (this.miio.property('state') == 'spot-cleaning') {
-        var onoff = true;
-        var state = 'spot_cleaning';
-      } else {
-        var onoff = false;
-        var state = 'stopped';
-      }
+          if (this.miio.property('state') == 'charging' && battery !== 100) {
+            var onoff = false;
+            var state = 'charging';
+          } else if (this.miio.property('state') == 'docking' || this.miio.property('state') == 'full' || this.miio.property('state') == 'returning' || this.miio.property('state') == 'waiting' || this.miio.property('state') == 'charging') {
+            var onoff = false;
+            var state = 'docked';
+          } else if (this.miio.property('state') == 'cleaning' || this.miio.property('state') == 'zone-cleaning') {
+            var onoff = true;
+            var state = 'cleaning';
+          } else if (this.miio.property('state') == 'spot-cleaning') {
+            var onoff = true;
+            var state = 'spot_cleaning';
+          } else {
+            var onoff = false;
+            var state = 'stopped';
+          }
 
-      if (this.getCapabilityValue('onoff') != onoff) {
-        this.setCapabilityValue('onoff', onoff);
+          if (this.getCapabilityValue('onoff') != onoff) {
+            this.setCapabilityValue('onoff', onoff);
+          }
+          if (this.getCapabilityValue('vacuumcleaner_state') != state) {
+            this.setCapabilityValue('vacuumcleaner_state', state);
+          }
+          if (this.getCapabilityValue('measure_battery') != battery) {
+            this.setCapabilityValue('measure_battery', battery);
+          }
+          if (this.getStoreValue('fanspeed') != fanspeed) {
+            this.setStoreValue('fanspeed', fanspeed);
+          }
+          if (this.getStoreValue('state') != this.miio.property('state')) {
+            this.setStoreValue('state', this.miio.property('state'));
+            Homey.ManagerFlow.getCard('trigger', 'statusVacuum').trigger(this, {status: this.miio.property('state')}, {})
+          }
+        }
+        catch (error) {
+          this.log(error);
+          clearInterval(this.pollingInterval);
+          this.setUnavailable(Homey.__('unreachable'));
+          setTimeout(() => {
+            this.createDevice();
+          }, 1000 * interval);
+        }
       }
-      if (this.getCapabilityValue('vacuumcleaner_state') != state) {
-        this.setCapabilityValue('vacuumcleaner_state', state);
-      }
-      if (this.getCapabilityValue('measure_battery') != battery) {
-        this.setCapabilityValue('measure_battery', battery);
-      }
-      if (this.getStoreValue('fanspeed') != fanspeed) {
-        this.setStoreValue('fanspeed', fanspeed);
-      }
-      if (this.getStoreValue('state') != this.miio.property('state')) {
-        this.setStoreValue('state', this.miio.property('state'));
-        Homey.ManagerFlow.getCard('trigger', 'statusVacuum').trigger(this, {status: this.miio.property('state')}, {})
-      }
+      getData();
     }, 1000 * interval);
   }
 }

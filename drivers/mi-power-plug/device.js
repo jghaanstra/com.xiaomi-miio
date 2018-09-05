@@ -28,6 +28,9 @@ class PowerPlugDevice extends Homey.Device {
       address: this.getSetting('address'),
       token: this.getSetting('token')
     }).then(miiodevice => {
+      if (!this.getAvailable()) {
+        this.setAvailable();
+      }
       this.miio = miiodevice;
 
       var interval = this.getSetting('polling') || 30;
@@ -52,8 +55,12 @@ class PowerPlugDevice extends Homey.Device {
             this.setAvailable();
           }
         } catch (error) {
-          this.setUnavailable(Homey.__('unreachable'));
           this.log(error);
+          clearInterval(this.pollingInterval);
+          this.setUnavailable(Homey.__('unreachable'));
+          setTimeout(() => {
+            this.createDevice();
+          }, 1000 * interval);
         }
       }
       getData();
