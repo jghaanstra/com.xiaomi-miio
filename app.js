@@ -96,7 +96,7 @@ class XiaomiMiioApp extends Homey.App {
     new Homey.FlowCardCondition('poweredAirpurifier')
       .register()
       .registerRunListener((args, state) => {
-        if (args.device.setCapabilityValue('onoff')) {
+        if (args.device.getCapabilityValue('onoff')) {
           return Promise.resolve(true);
         } else {
           return Promise.reject(false);
@@ -144,7 +144,7 @@ class XiaomiMiioApp extends Homey.App {
     new Homey.FlowCardCondition('poweredHumidifier')
       .register()
       .registerRunListener((args, state) => {
-        if (args.device.setCapabilityValue('onoff')) {
+        if (args.device.getCapabilityValue('onoff')) {
           return Promise.resolve(true);
         } else {
           return Promise.reject(false);

@@ -36,8 +36,12 @@ class MiAirPurifierDevice extends Homey.Device {
 
       var interval = this.getSetting('polling') || 60;
       this.pollDevice(interval);
-    }).catch(function (error) {
+    }).catch((error) => {
       this.log(error);
+      this.setUnavailable(Homey.__('unreachable'));
+      setTimeout(() => {
+        this.createDevice();
+      }, 10000);
     });
   }
 

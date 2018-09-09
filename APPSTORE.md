@@ -27,6 +27,10 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 Xiaomi has recently released an update for its v1 vacuum that enabled it for the zoned cleaning and goto function that was previously only available to the v2 vacuum. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
 
 ## Changelog
+### 2018-09-09 - v2.8.3
+* FIX: fixed a bug with powered on|off condition cards for the air purifier and humidifier
+* FIX: better error handling when miio device can not connect
+
 ### 2018-09-05 - v2.8.2
 * FIX: fixed bug with return to dock action card for Vacuum Cleaner
 * FIX: fixed where the Vacuum Cleaner always shows as charging even thought the battery is full
