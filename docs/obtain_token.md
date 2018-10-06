@@ -72,7 +72,7 @@ Use these methods to obtain the device token for devices that hide their tokens 
 
 ## Jailbroken iOS users
 * Setup your iOS device with the Mi Home app
-* Use something like Forklift sFTP to connect to your iOS device and copy this file to your computer: /var/mobile/Containers/Data/Application/<<UUID>>/Documents/USERID_mihome.sqlite (where UUID is a specific number for your device)
+* Use something like Forklift sFTP to connect to your iOS device and copy this file to your computer: /var/mobile/Containers/Data/Application/[UUID]/Documents/USERID_mihome.sqlite (where UUID is a specific number for your device)
     * username: root
     * IP address: your phones IP address
     * password: alpine (unless you changed it something else)
