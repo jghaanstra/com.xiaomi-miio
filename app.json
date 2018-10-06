@@ -1,6 +1,7 @@
 {
 	"id": "com.xiaomi-miio",
   "sdk": 2,
+  "brandColor": "#FF6801",
 	"name": {
 		"en": "Xiaomi Mi Home",
 		"nl": "Xiaomi Mi Home"
@@ -9,7 +10,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.8.3",
+	"version": "2.9.0",
 	"compatibility": "1.x >=1.5.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -43,7 +44,8 @@
 		"night_mode": {
 			"type": "boolean",
 			"title": {
-				"en": "Night Mode"
+				"en": "Night Mode",
+        "nl": "Nacht modus"
 			},
 			"getable": true,
 			"setable": true
@@ -628,13 +630,18 @@
         "dim",
         "light_hue",
         "light_saturation",
-        "measure_luminance"
+        "measure_luminance",
+        "homealarm_state"
       ],
       "mobile": {
         "components": [
           {
             "id": "icon",
             "capabilities": [ "onoff" ]
+          },
+          {
+            "id": "picker",
+            "capabilities": [ "homealarm_state" ]
           },
           {
             "id": "sensor",
@@ -1021,7 +1028,7 @@
 				"id": "yeelightNightMode",
 				"title": {
 					"en": "Toggle Night Mode",
-					"nl": "Schakel Nacht Modus"
+					"nl": "Schakel nacht modus"
 				},
 				"hint": {
 					"en": "Use this card to switch the light between night mode and normal mode",
@@ -1029,25 +1036,21 @@
 				},
 				"args": [
 					{
-						"name": "value",
+						"name": "mode",
 						"type": "dropdown",
-						"placeholder": {
-							"en": "Finish action",
-							"nl": "Afrondactie"
-						},
 						"values": [
 							{
-								"id": "false",
+								"id": "normal",
 								"label": {
 									"en": "Normal Mode",
-									"nl": "Normale Modus"
+									"nl": "Normale modus"
 								}
 							},
 							{
-								"id": "true",
+								"id": "night",
 								"label": {
 									"en": "Night Mode",
-									"nl": "Nacht Modus"
+									"nl": "Nacht modus"
 								}
 							}
 						]
@@ -1597,6 +1600,44 @@
 							"nl": "Selecteer Philips Eyecare Lamp"
 						},
 						"filter": "driver_id=philips-eyecare"
+          }
+				]
+			},
+      {
+				"id": "armGateway",
+				"title": {
+					"en": "Set surveillance mode",
+					"nl": "Stel toezicht modus in"
+				},
+				"args": [
+          {
+						"name": "alarm",
+						"type": "dropdown",
+            "values": [
+              {
+                "id": "armed",
+                "label": {
+                  "en": "Armed",
+                  "nl": "Ingeschakeld"
+                }
+              },
+              {
+                "id": "disarmed",
+                "label": {
+                  "en": "Disarmed",
+                  "nl": "Uitgeschakeld"
+                }
+              }
+            ]
+          },
+          {
+						"name": "device",
+						"type": "device",
+            "placeholder": {
+							"en": "Select Gateway",
+							"nl": "Selecteer Gateway"
+						},
+						"filter": "driver_id=gateway"
           }
 				]
 			}

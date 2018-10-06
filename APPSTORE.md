@@ -12,7 +12,7 @@ Below is a list of supported devices and devices. Post a comment in the [support
 * Xiamomi Humidifier (tested)
 * Xiaomi Single Power Plug and Power Strip WiFi version (tested)
 * Xiaomi PM2.5 Air Monitor (tested)
-* Xiaomi Gateway Light - alarm not supported yet and subdevices are supported directly with the Xiaomi ZigBee app (tested)
+* Xiaomi Gateway Light - subdevices are supported directly with the Xiaomi ZigBee app (tested)
 
 ## Support topic
 For support please use the official support topic on the forum [here](https://community.athom.com/t/118).
@@ -27,15 +27,6 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 Xiaomi has recently released an update for its v1 vacuum that enabled it for the zoned cleaning and goto function that was previously only available to the v2 vacuum. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
 
 ## Changelog
-### 2018-09-09 - v2.8.3
-* FIX: fixed a bug with powered on|off condition cards for the air purifier and humidifier
-* FIX: better error handling when miio device can not connect
-
-### 2018-09-05 - v2.8.2
-* FIX: fixed bug with return to dock action card for Vacuum Cleaner
-* FIX: fixed where the Vacuum Cleaner always shows as charging even thought the battery is full
-* IMPROVEMENT: better error catching in polling mechanism for miio devices
-* UPDATE: removed support for Philips Eyecare since there is a bug in the miio library for this device (see https://github.com/aholstenson/miio/issues/145)
-
-### 2018-08-22 - v2.8.1
-* UPDATE: updated app manifest to include id of new forum support topic
+### 2018-10-06 - v2.9.0
+* NEW: add homealarm state capability for Xiaomi Gateway (state does not get synced when changing it through the Mi Home app yet)
+* FIX: keep custom capability night_mode for specific Yeelights in sync when changed through Yeelight / Mi Home app

@@ -266,6 +266,13 @@ class YeelightDevice extends Homey.Device {
                 device.setCapabilityValue('light_mode', 'color');
               }
               break;
+            case 'active_mode':
+              if (result.params.active_mode == 1) {
+                device.setCapabilityValue('night_mode', true);
+              } else {
+                device.setCapabilityValue('night_mode', false);
+              }
+              break;
             default:
               break;
           }

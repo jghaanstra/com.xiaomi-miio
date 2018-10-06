@@ -56,7 +56,11 @@ class XiaomiMiioApp extends Homey.App {
     new Homey.FlowCardAction('yeelightNightMode')
       .register()
       .registerRunListener((args, state) => {
-        return args.device.triggerCapabilityListener('night_mode', args.value === 'true');
+        if(args.mode == 'night') {
+          return args.device.triggerCapabilityListener('night_mode', true);
+        } else {
+          return args.device.triggerCapabilityListener('night_mode', false);
+        }
       })
 
     // MI ROBOT: ACTION FLOW CARDS
@@ -202,6 +206,18 @@ class XiaomiMiioApp extends Homey.App {
           });
         return Promise.resolve(mode);
       })
+
+      // GATEWAY: CONDITION AND ACTION FLOW CARDS
+      new Homey.FlowCardAction('armGateway')
+        .register()
+        .registerRunListener((args, state) => {
+          var alarm = args.alarm == 'armed' ? true : false;
+          let mode = args.device.miio.setArming(alarm)
+            .then(result => {
+              args.device.setCapabilityValue('homealarm_state', args.alarm);
+            });
+          return Promise.resolve(mode);
+        })
   }
 }
 

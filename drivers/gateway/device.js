@@ -15,6 +15,7 @@ class GatewayDevice extends Homey.Device {
     this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
     this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
     this.registerMultipleCapabilityListener(['light_hue', 'light_saturation'], this.onCapabilityHueSaturation.bind(this), 500);
+    this.registerCapabilityListener('homealarm_state', this.onCapabilityAlarm.bind(this));
   }
 
   onDeleted() {
@@ -56,6 +57,14 @@ class GatewayDevice extends Homey.Device {
     this.miio.light.color(colorUpdate.toRgbString())
 
     return Promise.resolve();
+  }
+
+  onCapabilityAlarm(value, opts, callback) {
+    var state = value == 'armed' ? true : false;
+
+    this.miio.setArming(state)
+      .then(result => { callback(null, value) })
+      .catch(error => { callback(error, false) });
   }
 
   // HELPER FUNCTIONS
