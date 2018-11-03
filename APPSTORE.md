@@ -29,6 +29,7 @@ Xiaomi has recently released an update for its v1 vacuum that enabled it for the
 ## Changelog
 ### 2018-11-xx - v2.9.1
 * POSSIBLE FIX: possible fix for Yeelight discovery on different subnets
+* UPDATE: support for the latest model AirPurifier 2S
 
 ### 2018-10-06 - v2.9.0
 * NEW: add homealarm state capability for Xiaomi Gateway (state does not get synced when changing it through the Mi Home app yet)
