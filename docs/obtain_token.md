@@ -28,7 +28,7 @@ While running this you have to listen with Wireshark or tcpdump for UDP packages
 Extract the last 16 bytes of the answer and convert them to a (32 characters) hexadecimal string using `xxd -p`.
 
 ## Method 3 - Obtain Mi Home device token for devices that hide their tokens after setup
-Use these methods to obtain the device token for devices that hide their tokens after setup in the Mi Home App (like the Mi Robot Vacuum Cleaner with firmware 3.3.9_003077 or higher). The latest versions of the Mi Home smartphone app dont hold the token anymore so before you begin with any of these methods you will need to install an older version of the smartphone app. Version 5.0.19 works for sure and perhaps maybe even some newer version as well. Android users can find older version of the app [here](https://www.apkmirror.com/apk/xiaomi-inc/mihome/).
+Use these methods to obtain the device token for devices that hide their tokens after setup in the Mi Home App (like the Mi Robot Vacuum Cleaner with firmware 3.3.9_003077 or higher). The latest versions of the Mi Home smartphone app dont hold the token anymore so before you begin with any of these methods you will need to install an older version of the smartphone app. Version 5.0.19 works for sure with the 1st gen Vacuum Robot, for the 2nd gen (S50) you should try version 3.3.9_5.0.30. Android users can find older version of the app [here](https://www.apkmirror.com/apk/xiaomi-inc/mihome/).
 
 ### Android users
 #### Rooted Android Phones
