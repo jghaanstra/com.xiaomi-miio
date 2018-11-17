@@ -51,19 +51,19 @@ class PowerStripDevice extends Homey.Device {
       const getData = async () => {
         try {
           // TODO: implement measure_power and meter_power capability
-          const power = await this.miio.power();
-          const powerload = 0;
-          const powerconsumed = 0;
+          const powerData = await this.miio.call('get_prop', ['power']);
+          const powerloadData = await this.miio.call('get_prop', ['power_consume_rate']);
+          
+          const powerState = powerData[0] === 'on';
+          const powerLoad = powerloadData ? powerloadData[0] : 0;
 
-          if (this.getCapabilityValue('onoff') != power) {
-            this.setCapabilityValue('onoff', power);
+          if (this.getCapabilityValue('onoff') != powerState) {
+            this.setCapabilityValue('onoff', powerState);
           }
-          if (this.getCapabilityValue('measure_power') != powerload) {
-            this.setCapabilityValue('measure_power', powerload);
+          if (this.getCapabilityValue('measure_power') != powerLoad) {
+            this.setCapabilityValue('measure_power', powerLoad);
           }
-          if (this.getCapabilityValue('meter_power') != powerconsumed) {
-            this.setCapabilityValue('meter_power', powerconsumed);
-          }
+
           if (!this.getAvailable()) {
             this.setAvailable();
           }
