@@ -207,17 +207,17 @@ class XiaomiMiioApp extends Homey.App {
         return Promise.resolve(mode);
       })
 
-      // GATEWAY: CONDITION AND ACTION FLOW CARDS
-      new Homey.FlowCardAction('armGateway')
-        .register()
-        .registerRunListener((args, state) => {
-          var alarm = args.alarm == 'armed' ? true : false;
-          let mode = args.device.miio.setArming(alarm)
-            .then(result => {
-              args.device.setCapabilityValue('homealarm_state', args.alarm);
-            });
-          return Promise.resolve(mode);
-        })
+    // GATEWAY: CONDITION AND ACTION FLOW CARDS
+    new Homey.FlowCardAction('armGateway')
+      .register()
+      .registerRunListener((args, state) => {
+        var alarm = args.alarm == 'armed' ? true : false;
+        let mode = args.device.miio.setArming(alarm)
+          .then(result => {
+            args.device.setCapabilityValue('homealarm_state', args.alarm);
+          });
+        return Promise.resolve(mode);
+      })
   }
 }
 
