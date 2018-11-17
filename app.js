@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 const Homey = require('homey');
 const util = require('/lib/util.js');
-const tinycolor = require("tinycolor2");
+const tinycolor = require('tinycolor2');
 
 class XiaomiMiioApp extends Homey.App {
 
@@ -13,210 +13,169 @@ class XiaomiMiioApp extends Homey.App {
     new Homey.FlowCardAction('yeelightDefault')
       .register()
       .registerRunListener((args, state) => {
-        let defaultstate = args.device.sendCommand(args.device.getData().id, '{"id":1,"method":"set_default","params":[]}');
-        return Promise.resolve(defaultstate);
+        return args.device.sendCommand(args.device.getData().id, '{"id":1,"method":"set_default","params":[]}');
       })
 
     new Homey.FlowCardAction('yeelightFlowBrightness')
       .register()
       .registerRunListener((args, state) => {
-        let flow = args.device.sendCommand(args.device.getData().id, '{"id":1,"method":"start_cf","params":[1, '+ args.action +', "'+ args.duration +', 2, '+ args.temperature +', '+ args.brightness +'"]}');
-        return Promise.resolve(flow);
+        return args.device.sendCommand(args.device.getData().id, '{"id":1,"method":"start_cf","params":[1, '+ args.action +', "'+ args.duration +', 2, '+ args.temperature +', '+ args.brightness +'"]}');
       })
 
     new Homey.FlowCardAction('yeelightTemperatureScene')
       .register()
       .registerRunListener((args, state) => {
-        let tempscene = args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"set_scene", "params":["ct", '+ args.temperature +', '+ args.brightness +']}');
-        return Promise.resolve(tempscene);
+        return args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"set_scene", "params":["ct", '+ args.temperature +', '+ args.brightness +']}');
       })
 
     new Homey.FlowCardAction('yeelightColorScene')
       .register()
       .registerRunListener((args, state) => {
-        var color = tinycolor(args.color);
-        var rgb = color.toRgb();
-        var colordecimal = (rgb.r * 65536) + (rgb.g * 256) + rgb.b;
-        if(args.device.getData().model == 'ceiling4') {
-          let colorscene = args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"bg_set_scene", "params":["color", '+ colordecimal +', '+ args.brightness +']}');
-          return Promise.resolve(colorscene);
+        const color = tinycolor(args.color);
+        const rgb = color.toRgb();
+        const colordecimal = (rgb.r * 65536) + (rgb.g * 256) + rgb.b;
+        if (args.device.getData().model == 'ceiling4') {
+          return args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"bg_set_scene", "params":["color", '+ colordecimal +', '+ args.brightness +']}');
         } else {
-          let colorscene = args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"set_scene", "params":["color", '+ colordecimal +', '+ args.brightness +']}');
-          return Promise.resolve(colorscene);
+          return args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"set_scene", "params":["color", '+ colordecimal +', '+ args.brightness +']}');
         }
       })
 
     new Homey.FlowCardAction('yeelightCustomCommand')
       .register()
       .registerRunListener((args, state) => {
-        let customcommand = args.device.sendCommand(args.device.getData().id, args.command);
-        return Promise.resolve(customcommand);
+        return args.device.sendCommand(args.device.getData().id, args.command);
       })
 
     new Homey.FlowCardAction('yeelightNightMode')
       .register()
       .registerRunListener((args, state) => {
-        if(args.mode == 'night') {
-          return args.device.triggerCapabilityListener('night_mode', true);
-        } else {
-          return args.device.triggerCapabilityListener('night_mode', false);
-        }
+        const night_mode = args.mode == 'night'
+        return args.device.triggerCapabilityListener('night_mode', night_mode);
       })
 
     // MI ROBOT: ACTION FLOW CARDS
     new Homey.FlowCardAction('findVacuum')
       .register()
       .registerRunListener((args, state) => {
-        let found = args.device.miio.find();
-        return Promise.resolve(found);
+        return args.device.miio.find();
       })
 
     new Homey.FlowCardAction('fanPowerVacuum')
       .register()
       .registerRunListener((args, state) => {
-        let fanspeed = args.device.miio.changeFanSpeed(Number(args.fanspeed))
-          .then(result => {
-            args.device.setStoreValue('fanspeed', args.fanspeed);
-          });
-        return Promise.resolve(fanspeed);
+        return args.device.miio.changeFanSpeed(Number(args.fanspeed)).then(result => {
+          return args.device.setStoreValue('fanspeed', args.fanspeed);
+        });
       })
 
     new Homey.FlowCardAction('goToTargetVacuum')
       .register()
       .registerRunListener((args, state) => {
-        let target = args.device.miio.goToTarget([args.xcoordinate, args.ycoordinate]);
-        return Promise.resolve(target);
+        return args.device.miio.goToTarget([args.xcoordinate, args.ycoordinate]);
       })
 
     new Homey.FlowCardAction('cleanZoneVacuum')
       .register()
       .registerRunListener((args, state) => {
-        var zones = JSON.parse("[" + args.zones + "]");
-        let zoneclean = args.device.miio.activateZoneClean(zones);
-        return Promise.resolve(zoneclean);
+        const zones = JSON.parse("[" + args.zones + "]");
+        return args.device.miio.activateZoneClean(zones);
       })
 
     // MI AIR PURIFIER: CONDITION AND ACTION FLOW CARDS
     new Homey.FlowCardCondition('poweredAirpurifier')
       .register()
-      .registerRunListener((args, state) => {
-        if (args.device.getCapabilityValue('onoff')) {
-          return Promise.resolve(true);
-        } else {
-          return Promise.reject(false);
-        }
+      .registerRunListener((args, state, callback) => {
+        callback(null, args.device.getCapabilityValue('onoff'))
       })
 
     new Homey.FlowCardAction('modeAirpurifier')
       .register()
       .registerRunListener((args, state) => {
-        let mode = args.device.miio.mode(args.mode)
-          .then(result => {
-            args.device.setStoreValue('mode', args.mode);
-          });
-        return Promise.resolve(mode);
+        return args.device.miio.mode(args.mode).then(result => {
+          return args.device.setStoreValue('mode', args.mode);
+        });
       })
 
     new Homey.FlowCardAction('airpurifierSetFavorite')
       .register()
       .registerRunListener((args, state) => {
-        let favoriteLevel = args.device.miio.favoriteLevel(args.favorite);
-        return Promise.resolve(favoriteLevel);
+        return args.device.miio.favoriteLevel(args.favorite);
       })
 
     new Homey.FlowCardAction('airpurifierOn')
       .register()
       .registerRunListener((args, state) => {
-        let onoff = args.device.miio.setPower(true)
-          .then(result => {
-            args.device.setCapabilityValue('onoff', true);
-          });
-        return Promise.resolve(onoff);
+        return args.device.miio.setPower(true).then(result => {
+          return args.device.setCapabilityValue('onoff', true);
+        });
       })
 
     new Homey.FlowCardAction('airpurifierOff')
       .register()
       .registerRunListener((args, state) => {
-        let power = args.device.miio.setPower(false)
-          .then(result => {
-            args.device.setCapabilityValue('onoff', false);
-          });
-        return Promise.resolve(power);
+        return args.device.miio.setPower(false).then(result => {
+          return args.device.setCapabilityValue('onoff', false);
+        });
       })
 
     // MI HUMDIFIER: CONDITION AND ACTION FLOW CARDS
     new Homey.FlowCardCondition('poweredHumidifier')
       .register()
-      .registerRunListener((args, state) => {
-        if (args.device.getCapabilityValue('onoff')) {
-          return Promise.resolve(true);
-        } else {
-          return Promise.reject(false);
-        }
+      .registerRunListener((args, state, callback) => {
+        callback(null, args.device.getCapabilityValue('onoff'))
       })
 
     new Homey.FlowCardAction('modeHumidifier')
       .register()
       .registerRunListener((args, state) => {
-        let mode = args.device.miio.mode(args.mode)
-          .then(result => {
-            args.device.setStoreValue('mode', args.mode);
-          });
-        return Promise.resolve(mode);
+        return args.device.miio.mode(args.mode).then(result => {
+          return args.device.setStoreValue('mode', args.mode);
+        });
       })
 
     new Homey.FlowCardAction('humidifierOn')
       .register()
       .registerRunListener((args, state) => {
-        let power = args.device.miio.setPower(true)
-          .then(result => {
-            args.device.setCapabilityValue('onoff', true);
-          });
-        return Promise.resolve(power);
+        return args.device.miio.setPower(true).then(result => {
+          return args.device.setCapabilityValue('onoff', true);
+        });
       })
 
     new Homey.FlowCardAction('humidifierOff')
       .register()
       .registerRunListener((args, state) => {
-        let power = args.device.miio.setPower(false)
-          .then(result => {
-            args.device.setCapabilityValue('onoff', false);
-          });
-        return Promise.resolve(power);
+        return args.device.miio.setPower(false).then(result => {
+          return args.device.setCapabilityValue('onoff', false);
+        });
       })
 
     // PHILIPS EYECARE LAMP: CONDITION AND ACTION FLOW CARDS
     new Homey.FlowCardAction('enableEyecare')
       .register()
       .registerRunListener((args, state) => {
-        var eyecare = args.eyecare == 'on' ? true : false;
-        let eye = args.device.setEyeCare(eyecare)
-          .then(result => {
-            args.device.setStoreValue('eyecare', eyecare);
-          });
-        return Promise.resolve(eye);
+        const eyecare = args.eyecare == 'on' ? true : false;
+        return args.device.setEyeCare(eyecare).then(result => {
+          return args.device.setStoreValue('eyecare', eyecare);
+        });
       })
 
     new Homey.FlowCardAction('modeEyecare')
       .register()
       .registerRunListener((args, state) => {
-        let mode = args.device.mode(args.mode)
-          .then(result => {
-            args.device.setStoreValue('mode', args.mode);
-          });
-        return Promise.resolve(mode);
+        return args.device.mode(args.mode).then(result => {
+          return args.device.setStoreValue('mode', args.mode);
+        });
       })
 
     // GATEWAY: CONDITION AND ACTION FLOW CARDS
     new Homey.FlowCardAction('armGateway')
       .register()
       .registerRunListener((args, state) => {
-        var alarm = args.alarm == 'armed' ? true : false;
-        let mode = args.device.miio.setArming(alarm)
-          .then(result => {
-            args.device.setCapabilityValue('homealarm_state', args.alarm);
-          });
-        return Promise.resolve(mode);
+        const alarm = args.alarm == 'armed' ? true : false;
+        return args.device.miio.setArming(alarm).then(result => {
+          return args.device.setCapabilityValue('homealarm_state', args.alarm);
+        });
       })
   }
 }
