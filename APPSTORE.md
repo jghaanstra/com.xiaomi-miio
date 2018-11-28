@@ -27,7 +27,7 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 Xiaomi has recently released an update for its v1 vacuum that enabled it for the zoned cleaning and goto function that was previously only available to the v2 vacuum. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
 
 ## Changelog
-### 2018-11-28 - v2.9.2
+### 2018-11-28 - v2.9.3
 * FIX: fix for Xiaomi Philips Zhirui Downlights
 
 ### 2018-11-28 - v2.9.2
