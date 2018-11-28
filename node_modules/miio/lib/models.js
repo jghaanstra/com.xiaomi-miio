@@ -66,5 +66,6 @@ module.exports = {
 	'philips.light.candle2': PhilipsLightBulb,
   'philips.light.ceiling': PhilipsLightBulb,
   'philips.light.zyceiling': PhilipsLightBulb,
-  'philips.light.mono1': PhilipsLightBulb
+  'philips.light.mono1': PhilipsLightBulb,
+  'philips.light.downlight': PhilipsLightBulb
 };

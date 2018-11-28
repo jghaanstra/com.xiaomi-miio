@@ -28,4 +28,7 @@ Xiaomi has recently released an update for its v1 vacuum that enabled it for the
 
 ## Changelog
 ### 2018-11-28 - v2.9.2
+* FIX: fix for Xiaomi Philips Zhirui Downlights
+
+### 2018-11-28 - v2.9.2
 * NEW: added support for Xiaomi Philips Zhirui Candle Lights (PR from rdvanbuuren) and Xiaomi Philips Zhirui Downlights

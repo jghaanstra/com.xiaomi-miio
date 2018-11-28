@@ -10,7 +10,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.9.2",
+	"version": "2.9.3",
 	"compatibility": ">=1.5.12",
 	"author": {
 		"name": "Jelger Haanstra",
