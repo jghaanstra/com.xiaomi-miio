@@ -63,5 +63,8 @@ module.exports = {
 	'philips.light.sread1': require('./devices/eyecare-lamp2'),
 	'philips.light.bulb': PhilipsLightBulb,
   'philips.light.candle': PhilipsLightBulb,
-	'philips.light.candle2': PhilipsLightBulb
+	'philips.light.candle2': PhilipsLightBulb,
+  'philips.light.ceiling': PhilipsLightBulb,
+  'philips.light.zyceiling': PhilipsLightBulb,
+  'philips.light.mono1': PhilipsLightBulb
 };
