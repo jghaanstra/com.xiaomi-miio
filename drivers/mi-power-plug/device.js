@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const Homey = require('homey');
 const miio = require('miio');
@@ -13,6 +13,9 @@ class PowerPlugDevice extends Homey.Device {
 
   onDeleted() {
     clearInterval(this.pollingInterval);
+    if (typeof this.miio !== "undefined") {
+      this.miio.destroy();
+    }
   }
 
   // LISTENERS FOR UPDATING CAPABILITIES

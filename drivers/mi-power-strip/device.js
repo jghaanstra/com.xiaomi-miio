@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const Homey = require('homey');
 const miio = require('miio');
@@ -13,6 +13,9 @@ class PowerStripDevice extends Homey.Device {
 
   onDeleted() {
     clearInterval(this.pollingInterval);
+    if (typeof this.miio !== "undefined") {
+      this.miio.destroy();
+    }
   }
 
   // LISTENERS FOR UPDATING CAPABILITIES
@@ -53,7 +56,7 @@ class PowerStripDevice extends Homey.Device {
           // TODO: implement measure_power and meter_power capability
           const powerData = await this.miio.call('get_prop', ['power']);
           const powerloadData = await this.miio.call('get_prop', ['power_consume_rate']);
-          
+
           const powerState = powerData[0] === 'on';
           const powerLoad = powerloadData ? powerloadData[0] : 0;
 

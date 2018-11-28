@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const Homey = require('homey');
 const util = require('/lib/util.js');
@@ -16,7 +16,9 @@ class PhilipsBulbDevice extends Homey.Device {
 
   onDeleted() {
     clearInterval(this.pollingInterval);
-    this.miio.destroy();
+    if (typeof this.miio !== "undefined") {
+      this.miio.destroy();
+    }
   }
 
   // LISTENERS FOR UPDATING CAPABILITIES

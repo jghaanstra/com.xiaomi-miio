@@ -10,7 +10,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.9.1",
+	"version": "2.9.2",
 	"compatibility": ">=1.5.12",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -95,8 +95,8 @@
     {
 			"id": "philips-bulb",
 			"name": {
-				"en": "Philips Light Bulb",
-				"nl": "Philips Light Bulb"
+				"en": "Philips Lights",
+				"nl": "Philips Lights"
 			},
 			"images": {
 				"large": "drivers/philips-bulb/assets/images/large.jpg",
@@ -117,8 +117,8 @@
 			  {
           "type": "group",
           "label": {
-            "en": "Philips Light Bulb Settings",
-						"nl": "Philips Light Bulb Instellingen"
+            "en": "Philips Lights Settings",
+						"nl": "Philips Lights Instellingen"
           },
 					"children": [
 				    {
@@ -135,8 +135,8 @@
 					    "type": "text",
 					    "value": "",
 					    "label": {
-						    "en": "Philips Light Bulb Token",
-						    "nl": "Philips Light Bulb Token"
+						    "en": "Philips Lights Token",
+						    "nl": "Philips Lights Token"
 					    }
 				    },
             {
@@ -148,8 +148,8 @@
                 "max": 3600
               },
 					    "label": {
-						    "en": "Philips Light Bulb Polling",
-						    "nl": "Philips Light Bulb Polling"
+						    "en": "Philips Lights Polling",
+						    "nl": "Philips Lights Polling"
 					    }
 				    }
 		      ]
