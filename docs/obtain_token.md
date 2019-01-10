@@ -41,13 +41,17 @@ Use these methods to obtain the device token for devices that hide their tokens 
 #### Non-Rooted Android Phones
 * Setup your Android device with the Mi Home app
 * Enable developer mode and USB debugging on your phone and connect it to your computer
-* Get the ADB tool for Windows: https://developer.android.com/studio/releases/platform-tools.html
-* Create a backup of the Mi Home app: .\adb backup -noapk com.xiaomi.smarthome -f backup.ab
+* Get the ADB tool 
+   - for Windows: https://developer.android.com/studio/releases/platform-tools.html
+   - for Mac: `brew install adb`
+* Create a backup of the Mi Home app: `.\adb backup -noapk com.xiaomi.smarthome -f backup.ab`
 * On your phone you must confirm the backup. Do not enter any password and press button to make the backup
-* Get ADB Backup Extractor and install it: https://sourceforge.net/projects/adbextractor/
-* Extract all files from the backup on your computer: java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar
+* (Windows Only) Get ADB Backup Extractor and install it: https://sourceforge.net/projects/adbextractor/
+* Extract all files from the backup on your computer: 
+   - for Windows: `java.exe -jar ../android-backup-extractor/abe.jar unpack mi-home-backup.ab backup.tar`
+   - for Mac & Unix: `( printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" ; tail -c +25 mi-home-backup.ab) |  tar xfvz -`
 * Unzip the ".tar" file
-* Open /com.xiaomi.smarthome/database/miio2.db with a SQLite browser (for instance http://sqlitebrowser.org/)
+* Open /com.xiaomi.smarthome/db/miio2.db with a SQLite browser (for instance http://sqlitebrowser.org/)
 * Execute the query "select token from devicerecord where localIP is '192.168.0.1'" where you replace the IP address with the IP address of the Mi Home device you want to get the token from. It will show you the 32 character device token for your Mi Home device.
 
 ### iOS users
