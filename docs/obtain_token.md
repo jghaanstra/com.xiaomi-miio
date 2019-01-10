@@ -44,7 +44,9 @@ Use these methods to obtain the device token for devices that hide their tokens 
 * Get the ADB tool 
    - for Windows: https://developer.android.com/studio/releases/platform-tools.html
    - for Mac: `brew install adb`
-* Create a backup of the Mi Home app: `.\adb backup -noapk com.xiaomi.smarthome -f backup.ab`
+* Create a backup of the Mi Home app: 
+   - for Windows: `.\adb backup -noapk com.xiaomi.smarthome -f mi-home-backup.ab`
+   - for Mac: `adb backup -noapk com.xiaomi.smarthome -f mi-home-backup.ab`
 * On your phone you must confirm the backup. Do not enter any password and press button to make the backup
 * (Windows Only) Get ADB Backup Extractor and install it: https://sourceforge.net/projects/adbextractor/
 * Extract all files from the backup on your computer: 
