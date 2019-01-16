@@ -11,6 +11,7 @@ class GatewayDevice extends Homey.Device {
     this.gatewayLuminanceTrigger = new Homey.FlowCardTriggerDevice('gatewayLuminance').register();
 
     this.createDevice();
+    this.setUnavailable(Homey.__('unreachable'));
 
     this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
     this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
@@ -20,45 +21,69 @@ class GatewayDevice extends Homey.Device {
 
   onDeleted() {
     clearInterval(this.pollingInterval);
-    if (typeof this.miio !== "undefined") {
+    if (this.miio) {
       this.miio.destroy();
     }
   }
 
   // LISTENERS FOR UPDATING CAPABILITIES
   onCapabilityOnoff(value, opts) {
-    return this.miio.light.setPower(value)
+    if (this.miio) {
+      return this.miio.light.setPower(value)
+    } else {
+      this.setUnavailable(Homey.__('unreachable'));
+      this.createDevice();
+      callback('Device unreachable, please try again ...', false)
+    }
   }
 
   onCapabilityDim(value, opts) {
-    const brightness = value * 100;
-    return this.miio.light.setBrightness(brightness)
+    if (this.miio) {
+      const brightness = value * 100;
+      return this.miio.light.setBrightness(brightness);
+    } else {
+       this.setUnavailable(Homey.__('unreachable'));
+       this.createDevice();
+       callback('Device unreachable, please try again ...', false)
+    }
   }
 
   onCapabilityHueSaturation(valueObj, optsObj) {
-    if (valueObj.hasOwnProperty('light_hue')) {
-      var hue_value = valueObj.light_hue;
+    if (this.miio) {
+      if (valueObj.hasOwnProperty('light_hue')) {
+        var hue_value = valueObj.light_hue;
+      } else {
+        var hue_value = this.getCapabilityValue('light_hue');
+      }
+
+      if (valueObj.hasOwnProperty('light_saturation')) {
+        var saturation_value = valueObj.light_saturation;
+      } else {
+        var saturation_value = this.getCapabilityValue('light_saturation');
+      }
+
+      const hue = hue_value * 359;
+      const saturation = saturation_value * 100;
+      const dim = this.getCapabilityValue('dim') * 100
+      const colorUpdate = tinycolor({ h: Math.round(hue), s: Math.round(saturation), v: dim });
+
+      return this.miio.light.color(colorUpdate.toRgbString());
     } else {
-      var hue_value = this.getCapabilityValue('light_hue');
+       this.setUnavailable(Homey.__('unreachable'));
+       this.createDevice();
+       callback('Device unreachable, please try again ...', false)
     }
-
-    if (valueObj.hasOwnProperty('light_saturation')) {
-      var saturation_value = valueObj.light_saturation;
-    } else {
-      var saturation_value = this.getCapabilityValue('light_saturation');
-    }
-
-    const hue = hue_value * 359;
-    const saturation = saturation_value * 100;
-    const dim = this.getCapabilityValue('dim') * 100
-    const colorUpdate = tinycolor({ h: Math.round(hue), s: Math.round(saturation), v: dim });
-
-    return this.miio.light.color(colorUpdate.toRgbString());
   }
 
   onCapabilityAlarm(value, opts) {
-    const state = value == 'armed' ? true : false;
-    return this.miio.setArming(state)
+    if (this.miio) {
+      const state = value == 'armed' ? true : false;
+      return this.miio.setArming(state);
+    } else {
+       this.setUnavailable(Homey.__('unreachable'));
+       this.createDevice();
+       callback('Device unreachable, please try again ...', false)
+    }
   }
 
   // HELPER FUNCTIONS

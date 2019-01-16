@@ -7,22 +7,29 @@ class MiHumidifierDevice extends Homey.Device {
 
   onInit() {
     this.createDevice();
+    this.setUnavailable(Homey.__('unreachable'));
 
     this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
   }
 
   onDeleted() {
     clearInterval(this.pollingInterval);
-    if (typeof this.miio !== "undefined") {
+    if (this.miio) {
       this.miio.destroy();
     }
   }
 
   // LISTENERS FOR UPDATING CAPABILITIES
   onCapabilityOnoff(value, opts, callback) {
-    this.miio.setPower(value)
-      .then(result => { callback(null, value) })
-      .catch(error => { callback(error, false) });
+    if (this.miio) {
+      this.miio.setPower(value)
+        .then(result => { callback(null, value) })
+        .catch(error => { callback(error, false) });
+    } else {
+       this.setUnavailable(Homey.__('unreachable'));
+       this.createDevice();
+       callback('Device unreachable, please try again ...', false)
+    }
   }
 
   // HELPER FUNCTIONS

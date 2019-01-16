@@ -58,28 +58,44 @@ class XiaomiMiioApp extends Homey.App {
     new Homey.FlowCardAction('findVacuum')
       .register()
       .registerRunListener((args, state) => {
-        return args.device.miio.find();
+        if (args.device.miio) {
+          return args.device.miio.find();
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
 
     new Homey.FlowCardAction('fanPowerVacuum')
       .register()
       .registerRunListener((args, state) => {
-        return args.device.miio.changeFanSpeed(Number(args.fanspeed)).then(result => {
-          return args.device.setStoreValue('fanspeed', args.fanspeed);
-        });
+        if (args.device.miio) {
+          return args.device.miio.changeFanSpeed(Number(args.fanspeed)).then(result => {
+            return args.device.setStoreValue('fanspeed', args.fanspeed);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
 
     new Homey.FlowCardAction('goToTargetVacuum')
       .register()
       .registerRunListener((args, state) => {
-        return args.device.miio.goToTarget([args.xcoordinate, args.ycoordinate]);
+        if (args.device.miio) {
+          return args.device.miio.goToTarget([args.xcoordinate, args.ycoordinate]);
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
 
     new Homey.FlowCardAction('cleanZoneVacuum')
       .register()
       .registerRunListener((args, state) => {
-        const zones = JSON.parse("[" + args.zones + "]");
-        return args.device.miio.activateZoneClean(zones);
+        if (args.device.miio) {
+          const zones = JSON.parse("[" + args.zones + "]");
+          return args.device.miio.activateZoneClean(zones);
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
 
     // MI AIR PURIFIER: CONDITION AND ACTION FLOW CARDS
@@ -92,31 +108,47 @@ class XiaomiMiioApp extends Homey.App {
     new Homey.FlowCardAction('modeAirpurifier')
       .register()
       .registerRunListener((args, state) => {
-        return args.device.miio.mode(args.mode).then(result => {
-          return args.device.setStoreValue('mode', args.mode);
-        });
+        if (args.device.miio) {
+          return args.device.miio.mode(args.mode).then(result => {
+            return args.device.setStoreValue('mode', args.mode);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
 
     new Homey.FlowCardAction('airpurifierSetFavorite')
       .register()
       .registerRunListener((args, state) => {
-        return args.device.miio.favoriteLevel(args.favorite);
+        if (args.device.miio) {
+          return args.device.miio.favoriteLevel(args.favorite);
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
 
     new Homey.FlowCardAction('airpurifierOn')
       .register()
       .registerRunListener((args, state) => {
-        return args.device.miio.setPower(true).then(result => {
-          return args.device.setCapabilityValue('onoff', true);
-        });
+        if (args.device.miio) {
+          return args.device.miio.setPower(true).then(result => {
+            return args.device.setCapabilityValue('onoff', true);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
 
     new Homey.FlowCardAction('airpurifierOff')
       .register()
       .registerRunListener((args, state) => {
-        return args.device.miio.setPower(false).then(result => {
-          return args.device.setCapabilityValue('onoff', false);
-        });
+        if (args.device.miio) {
+          return args.device.miio.setPower(false).then(result => {
+            return args.device.setCapabilityValue('onoff', false);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
 
     // MI HUMDIFIER: CONDITION AND ACTION FLOW CARDS
@@ -129,9 +161,13 @@ class XiaomiMiioApp extends Homey.App {
     new Homey.FlowCardAction('modeHumidifier')
       .register()
       .registerRunListener((args, state) => {
-        return args.device.miio.mode(args.mode).then(result => {
-          return args.device.setStoreValue('mode', args.mode);
-        });
+        if (args.device.miio) {
+          return args.device.miio.mode(args.mode).then(result => {
+            return args.device.setStoreValue('mode', args.mode);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
 
     new Homey.FlowCardAction('humidifierOn')
@@ -145,37 +181,53 @@ class XiaomiMiioApp extends Homey.App {
     new Homey.FlowCardAction('humidifierOff')
       .register()
       .registerRunListener((args, state) => {
-        return args.device.miio.setPower(false).then(result => {
-          return args.device.setCapabilityValue('onoff', false);
-        });
+        if (args.device.miio) {
+          return args.device.miio.setPower(false).then(result => {
+            return args.device.setCapabilityValue('onoff', false);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
 
     // PHILIPS EYECARE LAMP: CONDITION AND ACTION FLOW CARDS
     new Homey.FlowCardAction('enableEyecare')
       .register()
       .registerRunListener((args, state) => {
-        const eyecare = args.eyecare == 'on' ? true : false;
-        return args.device.setEyeCare(eyecare).then(result => {
-          return args.device.setStoreValue('eyecare', eyecare);
-        });
+        if (args.device.miio) {
+          const eyecare = args.eyecare == 'on' ? true : false;
+          return args.device.setEyeCare(eyecare).then(result => {
+            return args.device.setStoreValue('eyecare', eyecare);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
 
     new Homey.FlowCardAction('modeEyecare')
       .register()
       .registerRunListener((args, state) => {
-        return args.device.mode(args.mode).then(result => {
-          return args.device.setStoreValue('mode', args.mode);
-        });
+        if (args.device.miio) {
+          return args.device.mode(args.mode).then(result => {
+            return args.device.setStoreValue('mode', args.mode);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
 
     // GATEWAY: CONDITION AND ACTION FLOW CARDS
     new Homey.FlowCardAction('armGateway')
       .register()
       .registerRunListener((args, state) => {
-        const alarm = args.alarm == 'armed' ? true : false;
-        return args.device.miio.setArming(alarm).then(result => {
-          return args.device.setCapabilityValue('homealarm_state', args.alarm);
-        });
+        if (args.device.miio) {
+          const alarm = args.alarm == 'armed' ? true : false;
+          return args.device.miio.setArming(alarm).then(result => {
+            return args.device.setCapabilityValue('homealarm_state', args.alarm);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
       })
   }
 }

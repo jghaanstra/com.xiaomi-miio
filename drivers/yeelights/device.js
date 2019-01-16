@@ -181,7 +181,9 @@ class YeelightDevice extends Homey.Device {
     yeelights[id].socket.on('error', (error) => {
       this.log("Yeelight - error on socket: "+ error);
 
-      yeelights[id].socket.destroy();
+      if (yeelights[id].socket) {
+        yeelights[id].socket.destroy();
+      }
 
       if(error.code === 'ETIMEDOUT' || error.code === 'ECONNRESET' || error == 'Error: Error sending command') {
         this.log('Yeelight - trying to reconnect in 6 seconds.');
