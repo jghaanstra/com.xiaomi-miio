@@ -27,7 +27,7 @@ class GatewayDevice extends Homey.Device {
   }
 
   // LISTENERS FOR UPDATING CAPABILITIES
-  onCapabilityOnoff(value, opts) {
+  onCapabilityOnoff(value, opts, callback) {
     if (this.miio) {
       return this.miio.light.setPower(value)
     } else {
@@ -37,7 +37,7 @@ class GatewayDevice extends Homey.Device {
     }
   }
 
-  onCapabilityDim(value, opts) {
+  onCapabilityDim(value, opts, callback) {
     if (this.miio) {
       const brightness = value * 100;
       return this.miio.light.setBrightness(brightness);
@@ -71,11 +71,11 @@ class GatewayDevice extends Homey.Device {
     } else {
        this.setUnavailable(Homey.__('unreachable'));
        this.createDevice();
-       callback('Device unreachable, please try again ...', false)
+       return Promise.reject('Device unreachable, please try again ...');
     }
   }
 
-  onCapabilityAlarm(value, opts) {
+  onCapabilityAlarm(value, opts, callback) {
     if (this.miio) {
       const state = value == 'armed' ? true : false;
       return this.miio.setArming(state);
