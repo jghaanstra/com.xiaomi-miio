@@ -27,23 +27,20 @@ echo -ne '\x21\x31\x00\x20\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x
 While running this you have to listen with Wireshark or tcpdump for UDP packages sent as anser by the robot.
 Extract the last 16 bytes of the answer and convert them to a (32 characters) hexadecimal string using `xxd -p`.
 
-## Method 3 - Obtain Mi Home device token for devices that hide their tokens after setup
-Use these methods to obtain the device token for devices that hide their tokens after setup in the Mi Home App (like the Mi Robot Vacuum Cleaner with firmware 3.3.9_003077 or higher).
+## Method 3 - Obtain Xiaomi Gateway device token
+This method is specifically for the Xiaomi Gateway.
 
-It is possible that you can get the token from the Mi Home App following these steps:
-### Android users
-1. Open Mi Home App in your Android device.
-5. Select your xiaomi device.
-6. Then click on the 3 dots at the top right of the screen.
-7. Then click on "About".
-8. Tap on the version number at the bottom of the screen repeatedly.
-9. You should see now 2 extra options listed.
-10. Tap on the second option: "Hub info".
-11. There you can find the device token.
+* Open Mi Home App in your Android device.
+* Select your xiaomi device.
+* Then click on the 3 dots at the top right of the screen.
+* Then click on "About".
+* Tap on the version number at the bottom of the screen repeatedly.
+* You should see now 2 extra options listed.
+* Tap on the second option: "Hub info".
+* There you can find the device token.
 
-Most of these steps are taken from [here](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz) where you can find the steps to follow on iOS.
-
-If your version of Mi Home App does not show these options you will need to install an older version of the smartphone app. Version 5.0.19 works for sure with the 1st gen Vacuum Robot, for the 2nd gen (S50) you should try version 3.3.9_5.0.30. Android users can find older version of the app [here](https://www.apkmirror.com/apk/xiaomi-inc/mihome/).
+## Method 4 - Obtain Mi Home device token for devices that hide their tokens after setup
+Use these methods to obtain the device token for devices that hide their tokens after setup in the Mi Home App (like the Mi Robot Vacuum Cleaner with firmware 3.3.9_003077 or higher). The latest versions of the Mi Home smartphone app dont hold the token anymore so before you begin with any of these methods you will need to install an older version of the smartphone app. Version 5.0.19 works for sure with the 1st gen Vacuum Robot, for the 2nd gen (S50) you should try version 3.3.9_5.0.30. Android users can find older version of the app [here](https://www.apkmirror.com/apk/xiaomi-inc/mihome/).
 
 ### Android users
 #### Rooted Android Phones
@@ -56,15 +53,15 @@ If your version of Mi Home App does not show these options you will need to inst
 #### Non-Rooted Android Phones
 * Setup your Android device with the Mi Home app
 * Enable developer mode and USB debugging on your phone and connect it to your computer
-* Get the ADB tool 
+* Get the ADB tool
    - for Windows: https://developer.android.com/studio/releases/platform-tools.html
    - for Mac: `brew install adb`
-* Create a backup of the Mi Home app: 
+* Create a backup of the Mi Home app:
    - for Windows: `.\adb backup -noapk com.xiaomi.smarthome -f mi-home-backup.ab`
    - for Mac: `adb backup -noapk com.xiaomi.smarthome -f mi-home-backup.ab`
 * On your phone you must confirm the backup. Do not enter any password and press button to make the backup
 * (Windows Only) Get ADB Backup Extractor and install it: https://sourceforge.net/projects/adbextractor/
-* Extract all files from the backup on your computer: 
+* Extract all files from the backup on your computer:
    - for Windows: `java.exe -jar ../android-backup-extractor/abe.jar unpack mi-home-backup.ab backup.tar`
    - for Mac & Unix: `( printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" ; tail -c +25 mi-home-backup.ab) |  tar xfvz -`
 * Unzip the ".tar" file
