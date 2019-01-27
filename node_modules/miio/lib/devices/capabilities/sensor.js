@@ -29,7 +29,7 @@ module.exports.Illuminance = bind(Illuminance, 'updateIlluminance', 'illuminance
 module.exports.AQI = bind(PM2_5, 'updatePM2_5', 'aqi');
 module.exports.AtmosphericPressure = bind(AtmosphericPressure, 'updateAtmosphericPressure', 'atmosphericPressure');
 module.exports.PowerLoad = bind(PowerLoad, 'updatePowerLoad', 'powerLoad');
-module.exports.PowerConsumed = bind(PowerConsumed, 'updatePowerConsumed', 'poweConsumed');
+module.exports.PowerConsumed = bind(PowerConsumed, 'updatePowerConsumed', 'powerConsumed');
 
 /**
  * Setup sensor support for a device.
