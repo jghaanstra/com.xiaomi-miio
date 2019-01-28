@@ -20,6 +20,7 @@
         "load": "Huidige gebruik in Watt:",
         "consumed": "Verbruikte stroom in kWh:",
         "humidity": "Luchtvochtigheid:",
+        "depth": "Waterniveau",
         "aqi": "Air Quality Index:",
         "eyecare": "Eyecare:",
         "address": "IP adres",

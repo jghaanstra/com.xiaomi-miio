@@ -5,14 +5,14 @@ This app uses an unofficial library called the [miIO Device Library](https://git
 
 ## Supported devices
 Below is a list of supported devices and devices. Post a comment in the [support topic](https://forum.athom.com/discussion/3295/) if you would like to see support for a specific device, some devices might already be supported by the miio library but just need to be implemented. For devices not yet support by the miio library you need technical knowledge to discover the device properties yourself as described [here](https://github.com/aholstenson/miio/blob/master/docs/missing-devices.md).
-* Yeelights: Bulbs Wi-Fi (tested), LED strips (tested), Bedside Lamp II (tested), Ceiling Lights (tested), Desk Lamp (tested)
-* Xiaomi Philips Lights (tested)
-* Xiaomi Robot Vacuum Cleaner V1 (tested) and Xiaomi Robot Vacuum Cleaner V2 (untested)
-* Xiaomi Air Purifiers 2, 2S and Pro (tested)
-* Xiamomi Humidifier (tested)
-* Xiaomi Single Power Plug and Power Strip WiFi version (tested)
-* Xiaomi PM2.5 Air Monitor (tested)
-* Xiaomi Gateway Light - subdevices are supported directly with the Xiaomi ZigBee app (tested)
+* Yeelights: Bulbs Wi-Fi, LED strips, Bedside Lamp II, Ceiling Lights, Desk Lamp
+* Xiaomi Philips Lights
+* Xiaomi Robot Vacuum Cleaner V1 and V2/S50
+* Xiaomi Air Purifiers 2, 2S and Pro
+* Xiamomi Humidifier
+* Xiaomi Single Power Plug and Power Strip WiFi version
+* Xiaomi PM2.5 Air Monitor
+* Xiaomi Gateway Light - subdevices are supported directly with the Xiaomi ZigBee app
 
 ## Support topic
 For support please use the official support topic on the forum [here](https://community.athom.com/t/118).
@@ -27,5 +27,5 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 Xiaomi has recently released an update for its v1 vacuum that enabled it for the zoned cleaning and goto function that was previously only available to the v2 vacuum. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
 
 ## Changelog
-### 2019-01-22 - v2.9.5
-* FIX: some more error handling to avoid app crashes
+### 2019-01-28 - v2.10.0
+* NEW: add waterlevel capability to Xiaomi Humidifier

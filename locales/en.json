@@ -20,6 +20,7 @@
         "load": "Current Load In Watt:",
         "consumed": "Consumed Power in kWh:",
         "humidity": "Humidity:",
+        "depth": "Waterlevel",
         "aqi": "Air Quality Index:",
         "eyecare": "Eyecare:",
         "address": "IP Address",

@@ -10,7 +10,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.9.5",
+	"version": "2.10.0",
 	"compatibility": ">=1.5.12",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -159,8 +159,8 @@
     {
 			"id": "mi-robot",
 			"name": {
-				"en": "Mi Robot Vacuum Cleaner",
-				"nl": "Mi Robot Stofzuiger"
+				"en": "Mi Robot Vacuum Cleaners",
+				"nl": "Mi Robot Stofzuigers"
 			},
 			"images": {
 				"large": "drivers/mi-robot/assets/images/large.jpg",
@@ -243,8 +243,8 @@
     {
 			"id": "mi-airpurifier",
 			"name": {
-				"en": "Mi Air Purifier",
-				"nl": "Mi Luchtreiniger"
+				"en": "Mi Air Purifiers",
+				"nl": "Mi Luchtreinigers"
 			},
 			"images": {
 				"large": "drivers/mi-airpurifier/assets/images/large.jpg",
@@ -328,8 +328,8 @@
     {
 			"id": "mi-humidifier",
 			"name": {
-				"en": "Mi Humidifier",
-				"nl": "Mi Luchtbevochtiger"
+				"en": "Mi Humidifier v1",
+				"nl": "Mi Luchtbevochtiger v1"
 			},
 			"images": {
 				"large": "drivers/mi-humidifier/assets/images/large.jpg",
@@ -402,6 +402,89 @@
 					    "label": {
 						    "en": "Mi Humidifier Polling",
 						    "nl": "Mi Luchtbevochtiger Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
+		},
+    {
+			"id": "mi-humidifier2",
+			"name": {
+				"en": "Mi Humidifier v2",
+				"nl": "Mi Luchtbevochtiger v2"
+			},
+			"images": {
+				"large": "drivers/mi-humidifier2/assets/images/large.jpg",
+				"small": "drivers/mi-humidifier2/assets/images/small.jpg"
+			},
+			"class": "sensor",
+      "capabilities": [
+        "onoff",
+        "measure_temperature",
+        "measure_humidity"
+      ],
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": [ "onoff" ]
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "measure_temperature",
+              "measure_humidity"
+            ]
+          },
+          {
+            "id": "toggle",
+            "capabilities": [ "onoff" ]
+          }
+        ]
+      },
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			  {
+          "type": "group",
+          "label": {
+            "en": "Mi Humidifier2 Settings",
+						"nl": "Mi Luchtbevochtiger2 Instellingen"
+          },
+					"children": [
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "0.0.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "Mi Humidifier2 Token",
+						    "nl": "Mi Luchtbevochtiger2 Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "Mi Humidifier2 Polling",
+						    "nl": "Mi Luchtbevochtiger2 Polling"
 					    }
 				    }
 		      ]
@@ -800,7 +883,7 @@
 							"en": "Select Mi Humidifier",
 							"nl": "Selecteer Mi Luchtbevochtiger"
 						},
-						"filter": "driver_id=mi-humidifier"
+						"filter": "driver_id=mi-humidifier|mi-humidifier2"
 					}
 				]
 			}
@@ -1446,7 +1529,7 @@
 							"en": "Select Mi Humidifier",
 							"nl": "Selecteer Mi Luchtbevochtiger"
 						},
-						"filter": "driver_id=mi-humidifier"
+						"filter": "driver_id=mi-humidifier|mi-humidifier2"
 					}
 				]
 			},
@@ -1464,7 +1547,7 @@
 							"en": "Select Mi Humidifier",
 							"nl": "Selecteer Mi Luchtbevochtiger"
 						},
-						"filter": "driver_id=mi-humidifier"
+						"filter": "driver_id=mi-humidifier|mi-humidifier2"
 					}
 				]
 			},
@@ -1509,7 +1592,7 @@
 							"en": "Select Mi Humidifier",
 							"nl": "Selecteer Mi Luchtbevochtiger"
 						},
-						"filter": "driver_id=mi-humidifier"
+						"filter": "driver_id=mi-humidifier|mi-humidifier2"
           }
 				]
 			},

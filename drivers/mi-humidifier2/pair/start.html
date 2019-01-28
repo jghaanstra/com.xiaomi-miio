@@ -24,7 +24,7 @@ $(function() {
                 } else if (result) {
                     $('#mode').val(result.mode);
                     var powered = ((result.onoff) ? "On" : "Off");
-                    var mideviceinfo = "<h2 data-i18n='pair.humidifier'>Humidifier v1</h2><div class='info-row'><span class='info-label' data-i18n='pair.powered'>Powered:</span><span class='info-value'> "+ powered +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.mode'>Mode:</span><span class='info-value'> "+ result.mode +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.temperature'>Temperature:</span><span class='info-value'> "+ result.temperature +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.humidity'>Humidity:</span><span class='info-value'> "+ result.humidity +"</span></div>";
+                    var mideviceinfo = "<h2 data-i18n='pair.humidifier'>Humidifier v2</h2><div class='info-row'><span class='info-label' data-i18n='pair.powered'>Powered:</span><span class='info-value'> "+ powered +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.mode'>Mode:</span><span class='info-value'> "+ result.mode +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.temperature'>Temperature:</span><span class='info-value'> "+ result.temperature +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.humidity'>Humidity:</span><span class='info-value'> "+ result.humidity +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.depth'>Waterlevel:</span><span class='info-value'> "+ result.depth +"</span></div>";
                     $('.mi-device-info').show();
                     $('.mi-device-info').html(mideviceinfo);
                     $('.mi-device-test').show();
@@ -62,7 +62,7 @@ $(function() {
             };
 
             Homey.addDevice({
-                name	 : 'Mi Humidifier v1',
+                name	 : 'Mi Humidifier v2',
                 data 	 : device_data,
                 settings : settings,
                 store    : store
