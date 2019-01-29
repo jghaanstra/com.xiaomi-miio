@@ -121,7 +121,7 @@ class XiaomiMiioApp extends Homey.App {
       .register()
       .registerRunListener((args, state) => {
         if (args.device.miio) {
-          return args.device.miio.favoriteLevel(args.favorite);
+          return args.device.miio.setFavoriteLevel(args.favorite);
         } else {
           return Promise.reject(new Error('Device unreachable, please try again ...'));
         }
