@@ -65,7 +65,7 @@
       },
       "min": 0,
       "max": 100,
-      "step": 0.1
+      "step": 1
     }
 	},
 	"drivers": [
@@ -867,7 +867,36 @@
 						"filter": "driver_id=mi-robot"
 					}
 				]
-			}
+			},
+      {
+        "id": "humidifier2Waterlevel",
+        "title": {
+          "en": "Waterlevel has changed",
+          "nl": "Waterniveau is veranderd"
+        },
+        "tokens": [
+          {
+            "name": "waterlevel",
+            "type": "number",
+            "title": {
+              "en": "waterlevel",
+              "nl": "waterniveau"
+            },
+            "example": 88
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Humidifier 2",
+              "nl": "Selecteer Humidifier 2"
+            },
+            "filter": "driver_id=humidifier2"
+          }
+        ]
+      }
     ],
     "conditions": [
       {

@@ -6,6 +6,8 @@ const miio = require('miio');
 class MiHumidifier2Device extends Homey.Device {
 
   onInit() {
+    this.humidifier2WaterlevelTrigger = new Homey.FlowCardTriggerDevice('humidifier2Waterlevel').register();
+
     this.createDevice();
     this.setUnavailable(Homey.__('unreachable'));
 
@@ -66,7 +68,7 @@ class MiHumidifier2Device extends Homey.Device {
           const mode = await this.miio.mode();
           const depth = await this.miio.depth();
 
-          var waterlevel = Math.round(depth * 10) / 10;
+          const waterlevel = Math.round(depth);
 
           if (this.getCapabilityValue('onoff') != power) {
             this.setCapabilityValue('onoff', power);
@@ -79,6 +81,7 @@ class MiHumidifier2Device extends Homey.Device {
           }
           if (this.getCapabilityValue('measure_waterlevel') != waterlevel) {
             this.setCapabilityValue('measure_waterlevel', waterlevel);
+            this.humidifier2WaterlevelTrigger.trigger(this, {waterlevel: waterlevel});
           }
           if (this.getStoreValue('mode') != mode) {
             this.setStoreValue('mode', mode);
