@@ -893,7 +893,7 @@
               "en": "Select Humidifier 2",
               "nl": "Selecteer Humidifier 2"
             },
-            "filter": "driver_id=humidifier2"
+            "filter": "driver_id=mi-humidifier2"
           }
         ]
       }
