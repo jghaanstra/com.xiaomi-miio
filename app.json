@@ -50,7 +50,7 @@
 			"getable": true,
 			"setable": true
 		},
-    "waterlevel": {
+    "measure_waterlevel": {
       "type": "number",
       "title": {
         "en": "Waterlevel",
@@ -439,7 +439,8 @@
       "capabilities": [
         "onoff",
         "measure_temperature",
-        "measure_humidity"
+        "measure_humidity",
+        "measure_waterlevel"
       ],
       "mobile": {
         "components": [
@@ -452,7 +453,7 @@
             "capabilities": [
               "measure_temperature",
               "measure_humidity",
-              "waterlevel"
+              "measure_waterlevel"
             ]
           },
           {
@@ -866,36 +867,7 @@
 						"filter": "driver_id=mi-robot"
 					}
 				]
-			},
-      {
-				"id": "humidifier2Waterlevel",
-				"title": {
-          "en": "Waterlevel has changed",
-          "nl": "Waterniveau is veranderd"
-				},
-        "tokens": [
-          {
-            "name": "waterlevel",
-            "type": "number",
-            "title": {
-              "en": "waterlevel",
-              "nl": "waterniveau"
-            },
-            "example": 88.1
-          }
-        ],
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"placeholder": {
-							"en": "Select Gateway",
-							"nl": "Selecteer Gateway"
-						},
-						"filter": "driver_id=gateway"
-					}
-				]
-			},
+			}
     ],
     "conditions": [
       {
