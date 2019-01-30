@@ -9,10 +9,10 @@ Below is a list of supported devices and devices. Post a comment in the [support
 * Xiaomi Philips Lights
 * Xiaomi Robot Vacuum Cleaner V1 and V2/S50
 * Xiaomi Air Purifiers 2, 2S and Pro
-* Xiamomi Humidifier
+* Xiamomi Humidifier v1 & v2
 * Xiaomi Single Power Plug and Power Strip WiFi version
 * Xiaomi PM2.5 Air Monitor
-* Xiaomi Gateway Light - subdevices are supported directly with the Xiaomi ZigBee app
+* Xiaomi Gateway Light & Alarm - subdevices are supported directly with the Xiaomi ZigBee app
 
 ## Support topic
 For support please use the official support topic on the forum [here](https://community.athom.com/t/118).
