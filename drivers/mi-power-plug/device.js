@@ -9,26 +9,23 @@ class PowerPlugDevice extends Homey.Device {
     this.createDevice();
     this.setUnavailable(Homey.__('unreachable'));
 
-    this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
+    // LISTENERS FOR UPDATING CAPABILITIES
+    this.registerCapabilityListener('onoff', (value, opts) => {
+      if (this.miio) {
+        return this.miio.setPower(value);
+      } else {
+        this.setUnavailable(Homey.__('unreachable'));
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    });
+
   }
 
   onDeleted() {
     clearInterval(this.pollingInterval);
     if (this.miio) {
       this.miio.destroy();
-    }
-  }
-
-  // LISTENERS FOR UPDATING CAPABILITIES
-  onCapabilityOnoff(value, opts, callback) {
-    if (this.miio) {
-      this.miio.setPower(value)
-        .then(result => { callback(null, value) })
-        .catch(error => { callback(error, false) });
-    } else {
-       this.setUnavailable(Homey.__('unreachable'));
-       this.createDevice();
-       callback('Device unreachable, please try again ...', false)
     }
   }
 

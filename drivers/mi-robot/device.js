@@ -11,89 +11,87 @@ class MiRobotDevice extends Homey.Device {
     this.createDevice();
     this.setUnavailable(Homey.__('unreachable'));
 
-    this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
-    this.registerCapabilityListener('vacuumcleaner_state', this.onCapabilityVacuumcleanerState.bind(this));
+    // LISTENERS FOR UPDATING CAPABILITIES
+    this.registerCapabilityListener('onoff', (value, opts) => {
+      if (this.miio) {
+        if (value) {
+          this.miio.clean()
+            .then(result => {
+              this.setCapabilityValue('vacuumcleaner_state', 'cleaning');
+              return Promise.resolve();
+            })
+            .catch(error => { return Promise.reject(error) });
+        } else {
+          this.miio.stop()
+            .then(result => {
+              this.setCapabilityValue('vacuumcleaner_state', 'stopped');
+              return Promise.resolve();
+            })
+            .catch(error => { return Promise.reject(error) });
+        }
+      } else {
+        this.setUnavailable(Homey.__('unreachable'));
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    });
+
+    this.registerCapabilityListener('vacuumcleaner_state', ( value, opts ) => {
+      if (this.miio) {
+        switch (value) {
+          case "cleaning":
+            this.miio.activateCleaning()
+              .then(result => {
+                this.setCapabilityValue('onoff', true);
+                return Promise.resolve();
+              })
+              .catch(error => { return Promise.reject(error) });
+            break;
+          case "spot_cleaning":
+            this.miio.activateSpotClean()
+              .then(result => {
+                this.setCapabilityValue('onoff', true);
+                return Promise.resolve();
+              })
+              .catch(error => { return Promise.reject(error) });
+            break;
+          case "stopped":
+            this.miio.pause()
+              .then(result => {
+                this.setCapabilityValue('onoff', false);
+                return Promise.resolve();
+              })
+              .catch(error => { return Promise.reject(error) });
+            break;
+          case "docked":
+          case "charging":
+            this.miio.pause()
+              .catch(error => { return Promise.reject(error) });
+            setTimeout(() => {
+              this.miio.activateCharging()
+                .then(result => {
+                  this.setCapabilityValue('onoff', false);
+                  return Promise.resolve();
+                })
+                .catch(error => { return Promise.reject(error) });
+            }, 4000)
+            break;
+          default:
+            this.log("Not a valid vacuumcleaner_state");
+        }
+      } else {
+        this.setUnavailable(Homey.__('unreachable'));
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    });
+
   }
 
   onDeleted() {
     clearInterval(this.pollingInterval);
     if (this.miio) {
       this.miio.destroy();
-    }
-  }
-
-  // LISTENERS FOR UPDATING CAPABILITIES
-  onCapabilityOnoff(value, opts, callback) {
-    if (this.miio) {
-      if (value) {
-        this.miio.clean()
-          .then(result => {
-            this.setCapabilityValue('vacuumcleaner_state', 'cleaning');
-            callback(null, value)
-          })
-          .catch(error => { callback(error, false) });
-      } else {
-        this.miio.stop()
-          .then(result => {
-            this.setCapabilityValue('vacuumcleaner_state', 'stopped');
-            callback(null, value)
-          })
-          .catch(error => { callback(error, false) });
-      }
-    } else {
-       this.setUnavailable(Homey.__('unreachable'));
-       this.createDevice();
-       callback('Device unreachable, please try again ...', false)
-    }
-  }
-
-  onCapabilityVacuumcleanerState(value, opts, callback) {
-    if (this.miio) {
-      switch (value) {
-        case "cleaning":
-          this.miio.activateCleaning()
-            .then(result => {
-              this.setCapabilityValue('onoff', true);
-              callback(null, value);
-            })
-            .catch(error => { callback(error, false) });
-          break;
-        case "spot_cleaning":
-          this.miio.activateSpotClean()
-            .then(result => {
-              this.setCapabilityValue('onoff', true);
-              callback(null, value);
-            })
-            .catch(error => { callback(error, false) });
-          break;
-        case "stopped":
-          this.miio.pause()
-            .then(result => {
-              this.setCapabilityValue('onoff', false);
-              callback(null, value);
-            })
-            .catch(error => { callback(error, false) });
-          break;
-        case "docked":
-        case "charging":
-          this.miio.pause()
-            .catch(error => { callback(error, false) });
-          setTimeout(() => {
-            this.miio.activateCharging()
-              .then(result => {
-                this.setCapabilityValue('onoff', false);
-                callback(null, value);
-              })
-              .catch(error => { callback(error, false) });
-          }, 4000)
-          break;
-        default:
-          this.log("Not a valid vacuumcleaner_state");
-      }
-    } else {
-       this.setUnavailable(Homey.__('unreachable'));
-       this.createDevice();
-       callback('Device unreachable, please try again ...', false)
     }
   }
 

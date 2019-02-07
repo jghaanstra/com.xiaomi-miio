@@ -10,7 +10,40 @@ class PhilipsBulbDevice extends Homey.Device {
     this.createDevice();
     this.setUnavailable(Homey.__('unreachable'));
 
-    this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
+    // LISTENERS FOR UPDATING CAPABILITIES
+    this.registerCapabilityListener('onoff', (value, opts) => {
+      if (this.miio) {
+        return this.miio.setPower(value);
+      } else {
+        this.setUnavailable(Homey.__('unreachable'));
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    });
+
+    this.registerCapabilityListener('dim', (value, opts) => {
+      if (this.miio) {
+        var brightness = value * 100;
+        return this.miio.setBrightness(brightness);
+      } else {
+        this.setUnavailable(Homey.__('unreachable'));
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    });
+
+    this.registerCapabilityListener('light_temperature', (value, opts) => {
+      if (this.miio) {
+        var colorvalue = util.denormalize(value, 3000, 5700);
+        var colortemp = ''+ colorvalue +'K';
+        return this.miio.color(colortemp);
+      } else {
+        this.setUnavailable(Homey.__('unreachable'));
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    });
+
     this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
     this.registerCapabilityListener('light_temperature', this.onCapabilityLightTemperature.bind(this));
   }
@@ -19,46 +52,6 @@ class PhilipsBulbDevice extends Homey.Device {
     clearInterval(this.pollingInterval);
     if (this.miio ) {
       this.miio.destroy();
-    }
-  }
-
-  // LISTENERS FOR UPDATING CAPABILITIES
-  onCapabilityOnoff(value, opts, callback) {
-    if (this.miio) {
-      this.miio.setPower(value)
-        .then(result => { callback(null, value) })
-        .catch(error => { callback(error, false) });
-    } else {
-       this.setUnavailable(Homey.__('unreachable'));
-       this.createDevice();
-       callback('Device unreachable, please try again ...', false)
-    }
-  }
-
-  onCapabilityDim(value, opts, callback) {
-    if (this.miio) {
-      var brightness = value * 100;
-      this.miio.setBrightness(brightness)
-        .then(result => { callback(null, value) })
-        .catch(error => { callback(error, false) });
-    } else {
-       this.setUnavailable(Homey.__('unreachable'));
-       this.createDevice();
-       callback('Device unreachable, please try again ...', false)
-    }
-  }
-
-  onCapabilityLightTemperature(value, opts, callback) {
-    if (this.miio) {
-      var colorvalue = util.denormalize(value, 3000, 5700);
-      var colortemp = ''+ colorvalue +'K';
-      this.miio.color(colortemp)
-        .then(result => { callback(null, value) })
-        .catch(error => { callback(error, false) });
-    } else {
-       this.setUnavailable(Homey.__('unreachable'));
-       this.createDevice();
-       callback('Device unreachable, please try again ...', false)
     }
   }
 

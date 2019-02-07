@@ -91,65 +91,65 @@ $(function() {
 </script>
 
 <style type="text/css">
-  .mi-device-pairing {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  .form-group {
+    width: 100%;
+    display: block;
+    margin-bottom: 12px;
   }
-  .mi-device-pairing .col1, .mi-device-pairing .col2 {
-    width: 48%;
+  .form-group label {
+    display: block;
   }
-	.mi-device-status, .mi-device-info {
+  .mi-device-status, .mi-device-info {
 		display: none;
 	}
   .mi-device-info {
+    margin-top: 10px;
     font-size: 12px;
   }
   .mi-device-info .info-row {
     min-width: 150px;
     padding-bottom: 4px;
-    font-weight: 700;
   }
   .mi-device-info .info-label {
     display: inline-block;
-    min-width: 150px;
+    min-width: 100px;
     font-weight: 700;
-  }
-  .form-group input[type="text"] {
-    width: 80% !important;
   }
   .buttons, .messages {
     padding-top: 14px;
   }
-
+  .button:disabled {
+    color: #ccc;
+  }
+  .button:enabled {
+    background-color: #00c139 !important;
+    color: #fff;
+  }
 </style>
 
 <p data-i18n="pair.intro">Enter the details of your Mi Home device.</p>
 <div class="mi-device-pairing">
-  <div class="col1">
-    <div class="form-group">
-      <label for="address" data-i18n="pair.address">IP address</label>
-      <input type="text" class="form-control" id="address" placeholder="192.168.0.100">
-    </div>
-    <div class="form-group">
-    	<label for="token" data-i18n="pair.token">Token (32 characters of numbers and letters)</label>
-    	<input type="text" class="form-control" id="token" pattern="[a-zA-Z0-9]{32}" placeholder="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF">
-    </div>
-    <div class="form-group">
-      <label for="polling" data-i18n="pair.polling">Polling Frequency</label>
-      <input type="number" class="form-control" id="polling" min="30" max="3600" placeholder="60">
-    </div>
-    <input type="hidden" id="fanspeed" value="">
-    <input type="hidden" id="state" value="">
-    <div class="form-group buttons">
-      <button id="test-connection" class="button" data-i18n="pair.test">Test Connection</button>
-      <button id="connect" class="button" data-i18n="pair.connect" disabled>Connect</button>
-    </div>
+  <div class="form-group">
+    <label for="address" data-i18n="pair.address">IP address</label>
+    <input type="text" class="form-control" id="address" placeholder="192.168.0.100">
   </div>
-  <div class="col2">
-    <div class="mi-device-info"></div>
+  <div class="form-group">
+  	<label for="token" data-i18n="pair.token">Token (32 characters of numbers and letters)</label>
+  	<input type="text" class="form-control" id="token" pattern="[a-zA-Z0-9]{32}" placeholder="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF">
+  </div>
+  <div class="form-group">
+    <label for="polling" data-i18n="pair.polling">Polling Frequency</label>
+    <input type="number" class="form-control" id="polling" min="30" max="3600" placeholder="60">
+  </div>
+  <input type="hidden" id="fanspeed" value="">
+  <input type="hidden" id="state" value="">
+  <div class="form-group buttons">
+    <button id="test-connection" class="button" data-i18n="pair.test">Test Connection</button>
+    <button id="connect" class="button" data-i18n="pair.connect" disabled>Connect</button>
   </div>
 </div>
+
+<div class="mi-device-info"></div>
 
 <div class="messages">
   <p class="mi-device-status mi-device-test" style="color: #008C23;"><i class="fa fa-check"></i> <span data-i18n="pair.testingVacuum">Mi Robot find message send succesfully, did you hear the robot?</span></p>
