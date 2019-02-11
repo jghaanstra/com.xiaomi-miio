@@ -44,8 +44,6 @@ class PhilipsBulbDevice extends Homey.Device {
       }
     });
 
-    this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
-    this.registerCapabilityListener('light_temperature', this.onCapabilityLightTemperature.bind(this));
   }
 
   onDeleted() {
