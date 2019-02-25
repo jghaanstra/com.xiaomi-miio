@@ -1,6 +1,6 @@
 {
   "name": "com.xiaomi-miio",
-  "version": "2.11.1",
+  "version": "2.11.2",
   "description": "Xiaomi Mi Home",
   "main": "app.js",
   "dependencies": {

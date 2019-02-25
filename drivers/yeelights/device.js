@@ -9,12 +9,6 @@ var yeelights = {};
 class YeelightDevice extends Homey.Device {
 
   onInit() {
-    this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
-    this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
-    this.registerMultipleCapabilityListener(['light_hue', 'light_saturation'], this.onCapabilityHueSaturation.bind(this), 500);
-    this.registerCapabilityListener('light_temperature', this.onCapabilityLightTemperature.bind(this));
-    this.registerCapabilityListener('night_mode', this.onCapabilityNightMode.bind(this));
-
     let id = this.getData().id;
     yeelights[id] = {};
     yeelights[id].data = this.getData();
@@ -24,124 +18,122 @@ class YeelightDevice extends Homey.Device {
     yeelights[id].connecting = false;
     yeelights[id].connected = false;
 
+    // MOVE SETTINGS TO SETTINGS OBJECT FROM 2.11.2
+    if (!this.getSetting('address')) {
+      var address = this.getData().address;
+      var port = this.getData().port;
+      this.setSettings({address: address, port: port});
+    }
+
     this.createDeviceSocket(id);
+
+    // LISTENERS FOR UPDATING CAPABILITIES
+    this.registerCapabilityListener('onoff', (value, opts) => {
+      if (value) {
+        return this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["on", "smooth", 500]}');
+      } else {
+        return this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["off", "smooth", 500]}');
+      }
+    });
+
+    this.registerCapabilityListener('dim', async (value, opts) => {
+      let brightness = value === 0 ? 1 : value * 100;
+      // Logic which will toggle between night_mode and normal_mode when brightness is set to 0 or 100 two times within 5 seconds
+      if (this.hasCapability('night_mode') && opts.duration === undefined) {
+        if (value === 0) {
+          if (this.dimMinTime + 5000 > Date.now()) {
+            await this.triggerCapabilityListener('night_mode', true);
+            if (this.getCapabilityValue('night_mode') === false) {
+              brightness = 100;
+            }
+            this.dimMinTime = 0;
+          } else {
+            this.dimMinTime = Date.now();
+          }
+        } else if (value === 1) {
+          if (this.dimMaxTime + 5000 > Date.now()) {
+            await this.triggerCapabilityListener('night_mode', false);
+            if (this.getCapabilityValue('night_mode') === true) {
+              brightness = 1;
+            }
+            this.dimMaxTime = 0;
+          } else {
+            this.dimMaxTime = Date.now();
+          }
+        } else {
+          this.dimMinTime = 0;
+          this.dimMaxTime = 0;
+        }
+      }
+
+      if (value === 0 && !this.hasCapability('night_mode')) {
+        return this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["off", "smooth", 500]}');
+      } else if (value === 0 && typeof opts.duration !== 'undefined') {
+        if (this.getData().model == 'ceiling4') {
+          var color_temp = yeelight.denormalize(this.getCapabilityValue('light_temperature'), 2700, 6000);
+        } else if (this.getData().model == 'color') {
+          var color_temp = yeelight.denormalize(this.getCapabilityValue('light_temperature'), 1700, 6500);
+        } else {
+          var color_temp = yeelight.denormalize(this.getCapabilityValue('light_temperature'), 2700, 6500);
+        }
+        return this.sendCommand(this.getData().id, '{"id":1,"method":"start_cf","params":[1, 2, "'+ opts.duration +', 2, '+ color_temp +', 0"]}');
+      } else if (typeof opts.duration !== 'undefined') {
+        return this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", '+ opts.duration +']}');
+      } else {
+        return this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", 500]}');
+      }
+    });
+
+    this.registerCapabilityListener('night_mode', (value, opts) => {
+      if (value) {
+        return this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["on", "smooth", 500, 5]}');
+      } else {
+        return this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["on", "smooth", 500, 1]}');
+      }
+    });
+
+    this.registerMultipleCapabilityListener(['light_hue', 'light_saturation' ], ( valueObj, optsObj ) => {
+      if (typeof valueObj.light_hue !== 'undefined') {
+        var hue_value = valueObj.light_hue;
+      } else {
+        var hue_value = this.getCapabilityValue('light_hue');
+      }
+
+      if (typeof valueObj.light_saturation !== 'undefined') {
+        var saturation_value = valueObj.light_saturation;
+      } else {
+        var saturation_value = this.getCapabilityValue('light_saturation');
+      }
+
+      var hue = hue_value * 359;
+      var saturation = saturation_value * 100;
+
+      if (this.getData().model == 'ceiling4') {
+        return this.sendCommand(this.getData().id, '{"id":1,"method":"bg_set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
+      } else {
+        return this.sendCommand(this.getData().id, '{"id":1,"method":"set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
+      }
+    }, 500);
+
+    this.registerCapabilityListener('light_temperature', (value, opts) => {
+      if (this.getData().model == 'ceiling4') {
+        var color_temp = yeelight.denormalize(value, 2700, 6000);
+      } else if (this.getData().model == 'color') {
+        var color_temp = yeelight.denormalize(value, 1700, 6500);
+      } else {
+        var color_temp = yeelight.denormalize(value, 2700, 6500);
+      }
+      if (this.hasCapability('night_mode')) {
+        this.setCapabilityValue('night_mode', false);
+      }
+      return this.sendCommand(this.getData().id, '{"id":1,"method":"set_ct_abx","params":['+ color_temp +', "smooth", 500]}');
+    });
+
   }
 
   onDeleted() {
     let id = this.getData().id;
     delete yeelights[id];
-  }
-
-  // LISTENERS FOR UPDATING CAPABILITIES
-  onCapabilityOnoff(value, opts, callback) {
-    if (value) {
-      this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["on", "smooth", 500]}');
-    } else {
-      this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["off", "smooth", 500]}');
-    }
-    callback(null, value);
-  }
-
-  async onCapabilityDim(value, opts, callback) {
-    let brightness = value === 0 ? 1 : value * 100;
-    let overWriteDimVal;
-
-    // Logic which will toggle between night_mode and normal_mode when brightness is set to 0 or 100 two times within 5 seconds
-    if (this.hasCapability('night_mode') && opts.duration === undefined) {
-      if (value === 0) {
-        if (this.dimMinTime + 5000 > Date.now()) {
-          const initialNightModeValue = this.getCapabilityValue('night_mode');
-          await this.triggerCapabilityListener('night_mode', true);
-          // If we think we really toggled the night mode we will set the brightness of night mode to 100
-          if (initialNightModeValue === false) {
-            value = 1;
-            overWriteDimVal = 1;
-            brightness = 100;
-          }
-          this.dimMinTime = 0;
-        } else {
-          this.dimMinTime = Date.now();
-        }
-      } else if (value === 1) {
-        if (this.dimMaxTime + 5000 > Date.now()) {
-          const initialNightModeValue = this.getCapabilityValue('night_mode');
-          await this.triggerCapabilityListener('night_mode', false);
-          // If we think we really toggled the night mode we will set the brightness of normal mode to 1
-          if (initialNightModeValue === true) {
-            value = 0;
-            overWriteDimVal = 0;
-            brightness = 1;
-          }
-          this.dimMaxTime = 0;
-        } else {
-          this.dimMaxTime = Date.now();
-        }
-      } else {
-        this.dimMinTime = 0;
-        this.dimMaxTime = 0;
-      }
-    }
-
-    if (typeof opts.duration !== 'undefined') {
-      this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", '+ opts.duration +']}');
-    } else {
-      this.sendCommand(this.getData().id, '{"id":1,"method":"set_bright","params":['+ brightness +', "smooth", 500]}');
-    }
-    callback(null, value);
-
-    // "hack" to fix dim bar behaviour in the homey UI
-    if (overWriteDimVal !== undefined) {
-      this.setCapabilityValue('dim', overWriteDimVal);
-    }
-  }
-
-  onCapabilityNightMode(value, opts, callback) {
-    if (value) {
-      this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["on", "smooth", 500, 5]}');
-    } else {
-      this.sendCommand(this.getData().id, '{"id": 1, "method": "set_power", "params":["on", "smooth", 500, 1]}');
-    }
-    callback(null, value);
-  }
-
-  onCapabilityHueSaturation(valueObj, optsObj) {
-    if (typeof valueObj.light_hue !== 'undefined') {
-      var hue_value = valueObj.light_hue;
-    } else {
-      var hue_value = this.getCapabilityValue('light_hue');
-    }
-
-    if (typeof valueObj.light_saturation !== 'undefined') {
-      var saturation_value = valueObj.light_saturation;
-    } else {
-      var saturation_value = this.getCapabilityValue('light_saturation');
-    }
-
-    var hue = hue_value * 359;
-    var saturation = saturation_value * 100;
-
-    if (this.getData().model == 'ceiling4') {
-      this.sendCommand(this.getData().id, '{"id":1,"method":"bg_set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
-    } else {
-      this.sendCommand(this.getData().id, '{"id":1,"method":"set_hsv","params":['+ hue +','+ saturation +', "smooth", 500]}');
-    }
-    return Promise.resolve();
-  }
-
-  onCapabilityLightTemperature(value, opts, callback) {
-    if (this.getData().model == 'ceiling4') {
-      var color_temp = yeelight.denormalize(value, 2700, 6000);
-    } else if (this.getData().model == 'color') {
-      var color_temp = yeelight.denormalize(value, 1700, 6500);
-    } else {
-      var color_temp = yeelight.denormalize(value, 2700, 6500);
-    }
-    this.sendCommand(this.getData().id, '{"id":1,"method":"set_ct_abx","params":['+ color_temp +', "smooth", 500]}');
-    callback(null, value);
-
-    if(this.hasCapability('night_mode')){
-      this.setCapabilityValue('night_mode', false);
-    }
   }
 
   // HELPER FUNCTIONS
@@ -155,7 +147,7 @@ class YeelightDevice extends Homey.Device {
       if (yeelights[id].socket === null && yeelights[id].connecting === false && yeelights[id].connected === false) {
         yeelights[id].connecting = true;
         yeelights[id].socket = new net.Socket();
-        yeelights[id].socket.connect(yeelights[id].data.port, yeelights[id].data.address, function() {
+        yeelights[id].socket.connect(device.getSetting('port'), device.getSetting('address'), function() {
           yeelights[id].socket.setKeepAlive(true, 10000);
           yeelights[id].socket.setTimeout(0);
         });
@@ -324,22 +316,26 @@ class YeelightDevice extends Homey.Device {
 
   /* send commands to devices using their socket connection */
   sendCommand(id, command) {
-    if(yeelights[id].connecting && yeelights[id].connected === false){
-      this.log('Unable to send command because socket is still connecting');
-    } else if (yeelights[id].connected === false && yeelights[id].socket !== null) {
-      yeelights[id].socket.emit('error', new Error('Connection to device broken'));
-    } else if (yeelights[id].socket === null) {
-      this.log('Unable to send command because socket is not available');
-  	} else {
-      yeelights[id].socket.write(command + '\r\n');
+    return new Promise(function (resolve, reject) {
+      if(yeelights[id].connecting && yeelights[id].connected === false){
+        return reject('Unable to send command because socket is still connecting');
+      } else if (yeelights[id].connected === false && yeelights[id].socket !== null) {
+        yeelights[id].socket.emit('error', new Error('Connection to device broken'));
+        return reject('Connection to device broken');
+      } else if (yeelights[id].socket === null) {
+        return reject('Unable to send command because socket is not available');
+    	} else {
+        yeelights[id].socket.write(command + '\r\n');
+        return resolve();
 
-      clearTimeout(yeelights[id].timeout);
-      yeelights[id].timeout = setTimeout(() => {
-        if (yeelights[id].connected === true && yeelights[id].socket !== null) {
-          yeelights[id].socket.emit('error', new Error('Error sending command'));
-        }
-      }, 6000);
-    }
+        clearTimeout(yeelights[id].timeout);
+        yeelights[id].timeout = setTimeout(() => {
+          if (yeelights[id].connected === true && yeelights[id].socket !== null) {
+            yeelights[id].socket.emit('error', new Error('Error sending command'));
+          }
+        }, 6000);
+      }
+    });
   }
 
   /* check if device is connecting or connected */

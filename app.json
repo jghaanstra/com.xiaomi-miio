@@ -10,7 +10,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.11.1",
+	"version": "2.11.2",
 	"compatibility": ">=2.0.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -189,26 +189,6 @@
         "vacuumcleaner_state",
         "measure_battery"
       ],
-      "mobile": {
-        "components": [
-          {
-            "id": "battery",
-            "capabilities": [ "measure_battery" ]
-          },
-          {
-            "id": "icon",
-            "capabilities": [ "onoff" ]
-          },
-          {
-            "id": "picker",
-            "capabilities": [ "vacuumcleaner_state" ]
-          },
-          {
-            "id": "toggle",
-            "capabilities": [ "onoff" ]
-          }
-        ]
-      },
 			"pair": [
 				{
 					"id": "start"
@@ -274,26 +254,6 @@
         "measure_humidity",
         "measure_pm25"
       ],
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": [ "onoff" ]
-          },
-          {
-            "id": "sensor",
-            "capabilities": [
-              "measure_temperature",
-              "measure_humidity",
-              "measure_pm25"
-            ]
-          },
-          {
-            "id": "toggle",
-            "capabilities": [ "onoff" ]
-          }
-        ]
-      },
 			"pair": [
 				{
 					"id": "start"
@@ -358,25 +318,6 @@
         "measure_temperature",
         "measure_humidity"
       ],
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": [ "onoff" ]
-          },
-          {
-            "id": "sensor",
-            "capabilities": [
-              "measure_temperature",
-              "measure_humidity"
-            ]
-          },
-          {
-            "id": "toggle",
-            "capabilities": [ "onoff" ]
-          }
-        ]
-      },
 			"pair": [
 				{
 					"id": "start"
@@ -442,26 +383,6 @@
         "measure_humidity",
         "measure_waterlevel"
       ],
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": [ "onoff" ]
-          },
-          {
-            "id": "sensor",
-            "capabilities": [
-              "measure_temperature",
-              "measure_humidity",
-              "measure_waterlevel"
-            ]
-          },
-          {
-            "id": "toggle",
-            "capabilities": [ "onoff" ]
-          }
-        ]
-      },
 			"pair": [
 				{
 					"id": "start"
@@ -526,22 +447,6 @@
         "measure_battery",
         "measure_pm25"
       ],
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": [ "onoff" ]
-          },
-          {
-            "id": "sensor",
-            "capabilities": [ "measure_pm25" ]
-          },
-          {
-            "id": "toggle",
-            "capabilities": [ "onoff" ]
-          }
-        ]
-      },
 			"pair": [
 				{
 					"id": "start"
@@ -735,30 +640,6 @@
         "measure_luminance",
         "homealarm_state"
       ],
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": [ "onoff" ]
-          },
-          {
-            "id": "picker",
-            "capabilities": [ "homealarm_state" ]
-          },
-          {
-            "id": "sensor",
-            "capabilities": [ "measure_luminance" ]
-          },
-          {
-            "id": "slider",
-            "capabilities": [ "dim" ]
-          },
-          {
-            "id": "color",
-            "capabilities": [ "light_hue", "light_saturation" ]
-          }
-        ]
-      },
 			"pair": [
 				{
 					"id": "start"
