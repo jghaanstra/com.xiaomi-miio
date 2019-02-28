@@ -27,7 +27,6 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 Xiaomi has recently released an update for its v1 vacuum that enabled it for the zoned cleaning and goto function that was previously only available to the v2 vacuum. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
 
 ## Changelog
-### v2.11.2 - 2019-02-25
-* NEW: settings Yeelights to 0% dim will turn them off, also within the change dim over time card (except for the JIAOYUE ceilight which will toggle night mode when set to 0% twice in 5 seconds)
-* IMPROVEMENT: changed callbacks to promises for Yeelight driver
-* IMPROVEMENT: moved Yeelight settings from data to settings object to prevent issues when re-pairing without restarting the app
+### v2.11.3 - 2019-02-28
+* FIX: fixed a bug in the pairing of Yeelights which was introduced in the previous release
+* NEW: added functionality for automatically updating a Yeelight IP address when a change has been detected (when using DHCP instead of statip IP for instance)

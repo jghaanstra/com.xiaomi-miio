@@ -54,7 +54,7 @@ class YeelightDriver extends Homey.Driver {
         for (let i in result) {
           if(result[i].model.startsWith('color')) {
             var name = Homey.__('yeelight_bulb_color')+ ' (' + result[i].address + ')';
-          } else if (result[i].startsWith('mono')) {
+          } else if (result[i].model.startsWith('mono')) {
             var name = Homey.__('yeelight_bulb_white')+ ' (' + result[i].address + ')';
           } else if (result[i].model == 'ct') {
             var name = Homey.__('yeelight_bulb_white_v2')+ ' (' + result[i].address + ')';

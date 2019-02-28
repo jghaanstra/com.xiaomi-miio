@@ -18,12 +18,8 @@ class YeelightDevice extends Homey.Device {
     yeelights[id].connecting = false;
     yeelights[id].connected = false;
 
-    // MOVE SETTINGS TO SETTINGS OBJECT FROM 2.11.2
-    if (!this.getSetting('address')) {
-      var address = this.getData().address;
-      var port = this.getData().port;
-      this.setSettings({address: address, port: port});
-    }
+    // FILL TEMP DEVICES FOR PAIRING
+    yeelight.fillAddedDevices();
 
     this.createDeviceSocket(id);
 
