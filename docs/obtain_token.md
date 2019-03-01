@@ -20,7 +20,8 @@ This method will only work when you install the Mi Home app version v5.4.54. You
 * Use a file explorer to navigate to /sdcard/SmartHome/logs/Plug_Devicemanager/
 * Look for a log file named yyyy-mm-dd.txt and open it with a file editor
 * Search for a string similar to this with you device name and token
-```{"did":"117383849","token":"90557f1373xxxxxxx8314a74d547b5","longitude":"x","latitude":"y","name":"Mi Robot Vacuum","pid":"0","localip":"192.168.88.68","mac":"40:31:3C:AA:BB:CC","ssid":"Your AP Name","bssid":"E4:8D:8C:EE:FF:GG","parent_id":"","parent_model":"","show_mode":1,"model":"rockrobo.vacuum.v1","adminFlag":1,"shareFlag":0,"permitLevel":16,"isOnline":true,"desc":"Zoned cleanup","extra":{"isSetPincode":0,"fw_version":"3.3.9_003460","needVerifyCode":0,"isPasswordEncrypt":0},"event":{"event.back_to_dock":"{\"timestamp\":1548817566,\"value\":[0]}
+```
+{"did":"117383849","token":"90557f1373xxxxxxx8314a74d547b5","longitude":"x","latitude":"y","name":"Mi Robot Vacuum","pid":"0","localip":"192.168.88.68","mac":"40:31:3C:AA:BB:CC","ssid":"Your AP Name","bssid":"E4:8D:8C:EE:FF:GG","parent_id":"","parent_model":"","show_mode":1,"model":"rockrobo.vacuum.v1","adminFlag":1,"shareFlag":0,"permitLevel":16,"isOnline":true,"desc":"Zoned cleanup","extra":{"isSetPincode":0,"fw_version":"3.3.9_003460","needVerifyCode":0,"isPasswordEncrypt":0},"event":{"event.back_to_dock":"{\"timestamp\":1548817566,\"value\":[0]}
 ```
 * Copy the token from this string and you are done.
 
