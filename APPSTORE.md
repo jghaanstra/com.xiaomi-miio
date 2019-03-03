@@ -1,5 +1,5 @@
 # Control Xiaomi Mi Home Wi-Fi devices
-Use Homey to control Xiaomi Mi Home devices (the Mi Home Ecosystem is also branded as MiJia). Currently Xiaomi does not officialy support controlling most of it's devices from outside the Mi Home app with the exception of Yeelights. Yeelights can be added to Homey quite easy but for all other devices additional steps are needed that require some technical knowledge setting up. These steps are described but Xiaomi can make changes to it's eco system at any time resulting in devices that can not be added or controlled by Homey anymore.
+Use Homey to control Xiaomi Mi Home devices (the Mi Home Ecosystem is also branded as MiJia). Xiaomi does not officialy support controlling most of it's devices from outside the Mi Home app with the exception of Yeelights. Yeelights can be added to Homey quite easy but for all other devices additional steps are needed that require some technical knowledge setting it up. These steps are described here but Xiaomi can make changes to it's eco system at any time resulting in Homey not being able to control these devices anymore.
 
 This app uses an unofficial library called the [miIO Device Library](https://github.com/aholstenson/miio) for communication with those devices which lack official support for controlling externally, credits go out to the author of this library. This Homey app only adds support for the devices that can be controlled directly through Wi-Fi (there is another app for directly controlling Xiaomi ZigBee sensors).
 
@@ -24,9 +24,8 @@ This Homey app supports direct control for Yeelights. Before being able to add y
 For Homey to be able to communicate with devices over the miIO protocol a unique device token needs to be obtained. Technical knowledge is needed for retrieving these tokens. If your are not to tech-savvy using this app for any other devices than the Yeelights might be challenging. See the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/obtain_token.md) on retrieving device tokens.
 
 ## Using Target and Zone Cleanup for Xiaomi Mi Robot
-Xiaomi has recently released an update for its v1 vacuum that enabled it for the zoned cleaning and goto function that was previously only available to the v2 vacuum. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
+Xiaomi has released an update for the vacuum cleaners that enables zone cleaning and goto function. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
 
 ## Changelog
-### v2.11.3 - 2019-02-28
+### v2.11.4 - 2019-03-03
 * FIX: fixed a bug in the pairing of Yeelights which was introduced in the previous release
-* NEW: added functionality for automatically updating a Yeelight IP address when a change has been detected (when using DHCP instead of statip IP for instance)
