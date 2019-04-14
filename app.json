@@ -10,7 +10,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.11.4",
+	"version": "2.11.5",
 	"compatibility": ">=2.0.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -780,6 +780,24 @@
       }
     ],
     "conditions": [
+      {
+				"id": "yeelightNightmode",
+				"title": {
+          "en": "Night Mode !{{is|is not}} on",
+          "nl": "Nacht modus !{{is|is niet}} aan"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"placeholder": {
+							"en": "Select Yeelight",
+							"nl": "Selecteer Yeelight"
+						},
+						"filter": "driver_id=yeelights&capabilities=night_mode"
+					}
+				]
+			},
       {
 				"id": "poweredAirpurifier",
 				"title": {

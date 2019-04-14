@@ -39,6 +39,7 @@ module.exports = {
 
 	'zhimi.humidifier.v1': Humidifier,
 	'zhimi.humidifier.ca1': Humidifier2,
+  'zhimi.humidifier.cb1': Humidifier2,
 
 	'chuangmi.plug.m1': PowerPlug,
 	'chuangmi.plug.v1': require('./devices/chuangmi.plug.v1'),

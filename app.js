@@ -9,7 +9,13 @@ class XiaomiMiioApp extends Homey.App {
   onInit() {
     this.log('Initializing Xiaomi Mi Home app ...');
 
-    // YEELIGHTS: ACTION FLOW CARDS
+    // YEELIGHTS: CONDITION AND ACTION FLOW CARDS
+    new Homey.FlowCardCondition('yeelightNightmode')
+      .register()
+      .registerRunListener((args, state) => {
+        return args.device.getCapabilityValue('night_mode');
+      })
+
     new Homey.FlowCardAction('yeelightDefault')
       .register()
       .registerRunListener((args, state) => {
@@ -101,8 +107,8 @@ class XiaomiMiioApp extends Homey.App {
     // MI AIR PURIFIER: CONDITION AND ACTION FLOW CARDS
     new Homey.FlowCardCondition('poweredAirpurifier')
       .register()
-      .registerRunListener((args, state, callback) => {
-        callback(null, args.device.getCapabilityValue('onoff'))
+      .registerRunListener((args, state) => {
+        return args.device.getCapabilityValue('onoff');
       })
 
     new Homey.FlowCardAction('modeAirpurifier')
@@ -154,8 +160,8 @@ class XiaomiMiioApp extends Homey.App {
     // MI HUMDIFIER: CONDITION AND ACTION FLOW CARDS
     new Homey.FlowCardCondition('poweredHumidifier')
       .register()
-      .registerRunListener((args, state, callback) => {
-        callback(null, args.device.getCapabilityValue('onoff'))
+      .registerRunListener((args, state) => {
+        return args.device.getCapabilityValue('onoff');
       })
 
     new Homey.FlowCardAction('modeHumidifier')
