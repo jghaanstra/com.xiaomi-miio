@@ -133,17 +133,21 @@ class Network extends EventEmitter {
 		this._socket  = dgram.createSocket('udp4');
 
 		// Bind the socket and when it is ready mark it for broadcasting
-		this._socket.bind();
-		this._socket.on('listening', () => {
-      if (this._socket) {
-  			this._socket.setBroadcast(true);
+    try {
+      this._socket.bind();
+  		this._socket.on('listening', () => {
+        if (this._socket) {
+    			this._socket.setBroadcast(true);
 
-  			const address = this._socket.address();
-  			this.debug('Network bound to port', address.port);
-      } else {
-        this.createSocket();
-      }
-		});
+    			const address = this._socket.address();
+    			this.debug('Network bound to port', address.port);
+        } else {
+          this.createSocket();
+        }
+  		});
+    } catch(ex) {
+      this.debug(ex);
+    }
 
 		// On any incoming message, parse it, update the discovery
 		this._socket.on('message', (msg, rinfo) => {
@@ -230,7 +234,7 @@ class Network extends EventEmitter {
 
 	get socket() {
 		if(! this._socket) {
-			throw new Error('Network communication is unavailable, device might be destroyed');
+			//throw new Error('Network communication is unavailable, device might be destroyed');
 
       // RECREATING SOCKET IF IT'S KILLED, WE NEED IT AVAILABLE AT ALL TIME
       this.createSocket();

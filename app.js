@@ -97,8 +97,12 @@ class XiaomiMiioApp extends Homey.App {
       .register()
       .registerRunListener((args, state) => {
         if (args.device.miio) {
-          const zones = JSON.parse("[" + args.zones + "]");
-          return args.device.miio.activateZoneClean(zones);
+          try {
+            const zones = JSON.parse("[" + args.zones + "]");
+            return args.device.miio.activateZoneClean(zones);
+          } catch (error) {
+            return Promise.reject(new Error('Invalid JSON coordinates ...'));
+          }
         } else {
           return Promise.reject(new Error('Device unreachable, please try again ...'));
         }
@@ -179,9 +183,10 @@ class XiaomiMiioApp extends Homey.App {
     new Homey.FlowCardAction('humidifierOn')
       .register()
       .registerRunListener((args, state) => {
-        return args.device.miio.setPower(true).then(result => {
-          return args.device.setCapabilityValue('onoff', true);
-        });
+        return args.device.miio.setPower(true)
+          .then(result => {
+            return args.device.setCapabilityValue('onoff', true);
+          });
       })
 
     new Homey.FlowCardAction('humidifierOff')
