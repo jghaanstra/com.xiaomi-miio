@@ -137,6 +137,7 @@ class XiaomiMiioApp extends Homey.App {
         }
       })
 
+    /* DEPRECATED */
     new Homey.FlowCardAction('airpurifierOn')
       .register()
       .registerRunListener((args, state) => {
@@ -149,6 +150,7 @@ class XiaomiMiioApp extends Homey.App {
         }
       })
 
+    /* DEPRECATED */
     new Homey.FlowCardAction('airpurifierOff')
       .register()
       .registerRunListener((args, state) => {
@@ -180,6 +182,7 @@ class XiaomiMiioApp extends Homey.App {
         }
       })
 
+    /* DEPRECATED */
     new Homey.FlowCardAction('humidifierOn')
       .register()
       .registerRunListener((args, state) => {
@@ -189,6 +192,7 @@ class XiaomiMiioApp extends Homey.App {
           });
       })
 
+    /* DEPRECATED */
     new Homey.FlowCardAction('humidifierOff')
       .register()
       .registerRunListener((args, state) => {
@@ -196,6 +200,16 @@ class XiaomiMiioApp extends Homey.App {
           return args.device.miio.setPower(false).then(result => {
             return args.device.setCapabilityValue('onoff', false);
           });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
+      })
+
+    new Homey.FlowCardAction('ledAirpurifierHumidifier')
+      .register()
+      .registerRunListener((args, state) => {
+        if (args.device.miio) {
+          return args.device.miio.changeLEDBrightness(Number(args.brightness));
         } else {
           return Promise.reject(new Error('Device unreachable, please try again ...'));
         }
