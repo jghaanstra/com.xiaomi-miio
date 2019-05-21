@@ -27,6 +27,5 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 Xiaomi has released an update for the vacuum cleaners that enables zone cleaning and goto function. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
 
 ## Changelog
-### v2.11.8 - 2019-05-10
-* NEW: add action card for setting LED display brightness of Air Purifier and Humidifier2
-* IMPROVEMENT: deprecated duplicate on / off action cards for Air Purifier and Humidifier 1 & 2
+### v2.11.9 - 2019-05-21
+* FIX: fix action card for setting LED display brightness of Air Purifier and Humidifier2

@@ -182,6 +182,16 @@ class XiaomiMiioApp extends Homey.App {
         }
       })
 
+    new Homey.FlowCardAction('ledAirpurifierHumidifier')
+      .register()
+      .registerRunListener((args, state) => {
+        if (args.device.miio) {
+          return args.device.miio.changeLEDBrightness(args.brightness);
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
+      })
+
     /* DEPRECATED */
     new Homey.FlowCardAction('humidifierOn')
       .register()
@@ -205,15 +215,6 @@ class XiaomiMiioApp extends Homey.App {
         }
       })
 
-    new Homey.FlowCardAction('ledAirpurifierHumidifier')
-      .register()
-      .registerRunListener((args, state) => {
-        if (args.device.miio) {
-          return args.device.miio.changeLEDBrightness(Number(args.brightness));
-        } else {
-          return Promise.reject(new Error('Device unreachable, please try again ...'));
-        }
-      })
 
     // PHILIPS EYECARE LAMP: CONDITION AND ACTION FLOW CARDS
     new Homey.FlowCardAction('enableEyecare')

@@ -10,7 +10,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.11.8",
+	"version": "2.11.9",
 	"compatibility": ">=2.0.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -1340,21 +1340,21 @@
 						"type": "dropdown",
             "values": [
               {
-                "id": "0",
+                "id": "bright",
                 "label": {
                   "en": "Bright",
                   "nl": "Helder"
                 }
               },
               {
-                "id": "1",
+                "id": "dim",
                 "label": {
                   "en": "Dim",
                   "nl": "Gedimd"
                 }
               },
               {
-                "id": "2",
+                "id": "off",
                 "label": {
                   "en": "Off",
                   "nl": "Uit"
