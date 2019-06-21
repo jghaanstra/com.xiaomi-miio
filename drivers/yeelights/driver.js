@@ -65,7 +65,7 @@ class YeelightDriver extends Homey.Driver {
           } else if (result[i].model.startsWith('bslamp')) {
             var name = Homey.__('yeelight_bedside_lamp')+ ' (' + result[i].address + ')';
           } else if (result[i].model.startsWith('ceiling')) {
-            if(result[i].model !== 'ceiling4' || result[i].model !== 'ceiling10') {
+            if(result[i].model !== 'ceiling4' && result[i].model !== 'ceiling10') {
               result[i].model = 'ceiling';
             }
             if (result[i].model == 'ceiling10') {
