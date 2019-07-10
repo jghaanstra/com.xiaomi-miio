@@ -47,7 +47,7 @@ This method will only work when you install the Mi Home app version v5.4.54. You
 ### Non-Jailbroken iOS users
 * Setup your iOS device with the Mi Home app
 * Create an unencrypted backup of your iOS device on your computer using iTunes. In case you are unable to disable encryption you probably have a profile preventing this that enforces certain security policies (like work related accounts). Delete these profiles or use another iOS device to continu.
-* Install iBackup Viewer from [here](http://www.imactools.com/iphonebackupviewer/).
+* Install iBackup Viewer from [here](http://www.imactools.com/iphonebackupviewer/) (another tool that was suggested can be found [here](https://github.com/richinfante/iphonebackuptools)).
 * Navigate to your BACKUPS and find the name of your iOS device in the list. Open this backup by clicking the triangle in front of it and then click on raw data.
 * Sort the view by name and find the folder com.xiaomi.mihome and highlight it (it's somewhere at the end). After highlighting it click on the cockwheel above the results and select "Save selected files" from here and choose a location to save the files.
 * Navigate to the com.xiaomi.mihome folder which you just saved somewhere and inside this folder navigate to the /Documents/ subfolder. In this folder there is a file named <userid>_mihome.sqlite where your userid is specific for your account.
