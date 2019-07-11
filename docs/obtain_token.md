@@ -62,6 +62,7 @@ This method will only work when you install the Mi Home app version v5.4.54. You
     * __Key (hex):__ 00000000000000000000000000000000
     * __Selectbox Plaintext / Hex:__ Hex
 * Hit the decrypt button. Your token are the first two lines of the right block of code. These two lines should contain a token of 32 characters and should be the correct token for your device.
+* If this tutorial did not work for you, [here](https://github.com/mediter/miio/blob/master/docs/ios-token-without-reset.md) is another that might work.
 
 ## Jailbroken iOS users
 * Setup your iOS device with the Mi Home app
