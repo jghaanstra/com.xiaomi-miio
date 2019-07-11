@@ -4,6 +4,7 @@
   "description": "Xiaomi Mi Home",
   "main": "app.js",
   "dependencies": {
+    "mem": "^5.1.1",
     "miio": "^0.15.6",
     "tinycolor2": "^1.4.1"
   },
