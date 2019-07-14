@@ -56,7 +56,7 @@ class PhilipsEyecareDevice extends Homey.Device {
           const power = await this.miio.power();
           const brightness = await this.miio.brightness()
           const mode = await this.miio.mode();
-          const eyecare = await this.miio.eyeCareMode();
+          const eyecare = await this.miio.eyeCare();
 
           if (this.getCapabilityValue('onoff') != power) {
             this.setCapabilityValue('onoff', power);

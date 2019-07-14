@@ -222,9 +222,10 @@ class XiaomiMiioApp extends Homey.App {
       .registerRunListener((args, state) => {
         if (args.device.miio) {
           const eyecare = args.eyecare == 'on' ? true : false;
-          return args.device.setEyeCare(eyecare).then(result => {
-            return args.device.setStoreValue('eyecare', eyecare);
-          });
+          return args.device.setEyeCare(eyecare)
+            .then(result => {
+              return args.device.setStoreValue('eyecare', eyecare);
+            });
         } else {
           return Promise.reject(new Error('Device unreachable, please try again ...'));
         }
