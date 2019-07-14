@@ -40,7 +40,7 @@ class XiaomiMiioApp extends Homey.App {
         const color = tinycolor(args.color);
         const rgb = color.toRgb();
         const colordecimal = (rgb.r * 65536) + (rgb.g * 256) + rgb.b;
-        if (args.device.getData().model == 'ceiling4') {
+        if (args.device.getData().model == 'ceiling4' || args.device.getData().model == 'ceiling10') {
           return args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"bg_set_scene", "params":["color", '+ colordecimal +', '+ args.brightness +']}');
         } else {
           return args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"set_scene", "params":["color", '+ colordecimal +', '+ args.brightness +']}');

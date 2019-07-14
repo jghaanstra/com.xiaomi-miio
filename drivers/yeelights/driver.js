@@ -19,7 +19,7 @@ const typeCapabilityMap = {
   'ceiling2'  : [ 'onoff', 'dim', 'light_temperature', 'light_mode', 'night_mode' ],
   'ceiling3'  : [ 'onoff', 'dim', 'light_temperature', 'light_mode', 'night_mode' ],
   'ceiling4' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode', 'night_mode' ],
-  'ceiling10' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode' ],
+  'ceiling10' : [ 'onoff', 'dim', 'light_hue', 'light_saturation', 'light_temperature', 'light_mode', 'night_mode' ],
   'desklamp' : [ 'onoff', 'dim', 'light_temperature', 'light_mode' ]
 }
 
