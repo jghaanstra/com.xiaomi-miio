@@ -9,27 +9,34 @@ class PhilipsEyecareDevice extends Homey.Device {
   onInit() {
     this.createDevice();
 
-    this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
-    this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
+    // LISTENERS FOR UPDATING CAPABILITIES
+    this.registerCapabilityListener('onoff', (value, opts) => {
+      if (this.miio) {
+        return this.miio.setPower(value);
+      } else {
+        this.setUnavailable(Homey.__('unreachable'));
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    });
+
+    this.registerCapabilityListener('dim', (value, opts) => {
+      if (this.miio) {
+        var brightness = value * 100;
+        return this.miio.setBrightness(brightness);
+      } else {
+        this.setUnavailable(Homey.__('unreachable'));
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    });
   }
 
   onDeleted() {
     clearInterval(this.pollingInterval);
-    this.miio.destroy();
-  }
-
-  // LISTENERS FOR UPDATING CAPABILITIES
-  onCapabilityOnoff(value, opts, callback) {
-    this.miio.setPower(value)
-      .then(result => { callback(null, value) })
-      .catch(error => { callback(error, false) });
-  }
-
-  onCapabilityDim(value, opts, callback) {
-    var brightness = value * 100;
-    this.miio.setBrightness(brightness)
-      .then(result => { callback(null, value) })
-      .catch(error => { callback(error, false) });
+    if (this.miio ) {
+      this.miio.destroy();
+    }
   }
 
   // HELPER FUNCTIONS
@@ -38,12 +45,19 @@ class PhilipsEyecareDevice extends Homey.Device {
       address: this.getSetting('address'),
       token: this.getSetting('token')
     }).then(miiodevice => {
+      if (!this.getAvailable()) {
+        this.setAvailable();
+      }
       this.miio = miiodevice;
 
       var interval = this.getSetting('polling') || 60;
       this.pollDevice(interval);
-    }).catch(function (error) {
+    }).catch((error) => {
       this.log(error);
+      this.setUnavailable(Homey.__('unreachable'));
+      setTimeout(() => {
+        this.createDevice();
+      }, 10000);
     });
   }
 
@@ -54,7 +68,7 @@ class PhilipsEyecareDevice extends Homey.Device {
       const getData = async () => {
         try {
           const power = await this.miio.power();
-          const brightness = await this.miio.brightness()
+          const brightness = await this.miio.brightness();
           const mode = await this.miio.mode();
           const eyecare = await this.miio.eyeCare();
 
@@ -75,8 +89,12 @@ class PhilipsEyecareDevice extends Homey.Device {
             this.setAvailable();
           }
         } catch (error) {
-          this.setUnavailable(Homey.__('unreachable'));
           this.log(error);
+          clearInterval(this.pollingInterval);
+          this.setUnavailable(Homey.__('unreachable'));
+          setTimeout(() => {
+            this.createDevice();
+          }, 1000 * interval);
         }
       }
       getData();
