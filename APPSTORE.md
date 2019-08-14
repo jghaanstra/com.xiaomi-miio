@@ -30,4 +30,4 @@ Xiaomi has released an update for the vacuum cleaners that enables zone cleaning
 ## Changelog
 ### v2.12.2 - 2019-08-14
 * FIX: possible fixes on ocassional crashes related to network connectivity of Miio device and Yeelights
-* FIX: fix small issue with setting night_mode capability for devices that do not have this capability
+* FIX: better checks for setting capabilities on Yeelights (make sure a Yeelights has that capability)
