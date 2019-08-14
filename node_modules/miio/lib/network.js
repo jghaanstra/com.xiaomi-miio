@@ -134,17 +134,16 @@ class Network extends EventEmitter {
 
 		// Bind the socket and when it is ready mark it for broadcasting
     try {
-      this._socket.bind();
-  		this._socket.on('listening', () => {
+      this._socket.bind(() => {
         if (this._socket) {
-    			this._socket.setBroadcast(true);
+          this._socket.setBroadcast(true);
 
-    			const address = this._socket.address();
-    			this.debug('Network bound to port', address.port);
+          const address = this._socket.address();
+          this.debug('Network bound to port', address.port);
         } else {
           this.createSocket();
         }
-  		});
+      });
     } catch(ex) {
       this.debug(ex);
     }
