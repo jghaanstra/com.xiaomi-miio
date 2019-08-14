@@ -261,7 +261,7 @@ class YeelightDevice extends Homey.Device {
                 var dim = result.params.nl_br / 100;
                 device.setCapabilityValue('dim', dim);
               }
-              if (this.hasCapability('night_mode')) {
+              if (device.hasCapability('night_mode')) {
                 if (result.params.active_mode == 0) {
                   device.setCapabilityValue('night_mode', false);
                 } else {
