@@ -231,29 +231,39 @@ class YeelightDevice extends Homey.Device {
               } else {
                 var color_temp = yeelight.normalize(result.params.ct, 2700, 6500);
               }
-              device.setCapabilityValue('light_temperature', color_temp);
+              if (device.hasCapability('light_temperature')) {
+                device.setCapabilityValue('light_temperature', color_temp);
+              }
               break;
             case 'rgb':
               var color = tinycolor(result.params.rgb.toString(16));
               var hsv = color.toHsv();
               var hue = Math.round(hsv.h) / 359;
               var saturation = Math.round(hsv.s);
-              device.setCapabilityValue('light_hue', hue);
-              device.setCapabilityValue('light_saturation', saturation);
+              if (device.hasCapability('light_hue') && device.hasCapability('light_saturation')) {
+                device.setCapabilityValue('light_hue', hue);
+                device.setCapabilityValue('light_saturation', saturation);
+              }
               break;
             case 'hue':
               var hue = result.params.hue / 359;
-              device.setCapabilityValue('light_hue', hue);
+              if (device.hasCapability('light_hue')) {
+                device.setCapabilityValue('light_hue', hue);
+              }
               break;
             case 'sat':
               var saturation = result.params.sat / 100;
-              device.setCapabilityValue('light_saturation', saturation);
+              if (device.hasCapability('light_saturation')) {
+                device.setCapabilityValue('light_saturation', saturation);
+              }
               break;
             case 'color_mode':
-              if (result.params.color_mode == 2) {
-                device.setCapabilityValue('light_mode', 'temperature');
-              } else {
-                device.setCapabilityValue('light_mode', 'color');
+              if (device.hasCapability('light_mode')) {
+                if (result.params.color_mode == 2) {
+                  device.setCapabilityValue('light_mode', 'temperature');
+                } else {
+                  device.setCapabilityValue('light_mode', 'color');
+                }
               }
               break;
             case 'nl_br':
@@ -304,10 +314,18 @@ class YeelightDevice extends Homey.Device {
               device.setCapabilityValue('onoff', false);
             }
             device.setCapabilityValue('dim', dim);
-            device.setCapabilityValue('light_mode', color_mode);
-            device.setCapabilityValue('light_temperature', color_temp);
-            device.setCapabilityValue('light_hue', hue);
-            device.setCapabilityValue('light_saturation', saturation);
+            if (device.hasCapability('light_mode')) {
+              device.setCapabilityValue('light_mode', color_mode);
+            }
+            if (device.hasCapability('light_temperature')) {
+              device.setCapabilityValue('light_temperature', color_temp);
+            }
+            if (device.hasCapability('light_hue')) {
+              device.setCapabilityValue('light_hue', hue);
+            }
+            if (device.hasCapability('light_saturation')) {
+              device.setCapabilityValue('light_saturation', saturation);
+            }
           }
         } catch (error) {
           this.log('Unable to process message because of error: '+ error);
