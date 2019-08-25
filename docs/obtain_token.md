@@ -119,3 +119,38 @@ echo -ne '\x21\x31\x00\x20\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x
 
 While running this you have to listen with Wireshark or tcpdump for UDP packages sent as anser by the robot.
 Extract the last 16 bytes of the answer and convert them to a (32 characters) hexadecimal string using `xxd -p`.
+
+## Method 5 - telnet with root access 
+> discovered by [#slavikme](https://github.com/slavikme)
+
+In some devices, like "Mi Home Security Camera 360" (and maybe others), you are able to access the filesystem of the device using telnet.
+* Reset the device following the instructions from the device manual, this usually means holding one or two buttons for 10 seconds. This will reset all device settings including the Wi-Fi settings. Or you can just delete the device from Mi Home app, that will reset the device for you.
+* After reset the device will create it's own Wi-Fi network. This network will have a name related to the device and is used for configuring the device but will also allow us to retrieve the token. Connect to this Wi-Fi network with your computer which has a `telnet` command installed.
+* Find out Wi-Fi's gateway address ([This article](https://www.lifewire.com/how-to-find-your-default-gateway-ip-address-2626072) can help). Let's say that it is `192.168.14.1`.
+* Create a telnet connection to this addres:
+  ```bash
+  telnet 192.168.14.1
+  ```
+* It will ask you to enter a login. Just write `root`:
+  ```bash
+  Trying 192.168.14.1...
+  Connected to 192.168.14.1.
+  Escape character is '^]'.
+  mijia-camera login: root
+  # 
+  ```
+* Now you have a root shell access to device's filesystem.
+* Get the hex token using the following command:
+  ```bash
+  /usr/sbin/nvram get miio_token | hd -n16 -e '16/1 "%02x " "\n"' | sed '2!d; s/ //g'
+  ```
+  The output should be something like this:
+  ```
+  3268786f5730305661445a6375467039
+  ```
+* If you are not getting 32 characters hexadecimal string, then just run the command `/usr/sbin/nvram get miio_token` and convert it using `xxd -p` or [this tool](https://www.rapidtables.com/convert/number/ascii-to-hex.html) (don't forget to remove the space delimiter) to hexadecimal representation.  
+  Command output example:
+  ```bash
+  # /usr/sbin/nvram get miio_token
+  2hxoW00VaDZcuFp9
+  ```
