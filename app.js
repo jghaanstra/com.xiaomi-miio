@@ -256,6 +256,71 @@ class XiaomiMiioApp extends Homey.App {
           return Promise.reject(new Error('Device unreachable, please try again ...'));
         }
       })
+
+    // ZHIMI FAN: CONDITION AND ACTION FLOW CARDS
+
+    // DMAKER FAN: CONDITION AND ACTION FLOW CARDS
+    new Homey.FlowCardAction('modeDmakerFan')
+      .register()
+      .registerRunListener((args, state) => {
+        if (args.device.miio) {
+          return args.device.miio.changeMode(args.mode).then(result => {
+            return args.device.setStoreValue('mode', args.mode);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
+      })
+
+    // ZHIMI & DMAKER FAN: CONDITION AND ACTION FLOW CARDS
+    new Homey.FlowCardAction('changeSpeed')
+      .register()
+      .registerRunListener((args, state) => {
+        if (args.device.miio) {
+          return args.device.miio.changeSpeed(args.speed).then(result => {
+            return args.device.setStoreValue('speed', args.speed);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
+      })
+
+    new Homey.FlowCardAction('enableAngle')
+      .register()
+      .registerRunListener((args, state) => {
+        if (args.device.miio) {
+          return args.device.miio.enableAngle(args.angle).then(result => {
+            return args.device.setStoreValue('angle_enable', args.angle);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
+      })
+
+    new Homey.FlowCardAction('setAngle')
+      .register()
+      .registerRunListener((args, state) => {
+        if (args.device.miio) {
+          return args.device.miio.changeAngle(Number(args.angle)).then(result => {
+            return args.device.setStoreValue('angle', Number(args.angle));
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
+      })
+
+    new Homey.FlowCardAction('enableChildLock')
+      .register()
+      .registerRunListener((args, state) => {
+        if (args.device.miio) {
+          return args.device.miio.changeChildLock(args.childlock).then(result => {
+            return args.device.setStoreValue('angle_enable', args.angle);
+          });
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
+      })
+
   }
 }
 

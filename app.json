@@ -10,7 +10,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.12.2",
+	"version": "2.13.0",
 	"compatibility": ">=2.0.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -745,6 +745,130 @@
 					    "label": {
 						    "en": "Gateway Polling",
 						    "nl": "Gateway Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
+		},
+    {
+			"id": "zhimi-fan",
+			"name": {
+				"en": "Mi Fan",
+				"nl": "Mi Ventilator"
+			},
+			"images": {
+				"large": "drivers/zhimi-fan/assets/images/large.jpg",
+				"small": "drivers/zhimi-fan/assets/images/small.jpg"
+			},
+			"class": "fan",
+      "capabilities": [
+        "onoff"
+      ],
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			  {
+          "type": "group",
+          "label": {
+            "en": "ZhiMi Fan Settings",
+						"nl": "ZhiMi Ventilator Instellingen"
+          },
+					"children": [
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "0.0.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "ZhiMi Fan Token",
+						    "nl": "ZhiMi Fan Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 30,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "ZhiMi Fan Polling",
+						    "nl": "ZhiMi Fan Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
+		},
+    {
+			"id": "dmaker-fan",
+			"name": {
+				"en": "Mi Fan",
+				"nl": "Mi Ventilator"
+			},
+			"images": {
+				"large": "drivers/dmaker-fan/assets/images/large.jpg",
+				"small": "drivers/dmaker-fan/assets/images/small.jpg"
+			},
+			"class": "fan",
+      "capabilities": [
+        "onoff"
+      ],
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			  {
+          "type": "group",
+          "label": {
+            "en": "Dmaker Fan Settings",
+						"nl": "Dmaker Ventilator Instellingen"
+          },
+					"children": [
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "0.0.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "Dmaker Fan Token",
+						    "nl": "Dmaker Fan Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 30,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "Dmaker Fan Polling",
+						    "nl": "Dmaker Fan Polling"
 					    }
 				    }
 		      ]
@@ -1780,6 +1904,199 @@
 							"nl": "Selecteer Gateway"
 						},
 						"filter": "driver_id=gateway"
+          }
+				]
+			},
+      {
+				"id": "modeDmakerFan",
+				"title": {
+					"en": "Set Mode",
+					"nl": "Stel modus in"
+				},
+				"args": [
+          {
+						"name": "mode",
+						"type": "dropdown",
+            "values": [
+              {
+                "id": "normal",
+                "label": {
+                  "en": "Normal",
+                  "nl": "Normaal"
+                }
+              },
+              {
+                "id": "nature",
+                "label": {
+                  "en": "Nature",
+                  "nl": "Natuur"
+                }
+              }
+            ]
+          },
+          {
+						"name": "device",
+						"type": "device",
+            "placeholder": {
+							"en": "Select Dmaker Fan",
+							"nl": "Selecteer Dmaker Ventilator"
+						},
+						"filter": "driver_id=dmaker-fan"
+          }
+				]
+			},
+      {
+				"id": "changeSpeed",
+				"title": {
+					"en": "Set Speed",
+					"nl": "Stel snelheid in"
+				},
+				"args": [
+          {
+						"name": "speed",
+						"type": "range",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "label": "%",
+            "labelDecimals": 0
+          },
+          {
+						"name": "device",
+						"type": "device",
+            "placeholder": {
+							"en": "Select Device",
+							"nl": "Selecteer apparaat"
+						},
+						"filter": "driver_id=zhimi-fan|dmaker-fan"
+          }
+				]
+			},
+      {
+				"id": "enableAngle",
+				"title": {
+					"en": "Enable Fan Oscillating",
+					"nl": "Instellen ventilator oscillatie"
+				},
+				"args": [
+          {
+						"name": "angle",
+						"type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "Enable",
+                  "nl": "Inschakelen"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Disable",
+                  "nl": "Uitschakelen"
+                }
+              }
+            ]
+          },
+          {
+						"name": "device",
+						"type": "device",
+            "placeholder": {
+							"en": "Select Device",
+							"nl": "Selecteer apparaat"
+						},
+						"filter": "driver_id=zhimi-fan|dmaker-fan"
+          }
+				]
+			},
+      {
+				"id": "setAngle",
+				"title": {
+					"en": "Change Fan Oscillating Angle",
+					"nl": "Wijzig ventilator oscillatie hoek"
+				},
+				"args": [
+          {
+						"name": "angle",
+						"type": "dropdown",
+            "values": [
+              {
+                "id": "30",
+                "label": {
+                  "en": "30º",
+                  "nl": "30º"
+                }
+              },
+              {
+                "id": "60",
+                "label": {
+                  "en": "60º",
+                  "nl": "60º"
+                }
+              },
+              {
+                "id": "90",
+                "label": {
+                  "en": "90º",
+                  "nl": "90º"
+                }
+              },
+              {
+                "id": "120",
+                "label": {
+                  "en": "120º",
+                  "nl": "120º"
+                }
+              }
+            ]
+          },
+          {
+						"name": "device",
+						"type": "device",
+            "placeholder": {
+							"en": "Select Device",
+							"nl": "Selecteer apparaat"
+						},
+						"filter": "driver_id=zhimi-fan|dmaker-fan"
+          }
+				]
+			},
+      {
+				"id": "enableChildLock",
+				"title": {
+					"en": "Enable Child Lock",
+					"nl": "Instellen kindbeveiliging"
+				},
+				"args": [
+          {
+						"name": "childlock",
+						"type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              }
+            ]
+          },
+          {
+						"name": "device",
+						"type": "device",
+            "placeholder": {
+							"en": "Select Device",
+							"nl": "Selecteer apparaat"
+						},
+						"filter": "driver_id=zhimi-fan|dmaker-fan"
           }
 				]
 			}

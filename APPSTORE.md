@@ -11,6 +11,7 @@ Below is a list of supported devices and devices. Post a comment in the [support
 * Xiaomi Robot Vacuum Cleaner V1 and V2/S50, S6
 * Xiaomi Air Purifiers 2, 2S and Pro
 * Xiamomi Humidifier v1 & v2
+* Xiaomi Mi Fan
 * Xiaomi Single Power Plug and Power Strip WiFi version
 * Xiaomi PM2.5 Air Monitor
 * Xiaomi Gateway Light & Alarm - subdevices are supported directly with the Xiaomi ZigBee app
@@ -28,6 +29,5 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 Xiaomi has released an update for the vacuum cleaners that enables zone cleaning and goto function. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
 
 ## Changelog
-### v2.12.2 - 2019-08-14
-* FIX: possible fixes on ocassional crashes related to network connectivity of Miio device and Yeelights
-* FIX: better checks for setting capabilities on Yeelights (make sure a Yeelights has that capability)
+### v2.13.0 - 2019-09-xx
+* NEW: add basic support for Xiaomi Mi Fan
