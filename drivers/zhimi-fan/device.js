@@ -86,14 +86,14 @@ class ZhiMiFanDevice extends Homey.Device {
           if (!this.getAvailable()) {
             this.setAvailable();
           }
+        } catch (error) {
+          this.log(error);
+          clearInterval(this.pollingInterval);
+          this.setUnavailable(Homey.__('unreachable'));
+          setTimeout(() => {
+            this.createDevice();
+          }, 1000 * interval);
         }
-      })().catch(error => {
-        this.log(error);
-        clearInterval(this.pollingInterval);
-        this.setUnavailable(Homey.__('unreachable'));
-        setTimeout(() => {
-          this.createDevice();
-        }, 1000 * interval);
       });
     }, 1000 * interval);
   }
