@@ -754,8 +754,8 @@
     {
 			"id": "zhimi-fan",
 			"name": {
-				"en": "Mi Fan",
-				"nl": "Mi Ventilator"
+				"en": "ZhiMi Mi Fan",
+				"nl": "ZhiMi Mi Ventilator"
 			},
 			"images": {
 				"large": "drivers/zhimi-fan/assets/images/large.jpg",
@@ -816,8 +816,8 @@
     {
 			"id": "dmaker-fan",
 			"name": {
-				"en": "Mi Fan",
-				"nl": "Mi Ventilator"
+				"en": "Dmaker Mi Fan",
+				"nl": "Dmaker Mi Ventilator"
 			},
 			"images": {
 				"large": "drivers/dmaker-fan/assets/images/large.jpg",
