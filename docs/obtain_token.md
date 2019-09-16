@@ -114,11 +114,12 @@ During setup of Mi Home devices the device tokens an be retrieved by sending a p
 Like above you can also use this shell command to send the magic package:
 
 ```sh
-echo -ne '\x21\x31\x00\x20\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff' | nc -u 192.168.8.1 54321
+echo -ne '\x21\x31\x00\x20\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff' | nc -u 192.168.8.1 54321 | grep -o ".\{16\}$"|xxd -p
 ```
+This should return your token.
 
-While running this you have to listen with Wireshark or tcpdump for UDP packages sent as anser by the robot.
-Extract the last 16 bytes of the answer and convert them to a (32 characters) hexadecimal string using `xxd -p`.
+If for any reason you don't get a valid token, you have to listen with wireshark or tcpdump for UDP packages while running that command and wait for the robot to answer.
+Now extract the last 16 bytes of the answer and convert them to a (32 characters) hexadecimal string using `xxd -p`.
 
 ## Method 5 - telnet with root access 
 > discovered by [#slavikme](https://github.com/slavikme)
