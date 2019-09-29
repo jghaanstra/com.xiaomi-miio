@@ -11,7 +11,7 @@ Below is a list of supported devices and devices. Post a comment in the [support
 * Xiaomi Robot Vacuum Cleaner V1 and V2/S50, S6
 * Xiaomi Air Purifiers 2, 2S and Pro
 * Xiamomi Humidifier v1 & v2
-* Xiaomi Mi Fan
+* Xiaomi Mi Fan (ZhiMi and Dmaker models)
 * Xiaomi Single Power Plug and Power Strip WiFi version
 * Xiaomi PM2.5 Air Monitor
 * Xiaomi Gateway Light & Alarm - subdevices are supported directly with the Xiaomi ZigBee app
@@ -30,4 +30,4 @@ Xiaomi has released an update for the vacuum cleaners that enables zone cleaning
 
 ## Changelog
 ### v2.13.0 - 2019-09-xx
-* NEW: add basic support for Xiaomi Mi Fan
+* NEW: add basic support for Xiaomi Mi Fan (ZhiMi and Dmaker models)

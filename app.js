@@ -182,6 +182,7 @@ class XiaomiMiioApp extends Homey.App {
         }
       })
 
+    /* also used for ZhiMi fan */
     new Homey.FlowCardAction('ledAirpurifierHumidifier')
       .register()
       .registerRunListener((args, state) => {
@@ -304,16 +305,6 @@ class XiaomiMiioApp extends Homey.App {
           return args.device.miio.changeAngle(Number(args.angle)).then(result => {
             return args.device.setStoreValue('angle', Number(args.angle));
           });
-        } else {
-          return Promise.reject(new Error('Device unreachable, please try again ...'));
-        }
-      })
-
-    new Homey.FlowCardAction('ledZhimiFan')
-      .register()
-      .registerRunListener((args, state) => {
-        if (args.device.miio) {
-          return args.device.miio.changeLEDBrightness(args.brightness);
         } else {
           return Promise.reject(new Error('Device unreachable, please try again ...'));
         }
