@@ -1556,7 +1556,7 @@
 							"en": "Select Mi Air Purifier",
 							"nl": "Selecteer Mi Luchtreiniger"
 						},
-						"filter": "driver_id=mi-airpurifier|mi-humidifier2"
+						"filter": "driver_id=mi-airpurifier|mi-humidifier2|zhimi-fan"
           }
 				]
 			},

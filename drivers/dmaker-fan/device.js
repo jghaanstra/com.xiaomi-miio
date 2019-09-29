@@ -61,8 +61,10 @@ class DmakerFanDevice extends Homey.Device {
           const mode = await this.miio.mode();
           const fanspeed = await this.miio.getState('fanSpeed');
           const angle_enable = await this.miio.getState('roll');
+          const angle_enable = angle_enable == true ? 'on' : 'off';
           const angle = await this.miio.getState('roll_angle');
           const child_lock = await this.miio.getState('child_lock');
+          const child_lock = child_lock == true ? 'on' : 'off';
 
           if (this.getCapabilityValue('onoff') != power) {
             this.setCapabilityValue('onoff', power);
@@ -77,7 +79,6 @@ class DmakerFanDevice extends Homey.Device {
           }
 
           if (this.getStoreValue('angle_enable') != angle_enable) {
-            angle_enable = angle_enable == true ? 'on' : 'off';
             this.setStoreValue('angle_enable', angle_enable);
           }
 
@@ -86,7 +87,6 @@ class DmakerFanDevice extends Homey.Device {
           }
 
           if (this.getStoreValue('child_lock') != child_lock) {
-            lock = lock == true ? 'on' : 'off';
             this.setStoreValue('child_lock', child_lock);
           }
 

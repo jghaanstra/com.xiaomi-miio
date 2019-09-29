@@ -309,12 +309,22 @@ class XiaomiMiioApp extends Homey.App {
         }
       })
 
+    new Homey.FlowCardAction('ledZhimiFan')
+      .register()
+      .registerRunListener((args, state) => {
+        if (args.device.miio) {
+          return args.device.miio.changeLEDBrightness(args.brightness);
+        } else {
+          return Promise.reject(new Error('Device unreachable, please try again ...'));
+        }
+      })
+
     new Homey.FlowCardAction('enableChildLock')
       .register()
       .registerRunListener((args, state) => {
         if (args.device.miio) {
           return args.device.miio.changeChildLock(args.childlock).then(result => {
-            return args.device.setStoreValue('angle_enable', args.angle);
+            return args.device.setStoreValue('child_lock', args.angle);
           });
         } else {
           return Promise.reject(new Error('Device unreachable, please try again ...'));
