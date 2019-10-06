@@ -25,7 +25,7 @@ This method will only work when you install the Mi Home app version v5.4.54. You
 ```
 * Copy the token from this string and you are done.
 
-##### Extract token from a backup
+##### Extract token from a backup on Android phones that allow non-encrypted backups
 * Setup your Android device with the Mi Home app
 * Enable developer mode and USB debugging on your phone and connect it to your computer
 * Get the ADB tool
@@ -42,6 +42,22 @@ This method will only work when you install the Mi Home app version v5.4.54. You
 * Unzip the ".tar" file
 * Open /com.xiaomi.smarthome/db/miio2.db with a SQLite browser (for instance http://sqlitebrowser.org/)
 * Execute the query "select token from devicerecord where localIP is '192.168.0.1'" where you replace the IP address with the IP address of the Mi Home device you want to get the token from. It will show you the 32 character device token for your Mi Home device.
+
+##### Extract token from a backup on Android phones that do not allow non-encrypted backups
+* Use the steps from above but install Java and use [backup extractor](https://github.com/nelenkov/android-backup-extractor) to extract the encrypted backup.
+```
+$ java -jar abe-all.jar unpack mi-home-backup.ab unpack mi-home-backup.tar
+This backup is encrypted, please provide the password
+Password:
+
+# extract without header trick
+$ tar -zxf mi-home-backup.tar
+
+# db file is accessible
+$ ls apps/com.xiaomi.smarthome/db/
+geofencing.db				google_app_measurement.db		miio.db					miio2.db				mistat.db
+geofencing.db-journal			google_app_measurement.db-journal	miio.db-journal				miio2.db-journal			mistat.db-journal
+```
 
 ### iOS users
 ### Non-Jailbroken iOS users
@@ -120,7 +136,7 @@ echo -ne '\x21\x31\x00\x20\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x
 While running this you have to listen with Wireshark or tcpdump for UDP packages sent as anser by the robot.
 Extract the last 16 bytes of the answer and convert them to a (32 characters) hexadecimal string using `xxd -p`.
 
-## Method 5 - telnet with root access 
+## Method 5 - telnet with root access
 > discovered by [#slavikme](https://github.com/slavikme)
 
 In some devices, like "Mi Home Security Camera 360" (and maybe others), you are able to access the filesystem of the device using telnet.
@@ -137,7 +153,7 @@ In some devices, like "Mi Home Security Camera 360" (and maybe others), you are 
   Connected to 192.168.14.1.
   Escape character is '^]'.
   mijia-camera login: root
-  # 
+  #
   ```
 * Now you have a root shell access to device's filesystem.
 * Get the hex token using the following command:
