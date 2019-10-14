@@ -10,8 +10,8 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.13.0",
-	"compatibility": ">=2.0.0",
+	"version": "2.13.1",
+	"compatibility": ">=3.0.0",
 	"author": {
 		"name": "Jelger Haanstra",
 		"email": "homey@solidewebservices.com"
@@ -252,6 +252,9 @@
         "vacuumcleaner_state",
         "measure_battery"
       ],
+      "energy": {
+        "batteries": [ "INTERNAL" ]
+      },
 			"pair": [
 				{
 					"id": "start"
@@ -510,6 +513,9 @@
         "measure_battery",
         "measure_pm25"
       ],
+      "energy": {
+        "batteries": [ "INTERNAL" ]
+      },
 			"pair": [
 				{
 					"id": "start"
