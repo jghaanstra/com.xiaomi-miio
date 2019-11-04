@@ -72,10 +72,13 @@ class PhilipsEyecareDevice extends Homey.Device {
           const mode = await this.miio.mode();
           const eyecare = await this.miio.eyeCare();
 
+          console.log('Brightness: ', brightness);
+
           if (this.getCapabilityValue('onoff') != power) {
             this.setCapabilityValue('onoff', power);
           }
           var dim = brightness / 100;
+          console.log('Dim: ', dim);
           if (this.getCapabilityValue('dim') != dim) {
             this.setCapabilityValue('dim', dim);
           }
