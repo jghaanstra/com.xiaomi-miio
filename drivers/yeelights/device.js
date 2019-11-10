@@ -267,7 +267,7 @@ class YeelightDevice extends Homey.Device {
               }
               break;
             case 'nl_br':
-              if (result.params.nl_br !== 0 && result.params.active_mode == 1) {
+              if (result.params.nl_br !== 0) {
                 var dim = result.params.nl_br / 100;
                 device.setCapabilityValue('dim', dim);
               }

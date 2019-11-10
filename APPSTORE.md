@@ -29,5 +29,5 @@ For Homey to be able to communicate with devices over the miIO protocol a unique
 Xiaomi has released an update for the vacuum cleaners that enables zone cleaning and goto function. Using the action cards that utilize these functions are a bit challenging. If you want to use these cards please read the instructions [here](https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/mirobot_zonecleanup.md).
 
 ## Changelog
-### v2.13.1 - 2019-10-14
-* Small changes for Homey Energy Manager (firmware > 3.x)
+### v2.13.2 - 2019-11-10
+* Small fix for Yeelight not updating dim capability when in night mode
