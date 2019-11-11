@@ -30,4 +30,5 @@ Xiaomi has released an update for the vacuum cleaners that enables zone cleaning
 
 ## Changelog
 ### v2.13.2 - 2019-11-10
-* Small fix for Yeelight not updating dim capability when in night mode
+* Small fix for Yeelights not updating dim capability when in night mode
+* Small fix for Yeelights not updating onoff capability when turning them on by only changing the color

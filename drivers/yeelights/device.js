@@ -89,6 +89,10 @@ class YeelightDevice extends Homey.Device {
     });
 
     this.registerMultipleCapabilityListener(['light_hue', 'light_saturation' ], ( valueObj, optsObj ) => {
+      if (!this.getCapabilityValue('onoff')) {
+        this.setCapabilityValue('onoff', true);
+      }
+
       if (typeof valueObj.light_hue !== 'undefined') {
         var hue_value = valueObj.light_hue;
       } else {
@@ -112,6 +116,10 @@ class YeelightDevice extends Homey.Device {
     }, 500);
 
     this.registerCapabilityListener('light_temperature', (value, opts) => {
+      if (!this.getCapabilityValue('onoff')) {
+        this.setCapabilityValue('onoff', true);
+      }
+      
       if (this.getData().model == 'ceiling4') {
         var color_temp = yeelight.denormalize(value, 2700, 6000);
       } else if (this.getData().model == 'color') {
