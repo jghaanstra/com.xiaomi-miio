@@ -10,7 +10,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.13.2",
+	"version": "2.13.3",
 	"compatibility": ">=3.0.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -26,16 +26,17 @@
   "bugs": {
     "url": "https://github.com/jghaanstra/com.xiaomi-miio/issues"
   },
-  "athomForumDiscussionId": 3295,
   "homeyCommunityTopicId": 118,
+  "source": "https://github.com/jghaanstra/com.xiaomi-miio",
+  "homepage": "https://community.athom.com/t/118",
   "images": {
     "large": "./assets/images/large.jpg",
     "small": "./assets/images/small.jpg"
   },
 	"category": "appliances",
 	"description": {
-		"en": "Control Xiaomi Mi Home devices",
-		"nl": "Bestuur Xiaomi Mi Home apparaten"
+		"en": "Control Yeelight and Xiaomi Mi Home devices using Homey",
+		"nl": "Bedien Yeelight en Xiaomi Mi Home apparaten via Homey"
 	},
 	"dependencies": {
 		"net": "*"

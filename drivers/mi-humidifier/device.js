@@ -7,6 +7,8 @@ class MiHumidifierDevice extends Homey.Device {
 
   onInit() {
     this.createDevice();
+    setTimeout(() => { this.refreshDevice(); }, 600000);
+
     this.setUnavailable(Homey.__('unreachable'));
 
     // LISTENERS FOR UPDATING CAPABILITIES
@@ -19,11 +21,11 @@ class MiHumidifierDevice extends Homey.Device {
         return Promise.reject('Device unreachable, please try again ...');
       }
     });
-
   }
 
   onDeleted() {
     clearInterval(this.pollingInterval);
+    clearInterval(this.refreshInterval);
     if (this.miio) {
       this.miio.destroy();
     }
@@ -88,6 +90,18 @@ class MiHumidifierDevice extends Homey.Device {
       }
       getData();
     }, 1000 * interval);
+  }
+
+  refreshDevice(interval) {
+    clearInterval(this.refreshInterval);
+
+    this.refreshInterval = setInterval(() => {
+      this.miio.destroy();
+
+      setTimeout(() => {
+        this.createDevice();
+      }, 2000);
+    }, 300000);
   }
 }
 

@@ -1,0 +1,5 @@
+{
+  "2.13.3": {
+    "en": "Added a mechanism to refresh the device connection to prevent devices from not responding on the first try. Also moved installation instructions from app store to community support topic."
+  }
+}
