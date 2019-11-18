@@ -111,7 +111,9 @@ class DmakerFanDevice extends Homey.Device {
     clearInterval(this.refreshInterval);
 
     this.refreshInterval = setInterval(() => {
-      this.miio.destroy();
+      if (this.miio) {
+        this.miio.destroy();
+      }
 
       setTimeout(() => {
         this.createDevice();
