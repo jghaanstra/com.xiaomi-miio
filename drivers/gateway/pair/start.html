@@ -22,7 +22,7 @@ $(function() {
           $('.mi-device-error').show();
           $('.mi-device-error-msg').html(error.message || error.toString());
         } else if (result) {
-          var mideviceinfo = "<h2 data-i18n='pair.gateway'>Xiaomi Gateway</h2><div class='info-row'><span class='info-label' data-i18n='pair.lux'>Lux:</span><span class='info-value'> "+ result.lux +"</span></div>";
+          var mideviceinfo = "<h2 data-i18n='pair.gateway'>Xiaomi Gateway</h2><div class='info-row'><span class='info-label' data-i18n='pair.brightness'>Brightness:</span><span class='info-value'> "+ result.dim +"</span></div>";
           $('.mi-device-info').show();
           $('.mi-device-info').html(mideviceinfo);
           $('.mi-device-test').show();
