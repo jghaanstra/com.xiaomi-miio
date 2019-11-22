@@ -10,7 +10,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.13.5",
+	"version": "2.13.7",
 	"compatibility": ">=3.0.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -72,6 +72,7 @@
 	"drivers": [
     {
 			"id": "yeelights",
+      "deprecated": true,
 			"name": {
 				"en": "Yeelights",
 				"nl": "Yeelights"
@@ -976,6 +977,7 @@
     "conditions": [
       {
 				"id": "yeelightNightmode",
+        "deprecated": true,
 				"title": {
           "en": "Night Mode !{{is|is not}} on",
           "nl": "Nacht modus !{{is|is niet}} aan"
@@ -1032,6 +1034,7 @@
 		"actions": [
       {
 				"id": "yeelightDefault",
+        "deprecated": true,
 				"title": {
 					"en": "Set default on state",
 					"nl": "Stel standaard opstart status in"
@@ -1054,6 +1057,7 @@
 			},
       {
 				"id": "yeelightFlowBrightness",
+        "deprecated": true,
 				"title": {
 					"en": "Change brightness over time",
 					"nl": "Wijzig helderheid over tijd"
@@ -1139,6 +1143,7 @@
 			},
       {
 				"id": "yeelightTemperatureScene",
+        "deprecated": true,
 				"title": {
 					"en": "Temperature and brightness",
 					"nl": "Temperatuur en helderheid"
@@ -1183,6 +1188,7 @@
 			},
       {
 				"id": "yeelightColorScene",
+        "deprecated": true,
 				"title": {
 					"en": "Color and brightness",
 					"nl": "Kleur en helderheid"
@@ -1220,6 +1226,7 @@
 			},
       {
 				"id": "yeelightCustomCommand",
+        "deprecated": true,
 				"title": {
 					"en": "Send command (advanced)",
 					"nl": "Verstuur commando (geadvanceerd)"
@@ -1250,6 +1257,7 @@
 			},
 			{
 				"id": "yeelightNightMode",
+        "deprecated": true,
 				"title": {
 					"en": "Toggle Night Mode",
 					"nl": "Schakel nacht modus"

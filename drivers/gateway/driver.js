@@ -11,21 +11,21 @@ class GatewayDriver extends Homey.Driver {
           address: data.address,
           token: data.token
         }).then(device => {
-          const getData = async () => {
+          (async () => {
             try {
-              const brightness = await device.light.brightness();
+              const light = await device.child('light');
+              const brightness = await light.brightness();
               const dim = brightness / 100;
 
               let result = {
                 dim: dim
               }
 
-              callback(null, result);
+              callback(null, 'OK');
             } catch (error) {
               callback(error, null);
             }
-          }
-          getData();
+          });
         }).catch(function (error) {
           callback(error, null);
         });

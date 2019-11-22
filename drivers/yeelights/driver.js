@@ -2,6 +2,7 @@
 
 const Homey = require('homey');
 const yeelight = require('/lib/yeelight.js');
+const { ManagerSettings } = require('homey');
 
 const typeCapabilityMap = {
 	'mono'     : [ 'onoff', 'dim' ],
@@ -46,7 +47,9 @@ const typeIconMap = {
 class YeelightDriver extends Homey.Driver {
 
   onInit() {
-    yeelight.listenUpdates();
+    if (!ManagerSettings.get('compatibility')) {
+      yeelight.listenUpdates();
+    }
   }
 
   onPairListDevices (data, callback) {

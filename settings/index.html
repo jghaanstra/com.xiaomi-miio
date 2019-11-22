@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+		<style>
+      .yeelight-status {
+    		display: none;
+    	}
+      .form-group {
+        padding-bottom: 10px;
+      }
+      .buttons, .messages {
+        padding-top: 10px;
+      }
+      .button {
+        width: 80px;
+        background-color: #00c139 !important;
+        color: #fff;
+        margin-bottom: 4px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 data-i18n="settings.title">Yeelights</h1>
+    <p data-i18n="settings.intro1">When the Xiaomi Mi Home App was first developed communication with Yeelights followed the same protocol as the Xiaomi Mi/MiJia WiFi devices. This is a reversed engineered protocol and is not very user or even developer friendly. At some point a better method to control the Yeelights became available and I implemented support for that. Now the Yeelights and the Xiaomi devices have nothing in common anymore within this app and I have decided to split off the Yeelights into it's own Yeelight app which is available in the app store. This means the Yeelight functionality within the Xiaomi Mi Home app will not be developed and supported anymore.</p>
+    <p data-i18n="settings.intro2">I'm aware of the hassle it will be but you are asked to un-paired your Yeelights from this app and re-pair them again in the new Yeelight app. And there is another downside, both apps can not function correctly next to each other. Homey listens to updates from the Yeelights but only one app at the time is able to listen to these status updates which keep your Yeelights in Homey in sync with the actual status of the light. So it's best that you move your Yeelights to the new app within a short time period.</p>
+    <p data-i18n="settings.intro3">Once you have moved your devices you should check the checkbox below. This will prevent the Xiaomi Mi Home app from listening to the Yeelights allowing the new Yeelight app to pick up the status updates of your lights. Please restart the new Yeelights app after you have enabled this checkbox.</p>
+
+    <fieldset class="yeelight-compatibility">
+      <div class="form-group">
+        <label for="compatibility" data-i18n="settings.compatibility-label">Turn Off Yeelight Updates</label>
+        <input type="checkbox" class="form-control" id="compatibility">
+      </div>
+      <div class="messages">
+      <p class="ok yeelight-status" style="color: #008C23;"><i class="fa fa-check"></i> <span class="yeelight-ok-msg" data-i18n="settings.success">Settings have been tested succesfully. Please restart the new Yeelights app.</span></p>
+      <p class="error yeelight-status" style="color: #ff6300;"><i class="fa fa-times"></i> <span class="yeelight-error-msg"></span></p>
+      </div>
+      <div class="form-group buttons">
+        <button id="save" class="button" data-i18n="settings.save">Save</button>
+      </div>
+    </fieldset>
+
+
+    <script type="text/javascript">
+      function onHomeyReady(Homey) {
+        Homey.get('compatibility', function(error, compatibility) {
+  		     if(error) return console.error('Could not get compatibility setting', error);
+  		     document.getElementById('compatibility').checked = compatibility;
+  		  });
+
+        document.getElementById("save").addEventListener("click", function(elem) {
+          saveCompatibility(Homey);
+          return false;
+        });
+
+        Homey.ready();
+      }
+
+      function saveCompatibility(Homey) {
+        document.getElementsByClassName('error')[0].style.display = 'none';
+
+        Homey.api('PUT', '/yeelight/', {'toggle': document.getElementById('compatibility').checked }, function (error, result) {
+          if (error) {
+            document.getElementsByClassName('error')[0].style.display = 'block';
+            document.getElementsByClassName('yeelight-error-msg')[0].innerHTML = error;
+          } else if (result) {
+            document.getElementsByClassName('ok')[0].style.display = 'block';
+            Homey.set('compatibility', document.getElementById('compatibility').checked);
+          }
+        });
+
+      };
+
+    </script>
+
+  </body>
+</html>

@@ -4,5 +4,14 @@
   },
   "2.13.4": {
     "en": "Fixed a mistake in the latest update that caused the app to crash."
+  },
+  "2.13.5": {
+    "en": "Fixed an issue with the pairing of the gateway v3."
+  },
+  "2.13.6": {
+    "en": "Fixed an issue with the pairing of the gateway v3."
+  },
+  "2.13.7": {
+    "en": "Fixed an issue with the pairing of the gateway v3."
   }
 }
