@@ -7,8 +7,8 @@
 		"nl": "Xiaomi Mi Home"
   },
   "tags": {
-		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "yeelight", "yeelights", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
-		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "yeelight", "yeelights", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
+		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
+		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
 	"version": "2.13.8",
 	"compatibility": ">=3.0.0",
@@ -35,8 +35,8 @@
   },
 	"category": "appliances",
 	"description": {
-		"en": "Control Yeelight and Xiaomi Mi Home devices using Homey",
-		"nl": "Bedien Yeelight en Xiaomi Mi Home apparaten via Homey"
+		"en": "Control Xiaomi Mi Home devices using Homey",
+		"nl": "Bedien Xiaomi Mi Home apparaten via Homey"
 	},
 	"dependencies": {
 		"net": "*"
