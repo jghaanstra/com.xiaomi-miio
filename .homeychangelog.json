@@ -13,5 +13,8 @@
   },
   "2.13.7": {
     "en": "Fixed an issue with the pairing of the gateway v3."
+  },
+  "2.13.8": {
+    "en": "[IMPORTANT] Deprecated support for Yeelights, they will get their own standalone app. Please read the announcement in the support topic on migrating your Yeelights."
   }
 }
