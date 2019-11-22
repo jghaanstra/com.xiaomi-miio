@@ -21,7 +21,7 @@ class GatewayDriver extends Homey.Driver {
                 dim: dim
               }
 
-              callback(null, 'OK');
+              callback(null, result);
             } catch (error) {
               callback(error, null);
             }

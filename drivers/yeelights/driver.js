@@ -47,9 +47,10 @@ const typeIconMap = {
 class YeelightDriver extends Homey.Driver {
 
   onInit() {
-    if (!ManagerSettings.get('compatibility')) {
-      yeelight.listenUpdates();
-    }
+
+    // disabled listener for updates when devices come online and on regular interval to pick up IP address changes. Or for sending and receiving discovery messages
+    // this ports needs to be available for the new Yeelights app com.yeelight
+    // yeelight.listenUpdates();
   }
 
   onPairListDevices (data, callback) {

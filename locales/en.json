@@ -37,15 +37,6 @@
     "battery" : "Batterylevel:",
     "fanspeed" : "Fanspeed:"
 	},
-  "settings": {
-    "title": "Yeelights",
-    "intro1": "When the Xiaomi Mi Home App was first developed communication with Yeelights followed the same protocol as the Xiaomi Mi/MiJia WiFi devices. This is a reversed engineered protocol and is not very user or even developer friendly. At some point a better method to control the Yeelights became available and I implemented support for that. Now the Yeelights and the Xiaomi devices have nothing in common anymore within this app and I have decided to split off the Yeelights into it's own Yeelight app which is available in the app store. This means the Yeelight functionality within the Xiaomi Mi Home app will not be developed and supported anymore.",
-    "intro2": "I'm aware of the hassle it will be but you are asked to un-paired your Yeelights from this app and re-pair them again in the new Yeelight app. And there is another downside, both apps can not function correctly next to each other. Homey listens to updates from the Yeelights but only one app at the time is able to listen to these status updates which keep your Yeelights in Homey in sync with the actual status of the light. So it's best that you move your Yeelights to the new app within a short time period.",
-    "intro3": "Once you have moved your devices you should check the checkbox below. This will prevent the Xiaomi Mi Home app from listening to the Yeelights allowing the new Yeelight app to pick up the status updates of your lights. Please restart the new Yeelights app after you have enabled this checkbox.",
-    "compatibility-label": "Turn Off Yeelight Updates",
-    "success": "Settings have been tested succesfully. Please restart the new Yeelights app.",
-    "save": "Save"
-  },
   "yeelight_bulb_color": "Yeelight Bulb Color",
   "yeelight_bulb_white": "Yeelight Bulb White",
   "yeelight_led_stripe": "Yeelight LED Strip",
