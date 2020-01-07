@@ -10,7 +10,7 @@
 		"en": [ "Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway" ],
 		"nl": [ "Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway" ]
 	},
-	"version": "2.13.8",
+	"version": "2.13.9",
 	"compatibility": ">=3.0.0",
 	"author": {
 		"name": "Jelger Haanstra",
@@ -698,6 +698,7 @@
 				"en": "Gateway",
 				"nl": "Gateway"
 			},
+      "deprecated": true,
 			"images": {
 				"large": "drivers/gateway/assets/images/large.jpg",
 				"small": "drivers/gateway/assets/images/small.jpg"
@@ -1886,6 +1887,7 @@
 			},
       {
 				"id": "armGateway",
+        "deprecated": true,
 				"title": {
 					"en": "Set surveillance mode",
 					"nl": "Stel toezicht modus in"

@@ -107,7 +107,7 @@ class MiAirPurifierDevice extends Homey.Device {
       setTimeout(() => {
         this.createDevice();
       }, 2000);
-    }, 300000);
+    }, 3600000);
   }
 }
 

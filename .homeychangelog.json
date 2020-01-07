@@ -16,5 +16,8 @@
   },
   "2.13.8": {
     "en": "[IMPORTANT] Deprecated support for Yeelights, they will get their own standalone app. Please read the announcement in the support topic on migrating your Yeelights."
+  },
+  "2.13.9": {
+    "en": "Deprecated the driver for the Xiaomi Gateway. Xiaomi changed something resulting in the current implementation not working anymore."
   }
 }
