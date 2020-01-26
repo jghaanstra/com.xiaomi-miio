@@ -9,6 +9,7 @@
     "philipseyecare": "Philips Eyecare Lamp",
     "gateway": "Xiaomi Gateway",
     "airmonitor": "PM2.5 Air Monitor",
+    "multifunctionairmonitor": "Mi Multifunction Air Monitor",
     "fan": "Mi Fan",
     "powerplug": "Mi Power Plug",
     "powerstrip": "Mi Power Strip",
@@ -35,7 +36,10 @@
     "unknownerror": "Unknown error, are you sure you have entered the correct IP address and token and that Homey is on the same network as the Mi Home device? Please check your settings and try again.",
     "state" : "State:",
     "battery" : "Batterylevel:",
-    "fanspeed" : "Fanspeed:"
+    "fanspeed" : "Fanspeed:",
+    "pm25": "PM2.5:",
+    "tvoc": "TVOC:",
+    "co2": "CO2:"
 	},
   "yeelight_bulb_color": "Yeelight Bulb Color",
   "yeelight_bulb_white": "Yeelight Bulb White",

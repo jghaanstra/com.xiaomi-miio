@@ -67,6 +67,26 @@
       "min": 0,
       "max": 100,
       "step": 1
+    },
+    "measure_tvoc": {
+      "type": "number",
+      "title": {
+        "en": "TVOC",
+        "nl": "TVOC",
+        "de": "TVOC"
+      },
+      "icon": "/drivers/multifunction-air-monitor/assets/tvoc.svg",
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "µg/m³",
+        "nl": "µg/m³",
+        "de": "µg/m³"
+      },
+      "min": 0,
+      "max": 10,
+      "decimals": 3,
+      "insights": true
     }
 	},
 	"drivers": [
@@ -560,6 +580,75 @@
 					    "label": {
 						    "en": "PM2.5 Air Monitor Polling",
 						    "nl": "PM2.5 Air Monitor Polling"
+					    }
+				    }
+		      ]
+		    }
+		  ]
+		},
+    {
+			"id": "multifunction-air-monitor",
+			"name": {
+				"en": "Mi Multifunction Air Monitor",
+				"nl": "Mi Multifunction Air Monitor"
+			},
+			"images": {
+				"large": "drivers/multifunction-air-monitor/assets/images/large.jpg",
+				"small": "drivers/multifunction-air-monitor/assets/images/small.jpg"
+			},
+			"class": "sensor",
+			"capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_pm25",
+        "measure_tvoc",
+        "measure_co2"
+      ],
+      "energy": {
+        "batteries": [ "INTERNAL" ]
+      },
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+			  {
+          "type": "group",
+          "label": {
+            "en": "Mi Multifunction Air Monitor Settings",
+            "nl": "Mi Multifunction Air Monitor Settings"
+          },
+					"children": [
+				    {
+				      "id": "address",
+				      "type": "text",
+				      "value": "192.168.0.0",
+				      "label": {
+				        "en": "IP Address",
+				        "nl": "IP Adres"
+				      }
+				    },
+				    {
+					    "id": "token",
+					    "type": "text",
+					    "value": "",
+					    "label": {
+						    "en": "Token",
+						    "nl": "Token"
+					    }
+				    },
+            {
+					    "id": "polling",
+					    "type": "number",
+					    "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+					    "label": {
+						    "en": "Polling interval",
+						    "nl": "Polling interval"
 					    }
 				    }
 		      ]

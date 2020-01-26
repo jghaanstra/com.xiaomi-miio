@@ -1,0 +1,147 @@
+<script type="text/javascript">
+
+Homey.setTitle( __('pair.title') );
+
+$(function() {
+  $('#test-connection').click(function() {
+    $('.mi-device-test').hide();
+    $('.mi-device-error').hide();
+    $('.mi-device-ok').hide();
+
+		var inputaddress = $('#address').val();
+		var inputtoken = $('#token').val();
+
+    if (inputaddress != '' && inputtoken != '') {
+      var device_data = {
+        address: inputaddress,
+        token: inputtoken
+      };
+
+      Homey.emit('testConnection', device_data, function(error, result) {
+        if(error) {
+          $('.mi-device-error').show();
+          $('.mi-device-error-msg').html(error.message || error.toString());
+        } else if (result) {
+          var mideviceinfo = "<h2 data-i18n='pair.multifunctionairmonitor'>Mi Multifunction Air Monitor</h2><div class='info-row'><span class='info-label' data-i18n='pair.temperature'>Tempearture:</span><span class='info-value'> "+ result.temperature +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.humidity'>Humidity:</span><span class='info-value'> "+ result.humidity +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.pm25'>PM2.5:</span><span class='info-value'> "+ result.pm25 +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.tvoc'>TVOC:</span><span class='info-value'> "+ result.tvoc +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.co2'>CO2:</span><span class='info-value'> "+ result.co2e +"</span></div>";
+          $('.mi-device-info').show();
+          $('.mi-device-info').html(mideviceinfo);
+          $('.mi-device-test').show();
+          $('#connect').prop('disabled', false);
+        } else {
+          $('.mi-device-error').show();
+          $('.mi-device-error-msg').html( __('pair.unknownerror') );
+        }
+      });
+
+    } else {
+      $('.mi-device-error').show();
+      $('.mi-device-error-msg').html( __('pair.nosettings') );
+    }
+
+	});
+
+	$('#connect').click(function(){
+		var inputaddress = $('#address').val();
+		var inputtoken = $('#token').val();
+    var inputpolling = Number($('#polling').val()) || 60;
+
+    if( inputaddress != '' && inputtoken != '' && inputpolling != '') {
+      var device_data = {
+        id: inputtoken
+      };
+      var settings = {
+        address: inputaddress,
+        token: inputtoken,
+        polling: inputpolling
+      };
+
+      Homey.addDevice({
+        name  	 : 'PM2.5 Air Monitor',
+        data 	 : device_data,
+        settings : settings
+      }, function(error, result) {
+        if (error) {
+          $('.mi-device-test').hide();
+          $('.mi-device-error').show();
+          $('.mi-device-error-msg').html(error.message || error.toString());
+        }
+        $('.mi-device-test').hide();
+        $('.mi-device-ok').show();
+
+        Homey.done();
+      })
+
+    } else {
+      $('.mi-device-test').hide();
+      $('.mi-device-error').show();
+      $('.mi-device-error-msg').html( __('pair.nosettings') );
+    }
+
+	});
+})
+</script>
+
+<style type="text/css">
+  .form-group {
+    width: 100%;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .form-group label {
+    display: block;
+  }
+  .mi-device-status, .mi-device-info {
+		display: none;
+	}
+  .mi-device-info {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  .mi-device-info .info-row {
+    min-width: 150px;
+    padding-bottom: 4px;
+  }
+  .mi-device-info .info-label {
+    display: inline-block;
+    min-width: 100px;
+    font-weight: 700;
+  }
+  .buttons, .messages {
+    padding-top: 14px;
+  }
+  .button:disabled {
+    color: #ccc;
+  }
+  .button:enabled {
+    background-color: #00c139 !important;
+    color: #fff;
+  }
+</style>
+
+<p data-i18n="pair.intro">Enter the details of your Mi Home device.</p>
+<div class="mi-device-pairing">
+  <div class="form-group">
+    <label for="address" data-i18n="pair.address">IP address</label>
+    <input type="text" class="form-control" id="address" placeholder="192.168.0.100">
+  </div>
+  <div class="form-group">
+  	<label for="token" data-i18n="pair.token">Token (32 characters of numbers and letters)</label>
+  	<input type="text" class="form-control" id="token" pattern="[a-zA-Z0-9]{32}" placeholder="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF">
+  </div>
+  <div class="form-group">
+  	<label for="polling" data-i18n="pair.polling">Polling Frequency</label>
+  	<input type="number" class="form-control" id="polling" min="60" max="3600" placeholder="60">
+  </div>
+  <div class="form-group buttons">
+    <button id="test-connection" class="button" data-i18n="pair.test">Test Connection</button>
+    <button id="connect" class="button" data-i18n="pair.connect" disabled>Connect</button>
+  </div>
+</div>
+
+<div class="mi-device-info"></div>
+
+<div class="messages">
+  <p class="mi-device-status mi-device-test" style="color: #008C23;"><i class="fa fa-check"></i> <span data-i18n="pair.testing">Connection test successfull, you can now connect the device.</span></p>
+  <p class="mi-device-status mi-device-ok" style="color: #008C23;"><i class="fa fa-check"></i> <span data-i18n="pair.success">Mi Home device added succesfully.</span></p>
+  <p class="mi-device-status mi-device-error" style="color: #ff6300;"><i class="fa fa-times"></i> <span class="mi-device-error-msg"></span></p>
+</div>
