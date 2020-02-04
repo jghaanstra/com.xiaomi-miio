@@ -1,6 +1,6 @@
 {
   "pair": {
-		"title": "Mi Home apparaat toevoegen",
+    "title": "Mi Home apparaat toevoegen",
     "nosettings": "Vul a.u.b. alle velden in.",
     "intro": "Vul de details van je Mi Home apparaat in.",
     "airpurifier": "Luchtreiniger",
@@ -28,15 +28,17 @@
     "token": "Token (minimum van 32 karakters in cijfers en letters)",
     "polling": "Polling frequentie",
     "success": "Apparaat succesvol toegevoegd.",
-    "test" : "Test verbinding",
-    "testing" : "Connectie test succesvol, je kan het apparaat nu verbinden.",
-    "testingVacuum" : "Mi Robot zoek bericht succesvol verzonden, heeft de Mi Robot gereageerd?",
+    "test": "Test verbinding",
+    "testing": "Connectie test succesvol, je kan het apparaat nu verbinden.",
+    "testingVacuum": "Mi Robot zoek bericht succesvol verzonden, heeft de Mi Robot gereageerd?",
     "connect": "Verbind",
     "unknownerror": "Onbekende fout, weet je zeker dat je het juist IP adres en token hebt opgegeven en dat het Mi Home apparaat op hetzelfde netwerk zit als Homey? Controleer a.u.b. je instellingen en probeer het nog eens.",
-    "state" : "Status:",
-    "battery" : "Battery niveau:",
-    "fanspeed" : "Ventilator snelheid:"
-	},
+    "state": "Status:",
+    "battery": "Battery niveau:",
+    "fanspeed": "Ventilator snelheid:",
+    "no_devices_found": "Geen apparaten gevonden.",
+    "no_gateways": "Geen gateways gevonden. Open voordat u apparaten toevoegt de plug-ininstellingen en voeg uw Xiaomi-gateway toe. Aqara gateway wordt nog niet ondersteund."
+  },
   "yeelight_bulb_color": "Yeelight Bulb Kleur",
   "yeelight_bulb_white": "Yeelight Bulb Wit",
   "yeelight_led_strip": "Yeelight LED strip",

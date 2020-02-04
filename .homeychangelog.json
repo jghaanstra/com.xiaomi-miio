@@ -19,5 +19,17 @@
   },
   "2.13.9": {
     "en": "Deprecated the driver for the Xiaomi Gateway. Xiaomi changed something resulting in the current implementation not working anymore."
+  },
+  "3.0.0": {
+    "en": "Added support for Xiaomi Gateway child devices, particularly a Mi motion sensor."
+  },
+  "3.0.1": {
+    "en": "Added support for Aqara motion sensor."
+  },
+  "3.0.2": {
+    "en": "Added support for Mi/Aqara magnet sensor."
+  },
+  "3.0.3": {
+    "en": "Added support for Mi/Aqara temperature and humidity sensor and buttons."
   }
 }
