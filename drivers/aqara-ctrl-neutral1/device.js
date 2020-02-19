@@ -1,6 +1,6 @@
 const Homey = require("homey");
 
-class AqaraButton extends Homey.Device {
+class AqaraSwitch extends Homey.Device {
   async onInit() {
     this.initialize = this.initialize.bind(this);
     this.onEventFromGateway = this.onEventFromGateway.bind(this);
@@ -12,31 +12,21 @@ class AqaraButton extends Homey.Device {
   async initialize() {
     if (Homey.app.gatewaysList.length > 0) {
       this.registerStateChangeListener();
+      this.registerCapabilities();
     } else {
       this.unregisterStateChangeListener();
     }
   }
 
+  registerCapabilities() {
+    this.registerToggleLeftChannel("onoff");
+  }
+
   onEventFromGateway(device) {
-    const { triggers } = this.getDriver();
     const data = JSON.parse(device["data"]);
 
-    if (data["voltage"]) {
-      const battery = (data["voltage"] - 2800) / 5;
-      this.updateCapabilityValue("measure_battery", battery > 100 ? 100 : battery);
-      this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
-    }
-
-    if (data["status"] == "click") {
-      triggers.button_click.trigger(this, {}, true);
-    }
-
-    if (data["status"] == "double_click") {
-      triggers.button_double_click.trigger(this, {}, true);
-    }
-
-    if (data["status"] == "long_click_press") {
-      triggers.button_long_click.trigger(this, {}, true);
+    if (data["channel_0"]) {
+      this.updateCapabilityValue("onoff", data["channel_0"] == "on" ? true : false);
     }
 
     this.setSettings({
@@ -50,6 +40,16 @@ class AqaraButton extends Homey.Device {
         .then(() => this.log("[" + this.getName() + "] [" + this.data.sid + "] [" + name + "] [" + value + "] Capability successfully updated"))
         .catch(error => this.log("[" + this.getName() + "] [" + this.data.sid + "] [" + name + "] [" + value + "] Capability not updated because there are errors: " + error.message));
     }
+  }
+
+  registerToggleLeftChannel(name) {
+    const sid = this.data.sid;
+    this.registerCapabilityListener(name, async value => {
+      const model = Homey.app.mihub.getDeviceModelBySid(sid);
+      let command = '{"cmd":"write","model":"' + model + '","sid":"' + sid + '","data":{"channel_0":"' + (value ? "on" : "off") + '", "key": "${key}"}}';
+
+      return await Homey.app.mihub.sendWriteCommand(sid, command);
+    });
   }
 
   registerStateChangeListener() {
@@ -70,4 +70,4 @@ class AqaraButton extends Homey.Device {
   }
 }
 
-module.exports = AqaraButton;
+module.exports = AqaraSwitch;

@@ -1,6 +1,6 @@
 const Homey = require("homey");
 
-class AqaraButton extends Homey.Device {
+class AqaraWirellesSwitch extends Homey.Device {
   async onInit() {
     this.initialize = this.initialize.bind(this);
     this.onEventFromGateway = this.onEventFromGateway.bind(this);
@@ -27,16 +27,32 @@ class AqaraButton extends Homey.Device {
       this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
     }
 
-    if (data["status"] == "click") {
-      triggers.button_click.trigger(this, {}, true);
+    if (data["channel_0"] == "click") {
+      triggers.switch_left_click.trigger(this, {}, true);
     }
 
-    if (data["status"] == "double_click") {
-      triggers.button_double_click.trigger(this, {}, true);
+    if (data["channel_0"] == "double_click") {
+      triggers.switch_left_double_click.trigger(this, {}, true);
     }
 
-    if (data["status"] == "long_click_press") {
-      triggers.button_long_click.trigger(this, {}, true);
+    if (data["channel_0"] == "long_click") {
+      triggers.switch_left_long_click.trigger(this, {}, true);
+    }
+
+    if (data["channel_1"] == "click") {
+      triggers.switch_right_click.trigger(this, {}, true);
+    }
+
+    if (data["channel_1"] == "double_click") {
+      triggers.switch_right_double_click.trigger(this, {}, true);
+    }
+
+    if (data["channel_1"] == "long_click") {
+      triggers.switch_right_long_click.trigger(this, {}, true);
+    }
+
+    if (data["dual_channel"]) {
+      triggers.switch_both_click.trigger(this, {}, true);
     }
 
     this.setSettings({
@@ -70,4 +86,4 @@ class AqaraButton extends Homey.Device {
   }
 }
 
-module.exports = AqaraButton;
+module.exports = AqaraWirellesSwitch;

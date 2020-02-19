@@ -31,5 +31,11 @@
   },
   "3.0.3": {
     "en": "Added support for Mi/Aqara temperature and humidity sensor and buttons."
+  },
+  "3.0.4": {
+    "en": "Added support for Mi/Aqara cube, plug, wall switch no neutral single/double button."
+  },
+  "3.0.5": {
+    "en": "Added support for Aqara wall switch with neutral single/double button, wirelles wall single/double switches."
   }
 }

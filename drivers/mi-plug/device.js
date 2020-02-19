@@ -1,10 +1,11 @@
 const Homey = require("homey");
 
-class AqaraButton extends Homey.Device {
+class MiPlug extends Homey.Device {
   async onInit() {
     this.initialize = this.initialize.bind(this);
     this.onEventFromGateway = this.onEventFromGateway.bind(this);
     this.data = this.getData();
+    this.inUse = false;
     this.initialize();
     this.log("[Xiaomi Mi Home] Device init - name: " + this.getName() + " - class: " + this.getClass() + " - data: " + JSON.stringify(this.data));
   }
@@ -12,31 +13,47 @@ class AqaraButton extends Homey.Device {
   async initialize() {
     if (Homey.app.gatewaysList.length > 0) {
       this.registerStateChangeListener();
+      this.registerCapabilities();
+      this.registerConditions();
     } else {
       this.unregisterStateChangeListener();
     }
+  }
+
+  registerCapabilities() {
+    this.registerToggle("onoff");
+  }
+
+  registerConditions() {
+    const { conditions } = this.getDriver();
+    this.registerCondition(conditions.inUse);
   }
 
   onEventFromGateway(device) {
     const { triggers } = this.getDriver();
     const data = JSON.parse(device["data"]);
 
-    if (data["voltage"]) {
-      const battery = (data["voltage"] - 2800) / 5;
-      this.updateCapabilityValue("measure_battery", battery > 100 ? 100 : battery);
-      this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
+    if (data["status"] == "on") {
+      this.updateCapabilityValue("onoff", true);
     }
 
-    if (data["status"] == "click") {
-      triggers.button_click.trigger(this, {}, true);
+    if (data["status"] == "off") {
+      this.updateCapabilityValue("onoff", false);
     }
 
-    if (data["status"] == "double_click") {
-      triggers.button_double_click.trigger(this, {}, true);
+    if (data["load_power"]) {
+      this.updateCapabilityValue("measure_power", parseInt(data["load_power"]));
     }
 
-    if (data["status"] == "long_click_press") {
-      triggers.button_long_click.trigger(this, {}, true);
+    if (data["power_consumed"]) {
+      this.updateCapabilityValue("meter_power", parseFloat(data["power_consumed"] / 1000));
+    }
+
+    if (data["inuse"]) {
+      if (this.inUse != !!parseInt(data["inuse"]) && !!parseInt(data["inuse"])) {
+        triggers.inUse.trigger(this, {}, true);
+      }
+      this.inUse = !!parseInt(data["inuse"]);
     }
 
     this.setSettings({
@@ -50,6 +67,20 @@ class AqaraButton extends Homey.Device {
         .then(() => this.log("[" + this.getName() + "] [" + this.data.sid + "] [" + name + "] [" + value + "] Capability successfully updated"))
         .catch(error => this.log("[" + this.getName() + "] [" + this.data.sid + "] [" + name + "] [" + value + "] Capability not updated because there are errors: " + error.message));
     }
+  }
+
+  registerToggle(name) {
+    const sid = this.data.sid;
+    this.registerCapabilityListener(name, async value => {
+      const model = Homey.app.mihub.getDeviceModelBySid(sid);
+      let command = '{"cmd":"write","model":"' + model + '","sid":"' + sid + '","data":{"status":"' + (value ? "on" : "off") + '", "key": "${key}"}}';
+
+      return await Homey.app.mihub.sendWriteCommand(sid, command);
+    });
+  }
+
+  registerCondition(condition) {
+    condition.registerRunListener((args, state) => Promise.resolve(this.inUse));
   }
 
   registerStateChangeListener() {
@@ -70,4 +101,4 @@ class AqaraButton extends Homey.Device {
   }
 }
 
-module.exports = AqaraButton;
+module.exports = MiPlug;

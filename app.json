@@ -10,7 +10,7 @@
     "en": ["Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway"],
     "nl": ["Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway"]
   },
-  "version": "3.0.3",
+  "version": "3.0.5",
   "compatibility": ">=3.0.0",
   "author": {
     "name": "Payziyev Maxmudjon",
@@ -1644,6 +1644,599 @@
           "template": "add_devices"
         }
       ]
+    },
+    {
+      "id": "mi-aqara-cube",
+      "name": {
+        "en": "Mi Aqara Cube"
+      },
+      "class": "sensor",
+      "capabilities": ["measure_battery", "alarm_battery"],
+      "energy": {
+        "batteries": ["CR2450"]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device information"
+          },
+          "children": [
+            {
+              "id": "deviceSid",
+              "type": "label",
+              "label": {
+                "en": "Device sid"
+              },
+              "value": "0123456789abcd"
+            },
+            {
+              "id": "gatewaySid",
+              "type": "label",
+              "label": {
+                "en": "Gateway sid"
+              },
+              "value": "0123456789ab"
+            },
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Device model"
+              },
+              "value": "lumi.device"
+            },
+            {
+              "id": "modelCode",
+              "type": "label",
+              "label": {
+                "en": "Device model code"
+              },
+              "value": "AABBCC01LM"
+            }
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/mi-aqara-cube/assets/images/large.png",
+        "small": "/drivers/mi-aqara-cube/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "mi-plug",
+      "name": {
+        "en": "Mi Smart Plug"
+      },
+      "class": "socket",
+      "capabilities": ["onoff", "meter_power", "measure_power"],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device information"
+          },
+          "children": [
+            {
+              "id": "deviceSid",
+              "type": "label",
+              "label": {
+                "en": "Device sid"
+              },
+              "value": "0123456789abcd"
+            },
+            {
+              "id": "gatewaySid",
+              "type": "label",
+              "label": {
+                "en": "Gateway sid"
+              },
+              "value": "0123456789ab"
+            },
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Device model"
+              },
+              "value": "lumi.device"
+            },
+            {
+              "id": "modelCode",
+              "type": "label",
+              "label": {
+                "en": "Device model code"
+              },
+              "value": "AABBCC01LM"
+            }
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/mi-plug/assets/images/large.png",
+        "small": "/drivers/mi-plug/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-ctrl-neutral1",
+      "name": {
+        "en": "Aqara Smart Wall Single Switch No Neutral"
+      },
+      "class": "light",
+      "capabilities": ["onoff"],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device information"
+          },
+          "children": [
+            {
+              "id": "deviceSid",
+              "type": "label",
+              "label": {
+                "en": "Device sid"
+              },
+              "value": "0123456789abcd"
+            },
+            {
+              "id": "gatewaySid",
+              "type": "label",
+              "label": {
+                "en": "Gateway sid"
+              },
+              "value": "0123456789ab"
+            },
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Device model"
+              },
+              "value": "lumi.device"
+            },
+            {
+              "id": "modelCode",
+              "type": "label",
+              "label": {
+                "en": "Device model code"
+              },
+              "value": "AABBCC01LM"
+            }
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/aqara-ctrl-neutral1/assets/images/large.png",
+        "small": "/drivers/aqara-ctrl-neutral1/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-ctrl-neutral2",
+      "name": {
+        "en": "Aqara Smart Wall Double Switch No Neutral"
+      },
+      "class": "light",
+      "capabilities": ["onoff", "onoff.1"],
+      "capabilitiesOptions": {
+        "onoff": {
+          "title": {
+            "en": "Left button"
+          }
+        },
+        "onoff.1": {
+          "title": {
+            "en": "Right button"
+          }
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device information"
+          },
+          "children": [
+            {
+              "id": "deviceSid",
+              "type": "label",
+              "label": {
+                "en": "Device sid"
+              },
+              "value": "0123456789abcd"
+            },
+            {
+              "id": "gatewaySid",
+              "type": "label",
+              "label": {
+                "en": "Gateway sid"
+              },
+              "value": "0123456789ab"
+            },
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Device model"
+              },
+              "value": "lumi.device"
+            },
+            {
+              "id": "modelCode",
+              "type": "label",
+              "label": {
+                "en": "Device model code"
+              },
+              "value": "AABBCC01LM"
+            }
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/aqara-ctrl-neutral2/assets/images/large.png",
+        "small": "/drivers/aqara-ctrl-neutral2/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-ctrl-ln1",
+      "name": {
+        "en": "Aqara Smart Wall Single Switch With Neutral"
+      },
+      "class": "light",
+      "capabilities": ["onoff"],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device information"
+          },
+          "children": [
+            {
+              "id": "deviceSid",
+              "type": "label",
+              "label": {
+                "en": "Device sid"
+              },
+              "value": "0123456789abcd"
+            },
+            {
+              "id": "gatewaySid",
+              "type": "label",
+              "label": {
+                "en": "Gateway sid"
+              },
+              "value": "0123456789ab"
+            },
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Device model"
+              },
+              "value": "lumi.device"
+            },
+            {
+              "id": "modelCode",
+              "type": "label",
+              "label": {
+                "en": "Device model code"
+              },
+              "value": "AABBCC01LM"
+            }
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/aqara-ctrl-ln1/assets/images/large.png",
+        "small": "/drivers/aqara-ctrl-ln1/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-ctrl-ln2",
+      "name": {
+        "en": "Aqara Smart Wall Double Switch With Neutral"
+      },
+      "class": "light",
+      "capabilities": ["onoff", "onoff.1"],
+      "capabilitiesOptions": {
+        "onoff": {
+          "title": {
+            "en": "Left button"
+          }
+        },
+        "onoff.1": {
+          "title": {
+            "en": "Right button"
+          }
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device information"
+          },
+          "children": [
+            {
+              "id": "deviceSid",
+              "type": "label",
+              "label": {
+                "en": "Device sid"
+              },
+              "value": "0123456789abcd"
+            },
+            {
+              "id": "gatewaySid",
+              "type": "label",
+              "label": {
+                "en": "Gateway sid"
+              },
+              "value": "0123456789ab"
+            },
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Device model"
+              },
+              "value": "lumi.device"
+            },
+            {
+              "id": "modelCode",
+              "type": "label",
+              "label": {
+                "en": "Device model code"
+              },
+              "value": "AABBCC01LM"
+            }
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/aqara-ctrl-ln2/assets/images/large.png",
+        "small": "/drivers/aqara-ctrl-ln2/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-86sw1-advanced",
+      "name": {
+        "en": "Aqara Wireless Wall Single Switch (Advanced)"
+      },
+      "class": "sensor",
+      "capabilities": ["measure_battery", "alarm_battery"],
+      "energy": {
+        "batteries": ["CR2032"]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device information"
+          },
+          "children": [
+            {
+              "id": "deviceSid",
+              "type": "label",
+              "label": {
+                "en": "Device sid"
+              },
+              "value": "0123456789abcd"
+            },
+            {
+              "id": "gatewaySid",
+              "type": "label",
+              "label": {
+                "en": "Gateway sid"
+              },
+              "value": "0123456789ab"
+            },
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Device model"
+              },
+              "value": "lumi.device"
+            },
+            {
+              "id": "modelCode",
+              "type": "label",
+              "label": {
+                "en": "Device model code"
+              },
+              "value": "AABBCC01LM"
+            }
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/aqara-86sw1-advanced/assets/images/large.png",
+        "small": "/drivers/aqara-86sw1-advanced/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-86sw2-advanced",
+      "name": {
+        "en": "Aqara Wireless Wall Double Switch (Advanced)"
+      },
+      "class": "sensor",
+      "capabilities": ["measure_battery", "alarm_battery"],
+      "energy": {
+        "batteries": ["CR2032"]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device information"
+          },
+          "children": [
+            {
+              "id": "deviceSid",
+              "type": "label",
+              "label": {
+                "en": "Device sid"
+              },
+              "value": "0123456789abcd"
+            },
+            {
+              "id": "gatewaySid",
+              "type": "label",
+              "label": {
+                "en": "Gateway sid"
+              },
+              "value": "0123456789ab"
+            },
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Device model"
+              },
+              "value": "lumi.device"
+            },
+            {
+              "id": "modelCode",
+              "type": "label",
+              "label": {
+                "en": "Device model code"
+              },
+              "value": "AABBCC01LM"
+            }
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/aqara-86sw2-advanced/assets/images/large.png",
+        "small": "/drivers/aqara-86sw2-advanced/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
     }
   ],
   "flow": {
@@ -1883,6 +2476,315 @@
             "filter": "driver_id=aqara-button-advanced"
           }
         ]
+      },
+      {
+        "id": "shake_air_cube",
+        "title": {
+          "en": "Cube shake air"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "tap_twice_cube",
+        "title": {
+          "en": "Cube twice tap"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "move_cube",
+        "title": {
+          "en": "Cube move"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "flip180_cube",
+        "title": {
+          "en": "Cube flip to 180°"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "flip90_cube",
+        "title": {
+          "en": "Cube flip to 90°"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "free_fall_cube",
+        "title": {
+          "en": "Cube free fall"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "alert_cube",
+        "title": {
+          "en": "Cube alert"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "rotate_positive_cube",
+        "title": {
+          "en": "Cube rotate to positive °"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "rotate_negative_cube",
+        "title": {
+          "en": "Cube rotate to negative °"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "cubeRotated",
+        "title": {
+          "en": "Cube rotated"
+        },
+        "tokens": [
+          {
+            "name": "cube_rotated",
+            "type": "number",
+            "title": {
+              "en": "cube rotated"
+            },
+            "example": 0
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "inUse",
+        "title": {
+          "en": "In use"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-plug"
+          }
+        ]
+      },
+      {
+        "id": "rightSwitchOn",
+        "title": {
+          "en": "Right switch on"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
+          }
+        ]
+      },
+      {
+        "id": "rightSwitchOff",
+        "title": {
+          "en": "Right switch off"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
+          }
+        ]
+      },
+      {
+        "id": "switch_click",
+        "title": {
+          "en": "Click"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-86sw1-advanced"
+          }
+        ]
+      },
+      {
+        "id": "switch_double_click",
+        "title": {
+          "en": "Double click"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-86sw1-advanced"
+          }
+        ]
+      },
+      {
+        "id": "switch_long_click",
+        "title": {
+          "en": "Long click"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-86sw1-advanced"
+          }
+        ]
+      },
+      {
+        "id": "switch_left_click",
+        "title": {
+          "en": "Left click"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-86sw2-advanced"
+          }
+        ]
+      },
+      {
+        "id": "switch_left_double_click",
+        "title": {
+          "en": "Left double click"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-86sw2-advanced"
+          }
+        ]
+      },
+      {
+        "id": "switch_left_long_click",
+        "title": {
+          "en": "Left long click"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-86sw2-advanced"
+          }
+        ]
+      },
+      {
+        "id": "switch_right_click",
+        "title": {
+          "en": "Right click"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-86sw2-advanced"
+          }
+        ]
+      },
+      {
+        "id": "switch_right_double_click",
+        "title": {
+          "en": "Right double click"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-86sw2-advanced"
+          }
+        ]
+      },
+      {
+        "id": "switch_right_long_click",
+        "title": {
+          "en": "Right long click"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-86sw2-advanced"
+          }
+        ]
+      },
+      {
+        "id": "switch_both_click",
+        "title": {
+          "en": "Both click"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-86sw2-advanced"
+          }
+        ]
       }
     ],
     "conditions": [
@@ -2018,6 +2920,32 @@
               "en": "%",
               "nl": "%"
             }
+          }
+        ]
+      },
+      {
+        "id": "inUse",
+        "title": {
+          "en": "In use !{{yes|no}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-plug"
+          }
+        ]
+      },
+      {
+        "id": "rightSwitch",
+        "title": {
+          "en": "Right switch turned !{{on|off}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
           }
         ]
       }
@@ -3104,6 +4032,45 @@
               "nl": "Selecteer apparaat"
             },
             "filter": "driver_id=zhimi-fan|dmaker-fan"
+          }
+        ]
+      },
+      {
+        "id": "rightSwitchOn",
+        "title": {
+          "en": "Right switch turn on"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
+          }
+        ]
+      },
+      {
+        "id": "rightSwitchOff",
+        "title": {
+          "en": "Right switch turn off"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
+          }
+        ]
+      },
+      {
+        "id": "rightSwitchToggle",
+        "title": {
+          "en": "Right switch toggle"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
           }
         ]
       }

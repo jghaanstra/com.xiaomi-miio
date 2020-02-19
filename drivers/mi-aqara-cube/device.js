@@ -1,6 +1,6 @@
 const Homey = require("homey");
 
-class AqaraButton extends Homey.Device {
+class MiAqaraCube extends Homey.Device {
   async onInit() {
     this.initialize = this.initialize.bind(this);
     this.onEventFromGateway = this.onEventFromGateway.bind(this);
@@ -27,16 +27,54 @@ class AqaraButton extends Homey.Device {
       this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
     }
 
-    if (data["status"] == "click") {
-      triggers.button_click.trigger(this, {}, true);
+    if (data["voltage"]) {
+      const battery = (data["voltage"] - 2800) / 5;
+      this.updateCapabilityValue("measure_battery", battery > 100 ? 100 : battery);
+      this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
     }
 
-    if (data["status"] == "double_click") {
-      triggers.button_double_click.trigger(this, {}, true);
+    if (data["status"] == "shake_air") {
+      triggers.shake_air.trigger(this, {}, true);
     }
 
-    if (data["status"] == "long_click_press") {
-      triggers.button_long_click.trigger(this, {}, true);
+    if (data["status"] == "tap_twice") {
+      triggers.tap_twice.trigger(this, {}, true);
+    }
+
+    if (data["status"] == "move") {
+      triggers.move.trigger(this, {}, true);
+    }
+
+    if (data["status"] == "flip180") {
+      triggers.flip180.trigger(this, {}, true);
+    }
+
+    if (data["status"] == "flip90") {
+      triggers.flip90.trigger(this, {}, true);
+    }
+
+    if (data["status"] == "free_fall") {
+      triggers.free_fall.trigger(this, {}, true);
+    }
+
+    if (data["status"] == "alert") {
+      triggers.alert.trigger(this, {}, true);
+    }
+
+    if (parseInt(data["rotate"]) > 0) {
+      triggers.rotatePositive.trigger(this, {}, true);
+    }
+
+    if (parseInt(data["rotate"]) < 0) {
+      triggers.rotateNegative.trigger(this, {}, true);
+    }
+
+    if (data["rotate"]) {
+      let tokens = {
+        cube_rotated: parseInt(data["rotate"])
+      };
+
+      triggers.cubeRotated.trigger(this, tokens, true);
     }
 
     this.setSettings({
@@ -70,4 +108,4 @@ class AqaraButton extends Homey.Device {
   }
 }
 
-module.exports = AqaraButton;
+module.exports = MiAqaraCube;
