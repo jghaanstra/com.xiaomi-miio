@@ -18,6 +18,13 @@
     "name": "Payziyev Maxmudjon",
     "email": "bio42@mail.ru"
   },
+  "contributors": {
+    "developers": [
+      {
+        "name": "MadMonkey87"
+      }
+    ]
+  },
   "contributing": {
     "donate": {
       "paypal": {
@@ -66,6 +73,7 @@
       "icon": "/drivers/mi-humidifier2/assets/waterlevel.svg",
       "getable": true,
       "setable": false,
+      "insights": true,
       "units": {
         "en": "%",
         "nl": "%",
@@ -496,7 +504,12 @@
         "small": "drivers/mi-humidifier2/assets/images/small.jpg"
       },
       "class": "sensor",
-      "capabilities": ["onoff", "measure_temperature", "measure_humidity", "measure_waterlevel", "humidifier_fan_speed"],
+      "capabilities": ["onoff", "measure_temperature", "measure_humidity", "measure_waterlevel", "humidifier_fan_speed", "measure_power"],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "isApproximated": true
+        }
+      },
       "pair": [
         {
           "id": "start"
@@ -740,7 +753,7 @@
               "label": {
                 "en": "Mi Power Strip Polling (seconds)",
                 "nl": "Mi Power Strip Polling",
-                "nl": "Mi Power Strip Intervall (Sekunden)"
+                "de": "Mi Power Strip Intervall (Sekunden)"
               }
             }
           ]
