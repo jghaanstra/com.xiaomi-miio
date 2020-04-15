@@ -37,5 +37,8 @@
   },
   "3.0.5": {
     "en": "Added support for Aqara wall switch with neutral single/double button, wirelles wall single/double switches."
+  },
+  "3.0.6": {
+    "en": "Improved support for the Mi Humidifier v2 (fixes, more insights, approximative energy usage, improved capabilities & flow cards). Also provided some german translations."
   }
 }
