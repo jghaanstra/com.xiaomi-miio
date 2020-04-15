@@ -4,13 +4,15 @@
   "brandColor": "#FF6801",
   "name": {
     "en": "Xiaomi Mi Home",
-    "nl": "Xiaomi Mi Home"
+    "nl": "Xiaomi Mi Home",
+    "de": "Xiaomi Mi Home"
   },
   "tags": {
     "en": ["Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway"],
-    "nl": ["Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway"]
+    "nl": ["Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway"],
+    "de": ["Xiaomi", "Mi", "Mi home", "miio", "Staubsauger", "robot", "Luftreiniger", "Luftbefeuchter", "philips", "eyecare", "powerplug", "gateway"]
   },
-  "version": "3.0.5",
+  "version": "3.0.6",
   "compatibility": ">=3.0.0",
   "author": {
     "name": "Payziyev Maxmudjon",
@@ -37,7 +39,8 @@
   "category": "appliances",
   "description": {
     "en": "Control Xiaomi Mi Home devices using Homey",
-    "nl": "Bedien Xiaomi Mi Home apparaten via Homey"
+    "nl": "Bedien Xiaomi Mi Home apparaten via Homey",
+    "de": "Kontrolliere Xiaomi Mi Home Geräte mit deinem Homey"
   },
   "dependencies": {
     "net": "*"
@@ -47,7 +50,8 @@
       "type": "boolean",
       "title": {
         "en": "Night Mode",
-        "nl": "Nacht modus"
+        "nl": "Nacht modus",
+        "de": "Nacht Modus"
       },
       "getable": true,
       "setable": true
@@ -56,18 +60,64 @@
       "type": "number",
       "title": {
         "en": "Waterlevel",
-        "nl": "Waterniveau"
+        "nl": "Waterniveau",
+        "de": "Wasserstrand"
       },
       "icon": "/drivers/mi-humidifier2/assets/waterlevel.svg",
       "getable": true,
       "setable": false,
       "units": {
         "en": "%",
-        "nl": "%"
+        "nl": "%",
+        "de": "%"
       },
       "min": 0,
-      "max": 100,
+      "max": 110,
       "step": 1
+    },
+    "humidifier_fan_speed": {
+      "type": "enum",
+      "title": {
+        "en": "Fan speed",
+        "nl": "Ventilator Snelheid",
+        "de": "Lüftergeschwindigkeit"
+      },
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "idle",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus"
+          }
+        },
+        {
+          "id": "silent",
+          "title": {
+            "en": "Silent",
+            "nl": "Stil",
+            "de": "Leise"
+          }
+        },
+        {
+          "id": "medium",
+          "title": {
+            "en": "Medium",
+            "nl": "Middel",
+            "de": "Mittel"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High",
+            "nl": "Hoog",
+            "de": "Hoch"
+          }
+        }
+      ]
     }
   },
   "drivers": [
@@ -76,7 +126,8 @@
       "deprecated": true,
       "name": {
         "en": "Yeelights",
-        "nl": "Yeelights"
+        "nl": "Yeelights",
+        "de": "Yeelights"
       },
       "images": {
         "large": "drivers/yeelights/assets/images/large.jpg",
@@ -109,7 +160,8 @@
       "id": "philips-bulb",
       "name": {
         "en": "Philips Lights",
-        "nl": "Philips Lights"
+        "nl": "Philips Lights",
+        "de": "Philips Lights"
       },
       "images": {
         "large": "drivers/philips-bulb/assets/images/large.jpg",
@@ -127,7 +179,8 @@
           "type": "group",
           "label": {
             "en": "Philips Lights Settings",
-            "nl": "Philips Lights Instellingen"
+            "nl": "Philips Lights Instellingen",
+            "de": "Philips Lights Einstellungen"
           },
           "children": [
             {
@@ -136,7 +189,8 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP Adres"
+                "nl": "IP Adres",
+                "de": "IP Adresse"
               }
             },
             {
@@ -145,7 +199,8 @@
               "value": "",
               "label": {
                 "en": "Philips Lights Token",
-                "nl": "Philips Lights Token"
+                "nl": "Philips Lights Token",
+                "de": "Philips Lights Token"
               }
             },
             {
@@ -157,8 +212,9 @@
                 "max": 3600
               },
               "label": {
-                "en": "Philips Lights Polling",
-                "nl": "Philips Lights Polling"
+                "en": "Philips Lights Polling (Seconds)",
+                "nl": "Philips Lights Polling",
+                "de": "Philips Lights Intervall (Sekunden)"
               }
             }
           ]
@@ -169,7 +225,8 @@
       "id": "philips-eyecare",
       "name": {
         "en": "Philips Eyecare Lamp",
-        "nl": "Philips Eyecare Lamp"
+        "nl": "Philips Eyecare Lamp",
+        "de": "Philips Eyecare Lampe"
       },
       "images": {
         "large": "drivers/philips-eyecare/assets/images/large.jpg",
@@ -187,7 +244,8 @@
           "type": "group",
           "label": {
             "en": "Philips Eyecare Lamp Settings",
-            "nl": "Philips Eyecare Lamp Instellingen"
+            "nl": "Philips Eyecare Lamp Instellingen",
+            "de": "Philips Eyecare Lampe Einstellungen"
           },
           "children": [
             {
@@ -196,7 +254,8 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP Adres"
+                "nl": "IP Adres",
+                "de": "IP Adresse"
               }
             },
             {
@@ -205,7 +264,8 @@
               "value": "",
               "label": {
                 "en": "Philips Light Bulb Token",
-                "nl": "Philips Light Bulb Token"
+                "nl": "Philips Light Bulb Token",
+                "de": "Philips Light Bulb Token"
               }
             },
             {
@@ -217,8 +277,9 @@
                 "max": 3600
               },
               "label": {
-                "en": "Philips Light Bulb Polling",
-                "nl": "Philips Light Bulb Polling"
+                "en": "Philips Light Bulb Polling (seconds)",
+                "nl": "Philips Light Bulb Polling",
+                "de": "Philips Light Bulb Polling (Sekunden)"
               }
             }
           ]
@@ -229,7 +290,8 @@
       "id": "mi-robot",
       "name": {
         "en": "Mi Robot Vacuum Cleaners",
-        "nl": "Mi Robot Stofzuigers"
+        "nl": "Mi Robot Stofzuigers",
+        "de": "Mi Robot Staubsauger"
       },
       "images": {
         "large": "drivers/mi-robot/assets/images/large.jpg",
@@ -250,7 +312,8 @@
           "type": "group",
           "label": {
             "en": "Mi Robot Settings",
-            "nl": "Mi Robot Instellingen"
+            "nl": "Mi Robot Instellingen",
+            "de": "Mi Robot Einstellungen"
           },
           "children": [
             {
@@ -259,7 +322,8 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP Adres"
+                "nl": "IP Adres",
+                "de": "IP Adresse"
               }
             },
             {
@@ -268,7 +332,8 @@
               "value": "",
               "label": {
                 "en": "Mi Robot Token",
-                "nl": "Mi Robot Token"
+                "nl": "Mi Robot Token",
+                "de": "Mi Robot Token"
               }
             },
             {
@@ -280,8 +345,9 @@
                 "max": 3600
               },
               "label": {
-                "en": "Mi Robot Polling",
-                "nl": "Mi Robot Polling"
+                "en": "Mi Robot Polling (seconds)",
+                "nl": "Mi Robot Polling",
+                "de": "Mi Robot Intervall (Sekunden)"
               }
             }
           ]
@@ -292,7 +358,8 @@
       "id": "mi-airpurifier",
       "name": {
         "en": "Mi Air Purifiers",
-        "nl": "Mi Luchtreinigers"
+        "nl": "Mi Luchtreinigers",
+        "de": "Mi Air Luftreiniger"
       },
       "images": {
         "large": "drivers/mi-airpurifier/assets/images/large.jpg",
@@ -310,7 +377,8 @@
           "type": "group",
           "label": {
             "en": "Mi Air Purifier Settings",
-            "nl": "Mi Luchtreiniger Instellingen"
+            "nl": "Mi Luchtreiniger Instellingen",
+            "de": "Mi Air Luftreiniger Einstellungen"
           },
           "children": [
             {
@@ -319,7 +387,8 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP Adres"
+                "nl": "IP Adres",
+                "de": "IP Adresse"
               }
             },
             {
@@ -328,7 +397,8 @@
               "value": "",
               "label": {
                 "en": "Mi Air Purifier Token",
-                "nl": "Mi Luchtreiniger Token"
+                "nl": "Mi Luchtreiniger Token",
+                "de": "Mi Air Luftreiniger Token"
               }
             },
             {
@@ -340,8 +410,9 @@
                 "max": 3600
               },
               "label": {
-                "en": "Mi Air Purifier Polling",
-                "nl": "Mi Luchtreiniger Polling"
+                "en": "Mi Air Purifier Polling (seconds)",
+                "nl": "Mi Luchtreiniger Polling",
+                "de": "Mi Air Luftreiniger Abfrageinvervall (Sekunden)"
               }
             }
           ]
@@ -352,7 +423,8 @@
       "id": "mi-humidifier",
       "name": {
         "en": "Mi Humidifier v1",
-        "nl": "Mi Luchtbevochtiger v1"
+        "nl": "Mi Luchtbevochtiger v1",
+        "den": "Mi Luftbefeuchter v1"
       },
       "images": {
         "large": "drivers/mi-humidifier/assets/images/large.jpg",
@@ -370,7 +442,8 @@
           "type": "group",
           "label": {
             "en": "Mi Humidifier Settings",
-            "nl": "Mi Luchtbevochtiger Instellingen"
+            "nl": "Mi Luchtbevochtiger Instellingen",
+            "de": "Mi Luftbefeuchter Einstellungen"
           },
           "children": [
             {
@@ -379,7 +452,8 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP Adres"
+                "nl": "IP Adres",
+                "de": "IP Adresse"
               }
             },
             {
@@ -388,7 +462,8 @@
               "value": "",
               "label": {
                 "en": "Mi Humidifier Token",
-                "nl": "Mi Luchtbevochtiger Token"
+                "nl": "Mi Luchtbevochtiger Token",
+                "de": "Mi Luftbefeuchter Token"
               }
             },
             {
@@ -400,8 +475,9 @@
                 "max": 3600
               },
               "label": {
-                "en": "Mi Humidifier Polling",
-                "nl": "Mi Luchtbevochtiger Polling"
+                "en": "Mi Humidifier Polling (seconds)",
+                "nl": "Mi Luchtbevochtiger Polling",
+                "de": "Mi Luftbefeuchter Intervall (Sekunden)"
               }
             }
           ]
@@ -412,14 +488,15 @@
       "id": "mi-humidifier2",
       "name": {
         "en": "Mi Humidifier v2",
-        "nl": "Mi Luchtbevochtiger v2"
+        "nl": "Mi Luchtbevochtiger v2",
+        "de": "Mi Luftbefeuchter v2"
       },
       "images": {
         "large": "drivers/mi-humidifier2/assets/images/large.jpg",
         "small": "drivers/mi-humidifier2/assets/images/small.jpg"
       },
       "class": "sensor",
-      "capabilities": ["onoff", "measure_temperature", "measure_humidity", "measure_waterlevel"],
+      "capabilities": ["onoff", "measure_temperature", "measure_humidity", "measure_waterlevel", "humidifier_fan_speed"],
       "pair": [
         {
           "id": "start"
@@ -429,8 +506,9 @@
         {
           "type": "group",
           "label": {
-            "en": "Mi Humidifier2 Settings",
-            "nl": "Mi Luchtbevochtiger2 Instellingen"
+            "en": "Mi Humidifier v2 Settings",
+            "nl": "Mi Luchtbevochtiger v2 Instellingen",
+            "de": "Mi Luftbefeuchter v2 Einstellungen"
           },
           "children": [
             {
@@ -439,7 +517,8 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP Adres"
+                "nl": "IP Adres",
+                "de": "IP Adresse"
               }
             },
             {
@@ -447,8 +526,9 @@
               "type": "text",
               "value": "",
               "label": {
-                "en": "Mi Humidifier2 Token",
-                "nl": "Mi Luchtbevochtiger2 Token"
+                "en": "Mi Humidifier v2 Token",
+                "nl": "Mi Luchtbevochtiger v2 Token",
+                "de": "Mi Luftbefeuchter v2 Token"
               }
             },
             {
@@ -460,8 +540,9 @@
                 "max": 3600
               },
               "label": {
-                "en": "Mi Humidifier2 Polling",
-                "nl": "Mi Luchtbevochtiger2 Polling"
+                "en": "Mi Humidifier v2 Polling (seconds)",
+                "nl": "Mi Luchtbevochtiger v2 Polling",
+                "de": "Mi Luftbefeuchter v2 Intervall (Sekunden)"
               }
             }
           ]
@@ -472,7 +553,8 @@
       "id": "air-monitor",
       "name": {
         "en": "PM2.5 Air Monitor",
-        "nl": "PM2.5 Air Monitor"
+        "nl": "PM2.5 Air Monitor",
+        "de": "PM2.5 Luftqualität Monitor"
       },
       "images": {
         "large": "drivers/air-monitor/assets/images/large.jpg",
@@ -493,7 +575,8 @@
           "type": "group",
           "label": {
             "en": "PM2.5 Air Monitor Settings",
-            "nl": "PM2.5 Air Monitor Instellingen"
+            "nl": "PM2.5 Air Monitor Instellingen",
+            "de": "PM2.5 Luftqualität Monitor Einstellungen"
           },
           "children": [
             {
@@ -502,7 +585,8 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP Adres"
+                "nl": "IP Adres",
+                "de": "IP Adresse"
               }
             },
             {
@@ -511,7 +595,8 @@
               "value": "",
               "label": {
                 "en": "PM2.5 Air Monitor Token",
-                "nl": "PM2.5 Air Monitor Token"
+                "nl": "PM2.5 Air Monitor Token",
+                "de": "PM2.5 Luftqualität Monitor Token"
               }
             },
             {
@@ -523,8 +608,9 @@
                 "max": 3600
               },
               "label": {
-                "en": "PM2.5 Air Monitor Polling",
-                "nl": "PM2.5 Air Monitor Polling"
+                "en": "PM2.5 Air Monitor Polling (seconds)",
+                "nl": "PM2.5 Air Monitor Polling",
+                "de": "PM2.5 Air Luftqualität Intervall (Sekunden)"
               }
             }
           ]
@@ -535,7 +621,8 @@
       "id": "mi-power-plug",
       "name": {
         "en": "Mi Power Plug",
-        "nl": "Mi Power Plug"
+        "nl": "Mi Power Plug",
+        "de": "Mi Power Plug"
       },
       "images": {
         "large": "drivers/mi-power-plug/assets/images/large.jpg",
@@ -553,7 +640,8 @@
           "type": "group",
           "label": {
             "en": "Mi Power Plug Settings",
-            "nl": "Mi Power Plug Instellingen"
+            "nl": "Mi Power Plug Instellingen",
+            "de": "Mi Power Plug Einstellungen"
           },
           "children": [
             {
@@ -562,7 +650,8 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP Adres"
+                "nl": "IP Adres",
+		            "de": "IP Adresse"
               }
             },
             {
@@ -571,7 +660,8 @@
               "value": "",
               "label": {
                 "en": "Mi Power Plug Token",
-                "nl": "Mi Power Plug Token"
+                "nl": "Mi Power Plug Token",
+                "de": "Mi Power Plug Token"
               }
             },
             {
@@ -583,8 +673,9 @@
                 "max": 3600
               },
               "label": {
-                "en": "Mi Power Plug Polling",
-                "nl": "Mi Power Plug Polling"
+                "en": "Mi Power Plug Polling (seconds)",
+                "nl": "Mi Power Plug Polling",
+                "de": "Mi Power Plug Intervall (Sekunden)"
               }
             }
           ]
@@ -595,7 +686,8 @@
       "id": "mi-power-strip",
       "name": {
         "en": "Mi Power Strip",
-        "nl": "Mi Power Strip"
+        "nl": "Mi Power Strip",
+        "de": "Mi Power Strip"
       },
       "images": {
         "large": "drivers/mi-power-strip/assets/images/large.jpg",
@@ -613,7 +705,8 @@
           "type": "group",
           "label": {
             "en": "Mi Power Strip Settings",
-            "nl": "Mi Power Strip Instellingen"
+            "nl": "Mi Power Strip Instellingen",
+            "de": "Mi Power Strip Einstellungen"
           },
           "children": [
             {
@@ -622,7 +715,8 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP Adres"
+                "nl": "IP Adres",
+		            "de": "IP Adresse"
               }
             },
             {
@@ -631,7 +725,8 @@
               "value": "",
               "label": {
                 "en": "Mi Power Strip Token",
-                "nl": "Mi Power Strip Token"
+                "nl": "Mi Power Strip Token",
+                "de": "Mi Power Strip Token"
               }
             },
             {
@@ -643,8 +738,9 @@
                 "max": 3600
               },
               "label": {
-                "en": "Mi Power Strip Polling",
-                "nl": "Mi Power Strip Polling"
+                "en": "Mi Power Strip Polling (seconds)",
+                "nl": "Mi Power Strip Polling",
+                "nl": "Mi Power Strip Intervall (Sekunden)"
               }
             }
           ]
@@ -655,7 +751,8 @@
       "id": "gateway",
       "name": {
         "en": "Gateway",
-        "nl": "Gateway"
+        "nl": "Gateway",
+        "de": "Gateway"
       },
       "deprecated": true,
       "images": {
@@ -674,7 +771,8 @@
           "type": "group",
           "label": {
             "en": "Gateway Settings",
-            "nl": "Gateway Instellingen"
+            "nl": "Gateway Instellingen",
+            "de": "Gateway Einstellungen"
           },
           "children": [
             {
@@ -683,7 +781,8 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP Adres"
+                "nl": "IP Adres",
+		            "de": "IP Adresse"
               }
             },
             {
@@ -692,7 +791,8 @@
               "value": "",
               "label": {
                 "en": "Gateway Token",
-                "nl": "Gateway Token"
+                "nl": "Gateway Token",
+                "de": "Gateway Token"
               }
             },
             {
@@ -704,8 +804,9 @@
                 "max": 3600
               },
               "label": {
-                "en": "Gateway Polling",
-                "nl": "Gateway Polling"
+                "en": "Gateway Polling (seconds)",
+                "nl": "Gateway Polling",
+                "de": "Gateway Intervall (Sekunden)"
               }
             }
           ]
@@ -716,7 +817,8 @@
       "id": "zhimi-fan",
       "name": {
         "en": "ZhiMi Mi Fan",
-        "nl": "ZhiMi Mi Ventilator"
+        "nl": "ZhiMi Mi Ventilator",
+        "de": "ZhiMi Mi Ventilator"
       },
       "images": {
         "large": "drivers/zhimi-fan/assets/images/large.jpg",
@@ -734,7 +836,8 @@
           "type": "group",
           "label": {
             "en": "ZhiMi Fan Settings",
-            "nl": "ZhiMi Ventilator Instellingen"
+            "nl": "ZhiMi Ventilator Instellingen",
+            "de": "ZhiMi Ventialtor Einstellungen"
           },
           "children": [
             {
@@ -743,7 +846,8 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP Adres"
+                "nl": "IP Adres",
+		            "de": "IP Adresse"
               }
             },
             {
@@ -752,7 +856,8 @@
               "value": "",
               "label": {
                 "en": "ZhiMi Fan Token",
-                "nl": "ZhiMi Fan Token"
+                "nl": "ZhiMi Fan Token",
+                "de": "ZhiMi Ventialtor Token"
               }
             },
             {
@@ -764,8 +869,9 @@
                 "max": 3600
               },
               "label": {
-                "en": "ZhiMi Fan Polling",
-                "nl": "ZhiMi Fan Polling"
+                "en": "ZhiMi Fan Polling (seconds)",
+                "nl": "ZhiMi Fan Polling",
+                "de": "ZhiMi Ventilator Intervall(Sekunden)"
               }
             }
           ]
@@ -776,7 +882,8 @@
       "id": "dmaker-fan",
       "name": {
         "en": "Dmaker Mi Fan",
-        "nl": "Dmaker Mi Ventilator"
+        "nl": "Dmaker Mi Ventilator",
+        "de": "Dmaker Mi Ventilator"
       },
       "images": {
         "large": "drivers/dmaker-fan/assets/images/large.jpg",
@@ -794,7 +901,8 @@
           "type": "group",
           "label": {
             "en": "Dmaker Fan Settings",
-            "nl": "Dmaker Ventilator Instellingen"
+            "nl": "Dmaker Ventilator Instellingen",
+            "de": "Dmaker Ventilator Einstellungen"
           },
           "children": [
             {
@@ -803,7 +911,8 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP Adres"
+                "nl": "IP Adres",
+		            "de": "IP Adresse"
               }
             },
             {
@@ -812,7 +921,8 @@
               "value": "",
               "label": {
                 "en": "Dmaker Fan Token",
-                "nl": "Dmaker Fan Token"
+                "nl": "Dmaker Fan Token",
+                "de": "Dmaker Ventiltor Token"
               }
             },
             {
@@ -824,8 +934,9 @@
                 "max": 3600
               },
               "label": {
-                "en": "Dmaker Fan Polling",
-                "nl": "Dmaker Fan Polling"
+                "en": "Dmaker Fan Polling (seconds)",
+                "nl": "Dmaker Fan Polling",
+                "de": "Dmaker Ventilator Intervall (Sekunden)"
               }
             }
           ]
@@ -836,7 +947,8 @@
       "id": "mi-motion-sensor",
       "name": {
         "en": "Mi Motion Sensor",
-        "nl": "Mi bewegingssensor"
+        "nl": "Mi bewegingssensor",
+        "de": "Mi Bewegungssensor"
       },
       "class": "sensor",
       "capabilities": ["alarm_motion", "measure_battery", "alarm_battery"],
@@ -848,7 +960,8 @@
           "type": "group",
           "label": {
             "en": "Duration of the motion alarm",
-            "nl": "Duur van het bewegingsalarm"
+            "nl": "Duur van het bewegingsalarm",
+            "de": "Dauer des Bewegungsalarmes"
           },
           "children": [
             {
@@ -856,11 +969,13 @@
               "type": "number",
               "label": {
                 "en": "Disable after",
-                "nl": "Uitschakelen na"
+                "nl": "Uitschakelen na",
+                "de": "Deaktiviere nach"
               },
               "hint": {
                 "en": "Here you can specify after what time the alarm signal from the motion sensor will be stopped, if a motion is detected it is not detected. Usually this is for 60 seconds, you can set from 5 to 86400 seconds. \n \n Attention! Values less than 60 seconds are relevant only for independently modified sensors that have the ability to transmit information about the movement with a frequency of 5 seconds.",
-                "nl": "Hier kunt u opgeven hoe laat het alarmsignaal van de bewegingssensor wordt gestopt, als een beweging wordt gedetecteerd, wordt deze niet gedetecteerd. Gewoonlijk is dit 60 seconden, u kunt 5 tot 86400 seconden instellen.  n  n Let op! Waarden minder dan 60 seconden zijn alleen relevant voor onafhankelijk aangepaste sensoren die de mogelijkheid hebben om informatie over de beweging te verzenden met een frequentie van 5 seconden."
+                "nl": "Hier kunt u opgeven hoe laat het alarmsignaal van de bewegingssensor wordt gestopt, als een beweging wordt gedetecteerd, wordt deze niet gedetecteerd. Gewoonlijk is dit 60 seconden, u kunt 5 tot 86400 seconden instellen.  n  n Let op! Waarden minder dan 60 seconden zijn alleen relevant voor onafhankelijk aangepaste sensoren die de mogelijkheid hebben om informatie over de beweging te verzenden met een frequentie van 5 seconden.",
+                "de": "Hier können Sie definieren nach wie langer Zeit der Alarm gestoppt wird, nachdem eine Bewegung registriert wurde. Normalerweise ist dies nach 60 Sekunden, gültige Werte sind von 5 bis 86400 Sekunden. \n \n Achtung! Werte kleiner als 60 Sekunden sind nur für modifizierte Bewegungssensoren relevant welche alle 5 Sekunden Bewegungsdaten senden."
               },
               "value": 60,
               "attr": {
@@ -874,7 +989,8 @@
           "type": "group",
           "label": {
             "en": "Device information",
-            "nl": "Apparaat informatie"
+            "nl": "Apparaat informatie",
+            "de": "Geräteinformation"
           },
           "children": [
             {
@@ -882,7 +998,8 @@
               "type": "label",
               "label": {
                 "en": "Device sid",
-                "nl": "Apparaat sid"
+                "nl": "Apparaat sid",
+                "de": "Geräte sid"
               },
               "value": "0123456789abcd"
             },
@@ -891,7 +1008,8 @@
               "type": "label",
               "label": {
                 "en": "Gateway sid",
-                "nl": "Gateway sid"
+                "nl": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
@@ -900,7 +1018,8 @@
               "type": "label",
               "label": {
                 "en": "Device model",
-                "nl": "Apparaat model"
+                "nl": "Apparaat model",
+                "de": "Gerätmodel"
               },
               "value": "lumi.device"
             },
@@ -909,7 +1028,8 @@
               "type": "label",
               "label": {
                 "en": "Device model code",
-                "nl": "Modelcode apparaat"
+                "nl": "Modelcode apparaat",
+                "de": "Geräte Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -941,7 +1061,8 @@
       "id": "aqara-motion-sensor",
       "name": {
         "en": "Aqara Motion Sensor",
-        "nl": "Aqara bewegingssensor"
+        "nl": "Aqara bewegingssensor",
+        "de": "Aqara Bewegungssensor"
       },
       "class": "sensor",
       "capabilities": ["alarm_motion", "measure_luminance", "measure_battery", "alarm_battery"],
@@ -961,11 +1082,13 @@
               "type": "number",
               "label": {
                 "en": "Disable after",
-                "nl": "Uitschakelen na"
+                "nl": "Uitschakelen na",
+                "de": "Deaktivieren nach"
               },
               "hint": {
                 "en": "Here you can specify after what time the alarm signal from the motion sensor will be stopped, if a motion is detected it is not detected. Usually this is for 60 seconds, you can set from 5 to 86400 seconds. \n \n Attention! Values less than 60 seconds are relevant only for independently modified sensors that have the ability to transmit information about the movement with a frequency of 5 seconds.",
-                "nl": "Hier kunt u opgeven hoe laat het alarmsignaal van de bewegingssensor wordt gestopt, als een beweging wordt gedetecteerd, wordt deze niet gedetecteerd. Gewoonlijk is dit 60 seconden, u kunt 5 tot 86400 seconden instellen.  n  n Let op! Waarden minder dan 60 seconden zijn alleen relevant voor onafhankelijk aangepaste sensoren die de mogelijkheid hebben om informatie over de beweging te verzenden met een frequentie van 5 seconden."
+                "nl": "Hier kunt u opgeven hoe laat het alarmsignaal van de bewegingssensor wordt gestopt, als een beweging wordt gedetecteerd, wordt deze niet gedetecteerd. Gewoonlijk is dit 60 seconden, u kunt 5 tot 86400 seconden instellen.  n  n Let op! Waarden minder dan 60 seconden zijn alleen relevant voor onafhankelijk aangepaste sensoren die de mogelijkheid hebben om informatie over de beweging te verzenden met een frequentie van 5 seconden.",
+                "de": "Hier können Sie definieren nach wie langer Zeit der Alarm gestoppt wird, nachdem eine Bewegung registriert wurde. Normalerweise ist dies nach 60 Sekunden, gültige Werte sind von 5 bis 86400 Sekunden. \n \n Achtung! Werte kleiner als 60 Sekunden sind nur für modifizierte Bewegungssensoren relevant welche alle 5 Sekunden Bewegungsdaten senden."
               },
               "value": 60,
               "attr": {
@@ -979,7 +1102,8 @@
           "type": "group",
           "label": {
             "en": "Device information",
-            "nl": "Apparaat informatie"
+            "nl": "Apparaat informatie",
+            "de": "Geräteinformation"
           },
           "children": [
             {
@@ -987,7 +1111,8 @@
               "type": "label",
               "label": {
                 "en": "Device sid",
-                "nl": "Apparaat sid"
+                "nl": "Apparaat sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -996,7 +1121,8 @@
               "type": "label",
               "label": {
                 "en": "Gateway sid",
-                "nl": "Gateway sid"
+                "nl": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
@@ -1005,7 +1131,8 @@
               "type": "label",
               "label": {
                 "en": "Device model",
-                "nl": "Apparaat model"
+                "nl": "Apparaat model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1014,7 +1141,8 @@
               "type": "label",
               "label": {
                 "en": "Device model code",
-                "nl": "Modelcode apparaat"
+                "nl": "Modelcode apparaat",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -1046,7 +1174,8 @@
       "id": "mi-magnet-sensor",
       "name": {
         "en": "Mi Magnet Sensor",
-        "nl": "Mi magneetsensor"
+        "nl": "Mi magneetsensor",
+        "de": "Mi Magnetsensor"
       },
       "class": "sensor",
       "capabilities": ["alarm_contact", "measure_battery", "alarm_battery"],
@@ -1058,7 +1187,8 @@
           "type": "group",
           "label": {
             "en": "Device information",
-            "nl": "Apparaat informatie"
+            "nl": "Apparaat informatie",
+            "de": "Gerätinformation"
           },
           "children": [
             {
@@ -1066,7 +1196,8 @@
               "type": "label",
               "label": {
                 "en": "Device sid",
-                "nl": "Apparaat sid"
+                "nl": "Apparaat sid",
+		            "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -1075,7 +1206,8 @@
               "type": "label",
               "label": {
                 "en": "Gateway sid",
-                "nl": "Gateway sid"
+                "nl": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
@@ -1084,7 +1216,8 @@
               "type": "label",
               "label": {
                 "en": "Device model",
-                "nl": "Apparaat model"
+                "nl": "Apparaat model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1093,7 +1226,8 @@
               "type": "label",
               "label": {
                 "en": "Device model code",
-                "nl": "Modelcode apparaat"
+                "nl": "Modelcode apparaat",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -1125,7 +1259,8 @@
       "id": "aqara-magnet-sensor",
       "name": {
         "en": "Aqara Magnet Sensor",
-        "nl": "Aqara magneetsensor"
+        "nl": "Aqara magneetsensor",
+        "de": "Aqara Magnetsensor"
       },
       "class": "sensor",
       "capabilities": ["alarm_contact", "measure_battery", "alarm_battery"],
@@ -1137,7 +1272,8 @@
           "type": "group",
           "label": {
             "en": "Device information",
-            "nl": "Apparaat informatie"
+            "nl": "Apparaat informatie",
+            "de": "Gerätinformation"
           },
           "children": [
             {
@@ -1145,7 +1281,8 @@
               "type": "label",
               "label": {
                 "en": "Device sid",
-                "nl": "Apparaat sid"
+                "nl": "Apparaat sid",
+		            "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -1154,7 +1291,8 @@
               "type": "label",
               "label": {
                 "en": "Gateway sid",
-                "nl": "Gateway sid"
+                "nl": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
@@ -1163,7 +1301,8 @@
               "type": "label",
               "label": {
                 "en": "Device model",
-                "nl": "Apparaat model"
+                "nl": "Apparaat model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1172,7 +1311,8 @@
               "type": "label",
               "label": {
                 "en": "Device model code",
-                "nl": "Modelcode apparaat"
+                "nl": "Modelcode apparaat",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -1203,7 +1343,8 @@
     {
       "id": "mi-temperature-humidity-sensor",
       "name": {
-        "en": "Mi Temperature and Humidity Sensor"
+        "en": "Mi Temperature and Humidity Sensor",
+        "de": "Mi Temperatur und Luftfeuchtigkeitssensor"
       },
       "class": "sensor",
       "capabilities": ["measure_temperature", "measure_humidity", "measure_battery", "alarm_battery"],
@@ -1214,14 +1355,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -1229,7 +1372,8 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
@@ -1237,7 +1381,8 @@
               "id": "model",
               "type": "label",
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1245,7 +1390,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -1254,21 +1400,24 @@
         {
           "type": "group",
           "label": {
-            "en": "Extra settings"
+            "en": "Extra settings",
+            "de": "Extra Einstellungen"
           },
           "children": [
             {
               "id": "addOrTakeOffset",
               "type": "radio",
               "label": {
-                "en": "Offset"
+                "en": "Offset",
+                "de": "Abweichung"
               },
               "value": "add",
               "values": [
                 {
                   "id": "add",
                   "label": {
-                    "en": "Add offset"
+                    "en": "Add offset",
+                    "de": "Abweichung hinzufügen"
                   }
                 },
                 {
@@ -1283,7 +1432,8 @@
               "id": "offset",
               "type": "number",
               "label": {
-                "en": "Offset"
+                "en": "Offset",
+                "de": "Abweichung"
               },
               "value": 0,
               "min": 0,
@@ -1316,7 +1466,8 @@
     {
       "id": "aqara-temperature-humidity-sensor",
       "name": {
-        "en": "Aqara Temperature and Humidity Sensor"
+        "en": "Aqara Temperature and Humidity Sensor",
+        "de": "Aqara Temperatur und Luftfeuchtigkeitssensor"
       },
       "class": "sensor",
       "capabilities": ["measure_temperature", "measure_humidity", "measure_pressure", "measure_battery", "alarm_battery"],
@@ -1327,14 +1478,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -1342,15 +1495,18 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
             {
               "id": "model",
               "type": "label",
+
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1358,7 +1514,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -1367,21 +1524,24 @@
         {
           "type": "group",
           "label": {
-            "en": "Extra settings"
+            "en": "Extra settings",
+            "de": "Extra Einstellungen"
           },
           "children": [
             {
               "id": "addOrTakeOffset",
               "type": "radio",
               "label": {
-                "en": "Offset"
+                "en": "Offset",
+                "de": "Abweichung"
               },
               "value": "add",
               "values": [
                 {
                   "id": "add",
                   "label": {
-                    "en": "Add offset"
+                    "en": "Add offset",
+                    "de": "Abweichung hinzufügen"
                   }
                 },
                 {
@@ -1396,7 +1556,8 @@
               "id": "offset",
               "type": "number",
               "label": {
-                "en": "Offset"
+                "en": "Offset",
+                "de": "Abweichung"
               },
               "value": 0,
               "min": 0,
@@ -1429,7 +1590,8 @@
     {
       "id": "mi-button",
       "name": {
-        "en": "Mi Wireless Switch"
+        "en": "Mi Wireless Switch",
+        "de": "Mi Wireless Schalter"
       },
       "class": "sensor",
       "capabilities": ["measure_battery", "alarm_battery"],
@@ -1440,14 +1602,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -1455,15 +1619,18 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
             {
               "id": "model",
               "type": "label",
+
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1471,7 +1638,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -1502,7 +1670,8 @@
     {
       "id": "aqara-button",
       "name": {
-        "en": "Aqara Wireless Switch"
+        "en": "Aqara Wireless Switch",
+        "de": "Aqara Wireless Schalter"
       },
       "class": "sensor",
       "capabilities": ["measure_battery", "alarm_battery"],
@@ -1513,14 +1682,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -1528,15 +1699,18 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
             {
               "id": "model",
               "type": "label",
+
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1544,7 +1718,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -1575,7 +1750,8 @@
     {
       "id": "aqara-button-advanced",
       "name": {
-        "en": "Aqara Wireless Switch (Advanced)"
+        "en": "Aqara Wireless Switch (Advanced)",
+        "de": "Aqara Wireless Schalter (Fortgeschritten)"
       },
       "class": "sensor",
       "capabilities": ["measure_battery", "alarm_battery"],
@@ -1586,14 +1762,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -1601,15 +1779,18 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
             {
               "id": "model",
               "type": "label",
+
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1617,7 +1798,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -1648,7 +1830,8 @@
     {
       "id": "mi-aqara-cube",
       "name": {
-        "en": "Mi Aqara Cube"
+        "en": "Mi Aqara Cube",
+        "de": "Mi Aqara Würfel"
       },
       "class": "sensor",
       "capabilities": ["measure_battery", "alarm_battery"],
@@ -1659,14 +1842,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -1674,15 +1859,18 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
             {
               "id": "model",
               "type": "label",
+
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1690,7 +1878,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -1721,7 +1910,8 @@
     {
       "id": "mi-plug",
       "name": {
-        "en": "Mi Smart Plug"
+        "en": "Mi Smart Plug",
+        "de": "Mi Smart Plug"
       },
       "class": "socket",
       "capabilities": ["onoff", "meter_power", "measure_power"],
@@ -1729,14 +1919,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -1744,15 +1936,18 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
             {
               "id": "model",
               "type": "label",
+
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1760,7 +1955,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -1799,14 +1995,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -1814,15 +2012,18 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
             {
               "id": "model",
               "type": "label",
+
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1830,7 +2031,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -1881,14 +2083,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -1896,15 +2100,18 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
             {
               "id": "model",
               "type": "label",
+
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1912,7 +2119,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -1951,14 +2159,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -1966,15 +2176,18 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
             {
               "id": "model",
               "type": "label",
+
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -1982,7 +2195,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -2033,14 +2247,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -2048,15 +2264,18 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
             {
               "id": "model",
               "type": "label",
+
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -2064,7 +2283,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -2106,14 +2326,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -2121,15 +2343,18 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
             {
               "id": "model",
               "type": "label",
+
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -2137,7 +2362,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -2179,14 +2405,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Device information"
+            "en": "Device information",
+            "de": "Geräteinformation"
           },
           "children": [
             {
               "id": "deviceSid",
               "type": "label",
               "label": {
-                "en": "Device sid"
+                "en": "Device sid",
+                "de": "Gerät sid"
               },
               "value": "0123456789abcd"
             },
@@ -2194,15 +2422,18 @@
               "id": "gatewaySid",
               "type": "label",
               "label": {
-                "en": "Gateway sid"
+                "en": "Gateway sid",
+                "de": "Gateway sid"
               },
               "value": "0123456789ab"
             },
             {
               "id": "model",
               "type": "label",
+
               "label": {
-                "en": "Device model"
+                "en": "Device model",
+                "de": "Gerätemodel"
               },
               "value": "lumi.device"
             },
@@ -2210,7 +2441,8 @@
               "id": "modelCode",
               "type": "label",
               "label": {
-                "en": "Device model code"
+                "en": "Device model code",
+                "de": "Gerät Modelcode"
               },
               "value": "AABBCC01LM"
             }
@@ -2245,7 +2477,8 @@
         "id": "motionSensorNoMotion120",
         "title": {
           "en": "No motion detected in 2 minutes",
-          "nl": "Geen beweging gedetecteerd in 2 minuten"
+          "nl": "Geen beweging gedetecteerd in 2 minuten",
+          "de": "Keine Bewegung festgestellt innert 2 Minuten"
         },
         "args": [
           {
@@ -2259,7 +2492,8 @@
         "id": "motionSensorNoMotion180",
         "title": {
           "en": "No motion detected in 3 minutes",
-          "nl": "Geen beweging gedetecteerd in 3 minuten"
+          "nl": "Geen beweging gedetecteerd in 3 minuten",
+          "de": "Keine Bewegung festgestellt innert 3 Minuten"
         },
         "args": [
           {
@@ -2273,7 +2507,8 @@
         "id": "motionSensorNoMotion300",
         "title": {
           "en": "No motion detected in 5 minutes",
-          "nl": "Geen beweging gedetecteerd in 5 minuten"
+          "nl": "Geen beweging gedetecteerd in 5 minuten",
+          "de": "Keine Bewegung festgestellt innert 5 Minuten"
         },
         "args": [
           {
@@ -2287,7 +2522,8 @@
         "id": "motionSensorNoMotion600",
         "title": {
           "en": "No motion detected in 10 minutes",
-          "nl": "Geen beweging gedetecteerd in 10 minuten"
+          "nl": "Geen beweging gedetecteerd in 10 minuten",
+          "de": "Keine Bewegung festgestellt innert 10 Minuten"
         },
         "args": [
           {
@@ -2301,7 +2537,8 @@
         "id": "motionSensorNoMotion1200",
         "title": {
           "en": "No motion detected in 20 minutes",
-          "nl": "Geen beweging gedetecteerd in 20 minuten"
+          "nl": "Geen beweging gedetecteerd in 20 minuten",
+          "de": "Keine Bewegung festgestellt innert 20 Minuten"
         },
         "args": [
           {
@@ -2315,7 +2552,8 @@
         "id": "motionSensorNoMotion1800",
         "title": {
           "en": "No motion detected in 30 minutes",
-          "nl": "Geen beweging gedetecteerd in 30 minuten"
+          "nl": "Geen beweging gedetecteerd in 30 minuten",
+          "de": "Keine Bewegung festgestellt innert 30 Minuten"
         },
         "args": [
           {
@@ -2329,7 +2567,8 @@
         "id": "gatewayLuminance",
         "title": {
           "en": "Luminance has changed",
-          "nl": "De helderheid is veranderd"
+          "nl": "De helderheid is veranderd",
+          "de": "Die Helligkeit hat sich verändert"
         },
         "tokens": [
           {
@@ -2337,7 +2576,8 @@
             "type": "number",
             "title": {
               "en": "luminance",
-              "nl": "helderheid"
+              "nl": "helderheid",
+              "de": "Helligkeit"
             },
             "example": 0
           }
@@ -2348,7 +2588,8 @@
             "type": "device",
             "placeholder": {
               "en": "Select Gateway",
-              "nl": "Selecteer Gateway"
+              "nl": "Selecteer Gateway",
+              "de": "Gateway auswählen"
             },
             "filter": "driver_id=gateway"
           }
@@ -2358,7 +2599,8 @@
         "id": "statusVacuum",
         "title": {
           "en": "Status has changed",
-          "nl": "Status is gewijzigd"
+          "nl": "Status is gewijzigd",
+          "de": "Der Status hat sich geändert"
         },
         "tokens": [
           {
@@ -2366,7 +2608,8 @@
             "type": "string",
             "title": {
               "en": "status",
-              "nl": "status"
+              "nl": "status",
+              "de": "Status"
             },
             "example": "stopped"
           }
@@ -2377,7 +2620,8 @@
             "type": "device",
             "placeholder": {
               "en": "Select Mi Robot",
-              "nl": "Selecteer Mi Robot"
+              "nl": "Selecteer Mi Robot",
+              "de": "Mi Robot auswählen"
             },
             "filter": "driver_id=mi-robot"
           }
@@ -2387,17 +2631,29 @@
         "id": "humidifier2Waterlevel",
         "title": {
           "en": "Waterlevel has changed",
-          "nl": "Waterniveau is veranderd"
+          "nl": "Waterniveau is veranderd",
+          "de": "Der Wasserstand hat sich geändert"
         },
         "tokens": [
           {
             "name": "waterlevel",
             "type": "number",
             "title": {
-              "en": "waterlevel",
-              "nl": "waterniveau"
+              "en": "current waterlevel",
+              "nl": "waterniveau",
+              "de": "aktueller Wasserstand"
             },
             "example": 88
+          },
+          {
+            "name": "previous_waterlevel",
+            "type": "number",
+            "title": {
+              "en": "previous waterlevel",
+              "nl": "vorige waterniveau",
+              "de": "bisheriger Wasserstand"
+            },
+            "example": 90
           }
         ],
         "args": [
@@ -2406,16 +2662,102 @@
             "type": "device",
             "placeholder": {
               "en": "Select Humidifier 2",
-              "nl": "Selecteer Humidifier 2"
+              "nl": "Selecteer Humidifier 2",
+              "de": "SmartMi Humidifier 2 auswählen"
             },
             "filter": "driver_id=mi-humidifier2"
           }
         ]
       },
       {
+        "id": "humidifierMode",
+        "title": {
+          "en": "Fan speed has changed",
+          "de": "Die Lüftergeschwindigkeit hat sich geändert"
+        },
+        "tokens": [
+          {
+            "name": "fanspeed",
+            "type": "string",
+            "title": {
+              "en": "current fan speed",
+              "de": "aktuelle Lüftergeschwindigkeit"
+            },
+            "example": "medium"
+          },
+          {
+            "name": "previous_fanspeed",
+            "type": "string",
+            "title": {
+              "en": "previous fan speed",
+              "de": "bisherige Lüftergeschwindigkeit"
+            },
+            "example": "silent"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Humidifier 2",
+              "nl": "Selecteer Humidifier 2",
+              "de": "SmartMi Humidifier 2 auswählen"
+            },
+            "filter": "driver_id=mi-humidifier2"
+          },
+          {
+            "type": "dropdown",
+            "name": "fanspeed",
+            "values": [
+              {
+                "id": "any",
+                "label": {
+                  "en": "Any",
+                  "de": "Beliebig"
+                }
+              },
+              {
+                "id": "idle",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
+              },
+              {
+                "id": "silent",
+                "label": {
+                  "en": "Silent",
+                  "nl": "Stil",
+                  "de": "Leise"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "Medium",
+                  "nl": "Middel",
+                  "de": "Mittel"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog",
+                  "de": "Hoch"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "button_click",
         "title": {
-          "en": "Click"
+          "en": "Click",
+          "de": "Klick"
         },
         "args": [
           {
@@ -2428,7 +2770,8 @@
       {
         "id": "button_double_click",
         "title": {
-          "en": "Double click"
+          "en": "Double click",
+          "de": "Doppelklick"
         },
         "args": [
           {
@@ -2441,7 +2784,8 @@
       {
         "id": "button_long_click",
         "title": {
-          "en": "Long click"
+          "en": "Long click",
+          "de": "Langer Klick"
         },
         "args": [
           {
@@ -2454,7 +2798,8 @@
       {
         "id": "button_long_click_release",
         "title": {
-          "en": "Long click release"
+          "en": "Long click release",
+          "de": "Langer Klick loslassen"
         },
         "args": [
           {
@@ -2467,7 +2812,8 @@
       {
         "id": "button_shake",
         "title": {
-          "en": "Shake"
+          "en": "Shake",
+          "de": "Schütteln"
         },
         "args": [
           {
@@ -2506,7 +2852,8 @@
       {
         "id": "move_cube",
         "title": {
-          "en": "Cube move"
+          "en": "Cube move",
+          "de": "Würfel bewegt"
         },
         "args": [
           {
@@ -2519,7 +2866,8 @@
       {
         "id": "flip180_cube",
         "title": {
-          "en": "Cube flip to 180°"
+          "en": "Cube flip to 180°",
+          "de": "Würfel um 180° gedreht"
         },
         "args": [
           {
@@ -2532,7 +2880,8 @@
       {
         "id": "flip90_cube",
         "title": {
-          "en": "Cube flip to 90°"
+          "en": "Cube flip to 90°",
+          "de": "Würfel um 90° gedreht"
         },
         "args": [
           {
@@ -2545,7 +2894,8 @@
       {
         "id": "free_fall_cube",
         "title": {
-          "en": "Cube free fall"
+          "en": "Cube free fall",
+          "de": "Würfel freier Fall"
         },
         "args": [
           {
@@ -2558,7 +2908,8 @@
       {
         "id": "alert_cube",
         "title": {
-          "en": "Cube alert"
+          "en": "Cube alert",
+          "de": "Würfel Alarm"
         },
         "args": [
           {
@@ -2597,14 +2948,16 @@
       {
         "id": "cubeRotated",
         "title": {
-          "en": "Cube rotated"
+          "en": "Cube rotated",
+          "de": "Würfel gedreht"
         },
         "tokens": [
           {
             "name": "cube_rotated",
             "type": "number",
             "title": {
-              "en": "cube rotated"
+              "en": "cube rotated",
+              "de": "Würfel gedreht"
             },
             "example": 0
           }
@@ -2620,7 +2973,8 @@
       {
         "id": "inUse",
         "title": {
-          "en": "In use"
+          "en": "In use",
+          "de": "In Betrieb"
         },
         "args": [
           {
@@ -2659,7 +3013,8 @@
       {
         "id": "switch_click",
         "title": {
-          "en": "Click"
+          "en": "Click",
+          "de": "Klick"
         },
         "args": [
           {
@@ -2672,7 +3027,8 @@
       {
         "id": "switch_double_click",
         "title": {
-          "en": "Double click"
+          "en": "Double click",
+          "de": "Doppelklick"
         },
         "args": [
           {
@@ -2685,7 +3041,8 @@
       {
         "id": "switch_long_click",
         "title": {
-          "en": "Long click"
+          "en": "Long click",
+          "de": "Langer Klick"
         },
         "args": [
           {
@@ -2829,7 +3186,8 @@
         "id": "poweredHumidifier",
         "title": {
           "en": "!{{is|is not}} powered on",
-          "nl": "!{{is|is niet}} aangezet"
+          "nl": "!{{is|is niet}} aangezet",
+          "de": "!{{ist|ist nicht}} an"
         },
         "args": [
           {
@@ -2837,7 +3195,8 @@
             "type": "device",
             "placeholder": {
               "en": "Select Mi Humidifier",
-              "nl": "Selecteer Mi Luchtbevochtiger"
+              "nl": "Selecteer Mi Luchtbevochtiger",
+              "de": "Mi Luftbefeuchter auswählen"
             },
             "filter": "driver_id=mi-humidifier|mi-humidifier2"
           }
@@ -3453,7 +3812,8 @@
         "id": "ledAirpurifierHumidifier",
         "title": {
           "en": "LED display brightness",
-          "nl": "LED display helderheid"
+          "nl": "LED display helderheid",
+          "de": "LED Display Helligkeit"
         },
         "args": [
           {
@@ -3464,21 +3824,24 @@
                 "id": "bright",
                 "label": {
                   "en": "Bright",
-                  "nl": "Helder"
+                  "nl": "Helder",
+                  "de": "Hell"
                 }
               },
               {
                 "id": "dim",
                 "label": {
                   "en": "Dim",
-                  "nl": "Gedimd"
+                  "nl": "Gedimd",
+                  "de": "Gedimmt"
                 }
               },
               {
                 "id": "off",
                 "label": {
                   "en": "Off",
-                  "nl": "Uit"
+                  "nl": "Uit",
+                  "de": "Aus"
                 }
               }
             ]
@@ -3488,7 +3851,8 @@
             "type": "device",
             "placeholder": {
               "en": "Select Mi Air Purifier",
-              "nl": "Selecteer Mi Luchtreiniger"
+              "nl": "Selecteer Mi Luchtreiniger",
+              "de": "Gerät auswählen"
             },
             "filter": "driver_id=mi-airpurifier|mi-humidifier2|zhimi-fan"
           }
@@ -3635,7 +3999,8 @@
         "deprecated": true,
         "title": {
           "en": "Turn on",
-          "nl": "Zet aan"
+          "nl": "Zet aan",
+          "de": "Einschalten"
         },
         "args": [
           {
@@ -3643,7 +4008,8 @@
             "type": "device",
             "placeholder": {
               "en": "Select Mi Humidifier",
-              "nl": "Selecteer Mi Luchtbevochtiger"
+              "nl": "Selecteer Mi Luchtbevochtiger",
+              "de": "Mi Luftbefeuchter auswählen"
             },
             "filter": "driver_id=mi-humidifier|mi-humidifier2"
           }
@@ -3654,7 +4020,8 @@
         "deprecated": true,
         "title": {
           "en": "Turn off",
-          "nl": "Zet uit"
+          "nl": "Zet uit",
+          "de": "Ausschalten"
         },
         "args": [
           {
@@ -3662,7 +4029,8 @@
             "type": "device",
             "placeholder": {
               "en": "Select Mi Humidifier",
-              "nl": "Selecteer Mi Luchtbevochtiger"
+              "nl": "Selecteer Mi Luchtbevochtiger",
+              "de": "Mi Luftbefeuchter auswählen"
             },
             "filter": "driver_id=mi-humidifier|mi-humidifier2"
           }
@@ -3671,8 +4039,9 @@
       {
         "id": "modeHumidifier",
         "title": {
-          "en": "Set Speed",
-          "nl": "Stel snelheid in"
+          "en": "Set Fan Speed",
+          "nl": "Stel snelheid in",
+          "de": "Lüftergeschwindigkeit festlegen"
         },
         "args": [
           {
@@ -3680,24 +4049,35 @@
             "type": "dropdown",
             "values": [
               {
+                "id": "idle",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
+              },
+              {
                 "id": "silent",
                 "label": {
                   "en": "Silent",
-                  "nl": "Stil"
+                  "nl": "Stil",
+                  "de": "Leise"
                 }
               },
               {
                 "id": "medium",
                 "label": {
                   "en": "Medium",
-                  "nl": "Middel"
+                  "nl": "Middel",
+                  "de": "Mittel"
                 }
               },
               {
                 "id": "high",
                 "label": {
                   "en": "High",
-                  "nl": "Hoog"
+                  "nl": "Hoog",
+                  "de": "Hoch"
                 }
               }
             ]
@@ -3707,7 +4087,8 @@
             "type": "device",
             "placeholder": {
               "en": "Select Mi Humidifier",
-              "nl": "Selecteer Mi Luchtbevochtiger"
+              "nl": "Selecteer Mi Luchtbevochtiger",
+              "de": "Mi Luftbefeuchter auswählen"
             },
             "filter": "driver_id=mi-humidifier|mi-humidifier2"
           }

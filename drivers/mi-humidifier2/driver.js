@@ -24,7 +24,7 @@ class MiHumidifier2Driver extends Homey.Driver {
                 temperature: temp.value,
                 humidity: rh,
                 mode: mode,
-                depth: depth,
+                depth: depth
               }
 
               callback(null, result);

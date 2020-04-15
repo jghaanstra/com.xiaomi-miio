@@ -7,6 +7,9 @@ class MiHumidifier2Device extends Homey.Device {
 
   onInit() {
     this.humidifier2WaterlevelTrigger = new Homey.FlowCardTriggerDevice('humidifier2Waterlevel').register();
+    this.humidifier2ModeTrigger = new Homey.FlowCardTriggerDevice('humidifierMode').register().registerRunListener((args, state) => { 
+      return Promise.resolve(args.fanspeed === 'any' || args.fanspeed === state.fanspeed); 
+    });
 
     this.createDevice();
     setTimeout(() => { this.refreshDevice(); }, 600000);
@@ -17,6 +20,16 @@ class MiHumidifier2Device extends Homey.Device {
     this.registerCapabilityListener('onoff', (value, opts) => {
       if (this.miio) {
         return this.miio.setPower(value);
+      } else {
+        this.setUnavailable(Homey.__('unreachable'));
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    });
+
+    this.registerCapabilityListener('humidifier_fan_speed', (value, opts) => {
+      if (this.miio) {
+        return this.miio.setMode(value);
       } else {
         this.setUnavailable(Homey.__('unreachable'));
         this.createDevice();
@@ -66,25 +79,28 @@ class MiHumidifier2Device extends Homey.Device {
           const rh = await this.miio.relativeHumidity();
           const mode = await this.miio.mode();
           const depth = await this.miio.depth();
-
           const waterlevel = Math.round(depth);
 
-          if (this.getCapabilityValue('onoff') != power) {
-            this.setCapabilityValue('onoff', power);
+          this.setCapabilityValue('onoff', power);
+          this.setCapabilityValue('measure_temperature', temp.value);
+          this.setCapabilityValue('measure_humidity', rh);
+
+          const previous_waterlevel = this.getCapabilityValue('measure_waterlevel');
+          this.setCapabilityValue('measure_waterlevel', waterlevel);
+          if (previous_waterlevel != waterlevel) {
+            this.humidifier2WaterlevelTrigger.trigger(this, { waterlevel: waterlevel, previous_waterlevel: previous_waterlevel });
           }
-          if (this.getCapabilityValue('measure_temperature') != temp.value) {
-            this.setCapabilityValue('measure_temperature', temp.value);
+
+          const previous_fanspeed = this.getCapabilityValue('humidifier_fan_speed');
+          this.setCapabilityValue('humidifier_fan_speed', mode);
+          if (!previous_fanspeed != mode) {
+            this.humidifier2ModeTrigger.trigger(this, { fanspeed: mode, previous_fanspeed: previous_fanspeed }, { fanspeed: mode, previous_fanspeed: previous_fanspeed });
           }
-          if (this.getCapabilityValue('measure_humidity') != rh) {
-            this.setCapabilityValue('measure_humidity', rh);
-          }
-          if (this.getCapabilityValue('measure_waterlevel') != waterlevel) {
-            this.setCapabilityValue('measure_waterlevel', waterlevel);
-            this.humidifier2WaterlevelTrigger.trigger(this, {waterlevel: waterlevel});
-          }
+
           if (this.getStoreValue('mode') != mode) {
             this.setStoreValue('mode', mode);
           }
+
           if (!this.getAvailable()) {
             this.setAvailable();
           }
