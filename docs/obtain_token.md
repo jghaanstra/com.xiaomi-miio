@@ -127,7 +127,7 @@ During setup of Mi Home devices the device tokens an be retrieved by sending a p
 * Disconnect your computer from the devices network, you can now use the Mi Home app to setup the device and connect it to your Wi-Fi network.
 
 ## Method 4b - netcat with tcpdump
-Like above you can also use this shell command to send the magic package:
+Like above you can also use this shell command to send the magic package (assuming you're using a Macbook and connecting the device's wifi with `en0` network interface):
 
 ```sh
 $ echo -n '\x21\x31\x00\x20'`printf '\xff%.0s' {1..28}`|nc -u `ifconfig en0|grep 'inet '|awk -F '[. ]' '{print $2"."$3"."$4"."1}'` 54321 |hexdump -s 16 -e '"token: " 16/1 "%02x" "\n"' 
