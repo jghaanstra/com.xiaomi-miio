@@ -126,7 +126,7 @@ During setup of Mi Home devices the device tokens an be retrieved by sending a p
 * Click send and the device will respond with an answer which contains the unique device token. In the last 16 bytes (32 characters) of the devices response is the device token. Copy and save it somewhere.
 * Disconnect your computer from the devices network, you can now use the Mi Home app to setup the device and connect it to your Wi-Fi network.
 
-## Method 4b - netcat with tcpdump
+## Method 4b - netcat with hexdump
 Like above you can also use this shell command to send the magic package (assuming you're using a Macbook and connecting the device's wifi with `en0` network interface):
 
 ```sh
