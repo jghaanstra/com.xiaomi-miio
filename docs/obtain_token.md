@@ -126,15 +126,13 @@ During setup of Mi Home devices the device tokens an be retrieved by sending a p
 * Click send and the device will respond with an answer which contains the unique device token. In the last 16 bytes (32 characters) of the devices response is the device token. Copy and save it somewhere.
 * Disconnect your computer from the devices network, you can now use the Mi Home app to setup the device and connect it to your Wi-Fi network.
 
-## Method 4b - netcat and Wireshark / tcpdump
+## Method 4b - netcat with tcpdump
 Like above you can also use this shell command to send the magic package:
 
 ```sh
-echo -ne '\x21\x31\x00\x20\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff' | nc -u 192.168.8.1 54321
+$ echo -n '\x21\x31\x00\x20'`printf '\xff%.0s' {1..28}`|nc -u `ifconfig en0|grep 'inet '|awk -F '[. ]' '{print $2"."$3"."$4"."1}'` 54321 |hexdump -s 16 -e '"token: " 16/1 "%02x" "\n"' 
+token: f3940a86c4cd42f8787e37f98d2271ce
 ```
-
-While running this you have to listen with Wireshark or tcpdump for UDP packages sent as anser by the robot.
-Extract the last 16 bytes of the answer and convert them to a (32 characters) hexadecimal string using `xxd -p`.
 
 ## Method 5 - telnet with root access
 > discovered by [#slavikme](https://github.com/slavikme)
