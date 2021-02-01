@@ -2,7 +2,7 @@
 Use any of these methods to obtain the device token for the supported miio devices.
 
 ## Method 1 - Obtain device token from Mi home account
-[Windows app](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases)
+[Windows and MacOS app](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases)
 
 
 ## Method 2 - Obtain device token for miio devices that hide their token after setup
