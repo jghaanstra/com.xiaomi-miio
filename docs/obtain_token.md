@@ -1,7 +1,11 @@
 # Obtain Mi Home device token
 Use any of these methods to obtain the device token for the supported miio devices.
 
-## Method 1 - Obtain device token for miio devices that hide their token after setup
+## Method 1 - Obtain device token from Mi home account
+[Windows app and MAC OS app](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases)
+
+
+## Method 2 - Obtain device token for miio devices that hide their token after setup
 Use one of these methods to obtain the device token for devices that hide their tokens after setup in the Mi Home App (like the Mi Robot Vacuum Cleaner with firmware 3.3.9_003077 or higher). This is usually the case for most Mi Home devices. The latest versions of the Mi Home smartphone app dont hold the token anymore so before you begin with any of these methods you will need to install an older version of the smartphone app. Version 5.0.19 works for sure with the 1st gen Vacuum Robot, for the 2nd gen (S50) you should try version 3.3.9_5.0.30. Android users can find older version of the app [here](https://www.apkmirror.com/apk/xiaomi-inc/mihome/).
 
 ### Android users
@@ -98,7 +102,7 @@ geofencing.db-journal			google_app_measurement.db-journal	miio.db-journal				mii
     * __Selectbox Plaintext / Hex:__ Hex
 * Hit the decrypt button. Your token are the first two lines of the right block of code. These two lines should contain a token of 32 characters and should be the correct token for your device.
 
-## Method 2 - Obtain Xiaomi Gateway device token
+## Method 3 - Obtain Xiaomi Gateway device token
 This method is specifically for the Xiaomi Gateway.
 
 * Open Mi Home App in your Android device.
@@ -110,10 +114,10 @@ This method is specifically for the Xiaomi Gateway.
 * Tap on the second option: "Hub info".
 * There you can find the device token.
 
-## Method 3 - Nodejs Command Line Tool from the miIO Device library
+## Method 4 - Nodejs Command Line Tool from the miIO Device library
 The author of the miIO Device Library which is used by this Homey app has also created a nodejs command line tool for retrieving device tokens. Please follow the steps in [these instructions](https://github.com/aholstenson/miio/blob/master/docs/management.md) to retrieve the token for the supported miio devices. Be aware that some devices hide their token after the device has been setup in the Mi Home app. Retrieving tokens for these devices will not work with this method but require method 3.
 
-## Method 4a - Packet Sender Tool
+## Method 5a - Packet Sender Tool
 During setup of Mi Home devices the device tokens an be retrieved by sending a ping command to the device. This method uses a tool called Packet Sender which you will need to download. Choose the portable version which does not require installation.
 * Download the portable version of [Packet Sender](https://packetsender.com/download).
 * Reset the device following the instructions from the device manual, this usually means holding one or two buttons for 10 seconds. This will reset all device settings including the Wi-Fi settings.
@@ -126,7 +130,7 @@ During setup of Mi Home devices the device tokens an be retrieved by sending a p
 * Click send and the device will respond with an answer which contains the unique device token. In the last 16 bytes (32 characters) of the devices response is the device token. Copy and save it somewhere.
 * Disconnect your computer from the devices network, you can now use the Mi Home app to setup the device and connect it to your Wi-Fi network.
 
-## Method 4b - netcat and Wireshark / tcpdump
+## Method 5b - netcat and Wireshark / tcpdump
 Like above you can also use this shell command to send the magic package:
 
 ```sh
@@ -136,7 +140,15 @@ echo -ne '\x21\x31\x00\x20\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x
 While running this you have to listen with Wireshark or tcpdump for UDP packages sent as anser by the robot.
 Extract the last 16 bytes of the answer and convert them to a (32 characters) hexadecimal string using `xxd -p`.
 
-## Method 5 - telnet with root access
+## Method 5c - netcat with hexdump
+Like above you can also use this shell command to send the magic package (assuming you're using a Macbook and connecting the device's wifi with `en0` network interface):
+
+```sh
+$ echo -n '\x21\x31\x00\x20'`printf '\xff%.0s' {1..28}`|nc -u `ifconfig en0|grep 'inet '|awk -F '[. ]' '{print $2"."$3"."$4"."1}'` 54321 |hexdump -s 16 -e '"token: " 16/1 "%02x" "\n"' 
+token: f3940a86c4cd42f8787e37f98d2271ce
+```
+
+## Method 6 - telnet with root access
 > discovered by [#slavikme](https://github.com/slavikme)
 
 In some devices, like "Mi Home Security Camera 360" (and maybe others), you are able to access the filesystem of the device using telnet.
