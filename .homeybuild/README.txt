@@ -1,0 +1,5 @@
+Use Homey to control Xiaomi Mi Home WiFi devices (the Mi Home Ecosystem is also branded as MiJia). This app also allows you to locally control Zigbee device connected to a Xiaomi gateway. There are no restrictions to the number of connected Zigbee devices, since you can have multiple Mi Gateway devices and distribute all Zigbee devices between them.
+
+Xiaomi does not officialy support controlling these devices from outside the Mi Home app. This means that additional steps are needed for pairing these devices with Homey that require some technical knowledge. And not all devices are supported. Also be aware that Xiaomi can make changes to it's eco system at any time resulting in Homey not being able to control these devices anymore.
+
+Please visit the support topic for supported devices, installation instructions and further details.

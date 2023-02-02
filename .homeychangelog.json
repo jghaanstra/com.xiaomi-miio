@@ -46,5 +46,8 @@
   },
   "3.0.8": {
     "en": "Added support for Aqara curtains."
+  },
+  "3.0.9": {
+    "en": "No functional changes. Updated the app manifest to reflect a new developer and the possibility for future development and a possible upgrade to SDK3. See the forum support topic for further details."
   }
 }
