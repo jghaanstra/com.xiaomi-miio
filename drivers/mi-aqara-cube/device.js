@@ -10,7 +10,7 @@ class MiAqaraCube extends Homey.Device {
   }
 
   async initialize() {
-    if (Homey.app.gatewaysList.length > 0) {
+    if (Homey.app.mihub.hubs) {
       this.registerStateChangeListener();
     } else {
       this.unregisterStateChangeListener();
@@ -19,67 +19,67 @@ class MiAqaraCube extends Homey.Device {
 
   onEventFromGateway(device) {
     const { triggers } = this.getDriver();
-    const data = JSON.parse(device["data"]);
 
-    if (data["voltage"]) {
-      const battery = (data["voltage"] - 2800) / 5;
+    if (device && device.data && device.data["voltage"]) {
+      const battery = (device.data["voltage"] - 2800) / 5;
       this.updateCapabilityValue("measure_battery", battery > 100 ? 100 : battery);
       this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
     }
 
-    if (data["voltage"]) {
-      const battery = (data["voltage"] - 2800) / 5;
-      this.updateCapabilityValue("measure_battery", battery > 100 ? 100 : battery);
-      this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
-    }
-
-    if (data["status"] == "shake_air") {
+    if (device && device.data && device.data["status"] == "shake_air") {
       triggers.shake_air.trigger(this, {}, true);
     }
 
-    if (data["status"] == "tap_twice") {
+    if (device && device.data && device.data["status"] == "tap_twice") {
       triggers.tap_twice.trigger(this, {}, true);
     }
 
-    if (data["status"] == "move") {
+    if (device && device.data && device.data["status"] == "move") {
       triggers.move.trigger(this, {}, true);
     }
 
-    if (data["status"] == "flip180") {
+    if (device && device.data && device.data["status"] == "flip180") {
       triggers.flip180.trigger(this, {}, true);
     }
 
-    if (data["status"] == "flip90") {
+    if (device && device.data && device.data["status"] == "flip90") {
       triggers.flip90.trigger(this, {}, true);
     }
 
-    if (data["status"] == "free_fall") {
+    if (device && device.data && device.data["status"] == "free_fall") {
       triggers.free_fall.trigger(this, {}, true);
     }
 
-    if (data["status"] == "alert") {
+    if (device && device.data && device.data["status"] == "alert") {
       triggers.alert.trigger(this, {}, true);
     }
 
-    if (parseInt(data["rotate"]) > 0) {
+    if (parseInt(device.data["rotate"]) > 0) {
       triggers.rotatePositive.trigger(this, {}, true);
     }
 
-    if (parseInt(data["rotate"]) < 0) {
+    if (parseInt(device.data["rotate"]) < 0) {
       triggers.rotateNegative.trigger(this, {}, true);
     }
 
-    if (data["rotate"]) {
+    if (device && device.data && device.data["rotate"]) {
       let tokens = {
-        cube_rotated: parseInt(data["rotate"])
+        cube_rotated: parseInt(device.data["rotate"])
       };
 
       triggers.cubeRotated.trigger(this, tokens, true);
     }
 
-    this.setSettings({
-      gatewaySid: Object.values(Homey.app.mihub.getDevices()).filter(deviceObj => deviceObj.sid == device.sid)[0].gatewaySid
-    });
+    let gateways = Homey.app.mihub.gateways;
+    for (let sid in gateways) {
+      gateways[sid]["childDevices"].forEach(deviceSid => {
+        if (this.data.sid == deviceSid) {
+          this.setSettings({
+            gatewaySid: sid
+          });
+        }
+      });
+    }
   }
 
   updateCapabilityValue(name, value) {

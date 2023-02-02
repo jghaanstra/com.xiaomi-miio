@@ -1,9 +1,9 @@
 const Homey = require("homey");
-const model = ["ctrl_ln1.aq1"];
+const model = ["ctrl_ln1.aq1", "switch_b1nacn02"];
 
 class AqaraSwitch extends Homey.Driver {
   onPairListDevices(data, callback) {
-    if (Homey.app.gatewaysList.length > 0) {
+    if (Homey.app.mihub.hubs) {
       Homey.app.mihub
         .getDevicesByModel(model)
         .then(devices =>
@@ -11,15 +11,14 @@ class AqaraSwitch extends Homey.Driver {
             null,
             devices.map(device => {
               return {
-                name: device.modelInfo.name + " | " + device.sid,
+                name: device.name + " | " + device.sid,
                 data: {
                   sid: device.sid
                 },
                 settings: {
                   deviceSid: device.sid,
-                  gatewaySid: device.gatewaySid,
                   model: device.model,
-                  modelCode: device.modelInfo.modelCode
+                  modelCode: device.modelCode
                 }
               };
             })

@@ -10,7 +10,7 @@ class AqaraButtonAdvanced extends Homey.Device {
   }
 
   initialize() {
-    if (Homey.app.gatewaysList.length > 0) {
+    if (Homey.app.mihub.hubs) {
       this.registerStateChangeListener();
     } else {
       this.unregisterStateChangeListener();
@@ -19,37 +19,43 @@ class AqaraButtonAdvanced extends Homey.Device {
 
   onEventFromGateway(device) {
     const { triggers } = this.getDriver();
-    const data = JSON.parse(device["data"]);
 
-    if (data["voltage"]) {
-      const battery = (data["voltage"] - 2800) / 5;
+    if (device && device.data && device.data["voltage"]) {
+      const battery = (device.data["voltage"] - 2800) / 5;
       this.updateCapabilityValue("measure_battery", battery > 100 ? 100 : battery);
       this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
     }
 
-    if (data["status"] == "click") {
+    if (device && device.data && device.data["status"] == "click") {
       triggers.button_click.trigger(this, {}, true);
     }
 
-    if (data["status"] == "double_click") {
+    if (device && device.data && device.data["status"] == "double_click") {
       triggers.button_double_click.trigger(this, {}, true);
     }
 
-    if (data["status"] == "long_click_press") {
+    if (device && device.data && device.data["status"] == "long_click_press") {
       triggers.button_long_click.trigger(this, {}, true);
     }
 
-    if (data["status"] == "long_click_release") {
+    if (device && device.data && device.data["status"] == "long_click_release") {
       triggers.button_long_click_release.trigger(this, {}, true);
     }
 
-    if (data["status"] == "shake") {
+    if (device && device.data && device.data["status"] == "shake") {
       triggers.button_shake.trigger(this, {}, true);
     }
 
-    this.setSettings({
-      gatewaySid: Object.values(Homey.app.mihub.getDevices()).filter(deviceObj => deviceObj.sid == device.sid)[0].gatewaySid
-    });
+    let gateways = Homey.app.mihub.gateways;
+    for (let sid in gateways) {
+      gateways[sid]["childDevices"].forEach(deviceSid => {
+        if (this.data.sid == deviceSid) {
+          this.setSettings({
+            gatewaySid: sid
+          });
+        }
+      });
+    }
   }
 
   updateCapabilityValue(name, value) {

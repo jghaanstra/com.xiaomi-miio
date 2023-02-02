@@ -10,7 +10,7 @@ class AqaraSwitch extends Homey.Device {
   }
 
   async initialize() {
-    if (Homey.app.gatewaysList.length > 0) {
+    if (Homey.app.mihub.hubs) {
       this.registerStateChangeListener();
       this.registerCapabilities();
       this.registerConditions();
@@ -32,32 +32,38 @@ class AqaraSwitch extends Homey.Device {
 
   registerActions() {
     const { actions } = this.getDriver();
-    this.registerSwitchOnAction("onoff.1", actions.rightSwitchOn);
-    this.registerSwitchOffAction("onoff.1", actions.rightSwitchOff);
-    this.registerToggleAction("onoff.1", actions.rightSwitchToggle);
+    this.registerRightSwitchOnAction("onoff.1", actions.rightSwitchOn);
+    this.registerRightSwitchOffAction("onoff.1", actions.rightSwitchOff);
+    this.registerRightSwitchToggleAction("onoff.1", actions.rightSwitchToggle);
   }
 
   onEventFromGateway(device) {
     const { triggers } = this.getDriver();
-    const data = JSON.parse(device["data"]);
 
-    if (data["channel_0"]) {
-      this.updateCapabilityValue("onoff", data["channel_0"] == "on" ? true : false);
+    if (device && device.data && device.data["channel_0"]) {
+      this.updateCapabilityValue("onoff", device.data["channel_0"] == "on" ? true : false);
     }
 
-    if (data["channel_1"]) {
-      this.updateCapabilityValue("onoff.1", data["channel_1"] == "on" ? true : false);
+    if (device && device.data && device.data["channel_1"]) {
+      this.updateCapabilityValue("onoff.1", device.data["channel_1"] == "on" ? true : false);
 
-      if (data["channel_1"] == "on") {
+      if (device.data["channel_1"] == "on") {
         triggers.rightSwitchOn.trigger(this, {}, true);
-      } else if (data["channel_1"] == "off") {
+      } else if (device.data["channel_1"] == "off") {
         triggers.rightSwitchOff.trigger(this, {}, true);
       }
     }
 
-    this.setSettings({
-      gatewaySid: Object.values(Homey.app.mihub.getDevices()).filter(deviceObj => deviceObj.sid == device.sid)[0].gatewaySid
-    });
+    let gateways = Homey.app.mihub.gateways;
+    for (let sid in gateways) {
+      gateways[sid]["childDevices"].forEach(deviceSid => {
+        if (this.data.sid == deviceSid) {
+          this.setSettings({
+            gatewaySid: sid
+          });
+        }
+      });
+    }
   }
 
   updateCapabilityValue(name, value) {
@@ -71,20 +77,14 @@ class AqaraSwitch extends Homey.Device {
   registerToggleLeftChannel(name) {
     const sid = this.data.sid;
     this.registerCapabilityListener(name, async value => {
-      const model = Homey.app.mihub.getDeviceModelBySid(sid);
-      let command = '{"cmd":"write","model":"' + model + '","sid":"' + sid + '","data":{"channel_0":"' + (value ? "on" : "off") + '", "key": "${key}"}}';
-
-      return await Homey.app.mihub.sendWriteCommand(sid, command);
+      return await Homey.app.mihub.sendWrite(sid, { channel_0: value ? "on" : "off" });
     });
   }
 
   registerToggleRightChannel(name) {
     const sid = this.data.sid;
     this.registerCapabilityListener(name, async value => {
-      const model = Homey.app.mihub.getDeviceModelBySid(sid);
-      let command = '{"cmd":"write","model":"' + model + '","sid":"' + sid + '","data":{"channel_1":"' + (value ? "on" : "off") + '", "key": "${key}"}}';
-
-      return await Homey.app.mihub.sendWriteCommand(sid, command);
+      return await Homey.app.mihub.sendWrite(sid, { channel_1: value ? "on" : "off" });
     });
   }
 
@@ -92,33 +92,24 @@ class AqaraSwitch extends Homey.Device {
     condition.registerRunListener((args, state) => Promise.resolve(args.device.getCapabilityValue("onoff.1")));
   }
 
-  registerSwitchOnAction(name, action) {
+  registerRightSwitchOnAction(name, action) {
     action.registerRunListener(async (args, state) => {
       const sid = args.device.data.sid;
-      const model = Homey.app.mihub.getDeviceModelBySid(sid);
-      let command = '{"cmd":"write","model":"' + model + '","sid":"' + sid + '","data":{"channel_1": "on", "key": "${key}"}}';
-
-      return await Homey.app.mihub.sendWriteCommand(sid, command);
+      return await Homey.app.mihub.sendWrite(sid, { channel_1: "on" });
     });
   }
 
-  registerSwitchOffAction(name, action) {
+  registerRightSwitchOffAction(name, action) {
     action.registerRunListener(async (args, state) => {
       const sid = args.device.data.sid;
-      const model = Homey.app.mihub.getDeviceModelBySid(sid);
-      let command = '{"cmd":"write","model":"' + model + '","sid":"' + sid + '","data":{"channel_1": "off", "key": "${key}"}}';
-
-      return await Homey.app.mihub.sendWriteCommand(sid, command);
+      return await Homey.app.mihub.sendWrite(sid, { channel_1: "off" });
     });
   }
 
-  registerToggleAction(name, action) {
+  registerRightSwitchToggleAction(name, action) {
     action.registerRunListener(async (args, state) => {
       const sid = args.device.data.sid;
-      const model = Homey.app.mihub.getDeviceModelBySid(sid);
-      let command = '{"cmd":"write","model":"' + model + '","sid":"' + sid + '","data":{"channel_1":"' + (args.device.getCapabilityValue("onoff.1") ? "off" : "on") + '", "key": "${key}"}}';
-
-      return await Homey.app.mihub.sendWriteCommand(sid, command);
+      return await Homey.app.mihub.sendWrite(sid, { channel_1: "toggle" });
     });
   }
 

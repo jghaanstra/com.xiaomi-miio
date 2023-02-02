@@ -1,11 +1,11 @@
 const Homey = require("homey");
-const model = ["ctrl_neutral2"];
+const model = ["ctrl_neutral2", "switch_b2lacn02"];
 
 class AqaraSwitch extends Homey.Driver {
   onInit() {
     this.triggers = {
       rightSwitchOn: new Homey.FlowCardTriggerDevice("rightSwitchOn").register(),
-      rightSwitchOff: new Homey.FlowCardTriggerDevice("rightSwitchOff").register(),
+      rightSwitchOff: new Homey.FlowCardTriggerDevice("rightSwitchOff").register()
     };
     this.conditions = {
       rightSwitch: new Homey.FlowCardCondition("rightSwitch").register()
@@ -13,12 +13,12 @@ class AqaraSwitch extends Homey.Driver {
     this.actions = {
       rightSwitchOn: new Homey.FlowCardAction("rightSwitchOn").register(),
       rightSwitchOff: new Homey.FlowCardAction("rightSwitchOff").register(),
-      rightSwitchToggle: new Homey.FlowCardAction("rightSwitchToggle").register(),
+      rightSwitchToggle: new Homey.FlowCardAction("rightSwitchToggle").register()
     };
   }
 
   onPairListDevices(data, callback) {
-    if (Homey.app.gatewaysList.length > 0) {
+    if (Homey.app.mihub.hubs) {
       Homey.app.mihub
         .getDevicesByModel(model)
         .then(devices =>
@@ -26,15 +26,14 @@ class AqaraSwitch extends Homey.Driver {
             null,
             devices.map(device => {
               return {
-                name: device.modelInfo.name + " | " + device.sid,
+                name: device.name + " | " + device.sid,
                 data: {
                   sid: device.sid
                 },
                 settings: {
                   deviceSid: device.sid,
-                  gatewaySid: device.gatewaySid,
                   model: device.model,
-                  modelCode: device.modelInfo.modelCode
+                  modelCode: device.modelCode
                 }
               };
             })

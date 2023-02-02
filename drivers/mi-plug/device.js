@@ -11,7 +11,7 @@ class MiPlug extends Homey.Device {
   }
 
   async initialize() {
-    if (Homey.app.gatewaysList.length > 0) {
+    if (Homey.app.mihub.hubs) {
       this.registerStateChangeListener();
       this.registerCapabilities();
       this.registerConditions();
@@ -31,34 +31,40 @@ class MiPlug extends Homey.Device {
 
   onEventFromGateway(device) {
     const { triggers } = this.getDriver();
-    const data = JSON.parse(device["data"]);
 
-    if (data["status"] == "on") {
+    if (device && device.data && device.data["status"] == "on") {
       this.updateCapabilityValue("onoff", true);
     }
 
-    if (data["status"] == "off") {
+    if (device && device.data && device.data["status"] == "off") {
       this.updateCapabilityValue("onoff", false);
     }
 
-    if (data["load_power"]) {
-      this.updateCapabilityValue("measure_power", parseInt(data["load_power"]));
+    if (device && device.data && device.data["load_power"]) {
+      this.updateCapabilityValue("measure_power", parseInt(device.data["load_power"]));
     }
 
-    if (data["power_consumed"]) {
-      this.updateCapabilityValue("meter_power", parseFloat(data["power_consumed"] / 1000));
+    if (device && device.data && device.data["power_consumed"]) {
+      this.updateCapabilityValue("meter_power", parseFloat(device.data["power_consumed"] / 1000));
     }
 
-    if (data["inuse"]) {
-      if (this.inUse != !!parseInt(data["inuse"]) && !!parseInt(data["inuse"])) {
+    if (device && device.data && device.data["inuse"]) {
+      if (this.inUse != !!parseInt(device.data["inuse"]) && !!parseInt(device.data["inuse"])) {
         triggers.inUse.trigger(this, {}, true);
       }
-      this.inUse = !!parseInt(data["inuse"]);
+      this.inUse = !!parseInt(device.data["inuse"]);
     }
 
-    this.setSettings({
-      gatewaySid: Object.values(Homey.app.mihub.getDevices()).filter(deviceObj => deviceObj.sid == device.sid)[0].gatewaySid
-    });
+    let gateways = Homey.app.mihub.gateways;
+    for (let sid in gateways) {
+      gateways[sid]["childDevices"].forEach(deviceSid => {
+        if (this.data.sid == deviceSid) {
+          this.setSettings({
+            gatewaySid: sid
+          });
+        }
+      });
+    }
   }
 
   updateCapabilityValue(name, value) {
@@ -72,10 +78,7 @@ class MiPlug extends Homey.Device {
   registerToggle(name) {
     const sid = this.data.sid;
     this.registerCapabilityListener(name, async value => {
-      const model = Homey.app.mihub.getDeviceModelBySid(sid);
-      let command = '{"cmd":"write","model":"' + model + '","sid":"' + sid + '","data":{"status":"' + (value ? "on" : "off") + '", "key": "${key}"}}';
-
-      return await Homey.app.mihub.sendWriteCommand(sid, command);
+      return await Homey.app.mihub.sendWrite(sid, { channel_0: value ? "on" : "off" });
     });
   }
 

@@ -10,7 +10,7 @@ class AqaraSwitch extends Homey.Device {
   }
 
   async initialize() {
-    if (Homey.app.gatewaysList.length > 0) {
+    if (Homey.app.mihub.hubs) {
       this.registerStateChangeListener();
       this.registerCapabilities();
     } else {
@@ -23,15 +23,20 @@ class AqaraSwitch extends Homey.Device {
   }
 
   onEventFromGateway(device) {
-    const data = JSON.parse(device["data"]);
-
-    if (data["channel_0"]) {
-      this.updateCapabilityValue("onoff", data["channel_0"] == "on" ? true : false);
+    if (device && device.data && device.data["channel_0"]) {
+      this.updateCapabilityValue("onoff", device.data["channel_0"] == "on" ? true : false);
     }
 
-    this.setSettings({
-      gatewaySid: Object.values(Homey.app.mihub.getDevices()).filter(deviceObj => deviceObj.sid == device.sid)[0].gatewaySid
-    });
+    let gateways = Homey.app.mihub.gateways;
+    for (let sid in gateways) {
+      gateways[sid]["childDevices"].forEach(deviceSid => {
+        if (this.data.sid == deviceSid) {
+          this.setSettings({
+            gatewaySid: sid
+          });
+        }
+      });
+    }
   }
 
   updateCapabilityValue(name, value) {
@@ -45,10 +50,7 @@ class AqaraSwitch extends Homey.Device {
   registerToggle(name) {
     const sid = this.data.sid;
     this.registerCapabilityListener(name, async value => {
-      const model = Homey.app.mihub.getDeviceModelBySid(sid);
-      let command = '{"cmd":"write","model":"' + model + '","sid":"' + sid + '","data":{"channel_0":"' + (value ? "on" : "off") + '", "key": "${key}"}}';
-
-      return await Homey.app.mihub.sendWriteCommand(sid, command);
+      return await Homey.app.mihub.sendWrite(sid, { channel_0: value ? "on" : "off" });
     });
   }
 

@@ -37,5 +37,14 @@
   },
   "3.0.5": {
     "en": "Added support for Aqara wall switch with neutral single/double button, wirelles wall single/double switches."
+  },
+  "3.0.6": {
+    "en": "Added support for Aqara water leak sensor, Aqara D1 single/double wall switches."
+  },
+  "3.0.7": {
+    "en": "fix Aqara switches actions."
+  },
+  "3.0.8": {
+    "en": "Added support for Aqara curtains."
   }
 }

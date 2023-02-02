@@ -10,7 +10,7 @@ class MiMotionSensor extends Homey.Device {
   }
 
   initialize() {
-    if (Homey.app.gatewaysList.length > 0) {
+    if (Homey.app.mihub.hubs) {
       this.registerStateChangeListener();
       this.setAvailable();
     } else {
@@ -20,10 +20,10 @@ class MiMotionSensor extends Homey.Device {
 
   onEventFromGateway(device) {
     const { triggers } = this.getDriver();
-    const data = JSON.parse(device["data"]);
+
     const settings = this.getSettings();
 
-    if (data["status"] == "motion") {
+    if (device && device.data && device.data["status"] == "motion") {
       this.updateCapabilityValue("alarm_motion", true);
       if (this.timeout) {
         clearTimeout(this.timeout);
@@ -33,20 +33,27 @@ class MiMotionSensor extends Homey.Device {
       }, settings.alarm_duration_number * 1000);
     }
 
-    if (data["no_motion"]) {
+    if (device && device.data && device.data["no_motion"]) {
       this.updateCapabilityValue("alarm_motion", false);
-      triggers["motionSensorNoMotion" + data.no_motion].trigger(this, {}, true);
+      triggers["motionSensorNoMotion" + device.data["no_motion"]].trigger(this, {}, true);
     }
 
-    if (data["voltage"]) {
-      const battery = (data["voltage"] - 2800) / 5;
+    if (device && device.data && device.data["voltage"]) {
+      const battery = (device.data["voltage"] - 2800) / 5;
       this.updateCapabilityValue("measure_battery", battery > 100 ? 100 : battery);
       this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
     }
 
-    this.setSettings({
-      gatewaySid: Object.values(Homey.app.mihub.getDevices()).filter(deviceObj => deviceObj.sid == device.sid)[0].gatewaySid
-    });
+    let gateways = Homey.app.mihub.gateways;
+    for (let sid in gateways) {
+      gateways[sid]["childDevices"].forEach(deviceSid => {
+        if (this.data.sid == deviceSid) {
+          this.setSettings({
+            gatewaySid: sid
+          });
+        }
+      });
+    }
   }
 
   updateCapabilityValue(name, value) {

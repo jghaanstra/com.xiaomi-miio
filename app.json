@@ -10,26 +10,27 @@
     "en": ["Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway"],
     "nl": ["Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway"]
   },
-  "version": "3.0.5",
-  "compatibility": ">=3.0.0",
+  "version": "3.0.9",
+  "compatibility": ">=8.0.0",
+  "platforms": ["local"],
   "author": {
-    "name": "Payziyev Maxmudjon",
-    "email": "bio42@mail.ru"
+    "name": "Jelger Haanstra",
+    "email": "homey@solidewebservices.com"
   },
   "contributing": {
     "donate": {
       "paypal": {
-        "username": "Sallo"
+        "username": "jghaanstra"
       }
     }
   },
   "bugs": {
-    "url": "https://github.com/Maxmudjon/com.xiaomi-miio/issues"
+    "url": "https://github.com/jghaanstra/com.xiaomi-miio/issues"
   },
   "homeyCommunityTopicId": 118,
-  "source": "https://github.com/Maxmudjon/com.xiaomi-miio",
+  "source": "https://github.com/jghaanstra/com.xiaomi-miio",
   "homepage": "https://community.athom.com/t/118",
-  "support": "mailto:bio42@mail.ru",
+  "support": "mailto:homey@solidewebservices.com",
   "images": {
     "large": "./assets/images/large.jpg",
     "small": "./assets/images/small.jpg"
@@ -2220,6 +2221,268 @@
       "images": {
         "large": "/drivers/aqara-86sw2-advanced/assets/images/large.png",
         "small": "/drivers/aqara-86sw2-advanced/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-wleak-sensor",
+      "name": {
+        "en": "Aqara water leak sensor"
+      },
+      "class": "sensor",
+      "capabilities": ["alarm_water", "measure_battery", "alarm_battery"],
+      "capabilitiesOptions": {
+        "alarm_water": {
+          "title": {
+            "en": "Water"
+          }
+        }
+      },
+      "energy": {
+        "batteries": ["CR2032"]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device information"
+          },
+          "children": [
+            {
+              "id": "deviceSid",
+              "type": "label",
+              "label": {
+                "en": "Device sid"
+              },
+              "value": "0123456789abcd"
+            },
+            {
+              "id": "gatewaySid",
+              "type": "label",
+              "label": {
+                "en": "Gateway sid"
+              },
+              "value": "0123456789ab"
+            },
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Device model"
+              },
+              "value": "lumi.device"
+            },
+            {
+              "id": "modelCode",
+              "type": "label",
+              "label": {
+                "en": "Device model code"
+              },
+              "value": "AABBCC01LM"
+            }
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/aqara-wleak-sensor/assets/images/large.png",
+        "small": "/drivers/aqara-wleak-sensor/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-curtain",
+      "name": {
+        "en": "Aqara Curtain Motor"
+      },
+      "class": "windowcoverings",
+      "capabilities": ["onoff", "dim", "windowcoverings_state"],
+      "capabilitiesOptions": {
+        "onoff": {
+          "title": {
+            "en": "Open Close"
+          },
+          "greyout": false
+        },
+        "dim": {
+          "title": {
+            "en": "Level"
+          }
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device information"
+          },
+          "children": [
+            {
+              "id": "deviceSid",
+              "type": "label",
+              "label": {
+                "en": "Device sid"
+              },
+              "value": "0123456789abcd"
+            },
+            {
+              "id": "gatewaySid",
+              "type": "label",
+              "label": {
+                "en": "Gateway sid"
+              },
+              "value": "0123456789ab"
+            },
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Device model"
+              },
+              "value": "lumi.device"
+            },
+            {
+              "id": "modelCode",
+              "type": "label",
+              "label": {
+                "en": "Device model code"
+              },
+              "value": "AABBCC01LM"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Mode of operation"
+          },
+          "children": [
+            {
+              "id": "reverted",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Reverted"
+              }
+            }
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/aqara-curtain/assets/images/large.png",
+        "small": "/drivers/aqara-curtain/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-curtain-aq2",
+      "name": {
+        "en": "Aqara Roller Shade Controller"
+      },
+      "class": "windowcoverings",
+      "capabilities": ["onoff", "dim", "windowcoverings_state"],
+      "capabilitiesOptions": {
+        "onoff": {
+          "title": {
+            "en": "Open Close"
+          },
+          "greyout": false
+        },
+        "dim": {
+          "title": {
+            "en": "Level"
+          }
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device information"
+          },
+          "children": [
+            {
+              "id": "deviceSid",
+              "type": "label",
+              "label": {
+                "en": "Device sid"
+              },
+              "value": "0123456789abcd"
+            },
+            {
+              "id": "gatewaySid",
+              "type": "label",
+              "label": {
+                "en": "Gateway sid"
+              },
+              "value": "0123456789ab"
+            },
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Device model"
+              },
+              "value": "lumi.device"
+            },
+            {
+              "id": "modelCode",
+              "type": "label",
+              "label": {
+                "en": "Device model code"
+              },
+              "value": "AABBCC01LM"
+            }
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/aqara-curtain-aq2/assets/images/large.png",
+        "small": "/drivers/aqara-curtain-aq2/assets/images/small.png"
       },
       "pair": [
         {

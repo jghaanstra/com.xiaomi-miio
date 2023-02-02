@@ -1,7 +1,7 @@
 "use strict";
 const Homey = require("homey");
 const tinycolor = require("tinycolor2");
-const MiHub = require("./lib/index");
+const MiHub = require("./lib/MiHub");
 const miio = require("miio");
 const { ManagerSettings } = Homey;
 const CHARS = "0123456789ABCDEF";
@@ -24,8 +24,6 @@ class XiaomiMiioApp extends Homey.App {
     this.onSettingsChanged = this.onSettingsChanged.bind(this);
     ManagerSettings.on("set", this.onSettingsChanged);
     ManagerSettings.on("unset", this.onSettingsChanged);
-    this.gatewaysList = Homey.ManagerSettings.get("gatewaysList") || [];
-    this.initialize(this.gatewaysList, { debug: false });
 
     // YEELIGHTS: CONDITION AND ACTION FLOW CARDS
     new Homey.FlowCardCondition("yeelightNightmode").register().registerRunListener((args, state) => {
@@ -284,6 +282,7 @@ class XiaomiMiioApp extends Homey.App {
   }
 
   initialize(gatewaysList, opts) {
+    this.log(gatewaysList);
     this.gatewaysList = gatewaysList;
     if (gatewaysList.length > 0) {
       let options = {
@@ -312,7 +311,7 @@ class XiaomiMiioApp extends Homey.App {
   onSettingsChanged(key) {
     switch (key) {
       case "gatewaysList":
-        this.initialize(ManagerSettings.get("gatewaysList") || [], { debug: false });
+        this.mihub.updateGateways(ManagerSettings.get("gatewaysList"));
         break;
       default:
         break;
@@ -373,7 +372,7 @@ class XiaomiMiioApp extends Homey.App {
   removeChildDevice(gatewaySid, childSid) {
     const command = '{"cmd": "write","model": "gateway","sid": "' + gatewaySid + '","data":{"remove_device": "' + childSid + '", "key": "${key}"}}';
 
-    return this.mihub.sendWriteCommand(gatewaySid, command);
+    return this.mihub.sendWriteCmd(gatewaySid, command);
   }
 }
 

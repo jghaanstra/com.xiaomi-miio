@@ -18,7 +18,7 @@ class MiAqaraCube extends Homey.Driver {
   }
 
   onPairListDevices(data, callback) {
-    if (Homey.app.gatewaysList.length > 0) {
+    if (Homey.app.mihub.hubs) {
       Homey.app.mihub
         .getDevicesByModel(model)
         .then(devices =>
@@ -26,15 +26,14 @@ class MiAqaraCube extends Homey.Driver {
             null,
             devices.map(device => {
               return {
-                name: device.modelInfo.name + " | " + device.sid,
+                name: device.name + " | " + device.sid,
                 data: {
                   sid: device.sid
                 },
                 settings: {
                   deviceSid: device.sid,
-                  gatewaySid: device.gatewaySid,
                   model: device.model,
-                  modelCode: device.modelInfo.modelCode
+                  modelCode: device.modelCode
                 }
               };
             })

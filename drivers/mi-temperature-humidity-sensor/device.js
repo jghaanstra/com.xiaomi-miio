@@ -10,7 +10,7 @@ class MiTemperatureHumiditySensor extends Homey.Device {
   }
 
   async initialize() {
-    if (Homey.app.gatewaysList.length > 0) {
+    if (Homey.app.mihub.hubs) {
       this.registerStateChangeListener();
       this.registerConditions();
       this.setAvailable();
@@ -26,30 +26,36 @@ class MiTemperatureHumiditySensor extends Homey.Device {
   }
 
   onEventFromGateway(device) {
-    const data = JSON.parse(device["data"]);
     const settings = this.getSettings();
 
-    if (data["voltage"]) {
-      const battery = (data["voltage"] - 2800) / 5;
+    if (device && device.data && device.data["voltage"]) {
+      const battery = (device.data["voltage"] - 2800) / 5;
       this.updateCapabilityValue("measure_battery", battery > 100 ? 100 : battery);
       this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
     }
 
-    if (data["temperature"]) {
+    if (device && device.data && device.data["temperature"]) {
       if (settings.addOrTakeOffset == "add") {
-        this.updateCapabilityValue("measure_temperature", parseFloat(parseFloat(data["temperature"] / 100 + parseFloat(settings.offset)).toFixed(1)));
+        this.updateCapabilityValue("measure_temperature", parseFloat(parseFloat(device.data["temperature"] / 100 + parseFloat(settings.offset)).toFixed(1)));
       } else if (settings.addOrTakeOffset == "take") {
-        this.updateCapabilityValue("measure_temperature", parseFloat(parseFloat(data["temperature"] / 100 - parseFloat(settings.offset)).toFixed(1)));
+        this.updateCapabilityValue("measure_temperature", parseFloat(parseFloat(device.data["temperature"] / 100 - parseFloat(settings.offset)).toFixed(1)));
       }
     }
 
-    if (data["humidity"]) {
-      this.updateCapabilityValue("measure_humidity", parseFloat(parseFloat(data["humidity"] / 100).toFixed(1)));
+    if (device && device.data && device.data["humidity"]) {
+      this.updateCapabilityValue("measure_humidity", parseFloat(parseFloat(device.data["humidity"] / 100).toFixed(1)));
     }
 
-    this.setSettings({
-      gatewaySid: Object.values(Homey.app.mihub.getDevices()).filter(deviceObj => deviceObj.sid == device.sid)[0].gatewaySid
-    });
+    let gateways = Homey.app.mihub.gateways;
+    for (let sid in gateways) {
+      gateways[sid]["childDevices"].forEach(deviceSid => {
+        if (this.data.sid == deviceSid) {
+          this.setSettings({
+            gatewaySid: sid
+          });
+        }
+      });
+    }
   }
 
   updateCapabilityValue(name, value) {

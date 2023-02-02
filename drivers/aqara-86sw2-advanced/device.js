@@ -10,7 +10,7 @@ class AqaraWirellesSwitch extends Homey.Device {
   }
 
   async initialize() {
-    if (Homey.app.gatewaysList.length > 0) {
+    if (Homey.app.mihub.hubs) {
       this.registerStateChangeListener();
     } else {
       this.unregisterStateChangeListener();
@@ -19,45 +19,51 @@ class AqaraWirellesSwitch extends Homey.Device {
 
   onEventFromGateway(device) {
     const { triggers } = this.getDriver();
-    const data = JSON.parse(device["data"]);
 
-    if (data["voltage"]) {
-      const battery = (data["voltage"] - 2800) / 5;
+    if (device && device.data && device.data["voltage"]) {
+      const battery = (device.data["voltage"] - 2800) / 5;
       this.updateCapabilityValue("measure_battery", battery > 100 ? 100 : battery);
       this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
     }
 
-    if (data["channel_0"] == "click") {
+    if (device && device.data && device.data["channel_0"] == "click") {
       triggers.switch_left_click.trigger(this, {}, true);
     }
 
-    if (data["channel_0"] == "double_click") {
+    if (device && device.data && device.data["channel_0"] == "double_click") {
       triggers.switch_left_double_click.trigger(this, {}, true);
     }
 
-    if (data["channel_0"] == "long_click") {
+    if (device && device.data && device.data["channel_0"] == "long_click") {
       triggers.switch_left_long_click.trigger(this, {}, true);
     }
 
-    if (data["channel_1"] == "click") {
+    if (device && device.data && device.data["channel_1"] == "click") {
       triggers.switch_right_click.trigger(this, {}, true);
     }
 
-    if (data["channel_1"] == "double_click") {
+    if (device && device.data && device.data["channel_1"] == "double_click") {
       triggers.switch_right_double_click.trigger(this, {}, true);
     }
 
-    if (data["channel_1"] == "long_click") {
+    if (device && device.data && device.data["channel_1"] == "long_click") {
       triggers.switch_right_long_click.trigger(this, {}, true);
     }
 
-    if (data["dual_channel"]) {
+    if (device && device.data && device.data["dual_channel"]) {
       triggers.switch_both_click.trigger(this, {}, true);
     }
 
-    this.setSettings({
-      gatewaySid: Object.values(Homey.app.mihub.getDevices()).filter(deviceObj => deviceObj.sid == device.sid)[0].gatewaySid
-    });
+    let gateways = Homey.app.mihub.gateways;
+    for (let sid in gateways) {
+      gateways[sid]["childDevices"].forEach(deviceSid => {
+        if (this.data.sid == deviceSid) {
+          this.setSettings({
+            gatewaySid: sid
+          });
+        }
+      });
+    }
   }
 
   updateCapabilityValue(name, value) {

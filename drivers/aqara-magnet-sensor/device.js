@@ -10,7 +10,7 @@ class AqaraMagnetSensor extends Homey.Device {
   }
 
   async initialize() {
-    if (Homey.app.gatewaysList.length > 0) {
+    if (Homey.app.mihub.hubs) {
       this.registerStateChangeListener();
       this.setAvailable();
     } else {
@@ -19,24 +19,30 @@ class AqaraMagnetSensor extends Homey.Device {
   }
 
   onEventFromGateway(device) {
-    const data = JSON.parse(device["data"]);
-    if (data["voltage"]) {
-      const battery = (data["voltage"] - 2800) / 5;
+    if (device && device.data && device.data["voltage"]) {
+      const battery = (device.data["voltage"] - 2800) / 5;
       this.updateCapabilityValue("measure_battery", battery > 100 ? 100 : battery);
       this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
     }
 
-    if (data["status"] == "open") {
+    if (device && device.data && device.data["status"] == "open") {
       this.updateCapabilityValue("alarm_contact", true);
     }
 
-    if (data["status"] == "close") {
+    if (device && device.data && device.data["status"] == "close") {
       this.updateCapabilityValue("alarm_contact", false);
     }
 
-    this.setSettings({
-      gatewaySid: Object.values(Homey.app.mihub.getDevices()).filter(deviceObj => deviceObj.sid == device.sid)[0].gatewaySid
-    });
+    let gateways = Homey.app.mihub.gateways;
+    for (let sid in gateways) {
+      gateways[sid]["childDevices"].forEach(deviceSid => {
+        if (this.data.sid == deviceSid) {
+          this.setSettings({
+            gatewaySid: sid
+          });
+        }
+      });
+    }
   }
 
   updateCapabilityValue(name, value) {
