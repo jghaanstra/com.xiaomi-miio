@@ -1,0 +1,25 @@
+{
+  "name": {
+    "en": "Mijia Philips Color Bulb (WiFi)",
+    "nl": "Mijia Philips Color Bulb (WiFi)"
+  },
+  "images": {
+    "large": "drivers/philips_light_cbulb/assets/images/large.jpg",
+    "small": "drivers/philips_light_cbulb/assets/images/small.jpg"
+  },
+  "class": "light",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "light_hue",
+    "light_temperature"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "min": 0.01
+    }
+  }
+}

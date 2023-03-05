@@ -1,0 +1,43 @@
+{
+  "id": "enableChildLock",
+  "title": {
+    "en": "Enable Child Lock",
+    "nl": "Instellen kindbeveiliging"
+  },
+  "titleFormatted": {
+    "en": "Set child lock [[childlock]]",
+    "nl": "Wijzig kindbeveiliging naar [[childlock]]"
+  },
+  "args": [
+    {
+      "name": "childlock",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=zhimi-fan|dmaker-fan"
+    }
+  ],
+  "platforms": ["local"]
+}

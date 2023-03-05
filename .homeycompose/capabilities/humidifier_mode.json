@@ -1,0 +1,32 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Mode",
+    "nl": "Modus"
+  },
+  "values": [
+    {
+      "id": "silent",
+      "title": {
+        "en": "Silent",
+        "nl": "Stil"
+      }
+    },
+    {
+      "id": "medium",
+      "title": {
+        "en": "Medium",
+        "nl": "Medium"
+      }
+    },
+    {
+      "id": "high",
+      "title": {
+        "en": "High",
+        "nl": "Hoog"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

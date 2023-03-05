@@ -1,0 +1,48 @@
+{
+  "title": {
+    "en": "Play custom radio station",
+    "nl": "Afspelen custom radio station"
+  },
+  "titleFormatted": {
+    "en": "Play custom radio station [[id]] on url [[url]] with volume [[volume]]",
+    "nl": "Afspelen custom radio station [[id]] op [[url]] met volume [[volume]]"
+  },
+  "args": [
+    {
+      "name": "id",
+      "type": "text",
+      "placeholder": {
+        "en": "ID",
+        "nl": "ID"
+      }
+    },
+    {
+      "name": "url",
+      "type": "text",
+      "placeholder": {
+        "en": "URL",
+        "nl": "URL"
+      }
+    },
+    {
+      "type": "range",
+      "name": "volume",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "label": "%",
+      "labelMultiplier": 100,
+      "labelDecimals": 0
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Robot",
+        "nl": "Selecteer Mi Robot"
+      },
+      "filter": "driver_id=gateway"
+    }
+  ],
+  "platforms": ["local"]
+}

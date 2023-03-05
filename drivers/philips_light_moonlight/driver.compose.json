@@ -1,0 +1,22 @@
+{
+  "name": {
+    "en": "Philips Bedside Lamp (WiFi)",
+    "nl": "Philips Bedside Lamp (WiFi)"
+  },
+  "images": {
+    "large": "drivers/philips_light_moonlight/assets/images/large.jpg",
+    "small": "drivers/philips_light_moonlight/assets/images/small.jpg"
+  },
+  "class": "light",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "light_hue",
+    "light_saturation",
+    "light_temperature",
+    "light_mode"
+  ]
+}

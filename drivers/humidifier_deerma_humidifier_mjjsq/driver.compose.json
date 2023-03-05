@@ -1,0 +1,43 @@
+{
+  "name": {
+    "en": "Mijia Smart Sterilization Humidifier MJJSQ (WiFi)",
+    "nl": "Mijia Smart Sterilization Humidifier MJJSQ (WiFi)"
+  },
+  "images": {
+    "large": "drivers/humidifier_deerma_humidifier_mjjsq/assets/images/large.jpg",
+    "small": "drivers/humidifier_deerma_humidifier_mjjsq/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "humidifier_deerma_mode",
+    "measure_temperature",
+    "measure_humidity",
+    "alarm_water",
+    "alarm_motion.tank"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Humidity",
+        "nl": "Luchtvochtigheid"
+      }
+    },
+    "alarm_water": {
+      "title": {
+        "en": "Waterlevel",
+        "nl": "Waterniveau"
+      }
+    },
+    "alarm_motion.tank": {
+      "title": {
+        "en": "Water tank status",
+        "nl": "Watertank status"
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": {
+    "en": "Universal Intelligent IR Remote Controller (WiFi)",
+    "nl": "Universal Intelligent IR Remote Controller (WiFi)"
+  },
+  "images": {
+    "large": "drivers/remote_chuangmi_remote_v2/assets/images/large.jpg",
+    "small": "drivers/remote_chuangmi_remote_v2/assets/images/small.jpg"
+  },
+  "class": "other",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "channel_up",
+    "channel_down",
+    "volume_up",
+    "volume_down",
+    "volume_mute",
+    "dim"
+  ],
+  "pair": [
+    {
+      "id": "deviceTypes"
+    },
+    {
+      "id": "devices",
+      "navigation": {
+        "prev": "deviceTypes"
+      }
+    },
+    {
+      "id": "deviceCharacteristics",
+      "navigation": {
+        "next": "keys",
+        "prev": "devices"
+      }
+    },
+    {
+      "id": "keys",
+      "navigation": {
+        "next": "done",
+        "prev": "deviceCharacteristics"
+      }
+    },
+    {
+      "id": "done",
+      "navigation": {
+        "prev": "devices"
+      }
+    }
+  ]
+}

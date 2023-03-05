@@ -1,0 +1,19 @@
+{
+  "id": "inUse",
+  "title": {
+    "en": "!{{is|isn't}} in use",
+    "nl": "!{{is|is niet}} in gebruik"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-plug"
+    }
+  ],
+  "platforms": ["local"]
+}

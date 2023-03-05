@@ -1,0 +1,14 @@
+{
+  "title": {
+    "en": "Gas Density",
+    "nl": "Gas dichtheid"
+  },
+  "type": "number",
+  "units": {
+    "en": "kg/m3",
+    "nl": "kg/m3"
+  },
+  "getable": true,
+  "setable": false,
+  "icon": "/assets/icons/measure_gas_density.svg"
+}

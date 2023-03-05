@@ -1,0 +1,17 @@
+{
+  "name": {
+    "en": "Dmaker Mi Fan Generic (WiFi)",
+    "nl": "Dmaker Mi Fan Generic (WiFi)"
+  },
+  "images": {
+    "large": "drivers/dmaker-fan/assets/images/large.jpg",
+    "small": "drivers/dmaker-fan/assets/images/small.jpg"
+  },
+  "class": "fan",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff"
+  ]
+}

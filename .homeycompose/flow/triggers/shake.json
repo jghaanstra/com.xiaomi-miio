@@ -1,0 +1,19 @@
+{
+  "id": "shake",
+  "title": {
+    "en": "Shake",
+    "nl": "Schudden"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=aqara-button-advanced"
+    }
+  ],
+  "platforms": ["local"]
+}

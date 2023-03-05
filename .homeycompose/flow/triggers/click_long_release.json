@@ -1,0 +1,19 @@
+{
+  "id": "click_long_release",
+  "title": {
+    "en": "Long Click Release",
+    "nl": "Lange klik loslaten"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=aqara-button-advanced"
+    }
+  ],
+  "platforms": ["local"]
+}

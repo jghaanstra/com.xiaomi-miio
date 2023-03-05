@@ -1,0 +1,19 @@
+{
+  "name": {
+    "en": "Aqara Wall Outlet (Gateway)",
+    "nl": "Aqara Wall Outlet (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/ctrl_86plug_aq1/assets/images/large.jpg",
+    "small": "/drivers/ctrl_86plug_aq1/assets/images/small.jpg"
+  },
+  "class": "light",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "onoff",
+    "meter_power",
+    "measure_power"
+  ]
+}

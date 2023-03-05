@@ -1,0 +1,42 @@
+{
+  "id": "humidifier2Waterlevel",
+  "title": {
+    "en": "Waterlevel has changed",
+    "nl": "Waterniveau is veranderd",
+    "de": "Der Wasserstand hat sich geändert"
+  },
+  "tokens": [
+    {
+      "name": "waterlevel",
+      "type": "number",
+      "title": {
+        "en": "current waterlevel",
+        "nl": "actueel waterniveau",
+        "de": "aktueller Wasserstand"
+      },
+      "example": 88
+    },
+    {
+      "name": "previous_waterlevel",
+      "type": "number",
+      "title": {
+        "en": "previous waterlevel",
+        "nl": "vorige waterniveau",
+        "de": "bisheriger Wasserstand"
+      },
+      "example": 90
+    }
+  ],
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Humidifier 2",
+        "nl": "Selecteer Humidifier 2"
+      },
+      "filter": "driver_id=mi-humidifier2"
+    }
+  ],
+  "platforms": ["local"]
+}

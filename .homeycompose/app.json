@@ -1,0 +1,76 @@
+{
+  "id": "com.xiaomi-miio",
+  "sdk": 3,
+  "brandColor": "#FF6801",
+  "name": {
+    "en": "Xiaomi Mi Home",
+    "nl": "Xiaomi Mi Home"
+  },
+  "tags": {
+    "en": ["Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway"],
+    "nl": ["Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway"]
+  },
+  "version": "3.1.0",
+  "compatibility": ">=8.0.0",
+  "platforms": ["local"],
+  "author": {
+    "name": "Jelger Haanstra",
+    "email": "homey@solidewebservices.com"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "jghaanstra"
+      }
+    }
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Maxmudjon",
+        "name": "MadMonkey87"
+      }
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/jghaanstra/com.xiaomi-miio/issues"
+  },
+  "homeyCommunityTopicId": 118,
+  "source": "https://github.com/jghaanstra/com.xiaomi-miio",
+  "homepage": "https://community.athom.com/t/118",
+  "support": "mailto:homey@solidewebservices.com",
+  "images": {
+    "large": "./assets/images/large.jpg",
+    "small": "./assets/images/small.jpg"
+  },
+  "category": "appliances",
+  "description": {
+    "en": "Control Xiaomi Mi Home devices using Homey",
+    "nl": "Bedien Xiaomi Mi Home apparaten via Homey"
+  },
+  "dependencies": {
+    "net": "*"
+  },
+  "api": {
+    "generate": {
+      "method": "post",
+      "path": "/generate",
+      "public": false
+    },
+    "testConnection": {
+      "method": "post",
+      "path": "/testConnection",
+      "public": false
+    },
+    "getGateways": {
+      "method": "get",
+      "path": "/getGateways",
+      "public": false
+    },
+    "removeChildDevice": {
+      "method": "post",
+      "path": "/removeChildDevice",
+      "public": false
+    }
+  }
+}

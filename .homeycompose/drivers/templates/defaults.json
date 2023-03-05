@@ -1,0 +1,22 @@
+{
+  "icon": "{{driverAssetsPath}}/icon.svg",
+  "pair": [
+    {
+      "id": "start",
+      "$template": "start",
+      "navigation": {
+        "next": "pair"
+      }
+    },
+    {
+      "id": "pair",
+      "$template": "pair"
+    },
+    {
+      "id": "add_device",
+      "$template": "add_device"
+    }
+  ],
+  "platforms": [ "local" ],
+  "connectivity": [ "lan" ]
+}

@@ -1,0 +1,44 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Mode",
+    "nl": "Modus",
+    "de": "Modus"
+  },
+  "getable": true,
+  "setable": true,
+  "values": [
+    {
+      "id": "auto",
+      "title": {
+        "en": "Auto",
+        "nl": "Auto",
+        "de": "Auto"
+      }
+    },
+    {
+      "id": "night",
+      "title": {
+        "en": "Night",
+        "nl": "Nacht",
+        "de": "Nacht"
+      }
+    },
+    {
+      "id": "favorite",
+      "title": {
+        "en": "Favorite",
+        "nl": "Favoriet",
+        "de": "Favorit"
+      }
+    },
+    {
+      "id": "idle",
+      "title": {
+        "en": "Idle",
+        "nl": "Standby",
+        "de": "Leerlauf"
+      }
+    }
+  ]
+}

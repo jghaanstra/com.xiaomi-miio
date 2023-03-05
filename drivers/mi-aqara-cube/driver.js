@@ -1,49 +1,30 @@
-const Homey = require("homey");
-const model = ["cube", "sensor_cube.aqgl01", "sensor_cube"];
+'use strict';
 
-class MiAqaraCube extends Homey.Driver {
-  onInit() {
-    this.triggers = {
-      shake_air: new Homey.FlowCardTriggerDevice("shake_air_cube").register(),
-      tap_twice: new Homey.FlowCardTriggerDevice("tap_twice_cube").register(),
-      move: new Homey.FlowCardTriggerDevice("move_cube").register(),
-      flip180: new Homey.FlowCardTriggerDevice("flip180_cube").register(),
-      flip90: new Homey.FlowCardTriggerDevice("flip90_cube").register(),
-      free_fall: new Homey.FlowCardTriggerDevice("free_fall_cube").register(),
-      alert: new Homey.FlowCardTriggerDevice("alert_cube").register(),
-      rotatePositive: new Homey.FlowCardTriggerDevice("rotate_positive_cube").register(),
-      rotateNegative: new Homey.FlowCardTriggerDevice("rotate_negative_cube").register(),
-      cubeRotated: new Homey.FlowCardTriggerDevice("cubeRotated").register()
-    };
-  }
+const Driver = require('../subdevice_driver.js');
+const Util = require('../../lib/util.js');
 
-  onPairListDevices(data, callback) {
-    if (Homey.app.mihub.hubs) {
-      Homey.app.mihub
-        .getDevicesByModel(model)
-        .then(devices =>
-          callback(
-            null,
-            devices.map(device => {
-              return {
-                name: device.name + " | " + device.sid,
-                data: {
-                  sid: device.sid
-                },
-                settings: {
-                  deviceSid: device.sid,
-                  model: device.model,
-                  modelCode: device.modelCode
-                }
-              };
-            })
-          )
-        )
-        .catch(() => callback(new Error(Homey.__("pair.no_devices_found"))));
-    } else {
-      callback(new Error(Homey.__("pair.no_gateways")));
+class MiAqaraCube extends Driver {
+
+  async onInit() {
+
+    if (!this.util) this.util = new Util({homey: this.homey});
+
+    this.homey.flow.getDeviceTriggerCard('shake_air_cube');
+    this.homey.flow.getDeviceTriggerCard('tap_twice_cube');
+    this.homey.flow.getDeviceTriggerCard('move_cube');
+    this.homey.flow.getDeviceTriggerCard('flip180_cube');
+    this.homey.flow.getDeviceTriggerCard('flip90_cube');
+    this.homey.flow.getDeviceTriggerCard('free_fall_cube');
+    this.homey.flow.getDeviceTriggerCard('alert_cube');
+    this.homey.flow.getDeviceTriggerCard('cubeRotated');
+    this.homey.flow.getDeviceTriggerCard('rotate_positive_cube');
+    this.homey.flow.getDeviceTriggerCard('rotate_negative_cube');
+
+    this.config = {
+      model: ["cube", "sensor_cube.aqgl01", "sensor_cube"]
     }
   }
+
 }
 
 module.exports = MiAqaraCube;

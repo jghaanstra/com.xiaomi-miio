@@ -1,0 +1,68 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "User Settings",
+      "nl": "Gebruikersinstellingem"
+    },
+    "children": [
+      {
+        "id": "led",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "LED",
+          "nl": "LED"
+        }
+      },
+      {
+        "id": "buzzer",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Buzzer",
+          "nl": "Buzzer"
+        }
+      },
+      {
+        "id": "childLock",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Child Lock",
+          "nl": "Kinderslot"
+        }
+      },
+      {
+        "id": "f1_hour_used",
+        "type": "label",
+        "label": {
+          "en": "Filter life",
+          "nl": "Filter duur"
+        },
+        "value": "0%"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings",
+      "nl": "Apparaat instellingen"
+    },
+    "children": [
+      {
+        "id": "address",
+        "$extends": "address"
+      },
+      {
+        "id": "token",
+        "$extends": "token"
+      },
+      {
+        "id": "polling",
+        "$extends": "polling"
+      }
+    ]
+  }
+]

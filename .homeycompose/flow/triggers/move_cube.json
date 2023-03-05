@@ -1,0 +1,19 @@
+{
+  "id": "move_cube",
+  "title": {
+    "en": "Move",
+    "nl": "Verplaatsen"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-aqara-cube"
+    }
+  ],
+  "platforms": ["local"]
+}

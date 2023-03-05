@@ -1,379 +1,494 @@
-"use strict";
-const Homey = require("homey");
-const tinycolor = require("tinycolor2");
-const MiHub = require("./lib/MiHub");
-const miio = require("miio");
-const { ManagerSettings } = Homey;
-const CHARS = "0123456789ABCDEF";
+'use strict';
 
-function generateKey() {
-  let result = "";
-  for (let i = 0; i < 16; i++) {
-    let idx = Math.floor(Math.random() * CHARS.length);
-    result += CHARS[idx];
-  }
-  return result;
-}
+const Homey = require('homey');
+const miio = require("miio");
+const MiHub = require("./lib/MiHub");
 
 class XiaomiMiioApp extends Homey.App {
-  onInit() {
+
+  async onInit() {
     this.log("Initializing Xiaomi Mi Home app ...");
-    this.mihub = new MiHub(this.log);
+
+    this.homey.setTimeout(() => {
+      const browser = miio.browse({ cacheTime: 10  }); // little trick in an attempt to avoid command caching
+      browser.on('available', device => {
+        this.log('Discovered device on '+ device.address +' with device id '+ device.id);
+      });
+    }, 2000);
 
     // INITIALIZE GATEWAY MODULE
+    this.mihub = new MiHub({log: this.log, homey: this.homey});
     this.onSettingsChanged = this.onSettingsChanged.bind(this);
-    ManagerSettings.on("set", this.onSettingsChanged);
-    ManagerSettings.on("unset", this.onSettingsChanged);
+    this.homey.settings.on('set', this.onSettingsChanged);
+    this.homey.settings.on('unset', this.onSettingsChanged);
 
-    // YEELIGHTS: CONDITION AND ACTION FLOW CARDS
-    new Homey.FlowCardCondition("yeelightNightmode").register().registerRunListener((args, state) => {
-      return args.device.getCapabilityValue("night_mode");
-    });
+    // VACUUMS
+    this.homey.flow.getActionCard('findVacuum')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.miio.find();
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
 
-    new Homey.FlowCardAction("yeelightDefault").register().registerRunListener((args, state) => {
-      return args.device.sendCommand(args.device.getData().id, '{"id":1,"method":"set_default","params":[]}');
-    });
+    this.homey.flow.getActionCard('fanPowerVacuum')
+      .registerRunListener(async (args) => {
+        try {
+          await args.device.miio.changeFanSpeed(Number(args.fanspeed));
+          return await args.device.setStoreValue("fanspeed", args.fanspeed);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
 
-    new Homey.FlowCardAction("yeelightFlowBrightness").register().registerRunListener((args, state) => {
-      return args.device.sendCommand(
-        args.device.getData().id,
-        '{"id":1,"method":"start_cf","params":[1, ' + args.action + ', "' + args.duration + ", 2, " + args.temperature + ", " + args.brightness + '"]}'
-      );
-    });
+    this.homey.flow.getActionCard('goToTargetVacuum')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.miio.goToTarget([args.xcoordinate, args.ycoordinate]);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
 
-    new Homey.FlowCardAction("yeelightTemperatureScene").register().registerRunListener((args, state) => {
-      return args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"set_scene", "params":["ct", ' + args.temperature + ", " + args.brightness + "]}");
-    });
-
-    new Homey.FlowCardAction("yeelightColorScene").register().registerRunListener((args, state) => {
-      const color = tinycolor(args.color);
-      const rgb = color.toRgb();
-      const colordecimal = rgb.r * 65536 + rgb.g * 256 + rgb.b;
-      if (args.device.getData().model == "ceiling4" || args.device.getData().model == "ceiling10") {
-        return args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"bg_set_scene", "params":["color", ' + colordecimal + ", " + args.brightness + "]}");
-      } else {
-        return args.device.sendCommand(args.device.getData().id, '{"id":1, "method":"set_scene", "params":["color", ' + colordecimal + ", " + args.brightness + "]}");
-      }
-    });
-
-    new Homey.FlowCardAction("yeelightCustomCommand").register().registerRunListener((args, state) => {
-      return args.device.sendCommand(args.device.getData().id, args.command);
-    });
-
-    new Homey.FlowCardAction("yeelightNightMode").register().registerRunListener((args, state) => {
-      const night_mode = args.mode == "night";
-      return args.device.triggerCapabilityListener("night_mode", night_mode);
-    });
-
-    // MI ROBOT: ACTION FLOW CARDS
-    new Homey.FlowCardAction("findVacuum").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.find();
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    new Homey.FlowCardAction("fanPowerVacuum").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.changeFanSpeed(Number(args.fanspeed)).then(result => {
-          return args.device.setStoreValue("fanspeed", args.fanspeed);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    new Homey.FlowCardAction("goToTargetVacuum").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.goToTarget([args.xcoordinate, args.ycoordinate]);
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    new Homey.FlowCardAction("cleanZoneVacuum").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
+    this.homey.flow.getActionCard('cleanZoneVacuum')
+      .registerRunListener(async (args) => {
         try {
           const zones = JSON.parse("[" + args.zones + "]");
-          return args.device.miio.activateZoneClean(zones);
+          return await args.device.miio.activateZoneClean(zones);
         } catch (error) {
-          return Promise.reject(new Error("Invalid JSON coordinates ..."));
+          return Promise.reject(error.message);
         }
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    // MI AIR PURIFIER: CONDITION AND ACTION FLOW CARDS
-    new Homey.FlowCardCondition("poweredAirpurifier").register().registerRunListener((args, state) => {
-      return args.device.getCapabilityValue("onoff");
-    });
-
-    new Homey.FlowCardAction("modeAirpurifier").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.mode(args.mode).then(result => {
-          return args.device.setStoreValue("mode", args.mode);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    new Homey.FlowCardAction("airpurifierSetFavorite").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.setFavoriteLevel(Number(args.favorite));
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    /* DEPRECATED */
-    new Homey.FlowCardAction("airpurifierOn").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.setPower(true).then(result => {
-          return args.device.setCapabilityValue("onoff", true);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    /* DEPRECATED */
-    new Homey.FlowCardAction("airpurifierOff").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.setPower(false).then(result => {
-          return args.device.setCapabilityValue("onoff", false);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    // MI HUMDIFIER: CONDITION AND ACTION FLOW CARDS
-    new Homey.FlowCardCondition("poweredHumidifier").register().registerRunListener((args, state) => {
-      return args.device.getCapabilityValue("onoff");
-    });
-
-    new Homey.FlowCardAction("modeHumidifier").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.mode(args.mode).then(result => {
-          return args.device.setStoreValue("mode", args.mode);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    /* also used for ZhiMi fan */
-    new Homey.FlowCardAction("ledAirpurifierHumidifier").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.changeLEDBrightness(args.brightness);
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    /* DEPRECATED */
-    new Homey.FlowCardAction("humidifierOn").register().registerRunListener((args, state) => {
-      return args.device.miio.setPower(true).then(result => {
-        return args.device.setCapabilityValue("onoff", true);
-      });
-    });
-
-    /* DEPRECATED */
-    new Homey.FlowCardAction("humidifierOff").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.setPower(false).then(result => {
-          return args.device.setCapabilityValue("onoff", false);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    // PHILIPS EYECARE LAMP: CONDITION AND ACTION FLOW CARDS
-    new Homey.FlowCardAction("enableEyecare").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        const eyecare = args.eyecare == "on" ? true : false;
-        return args.device.setEyeCare(eyecare).then(result => {
-          return args.device.setStoreValue("eyecare", eyecare);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    new Homey.FlowCardAction("modeEyecare").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.mode(args.mode).then(result => {
-          return args.device.setStoreValue("mode", args.mode);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    // GATEWAY: CONDITION AND ACTION FLOW CARDS
-    new Homey.FlowCardAction("armGateway").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        const alarm = args.alarm == "armed" ? true : false;
-        return args.device.miio.setArming(alarm).then(result => {
-          return args.device.setCapabilityValue("homealarm_state", args.alarm);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    // ZHIMI FAN: CONDITION AND ACTION FLOW CARDS
-
-    // DMAKER FAN: CONDITION AND ACTION FLOW CARDS
-    new Homey.FlowCardAction("modeDmakerFan").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.changeMode(args.mode).then(result => {
-          return args.device.setStoreValue("mode", args.mode);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    // ZHIMI & DMAKER FAN: CONDITION AND ACTION FLOW CARDS
-    new Homey.FlowCardAction("changeSpeed").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.changeSpeed(args.speed).then(result => {
-          return args.device.setStoreValue("speed", args.speed);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    new Homey.FlowCardAction("enableAngle").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.enableAngle(args.angle).then(result => {
-          return args.device.setStoreValue("angle_enable", args.angle);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    new Homey.FlowCardAction("setAngle").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.changeAngle(Number(args.angle)).then(result => {
-          return args.device.setStoreValue("angle", Number(args.angle));
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-
-    new Homey.FlowCardAction("enableChildLock").register().registerRunListener((args, state) => {
-      if (args.device.miio) {
-        return args.device.miio.changeChildLock(args.childlock).then(result => {
-          return args.device.setStoreValue("child_lock", args.angle);
-        });
-      } else {
-        return Promise.reject(new Error("Device unreachable, please try again ..."));
-      }
-    });
-  }
-
-  initialize(gatewaysList, opts) {
-    this.log(gatewaysList);
-    this.gatewaysList = gatewaysList;
-    if (gatewaysList.length > 0) {
-      let options = {
-        gateways: {},
-        debug: opts.debug
-      };
-      gatewaysList.forEach(gateway => {
-        options.gateways[gateway.mac] = gateway.password;
       });
 
-      if (this.mihub && this.mihub.started) {
-        this.mihub.stop();
-      }
+    this.homey.flow.getActionCard('modeVacuumA08')
+      .registerRunListener(async (args) => {
+        try {
+          return await triggerCapabilityListener('dmaker_fan_1c_mode', Number(args.mode));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
 
-      this.mihub.start(options);
+    this.homey.flow.getActionCard('modeVacuumMop')
+      .registerRunListener(async (args) => {
+        try {
+          return await triggerCapabilityListener('vacuum_mop_mode', Number(args.mode));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
 
-      return this.mihub.getGateways();
-    } else {
-      this.log("Please insert gateway mac address and password in settings on Manager Settings");
-      if (this.mihub && this.mihub.started) {
-        this.mihub.stop();
-      }
-    }
+    // DMAKER FAN
+    this.homey.flow.getActionCard('modeDmakerFan')
+      .registerRunListener(async (args) => {
+        try {
+          await args.device.miio.changeMode(args.mode);
+          return await args.device.setStoreValue("mode", args.mode);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    // DMAKER FAN & ZHIMI
+    this.homey.flow.getActionCard('changeSpeed')
+      .registerRunListener(async (args) => {
+        try {
+          await args.device.miio.changeSpeed(args.speed);
+          return await args.device.setStoreValue("speed", args.speed);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('enableAngle')
+      .registerRunListener(async (args) => {
+        try {
+          await args.device.miio.enableAngle(args.angle);
+          const angle = args.angle === 'on' ? true : false;
+          return await args.device.setStoreValue("angle_enable", angle);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('setAngle')
+      .registerRunListener(async (args) => {
+        try {
+          await args.device.miio.changeAngle(Number(args.angle));
+          return await args.device.setStoreValue("angle", Number(args.angle));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('enableChildLock')
+      .registerRunListener(async (args) => {
+        try {
+          await args.device.miio.changeChildLock(args.childlock);
+          const child_lock = args.childlock === 'on' ? true : false;
+          return await args.device.setStoreValue("child_lock", child_lock);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    // AIR PURIFIER
+    this.homey.flow.getActionCard('modeAirpurifier')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.triggerCapabilityListener('airpurifier_mode', args.mode);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('airpurifierSetFavorite')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.miio.setFavoriteLevel(Number(args.favorite));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('modeAirpurifierZhimiMB4')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.triggerCapabilityListener('airpurifier_zhimi_airpurifier_mb4_mode', Number(args.mode));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('modeAirpurifierZhimi')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.triggerCapabilityListener('airpurifier_zhimi_airpurifier_mode', args.mode);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('modeAirpurifierZhimiMB3')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.triggerCapabilityListener('airpurifier_zhimi_airpurifier_mb3_mode', Number(args.mode));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    // AIR PURIFIER, HUMIDIFIER
+    this.homey.flow.getActionCard('modeHumidifier')
+      .registerRunListener(async (args) => {
+        try {
+          await args.device.miio.mode(args.mode);
+          return await args.device.setStoreValue("mode", args.mode);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('modeHumidifier2')
+      .registerRunListener(async (args) => {
+        try {
+          return await triggerCapabilityListener('humidifier2_mode', args.mode);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('modeHumidifierCA4')
+      .registerRunListener(async (args) => {
+        try {
+          return await triggerCapabilityListener('humidifier_ca4_mode', Number(args.mode));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+    
+    this.homey.flow.getActionCard('modeHumidifierDeerma')
+      .registerRunListener(async (args) => {
+        try {
+          return await triggerCapabilityListener('humidifier_deerma_mode', args.mode);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('modeHumidifierDeermaJSQ4')
+      .registerRunListener(async (args) => {
+        try {
+          return await triggerCapabilityListener('humidifier_deerma_jsq4_mode', Number(args.mode));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('modeHumidifierDeermaJSQ5')
+      .registerRunListener(async (args) => {
+        try {
+          return await triggerCapabilityListener('humidifier_deerma_jsq5_fanlevel', Number(args.mode));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('modeHumidifierLeshowJSQ1')
+      .registerRunListener(async (args) => {
+        try {
+          return await triggerCapabilityListener('humidifier_leshow_jsq1_mode', Number(args.mode));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    // AIR PURIFIER, HUMDIFIER, ZHIMI FAN
+    this.homey.flow.getActionCard('ledAirpurifierHumidifier')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.miio.changeLEDBrightness(args.brightness);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('modeDmakerFan1C')
+      .registerRunListener(async (args) => {
+        try {
+          return await triggerCapabilityListener('dmaker_fan_1c_mode', Number(args.mode));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('modeZhimiFanZA5')
+      .registerRunListener(async (args) => {
+        try {
+          return await triggerCapabilityListener('zhimi_fan_za5_mode', Number(args.mode));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    // PHILIPS EYECARE
+    this.homey.flow.getActionCard('enableEyecare')
+      .registerRunListener(async (args) => {
+        try {
+          const eyecare = args.eyecare == "on" ? true : false;
+          return await args.device.triggerCapabilityListener('onoff.eyecare', eyecare);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('modeEyecare')
+      .registerRunListener(async (args) => {
+        try {
+          await args.device.miio.mode(args.mode);
+          return await args.device.setStoreValue("mode", args.mode);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    /* MI-PLUG */
+    this.homey.flow.getConditionCard('inUse')
+      .registerRunListener(async (args) => {
+        if (args.device) {
+          return args.device.getStoreValue("inUse");
+        } else {
+          return false;
+        }
+      })
+
+    /* aqara-ctrl-ln2 & aqara-ctrl-neutral2 */
+    this.homey.flow.getConditionCard('rightSwitch')
+      .registerRunListener(async (args) => {
+        if (args.device) {
+          return args.device.getCapabilityValue("onoff.1");
+        } else {
+          return false;
+        }
+      })
+
+    this.homey.flow.getActionCard('rightSwitchOn')
+      .registerRunListener(async (args) => {
+        try {
+          return await this.mihub.sendWrite(args.device.data.sid, { channel_1: "on" });
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('rightSwitchOff')
+      .registerRunListener(async (args) => {
+        try {
+          return await this.mihub.sendWrite(args.device.data.sid, { channel_1: "off" });
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('rightSwitchToggle')
+      .registerRunListener(async (args) => {
+        try {
+          return await this.mihub.sendWrite(args.device.data.sid, { channel_1: "toggle" });
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    /* Mi / Aqara Humidity & Temperature sensor */
+    this.homey.flow.getConditionCard('measure_humidity_between')
+      .registerRunListener(async (args) => {
+        if (args.device) {
+          let value1, value2;
+          if (args.value1 < args.value2) {
+            value1 = args.value1;
+            value2 = args.value2;
+          } else {
+            value1 = args.value2;
+            value2 = args.value1;
+          }
+          return await args.device.getCapabilityValue('measure_humidity') >= value1 && args.device.getCapabilityValue('measure_humidity') <= value2;
+        } else {
+          return false;
+        }
+      })
+
+    this.homey.flow.getConditionCard('measure_temperature_between')
+      .registerRunListener(async (args) => {
+        if (args.device) {
+          let value1, value2;
+          if (args.value1 < args.value2) {
+            value1 = args.value1;
+            value2 = args.value2;
+          } else {
+            value1 = args.value2;
+            value2 = args.value1;
+          }
+          return await args.device.getCapabilityValue('measure_temperature') >= value1 && args.device.getCapabilityValue('measure_temperature') <= value2;
+        } else {
+          return false;
+        }
+      })
+
+    // GATEWAY
+    this.homey.flow.getActionCard('gateway_play_radio')
+      .registerRunListener(async (args) => {
+        try {
+          const settings = args.device.getSettings();
+          let volume = parseInt(args.volume * 100);
+          let favoriteListsID = settings[`favorite${args.favoriteID}ID`];
+          let favoriteListsIDArray = favoriteListsID.split(",");
+
+          if (favoriteListsIDArray[0] !== undefined && favoriteListsIDArray[0] !== null && favoriteListsIDArray[1] !== undefined && favoriteListsIDArray[1] !== null) {
+            let ids = favoriteListsIDArray[0];
+            ids = ids.replace(/\s/g, "");
+            let id = parseInt(ids);
+            let urls = favoriteListsIDArray[1];
+            urls = urls.replace(/\s/g, "");
+            let url = urls.toString();
+
+            await args.device.miio.call("play_specify_fm", { id: id, type: 0, url: url }, { retries: 1 });
+            await args.device.miio.call("volume_ctrl_fm", [volume.toString()], { retries: 1 });
+
+          }
+          return Promise.resolve(true);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('gateway_custom_radio')
+      .registerRunListener(async (args) => {
+        try {
+          let volume = parseInt(args.volume * 100);
+          await args.device.miio.call("play_specify_fm", { id: parseInt(args.id), type: 0, url: args.url }, { retries: 1 });
+          await args.device.miio.call("volume_ctrl_fm", [volume.toString()], { retries: 1 });
+          return Promise.resolve(true);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('gateway_play_effect')
+      .registerRunListener(async (args) => {
+        try {
+          // untested and might not work as method on a gateway added through the miio library (but only through the developer API which isnt implemented in the gateway driver}
+          let volume = parseInt(args.volume * 100);
+          await args.device.miio.call("welcome", [parseInt(args.toneID)], { retries: 1 });
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    // REMOTE
+    this.homey.flow.getActionCard('remote_send_ir_code')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.sendIrCode(args.code);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
   }
 
-  onSettingsChanged(key) {
+  /* update settings (gatewaysList) */
+  async onSettingsChanged(key) {
     switch (key) {
       case "gatewaysList":
-        this.mihub.updateGateways(ManagerSettings.get("gatewaysList"));
+        this.mihub.updateGateways(this.homey.settings.get("gatewaysList"));
         break;
       default:
         break;
     }
   }
 
+  /* generate a gateway developer key */
   async generate(args) {
-    return new Promise((resolve, reject) => {
-      const key = generateKey();
-
-      miio
-        .device({ address: args.body.ip, token: args.body.token })
-        .then(device => {
-          device
-            .call("miIO.info", [])
-            .then(value => {
-              device
-                .call("set_lumi_dpf_aes_key", [key])
-                .then(() => resolve({ status: "OK", mac: value.mac.replace(/\:/g, "").toLowerCase(), password: key }))
-                .catch(error => {
-                  reject(error);
-                });
-            })
-            .catch(error => {
-              reject(error);
-            });
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
+    try {
+      const key = await this.generateKey();
+      const device = await miio.device({ address: args.ip, token: args.token });
+      const info = await device.call("miIO.info");
+      const returnKey = await device.call("set_lumi_dpf_aes_key", [key]); 
+      return Promise.resolve({ status: "OK", mac: info.mac.replace(/\:/g, "").toLowerCase(), password: key });
+    } catch (error) {
+      this.error(error);
+      return Promise.reject(error);
+    }
   }
 
+  /* helper for generating a key */
+  async generateKey() {
+    const chars = "0123456789ABCDEF";
+    let result = "";
+    for (let i = 0; i < 16; i++) {
+      let idx = Math.floor(Math.random() * chars.length);
+      result += chars[idx];
+    }
+    return result;
+  }
+
+  /* test the connection to a device */
   async testConnection(args) {
-    return new Promise((resolve, reject) => {
-      miio
-        .device({ address: args.body.ip, token: args.body.token })
-        .then(device => {
-          device
-            .call("miIO.info", [])
-            .then(result => {
-              resolve({ status: "OK", result });
-            })
-            .catch(error => {
-              reject(error);
-            });
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
+    try {
+      const device = await miio.device({ address: args.ip, token: args.token });
+      const info = await device.call("miIO.info");
+      return Promise.resolve({status: "OK", info});
+    } catch (error) {
+      return Promise.reject(error);
+    }
   }
 
+  /* return the gateways */
   async getGateways() {
-    return Promise.resolve(this.mihub.getGateways());
+    return Promise.resolve(this.mihub.gateways);
   }
 
-  removeChildDevice(gatewaySid, childSid) {
-    const command = '{"cmd": "write","model": "gateway","sid": "' + gatewaySid + '","data":{"remove_device": "' + childSid + '", "key": "${key}"}}';
-
-    return this.mihub.sendWriteCmd(gatewaySid, command);
-  }
 }
 
 module.exports = XiaomiMiioApp;

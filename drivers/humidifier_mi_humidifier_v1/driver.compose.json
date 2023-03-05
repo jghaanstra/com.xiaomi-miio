@@ -1,0 +1,29 @@
+{
+  "name": {
+    "en": "Mi Humidifier v1 (WiFi)",
+    "nl": "Mi Luchtbevochtiger v1 (WiFi)"
+  },
+  "images": {
+    "large": "drivers/humidifier_mi_humidifier_v1/assets/images/large.jpg",
+    "small": "drivers/humidifier_mi_humidifier_v1/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "measure_temperature",
+    "measure_humidity",
+    "dim",
+    "humidifier_mode"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Target Relative Humidity",
+        "nl": "Doel relatieve vochtigheid"
+      }
+    }
+  }
+}

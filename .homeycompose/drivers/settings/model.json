@@ -1,0 +1,9 @@
+{
+  "id": "model",
+  "type": "label",
+  "value": "lumi.device",
+  "label": {
+    "en": "Model",
+    "nl": "Model"
+  }
+}

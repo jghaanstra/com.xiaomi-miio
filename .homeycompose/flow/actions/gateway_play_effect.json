@@ -1,0 +1,182 @@
+{
+  "title": {
+    "en": "Play effect",
+    "nl": "Speel effect"
+  },
+  "titleFormatted": {
+    "en": "Play effect [[toneID]] with volume [[volume]]",
+    "nl": "Speel effect [[toneID]] met volume [[volume]]"
+  },
+  "args": [
+    {
+      "type": "dropdown",
+      "name": "toneID",
+      "values": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Police car 1"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Police car 2"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Accident"
+          }
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Countdown"
+          }
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Ghost"
+          }
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Sniper rifle"
+          }
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Battle"
+          }
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Air raid"
+          }
+        },
+        {
+          "id": "8",
+          "label": {
+            "en": "Bark"
+          }
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "Doorbell"
+          }
+        },
+        {
+          "id": "11",
+          "label": {
+            "en": "Knock at a door"
+          }
+        },
+        {
+          "id": "12",
+          "label": {
+            "en": "Amuse"
+          }
+        },
+        {
+          "id": "13",
+          "label": {
+            "en": "Alarm clock"
+          }
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "MiMix"
+          }
+        },
+        {
+          "id": "21",
+          "label": {
+            "en": "Enthusiastic"
+          }
+        },
+        {
+          "id": "22",
+          "label": {
+            "en": "GuitarClassic"
+          }
+        },
+        {
+          "id": "23",
+          "label": {
+            "en": "IceWorldPiano"
+          }
+        },
+        {
+          "id": "24",
+          "label": {
+            "en": "LeisureTime"
+          }
+        },
+        {
+          "id": "25",
+          "label": {
+            "en": "ChildHood"
+          }
+        },
+        {
+          "id": "26",
+          "label": {
+            "en": "MorningStreamLiet"
+          }
+        },
+        {
+          "id": "27",
+          "label": {
+            "en": "MusicBox"
+          }
+        },
+        {
+          "id": "28",
+          "label": {
+            "en": "Orange"
+          }
+        },
+        {
+          "id": "29",
+          "label": {
+            "en": "Thinker"
+          }
+        },
+        {
+          "id": "10000",
+          "label": {
+            "en": "MUTE"
+          }
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "name": "volume",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "label": "%",
+      "labelMultiplier": 100,
+      "labelDecimals": 0
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Robot",
+        "nl": "Selecteer Mi Robot"
+      },
+      "filter": "driver_id=gateway"
+    }
+  ],
+  "platforms": ["local"]
+}

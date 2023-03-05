@@ -1,0 +1,47 @@
+{
+  "name": {
+    "en": "Mi Smart Standing Fan 3 (WiFi)",
+    "nl": "Mi Smart Standing Fan 3 (WiFi)"
+  },
+  "images": {
+    "large": "drivers/zhimi_fan_za5/assets/images/large.jpg",
+    "small": "drivers/zhimi_fan_za5/assets/images/small.jpg"
+  },
+  "class": "fan",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "onoff.swing",
+    "dim",
+    "dim.angle",
+    "zhimi_fan_za5_mode",
+    "measure_humidity",
+    "measure_temperature"
+  ],
+  "capabilitiesOptions": {
+    "onoff.swing": {
+      "title": {
+        "en": "Horizontal Swing",
+        "nl": "Horizontale swing"
+      }
+    },
+    "dim": {
+      "title": {
+        "en": "Fanlevel",
+        "nl": "Ventilator niveau"
+      },
+      "min": 1,
+      "max": 4
+    },
+    "dim.angle": {
+      "title": {
+        "en": "Horizontal Angle",
+        "nl": "Horizontale hoek"
+      },
+      "min": 30,
+      "max": 120
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "id": "modeHumidifierDeerma",
+  "title": {
+    "en": "Set Mode",
+    "nl": "Stel modus in"
+  },
+  "titleFormatted": {
+    "en": "Set mode to [[mode]]",
+    "nl": "Stel modus in op [[mode]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "low",
+          "label": {
+            "en": "Low",
+            "nl": "Laag"
+          }
+        },
+        {
+          "id": "medium",
+          "label": {
+            "en": "Medium",
+            "nl": "Medium"
+          }
+        },
+        {
+          "id": "high",
+          "label": {
+            "en": "High",
+            "nl": "Hoog"
+          }
+        },
+        {
+          "id": "humidity",
+          "label": {
+            "en": "Humidity",
+            "nl": "Luchtvochtigheid"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Humidifier",
+        "nl": "Selecteer Mi Luchtbevochtiger"
+      },
+      "filter": "driver_id=humidifier_deerma_humidifier_mjjsq"
+    }
+  ],
+  "platforms": ["local"]
+}

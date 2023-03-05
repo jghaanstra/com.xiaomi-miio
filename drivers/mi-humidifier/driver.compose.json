@@ -1,0 +1,19 @@
+{
+  "name": {
+    "en": "Mi Humidifier v1 - Generic (WiFi)",
+    "nl": "Mi Luchtbevochtiger v1 - Generic (WiFi)"
+  },
+  "images": {
+    "large": "drivers/mi-humidifier/assets/images/large.jpg",
+    "small": "drivers/mi-humidifier/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "measure_temperature",
+    "measure_humidity"
+  ]
+}

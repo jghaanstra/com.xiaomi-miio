@@ -1,0 +1,20 @@
+{
+  "name": {
+    "en": "Chingmi Smart Power Strip (WiFi)",
+    "nl": "Chingmi Smart Power Strip (WiFi)"
+  },
+  "images": {
+    "large": "drivers/powerstrip_qmi_powerstrip_v1/assets/images/large.jpg",
+    "small": "drivers/powerstrip_qmi_powerstrip_v1/assets/images/small.jpg"
+  },
+  "class": "socket",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "measure_power",
+    "measure_temperature",
+    "measure_voltage"
+  ]
+}

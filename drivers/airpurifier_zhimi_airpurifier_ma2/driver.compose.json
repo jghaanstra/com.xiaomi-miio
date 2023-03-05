@@ -1,0 +1,31 @@
+{
+  "name": {
+    "en": "Mi Air Purifier Pro v6 (WiFi)",
+    "nl": "Mi Air Purifier Pro v6 (WiFi)"
+  },
+  "images": {
+    "large": "drivers/airpurifier_zhimi_airpurifier_ma2/assets/images/large.jpg",
+    "small": "drivers/airpurifier_zhimi_airpurifier_ma2/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "measure_temperature",
+    "measure_humidity",
+    "measure_pm25",
+    "measure_luminance",
+    "airpurifier_zhimi_airpurifier_mode"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Speedlevel",
+        "nl": "Snelheid"
+      }
+    }
+  }
+}

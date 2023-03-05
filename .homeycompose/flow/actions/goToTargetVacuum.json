@@ -1,0 +1,43 @@
+{
+  "id": "goToTargetVacuum",
+  "title": {
+    "en": "Send vacuum cleaner to target",
+    "nl": "Stuur stofzuiger naar doel"
+  },
+  "titleFormatted": {
+    "en": "Send vacuum cleaner to coordinates X [[xcoordinate]] and Y [[ycoordinate]]",
+    "nl": "Stuur stofzuiger naar coördinaten X [[xcoordinate]] en Y [[ycoordinate]]"
+  },
+  "hint": {
+    "en": "Enter the x and y coordinates of the target: ex. 25000 and 28000",
+    "nl": "Voer de x en y coördinaten van het doel in: bv. 25000 en 28000"
+  },
+  "args": [
+    {
+      "name": "xcoordinate",
+      "type": "number",
+      "placeholder": {
+        "en": "X Coordinate",
+        "nl": "X coördinaat"
+      }
+    },
+    {
+      "name": "ycoordinate",
+      "type": "number",
+      "placeholder": {
+        "en": "Y Coordinate",
+        "nl": "Y coördinaat"
+      }
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Robot",
+        "nl": "Selecteer Mi Robot"
+      },
+      "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
+    }
+  ],
+  "platforms": ["local"]
+}

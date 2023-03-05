@@ -1,0 +1,56 @@
+{
+  "name": {
+    "en": "Mi Robot Vacuum-Mop P (WiFi)",
+    "nl": "Mi Robot Vacuum-Mop P (WiFi)"
+  },
+  "images": {
+    "large": "drivers/vacuum_viomi_vacuum_v7/assets/images/large.jpg",
+    "small": "drivers/vacuum_viomi_vacuum_v7/assets/images/small.jpg"
+  },
+  "class": "vacuumcleaner",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "dim.water",
+    "vacuum_mop_mode",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Speed",
+        "nl": "Snelheid"
+      },
+      "min": 0,
+      "max": 3,
+      "step": 1
+    },
+    "dim.water": {
+      "title": {
+        "en": "Mop mode",
+        "nl": "Dweil modus"
+      },
+      "min": 0,
+      "max": 3,
+      "step": 1
+    },
+    "button.consumable": {
+      "maintenanceAction": true,
+      "title": {
+        "en": "Reset consumables",
+        "nl": "Reset verbruiksartikelen"
+      },
+      "desc": {
+        "en": "Reset the usage of vacuum cleaner consumables.",
+        "nl": "Reset het gebruik van de verbruiksartikelen"
+      }
+    }
+  },
+  "energy": {
+    "batteries": ["INTERNAL"]
+  }
+}

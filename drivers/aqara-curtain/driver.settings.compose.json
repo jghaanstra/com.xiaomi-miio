@@ -1,0 +1,43 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings",
+      "nl": "Apparaat instellingen"
+    },
+    "children": [
+      {
+        "id": "deviceSid",
+        "$extends": "deviceSid"
+      },
+      {
+        "id": "gatewaySid",
+        "$extends": "gatewaySid"
+      },
+      {
+        "id": "model",
+        "$extends": "model"
+      },
+      {
+        "id": "modelCode",
+        "$extends": "modelCode"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Operation Mode"
+    },
+    "children": [
+      {
+        "id": "reverted",
+        "type": "checkbox",
+        "value": false,
+        "label": {
+          "en": "Reverted"
+        }
+      }
+    ]
+  }
+]

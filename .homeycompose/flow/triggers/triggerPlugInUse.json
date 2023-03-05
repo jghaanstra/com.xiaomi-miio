@@ -1,0 +1,19 @@
+{
+  "id": "triggerPlugInUse",
+  "title": {
+    "en": "In use",
+    "nl": "In gebruik"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-plug"
+    }
+  ],
+  "platforms": ["local"]
+}

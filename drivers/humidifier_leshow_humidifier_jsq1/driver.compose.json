@@ -1,0 +1,37 @@
+{
+  "name": {
+    "en": "Xiaomi Humidifier Pro (WiFi)",
+    "nl": "Xiaomi Humidifier Pro (WiFi)"
+  },
+  "images": {
+    "large": "drivers/humidifier_leshow_humidifier_jsq1/assets/images/large.jpg",
+    "small": "drivers/humidifier_leshow_humidifier_jsq1/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "humidifier_leshow_jsq1_mode",
+    "measure_humidity",
+    "measure_water"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Target Relative Humidity",
+        "nl": "Doel relatieve vochtigheid"
+      },
+      "min": 30,
+      "max": 80
+    },
+    "measure_water": {
+      "title": {
+        "en": "Waterlevel",
+        "nl": "Waterniveau"
+      }
+    }
+  }
+}

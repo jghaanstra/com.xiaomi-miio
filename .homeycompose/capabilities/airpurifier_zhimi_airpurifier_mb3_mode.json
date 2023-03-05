@@ -1,0 +1,44 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Mode",
+    "nl": "Modus",
+    "de": "Modus"
+  },
+  "getable": true,
+  "setable": true,
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Auto",
+        "nl": "Auto",
+        "de": "Auto"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Night",
+        "nl": "Nacht",
+        "de": "Nacht"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Manual",
+        "nl": "Handmatig",
+        "de": "Handbetrieb"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "Favorite",
+        "nl": "Favoriet",
+        "de": "Favorit"
+      }
+    }
+  ]
+}

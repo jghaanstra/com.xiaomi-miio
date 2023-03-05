@@ -1,61 +1,16 @@
-"use strict";
-const Homey = require("homey");
+'use strict';
 
-module.exports = [
-  {
-    method: "POST",
-    path: "/generate",
-    fn: async (args, callback) => {
-      await Homey.app
-        .generate(args)
-        .then(res => {
-          callback(null, res);
-        })
-        .catch(error => {
-          callback(error, null);
-        });
-    }
+module.exports = {
+  async generate({homey, body}) {
+    const result = await homey.app.generate(body);
+    return result;
   },
-  {
-    method: "POST",
-    path: "/testConnection",
-    fn: async (args, callback) => {
-      await Homey.app
-        .testConnection(args)
-        .then(res => {
-          callback(null, res);
-        })
-        .catch(error => {
-          callback(error, null);
-        });
-    }
+  async testConnection({homey, body}) {
+    const result = await homey.app.testConnection(body);
+    return result;
   },
-  {
-    method: "GET",
-    path: "/getGateways",
-    fn: async (args, callback) => {
-      await Homey.app
-        .getGateways()
-        .then(res => {
-          callback(null, res);
-        })
-        .catch(error => {
-          callback(error, null);
-        });
-    }
-  },
-  {
-    method: "POST",
-    path: "/removeChildDevice",
-    fn: async (args, callback) => {
-      await Homey.app
-        .removeChildDevice(args.body.gatewaySid, args.body.childSid)
-        .then(res => {
-          callback(null, res);
-        })
-        .catch(error => {
-          callback(error, null);
-        });
-    }
+  async getGateways({homey, body}) {
+    const result = await homey.app.getGateways();
+    return result;
   }
-];
+}

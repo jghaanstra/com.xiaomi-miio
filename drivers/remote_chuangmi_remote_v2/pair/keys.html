@@ -1,0 +1,119 @@
+<script src="../../../assets/vue.min.js"></script>
+<link rel="stylesheet" href="../../../assets/bootstrap.min.css" />
+<link rel="stylesheet" href="../../../assets/semantic.min.css" />
+<script src="./capabilities.js"></script>
+
+<script>
+  Homey.setTitle("Add keys code");
+
+  Homey.emit("getCurrentDevice", null)
+    .then(result => {
+
+      new Vue({
+        el: "#keys",
+        data: {
+          device: result,
+          learnButton: false,
+          onoff: {
+            1: { title: "ON" },
+            2: { title: "OFF" }
+          }
+        },
+        methods: {
+          learn(value, index) {
+            let learned, btn;
+            if (index) {
+              learned = document.getElementById(value + index + "learned");
+              btn = document.getElementById(value + index + "btn");
+            } else {
+              learned = document.getElementById(value + "learned");
+              btn = document.getElementById(value + "btn");
+            }
+
+            let data = { key: index ? value + index : value, ip: this.device.settings.deviceIp, token: this.device.settings.deviceToken };
+            Homey.emit("learnCode", data)
+              .then(result => {
+                  if (result == "timeout") {
+                  learned.classList.remove("grey");
+                  learned.classList.remove("red");
+                  learned.classList.remove("green");
+                  learned.classList.add("yellow");
+                  learned.innerHTML = "Timeout";
+                }
+
+                if (result == "offline") {
+                  learned.classList.remove("grey");
+                  learned.classList.remove("red");
+                  learned.classList.remove("green");
+                  learned.classList.add("yellow");
+                  learned.innerHTML = "Device offline";
+                }
+
+                if (result.code) {
+                  learned.classList.remove("grey");
+                  learned.classList.remove("red");
+                  learned.classList.remove("yellow");
+                  learned.classList.add("green");
+                  learned.innerHTML = "Learned";
+                  btn.classList.add("disabled");
+                }
+              }).catch(error => { 
+                learned.classList.remove("grey");
+                learned.classList.remove("green");
+                learned.classList.remove("yellow");
+                learned.classList.add("red");
+                learned.innerHTML = "Error";
+              });
+          }
+        }
+      });
+      
+    }).catch(error => { 
+      console.log(error);
+    });
+</script>
+
+<div id="keys">
+  <div v-for="(capability, index) in device.capabilities" :key="index">
+    <div v-if="parseInt(device.characteristicsSettings[capability]) == 1">
+      <div class="ui form">
+        <div class="inline fields">
+          <label>{{ capability.toUpperCase() }}</label>
+          <div class="field">
+            <a class="ui grey label" :id="capability + 'learned'">Not learned</a>
+          </div>
+          <div class="field">
+            <button class="ui primary basic button" :id="capability + 'btn'" @click="learn(capability)">Learn</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-else-if="parseInt(device.characteristicsSettings[capability]) > 1">
+      <div class="ui form" v-for="(characteristic) in parseInt(device.characteristicsSettings[capability])" :key="characteristic + index">
+        <div class="inline fields">
+          <label v-if="capability == 'onoff'">{{ capability.toUpperCase() }} - {{ onoff[characteristic].title }}</label>
+          <label v-if="capability == 'dim'">{{ capability.toUpperCase() }} - {{ characteristic }}</label>
+          <div class="field">
+            <a class="ui grey label" :id="capability + characteristic + 'learned'">Not learned</a>
+          </div>
+          <div class="field">
+            <button class="ui primary basic button" :id="capability + characteristic + 'btn'" @click="learn(capability, characteristic)">Learn</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      <div class="ui form">
+        <div class="inline fields">
+          <label>{{ capability.toUpperCase() }}</label>
+          <div class="field">
+            <a class="ui grey label" :id="capability  + 'learned'">Not learned</a>
+          </div>
+          <div class="field">
+            <button class="ui primary basic button" :id="capability + 'btn'" @click="learn(capability)">Learn</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

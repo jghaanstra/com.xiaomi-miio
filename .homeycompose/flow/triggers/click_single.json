@@ -1,0 +1,19 @@
+{
+  "id": "click_single",
+  "title": {
+    "en": "Click",
+    "nl": "Klik"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-button|aqara-button|aqara-button-advanced|aqara-86sw1-advanced|aqara_86sw1_switch"
+    }
+  ],
+  "platforms": ["local"]
+}

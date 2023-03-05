@@ -1,0 +1,10 @@
+{
+  "title": {
+    "en": "Side Brush Alert",
+    "nl": "Zijborstel waarschuwing"
+  },
+  "type": "boolean",
+  "getable": true,
+  "setable": false,
+  "icon": "/assets/icons/vacuum_side_brush.svg"
+}

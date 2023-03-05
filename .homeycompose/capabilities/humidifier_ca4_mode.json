@@ -1,0 +1,39 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Mode",
+    "nl": "Modus"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Auto",
+        "nl": "Auto"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Level 1",
+        "nl": "Level 1"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Level 2",
+        "nl": "Level 2"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "Level 3",
+        "nl": "Level 3"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

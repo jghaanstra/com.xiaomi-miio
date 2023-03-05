@@ -1,0 +1,19 @@
+{
+  "name": {
+    "en": "Philips Lights Generic (WiFi)",
+    "nl": "Philips Lights Generic (WiFi)"
+  },
+  "images": {
+    "large": "drivers/philips-bulb/assets/images/large.jpg",
+    "small": "drivers/philips-bulb/assets/images/small.jpg"
+  },
+  "class": "light",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "light_temperature"
+  ]
+}

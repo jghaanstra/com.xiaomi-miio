@@ -1,0 +1,21 @@
+{
+  "name": {
+    "en": "Mi Aqara Cube (Gateway)",
+    "nl": "Mi Aqara Kubus (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/mi-aqara-cube/assets/images/large.png",
+    "small": "/drivers/mi-aqara-cube/assets/images/small.png"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": ["CR2450"]
+  }
+}

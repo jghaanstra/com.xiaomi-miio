@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.5, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:10;}
+	.st2{font-family:'MyriadPro-Regular';}
+	.st3{font-size:13.7471px;}
+	.st4{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+</style>
+<path class="st0" d="M339.4,500.7l11.8-2.2c2.5-0.5,4.3-2.7,4.3-5.2l1.1-473.4c0-2.6-1.9-4.8-4.4-5.2L331.2,11
+	c-9.7-1.7-19.5-2.3-29.4-1.9l-140.5,6c-2.8,0.1-5.1,2.5-5.1,5.3v472.1c0,2.8,2.2,5.2,5.1,5.3l136.8,5.8
+	C311.9,504.2,325.8,503.2,339.4,500.7z"/>
+<line class="st1" x1="321.8" y1="10.2" x2="321.8" y2="502.8"/>
+<line class="st1" x1="325.2" y1="82.4" x2="325.2" y2="119"/>
+<ellipse class="st1" cx="234.2" cy="103.6" rx="20" ry="21.2"/>
+<text transform="matrix(1 0 0 1 224.6753 105.1094)" class="st2 st3">001</text>
+<line class="st4" x1="226.1" y1="108.7" x2="243.9" y2="108.7"/>
+<path class="st5" d="M238.7,407.2v-2.6c0-0.4-0.4-0.7-0.8-0.6l-4.9,3.2l-4.7-2.9c-0.5-0.2-1.1,0.1-1.1,0.7v5.7"/>
+<path class="st5" d="M238.7,410.6c1.2,8.5-8.6,12.3-11.5,3.4"/>
+</svg>

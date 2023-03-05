@@ -1,0 +1,15 @@
+{
+  "name": {
+    "en": "Aqara Smart Wall Single Switch No Neutral (Gateway)",
+    "nl": "Aqara Smart Wall Single Switch zonder nuldraad (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/aqara-ctrl-neutral1/assets/images/large.png",
+    "small": "/drivers/aqara-ctrl-neutral1/assets/images/small.png"
+  },
+  "class": "light",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": ["onoff"]
+}

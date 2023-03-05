@@ -1,0 +1,25 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Mode",
+    "nl": "Modus"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Natural Wind",
+        "nl": "Natuur wind"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Straight Wind",
+        "nl": "Rechte wind"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

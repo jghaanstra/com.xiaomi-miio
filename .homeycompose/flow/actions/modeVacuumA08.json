@@ -1,0 +1,57 @@
+{
+  "id": "modeVacuumA08",
+  "title": {
+    "en": "Set Mode",
+    "nl": "Stel modus in"
+  },
+  "titleFormatted": {
+    "en": "Set mode to [[mode]]",
+    "nl": "Stel modus in op [[mode]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "101",
+          "title": {
+            "en": "Silent",
+            "nl": "Stil"
+          }
+        },
+        {
+          "id": "102",
+          "title": {
+            "en": "Basic",
+            "nl": "Basis"
+          }
+        },
+        {
+          "id": "103",
+          "title": {
+            "en": "Strong",
+            "nl": "Sterk"
+          }
+        },
+        {
+          "id": "104",
+          "title": {
+            "en": "Full Speed",
+            "nl": "Volle kracht"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Vacuum",
+        "nl": "Selecteer Stofzuiger"
+      },
+      "filter": "driver_id=vacuum_mi_roborock_vacuum_a08"
+    }
+  ],
+  "platforms": ["local"]
+}

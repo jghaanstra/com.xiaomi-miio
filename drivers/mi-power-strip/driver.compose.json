@@ -1,0 +1,19 @@
+{
+  "name": {
+    "en": "Mi Power Strip Generic (WiFi)",
+    "nl": "Mi Power Strip Generic (WiFi)"
+  },
+  "images": {
+    "large": "drivers/mi-power-strip/assets/images/large.jpg",
+    "small": "drivers/mi-power-strip/assets/images/small.jpg"
+  },
+  "class": "socket",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "measure_power",
+    "meter_power"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "flip90_cube",
+  "title": {
+    "en": "Flip 90°",
+    "nl": "90° keren"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-aqara-cube"
+    }
+  ],
+  "platforms": ["local"]
+}

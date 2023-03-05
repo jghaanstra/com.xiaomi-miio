@@ -1,0 +1,50 @@
+{
+  "id": "modeEyecare",
+  "title": {
+    "en": "Set Mode",
+    "nl": "Stel modus in"
+  },
+  "titleFormatted": {
+    "en": "Set mode to [[mode]]",
+    "nl": "Stel modus in op [[mode]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "study",
+          "label": {
+            "en": "Study",
+            "nl": "Studeer"
+          }
+        },
+        {
+          "id": "reading",
+          "label": {
+            "en": "Reading",
+            "nl": "Lezen"
+          }
+        },
+        {
+          "id": "phone",
+          "label": {
+            "en": "Phone",
+            "nl": "Telefoon"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Philips Eyecare Lamp",
+        "nl": "Selecteer Philips Eyecare Lamp"
+      },
+      "filter": "driver_id=philips-eyecare"
+    }
+  ],
+  "platforms": ["local"]
+}

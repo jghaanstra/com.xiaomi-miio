@@ -1,0 +1,32 @@
+{
+  "id": "changeSpeed",
+  "title": {
+    "en": "Set Speed",
+    "nl": "Stel snelheid in"
+  },
+  "titleFormatted": {
+    "en": "Set speed to [[speed]]",
+    "nl": "Stel snelheid in op [[speed]]"
+  },
+  "args": [
+    {
+      "name": "speed",
+      "type": "range",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "label": "%",
+      "labelDecimals": 0
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=zhimi-fan|dmaker-fan"
+    }
+  ],
+  "platforms": ["local"]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "number",
+  "title": {
+    "en": "TVOC",
+    "nl": "TVOC"
+  },
+  "icon": "/assets/icons/tvoc.svg",
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "µg/m³",
+    "nl": "µg/m³"
+  },
+  "min": 0,
+  "max": 10,
+  "decimals": 3,
+  "insights": true
+}

@@ -1,0 +1,23 @@
+{
+  "name": {
+    "en": "Aqara Motion Sensor (Gateway)",
+    "nl": "Aqara bewegingssensor (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/aqara-motion-sensor/assets/images/large.png",
+    "small": "/drivers/aqara-motion-sensor/assets/images/small.png"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "alarm_motion",
+    "measure_luminance",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": ["CR2450"]
+  }
+}

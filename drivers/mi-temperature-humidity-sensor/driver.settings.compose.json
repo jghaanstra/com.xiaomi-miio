@@ -1,0 +1,67 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Offset settings"
+    },
+    "children": [
+      {
+        "id": "addOrTakeOffset",
+        "type": "radio",
+        "label": {
+          "en": "Offset"
+        },
+        "value": "add",
+        "values": [
+          {
+            "id": "add",
+            "label": {
+              "en": "Add offset"
+            }
+          },
+          {
+            "id": "take",
+            "label": {
+              "en": "Minus offset"
+            }
+          }
+        ]
+      },
+      {
+        "id": "offset",
+        "type": "number",
+        "label": {
+          "en": "Offset"
+        },
+        "value": 0,
+        "min": 0,
+        "max": 5
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings",
+      "nl": "Apparaat instellingen"
+    },
+    "children": [
+      {
+        "id": "deviceSid",
+        "$extends": "deviceSid"
+      },
+      {
+        "id": "gatewaySid",
+        "$extends": "gatewaySid"
+      },
+      {
+        "id": "model",
+        "$extends": "model"
+      },
+      {
+        "id": "modelCode",
+        "$extends": "modelCode"
+      }
+    ]
+  }
+]

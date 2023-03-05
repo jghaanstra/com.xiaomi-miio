@@ -1,0 +1,57 @@
+{
+  "id": "modeAirpurifier",
+  "title": {
+    "en": "Set mode",
+    "nl": "Stel modus in"
+  },
+  "titleFormatted": {
+    "en": "Set mode to [[mode]]",
+    "nl": "Stel modus in op [[mode]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "idle",
+          "label": {
+            "en": "Idle",
+            "nl": "Standby"
+          }
+        },
+        {
+          "id": "auto",
+          "label": {
+            "en": "Auto",
+            "nl": "Auto"
+          }
+        },
+        {
+          "id": "night",
+          "label": {
+            "en": "Night",
+            "nl": "Nacht"
+          }
+        },
+        {
+          "id": "favorite",
+          "label": {
+            "en": "Favorite",
+            "nl": "Favoriet"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Air Purifier",
+        "nl": "Selecteer Mi Luchtreiniger"
+      },
+      "filter": "driver_id=mi-airpurifier"
+    }
+  ],
+  "platforms": ["local"]
+}

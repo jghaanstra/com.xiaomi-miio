@@ -1,0 +1,22 @@
+{
+  "name": {
+    "en": "Aqara Magnet Sensor (Gateway)",
+    "nl": "Aqara magneetsensor (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/aqara-magnet-sensor/assets/images/large.png",
+    "small": "/drivers/aqara-magnet-sensor/assets/images/small.png"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "alarm_contact",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": ["CR1632"]
+  }
+}

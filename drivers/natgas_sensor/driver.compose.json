@@ -1,0 +1,31 @@
+{
+  "name": {
+    "en": "Mijia Gas Leak Detector (Gateway)",
+    "nl": "Mijia Gas Leak Detector (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/natgas_sensor/assets/images/large.jpg",
+    "small": "/drivers/natgas_sensor/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "alarm_co",
+    "measure_gas_density",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "capabilitiesOptions": {
+    "alarm_co": {
+      "title": {
+        "en": "Gas Alarm",
+        "nl": "Gasalarm"
+      }
+    }
+  },
+  "energy": {
+    "batteries": ["CR2450"]
+  }
+}

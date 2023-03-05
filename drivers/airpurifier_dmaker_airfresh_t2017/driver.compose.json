@@ -1,0 +1,32 @@
+{
+  "name": {
+    "en": "Mi Air Purifier MJXFJ-300-G1 (WiFi)",
+    "nl": "Mi Air Purifier MJXFJ-300-G1 (WiFi)"
+  },
+  "images": {
+    "large": "drivers/airpurifier_dmaker_airfresh_t2017/assets/images/large.jpg",
+    "small": "drivers/airpurifier_dmaker_airfresh_t2017/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "airpurifier_zhimi_airpurifier_mode",
+    "onoff.ptc",
+    "airpurifier_heater_mode",
+    "measure_temperature",
+    "measure_pm25",
+    "measure_co2"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Speedlevel",
+        "nl": "Snelheid"
+      }
+    }
+  }
+}

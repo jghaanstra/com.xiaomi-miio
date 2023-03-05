@@ -1,0 +1,32 @@
+{
+  "name": {
+    "en": "Aqara Curtain Motor (Gateway)",
+    "nl": "Aqara gordijnmotor (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/aqara-curtain/assets/images/large.png",
+    "small": "/drivers/aqara-curtain/assets/images/small.png"
+  },
+  "class": "windowcoverings",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "windowcoverings_state"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "title": {
+        "en": "Open Close"
+      },
+      "greyout": false
+    },
+    "dim": {
+      "title": {
+        "en": "Level"
+      }
+    }
+  }
+}

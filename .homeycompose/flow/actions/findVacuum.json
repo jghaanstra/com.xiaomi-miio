@@ -1,0 +1,23 @@
+{
+  "id": "findVacuum",
+  "title": {
+    "en": "Find vacuum cleaner",
+    "nl": "Vind stofzuiger"
+  },
+  "hint": {
+    "en": "Let the vacuum cleaner tell you where it's at",
+    "nl": "Laat de stofzuiger vertellen waar hij is"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Robot",
+        "nl": "Selecteer Mi Robot"
+      },
+      "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
+    }
+  ],
+  "platforms": ["local"]
+}

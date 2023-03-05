@@ -1,0 +1,24 @@
+{
+  "name": {
+    "en": "Aqara Temperature & Humidity Sensor (Gateway)",
+    "nl": "Aqara temperatuur & luchtvochtigheid sensor (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/aqara-temperature-humidity-sensor/assets/images/large.png",
+    "small": "/drivers/aqara-temperature-humidity-sensor/assets/images/small.png"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "measure_temperature",
+    "measure_humidity",
+    "measure_pressure",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": ["CR2032"]
+  }
+}

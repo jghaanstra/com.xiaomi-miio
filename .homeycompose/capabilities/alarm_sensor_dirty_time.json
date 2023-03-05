@@ -1,0 +1,10 @@
+{
+  "title": {
+    "en": "Sensor Alert",
+    "nl": "Sensor waarschuwing"
+  },
+  "type": "boolean",
+  "getable": true,
+  "setable": false,
+  "icon": "/assets/icons/vacuum_sensor_dirty.svg"
+}

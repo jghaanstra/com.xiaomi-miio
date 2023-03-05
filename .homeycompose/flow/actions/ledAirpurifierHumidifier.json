@@ -1,0 +1,50 @@
+{
+  "id": "ledAirpurifierHumidifier",
+  "title": {
+    "en": "LED display brightness",
+    "nl": "LED display helderheid"
+  },
+  "titleFormatted": {
+    "en": "Set LED display brightness to [[brightness]]",
+    "nl": "Stel LED display helderheid in op [[brightness]]"
+  },
+  "args": [
+    {
+      "name": "brightness",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "bright",
+          "label": {
+            "en": "Bright",
+            "nl": "Helder"
+          }
+        },
+        {
+          "id": "dim",
+          "label": {
+            "en": "Dim",
+            "nl": "Gedimd"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Air Purifier",
+        "nl": "Selecteer Mi Luchtreiniger"
+      },
+      "filter": "driver_id=mi-airpurifier|mi-humidifier2|zhimi-fan"
+    }
+  ],
+  "platforms": ["local"]
+}

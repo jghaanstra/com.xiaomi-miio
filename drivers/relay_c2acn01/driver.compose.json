@@ -1,0 +1,33 @@
+{
+  "name": {
+    "en": "Aqara 2 Channel Relay (Gateway)",
+    "nl": "Aqara 2 Channel Relay (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/relay_c2acn01/assets/images/large.jpg",
+    "small": "/drivers/relay_c2acn01/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "onoff.",
+    "onoff.1",
+    "measure_power"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "title": {
+        "en": "Channel 1",
+        "nl": "Kanaal 1"
+      }
+    },
+    "onoff.1": {
+      "title": {
+        "en": "Channel 2",
+        "nl": "Kanaal 2"
+      }
+    }
+  }
+}

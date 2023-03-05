@@ -1,0 +1,9 @@
+{
+  "id": "deviceSid",
+  "type": "label",
+  "value": "0123456789abcd",
+  "label": {
+    "en": "Device SID",
+    "nl": "Apparaat SID"
+  }
+}

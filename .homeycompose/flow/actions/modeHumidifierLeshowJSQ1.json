@@ -1,0 +1,50 @@
+{
+  "id": "modeHumidifierLeshowJSQ1",
+  "title": {
+    "en": "Set Mode",
+    "nl": "Stel modus in"
+  },
+  "titleFormatted": {
+    "en": "Set mode to [[mode]]",
+    "nl": "Stel modus in op [[mode]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Constant Humidity",
+            "nl": "Constante luchtvochtigheid"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "High",
+            "nl": "Hoog"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Sleep",
+            "n;": "Slaapstand"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Humidifier",
+        "nl": "Selecteer Mi Luchtbevochtiger"
+      },
+      "filter": "driver_id=humidifier_leshow_humidifier_jsq1"
+    }
+  ],
+  "platforms": ["local"]
+}

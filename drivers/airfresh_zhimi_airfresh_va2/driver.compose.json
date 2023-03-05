@@ -1,0 +1,31 @@
+{
+  "name": {
+    "en": "Mi Air Fresh VA2 (WiFi)",
+    "nl": "Mi Air Fresh VA2 (WiFi)"
+  },
+  "images": {
+    "large": "drivers/airfresh_zhimi_airfresh_va2/assets/images/large.jpg",
+    "small": "drivers/airfresh_zhimi_airfresh_va2/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "airfresh_mode",
+    "measure_temperature",
+    "measure_humidity",
+    "measure_pm25",
+    "measure_co2"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Speedlevel",
+        "nl": "Snelheid"
+      }
+    }
+  }
+}

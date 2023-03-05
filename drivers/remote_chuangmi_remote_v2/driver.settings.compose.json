@@ -1,0 +1,43 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Configure IR Codes",
+      "nl": "IR codes configureren"
+    },
+    "children": [
+      {
+        "id": "replay",
+        "type": "number",
+        "label": {
+          "en": "Replay",
+          "nl": "Herhaal"
+        },
+        "value": 1,
+        "min": 1,
+        "max": 10
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings",
+      "nl": "Apparaat instellingen"
+    },
+    "children": [
+      {
+        "id": "address",
+        "$extends": "address"
+      },
+      {
+        "id": "token",
+        "$extends": "token"
+      },
+      {
+        "id": "polling",
+        "$extends": "polling"
+      }
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "id": "rightSwitch",
+  "title": {
+    "en": "Right switch !{{on|off}}",
+    "nl": "Rechterschakelaar !{{aan|uit}}"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
+    }
+  ],
+  "platforms": ["local"]
+}

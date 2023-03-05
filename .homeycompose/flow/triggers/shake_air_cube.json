@@ -1,0 +1,19 @@
+{
+  "id": "shake_air_cube",
+  "title": {
+    "en": "Shake in air",
+    "nl": "Schudden in de lucht"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-aqara-cube"
+    }
+  ],
+  "platforms": ["local"]
+}

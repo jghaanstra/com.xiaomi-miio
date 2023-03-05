@@ -1,0 +1,25 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Mode",
+    "nl": "Modus"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Straight Wind",
+        "nl": "Rechte wind"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Sleep",
+        "nl": "Slaapstand"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

@@ -9,7 +9,7 @@
 <script src="../assets/vue.min.js"></script>
 <script src="../assets/bootstrap-vue.min.js"></script>
 
-<div id="miHomey">
+<div id="miHome">
   <b-modal id="modalWelcomeScreen" hide-header-close no-close-on-backdrop hide-header scrollable>
     <template v-slot:default="{ hide }">
       <div class="text-center">
@@ -23,30 +23,18 @@
         <h1 class="font-weight-bold" style="font-size: 35px">Welcome to Xiaomi Mi Home App</h1>
         <b-container class="bv-example-row bv-example-row-flex-cols">
           <b-row class="pb-3">
-            <b-col align-self="center" cols="3"
-              ><img
+            <b-col align-self="center" cols="3">
+              <img
                 class="float-right"
                 style="width:32px;"
-                alt="new app"
+                alt="Xiaomi Mi Home"
                 src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjUxMnB4IiB2aWV3Qm94PSItNzYgMSA1MTEgNTExLjk5ODYzIiB3aWR0aD0iNTEycHgiPjxnPjxwYXRoIGQ9Im0xNzAuNDg0Mzc1IDEzMC4wMzEyNWMwIDUuNTE5NTMxIDQuNDgwNDY5IDEwIDEwIDEwczEwLTQuNDgwNDY5IDEwLTEwLTQuNDgwNDY5LTEwLTEwLTEwLTEwIDQuNDgwNDY5LTEwIDEwem0wIDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiIGZpbGw9IiNGRjY3MDAiLz48cGF0aCBkPSJtMTgwLjQ4NDM3NSA0MTYuMDA3ODEyYy01LjUxOTUzMSAwLTEwIDQuNDgwNDY5LTEwIDEwIDAgNS41MTk1MzIgNC40ODA0NjkgMTAgMTAgMTBzMTAtNC40ODA0NjggMTAtMTBjMC01LjUxOTUzMS00LjQ4MDQ2OS0xMC0xMC0xMHptMCAwIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIGRhdGEtb2xkX2NvbG9yPSIjMDAwMDAwIiBmaWxsPSIjRkY2NzAwIi8+PHBhdGggZD0ibTMwNC45NDE0MDYgMjA0LjQxMDE1NmMtMzMuNDEwMTU2LTE1LjcyNjU2Mi03Ny42MDkzNzUtMjQuMzgyODEyLTEyNC40NTcwMzEtMjQuMzgyODEycy05MS4wNDY4NzUgOC42NTYyNS0xMjQuNDU3MDMxIDI0LjM4MjgxMmMtMzUuODA4NTk0IDE2Ljg1MTU2My01NS41MjczNDQgNDAuMTUyMzQ0LTU1LjUyNzM0NCA2NS42MDkzNzV2MTUxLjk4ODI4MWMwIDI1LjQ1NzAzMiAxOS43MTg3NSA0OC43NTc4MTMgNTUuNTI3MzQ0IDY1LjYwOTM3NiAzMy40MTAxNTYgMTUuNzIyNjU2IDc3LjYwOTM3NSAyNC4zODI4MTIgMTI0LjQ1NzAzMSAyNC4zODI4MTJzOTEuMDQ2ODc1LTguNjYwMTU2IDEyNC40NTcwMzEtMjQuMzgyODEyYzM1LjgwODU5NC0xNi44NTE1NjMgNTUuNTI3MzQ0LTQwLjE1MjM0NCA1NS41MjczNDQtNjUuNjA5Mzc2di0xNTEuOTg4MjgxYzAtMjUuNDU3MDMxLTE5LjcxODc1LTQ4Ljc1NzgxMi01NS41MjczNDQtNjUuNjA5Mzc1em0tMjQwLjM5ODQzNyAxOC4wOTM3NWMzMC44MDA3ODEtMTQuNDk2MDk0IDcxLjk3NjU2Mi0yMi40ODA0NjggMTE1Ljk0MTQwNi0yMi40ODA0NjhzODUuMTQwNjI1IDcuOTg0Mzc0IDExNS45NDE0MDYgMjIuNDgwNDY4YzI3Ljk5MjE4OCAxMy4xNzE4NzUgNDQuMDQ2ODc1IDMwLjQ5MjE4OCA0NC4wNDY4NzUgNDcuNTE1NjI1IDAgMTcuMDIzNDM4LTE2LjA1NDY4NyAzNC4zNDM3NS00NC4wNDY4NzUgNDcuNTE1NjI1LTMwLjgwMDc4MSAxNC40OTYwOTQtNzEuOTc2NTYyIDIyLjQ4MDQ2OS0xMTUuOTQxNDA2IDIyLjQ4MDQ2OXMtODUuMTQwNjI1LTcuOTg0Mzc1LTExNS45NDE0MDYtMjIuNDgwNDY5Yy0yNy45OTIxODgtMTMuMTcxODc1LTQ0LjA0Njg3NS0zMC40OTIxODctNDQuMDQ2ODc1LTQ3LjUxNTYyNSAwLTE3LjAyMzQzNyAxNi4wNTQ2ODctMzQuMzQzNzUgNDQuMDQ2ODc1LTQ3LjUxNTYyNXptMjc1LjkyOTY4NyAxOTkuNTAzOTA2YzAgMTcuMDIzNDM4LTE2LjA1NDY4NyAzNC4zMzk4NDQtNDQuMDQ2ODc1IDQ3LjUxNTYyNi0zMC44MDA3ODEgMTQuNDk2MDkzLTcxLjk3NjU2MiAyMi40NzY1NjItMTE1Ljk0MTQwNiAyMi40NzY1NjJzLTg1LjE0MDYyNS03Ljk4MDQ2OS0xMTUuOTQxNDA2LTIyLjQ3NjU2MmMtMjcuOTkyMTg4LTEzLjE3NTc4Mi00NC4wNDY4NzUtMzAuNDkyMTg4LTQ0LjA0Njg3NS00Ny41MTU2MjZ2LTM4LjM3ODkwNmM1Ljk1MzEyNSA2LjE5OTIxOSAxMy4xNzE4NzUgMTIuMTA5Mzc1IDIxLjU3MDMxMiAxNy42MDkzNzUgMjUuNTcwMzEzIDE2LjczNDM3NSA2MC4xNDQ1MzIgMjguMjY5NTMxIDk3LjM1NTQ2OSAzMi40ODQzNzUuMzgyODEzLjA0Mjk2OS43NjE3MTkuMDYyNSAxLjEzNjcxOS4wNjI1IDUuMDE5NTMxIDAgOS4zNDc2NTYtMy43Njk1MzEgOS45MjU3ODEtOC44NzUuNjIxMDk0LTUuNDg0Mzc1LTMuMzI0MjE5LTEwLjQzNzUtOC44MTI1LTExLjA1ODU5NC03NC44NDc2NTYtOC40NzY1NjItMTIxLjE3NTc4MS00NC45Mjk2ODctMTIxLjE3NTc4MS03My44Mzk4NDN2LTI3LjkyNTc4MWM5LjAwMzkwNiA4LjcyNjU2MiAyMC45Mjk2ODcgMTYuNjcxODc0IDM1LjUzMTI1IDIzLjU0Mjk2OCAzMy40MTAxNTYgMTUuNzIyNjU2IDc3LjYwOTM3NSAyNC4zODI4MTMgMTI0LjQ1NzAzMSAyNC4zODI4MTMgNDYuODQzNzUgMCA5MS4wNDI5NjktOC42NjAxNTcgMTI0LjQ1NzAzMS0yNC4zODI4MTMgMTQuNjAxNTYzLTYuODc1IDI2LjUyMzQzOC0xNC44MTY0MDYgMzUuNTI3MzQ0LTIzLjU0Mjk2OHYyNy45MjU3ODFjMCAyOC45MTAxNTYtNDYuMzI4MTI1IDY1LjM2MzI4MS0xMjEuMTc1NzgxIDczLjgzOTg0My01LjQ4NDM3NS42MTcxODgtOS40Mjk2ODggNS41NzAzMTMtOC44MDg1OTQgMTEuMDU4NTk0LjU3ODEyNSA1LjEwNTQ2OSA0LjkwNjI1IDguODc1IDkuOTIxODc1IDguODc1LjM3NSAwIC43NTc4MTItLjAxOTUzMSAxLjEzNjcxOS0uMDYyNSAzNy4yMTA5MzctNC4yMTQ4NDQgNzEuNzg5MDYyLTE1Ljc1IDk3LjM1NTQ2OS0zMi40ODQzNzUgOC40MDIzNDMtNS41IDE1LjYyMTA5My0xMS40MTAxNTYgMjEuNTcwMzEyLTE3LjYwOTM3NXYzOC4zNzg5MDZ6bTAgMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBkYXRhLW9sZF9jb2xvcj0iIzAwMDAwMCIgZmlsbD0iI0ZGNjcwMCIvPjxwYXRoIGQ9Im0xODAuNDg0Mzc1IDMyMC4wMTU2MjVjNS41MjM0MzcgMCAxMC00LjQ3NjU2MyAxMC0xMHYtNzkuOTkyMTg3YzAtNS41MjM0MzgtNC40NzY1NjMtMTAtMTAtMTBzLTEwIDQuNDc2NTYyLTEwIDEwdjc5Ljk5MjE4N2MwIDUuNTIzNDM3IDQuNDc2NTYzIDEwIDEwIDEwem0wIDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiIGZpbGw9IiNGRjY3MDAiLz48cGF0aCBkPSJtMjMwLjQ4MDQ2OSAzMDAuMDE1NjI1YzUuNTIzNDM3IDAgMTAtNC40NzY1NjMgMTAtOS45OTYwOTR2LTQwYzAtNS41MTk1MzEtNC40NzY1NjMtOS45OTYwOTMtMTAtOS45OTYwOTMtNS41MjM0MzggMC0xMCA0LjQ3NjU2Mi0xMCA5Ljk5NjA5M3Y0MGMwIDUuNTE5NTMxIDQuNDc2NTYyIDkuOTk2MDk0IDEwIDkuOTk2MDk0em0wIDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiIGZpbGw9IiNGRjY3MDAiLz48cGF0aCBkPSJtMTMwLjQ4ODI4MSAzMDAuMDE1NjI1YzUuNTIzNDM4IDAgMTAtNC40NzY1NjMgMTAtOS45OTYwOTR2LTQwYzAtNS41MTk1MzEtNC40NzY1NjItOS45OTYwOTMtMTAtOS45OTYwOTMtNS41MjM0MzcgMC0xMCA0LjQ3NjU2Mi0xMCA5Ljk5NjA5M3Y0MGMwIDUuNTE5NTMxIDQuNDc2NTYzIDkuOTk2MDk0IDEwIDkuOTk2MDk0em0wIDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiIGZpbGw9IiNGRjY3MDAiLz48cGF0aCBkPSJtMjE3LjgyODEyNSAxMDMuMTc1NzgxYzIuODM5ODQ0LTQuNzM0Mzc1IDEuMzAwNzgxLTEwLjg3ODkwNi0zLjQzMzU5NC0xMy43MTg3NS0yMC45Mjk2ODctMTIuNTUwNzgxLTQ2LjkxNzk2OS0xMi41NDY4NzUtNjcuODI0MjE5LjAwMzkwNy00LjczNDM3NCAyLjg0Mzc1LTYuMjY5NTMxIDguOTg0Mzc0LTMuNDI1NzgxIDEzLjcxODc1IDIuODQzNzUgNC43MzQzNzQgOC45ODgyODEgNi4yNjk1MzEgMTMuNzE4NzUgMy40MjU3ODEgMTQuNTYyNS04Ljc0MjE4OCAzMi42NjQwNjMtOC43MzgyODEgNDcuMjQ2MDk0LjAwMzkwNiA0Ljc1NzgxMyAyLjg1MTU2MyAxMC44OTA2MjUgMS4yODUxNTYgMTMuNzE4NzUtMy40MzM1OTR6bTAgMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBkYXRhLW9sZF9jb2xvcj0iIzAwMDAwMCIgZmlsbD0iI0ZGNjcwMCIvPjxwYXRoIGQ9Im0yNTcuMTEzMjgxIDQ1LjczMDQ2OWM0LjU5NzY1NyAzLjA2MjUgMTAuODA0Njg4IDEuODE2NDA2IDEzLjg2NzE4OC0yLjc3NzM0NCAzLjA2MjUtNC41OTc2NTYgMS44MTY0MDYtMTAuODA0Njg3LTIuNzc3MzQ0LTEzLjg2NzE4N2wtNi43MDcwMzEtNC40NjQ4NDRjLTQ5LjIxNDg0NC0zMi44MjQyMTktMTEyLjgwNDY4OC0zMi44MjgxMjUtMTYxLjk5NjA5NC0uMDE1NjI1bC02LjczMDQ2OSA0LjQ4MDQ2OWMtNC41OTc2NTYgMy4wNTg1OTMtNS44NDM3NSA5LjI2NTYyNC0yLjc4MTI1IDEzLjg2MzI4MSAzLjA1MDc4MSA0LjU4MjAzMSA5LjI1IDUuODUxNTYyIDEzLjg2MzI4MSAyLjc4MTI1bDYuNzM4MjgyLTQuNDg0Mzc1YzQyLjQ1NzAzMS0yOC4zMjAzMTMgOTcuMzM1OTM3LTI4LjMxNjQwNiAxMzkuODE2NDA2LjAxNTYyNXptMCAwIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIGRhdGEtb2xkX2NvbG9yPSIjMDAwMDAwIiBmaWxsPSIjRkY2NzAwIi8+PHBhdGggZD0ibTIzMC40MjU3ODEgNzYuMDA3ODEyYzQuNjA1NDY5IDMuMDgyMDMyIDEwLjgxMjUgMS44MjAzMTMgMTMuODY3MTg4LTIuNzU3ODEyIDMuMDcwMzEyLTQuNTg5ODQ0IDEuODM1OTM3LTEwLjgwMDc4MS0yLjc1NzgxMy0xMy44NjcxODhsLTIuMjM4MjgxLTEuNDk2MDkzYy0zNS43MjY1NjMtMjMuODEyNS04MS44OTQ1MzEtMjMuODEyNS0xMTcuNjMyODEzLjAwMzkwNmwtMi4yMzA0NjggMS40OTIxODdjLTQuNTg5ODQ0IDMuMDY2NDA3LTUuODI0MjE5IDkuMjc3MzQ0LTIuNzU3ODEzIDEzLjg2NzE4OCAzLjA3MDMxMyA0LjU5Mzc1IDkuMjgxMjUgNS44MjgxMjUgMTMuODcxMDk0IDIuNzU3ODEybDIuMjE4NzUtMS40ODA0NjhjMjguOTkyMTg3LTE5LjMyMDMxMyA2Ni40NTMxMjUtMTkuMzIwMzEzIDk1LjQyOTY4Ny0uMDA3ODEzem0wIDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiIGZpbGw9IiNGRjY3MDAiLz48L2c+IDwvc3ZnPgo="
-            /></b-col>
-            <b-col align-self="center" class="text-left"
-              ><h1 style="padding-bottom: 0; margin: 0;">Xiaomi Gateway</h1>
-              <small>You can add Xioami Gateway's and child devices.</small></b-col
-            >
-          </b-row>
-          <b-row class="pb-3">
-            <b-col align-self="center" cols="3"
-              ><img
-                class="float-right"
-                style="width:32px;"
-                alt="new app"
-                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjUxMnB4IiB2aWV3Qm94PSItNjQgMCA0NzkgNDc5LjYyMjAzIiB3aWR0aD0iNTEycHgiPjxnPjxwYXRoIGQ9Im0yODQuMjMwNDY5IDExMy41NDI5NjljLTEzMS40ODA0NjktNzMuOTY4NzUtMjE2LjQyMTg3NS4yNjE3MTktMjE3LjI2OTUzMSAxLjAyMzQzNy0zLjIwNzAzMiAyLjk2ODc1LTMuNDM3NSA3Ljk2MDkzOC0uNTE1NjI2IDExLjIxNDg0NCAyLjkxNzk2OSAzLjI1IDcuOTA2MjUgMy41NTg1OTQgMTEuMjAzMTI2LjY4NzUgMy4xMTMyODEtMi43NjU2MjUgNzcuNjU2MjUtNjcuMDg1OTM4IDE5OC43NDIxODcgMS4wMDc4MTIgMS4xOTUzMTMuNjc5Njg4IDIuNTQyOTY5IDEuMDM1MTU3IDMuOTE0MDYzIDEuMDM1MTU3IDMuNjMyODEyLS4wMDM5MDcgNi44MTI1LTIuNDUzMTI1IDcuNzM0Mzc0LTUuOTcyNjU3LjkyMTg3Ni0zLjUxNTYyNC0uNjQwNjI0LTcuMjEwOTM3LTMuODA4NTkzLTguOTk2MDkzem0wIDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiIGZpbGw9IiNGRjY3MDAiLz48cGF0aCBkPSJtMzEyLjIzMDQ2OSA4MS41NDI5NjljLTE2My4wMTU2MjUtOTEuNzE0ODQ0LTI3Mi4wNzAzMTMgMC0yNzMuMTUyMzQ0LjkxNzk2OS0yLjI1IDEuODQzNzUtMy4zMjQyMTkgNC43NjU2MjQtMi44MDA3ODEgNy42Mjg5MDYuNTE5NTMxIDIuODYzMjgxIDIuNTU4NTk0IDUuMjE0ODQ0IDUuMzE2NDA2IDYuMTQ0NTMxczUuODAwNzgxLjI4OTA2MyA3Ljk0OTIxOS0xLjY3NTc4MWMuOTkyMTg3LS44NTU0NjkgMTAxLjUyNzM0My04NS4zMTI1IDI1NC44NDc2NTYuOTE3OTY4IDEuMTk1MzEzLjY3OTY4OCAyLjU0Mjk2OSAxLjAzNTE1NyAzLjkxNDA2MyAxLjAzNTE1NyAzLjYzMjgxMi0uMDAzOTA3IDYuODEyNS0yLjQ1MzEyNSA3LjczNDM3NC01Ljk3MjY1Ny45MjE4NzYtMy41MTU2MjQtLjY0MDYyNC03LjIxMDkzNy0zLjgwODU5My04Ljk5NjA5M3ptMCAwIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIGRhdGEtb2xkX2NvbG9yPSIjMDAwMDAwIiBmaWxsPSIjRkY2NzAwIi8+PHBhdGggZD0ibTIuOTkyMTg4IDU4LjUzNTE1NmMtMy4zMDA3ODIgMi45Mzc1LTMuNTkzNzUgNy45OTYwOTQtLjY1NjI1IDExLjI5Mjk2OSAyLjkzNzUgMy4zMDA3ODEgNy45OTYwOTMgMy41OTc2NTYgMTEuMjk2ODc0LjY1NjI1IDI3LjMxMjUtMjEuNzY5NTMxIDU4LjkxNzk2OS0zNy41MzEyNSA5Mi43NDIxODgtNDYuMjQ2MDk0IDc3LjI4MTI1LTIwLjYwMTU2MiAxNTUuODU1NDY5LTQuODAwNzgxIDIzMy40OTYwOTQgNDYuOTI5Njg4IDMuNjc1NzgxIDIuNDQ5MjE5IDguNjQ0NTMxIDEuNDU3MDMxIDExLjA5NzY1Ni0yLjIxODc1czEuNDYwOTM4LTguNjQ0NTMxLTIuMjE4NzUtMTEuMDkzNzVjLTE5NC44Mzk4NDQtMTI5LjkxNDA2My0zNDQuMjYxNzE5LS42MzI4MTMtMzQ1Ljc1NzgxMi42Nzk2ODd6bTAgMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBkYXRhLW9sZF9jb2xvcj0iIzAwMDAwMCIgZmlsbD0iI0ZGNjcwMCIvPjxwYXRoIGQ9Im0xOTIuMzEyNSAxMzUuNjIxMDk0aC0zMmMtMzUuMzMyMDMxLjAzOTA2Mi02My45NjA5MzggMjguNjcxODc1LTY0IDY0djIxNmMuMDM5MDYyIDM1LjMzMjAzMSAyOC42Njc5NjkgNjMuOTYwOTM3IDY0IDY0aDMyYzM1LjMyODEyNS0uMDM5MDYzIDYzLjk2MDkzOC0yOC42Njc5NjkgNjQtNjR2LTIxNmMtLjAzOTA2Mi0zNS4zMjgxMjUtMjguNjcxODc1LTYzLjk2MDkzOC02NC02NHptNDggMjgwYy0uMDI3MzQ0IDI2LjUtMjEuNSA0Ny45NzI2NTYtNDggNDhoLTMyYy0yNi41LS4wMjczNDQtNDcuOTcyNjU2LTIxLjUtNDgtNDh2LTIxNmMuMDI3MzQ0LTI2LjQ5NjA5NCAyMS41LTQ3Ljk3MjY1NiA0OC00OGgzMmMyNi41LjAyNzM0NCA0Ny45NzI2NTYgMjEuNTAzOTA2IDQ4IDQ4em0wIDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiIGZpbGw9IiNGRjY3MDAiLz48cGF0aCBkPSJtMTc2LjMxMjUgMjQ3LjYyMTA5NGMxNy42NzE4NzUgMCAzMi0xNC4zMjQyMTkgMzItMzIgMC0xNy42NzE4NzUtMTQuMzI4MTI1LTMyLTMyLTMycy0zMiAxNC4zMjgxMjUtMzIgMzJjMCAxNy42NzU3ODEgMTQuMzI4MTI1IDMyIDMyIDMyem0wLTQ4YzguODM1OTM4IDAgMTYgNy4xNjQwNjIgMTYgMTYgMCA4LjgzNTkzNy03LjE2NDA2MiAxNi0xNiAxNnMtMTYtNy4xNjQwNjMtMTYtMTZjMC04LjgzNTkzOCA3LjE2NDA2Mi0xNiAxNi0xNnptMCAwIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIGRhdGEtb2xkX2NvbG9yPSIjMDAwMDAwIiBmaWxsPSIjRkY2NzAwIi8+PHBhdGggZD0ibTIxNi4zMTI1IDI3OS42MjEwOTRoLTgwYy00LjQxNzk2OSAwLTggMy41ODIwMzEtOCA4IDAgNC40MTc5NjggMy41ODIwMzEgOCA4IDhoODBjNC40MTc5NjkgMCA4LTMuNTgyMDMyIDgtOCAwLTQuNDE3OTY5LTMuNTgyMDMxLTgtOC04em0wIDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiIGZpbGw9IiNGRjY3MDAiLz48cGF0aCBkPSJtMjE2LjMxMjUgMzExLjYyMTA5NGgtODBjLTQuNDE3OTY5IDAtOCAzLjU4MjAzMS04IDggMCA0LjQxNzk2OCAzLjU4MjAzMSA4IDggOGg4MGM0LjQxNzk2OSAwIDgtMy41ODIwMzIgOC04IDAtNC40MTc5NjktMy41ODIwMzEtOC04LTh6bTAgMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBkYXRhLW9sZF9jb2xvcj0iIzAwMDAwMCIgZmlsbD0iI0ZGNjcwMCIvPjxwYXRoIGQ9Im0xODQuMzEyNSAzNDMuNjIxMDk0aC0xNmMtNC40MTc5NjkgMC04IDMuNTgyMDMxLTggOCAwIDQuNDE3OTY4IDMuNTgyMDMxIDggOCA4aDE2YzQuNDE3OTY5IDAgOC0zLjU4MjAzMiA4LTggMC00LjQxNzk2OS0zLjU4MjAzMS04LTgtOHptMCAwIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIGRhdGEtb2xkX2NvbG9yPSIjMDAwMDAwIiBmaWxsPSIjRkY2NzAwIi8+PHBhdGggZD0ibTE0MC43OTI5NjkgMzQ0Ljk4MDQ2OWMtLjQ0NTMxMy0uMzAwNzgxLS45Mjk2ODgtLjU0Mjk2OS0xLjQ0MTQwNy0uNzE4NzUtLjQ1MzEyNC0uMjMwNDY5LS45Mzc1LS4zOTQ1MzEtMS40NDE0MDYtLjQ4MDQ2OS0yLjYzMjgxMi0uNTM1MTU2LTUuMzYzMjgxLjI3MzQzOC03LjI3NzM0NCAyLjE2MDE1Ni0xLjQ2MDkzNyAxLjUzNTE1Ni0yLjI5Mjk2OCAzLjU2MjUtMi4zMjAzMTIgNS42Nzk2ODgtLjAyMzQzOCAyLjEyODkwNi44MTI1IDQuMTc1NzgxIDIuMzIwMzEyIDUuNjc5Njg3Ljc3NzM0NC43MDcwMzEgMS42NzE4NzYgMS4yNzczNDQgMi42NDA2MjYgMS42Nzk2ODggMS45MzM1OTMuODU1NDY5IDQuMTQwNjI0Ljg1NTQ2OSA2LjA3ODEyNCAwIC45Njg3NS0uNDAyMzQ0IDEuODYzMjgyLS45NzI2NTcgMi42NDA2MjYtMS42Nzk2ODggMS41MDM5MDYtMS41MDM5MDYgMi4zMzk4NDMtMy41NTA3ODEgMi4zMjAzMTItNS42Nzk2ODctLjAzMTI1LTIuMTE3MTg4LS44NTkzNzUtNC4xNDQ1MzItMi4zMjAzMTItNS42Nzk2ODgtLjM3ODkwNy0uMzQzNzUtLjc4MTI1LS42NjQwNjItMS4xOTkyMTktLjk2MDkzN3ptMCAwIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIGRhdGEtb2xkX2NvbG9yPSIjMDAwMDAwIiBmaWxsPSIjRkY2NzAwIi8+PHBhdGggZD0ibTIxOS4zNTE1NjIgMzQ0LjI2MTcxOWMtMS45Mzc1LS44NDM3NS00LjE0MDYyNC0uODQzNzUtNi4wNzgxMjQgMC0uOTY4NzUuNDA2MjUtMS44NjMyODIuOTcyNjU2LTIuNjQwNjI2IDEuNjc5Njg3LTEuNDYwOTM3IDEuNTM1MTU2LTIuMjkyOTY4IDMuNTYyNS0yLjMyMDMxMiA1LjY3OTY4OC0uMDI3MzQ0IDIuNjc1NzgxIDEuMjk2ODc1IDUuMTg3NSAzLjUyNzM0NCA2LjY3MTg3NSAyLjIyNjU2MiAxLjQ4NDM3NSA1LjA1MDc4MSAxLjc0MjE4NyA3LjUxMTcxOC42ODc1Ljk2ODc1LS40MDIzNDQgMS44NjMyODItLjk3MjY1NyAyLjY0MDYyNi0xLjY3OTY4OCAxLjUwMzkwNi0xLjUwMzkwNiAyLjMzOTg0My0zLjU1MDc4MSAyLjMyMDMxMi01LjY3OTY4Ny0uMDMxMjUtMi4xMTcxODgtLjg1OTM3NS00LjE0NDUzMi0yLjMyMDMxMi01LjY3OTY4OC0uNzc3MzQ0LS43MDcwMzEtMS42NzE4NzYtMS4yNzM0MzctMi42NDA2MjYtMS42Nzk2ODd6bTAgMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBkYXRhLW9sZF9jb2xvcj0iIzAwMDAwMCIgZmlsbD0iI0ZGNjcwMCIvPjwvZz4gPC9zdmc+Cg=="
-            /></b-col>
-            <b-col align-self="center" class="text-left"
-              ><h1 style="padding-bottom: 0; margin: 0;">Remote Controller</h1>
-              <small>Support Mi Universal Remote Controller devices.</small></b-col
-            >
+              />
+            </b-col>
+            <b-col align-self="center" class="text-left">
+              <h1 style="padding-bottom: 0; margin: 0;">Xiaomi Gateway</h1>
+              <small>You can add Xiaomi Gateway's and child devices.</small>
+            </b-col>
           </b-row>
         </b-container>
       </div>
@@ -59,151 +47,62 @@
     </template>
   </b-modal>
 
-  <div fluid>
+  <b-container fluid class="mt-3">
     <div v-if="loading" class="d-flex justify-content-center mt-5">
       <b-spinner style="width: 5rem; height: 5rem;" variant="primary" label="Large Spinner"></b-spinner>
     </div>
     <div v-if="mainPage">
       <div class="text-center">
         <b-list-group horizontal>
-          <b-list-group-item :active="gatewaysPage" href="#" @click.prevent="showPageFromListGroup('gatewaysPage')">
-            Gateways
-          </b-list-group-item>
-          <b-list-group-item :active="irDevicesPage" href="#" @click.prevent="showPageFromListGroup('irDevicesPage')">
-            IR devices
-          </b-list-group-item>
+          <b-list-group-item :active="gatewaysPage" href="#" @click.prevent="showPageFromListGroup('gatewaysPage')">Gateways</b-list-group-item>
+          <b-list-group-item :active="irDevicesPage" href="#" @click.prevent="showPageFromListGroup('irDevicesPage')">IR devices</b-list-group-item>
         </b-list-group>
       </div>
       <!-- Gateway page -->
-      <div v-if="gatewaysPage" style="margin-bottom: 160px;">
+      <div v-if="gatewaysPage">
+        <div :class="setGatewaysPageMargin"></div>
         <div class="d-flex justify-content-center pt-2">
-          <b-button style="color: #28a728; background-color: #fff; border: 1px solid transparent; border-color: #28a728; padding: .375rem .75rem;" @click.prevent="showHelpModal"
-            >How to add gateway</b-button
-          >
+          <b-button style="color: #28a728; background-color: #fff; border: 1px solid transparent; border-color: #28a728; padding: .375rem .75rem;" @click.prevent="showHelpModal">Instructions</b-button>
         </div>
         <b-modal id="modalHowToStart" hide-header-close no-close-on-backdrop hide-header scrollable>
           <template v-slot:default
             ><div>
               <div class="text-center">
-                <h4 style="color: rgb(255, 30, 30);">Remember: Aqara gateway is not yet supported.</h4>
+                <h4 style="color: rgb(255, 30, 30);">Note: Aqara gateways not supported.</h4>
               </div>
               <div class="d-flex justify-content-center m-2 pt-5"><h6>Add gateway using MAC and password:</h6></div>
-              <div class="d-flex justify-content-center"><img src="https://raw.githubusercontent.com/Maxmudjon/images/master/MAC_PASSWORD.gif" alt="placeholder 960" class="img-responsive" /></div>
+              <div class="d-flex justify-content-center"><img src="https://raw.githubusercontent.com/jghaanstra/com.xiaomi-miio/master/docs/MAC_PASSWORD.gif" alt="placeholder 960" class="img-responsive" /></div>
               <div class="d-flex justify-content-center m-2 pt-5"><h6>Add gateway using IP and Token:</h6></div>
               <div class="d-flex justify-content-center pb-5">
-                <img src="https://raw.githubusercontent.com/Maxmudjon/images/master/IP_TOKEN_GENERATE.gif" alt="placeholder 960" class="img-responsive" />
+                <img src="https://raw.githubusercontent.com/jghaanstra/com.xiaomi-miio/master/docs/IP_TOKEN_GENERATE.gif" alt="placeholder 960" class="img-responsive" />
               </div>
             </div>
           </template>
 
           <template v-slot:modal-footer="{ ok }">
-            <b-button variant="success" @click="ok()">
-              OK
-            </b-button>
+            <b-button variant="success" @click="ok()">OK</b-button>
           </template>
         </b-modal>
         <div class="container pt-2 pb-2" v-for="(gateway, index) in gateways" :key="index">
           <div class="card">
             <div class="card-body ">
               <div class="message">
-                <h4 class="card-text text-muted">{{ gateway.mac }}</h4>
-                <h5 class="card-text text-muted">{{ gateway.password.toUpperCase() }}</h5>
-              </div>
-              <div class="actions float-left mt-3">
-                <b-button
-                  variant="outline-info"
-                  style="color: #17a2b8; background-color: #fff; border: 1px solid transparent; border-color: #17a2b8; padding: .375rem .75rem;"
-                  @click.prevent="setGatewayDeviceObject(gateway.mac)"
-                >
-                  devices <b-badge variant="light">{{ getGateway(gateway.mac) }}</b-badge>
-                </b-button>
+                <h4 class="card-text text-muted">GATEWAY</h4>
+                <small>MAC: {{ gateway.mac }}</small><br>
+                <small>PASSWORD: {{ gateway.password.toUpperCase() }}</small><br>
+                <small>CONNECTED DEVICES: {{ getGateway(gateway.mac) }}</small>
               </div>
               <div class="actions float-right mt-3">
-                <b-button
-                  variant="outline-success"
-                  style="color: #28a728; background-color: #fff; border: 1px solid transparent; border-color: #28a728; padding: .375rem .75rem;"
-                  @click.prevent="edit(gateway, index, 'gateway')"
-                  >Modify</b-button
-                >
-                <b-button
-                  variant="outline-danger"
-                  style="color: #dc3545; background-color: #fff; border: 1px solid transparent; border-color: #dc3545; padding: .375rem .75rem;"
-                  @click.prevent="deleteDevice(gateway, index, 'gateway')"
-                  >Delete</b-button
-                >
+                <b-button variant="outline-success" style="color: #28a728; background-color: #fff; border: 1px solid transparent; border-color: #28a728; padding: .375rem .75rem;" @click.prevent="edit(gateway, index, 'gateway')">Modify</b-button>
+                <b-button variant="outline-danger" style="color: #dc3545; background-color: #fff; border: 1px solid transparent; border-color: #dc3545; padding: .375rem .75rem;" @click.prevent="deleteDevice(gateway, index, 'gateway')">Delete</b-button>
               </div>
             </div>
           </div>
         </div>
-
-        <b-modal id="modalChildDevices" hide-header-close no-close-on-backdrop hide-header scrollable>
-          <template v-slot:default>
-            <div>
-              <div class="d-flex justify-content-left pt-3 pb-1">
-                <h1 style="margin-bottom: 0;">Gateway:</h1>
-              </div>
-              <div class="d-flex justify-content-left">
-                <small>Gateway ip: {{ gatewayDeviceObject.ip }}</small>
-              </div>
-              <div class="d-flex justify-content-left">
-                <small>Gateway port: {{ gatewayDeviceObject.port }}</small>
-              </div>
-              <div class="d-flex justify-content-left">
-                <small>Gateway proto version: {{ gatewayDeviceObject.proto_version }}</small>
-              </div>
-              <div class="d-flex justify-content-left">
-                <small>Gateway model: {{ gatewayDeviceObject.model }}</small>
-              </div>
-              <div class="d-flex justify-content-left pt-3 pb-1">
-                <h1 style="margin-bottom: 0;">Devices:</h1>
-              </div>
-              <div class="pb-2" v-for="(device, index) in gatewayDeviceObject.childDevices" :key="index">
-                <b-card>
-                  <b-card-text>
-                    {{ modelInfo(device) }}
-                    </br>
-                    sid: {{ device.sid }}
-                    </br>
-                    model: {{ device.model }}
-                  </b-card-text>
-                  <b-button variant="danger" style="color: #fff; background-color: #dc3545; border-color: #dc3545; padding: .375rem .75rem;" @click.prevent="deleteChildDevice(device, index)">
-                    Delete
-                  </b-button>
-                </b-card>
-              </div>
-            </div>
-          </template>
-
-          <template v-slot:modal-footer="{ ok }">
-            <b-button variant="success" @click="ok()">
-              OK
-            </b-button>
-          </template>
-        </b-modal>
-        <b-modal id="modalConfirmDeleteChildDevices" hide-header-close no-close-on-backdrop hide-header scrollable>
-          <template v-slot:default>
-            <div>
-              <div class="d-flex justify-content-left pt-3 pb-1">
-                <h1 style="margin-bottom: 0; color: #dc3545">Do you really want to delete?</h1>
-              </div>
-              <div class="d-flex justify-content-left pt-3 pb-1">
-                <h1 style="margin-bottom: 0;">child device: {{ childDeviceSidToDeleteConfirm }}</h1>
-              </div>
-            </div>
-          </template>
-
-          <template v-slot:modal-footer="{ ok, cancel }">
-            <b-button style="padding: .375rem .75rem;" @click="cancel()">
-              Cancel
-            </b-button>
-            <b-button variant="danger" style="color: #fff; background-color: #dc3545; border-color: #dc3545; padding: .375rem .75rem;" @click.prevent="confirmDeleteChildDevice">
-              DELETE
-            </b-button>
-          </template>
-        </b-modal>
       </div>
       <!-- IR devices page -->
-      <div v-if="irDevicesPage" style="margin-bottom: 160px;">
+      <div v-if="irDevicesPage">
+        <div :class="setIrDevicesPageMargin"></div>
         <div class="container pt-2 pb-2" v-for="(device, index) in irDevices" :key="index">
           <div class="card">
             <div class="card-body ">
@@ -231,36 +130,8 @@
       </div>
       <!-- Add devices button -->
       <div>
-        <b-button
-          block
-          variant="primary"
-          style="color: #fff; background-color: #007bff; border-color: #007bff; padding: .375rem .75rem; position: fixed; bottom: 10px;"
-          @click.prevent="addGatewayModalShow"
-          >Add</b-button
-        >
+        <b-button block variant="primary" style="color: #fff; background-color: #007bff; border-color: #007bff; padding: .375rem .75rem; position: fixed; bottom: 10px; width: 85%;" @click.prevent="addGatewayModalShow">Add</b-button>
       </div>
-      <!-- Delete device confirm modal -->
-      <b-modal id="modalConfirmDeleteDevices" hide-header-close no-close-on-backdrop hide-header scrollable>
-        <template v-slot:default>
-          <div>
-            <div class="d-flex justify-content-left pt-3 pb-1">
-              <h1 style="margin-bottom: 0; color: #dc3545">Do you really want to delete?</h1>
-            </div>
-            <div class="d-flex justify-content-left pt-3 pb-1">
-              <h1 style="margin-bottom: 0;">Device: {{ deleteDeviceConfirmTitle }}</h1>
-            </div>
-          </div>
-        </template>
-
-        <template v-slot:modal-footer="{ ok, cancel }">
-          <b-button style="padding: .375rem .75rem;" @click="cancel()">
-            Cancel
-          </b-button>
-          <b-button variant="danger" style="color: #fff; background-color: #dc3545; border-color: #dc3545; padding: .375rem .75rem;" @click.prevent="confirmDeleteDevice">
-            DELETE
-          </b-button>
-        </template>
-      </b-modal>
       <!-- Add devices modal -->
       <b-modal id="modalAddDevices" hide-header-close no-close-on-backdrop hide-header scrollable>
         <template v-slot:default>
@@ -268,35 +139,21 @@
             <div class="text-center mt-5 mb-5" v-if="selectAddDeviceTypePage">
               <h1 class="pb-3">Select device type</h1>
               <b-list-group>
-                <b-list-group-item
-                  button
-                  @click.prevent="chooseAddDeviceTypePage('gatewayMethod')"
-                  style="padding: .75rem 1.25rem; background-color: white; border: 1px solid rgba(0,0,0,.125); border-top-left-radius: .25rem; border-top-right-radius: .25rem; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; margin-bottom: -1px;"
-                  >Gateway</b-list-group-item
-                >
-                <b-list-group-item
-                  button
-                  @click.prevent="chooseAddDeviceTypePage('irDevice')"
-                  style="padding: .75rem 1.25rem; background-color: white; border: 1px solid rgba(0,0,0,.125); border-top-left-radius: .25rem; border-top-right-radius: .25rem; border-top-left-radius: 0px; border-top-right-radius: 0px; margin-bottom: -1px;"
-                  >IR device</b-list-group-item
-                >
+                <b-list-group-item button @click.prevent="chooseAddDeviceTypePage('gatewayMethod')" style="padding: .75rem 1.25rem; background-color: white; border: 1px solid rgba(0,0,0,.125); border-top-left-radius: .25rem; border-top-right-radius: .25rem; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; margin-bottom: -1px;">
+                  Gateway
+                </b-list-group-item>
+                <b-list-group-item button @click.prevent="chooseAddDeviceTypePage('irDevice')" style="padding: .75rem 1.25rem; background-color: white; border: 1px solid rgba(0,0,0,.125); border-top-left-radius: .25rem; border-top-right-radius: .25rem; border-top-left-radius: 0px; border-top-right-radius: 0px; margin-bottom: -1px;">
+                  IR device
+                </b-list-group-item>
               </b-list-group>
             </div>
             <div class="text-center mt-5 mb-5" v-if="chooseGatewayAddMethodPage">
               <h1 class="pb-3">Choose add method</h1>
               <b-list-group>
-                <b-list-group-item
-                  button
-                  @click.prevent="chooseAddDeviceTypePage('gateway')"
-                  style="padding: .75rem 1.25rem; background-color: white; border: 1px solid rgba(0,0,0,.125); border-top-left-radius: .25rem; border-top-right-radius: .25rem; border-top-right-radius: .25rem; border-bottom-left-radius: 0px; margin-bottom: -1px;"
-                >
+                <b-list-group-item button @click.prevent="chooseAddDeviceTypePage('gateway')" style="padding: .75rem 1.25rem; background-color: white; border: 1px solid rgba(0,0,0,.125); border-top-left-radius: .25rem; border-top-right-radius: .25rem; border-top-right-radius: .25rem; border-bottom-left-radius: 0px; margin-bottom: -1px;">
                   MAC and Password
                 </b-list-group-item>
-                <b-list-group-item
-                  button
-                  @click.prevent="chooseAddDeviceTypePage('generatePassword')"
-                  style="padding: .75rem 1.25rem; background-color: white; border: 1px solid rgba(0,0,0,.125); border-top-left-radius: .25rem; border-top-right-radius: .25rem; border-top-left-radius: 0px; border-top-right-radius: 0px; margin-bottom: -1px;"
-                >
+                <b-list-group-item button @click.prevent="chooseAddDeviceTypePage('generatePassword')" style="padding: .75rem 1.25rem; background-color: white; border: 1px solid rgba(0,0,0,.125); border-top-left-radius: .25rem; border-top-right-radius: .25rem; border-top-left-radius: 0px; border-top-right-radius: 0px; margin-bottom: -1px;">
                   IP and Token (for generate password)
                 </b-list-group-item>
               </b-list-group>
@@ -304,33 +161,27 @@
             <div v-if="gatewayAddViaMacPage">
               <div role="group">
                 <label class="font-weight-bold" for="input-live">MAC:</label>
-                <b-form-input
-                  id="input-live"
-                  v-model="mac"
-                  :state="macRule"
-                  aria-describedby="input-live-help input-live-feedback"
-                  placeholder="Enter mac address"
-                  trim
-                  style="border: 1px solid #ced4da; padding: 10px;"
-                ></b-form-input>
-                <b-form-invalid-feedback id="input-live-feedback"> {{ macRuleMessage }}. </b-form-invalid-feedback>
+                <b-form-input id="input-live" v-model="mac" :state="macRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter mac address" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
+                <b-form-invalid-feedback id="input-live-feedback">{{ macRuleMessage }}.</b-form-invalid-feedback>
                 <b-form-text id="input-live-help">You can add a MAC address two points or without it. Upper and lower case is also not important.</b-form-text>
               </div>
               <div role="group" class="mt-3">
                 <label class="font-weight-bold" for="input-live">Password:</label>
-                <b-form-input
-                  id="input-live"
-                  v-model="password"
-                  :state="passwordRule"
-                  aria-describedby="input-live-help input-live-feedback"
-                  placeholder="Enter password"
-                  trim
-                  style="border: 1px solid #ced4da;  padding: 10px;"
-                ></b-form-input>
-                <b-form-invalid-feedback id="input-live-feedback">
-                  Wrong password.
-                </b-form-invalid-feedback>
+                <b-form-input id="input-live" v-model="password" :state="passwordRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter password" trim style="border: 1px solid #ced4da;  padding: 10px;"></b-form-input>
+                <b-form-invalid-feedback id="input-live-feedback">Wrong password.</b-form-invalid-feedback>
                 <b-form-text id="input-live-help">Upper and lower case is also not important.</b-form-text>
+              </div>
+              <div role="group">
+                <label class="font-weight-bold" for="input-live">IP:</label>
+                <b-form-input id="input-live" v-model="ip" :state="ipRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter IP address" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
+                <b-form-invalid-feedback id="input-live-feedback">{{ ipRuleMessage }}</b-form-invalid-feedback>
+                <b-form-text id="input-live-help">Gateway IP address.</b-form-text>
+              </div>
+              <div role="group" class="mt-3">
+                <label class="font-weight-bold" for="input-live">Token:</label>
+                <b-form-input id="input-live" v-model="token" :state="tokenRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter token" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
+                <b-form-invalid-feedback id="input-live-feedback">{{ tokenRuleMessage }}</b-form-invalid-feedback>
+                <b-form-text id="input-live-help">Gateway token.</b-form-text>
               </div>
             </div>
             <!-- Generate MAC and Password from IP and Token -->
@@ -346,34 +197,14 @@
               <div v-if="!generatePasswordLoading">
                 <div role="group">
                   <label class="font-weight-bold" for="input-live">IP:</label>
-                  <b-form-input
-                    id="input-live"
-                    v-model="ip"
-                    :state="ipRule"
-                    aria-describedby="input-live-help input-live-feedback"
-                    placeholder="Enter IP address"
-                    trim
-                    style="border: 1px solid #ced4da; padding: 10px;"
-                  ></b-form-input>
-                  <b-form-invalid-feedback id="input-live-feedback">
-                    {{ ipRuleMessage }}
-                  </b-form-invalid-feedback>
+                  <b-form-input id="input-live" v-model="ip" :state="ipRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter IP address" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
+                  <b-form-invalid-feedback id="input-live-feedback">{{ ipRuleMessage }}</b-form-invalid-feedback>
                   <b-form-text id="input-live-help">Gateway IP address.</b-form-text>
                 </div>
                 <div role="group" class="mt-3">
                   <label class="font-weight-bold" for="input-live">Token:</label>
-                  <b-form-input
-                    id="input-live"
-                    v-model="token"
-                    :state="tokenRule"
-                    aria-describedby="input-live-help input-live-feedback"
-                    placeholder="Enter token"
-                    trim
-                    style="border: 1px solid #ced4da; padding: 10px;"
-                  ></b-form-input>
-                  <b-form-invalid-feedback id="input-live-feedback">
-                    {{ tokenRuleMessage }}
-                  </b-form-invalid-feedback>
+                  <b-form-input id="input-live" v-model="token" :state="tokenRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter token" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
+                  <b-form-invalid-feedback id="input-live-feedback">{{ tokenRuleMessage }}</b-form-invalid-feedback>
                   <b-form-text id="input-live-help">Gateway token.</b-form-text>
                 </div>
                 <div class="m-3 text-center" v-if="generatingResult" style="color: #28a745;">{{ generatingResultMessage }}</div>
@@ -381,7 +212,7 @@
                 <div class="m-3 text-center" v-if="generatingResult" style="color: #28a745;">Generated password is: {{ password }}</div>
                 <div class="mt-3">
                   <b-button block variant="success" style="color: #fff; background-color: #28a745; border-color: #28a745; padding: 10px;" @click="generatePassword" :disabled="generatePasswordLoading">
-                    Generate and add
+                    Generate and Add
                   </b-button>
                 </div>
               </div>
@@ -398,46 +229,20 @@
               <div v-if="!checkConnectionLoading">
                 <div role="group">
                   <label class="font-weight-bold" for="input-live">IP:</label>
-                  <b-form-input
-                    id="input-live"
-                    v-model="ip"
-                    :state="ipRule"
-                    aria-describedby="input-live-help input-live-feedback"
-                    placeholder="Enter IP address"
-                    trim
-                    style="border: 1px solid #ced4da; padding: 10px;"
-                  ></b-form-input>
-                  <b-form-invalid-feedback id="input-live-feedback">
-                    {{ ipRuleMessage }}
-                  </b-form-invalid-feedback>
+                  <b-form-input id="input-live" v-model="ip" :state="ipRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter IP address" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
+                  <b-form-invalid-feedback id="input-live-feedback">{{ ipRuleMessage }}</b-form-invalid-feedback>
                   <b-form-text id="input-live-help">Device IP address.</b-form-text>
                 </div>
                 <div role="group" class="mt-3">
                   <label class="font-weight-bold" for="input-live">Token:</label>
-                  <b-form-input
-                    id="input-live"
-                    v-model="token"
-                    :state="tokenRule"
-                    aria-describedby="input-live-help input-live-feedback"
-                    placeholder="Enter token"
-                    trim
-                    style="border: 1px solid #ced4da; padding: 10px;"
-                  ></b-form-input>
-                  <b-form-invalid-feedback id="input-live-feedback">
-                    {{ tokenRuleMessage }}
-                  </b-form-invalid-feedback>
+                  <b-form-input id="input-live" v-model="token" :state="tokenRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter token" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
+                  <b-form-invalid-feedback id="input-live-feedback">{{ tokenRuleMessage }}</b-form-invalid-feedback>
                   <b-form-text id="input-live-help">Device token.</b-form-text>
                 </div>
                 <div class="m-3 text-center" v-if="connectionTest" style="color: #28a745;">{{ connectionTestMessage }}</div>
                 <div class="mt-3">
-                  <b-button
-                    block
-                    variant="outline-success"
-                    style="color: #28a728; background-color: #fff; border: 1px solid transparent; border-color: #28a728; padding: 10px;"
-                    @click="checkConnection"
-                    :disabled="checkConnectionLoading"
-                  >
-                    Connect to check
+                  <b-button block variant="outline-success" style="color: #28a728; background-color: #fff; border: 1px solid transparent; border-color: #28a728; padding: 10px;" @click="checkConnection" :disabled="checkConnectionLoading">
+                    Check to connect
                   </b-button>
                 </div>
               </div>
@@ -446,7 +251,9 @@
         </template>
 
         <template v-slot:modal-footer>
-          <b-button variant="success" style="color: #fff; background-color: #6c757d; border-color: #6c757d; padding: .375rem .75rem;" @click="modalAddDevicesClose">Cancel</b-button>
+          <b-button variant="success" style="color: #fff; background-color: #6c757d; border-color: #6c757d; padding: .375rem .75rem;" @click="modalAddDevicesClose">
+            Cancel
+          </b-button>
           <b-button v-if="addDeviceButton" variant="success" style="color: #fff; background-color: #007bff; border-color: #007bff; padding: .375rem .75rem;" @click="addDevice">
             Add {{ addDeviceType }}
           </b-button>
@@ -459,31 +266,27 @@
             <div v-if="gatewayEditPage">
               <div role="group">
                 <label class="font-weight-bold" for="input-live">MAC:</label>
-                <b-form-input
-                  id="input-live"
-                  v-model="mac"
-                  :state="macEditRule"
-                  aria-describedby="input-live-help input-live-feedback"
-                  placeholder="Enter mac address"
-                  trim
-                  style="border: 1px solid #ced4da; padding: 10px;"
-                ></b-form-input>
+                <b-form-input id="input-live" v-model="mac" :state="macEditRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter mac address" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
                 <b-form-invalid-feedback id="input-live-feedback"> {{ macRuleMessage }} </b-form-invalid-feedback>
                 <b-form-text id="input-live-help">You can add a MAC address two points or without it. Upper and lower case is also not important.</b-form-text>
               </div>
               <div role="group" class="mt-3">
                 <label class="font-weight-bold" for="input-live">Password:</label>
-                <b-form-input
-                  id="input-live"
-                  v-model="password"
-                  :state="passwordEditRule"
-                  aria-describedby="input-live-help input-live-feedback"
-                  placeholder="Enter password"
-                  trim
-                  style="border: 1px solid #ced4da; padding: 10px;"
-                ></b-form-input>
+                <b-form-input id="input-live" v-model="password" :state="passwordEditRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter password" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
                 <b-form-invalid-feedback id="input-live-feedback"> {{ passwordRuleMessage }} </b-form-invalid-feedback>
                 <b-form-text id="input-live-help">Upper and lower case is also not important.</b-form-text>
+              </div>
+              <div role="group">
+                <label class="font-weight-bold" for="input-live">IP:</label>
+                <b-form-input id="input-live" v-model="ip" :state="ipEditRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter IP address" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
+                <b-form-invalid-feedback id="input-live-feedback">{{ ipRuleMessage }}</b-form-invalid-feedback>
+                <b-form-text id="input-live-help">Gateway IP address.</b-form-text>
+              </div>
+              <div role="group" class="mt-3">
+                <label class="font-weight-bold" for="input-live">Token:</label>
+                <b-form-input id="input-live" v-model="token" :state="tokenEditRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter token" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
+                <b-form-invalid-feedback id="input-live-feedback">{{ tokenRuleMessage }}</b-form-invalid-feedback>
+                <b-form-text id="input-live-help">Gateway token.</b-form-text>
               </div>
             </div>
             <div v-if="irDeviceEditPage">
@@ -498,44 +301,18 @@
               <div v-if="!checkConnectionLoading">
                 <div role="group">
                   <label class="font-weight-bold" for="input-live">IP:</label>
-                  <b-form-input
-                    id="input-live"
-                    v-model="ip"
-                    :state="ipEditRule"
-                    aria-describedby="input-live-help input-live-feedback"
-                    placeholder="Enter IP address"
-                    trim
-                    style="border: 1px solid #ced4da; padding: 10px;"
-                  ></b-form-input>
-                  <b-form-invalid-feedback id="input-live-feedback">
-                    {{ ipRuleMessage }}
-                  </b-form-invalid-feedback>
+                  <b-form-input id="input-live" v-model="ip" :state="ipEditRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter IP address" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
+                  <b-form-invalid-feedback id="input-live-feedback">{{ ipRuleMessage }}</b-form-invalid-feedback>
                   <b-form-text id="input-live-help">Device IP address.</b-form-text>
                 </div>
                 <div role="group" class="mt-3">
                   <label class="font-weight-bold" for="input-live">Token:</label>
-                  <b-form-input
-                    id="input-live"
-                    v-model="token"
-                    :state="tokenEditRule"
-                    aria-describedby="input-live-help input-live-feedback"
-                    placeholder="Enter token"
-                    trim
-                    style="border: 1px solid #ced4da; padding: 10px;"
-                  ></b-form-input>
-                  <b-form-invalid-feedback id="input-live-feedback">
-                    {{ tokenRuleMessage }}
-                  </b-form-invalid-feedback>
+                  <b-form-input id="input-live" v-model="token" :state="tokenEditRule" aria-describedby="input-live-help input-live-feedback" placeholder="Enter token" trim style="border: 1px solid #ced4da; padding: 10px;"></b-form-input>
+                  <b-form-invalid-feedback id="input-live-feedback">{{ tokenRuleMessage }}</b-form-invalid-feedback>
                   <b-form-text id="input-live-help">Device token.</b-form-text>
                 </div>
                 <div class="mt-3">
-                  <b-button
-                    block
-                    variant="outline-success"
-                    style="color: #28a728; background-color: #fff; border: 1px solid transparent; border-color: #28a728; padding: .375rem .75rem;"
-                    @click="checkConnection"
-                    :disabled="checkConnectionLoading"
-                  >
+                  <b-button block variant="outline-success" style="color: #28a728; background-color: #fff; border: 1px solid transparent; border-color: #28a728; padding: .375rem .75rem;" @click="checkConnection" :disabled="checkConnectionLoading">
                     Connect to check
                   </b-button>
                 </div>
@@ -550,20 +327,19 @@
         </template>
       </b-modal>
     </div>
-  </div>
+  </b-container>
 </div>
 
 <script type="text/javascript">
   function onHomeyReady(Homey) {
     Homey.ready();
     new Vue({
-      el: "#miHomey",
+      el: "#miHome",
       data() {
         return {
           gateways: [],
           irDevices: [],
           gatewaysObject: {},
-          gatewayDeviceObject: {},
           currentPage: "gateways",
           loading: true,
           mainPage: false,
@@ -597,12 +373,7 @@
           editIndex: 0,
           saveDeviceType: "",
           connectionTest: false,
-          connectionTestMessage: "",
-          childDeviceSidToDeleteConfirm: null,
-          childDeviceIndexToDeleteConfirm: null,
-          deleteDeviceConfirmTitle: null,
-          deleteDeviceConfirmIndex: null,
-          deleteDeviceConfirmType: null
+          connectionTestMessage: ""
         };
       },
       mounted() {
@@ -710,7 +481,6 @@
           }
 
           if (this.macRule && this.passwordRule && update != "generate") {
-            this.mac = this.mac.toLowerCase();
             if (this.gateways.filter(gateway => gateway.mac == this.mac).length != 0) {
               this.macRule = false;
               this.macRuleMessage = "This mac address already exists";
@@ -833,8 +603,27 @@
           this.tokenRule = null;
           this.tokenRuleMessage = "";
 
-          Homey.api("POST", "/generate", { ip: this.ip, token: this.token }, (error, result) => {
-            if (error) {
+          Homey.api('POST', '/generate', { ip: this.ip, token: this.token })
+            .then(result => {
+              if (result.status == "OK") {
+                this.generatingResult = true;
+                this.generatePasswordLoading = false;
+                this.generatingResultMessage = "Successfully generated";
+                this.mac = result.mac;
+                this.password = result.password;
+
+                setTimeout(() => {
+                  this.checkConnectionLoading = false;
+                  this.generatingResult = false;
+                  this.generatingResultMessage = "";
+                  this.addDevice("generate");
+                  setTimeout(() => {
+                    this.getGatewayDeviceAction();
+                  }, 1000);
+                }, 1500);
+              }
+            })
+            .catch(error => {
               this.generatingResult = true;
               this.generatePasswordLoading = false;
               this.generatingResultMessage = error.message;
@@ -846,31 +635,20 @@
                 this.tokenRule = false;
                 this.tokenRuleMessage = "Wrong token";
               }
-            }
-
-            if (result.status == "OK") {
-              this.generatingResult = true;
-              this.generatePasswordLoading = false;
-              this.generatingResultMessage = "Successfully generated";
-              this.mac = result.mac;
-              this.password = result.password;
-
-              setTimeout(() => {
-                this.checkConnectionLoading = false;
-                this.generatingResult = false;
-                this.generatingResultMessage = "";
-                this.addDevice("generate");
-                setTimeout(() => {
-                  this.getGatewayDeviceAction();
-                }, 1000);
-              }, 1500);
-            }
-          });
+            });
         },
         checkConnection() {
           this.checkConnectionLoading = true;
-          Homey.api("POST", "/testConnection", { ip: this.ip, token: this.token }, (error, result) => {
-            if (error) {
+          Homey.api('POST', '/testConnection', { ip: this.ip, token: this.token })
+            .then(result => {
+              if (result.token == this.token) {
+                this.checkConnectionLoading = false;
+                this.generatePasswordLoading = false;
+                this.connectionTest = true;
+                this.connectionTestMessage = "Successfully connected";
+              }
+            })
+            .catch(error => {
               this.connectionTest = true;
               this.checkConnectionLoading = false;
               this.connectionTestMessage = error.message;
@@ -882,15 +660,7 @@
                 this.tokenRule = false;
                 this.tokenRuleMessage = "Wrong token";
               }
-            }
-
-            if (result.token == this.token) {
-              this.checkConnectionLoading = false;
-              this.generatePasswordLoading = false;
-              this.connectionTest = true;
-              this.connectionTestMessage = "Successfully connected";
-            }
-          });
+            });
         },
         edit(device, index, type) {
           if (type == "gateway") {
@@ -898,6 +668,8 @@
             this.irDeviceEditPage = false;
             this.mac = device.mac;
             this.password = device.password;
+            this.ip = device.ip || "0.0.0.0";
+            this.token = device.token || "00000000000000000000000000000000";
           } else if (type == "irDevice") {
             this.irDeviceEditPage = true;
             this.gatewayEditPage = false;
@@ -910,47 +682,20 @@
         },
         deleteDevice(device, index, type) {
           if (type == "gateway") {
-            this.$bvModal.show("modalConfirmDeleteDevices");
-            this.deleteDeviceConfirmIndex = index;
-            this.deleteDeviceConfirmTitle = device.mac;
-            this.deleteDeviceConfirmType = type;
+            this.gateways.splice(index, 1);
+            Homey.set("gatewaysList", this.gateways, (error, settings) => {
+              if (error) return Homey.alert(error);
+            });
           } else if (type == "irDevice") {
-            this.$bvModal.show("modalConfirmDeleteDevices");
-            this.deleteDeviceConfirmIndex = index;
-            this.deleteDeviceConfirmTitle = device.ip;
-            this.deleteDeviceConfirmType = type;
+            this.irDevices.splice(index, 1);
+            Homey.set("irDevicesList", this.irDevices, (error, settings) => {
+              if (error) return Homey.alert(error);
+            });
           }
-        },
-        confirmDeleteDevice() {
-          if (this.deleteDeviceConfirmType == "gateway") {
-            this.confirmDeleteGatewayDevice();
-          } else if (this.deleteDeviceConfirmType == "irDevice") {
-            this.confirmDeleteIrDevice();
-          }
-        },
-        confirmDeleteGatewayDevice() {
-          this.gateways.splice(this.deleteDeviceConfirmIndex, 1);
-          Homey.set("gatewaysList", this.gateways, (error, settings) => {
-            if (error) return Homey.alert(error);
-          });
-          this.deleteDeviceConfirmIndex = null;
-          this.deleteDeviceConfirmTitle = null;
-          this.deleteDeviceConfirmType = null;
-          this.$bvModal.hide("modalConfirmDeleteDevices");
-        },
-        confirmDeleteIrDevice() {
-          this.irDevices.splice(this.deleteDeviceConfirmIndex, 1);
-          Homey.set("irDevicesList", this.irDevices, (error, settings) => {
-            if (error) return Homey.alert(error);
-          });
-          this.deleteDeviceConfirmIndex = null;
-          this.deleteDeviceConfirmTitle = null;
-          this.deleteDeviceConfirmType = null;
-          this.$bvModal.hide("modalConfirmDeleteDevices");
         },
         save() {
           if (this.saveDeviceType == "gateway") {
-            this.gateways[this.editIndex] = { mac: this.mac.split(":").join("").toLowerCase(), password: this.password };
+            this.gateways[this.editIndex] = { mac: this.mac.split(":").join(""), password: this.password, ip: this.ip, token: this.token };
             this.gateways.sort();
             Homey.set("gatewaysList", this.gateways, (error, settings) => {
               if (error) return Homey.alert(error);
@@ -969,13 +714,9 @@
           this.$bvModal.show("modalHowToStart");
         },
         getGatewayDeviceAction() {
-          Homey.api("GET", "/getGateways", null, (error, result) => {
-            if (error) {
-              return error;
-            }
-
-            this.gatewaysObject = result;
-          });
+          Homey.api('GET', '/getGateways', {})
+            .then(result => { this.gatewaysObject = result; })
+            .catch(error => { return error; });
         },
         getGateway(sid) {
           if (this.gatewaysObject[sid] && this.gatewaysObject[sid].childDevices) {
@@ -983,33 +724,6 @@
           } else {
             return null;
           }
-        },
-        setGatewayDeviceObject(sid) {
-          this.gatewayDeviceObject = this.gatewaysObject[sid];
-
-          this.$bvModal.show("modalChildDevices");
-        },
-        deleteChildDevice(device, index) {
-          this.$bvModal.show("modalConfirmDeleteChildDevices");
-          this.childDeviceSidToDeleteConfirm = device.sid;
-          this.childDeviceIndexToDeleteConfirm = index;
-        },
-        confirmDeleteChildDevice() {
-          Homey.api("POST", "/removeChildDevice", { gatewaySid: this.gatewayDeviceObject.sid, childSid: this.childDeviceSidToDeleteConfirm }, (error, result) => {
-            if (error) {
-              return error;
-            }
-
-            this.gatewayDeviceObject.childDevices.splice(this.childDeviceIndexToDeleteConfirm, 1);
-            this.childDeviceSidToDeleteConfirm = null;
-            this.childDeviceIndexToDeleteConfirm = null;
-            this.$bvModal.hide("modalConfirmDeleteChildDevices");
-          });
-        },
-        modelInfo(model) {
-          if(model && model.modelInfo && model.modelInfo.name) {
-            return model.modelInfo.name
-          } else return "Device"
         }
       },
       computed: {
@@ -1078,6 +792,9 @@
             this.tokenRuleMessage = "Wrong token";
             return false;
           }
+        },
+        setGatewaysPageMargin() {
+          return this.gateways.length == 0 ? "m-5" : null;
         },
         setIrDevicesPageMargin() {
           return this.irDevices.length == 0 ? "m-5" : null;

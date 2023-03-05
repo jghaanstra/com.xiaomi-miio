@@ -1,0 +1,39 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Air Purifier Heating Mode",
+    "nl": "Air Purifier verwarming modus"
+  },
+  "values": [
+    {
+      "id": "off",
+      "title": {
+        "en": "Off",
+        "nl": "Uit"
+      }
+    },
+    {
+      "id": "low",
+      "title": {
+        "en": "Low",
+        "nl": "Laag"
+      }
+    },
+    {
+      "id": "medium",
+      "title": {
+        "en": "Medium",
+        "nl": "Medium"
+      }
+    },
+    {
+      "id": "high",
+      "title": {
+        "en": "High",
+        "nl": "Hoog"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

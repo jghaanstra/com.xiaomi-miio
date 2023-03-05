@@ -1,0 +1,51 @@
+<script src="../../../assets/vue.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<script>
+  Homey.setTitle("Select remote control device");
+  Homey.emit('getDevicesList', null)
+    .then(result => {
+      var allDevices = result;
+      let info = document.getElementsByClassName("selectedDeviceType");
+      let infoStyle = document.getElementById("info");
+
+      new Vue({
+        el: "#alldevices",
+        data: {
+          selectedDevices: [],
+          devices: {}
+        },
+        mounted() {
+          this.devices = allDevices;
+        },
+        methods: {},
+        watch: {
+          selectedDevices(val) {
+            Homey.emit("selectedDevice", { devices: val })
+              .then(result => {
+                Homey.nextView();
+              }).catch(error => { 
+                console.log(error);
+              });
+          }
+        }
+      });
+
+    }).catch(error => {
+      console.log(err);
+      return;
+    });
+</script>
+
+<div id="alldevices">
+  <div class="selectedDeviceType" id="info" style="text-align: center; display: none"></div>
+  <!-- <div style="text-align: center">This part is under development, will be soon</div> -->
+  <ul id="devices-list">
+    <li class="device" v-for="device in devices">
+      <label :for="device.ip" class="name">
+        <div class="overlay"></div>
+        <span class="name" tabindex="-1">{{ device.name }} | {{ device.ip }}</span>
+      </label>
+      <label :for="device.ip" class="radio"> <input :id="device.ip" :value="device" name="device" type="radio" tabindex="2" v-model="selectedDevices" /> </label>
+    </li>
+  </ul>
+</div>

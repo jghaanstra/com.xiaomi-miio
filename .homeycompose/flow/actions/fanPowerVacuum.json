@@ -1,0 +1,57 @@
+{
+  "id": "fanPowerVacuum",
+  "title": {
+    "en": "Set Fan Power",
+    "nl": "Stel ventilator in"
+  },
+  "titleFormatted": {
+    "en": "Set Fan Power [[fanspeed]]",
+    "nl": "Stel ventilator in op [[fanspeed]]"
+  },
+  "args": [
+    {
+      "name": "fanspeed",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "38",
+          "label": {
+            "en": "Quiet",
+            "nl": "Stil"
+          }
+        },
+        {
+          "id": "66",
+          "label": {
+            "en": "Balanced",
+            "nl": "Gebalanceerd"
+          }
+        },
+        {
+          "id": "77",
+          "label": {
+            "en": "Turbo",
+            "nl": "Turbo"
+          }
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "Full Speed",
+            "nl": "Maximum"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Robot",
+        "nl": "Selecteer Mi Robot"
+      },
+      "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
+    }
+  ],
+  "platforms": ["local"]
+}

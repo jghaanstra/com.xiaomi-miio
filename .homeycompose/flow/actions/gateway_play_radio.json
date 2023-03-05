@@ -1,0 +1,142 @@
+{
+  "title": {
+    "en": "Play favorite radio station",
+    "nl": "Afspelen favoriete radio station"
+  },
+  "titleFormatted": {
+    "en": "Play favorite radio station [[favoriteID]] with volume [[volume]]",
+    "nl": "Afspelen favoriete radio station [[favoriteID]] met volume [[volume]]"
+  },
+  "args": [
+    {
+      "type": "dropdown",
+      "name": "favoriteID",
+      "values": [
+        {
+          "id": "0",
+          "label": {
+            "en": "1 - favorite radio",
+            "nl": "1 - favoriete station"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "2 - favorite radio",
+            "nl": "2 - favoriete station"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "3 - favorite radio",
+            "nl": "3 - favoriete station"
+          }
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "4 - favorite radio",
+            "nl": "4 - favoriete station"
+          }
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "5 - favorite radio",
+            "nl": "5 - favoriete station"
+          }
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "6 - favorite radio",
+            "nl": "6 - favoriete station"
+          }
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "7 - favorite radio",
+            "nl": "7 - favoriete station"
+          }
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "8 - favorite radio",
+            "nl": "8 - favoriete station"
+          }
+        },
+        {
+          "id": "8",
+          "label": {
+            "en": "9 - favorite radio",
+            "nl": "9 - favoriete station"
+          }
+        },
+        {
+          "id": "9",
+          "label": {
+            "en": "10 - favorite radio",
+            "nl": "10 - favoriete station"
+          }
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "11 - favorite radio",
+            "nl": "11 - favoriete station"
+          }
+        },
+        {
+          "id": "11",
+          "label": {
+            "en": "12 - favorite radio",
+            "nl": "12 - favoriete station"
+          }
+        },
+        {
+          "id": "12",
+          "label": {
+            "en": "13 - favorite radio",
+            "nl": "13 - favoriete station"
+          }
+        },
+        {
+          "id": "13",
+          "label": {
+            "en": "14 - favorite radio",
+            "nl": "14 - favoriete station"
+          }
+        },
+        {
+          "id": "13",
+          "label": {
+            "en": "15 - favorite radio",
+            "nl": "15 - favoriete station"
+          }
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "name": "volume",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "label": "%",
+      "labelMultiplier": 100,
+      "labelDecimals": 0
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Robot",
+        "nl": "Selecteer Mi Robot"
+      },
+      "filter": "driver_id=gateway"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": {
+    "en": "Main Brush Alert",
+    "nl": "Hoofdborstel waarschuwing"
+  },
+  "type": "boolean",
+  "getable": true,
+  "setable": false,
+  "icon": "/assets/icons/vacuum_main_brush.svg"
+}

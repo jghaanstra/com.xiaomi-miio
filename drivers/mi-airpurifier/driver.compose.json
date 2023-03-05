@@ -1,0 +1,19 @@
+{
+  "name": {
+    "en": "Mi Air Purifiers Generic (WiFi)",
+    "nl": "Mi Luchtreinigers Generic (WiFi)"
+  },
+  "images": {
+    "large": "drivers/mi-airpurifier/assets/images/large.jpg",
+    "small": "drivers/mi-airpurifier/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "measure_pm25",
+    "airpurifier_mode"
+  ]
+}

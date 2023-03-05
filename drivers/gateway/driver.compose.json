@@ -1,0 +1,47 @@
+{
+  "name": {
+    "en": "Xiaomi Gateway v2 (WiFi)",
+    "nl": "Xiaomi Gateway v2 (WiFi)"
+  },
+  "images": {
+    "large": "drivers/gateway/assets/images/large.jpg",
+    "small": "drivers/gateway/assets/images/small.jpg"
+  },
+  "class": "light",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "light_hue",
+    "light_saturation",
+    "measure_luminance",
+    "homealarm_state",
+    "speaker_playing",
+    "speaker_next",
+    "speaker_prev",
+    "speaker_track",
+    "volume_set"
+  ],
+  "capabilitiesOptions": {
+    "speaker_playing": {
+      "title": {
+        "en": "Radio",
+        "nl": "Radio"
+      }
+    },
+    "speaker_next": {
+      "title": {
+        "en": "Next Station",
+        "nl": "Volgend station"
+      }
+    },
+    "speaker_prev": {
+      "title": {
+        "en": "Previous Station",
+        "nl": "Vorig station"
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "click_double_left",
+  "title": {
+    "en": "Left Double Click",
+    "nl": "Dubbel klik links"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=aqara-86sw2-advanced"
+    }
+  ],
+  "platforms": ["local"]
+}

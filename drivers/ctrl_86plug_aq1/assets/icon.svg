@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" baseProfile="tiny" id="Слой_1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1451.3 1451.3"
+	 xml:space="preserve">
+<path fill="none" stroke="#000000" stroke-width="40" stroke-miterlimit="10" d="M1416.3,1428.3H35c-6.6,0-12-5.4-12-12V35
+	c0-6.6,5.4-12,12-12h1381.3c6.6,0,12,5.4,12,12v1381.3C1428.3,1422.9,1422.9,1428.3,1416.3,1428.3z"/>
+<path fill="none" stroke="#000000" stroke-width="40" stroke-miterlimit="10" d="M1173.6,1208.3H234.9c-6.6,0-12-5.4-12-12V257.6
+	c0-6.6,5.4-12,12-12h938.7c6.6,0,12,5.4,12,12v938.7C1185.6,1202.9,1180.2,1208.3,1173.6,1208.3z"/>
+<g>
+	<path fill="none" stroke="#000000" stroke-width="30" stroke-miterlimit="10" d="M876,348c-17.9,0-28.1-0.2-40.8,0.1v-30h-35.9
+		v150.8h35.9l-0.1-29.7c11.2,0,23-0.2,40.8-0.2c25.1,0,45.4-20.3,45.4-45.4C921.4,368.3,901.1,348,876,348z"/>
+</g>
+<g>
+	<path fill="none" stroke="#000000" stroke-width="30" stroke-miterlimit="10" d="M535.1,438.8c17.9,0,28.1,0.2,40.8-0.1v30h35.9
+		V318h-35.9l0.1,29.7c-11.2,0-23,0.2-40.8,0.2c-25.1,0-45.4,20.3-45.4,45.4C489.7,418.5,510,438.8,535.1,438.8z"/>
+</g>
+<rect x="682.1" y="720.3" fill="none" stroke="#000000" stroke-width="30" stroke-miterlimit="10" width="48" height="168"/>
+<rect x="818.1" y="973.7" transform="matrix(0.9286 0.371 -0.371 0.9286 452.5418 -236.9507)" fill="none" stroke="#000000" stroke-width="30" stroke-miterlimit="10" width="48" height="168"/>
+<rect x="527.4" y="974.7" transform="matrix(0.9247 -0.3807 0.3807 0.9247 -361.5607 289.6628)" fill="none" stroke="#000000" stroke-width="30" stroke-miterlimit="10" width="48" height="168"/>
+<rect x="1092.9" y="828.8" display="none" fill="#FFFFFF" width="55.1" height="73.8"/>
+<rect x="1093" y="999.8" display="none" fill="#FFFFFF" width="55.1" height="73.8"/>
+<path fill="none" stroke="#000000" stroke-width="30" stroke-miterlimit="10" d="M1142.1,829.8c0-23.5-19-42.5-42.5-42.5
+	s-42.5,19-42.5,42.5c0,5.1,0,10.2,0,14.5l0,0v213l0,0c0,4.4,0,8.1,0,12.5c0,23.5,19,42.5,42.5,42.5s42.5-19,42.5-42.5
+	c0-4.4,0-8,0-12.5l0,0v-213V844C1142.1,839.3,1142.1,834.9,1142.1,829.8z"/>
+</svg>

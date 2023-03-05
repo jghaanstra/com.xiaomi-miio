@@ -1,0 +1,24 @@
+{
+  "name": {
+    "en": "Mi Roborock Vacuum S6 Pure (WiFi)",
+    "nl": "Mi Roborock Vacuum S6 Pure (WiFi)"
+  },
+  "images": {
+    "large": "drivers/vacuum_mi_roborock_vacuum_a08/assets/images/large.jpg",
+    "small": "drivers/vacuum_mi_roborock_vacuum_a08/assets/images/small.jpg"
+  },
+  "class": "vacuumcleaner",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "vacuumcleaner_state",
+    "vacuum_roborock_a08_mode",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": ["INTERNAL"]
+  }
+}

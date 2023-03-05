@@ -1,135 +1,44 @@
-"use strict";
+'use strict';
 
 const Homey = require('homey');
-const util = require('/lib/util.js');
-const miio = require('miio');
+const Device = require('../wifi_device.js');
+const Util = require('../lib/util.js');
 
-class PhilipsBulbDevice extends Homey.Device {
+class PhilipsBulbDevice extends Device {
 
-  onInit() {
-    this.createDevice();
-    setTimeout(() => { this.refreshDevice(); }, 600000);
+  async onInit() {
+    try {
+      if (!this.util) this.util = new Util({homey: this.homey});
+      
+      // GENERIC DEVICE INIT ACTIONS
+      this.bootSequence();
 
-    this.setUnavailable(Homey.__('unreachable'));
+      // LISTENERS FOR UPDATING CAPABILITIES
+      this.registerCapabilityListener("onoff", this.onCapabilityOnoff.bind(this));
+      this.registerCapabilityListener("dim", this.onCapabilityDim.bind(this));
 
-    // LISTENERS FOR UPDATING CAPABILITIES
-    this.registerCapabilityListener('onoff', (value, opts) => {
-      if (this.miio) {
-        return this.miio.setPower(value);
-      } else {
-        this.setUnavailable(Homey.__('unreachable'));
-        this.createDevice();
-        return Promise.reject('Device unreachable, please try again ...');
-      }
-    });
+      this.registerCapabilityListener('light_temperature', (value) => {
+        try {
+          if (this.miio) {
+            const colorvalue = this.util.denormalize(value, 3000, 5700);
+            const colortemp = ''+ colorvalue +'K';
+            return this.miio.color(colortemp);
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });     
 
-    this.registerCapabilityListener('dim', (value, opts) => {
-      if (this.miio) {
-        var brightness = value * 100;
-        return this.miio.setBrightness(brightness);
-      } else {
-        this.setUnavailable(Homey.__('unreachable'));
-        this.createDevice();
-        return Promise.reject('Device unreachable, please try again ...');
-      }
-    });
-
-    this.registerCapabilityListener('light_temperature', (value, opts) => {
-      if (this.miio) {
-        var colorvalue = util.denormalize(value, 3000, 5700);
-        var colortemp = ''+ colorvalue +'K';
-        return this.miio.color(colortemp);
-      } else {
-        this.setUnavailable(Homey.__('unreachable'));
-        this.createDevice();
-        return Promise.reject('Device unreachable, please try again ...');
-      }
-    });
-
-  }
-
-  onDeleted() {
-    clearInterval(this.pollingInterval);
-    clearInterval(this.refreshInterval);
-    if (this.miio ) {
-      this.miio.destroy();
+    } catch (error) {
+      this.error(error);
     }
   }
 
-  // HELPER FUNCTIONS
-  createDevice() {
-    miio.device({
-      address: this.getSetting('address'),
-      token: this.getSetting('token')
-    }).then(miiodevice => {
-      if (!this.getAvailable()) {
-        this.setAvailable();
-      }
-      this.miio = miiodevice;
-
-      this.miio.on('colorChanged', c => {
-        var colortemp = util.normalize(c.values[0], 3000, 5700);
-        if (this.getCapabilityValue('light_temperature') != colortemp) {
-          this.setCapabilityValue('light_temperature', colortemp);
-        }
-      });
-
-      var interval = this.getSetting('polling') || 60;
-      this.pollDevice(interval);
-    }).catch((error) => {
-      this.log(error);
-      this.setUnavailable(Homey.__('unreachable'));
-      setTimeout(() => {
-        this.createDevice();
-      }, 10000);
-    });
-  }
-
-  pollDevice(interval) {
-    clearInterval(this.pollingInterval);
-
-    this.pollingInterval = setInterval(() => {
-      const getData = async () => {
-        try {
-          const power = await this.miio.power();
-          const brightness = await this.miio.brightness();
-
-          if (this.getCapabilityValue('onoff') != power) {
-            this.setCapabilityValue('onoff', power);
-          }
-          var dim = brightness / 100;
-          if (this.getCapabilityValue('dim') != dim) {
-            this.setCapabilityValue('dim', dim);
-          }
-          if (!this.getAvailable()) {
-            this.setAvailable();
-          }
-        } catch (error) {
-          this.log(error);
-          clearInterval(this.pollingInterval);
-          this.setUnavailable(Homey.__('unreachable'));
-          setTimeout(() => {
-            this.createDevice();
-          }, 1000 * interval);
-        }
-      }
-      getData();
-    }, 1000 * interval);
-  }
-
-  refreshDevice(interval) {
-    clearInterval(this.refreshInterval);
-
-    this.refreshInterval = setInterval(() => {
-      if (this.miio) {
-        this.miio.destroy();
-      }
-
-      setTimeout(() => {
-        this.createDevice();
-      }, 2000);
-    }, 3600000);
-  }
 }
 
 module.exports = PhilipsBulbDevice;

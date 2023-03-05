@@ -1,0 +1,19 @@
+{
+  "id": "triggerVibrationFreeFallAlarm",
+  "title": {
+    "en": "Free Fall",
+    "nl": "Vrije val"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=vibration_sensor"
+    }
+  ],
+  "platforms": ["local"]
+}

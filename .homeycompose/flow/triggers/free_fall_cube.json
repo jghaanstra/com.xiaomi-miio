@@ -1,0 +1,19 @@
+{
+  "id": "free_fall_cube",
+  "title": {
+    "en": "Free Fall",
+    "nl": "Vrije val"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-aqara-cube"
+    }
+  ],
+  "platforms": ["local"]
+}

@@ -1,0 +1,247 @@
+<script src="../../../assets/vue.min.js"></script>
+<link rel="stylesheet" href="../../../assets/semantic.min.css" />
+<script src="./capabilities.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<script>
+  Homey.setTitle("Select type");
+  new Vue({
+    el: "#allTypes",
+    methods: {
+      select(device) {
+        let selectedDeviceType = document.getElementsByClassName("selectedDeviceType");
+        let selectedDeviceTypeId = document.getElementById("selectedDeviceType");
+        let tvCard = document.getElementById("tv");
+        let projectorCard = document.getElementById("projector");
+        // let airConditionerCard = document.getElementById("airConditioner");
+        // let satelliteCard = document.getElementById("satellite");
+        let fanCard = document.getElementById("fan");
+        let amplifierCard = document.getElementById("amplifier");
+        // let boxCard = document.getElementById("box");
+        // let dvdCard = document.getElementById("dvd");
+        // let purifierCard = document.getElementById("purifier");
+        // let cameraCard = document.getElementById("camera");
+        // let unknownCard = document.getElementById("unknown");
+        if (device == "tv") {
+          projectorCard.classList.remove("red");
+          // airConditionerCard.classList.remove("red");
+          // satelliteCard.classList.remove("red");
+          fanCard.classList.remove("red");
+          amplifierCard.classList.remove("red");
+          // boxCard.classList.remove("red");
+          // dvdCard.classList.remove("red");
+          // purifierCard.classList.remove("red");
+          // cameraCard.classList.remove("red");
+          // unknownCard.classList.remove("red");
+          tvCard.classList.add("red");
+          selectedDeviceType[0].innerHTML = "Selected TV";
+          selectedDeviceTypeId.style.removeProperty("display");
+        } else if (device == "projector") {
+          tvCard.classList.remove("red");
+          // airConditionerCard.classList.remove("red");
+          // satelliteCard.classList.remove("red");
+          fanCard.classList.remove("red");
+          amplifierCard.classList.remove("red");
+          // boxCard.classList.remove("red");
+          // dvdCard.classList.remove("red");
+          // purifierCard.classList.remove("red");
+          // cameraCard.classList.remove("red");
+          // unknownCard.classList.remove("red");
+          projectorCard.classList.add("red");
+          selectedDeviceType[0].innerHTML = "Selected Projector";
+          selectedDeviceTypeId.style.removeProperty("display");
+        } else if (device == "airConditioner") {
+          tvCard.classList.remove("red");
+          projectorCard.classList.remove("red");
+          // satelliteCard.classList.remove("red");
+          fanCard.classList.remove("red");
+          amplifierCard.classList.remove("red");
+          // boxCard.classList.remove("red");
+          // dvdCard.classList.remove("red");
+          // purifierCard.classList.remove("red");
+          // cameraCard.classList.remove("red");
+          // unknownCard.classList.remove("red");
+          // airConditionerCard.classList.add("red");
+          selectedDeviceType[0].innerHTML = "Selected Air conditioner";
+          selectedDeviceTypeId.style.removeProperty("display");
+        } else if (device == "satellite") {
+          tvCard.classList.remove("red");
+          // airConditionerCard.classList.remove("red");
+          projectorCard.classList.remove("red");
+          fanCard.classList.remove("red");
+          amplifierCard.classList.remove("red");
+          // boxCard.classList.remove("red");
+          // dvdCard.classList.remove("red");
+          // purifierCard.classList.remove("red");
+          // cameraCard.classList.remove("red");
+          // unknownCard.classList.remove("red");
+          // satelliteCard.classList.add("red");
+          selectedDeviceType[0].innerHTML = "Selected Satellite";
+          selectedDeviceTypeId.style.removeProperty("display");
+        } else if (device == "fan") {
+          tvCard.classList.remove("red");
+          // airConditionerCard.classList.remove("red");
+          projectorCard.classList.remove("red");
+          // satelliteCard.classList.remove("red");
+          amplifierCard.classList.remove("red");
+          // boxCard.classList.remove("red");
+          // dvdCard.classList.remove("red");
+          // purifierCard.classList.remove("red");
+          // cameraCard.classList.remove("red");
+          // unknownCard.classList.remove("red");
+          fanCard.classList.add("red");
+          selectedDeviceType[0].innerHTML = "Selected Fan";
+          selectedDeviceTypeId.style.removeProperty("display");
+        } else if (device == "amplifier") {
+          tvCard.classList.remove("red");
+          airConditionerCard.classList.remove("red");
+          projectorCard.classList.remove("red");
+          // satelliteCard.classList.remove("red");
+          fanCard.classList.remove("red");
+          // boxCard.classList.remove("red");
+          // dvdCard.classList.remove("red");
+          // purifierCard.classList.remove("red");
+          // cameraCard.classList.remove("red");
+          // unknownCard.classList.remove("red");
+          amplifierCard.classList.add("red");
+          selectedDeviceType[0].innerHTML = "Selected Amplifier";
+          selectedDeviceTypeId.style.removeProperty("display");
+        } else if (device == "box") {
+          tvCard.classList.remove("red");
+          // airConditionerCard.classList.remove("red");
+          projectorCard.classList.remove("red");
+          // satelliteCard.classList.remove("red");
+          amplifierCard.classList.remove("red");
+          fanCard.classList.remove("red");
+          // dvdCard.classList.remove("red");
+          // purifierCard.classList.remove("red");
+          // cameraCard.classList.remove("red");
+          // unknownCard.classList.remove("red");
+          // boxCard.classList.add("red");
+          selectedDeviceType[0].innerHTML = "Selected Box";
+          selectedDeviceTypeId.style.removeProperty("display");
+        } else if (device == "dvd") {
+          tvCard.classList.remove("red");
+          // airConditionerCard.classList.remove("red");
+          projectorCard.classList.remove("red");
+          // satelliteCard.classList.remove("red");
+          amplifierCard.classList.remove("red");
+          // boxCard.classList.remove("red");
+          fanCard.classList.remove("red");
+          // purifierCard.classList.remove("red");
+          // cameraCard.classList.remove("red");
+          // unknownCard.classList.remove("red");
+          // dvdCard.classList.add("red");
+          selectedDeviceType[0].innerHTML = "Selected DVD";
+          selectedDeviceTypeId.style.removeProperty("display");
+        } else if (device == "purifier") {
+          tvCard.classList.remove("red");
+          // airConditionerCard.classList.remove("red");
+          projectorCard.classList.remove("red");
+          // satelliteCard.classList.remove("red");
+          amplifierCard.classList.remove("red");
+          // boxCard.classList.remove("red");
+          // dvdCard.classList.remove("red");
+          fanCard.classList.remove("red");
+          // cameraCard.classList.remove("red");
+          // unknownCard.classList.remove("red");
+          // purifierCard.classList.add("red");
+          selectedDeviceType[0].innerHTML = "Selected Purifier";
+          selectedDeviceTypeId.style.removeProperty("display");
+        } else if (device == "camera") {
+          tvCard.classList.remove("red");
+          // airConditionerCard.classList.remove("red");
+          projectorCard.classList.remove("red");
+          // satelliteCard.classList.remove("red");
+          amplifierCard.classList.remove("red");
+          // boxCard.classList.remove("red");
+          // dvdCard.classList.remove("red");
+          // purifierCard.classList.remove("red");
+          fanCard.classList.remove("red");
+          // unknownCard.classList.remove("red");
+          // cameraCard.classList.add("red");
+          selectedDeviceType[0].innerHTML = "Selected Camera";
+          selectedDeviceTypeId.style.removeProperty("display");
+        } else if (device == "unknown") {
+          tvCard.classList.remove("red");
+          // airConditionerCard.classList.remove("red");
+          projectorCard.classList.remove("red");
+          // satelliteCard.classList.remove("red");
+          amplifierCard.classList.remove("red");
+          // boxCard.classList.remove("red");
+          // dvdCard.classList.remove("red");
+          // purifierCard.classList.remove("red");
+          // cameraCard.classList.remove("red");
+          fanCard.classList.remove("red");
+          // unknownCard.classList.add("red");
+          selectedDeviceType[0].innerHTML = "Selected Unknown";
+          selectedDeviceTypeId.style.removeProperty("display");
+        }
+        Homey.emit("selectedType",
+            {
+              name: devices[device].name,
+              type: device,
+              capabilities: devices[device].capabilities,
+              capabilitiesOptions: devices[device].capabilitiesOptions,
+              characteristicsSettings: devices[device].characteristicsSettings
+            }
+          )
+          .then(result => {
+            Homey.nextView();
+          }).catch(error => { 
+            console.log(error)
+          });
+
+      }
+    }
+  });
+</script>
+
+<div id="allTypes">
+  <div class="ui segment selectedDeviceType" id="selectedDeviceType" style="text-align: center; display: none"></div>
+  <div class="ui eight doubling cards" style="text-align: center; margin: auto;">
+    <a class="card" id="tv" @click="select('tv')">
+      <div class="image" style="padding: 10px;" style="padding: 10px;"><img src="./img/types/irv2_device_type_tv_normal.png" /></div>
+      <div class="content"><div class="description">TV</div></div>
+    </a>
+    <a class="card" id="projector" @click="select('projector')">
+      <div class="image" style="padding: 10px;"><img src="./img/types/irv2_device_type_projector_normal.png" /></div>
+      <div class="content"><div class="description">Projector</div></div>
+    </a>
+    <!-- <a class="card" id="airConditioner" @click="select('airConditioner')">
+      <div class="image" style="padding: 10px;"><img src="./img/types/irv2_device_type_air_conditioner_normal.png" /></div>
+      <div class="content"><div class="description">Air conditioner</div></div>
+    </a> -->
+    <!-- <a class="card" id="satellite" @click="select('satellite')">
+      <div class="image" style="padding: 10px;"><img src="./img/types/irv2_device_type_set_top_box_normal.png" /></div>
+      <div class="content"><div class="description">Satellite</div></div>
+    </a> -->
+    <a class="card" id="fan" @click="select('fan')">
+      <div class="image" style="padding: 10px;"><img src="./img/types/irv2_device_type_fan_normal.png" /></div>
+      <div class="content"><div class="description">Fan</div></div>
+    </a>
+    <a class="card" id="amplifier" @click="select('amplifier')">
+      <div class="image" style="padding: 10px;"><img src="./img/types/irv2_device_type_amplifier_normal.png" /></div>
+      <div class="content"><div class="description">Amplifier</div></div>
+    </a>
+    <!-- <a class="card" id="box" @click="select('box')">
+      <div class="image" style="padding: 10px;"><img src="./img/types/irv2_device_type_box_normal.png" /></div>
+      <div class="content"><div class="description">Box</div></div>
+    </a> -->
+    <!-- <a class="card" id="dvd" @click="select('dvd')">
+      <div class="image" style="padding: 10px;"><img src="./img/types/irv2_device_type_dvd_normal.png" /></div>
+      <div class="content"><div class="description">DVD</div></div>
+    </a> -->
+    <!-- <a class="card" id="purifier" @click="select('purifier')">
+      <div class="image" style="padding: 10px;"><img src="./img/types/irv2_device_type_purifier_normal.png" /></div>
+      <div class="content"><div class="description">Purifier</div></div>
+    </a> -->
+    <!-- <a class="card" id="camera" @click="select('camera')">
+      <div class="image" style="padding: 10px;"><img src="./img/types/irv2_device_type_camera_normal.png" /></div>
+      <div class="content"><div class="description">camera</div></div>
+    </a>
+    <a class="card" id="unknown" @click="select('unknown')">
+      <div class="image" style="padding: 10px;"><img src="./img/types/irv2_device_type_unknown_normal.png" /></div>
+      <div class="content"><div class="description">Unknown</div></div>
+    </a> -->
+  </div>
+</div>

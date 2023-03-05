@@ -1,0 +1,58 @@
+{
+  "name": {
+    "en": "Mi Evaporative Humidifier v2 (WiFi)",
+    "nl": "Mi Evaporative Humidifier v2 (WiFi)"
+  },
+  "images": {
+    "large": "drivers/humidifier_mi_humidifier_ca4/assets/images/large.jpg",
+    "small": "drivers/humidifier_mi_humidifier_ca4/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "onoff.dry",
+    "dim",
+    "dim.target",
+    "humidifier_ca4_mode",
+    "measure_temperature",
+    "measure_humidity",
+    "measure_water"
+  ],
+  "capabilitiesOptions": {
+    "onoff.dry": {
+      "title": {
+        "en": "Dry",
+        "nl": "Drogen"
+      }
+    },
+    "dim": {
+      "title": {
+        "en": "Speedlevel",
+        "nl": "Snelheid"
+      },
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    "dim.target": {
+      "title": {
+        "en": "Target Relative Humidity",
+        "nl": "Doel relatieve vochtigheid"
+      },
+      "min": 30,
+      "max": 80
+    },
+    "measure_water": {
+      "title": {
+        "en": "Waterlevel",
+        "nl": "Waterniveau"
+      },
+      "units": {
+        "en": "%"
+      }
+    }
+  }
+}

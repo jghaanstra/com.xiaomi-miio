@@ -1,0 +1,31 @@
+{
+  "name": {
+    "en": "Mi Air Purifier 3C (WiFi)",
+    "nl": "Mi Air Purifier 3C (WiFi)"
+  },
+  "images": {
+    "large": "drivers/airpurifier_zhimi_airpurifier_mb4/assets/images/large.jpg",
+    "small": "drivers/airpurifier_zhimi_airpurifier_mb4/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "measure_pm25",
+    "airpurifier_zhimi_airpurifier_mb4_mode"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Speedlevel",
+        "nl": "Snelheid"
+      },
+      "min": 390,
+      "max": 2000,
+      "step": 10
+    }
+  }
+}

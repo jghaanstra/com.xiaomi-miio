@@ -1,0 +1,57 @@
+{
+  "id": "modeHumidifierCA4",
+  "title": {
+    "en": "Set Mode",
+    "nl": "Stel modus in"
+  },
+  "titleFormatted": {
+    "en": "Set mode to [[mode]]",
+    "nl": "Stel modus in op [[mode]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "auto",
+          "label": {
+            "en": "Auto",
+            "nl": "Auto"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "1",
+            "nl": "1"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "nl": "2"
+          }
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "nl": "3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Humidifier",
+        "nl": "Selecteer Mi Luchtbevochtiger"
+      },
+      "filter": "driver_id=humidifier_mi_humidifier_ca4"
+    }
+  ],
+  "platforms": ["local"]
+}

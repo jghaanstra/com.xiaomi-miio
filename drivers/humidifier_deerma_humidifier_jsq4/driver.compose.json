@@ -1,0 +1,38 @@
+{
+  "name": {
+    "en": "Mijia Pure Smart Humidifier JSQ4 (WiFi)",
+    "nl": "Mijia Pure Smart Humidifier JSQ4 (WiFi)"
+  },
+  "images": {
+    "large": "drivers/humidifier_deerma_humidifier_jsq5/assets/images/large.jpg",
+    "small": "drivers/humidifier_deerma_humidifier_jsq5/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "humidifier_deerma_jsq4_mode",
+    "measure_temperature",
+    "measure_humidity",
+    "alarm_water"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Target Relative Humidity",
+        "nl": "Doel relatieve vochtigheid"
+      },
+      "min": 40,
+      "max": 70
+    },
+    "alarm_water": {
+      "title": {
+        "en": "Waterlevel",
+        "nl": "Waterniveau"
+      }
+    }
+  }
+}

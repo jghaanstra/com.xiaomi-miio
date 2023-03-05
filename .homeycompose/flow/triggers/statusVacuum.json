@@ -1,0 +1,30 @@
+{
+  "id": "statusVacuum",
+  "title": {
+    "en": "Status has changed",
+    "nl": "Status is gewijzigd"
+  },
+  "tokens": [
+    {
+      "name": "status",
+      "type": "string",
+      "title": {
+        "en": "status",
+        "nl": "status"
+      },
+      "example": "stopped"
+    }
+  ],
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Robot",
+        "nl": "Selecteer Mi Robot"
+      },
+      "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6|vacuum_mi_roborock_vacuum_a08|vacuum_dreame_vacuum_mc1808|vacuum_dreame_vacuum_p2029_p2041|vacuum_viomi_vacuum_v7"
+    }
+  ],
+  "platforms": ["local"]
+}

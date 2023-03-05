@@ -1,0 +1,50 @@
+{
+  "id": "modeAirpurifierZhimiMB4",
+  "title": {
+    "en": "Set mode",
+    "nl": "Stel modus in"
+  },
+  "titleFormatted": {
+    "en": "Set mode to [[mode]]",
+    "nl": "Stel modus in op [[mode]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Auto",
+            "nl": "Auto"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Night",
+            "nl": "Nacht"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Favorite",
+            "nl": "Favoriet"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Air Purifier",
+        "nl": "Selecteer Mi Luchtreiniger"
+      },
+      "filter": "driver_id=airpurifier_zhimi_airpurifier_mb4"
+    }
+  ],
+  "platforms": ["local"]
+}

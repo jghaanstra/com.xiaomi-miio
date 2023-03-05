@@ -1,0 +1,10 @@
+{
+  "title": {
+    "en": "Filter Alert",
+    "nl": "Filter waarschuwing"
+  },
+  "type": "boolean",
+  "getable": true,
+  "setable": false,
+  "icon": "/assets/icons/vacuum_hepa_filter.svg"
+}

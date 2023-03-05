@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "Smoke Density",
+    "nl": "Rook dichtheid"
+  },
+  "type": "number",
+  "units": {
+    "en": "kg/m3"
+  },
+  "getable": true,
+  "setable": false,
+  "icon": "/assets/icons/measure_smoke_density.svg"
+}

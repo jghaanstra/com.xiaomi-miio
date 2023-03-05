@@ -1,0 +1,23 @@
+{
+  "name": {
+    "en": "Mi Motion Sensor (Gateway)",
+    "nl": "Mi bewegingssensor (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/mi-motion-sensor/assets/images/large.png",
+    "small": "/drivers/mi-motion-sensor/assets/images/small.png"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "alarm_motion",
+    "measure_luminance",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": ["CR2450"]
+  }
+}

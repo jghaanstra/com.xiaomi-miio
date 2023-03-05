@@ -1,0 +1,13 @@
+{
+  "id": "polling",
+  "type": "number",
+  "value": 60,
+  "attr": {
+    "min": 5,
+    "max": 3600
+  },
+  "label": {
+    "en": "Polling Frequency",
+    "nl": "Polling frequentie"
+  }
+}

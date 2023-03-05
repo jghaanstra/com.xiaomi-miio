@@ -1,0 +1,31 @@
+{
+  "id": "gatewayLuminance",
+  "title": {
+    "en": "Luminance has changed",
+    "nl": "De helderheid is veranderd"
+  },
+  "tokens": [
+    {
+      "name": "luminance",
+      "type": "number",
+      "title": {
+        "en": "luminance",
+        "nl": "helderheid"
+      },
+      "example": 0
+    }
+  ],
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Gateway",
+        "nl": "Selecteer Gateway"
+      },
+      "filter": "driver_id=gateway"
+    }
+  ],
+  "platforms": ["local"],
+  "deprecated": true
+}

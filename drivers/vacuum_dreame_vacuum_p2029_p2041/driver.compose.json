@@ -1,0 +1,58 @@
+{
+  "name": {
+    "en": "Dreame Bot L10 Pro / Xiaomi Vacuum 1T (WiFi)",
+    "nl": "Dreame Bot L10 Pro / Xiaomi Vacuum 1T (WiFi)"
+  },
+  "images": {
+    "large": "drivers/vacuum_dreame_vacuum_p2029_p2041/assets/images/large.jpg",
+    "small": "drivers/vacuum_dreame_vacuum_p2029_p2041/assets/images/small.jpg"
+  },
+  "class": "vacuumcleaner",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "button",
+    "dim",
+    "dim.water",
+    "vacuumcleaner_state",
+    "measure_battery",
+    "alarm_battery",
+    "button.consumable"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Speed",
+        "nl": "Snelheid"
+      },
+      "min": 0,
+      "max": 3,
+      "step": 1
+    },
+    "dim.water": {
+      "title": {
+        "en": "Mop mode",
+        "nl": "Dweil modus"
+      },
+      "min": 0,
+      "max": 3,
+      "step": 1
+    },
+    "button.consumable": {
+      "maintenanceAction": true,
+      "title": {
+        "en": "Reset consumables",
+        "nl": "Reset verbruiksartikelen"
+      },
+      "desc": {
+        "en": "Reset the usage of vacuum cleaner consumables.",
+        "nl": "Reset het gebruik van de verbruiksartikelen"
+      }
+    }
+  },
+  "energy": {
+    "batteries": ["INTERNAL"]
+  }
+}

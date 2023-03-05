@@ -1,44 +1,25 @@
-const Homey = require("homey");
-const model = ["sensor_switch.aq3"];
+'use strict';
 
-class AqaraButtonAdvanced extends Homey.Driver {
-  onInit() {
-    this.triggers = {
-      button_click: new Homey.FlowCardTriggerDevice("button_click").register(),
-      button_double_click: new Homey.FlowCardTriggerDevice("button_double_click").register(),
-      button_long_click: new Homey.FlowCardTriggerDevice("button_long_click").register(),
-      button_long_click_release: new Homey.FlowCardTriggerDevice("button_long_click_release").register(),
-      button_shake: new Homey.FlowCardTriggerDevice("button_shake").register()
-    };
-  }
+const Driver = require('../subdevice_driver.js');
+const Util = require('../../lib/util.js');
 
-  onPairListDevices(data, callback) {
-    if (Homey.app.mihub.hubs) {
-      Homey.app.mihub
-        .getDevicesByModel(model)
-        .then(devices =>
-          callback(
-            null,
-            devices.map(device => {
-              return {
-                name: device.name + " | " + device.sid,
-                data: {
-                  sid: device.sid
-                },
-                settings: {
-                  deviceSid: device.sid,
-                  model: device.model,
-                  modelCode: device.modelCode
-                }
-              };
-            })
-          )
-        )
-        .catch(() => callback(new Error(Homey.__("pair.no_devices_found"))));
-    } else {
-      callback(new Error(Homey.__("pair.no_gateways")));
+class AqaraButtonAdvanced extends Driver {
+
+  async onInit() {
+
+    if (!this.util) this.util = new Util({homey: this.homey});
+
+    this.homey.flow.getDeviceTriggerCard('click_single');
+    this.homey.flow.getDeviceTriggerCard('click_double');
+    this.homey.flow.getDeviceTriggerCard('click_long');
+    this.homey.flow.getDeviceTriggerCard('click_long_release');
+    this.homey.flow.getDeviceTriggerCard('shake');
+
+    this.config = {
+      model: ["sensor_switch.aq3"]
     }
   }
+
 }
 
 module.exports = AqaraButtonAdvanced;

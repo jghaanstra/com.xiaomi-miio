@@ -1,0 +1,62 @@
+{
+  "title": {
+    "en": "Lock Event",
+    "nl": "Lock event"
+  },
+  "tokens": [
+    {
+      "name": "finger_id",
+      "type": "number",
+      "title": {
+        "en": "fingerprint id",
+        "nl": "vingerafdruk id"
+      },
+      "example": 0
+    },
+    {
+      "name": "code_id",
+      "type": "number",
+      "title": {
+        "en": "code id",
+        "nl": "code id"
+      },
+      "example": 0
+    },
+    {
+      "name": "card_id",
+      "type": "number",
+      "title": {
+        "en": "card id",
+        "nl": "kaart id"
+      },
+      "example": 0
+    },
+    {
+      "name": "userName",
+      "type": "string",
+      "title": {
+        "en": "User",
+        "nl": "Gebruiker"
+      },
+      "example": {
+        "en": "John Doe"
+      }
+    },
+    {
+      "name": "wrong_id",
+      "type": "number",
+      "title": {
+        "en": "wrong id",
+        "nl": "verkeerd id"
+      },
+      "example": 3
+    }
+  ],
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=lock.aq1"
+    }
+  ]
+}

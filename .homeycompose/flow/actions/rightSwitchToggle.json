@@ -1,0 +1,19 @@
+{
+  "id": "rightSwitchToggle",
+  "title": {
+    "en": "Toggle Right Switch",
+    "nl": "Schakel rechterschakelaar"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
+    }
+  ],
+  "platforms": ["local"]
+}

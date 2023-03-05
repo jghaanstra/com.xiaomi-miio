@@ -1,0 +1,72 @@
+<script src="../../../assets/vue.min.js"></script>
+<link rel="stylesheet" href="../../../assets/bootstrap.min.css" />
+<script src="./capabilities.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<script>
+  Homey.setTitle("Device characteristics");
+  Homey.emit('getCurrentDeviceForCharacteristics', null)
+    .then(result => {
+      new Vue({
+        el: "#deviceCharacteristics",
+        data: {
+          device: result,
+          heat: true,
+          cool: true,
+          auto: true
+        },
+        methods: {
+          characteristics() {
+            Homey.emit("newCharacteristics", this.device).catch(error => { console.log(error) });
+          }
+        }
+      });
+    }).catch(error => {
+      console.log(err);
+      return;
+    });
+</script>
+
+<div id="deviceCharacteristics">
+  <h5>Please indicate how you control this device with the remote control</h5>
+  <div v-for="capability in device.capabilities">
+    <div v-if="capability == 'onoff'" class="mt-3">
+      <h5>{{ capability.toUpperCase() }}</h5>
+      <div class="custom-control custom-radio">
+        <input type="radio" id="onoffType1" class="custom-control-input" value="1" v-model="device.characteristicsSettings.onoff" @change="characteristics" />
+        <label class="custom-control-label" for="onoffType1">'on' and 'off' using one button</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input type="radio" id="onoffType2" class="custom-control-input" value="2" v-model="device.characteristicsSettings.onoff" @change="characteristics" />
+        <label class="custom-control-label" for="onoffType2">'on' and 'off' using the two button</label>
+      </div>
+    </div>
+    <div v-if="capability == 'dim'" class="mt-3">
+      <h5>{{ capability.toUpperCase() }}</h5>
+      <div>
+        <label for="dimLevel">Dim level</label>
+        <input type="number" id="dimLevel" placeholder="level" v-model="device.characteristicsSettings.dim" @change="characteristics" />
+      </div>
+    </div>
+    <div v-if="capability == 'thermostat'" class="mt-3">
+      <h5>{{ capability.toUpperCase() }} - Modes</h5>
+      {{ heat }} - {{ cool }} - {{ auto }}
+      <div class="ui form">
+        <div class="inline field">
+          <div class="ui checkbox checked">
+            <input type="checkbox" class="hidden" :checked="heat" @change="characteristics" />
+            <label>Heat mode</label>
+          </div>
+          <div class="ui checkbox checked">
+            <input type="checkbox" class="hidden" :checked="cool" @change="characteristics" />
+            <label>Cold mode</label>
+          </div>
+          <div class="ui checkbox checked">
+            <input type="checkbox" class="hidden" :checked="auto" @change="characteristics" />
+            <label>Auto mode</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+{
+  "id": "alert_cube",
+  "title": {
+    "en": "Alert",
+    "nl": "Waarschuwing"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-aqara-cube"
+    }
+  ],
+  "platforms": ["local"]
+}

@@ -1,0 +1,29 @@
+{
+  "title": {
+    "en": "Send IR code",
+    "nl": "IR code versturen"
+  },
+  "titleFormatted": {
+    "en": "Send code [[code]]",
+    "nl": "Verstuur code [[code]]"
+  },
+  "args": [
+    {
+      "name": "code",
+      "type": "text",
+      "placeholder": {
+        "en": "code",
+        "nl": "code"
+      }
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select IR Remote",
+        "nl": "Selecteer IR Remote"
+      },
+      "filter": "driver_id=remote_chuangmi_remote_v2"
+    }
+  ]
+}

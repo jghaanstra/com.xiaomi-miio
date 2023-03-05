@@ -1,0 +1,19 @@
+{
+  "id": "tap_twice_cube",
+  "title": {
+    "en": "Tap twice",
+    "nl": "2x tikken"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-aqara-cube"
+    }
+  ],
+  "platforms": ["local"]
+}

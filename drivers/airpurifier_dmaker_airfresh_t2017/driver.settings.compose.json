@@ -1,0 +1,105 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "User Settings",
+      "nl": "Gebruikersinstellingem"
+    },
+    "children": [
+      {
+        "id": "display",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Display",
+          "nl": "Display"
+        }
+      },
+      {
+        "id": "volume",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Volume",
+          "nl": "Volume"
+        }
+      },
+      {
+        "id": "childLock",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Child Lock",
+          "nl": "Kinderslot"
+        }
+      },
+      {
+        "id": "filter_efficient",
+        "type": "label",
+        "label": {
+          "en": "Filter life",
+          "nl": "Fil;ter duur"
+        },
+        "value": "0%"
+      },
+      {
+        "id": "filter_intermediate",
+        "type": "label",
+        "label": {
+          "en": "Filter life 2"
+        },
+        "value": "0"
+      },
+      {
+        "id": "screen_direction",
+        "type": "dropdown",
+        "value": "forward",
+        "label": {
+          "en": "Screen Direction",
+          "nl": "Scherm orientatie"
+        },
+        "values": [
+          {
+            "id": "forward",
+            "label": {
+              "en": "Normal"
+            }
+          },
+          {
+            "id": "left",
+            "label": {
+              "en": "-90"
+            }
+          },
+          {
+            "id": "right",
+            "label": {
+              "en": "+90"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings",
+      "nl": "Apparaat instellingen"
+    },
+    "children": [
+      {
+        "id": "address",
+        "$extends": "address"
+      },
+      {
+        "id": "token",
+        "$extends": "token"
+      },
+      {
+        "id": "polling",
+        "$extends": "polling"
+      }
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "name": {
+    "en": "ZhiMi Mi Fan Generic (WiFi)",
+    "nl": "ZhiMi Mi Ventilator Generic (WiFi)"
+  },
+  "images": {
+    "large": "drivers/zhimi-fan/assets/images/large.jpg",
+    "small": "drivers/zhimi-fan/assets/images/small.jpg"
+  },
+  "class": "fan",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff"
+  ]
+}

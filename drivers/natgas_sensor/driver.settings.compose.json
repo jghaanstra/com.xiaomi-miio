@@ -1,0 +1,49 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Duration of the natural gas detected alarm in seconds",
+      "nl": "Duur van het gas gedetecteerd alarm in seconden"
+    },
+    "children": [
+      {
+        "id": "alarm_duration_number",
+        "type": "number",
+        "label": {
+          "en": "Disable after",
+          "nl": "Uitschakelen na"
+        },
+        "value": 60,
+        "attr": {
+          "min": 60,
+          "max": 86400
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings",
+      "nl": "Apparaat instellingen"
+    },
+    "children": [
+      {
+        "id": "deviceSid",
+        "$extends": "deviceSid"
+      },
+      {
+        "id": "gatewaySid",
+        "$extends": "gatewaySid"
+      },
+      {
+        "id": "model",
+        "$extends": "model"
+      },
+      {
+        "id": "modelCode",
+        "$extends": "modelCode"
+      }
+    ]
+  }
+]

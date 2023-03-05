@@ -1,49 +1,23 @@
-const Homey = require("homey");
-const model = ["ctrl_ln2.aq1", "switch_b2nacn02"];
+'use strict';
 
-class AqaraSwitch extends Homey.Driver {
-  onInit() {
-    this.triggers = {
-      rightSwitchOn: new Homey.FlowCardTriggerDevice("rightSwitchOn").register(),
-      rightSwitchOff: new Homey.FlowCardTriggerDevice("rightSwitchOff").register()
-    };
-    this.conditions = {
-      rightSwitch: new Homey.FlowCardCondition("rightSwitch").register()
-    };
-    this.actions = {
-      rightSwitchOn: new Homey.FlowCardAction("rightSwitchOn").register(),
-      rightSwitchOff: new Homey.FlowCardAction("rightSwitchOff").register(),
-      rightSwitchToggle: new Homey.FlowCardAction("rightSwitchToggle").register()
-    };
-  }
+const Driver = require('../subdevice_driver.js');
+const Util = require('../../lib/util.js');
 
-  onPairListDevices(data, callback) {
-    if (Homey.app.mihub.hubs) {
-      Homey.app.mihub
-        .getDevicesByModel(model)
-        .then(devices =>
-          callback(
-            null,
-            devices.map(device => {
-              return {
-                name: device.name + " | " + device.sid,
-                data: {
-                  sid: device.sid
-                },
-                settings: {
-                  deviceSid: device.sid,
-                  model: device.model,
-                  modelCode: device.modelCode
-                }
-              };
-            })
-          )
-        )
-        .catch(() => callback(new Error(Homey.__("pair.no_devices_found"))));
-    } else {
-      callback(new Error(Homey.__("pair.no_gateways")));
+class AqaraSwitch extends Driver {
+
+  async onInit() {
+
+    if (!this.util) this.util = new Util({homey: this.homey});
+
+    this.homey.flow.getDeviceTriggerCard('rightSwitchOn');
+    this.homey.flow.getDeviceTriggerCard('rightSwitchOff');
+
+    this.config = {
+      model: ["ctrl_ln2.aq1", "switch_b2nacn02"]
     }
+    
   }
+
 }
 
 module.exports = AqaraSwitch;

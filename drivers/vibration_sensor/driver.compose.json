@@ -1,0 +1,44 @@
+{
+  "name": {
+    "en": "Vibration Sensor (Gateway)",
+    "nl": "Vibration Sensor (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/vibration_sensor/assets/images/large.jpg",
+    "small": "/drivers/vibration_sensor/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "alarm_tamper",
+    "alarm_motion.tilt",
+    "alarm_motion.freefall",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "capabilitiesOptions": {
+    "alarm_tamper": {
+      "title": {
+        "en": "Vibrate",
+        "nl": "Vibratie"
+      }
+    },
+    "alarm_motion.tilt": {
+      "title": {
+        "en": "Tilt",
+        "nl": "Tilt"
+      }
+    },
+    "alarm_motion.freefall": {
+      "title": {
+        "en": "Free fall",
+        "nl": "Vrije val"
+      }
+    }
+  },
+  "energy": {
+    "batteries": ["CR2032"]
+  }
+}

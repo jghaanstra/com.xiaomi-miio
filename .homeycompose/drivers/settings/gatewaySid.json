@@ -1,0 +1,9 @@
+{
+  "id": "gatewaySid",
+  "type": "label",
+  "value": "0123456789ab",
+  "label": {
+    "en": "Gateway SID",
+    "nl": "Gateway SID"
+  }
+}

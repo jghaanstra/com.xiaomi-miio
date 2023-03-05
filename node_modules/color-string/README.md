@@ -1,7 +1,5 @@
 # color-string
 
-[![Build Status](https://travis-ci.org/Qix-/color-string.svg?branch=master)](https://travis-ci.org/Qix-/color-string)
-
 > library for parsing and generating CSS color strings.
 
 ## Install
@@ -21,15 +19,21 @@ colorString.get('#FFF')                          // {model: 'rgb', value: [255, 
 colorString.get('#FFFA')                         // {model: 'rgb', value: [255, 255, 255, 0.67]}
 colorString.get('#FFFFFFAA')                     // {model: 'rgb', value: [255, 255, 255, 0.67]}
 colorString.get('hsl(360, 100%, 50%)')           // {model: 'hsl', value: [0, 100, 50, 1]}
+colorString.get('hsl(360 100% 50%)')             // {model: 'hsl', value: [0, 100, 50, 1]}
 colorString.get('hwb(60, 3%, 60%)')              // {model: 'hwb', value: [60, 3, 60, 1]}
 
 colorString.get.rgb('#FFF')                      // [255, 255, 255, 1]
 colorString.get.rgb('blue')                      // [0, 0, 255, 1]
 colorString.get.rgb('rgba(200, 60, 60, 0.3)')    // [200, 60, 60, 0.3]
+colorString.get.rgb('rgba(200 60 60 / 0.3)')     // [200, 60, 60, 0.3]
+colorString.get.rgb('rgba(200 60 60 / 30%)')     // [200, 60, 60, 0.3]
 colorString.get.rgb('rgb(200, 200, 200)')        // [200, 200, 200, 1]
+colorString.get.rgb('rgb(200 200 200)')          // [200, 200, 200, 1]
 
 colorString.get.hsl('hsl(360, 100%, 50%)')       // [0, 100, 50, 1]
+colorString.get.hsl('hsl(360 100% 50%)')         // [0, 100, 50, 1]
 colorString.get.hsl('hsla(360, 60%, 50%, 0.4)')  // [0, 60, 50, 0.4]
+colorString.get.hsl('hsl(360 60% 50% / 0.4)')    // [0, 60, 50, 0.4]
 
 colorString.get.hwb('hwb(60, 3%, 60%)')          // [60, 3, 60, 1]
 colorString.get.hwb('hwb(60, 3%, 60%, 0.6)')     // [60, 3, 60, 0.6]

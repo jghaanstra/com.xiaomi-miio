@@ -1,0 +1,35 @@
+{
+  "id": "cleanZoneVacuum",
+  "title": {
+    "en": "Start zone cleaning",
+    "nl": "Start zone schoonmaken"
+  },
+  "titleFormatted": {
+    "en": "Start zone cleaning [[zones]]",
+    "nl": "Start zone schoonmaken [[zones]]"
+  },
+  "hint": {
+    "en": "Takes in an a list of zones and the number of times to clean. Each zone contains an array of 5 values: bottom-left-x, bottom-left-y, top-right-x, top-right-y, number of clean times. Zones example: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
+    "nl": "Voer een lijst met zones in en het aantal keren om schoon te maken. Elke zone bevat een array met 5 waarden: bottom-left-x, bottom-left-y, top-right-x, top-right-y, number of clean times. Zones voorbeeld: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]"
+  },
+  "args": [
+    {
+      "name": "zones",
+      "type": "text",
+      "placeholder": {
+        "en": "Zones",
+        "nl": "Zones"
+      }
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Robot",
+        "nl": "Selecteer Mi Robot"
+      },
+      "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
+    }
+  ],
+  "platforms": ["local"]
+}

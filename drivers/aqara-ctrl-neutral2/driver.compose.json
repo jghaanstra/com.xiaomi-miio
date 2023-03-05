@@ -1,0 +1,32 @@
+{
+  "name": {
+    "en": "Aqara Smart Wall Double Switch No Neutral (Gateway)",
+    "nl": "Aqara Smart Wall Double Switch zonder nuldraad (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/aqara-ctrl-neutral2/assets/images/large.png",
+    "small": "/drivers/aqara-ctrl-neutral2/assets/images/small.png"
+  },
+  "class": "light",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "onoff",
+    "onoff.1"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "title": {
+        "en": "Left button",
+        "nl": "Linkerknop"
+      }
+    },
+    "onoff.1": {
+      "title": {
+        "en": "Right button",
+        "nl": "Rechterknop"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": {
+    "en": "Robot Vacuum Cleaners Generic (WiFi)",
+    "nl": "Robot Stofzuigers Generiek (WiFi)"
+  },
+  "images": {
+    "large": "drivers/mi-robot/assets/images/large.jpg",
+    "small": "drivers/mi-robot/assets/images/small.jpg"
+  },
+  "class": "vacuumcleaner",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "vacuumcleaner_state",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": ["INTERNAL"]
+  }
+}

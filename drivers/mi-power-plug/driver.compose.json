@@ -1,0 +1,18 @@
+{
+  "name": {
+    "en": "Mi Power Plug (WiFi)",
+    "nl": "Mi Power Plug (WiFi)"
+  },
+  "images": {
+    "large": "drivers/mi-power-plug/assets/images/large.jpg",
+    "small": "drivers/mi-power-plug/assets/images/small.jpg"
+  },
+  "class": "socket",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff"
+  ],
+  "deprecated": true
+}

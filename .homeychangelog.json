@@ -49,5 +49,8 @@
   },
   "3.0.9": {
     "en": "No functional changes. Updated the app manifest to reflect a new developer and the possibility for future development and a possible upgrade to SDK3. See the forum support topic for further details."
+  },
+  "3.1.0": {
+    "en": "This release is a complete rewrite of the app including many breaking changes. The app has been fully rewritten with SDK3 to make it futureproof. This new version also merged the devices from the community app Mi Homey. Some previously paired devices might continu to work but please re-pair your devices and/or fix your flows before reporting any issue. If the issue persists after re-pair please report it on the community forum or Github."
   }
 }

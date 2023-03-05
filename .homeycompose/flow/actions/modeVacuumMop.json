@@ -1,0 +1,50 @@
+{
+  "id": "modeVacuumMop",
+  "title": {
+    "en": "Set Mode",
+    "nl": "Stel modus in"
+  },
+  "titleFormatted": {
+    "en": "Set mode to [[mode]]",
+    "nl": "Stel modus in op [[mode]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Vacuum",
+            "nl": "Stofzuigen"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Vacuum + Mop",
+            "nl": "Stofzuigen + moppen"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Mop",
+            "nl": "Moppen"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Vacuum",
+        "nl": "Selecteer Stofzuiger"
+      },
+      "filter": "driver_id=vacuum_viomi_vacuum_v7"
+    }
+  ],
+  "platforms": ["local"]
+}

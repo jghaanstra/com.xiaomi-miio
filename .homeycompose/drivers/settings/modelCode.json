@@ -1,0 +1,9 @@
+{
+  "id": "modelCode",
+  "type": "label",
+  "value": "AABBCC01LM",
+  "label": {
+    "en": "Device Model Code",
+    "nl": "Apparaat modelcode"
+  }
+}

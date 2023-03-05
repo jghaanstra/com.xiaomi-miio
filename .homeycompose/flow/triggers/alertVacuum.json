@@ -1,0 +1,39 @@
+{
+  "id": "alertVacuum",
+  "title": {
+    "en": "Consumable Alert",
+    "nl": "Verbruiksartikel waarschuwing"
+  },
+  "tokens": [
+    {
+      "name": "consumable",
+      "type": "string",
+      "title": {
+        "en": "consumable",
+        "nl": "verbruiksartikel"
+      },
+      "example": "filter"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "title": {
+        "en": "value",
+        "nl": "waarde"
+      },
+      "example": "10%"
+    }
+  ],
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Vacuum",
+        "nl": "Selecteer stofzuiger"
+      },
+      "filter": "driver_id=vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6|vacuum_dreame_vacuum_mc1808|vacuum_dreame_vacuum_p2029_p2041|vacuum_viomi_vacuum_v7"
+    }
+  ],
+  "platforms": ["local"]
+}

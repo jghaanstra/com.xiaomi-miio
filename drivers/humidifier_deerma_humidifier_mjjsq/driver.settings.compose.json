@@ -1,0 +1,50 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "User Settings",
+      "nl": "Gebruikersinstellingem"
+    },
+    "children": [
+      {
+        "id": "led",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "LED",
+          "nl": "LED"
+        }
+      },
+      {
+        "id": "buzzer",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Buzzer",
+          "nl": "Buzzer"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings",
+      "nl": "Apparaat instellingen"
+    },
+    "children": [
+      {
+        "id": "address",
+        "$extends": "address"
+      },
+      {
+        "id": "token",
+        "$extends": "token"
+      },
+      {
+        "id": "polling",
+        "$extends": "polling"
+      }
+    ]
+  }
+]

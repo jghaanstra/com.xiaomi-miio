@@ -1,0 +1,57 @@
+{
+  "id": "setAngle",
+  "title": {
+    "en": "Change Fan Oscillating Angle",
+    "nl": "Wijzig ventilator oscillatie hoek"
+  },
+  "titleFormatted": {
+    "en": "Change fan oscillating angle to [[angle]]",
+    "nl": "Wijzig ventilator oscillatie hoek naar [[angle]]"
+  },
+  "args": [
+    {
+      "name": "angle",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "30",
+          "label": {
+            "en": "30º",
+            "nl": "30º"
+          }
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60º",
+            "nl": "60º"
+          }
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90º",
+            "nl": "90º"
+          }
+        },
+        {
+          "id": "120",
+          "label": {
+            "en": "120º",
+            "nl": "120º"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=zhimi-fan|dmaker-fan"
+    }
+  ],
+  "platforms": ["local"]
+}

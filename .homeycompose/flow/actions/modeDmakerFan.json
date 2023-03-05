@@ -1,0 +1,43 @@
+{
+  "id": "modeDmakerFan",
+  "title": {
+    "en": "Set Mode",
+    "nl": "Stel modus in"
+  },
+  "titleFormatted": {
+    "en": "Set mode to [[mode]]",
+    "nl": "Stel modus in op [[mode]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "normal",
+          "label": {
+            "en": "Normal",
+            "nl": "Normaal"
+          }
+        },
+        {
+          "id": "nature",
+          "label": {
+            "en": "Nature",
+            "nl": "Natuur"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Dmaker Fan",
+        "nl": "Selecteer Dmaker Ventilator"
+      },
+      "filter": "driver_id=dmaker-fan"
+    }
+  ],
+  "platforms": ["local"]
+}

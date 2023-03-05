@@ -1,0 +1,53 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Duration of the motion alarm",
+      "nl": "Duur van het bewegingsalarm"
+    },
+    "children": [
+      {
+        "id": "alarm_duration_number",
+        "type": "number",
+        "label": {
+          "en": "Disable after",
+          "nl": "Uitschakelen na"
+        },
+        "hint": {
+          "en": "Here you can specify after what time the alarm signal from the motion sensor will be stopped, if a motion is detected it is not detected. Usually this is for 60 seconds, you can set from 5 to 86400 seconds. \n \n Attention! Values less than 60 seconds are relevant only for independently modified sensors that have the ability to transmit information about the movement with a frequency of 5 seconds.",
+          "nl": "Hier kunt u opgeven hoe laat het alarmsignaal van de bewegingssensor wordt gestopt, als een beweging wordt gedetecteerd, wordt deze niet gedetecteerd. Gewoonlijk is dit 60 seconden, u kunt 5 tot 86400 seconden instellen.  n  n Let op! Waarden minder dan 60 seconden zijn alleen relevant voor onafhankelijk aangepaste sensoren die de mogelijkheid hebben om informatie over de beweging te verzenden met een frequentie van 5 seconden."
+        },
+        "value": 60,
+        "attr": {
+          "min": 5,
+          "max": 86400
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings",
+      "nl": "Apparaat instellingen"
+    },
+    "children": [
+      {
+        "id": "deviceSid",
+        "$extends": "deviceSid"
+      },
+      {
+        "id": "gatewaySid",
+        "$extends": "gatewaySid"
+      },
+      {
+        "id": "model",
+        "$extends": "model"
+      },
+      {
+        "id": "modelCode",
+        "$extends": "modelCode"
+      }
+    ]
+  }
+]

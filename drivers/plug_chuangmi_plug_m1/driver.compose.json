@@ -1,0 +1,27 @@
+{
+  "name": {
+    "en": "Mi Smart Plug (WiFi)",
+    "nl": "Mi Smart Plug (WiFi)"
+  },
+  "images": {
+    "large": "drivers/plug_chuangmi_plug_m1/assets/images/large.jpg",
+    "small": "drivers/plug_chuangmi_plug_m1/assets/images/small.jpg"
+  },
+  "class": "socket",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "measure_temperature",
+    "onoff.led"
+  ],
+  "capabilitiesOptions": {
+    "onoff.led": {
+      "title": {
+        "en": "WiFi LED",
+        "nl": "WiFi LED"
+      }
+    }
+  }
+}

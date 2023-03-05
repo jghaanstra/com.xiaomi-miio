@@ -1,0 +1,207 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Gateway Favorite Stations",
+      "nl": "Gateway favoriete stations"
+    },
+    "children": [
+      {
+        "id": "favorite0ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "1 - Favorite Radio",
+          "nl": "1 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite1ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "2 - Favorite Radio",
+          "nl": "2 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite2ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "3 - Favorite Radio",
+          "nl": "3 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite3ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "4 - Favorite Radio",
+          "nl": "4 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite4ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "5 - Favorite Radio",
+          "nl": "5 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite5ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "6 - Favorite Radio",
+          "nl": "6 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite6ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "7 - Favorite Radio",
+          "nl": "7 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite7ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "8 - Favorite Radio",
+          "nl": "8 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite8ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "9 - Favorite Radio",
+          "nl": "9 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite9ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "10 - Favorite Radio",
+          "nl": "10 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite10ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "11 - Favorite Radio",
+          "nl": "11 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite11ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "12 - Favorite Radio",
+          "nl": "12 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite12ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "13 - Favorite Radio",
+          "nl": "13 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite13ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "14 - Favorite Radio",
+          "nl": "14 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite14ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "15 - Favorite Radio",
+          "nl": "15 - Favoriet station"
+        }
+      },
+      {
+        "id": "favorite15ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "16 - Favorite Radio"
+        }
+      },
+      {
+        "id": "favorite16ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "17 - Favorite Radio"
+        }
+      },
+      {
+        "id": "favorite17ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "18 - Favorite Radio"
+        }
+      },
+      {
+        "id": "favorite18ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "19 - Favorite Radio"
+        }
+      },
+      {
+        "id": "favorite19ID",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "20 - Favorite Radio"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings",
+      "nl": "Apparaat instellingen"
+    },
+    "children": [
+      {
+        "id": "address",
+        "$extends": "address"
+      },
+      {
+        "id": "token",
+        "$extends": "token"
+      },
+      {
+        "id": "polling",
+        "$extends": "polling"
+      }
+    ]
+  }
+]

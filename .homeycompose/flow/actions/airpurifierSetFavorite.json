@@ -1,0 +1,141 @@
+{
+  "id": "airpurifierSetFavorite",
+  "title": {
+    "en": "Set Favorite Speed",
+    "nl": "Favoriete snelheid instellen"
+  },
+  "titleFormatted": {
+    "en": "Set favorite speed to [[favorite]]",
+    "nl": "Favoriete snelheid instellen op [[favorite]]"
+  },
+  "args": [
+    {
+      "name": "favorite",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1",
+            "nl": "1"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "nl": "2"
+          }
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "nl": "3"
+          }
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "nl": "4"
+          }
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "nl": "5"
+          }
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "6",
+            "nl": "6"
+          }
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "7",
+            "nl": "7"
+          }
+        },
+        {
+          "id": "8",
+          "label": {
+            "en": "8",
+            "nl": "8"
+          }
+        },
+        {
+          "id": "9",
+          "label": {
+            "en": "9",
+            "nl": "9"
+          }
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10",
+            "nl": "10"
+          }
+        },
+        {
+          "id": "11",
+          "label": {
+            "en": "11",
+            "nl": "11"
+          }
+        },
+        {
+          "id": "12",
+          "label": {
+            "en": "12",
+            "nl": "12"
+          }
+        },
+        {
+          "id": "13",
+          "label": {
+            "en": "13",
+            "nl": "13"
+          }
+        },
+        {
+          "id": "14",
+          "label": {
+            "en": "14",
+            "nl": "14"
+          }
+        },
+        {
+          "id": "15",
+          "label": {
+            "en": "15",
+            "nl": "15"
+          }
+        },
+        {
+          "id": "16",
+          "label": {
+            "en": "16",
+            "nl": "16"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Air Purifier",
+        "nl": "Selecteer Mi Luchtreiniger"
+      },
+      "filter": "driver_id=mi-airpurifier"
+    }
+  ],
+  "platforms": ["local"]
+}

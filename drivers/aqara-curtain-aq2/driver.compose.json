@@ -1,0 +1,32 @@
+{
+  "name": {
+    "en": "Aqara Roller Shade Controller (Gateway)",
+    "nl": "Aqara Roller Shade Controller (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/aqara-curtain-aq2/assets/images/large.png",
+    "small": "/drivers/aqara-curtain-aq2/assets/images/small.png"
+  },
+  "class": "windowcoverings",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "windowcoverings_state"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "title": {
+        "en": "Open Close"
+      },
+      "greyout": false
+    },
+    "dim": {
+      "title": {
+        "en": "Level"
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "click_single_right",
+  "title": {
+    "en": "Right Click",
+    "nl": "Klik rechts"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=aqara-86sw2-advanced|db86_switch"
+    }
+  ],
+  "platforms": ["local"]
+}

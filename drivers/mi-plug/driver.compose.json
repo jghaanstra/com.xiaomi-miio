@@ -1,0 +1,19 @@
+{
+  "name": {
+    "en": "Mi Smart Plug (Gateway)",
+    "nl": "Mi Smart Plug (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/mi-plug/assets/images/large.png",
+    "small": "/drivers/mi-plug/assets/images/small.png"
+  },
+  "class": "socket",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "onoff",
+    "meter_power",
+    "measure_power"
+  ]
+}

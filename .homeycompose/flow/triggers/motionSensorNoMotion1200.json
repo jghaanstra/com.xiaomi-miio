@@ -1,0 +1,19 @@
+{
+  "id": "motionSensorNoMotion1200",
+  "title": {
+    "en": "No motion detected in 20 minutes",
+    "nl": "Geen beweging gedetecteerd in 20 minuten"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-motion-sensor|aqara-motion-sensor"
+    }
+  ],
+  "platforms": ["local"]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "measure_humidity_between",
+  "title": {
+    "en": "Humidity !{{is between|is not between}}",
+    "nl": "Luchtvochtigheid !{{ligt tussen|ligt niet tussen}}"
+  },
+  "titleFormatted": {
+    "en": "Humidity !{{is between|is not between}} [[value1]] and [[value2]]",
+    "nl": "Luchtvochtigheid !{{ligt tussen|ligt niet tussen}} [[value1]] en [[value2]]"
+  },
+  "hint": {
+    "en": "Use this card to determine whether or not the humidity for the zone is between two values. The specified values are also valid.",
+    "nl": "Gebruik dit kaartje om te bepalen of de luchtvochtigheid voor de zone tussen twee waarden ligt. De opgegeven waarden zijn ook geldig."
+  },
+  "args": [
+    {
+      "type": "number",
+      "name": "value1",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "placeholder": {
+        "en": "%",
+        "nl": "%"
+      }
+    },
+    {
+      "type": "number",
+      "name": "value2",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "placeholder": {
+        "en": "%",
+        "nl": "%"
+      }
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-temperature-humidity-sensor|aqara-temperature-humidity-sensor"
+    }
+  ],
+  "platforms": ["local"]
+}

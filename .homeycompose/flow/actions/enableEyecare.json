@@ -1,0 +1,50 @@
+{
+  "id": "enableEyecare",
+  "title": {
+    "en": "Switch Eyecare",
+    "nl": "Eyecare schakelen"
+  },
+  "titleFormatted": {
+    "en": "Eyecare [[eyecare]]",
+    "nl": "Eyecare [[eyecare]]"
+  },
+  "args": [
+    {
+      "name": "eyecare",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit"
+          }
+        },
+        {
+          "id": "phone",
+          "label": {
+            "en": "Phone",
+            "nl": "Telefoon"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Philips Eyecare Lamp",
+        "nl": "Selecteer Philips Eyecare Lamp"
+      },
+      "filter": "driver_id=philips-eyecare"
+    }
+  ],
+  "platforms": ["local"]
+}

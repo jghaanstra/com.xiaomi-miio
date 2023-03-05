@@ -1,121 +1,85 @@
 'use strict';
 
 const Homey = require('homey');
-const util = require('/lib/util.js');
-const miio = require('miio');
+const Device = require('../wifi_device.js');
+const Util = require('../../lib/util.js');
 
-class PhilipsEyecareDevice extends Homey.Device {
+class PhilipsEyecareDevice extends Device {
 
-  onInit() {
-    this.createDevice();
-    setTimeout(() => { this.refreshDevice(); }, 600000);
+  async onInit() {
+    try {
+      if (!this.util) this.util = new Util({homey: this.homey});
 
-    // LISTENERS FOR UPDATING CAPABILITIES
-    this.registerCapabilityListener('onoff', (value, opts) => {
-      if (this.miio) {
-        return this.miio.setPower(value);
-      } else {
-        this.setUnavailable(Homey.__('unreachable'));
-        this.createDevice();
-        return Promise.reject('Device unreachable, please try again ...');
-      }
-    });
+      // TODO: remove this on the next release
+      if (!this.hasCapability('onoff.ambilight')) { this.addCapability('onoff.ambilight'); }
+      if (!this.hasCapability('onoff.eyecare')) { this.addCapability('onoff.eyecare'); }
+      
+      // GENERIC DEVICE INIT ACTIONS
+      this.bootSequence();
 
-    this.registerCapabilityListener('dim', (value, opts) => {
-      if (this.miio) {
-        var brightness = value * 100;
-        return this.miio.setBrightness(brightness);
-      } else {
-        this.setUnavailable(Homey.__('unreachable'));
-        this.createDevice();
-        return Promise.reject('Device unreachable, please try again ...');
-      }
-    });
-  }
+      // LISTENERS FOR UPDATING CAPABILITIES
+      this.registerCapabilityListener("onoff", this.onCapabilityOnoff.bind(this));
+      this.registerCapabilityListener("dim", this.onCapabilityDim.bind(this));
 
-  onDeleted() {
-    clearInterval(this.pollingInterval);
-    clearInterval(this.refreshInterval);
-    if (this.miio ) {
-      this.miio.destroy();
+      this.registerCapabilityListener('onoff.eyecare', (value) => {
+        try {
+          if (this.miio) {
+            return this.miio.call("set_eyecare", [value ? "on" : "off"], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
+      this.registerCapabilityListener('onoff.ambilight', (value) => {
+        try {
+          if (this.miio) {
+            return this.miio.call("enable_amb", [value ? "on" : "off"], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
+    } catch (error) {
+      this.error(error);
     }
   }
 
-  // HELPER FUNCTIONS
-  createDevice() {
-    miio.device({
-      address: this.getSetting('address'),
-      token: this.getSetting('token')
-    }).then(miiodevice => {
-      if (!this.getAvailable()) {
-        this.setAvailable();
-      }
-      this.miio = miiodevice;
+  async retrieveDeviceData() {
+    try {
 
-      var interval = this.getSetting('polling') || 60;
-      this.pollDevice(interval);
-    }).catch((error) => {
-      this.log(error);
-      this.setUnavailable(Homey.__('unreachable'));
-      setTimeout(() => {
-        this.createDevice();
-      }, 10000);
-    });
-  }
+      const result = await this.miio.call("get_prop", ["power", "bright", "ambstatus", "eyecare"], { retries: 1 });
+      if (!this.getAvailable()) { await this.setAvailable(); }
 
-  pollDevice(interval) {
-    clearInterval(this.pollingInterval);
+      await this.updateCapabilityValue("onoff", result[0] === "on" ? true : false);
+      await this.updateCapabilityValue("dim", result[1] / 100);
+      await this.updateCapabilityValue("onoff.ambilight", result[2] === "on" ? true : false);
+      await this.updateCapabilityValue("onoff.eyecare", result[3] === "on" ? true : false);
 
-    this.pollingInterval = setInterval(() => {
-      const getData = async () => {
-        try {
-          const power = await this.miio.power();
-          const brightness = await this.miio.brightness();
-          const mode = await this.miio.mode();
-          const eyecare = await this.miio.eyeCare();
+    } catch (error) {
+      this.homey.clearInterval(this.pollingInterval);
 
-          if (this.getCapabilityValue('onoff') != power) {
-            this.setCapabilityValue('onoff', power);
-          }
-          var dim = brightness / 100;
-          if (this.getCapabilityValue('dim') != dim) {
-            this.setCapabilityValue('dim', dim);
-          }
-          if (this.getStoreValue('mode') != mode) {
-            this.setStoreValue('mode', mode);
-          }
-          if (this.getStoreValue('eyecare') != eyecare) {
-            this.setStoreValue('eyecare', eyecare);
-          }
-          if (!this.getAvailable()) {
-            this.setAvailable();
-          }
-        } catch (error) {
-          this.log(error);
-          clearInterval(this.pollingInterval);
-          this.setUnavailable(Homey.__('unreachable'));
-          setTimeout(() => {
-            this.createDevice();
-          }, 1000 * interval);
-        }
-      }
-      getData();
-    }, 1000 * interval);
-  }
-
-  refreshDevice(interval) {
-    clearInterval(this.refreshInterval);
-
-    this.refreshInterval = setInterval(() => {
-      if (this.miio) {
-        this.miio.destroy();
+      if (this.getAvailable()) {
+        this.setUnavailable(this.homey.__('device.unreachable') + error.message).catch(error => { this.error(error) });
       }
 
-      setTimeout(() => {
-        this.createDevice();
-      }, 2000);
-    }, 3600000);
+      this.homey.setTimeout(() => { this.createDevice(); }, 60000);
+
+      this.error(error.message);
+    }
   }
+
 }
 
 module.exports = PhilipsEyecareDevice;

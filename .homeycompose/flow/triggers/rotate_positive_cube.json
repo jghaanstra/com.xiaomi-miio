@@ -1,0 +1,19 @@
+{
+  "id": "rotate_positive_cube",
+  "title": {
+    "en": "Rotated Clockwise",
+    "nl": "Rotatie met de klok mee"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-aqara-cube"
+    }
+  ],
+  "platforms": ["local"]
+}

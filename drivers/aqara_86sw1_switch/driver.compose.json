@@ -1,0 +1,21 @@
+{
+  "name": {
+    "en": "Aqara Wireless Wall Single Switch (Gateway)",
+    "nl": "Aqara Wireless Wall Single Switch (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/aqara_86sw1_switch/assets/images/large.jpg",
+    "small": "/drivers/aqara_86sw1_switch/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": ["CR2032"]
+  }
+}

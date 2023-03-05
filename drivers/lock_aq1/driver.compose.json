@@ -1,0 +1,60 @@
+{
+  "name": {
+    "en": "Aqara Lock (Gateway)",
+    "nl": "Aqara Lock (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/lock_aq1/assets/images/large.jpg",
+    "small": "/drivers/lock_aq1/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults_subdevice"
+  ],
+  "capabilities": [
+    "alarm_motion.finger",
+    "alarm_motion.code",
+    "alarm_motion.card",
+    "alarm_motion.wrongID",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "capabilitiesOptions": {
+    "alarm_motion.finger": {
+      "title": {
+        "en": "Finger",
+        "nl": "Vinger"
+      }
+    },
+    "alarm_motion.code": {
+      "title": {
+        "en": "Code",
+        "nl": "Code"
+      }
+    },
+    "alarm_motion.card": {
+      "title": {
+        "en": "Card",
+        "nl": "Card"
+      }
+    },
+    "alarm_motion.wrongID": {
+      "title": {
+        "en": "Wrong ID",
+        "nl": "Verkeerd ID"
+      }
+    }
+  },
+  "energy": {
+    "batteries": [
+      "AAA",
+      "AAA",
+      "AAA",
+      "AAA",
+      "AAA",
+      "AAA",
+      "AAA",
+      "AAA"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "cubeRotated",
+  "title": {
+    "en": "Rotated",
+    "nl": "Gedraaid"
+  },
+  "tokens": [
+    {
+      "name": "cube_rotated",
+      "type": "number",
+      "title": {
+        "en": "rotation",
+        "nl": "rotatie"
+      },
+      "example": 0
+    }
+  ],
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=mi-aqara-cube"
+    }
+  ],
+  "platforms": ["local"]
+}

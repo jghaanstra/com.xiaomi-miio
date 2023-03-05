@@ -1,0 +1,43 @@
+{
+  "id": "modeDmakerFan1C",
+  "title": {
+    "en": "Set Mode",
+    "nl": "Stel modus in"
+  },
+  "titleFormatted": {
+    "en": "Set mode to [[mode]]",
+    "nl": "Stel modus in op [[mode]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Straigth Wind",
+            "nl": "Rechte wind"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Sleep",
+            "nl": "Slaapstand"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Dmaker Fan",
+        "nl": "Selecteer Dmaker Fan"
+      },
+      "filter": "driver_id=dmaker_fan_1c"
+    }
+  ],
+  "platforms": ["local"]
+}

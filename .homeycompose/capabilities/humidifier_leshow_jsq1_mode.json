@@ -1,0 +1,32 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Mode",
+    "nl": "Modus"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Constant Humidity",
+        "nl": "Constante luchtvochtigheid"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "High",
+        "nl": "Hoog"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Sleep",
+        "n;": "Slaapstand"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

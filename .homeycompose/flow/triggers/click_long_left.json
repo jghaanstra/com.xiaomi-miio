@@ -1,0 +1,19 @@
+{
+  "id": "click_long_left",
+  "title": {
+    "en": "Left Long Click",
+    "nl": "Lange klik links"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=aqara-86sw2-advanced"
+    }
+  ],
+  "platforms": ["local"]
+}
