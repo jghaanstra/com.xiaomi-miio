@@ -10,6 +10,10 @@
   "args": [
     {
       "type": "dropdown",
+      "title": {
+        "en": "Station ID",
+        "nl": "Station ID"
+      },
       "name": "favoriteID",
       "values": [
         {
@@ -121,6 +125,10 @@
     },
     {
       "type": "range",
+      "title": {
+        "en": "Volume",
+        "nl": "Volume"
+      },
       "name": "volume",
       "min": 0,
       "max": 1,

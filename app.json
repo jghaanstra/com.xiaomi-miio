@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.0",
+  "version": "3.1.2",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -56,7 +56,7 @@
   "contributors": {
     "developers": [
       {
-        "name": "MadMonkey87"
+        "name": "Maxmudjon"
       }
     ]
   },
@@ -1108,6 +1108,10 @@
             "min": 0,
             "max": 100,
             "step": 1,
+            "title": {
+              "en": "Above",
+              "nl": "Boven"
+            },
             "placeholder": {
               "en": "%",
               "nl": "%"
@@ -1119,6 +1123,10 @@
             "min": 0,
             "max": 100,
             "step": 1,
+            "title": {
+              "en": "Below",
+              "nl": "Onder"
+            },
             "placeholder": {
               "en": "%",
               "nl": "%"
@@ -1159,6 +1167,10 @@
             "min": -50,
             "max": 100,
             "step": 1,
+            "title": {
+              "en": "Above",
+              "nl": "Boven"
+            },
             "placeholder": {
               "en": "°C",
               "nl": "°C"
@@ -1170,6 +1182,10 @@
             "min": -50,
             "max": 100,
             "step": 1,
+            "title": {
+              "en": "Below",
+              "nl": "Onder"
+            },
             "placeholder": {
               "en": "°C",
               "nl": "°C"
@@ -1225,6 +1241,10 @@
         "args": [
           {
             "name": "favorite",
+            "title": {
+              "en": "Favorite",
+              "nl": "Favoriet"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1368,6 +1388,10 @@
         "args": [
           {
             "name": "speed",
+            "title": {
+              "en": "Speed",
+              "nl": "Snelheid"
+            },
             "type": "range",
             "min": 0,
             "max": 100,
@@ -1406,6 +1430,10 @@
         "args": [
           {
             "name": "zones",
+            "title": {
+              "en": "Zones",
+              "nl": "Zones"
+            },
             "type": "text",
             "placeholder": {
               "en": "Zones",
@@ -1416,8 +1444,8 @@
             "name": "device",
             "type": "device",
             "placeholder": {
-              "en": "Select Mi Robot",
-              "nl": "Selecteer Mi Robot"
+              "en": "Select Vacuum",
+              "nl": "Selecteer Stofzuiger"
             },
             "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
           }
@@ -1439,6 +1467,10 @@
         "args": [
           {
             "name": "angle",
+            "title": {
+              "en": "Angle",
+              "nl": "Hoek"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1484,6 +1516,10 @@
         "args": [
           {
             "name": "childlock",
+            "title": {
+              "en": "Childlock",
+              "nl": "Kinderslot"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1529,6 +1565,10 @@
         "args": [
           {
             "name": "eyecare",
+            "title": {
+              "en": "Eyecare",
+              "nl": "Eyecare"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1581,6 +1621,10 @@
         "args": [
           {
             "name": "fanspeed",
+            "title": {
+              "en": "Fanspeed",
+              "nl": "Fan snelheid"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1664,6 +1708,10 @@
         "args": [
           {
             "name": "id",
+            "title": {
+              "en": "Station ID",
+              "nl": "Station ID"
+            },
             "type": "text",
             "placeholder": {
               "en": "ID",
@@ -1672,6 +1720,10 @@
           },
           {
             "name": "url",
+            "title": {
+              "en": "URL",
+              "nl": "URL"
+            },
             "type": "text",
             "placeholder": {
               "en": "URL",
@@ -1680,6 +1732,10 @@
           },
           {
             "type": "range",
+            "title": {
+              "en": "Volume",
+              "nl": "Volume"
+            },
             "name": "volume",
             "min": 0,
             "max": 1,
@@ -1692,8 +1748,8 @@
             "name": "device",
             "type": "device",
             "placeholder": {
-              "en": "Select Mi Robot",
-              "nl": "Selecteer Mi Robot"
+              "en": "Select Gateway",
+              "nl": "Selecteer Gateway"
             },
             "filter": "driver_id=gateway"
           }
@@ -1715,6 +1771,10 @@
         "args": [
           {
             "type": "dropdown",
+            "title": {
+              "en": "Effect ID",
+              "nl": "Effect ID"
+            },
             "name": "toneID",
             "values": [
               {
@@ -1865,6 +1925,10 @@
           },
           {
             "type": "range",
+            "title": {
+              "en": "Volume",
+              "nl": "Volume"
+            },
             "name": "volume",
             "min": 0,
             "max": 1,
@@ -1877,8 +1941,8 @@
             "name": "device",
             "type": "device",
             "placeholder": {
-              "en": "Select Mi Robot",
-              "nl": "Selecteer Mi Robot"
+              "en": "Select Gateway",
+              "nl": "Selecteer Gateway"
             },
             "filter": "driver_id=gateway"
           }
@@ -1900,6 +1964,10 @@
         "args": [
           {
             "type": "dropdown",
+            "title": {
+              "en": "Station ID",
+              "nl": "Station ID"
+            },
             "name": "favoriteID",
             "values": [
               {
@@ -2011,6 +2079,10 @@
           },
           {
             "type": "range",
+            "title": {
+              "en": "Volume",
+              "nl": "Volume"
+            },
             "name": "volume",
             "min": 0,
             "max": 1,
@@ -2032,6 +2104,83 @@
         "id": "gateway_play_radio"
       },
       {
+        "title": {
+          "en": "Set volume for",
+          "nl": "Set volume voor"
+        },
+        "titleFormatted": {
+          "en": "Set volume to [[volume]] for [[target]]",
+          "nl": "Zet volume naar [[volume]] voor [[target]]"
+        },
+        "args": [
+          {
+            "type": "dropdown",
+            "title": {
+              "en": "Target",
+              "nl": "Doel"
+            },
+            "name": "target",
+            "values": [
+              {
+                "id": "alarm",
+                "label": {
+                  "en": "Alarm",
+                  "nl": "Alarm"
+                }
+              },
+              {
+                "id": "doorbell",
+                "label": {
+                  "en": "Doorbell",
+                  "nl": "Deurbel"
+                }
+              },
+              {
+                "id": "prompt",
+                "label": {
+                  "en": "Prompt",
+                  "nl": "Waarschuwing"
+                }
+              },
+              {
+                "id": "radio",
+                "label": {
+                  "en": "Radio",
+                  "nl": "Radio"
+                }
+              }
+            ]
+          },
+          {
+            "type": "range",
+            "title": {
+              "en": "Volume",
+              "nl": "Volume"
+            },
+            "name": "volume",
+            "min": 0,
+            "max": 1,
+            "step": 0.01,
+            "label": "%",
+            "labelMultiplier": 100,
+            "labelDecimals": 0
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Gateway",
+              "nl": "Selecteer Gateway"
+            },
+            "filter": "driver_id=gateway"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "gateway_set_volume"
+      },
+      {
         "id": "goToTargetVacuum",
         "title": {
           "en": "Send vacuum cleaner to target",
@@ -2048,6 +2197,10 @@
         "args": [
           {
             "name": "xcoordinate",
+            "title": {
+              "en": "X Coordinate",
+              "nl": "X coördinaat"
+            },
             "type": "number",
             "placeholder": {
               "en": "X Coordinate",
@@ -2056,6 +2209,10 @@
           },
           {
             "name": "ycoordinate",
+            "title": {
+              "en": "Y Coordinate",
+              "nl": "Y coördinaat"
+            },
             "type": "number",
             "placeholder": {
               "en": "Y Coordinate",
@@ -2066,10 +2223,10 @@
             "name": "device",
             "type": "device",
             "placeholder": {
-              "en": "Select Mi Robot",
-              "nl": "Selecteer Mi Robot"
+              "en": "Select Vacuum",
+              "nl": "Selecteer Stofzuiger"
             },
-            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
+            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6|vacuum_mi_roborock_vacuum_a08|vacuum_dreame_vacuum_p2029_p2041|vacuum_dreame_vacuum_mc1808|vacuum_viomi_vacuum_v7"
           }
         ],
         "platforms": [
@@ -2089,6 +2246,10 @@
         "args": [
           {
             "name": "brightness",
+            "title": {
+              "en": "Brightness",
+              "nl": "Helderheid"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2141,6 +2302,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2200,6 +2365,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2252,34 +2421,38 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
-                "id": "0",
+                "id": "auto",
                 "label": {
                   "en": "Auto",
                   "nl": "Auto"
                 }
               },
               {
-                "id": "1",
+                "id": "night",
                 "label": {
                   "en": "Night",
                   "nl": "Nacht"
                 }
               },
               {
-                "id": "2",
+                "id": "favorite",
                 "label": {
-                  "en": "Manual",
-                  "nl": "Handmatig"
+                  "en": "Favorite",
+                  "nl": "Favoriet"
                 }
               },
               {
                 "id": "3",
                 "label": {
-                  "en": "Favorite",
-                  "nl": "Favoriet"
+                  "en": "Idle",
+                  "nl": "Inactief"
                 }
               }
             ]
@@ -2311,24 +2484,28 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
-                "id": "0",
+                "id": "auto",
                 "label": {
                   "en": "Auto",
                   "nl": "Auto"
                 }
               },
               {
-                "id": "1",
+                "id": "night",
                 "label": {
                   "en": "Night",
                   "nl": "Nacht"
                 }
               },
               {
-                "id": "2",
+                "id": "favorite",
                 "label": {
                   "en": "Favorite",
                   "nl": "Favoriet"
@@ -2363,6 +2540,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2408,6 +2589,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2453,6 +2638,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2505,6 +2694,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2557,6 +2750,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2616,6 +2813,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2675,6 +2876,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2734,6 +2939,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2786,6 +2995,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2845,6 +3058,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2897,6 +3114,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2956,6 +3177,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3008,6 +3233,10 @@
         "args": [
           {
             "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3052,6 +3281,10 @@
         "args": [
           {
             "name": "code",
+            "title": {
+              "en": "Code",
+              "nl": "Code"
+            },
             "type": "text",
             "placeholder": {
               "en": "code",
@@ -3079,6 +3312,10 @@
         "args": [
           {
             "name": "device",
+            "title": {
+              "en": "Right Switch Off",
+              "nl": "Rechterschakelaar uit"
+            },
             "type": "device",
             "placeholder": {
               "en": "Select Device",
@@ -3100,6 +3337,10 @@
         "args": [
           {
             "name": "device",
+            "title": {
+              "en": "Right Switch on",
+              "nl": "Rechterschakelaar aan"
+            },
             "type": "device",
             "placeholder": {
               "en": "Select Device",
@@ -3121,6 +3362,10 @@
         "args": [
           {
             "name": "device",
+            "title": {
+              "en": "Right Switch Toggle",
+              "nl": "Rechterschakelaar schakelen"
+            },
             "type": "device",
             "placeholder": {
               "en": "Select Device",
@@ -3146,6 +3391,10 @@
         "args": [
           {
             "name": "angle",
+            "title": {
+              "en": "Angle",
+              "nl": "Hoek"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3186,6 +3435,47 @@
               "nl": "Selecteer apparaat"
             },
             "filter": "driver_id=zhimi-fan|dmaker-fan"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "vacuumRoomCleaning",
+        "title": {
+          "en": "Start room cleaning",
+          "nl": "Start kamer stofzuigen"
+        },
+        "titleFormatted": {
+          "en": "Send vacuum cleaner to clean room [[rooms]]",
+          "nl": "Stuur stofzuiger naar kamer [[rooms]]"
+        },
+        "hint": {
+          "en": "Enter the room ID's (comma seperated)",
+          "nl": "Voer kamer ID's in (gescheiden door een komma)"
+        },
+        "args": [
+          {
+            "name": "rooms",
+            "title": {
+              "en": "Room(s)",
+              "nl": "Kamer(s)"
+            },
+            "type": "text",
+            "placeholder": {
+              "en": "Room(s)",
+              "nl": "Kamer(s)"
+            }
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Vacuum",
+              "nl": "Selecteer Vacuum"
+            },
+            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
           }
         ],
         "platforms": [
@@ -3943,7 +4233,7 @@
         "measure_humidity",
         "measure_pm25",
         "measure_luminance",
-        "airpurifier_zhimi_airpurifier_mode"
+        "airpurifier_mode"
       ],
       "capabilitiesOptions": {
         "dim": {
@@ -4352,7 +4642,7 @@
       "capabilities": [
         "onoff",
         "dim",
-        "airpurifier_zhimi_airpurifier_mode",
+        "airpurifier_mode",
         "measure_temperature",
         "measure_humidity",
         "measure_pm25",
@@ -6373,7 +6663,9 @@
         "speaker_next",
         "speaker_prev",
         "speaker_track",
-        "volume_set"
+        "volume_set",
+        "volume_set.alarm",
+        "button"
       ],
       "capabilitiesOptions": {
         "speaker_playing": {
@@ -6392,6 +6684,24 @@
           "title": {
             "en": "Previous Station",
             "nl": "Vorig station"
+          }
+        },
+        "volume_set": {
+          "title": {
+            "en": "Radio volume",
+            "nl": "Radio volume"
+          }
+        },
+        "volume_set.alarm": {
+          "title": {
+            "en": "Alarm volume",
+            "nl": "Alarm volume"
+          }
+        },
+        "button": {
+          "title": {
+            "en": "Join / Pair",
+            "nl": "Join / Pair"
           }
         }
       },
@@ -10973,6 +11283,15 @@
                 "nl": "Totaal aantal opschoningen"
               },
               "value": "0"
+            },
+            {
+              "id": "rooms",
+              "type": "label",
+              "label": {
+                "en": "Room segments",
+                "nl": "Kamer segmenten"
+              },
+              "value": "[17,20,21]"
             }
           ]
         },
@@ -11173,6 +11492,15 @@
                 "nl": "Totaal aantal opschoningen"
               },
               "value": "0"
+            },
+            {
+              "id": "rooms",
+              "type": "label",
+              "label": {
+                "en": "Room segments",
+                "nl": "Kamer segmenten"
+              },
+              "value": "[17,20,21]"
             }
           ]
         },
@@ -12038,7 +12366,7 @@
       "setable": true,
       "values": [
         {
-          "id": "0",
+          "id": "auto",
           "title": {
             "en": "Auto",
             "nl": "Auto",
@@ -12046,7 +12374,7 @@
           }
         },
         {
-          "id": "1",
+          "id": "night",
           "title": {
             "en": "Night",
             "nl": "Nacht",
@@ -12054,19 +12382,19 @@
           }
         },
         {
-          "id": "2",
-          "title": {
-            "en": "Manual",
-            "nl": "Handmatig",
-            "de": "Handbetrieb"
-          }
-        },
-        {
-          "id": "3",
+          "id": "favorite",
           "title": {
             "en": "Favorite",
             "nl": "Favoriet",
             "de": "Favorit"
+          }
+        },
+        {
+          "id": "idle",
+          "title": {
+            "en": "Idle",
+            "nl": "Inactief",
+            "de": "Inaktiv"
           }
         }
       ]
@@ -12082,7 +12410,7 @@
       "setable": true,
       "values": [
         {
-          "id": "0",
+          "id": "auto",
           "title": {
             "en": "Auto",
             "nl": "Auto",
@@ -12090,7 +12418,7 @@
           }
         },
         {
-          "id": "1",
+          "id": "night",
           "title": {
             "en": "Night",
             "nl": "Nacht",
@@ -12098,7 +12426,7 @@
           }
         },
         {
-          "id": "2",
+          "id": "favorite",
           "title": {
             "en": "Favorite",
             "nl": "Favoriet",

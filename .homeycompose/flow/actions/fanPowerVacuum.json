@@ -11,6 +11,10 @@
   "args": [
     {
       "name": "fanspeed",
+      "title": {
+        "en": "Fanspeed",
+        "nl": "Fan snelheid"
+      },
       "type": "dropdown",
       "values": [
         {

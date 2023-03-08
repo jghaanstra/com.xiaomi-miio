@@ -10,6 +10,10 @@
   "args": [
     {
       "type": "dropdown",
+      "title": {
+        "en": "Effect ID",
+        "nl": "Effect ID"
+      },
       "name": "toneID",
       "values": [
         {
@@ -160,6 +164,10 @@
     },
     {
       "type": "range",
+      "title": {
+        "en": "Volume",
+        "nl": "Volume"
+      },
       "name": "volume",
       "min": 0,
       "max": 1,
@@ -172,8 +180,8 @@
       "name": "device",
       "type": "device",
       "placeholder": {
-        "en": "Select Mi Robot",
-        "nl": "Selecteer Mi Robot"
+        "en": "Select Gateway",
+        "nl": "Selecteer Gateway"
       },
       "filter": "driver_id=gateway"
     }

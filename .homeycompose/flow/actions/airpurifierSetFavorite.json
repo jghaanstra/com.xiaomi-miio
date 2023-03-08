@@ -11,6 +11,10 @@
   "args": [
     {
       "name": "favorite",
+      "title": {
+        "en": "Favorite",
+        "nl": "Favoriet"
+      },
       "type": "dropdown",
       "values": [
         {

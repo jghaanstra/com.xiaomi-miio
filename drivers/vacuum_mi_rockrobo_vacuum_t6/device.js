@@ -83,6 +83,7 @@ class MiRobotT6Device extends Device {
               case "docked":
               case "charging":
                 await this.miio.pause();
+                await this.miio.activateCharging();
                 return await this.setCapabilityValue('onoff', false);
               default:
                 this.error("Not a valid vacuumcleaner_state");
@@ -203,9 +204,21 @@ class MiRobotT6Device extends Device {
       }
 
       const totals = await this.miio.call("get_clean_summary", [], { retries: 1 });
-      await this.setSettings({ total_work_time: this.convertMS(parseInt(totals[0])) });
-      await this.setSettings({ total_cleared_area: parseInt(totals[1] / 1000000).toString() });
-      await this.setSettings({ total_clean_count: parseInt(totals[2]).toString() });
+      if (this.getSetting('total_work_time') !== this.convertMS(parseInt(totals[0])) ) {
+        await this.setSettings({ total_work_time: this.convertMS(parseInt(totals[0])) });
+      }
+      if (this.getSetting('total_cleared_area') !== parseInt(totals[1] / 1000000).toString() ) {
+        await this.setSettings({ total_cleared_area: parseInt(totals[1] / 1000000).toString() });
+      }
+      if (this.getSetting('total_clean_count') !== parseInt(totals[2]).toString() ) {
+        await this.setSettings({ total_clean_count: parseInt(totals[2]).toString() });
+      }
+
+      const rooms = await this.miio.call("get_room_mapping", [], { retries: 1 });
+      if (this.getSetting('rooms') !== rooms ) {
+        await this.setSettings({ rooms: rooms });
+      }
+      
 
     } catch (error) {
       this.homey.clearInterval(this.pollingInterval);

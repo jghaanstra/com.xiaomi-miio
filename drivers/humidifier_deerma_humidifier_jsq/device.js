@@ -122,6 +122,27 @@ class HumidifierDeermaJSQDevice extends Device {
 
   async handleModeEvent(mode) {
     try {
+      let new_mode = '';
+
+      switch (mode) {
+        case '0':
+        case 'idle':
+          new_mode = '1';
+          break;
+        case '1':
+        case 'silent':
+          new_mode = '1';
+          break;
+        case '2':
+        case 'medium':
+          new_mode = '2';
+          break;
+        case '3':
+        case 'high':
+          new_mode = '3';
+          break;
+      }
+
       if (this.getCapabilityValue('humidifier_deerma_jsq4_mode') !== mode.toString()) {
         const previous_mode = this.getCapabilityValue('humidifier_deerma_jsq4_mode');
         await this.setCapabilityValue('humidifier_deerma_jsq4_mode', mode.toString());

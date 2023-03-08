@@ -10,6 +10,11 @@ class GatewayDevice extends Device {
   async onInit() {
     try {
       if (!this.util) this.util = new Util({homey: this.homey});
+
+      // TODO: remove before initial release
+      if (!this.hasCapability('volume_set.alarm')) {
+        this.addCapability('volume_set.alarm');
+      }
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
@@ -34,6 +39,11 @@ class GatewayDevice extends Device {
         try {
           if (this.miio) {
             const brightness = value * 100;
+            if (brightness < 1 && this.getCapabilityValue('onoff')) {
+              this.triggerCapabilityListener('onoff', false);
+            } else if (brightness > 0 && !this.getCapabilityValue('onoff')) {
+              this.triggerCapabilityListener('onoff', true);
+            }
             return await this.miio.child('light').setBrightness(brightness);
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
@@ -143,7 +153,38 @@ class GatewayDevice extends Device {
         try {
           if (this.miio) {
             let volume = parseInt(value * 100);
-            return await this.miio.call("volume_ctrl_fm", [volume.toString()], { retries: 1 });
+            return await this.miio.call("volume_ctrl_fm", [volume], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
+      this.registerCapabilityListener('volume_set.alarm', async (value) => {
+        try {
+          if (this.miio) {
+            let volume = parseInt(value * 100);
+            return await this.miio.call("set_alarming_volume", [volume], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
+      this.registerCapabilityListener('button', async (value) => {
+        try {
+          if (this.miio) {
+            return await this.miio.call('start_zigbee_join', [ 30 ]);
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -233,12 +274,14 @@ class GatewayDevice extends Device {
 
       /* alarm */
       const alarm = await this.miio.call("get_arming", [], { retries: 1 });
-      if (!this.getAvailable()) { await this.setAvailable(); }
       if (alarm[0] == "on") {
         this.setCapabilityValue("homealarm_state", "armed");
       } else if (alarm[0] == "off") {
         this.setCapabilityValue("homealarm_state", "disarmed");
       }
+
+      const alarm_volume = await this.miio.call("get_alarming_volume", [], { retries: 1 });
+      this.setCapabilityValue("volume_set.alarm", alarm_volume / 100);
 
       /* radio */
       const radio = await this.miio.call("get_prop_fm", [], { retries: 1 });

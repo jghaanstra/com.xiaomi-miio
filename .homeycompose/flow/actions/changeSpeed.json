@@ -11,6 +11,10 @@
   "args": [
     {
       "name": "speed",
+      "title": {
+        "en": "Speed",
+        "nl": "Snelheid"
+      },
       "type": "range",
       "min": 0,
       "max": 100,

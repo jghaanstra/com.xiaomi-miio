@@ -11,24 +11,28 @@
   "args": [
     {
       "name": "mode",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
       "type": "dropdown",
       "values": [
         {
-          "id": "0",
+          "id": "auto",
           "label": {
             "en": "Auto",
             "nl": "Auto"
           }
         },
         {
-          "id": "1",
+          "id": "night",
           "label": {
             "en": "Night",
             "nl": "Nacht"
           }
         },
         {
-          "id": "2",
+          "id": "favorite",
           "label": {
             "en": "Favorite",
             "nl": "Favoriet"

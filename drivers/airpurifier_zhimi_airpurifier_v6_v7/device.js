@@ -50,7 +50,7 @@ class MiAirPurifierV6V7Device extends Device {
         }
       });
 
-      this.registerCapabilityListener('airpurifier_zhimi_airpurifier_mode', async (value) => {
+      this.registerCapabilityListener('airpurifier_mode', async (value) => {
         try {
           if (this.miio) {
             return await this.miio.call("set_mode", [value], { retries: 1 });
@@ -128,9 +128,9 @@ class MiAirPurifierV6V7Device extends Device {
 
   async handleModeEvent(mode) {
     try {
-      if (this.getCapabilityValue('airpurifier_zhimi_airpurifier_mode') !== mode) {
-        const previous_mode = this.getCapabilityValue('airpurifier_zhimi_airpurifier_mode');
-        await this.setCapabilityValue('airpurifier_zhimi_airpurifier_mode', mode);
+      if (this.getCapabilityValue('airpurifier_mode') !== mode) {
+        const previous_mode = this.getCapabilityValue('airpurifier_mode');
+        await this.setCapabilityValue('airpurifier_mode', mode);
         await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": mode, "previous_mode": previous_mode }).catch(error => { this.error(error) });
       }
     } catch (error) {

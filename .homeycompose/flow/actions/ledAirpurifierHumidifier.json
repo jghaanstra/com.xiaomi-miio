@@ -11,6 +11,10 @@
   "args": [
     {
       "name": "brightness",
+      "title": {
+        "en": "Brightness",
+        "nl": "Helderheid"
+      },
       "type": "dropdown",
       "values": [
         {

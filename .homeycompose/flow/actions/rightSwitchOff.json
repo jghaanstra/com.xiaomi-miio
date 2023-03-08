@@ -7,6 +7,10 @@
   "args": [
     {
       "name": "device",
+      "title": {
+        "en": "Right Switch Off",
+        "nl": "Rechterschakelaar uit"
+      },
       "type": "device",
       "placeholder": {
         "en": "Select Device",

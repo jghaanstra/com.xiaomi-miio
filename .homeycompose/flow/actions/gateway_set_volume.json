@@ -1,0 +1,74 @@
+{
+  "title": {
+    "en": "Set volume for",
+    "nl": "Set volume voor"
+  },
+  "titleFormatted": {
+    "en": "Set volume to [[volume]] for [[target]]",
+    "nl": "Zet volume naar [[volume]] voor [[target]]"
+  },
+  "args": [
+    {
+      "type": "dropdown",
+      "title": {
+        "en": "Target",
+        "nl": "Doel"
+      },
+      "name": "target",
+      "values": [
+        {
+          "id": "alarm",
+          "label": {
+            "en": "Alarm",
+            "nl": "Alarm"
+          }
+        },
+        {
+          "id": "doorbell",
+          "label": {
+            "en": "Doorbell",
+            "nl": "Deurbel"
+          }
+        },
+        {
+          "id": "prompt",
+          "label": {
+            "en": "Prompt",
+            "nl": "Waarschuwing"
+          }
+        },
+        {
+          "id": "radio",
+          "label": {
+            "en": "Radio",
+            "nl": "Radio"
+          }
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "title": {
+        "en": "Volume",
+        "nl": "Volume"
+      },
+      "name": "volume",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "label": "%",
+      "labelMultiplier": 100,
+      "labelDecimals": 0
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Gateway",
+        "nl": "Selecteer Gateway"
+      },
+      "filter": "driver_id=gateway"
+    }
+  ],
+  "platforms": ["local"]
+}

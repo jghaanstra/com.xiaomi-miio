@@ -7,7 +7,6 @@ class NatSensorDevice extends Device {
 
   async onEventFromGateway(device) {
     try {
-      const settings = this.getSettings();
 
       /* measure_battery & alarm_battery */
       if (device && device.data && device.data["voltage"]) {
@@ -19,7 +18,13 @@ class NatSensorDevice extends Device {
       /* alarm_co */
       if (device && device.data && device["data"]["alarm"] == "1") {
         await this.updateCapabilityValue("alarm_co", true);
-        this.homey.setTimeout(async () => { await this.updateCapabilityValue("alarm_co", false); }, 1000 * this.getSetting('alarm_duration_number'));
+
+        if (this.timeoutAlarm) { this.homey.clearTimeout(this.timeoutAlarm); }
+
+        this.timeoutAlarm = setTimeout(async () => {
+          await this.updateCapabilityValue("alarm_co", false);
+        }, this.getSetting('alarm_duration_number') * 1000);
+        
       }
 
       /* measure_gas_density */

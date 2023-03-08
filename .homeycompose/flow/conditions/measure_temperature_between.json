@@ -19,6 +19,10 @@
       "min": -50,
       "max": 100,
       "step": 1,
+      "title": {
+        "en": "Above",
+        "nl": "Boven"
+      },
       "placeholder": {
         "en": "°C",
         "nl": "°C"
@@ -30,6 +34,10 @@
       "min": -50,
       "max": 100,
       "step": 1,
+      "title": {
+        "en": "Below",
+        "nl": "Onder"
+      },
       "placeholder": {
         "en": "°C",
         "nl": "°C"

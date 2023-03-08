@@ -11,6 +11,10 @@
   "args": [
     {
       "name": "angle",
+      "title": {
+        "en": "Angle",
+        "nl": "Hoek"
+      },
       "type": "dropdown",
       "values": [
         {

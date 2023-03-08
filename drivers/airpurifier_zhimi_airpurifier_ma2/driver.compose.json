@@ -18,7 +18,7 @@
     "measure_humidity",
     "measure_pm25",
     "measure_luminance",
-    "airpurifier_zhimi_airpurifier_mode"
+    "airpurifier_mode"
   ],
   "capabilitiesOptions": {
     "dim": {

@@ -22,7 +22,9 @@
     "speaker_next",
     "speaker_prev",
     "speaker_track",
-    "volume_set"
+    "volume_set",
+    "volume_set.alarm",
+    "button"
   ],
   "capabilitiesOptions": {
     "speaker_playing": {
@@ -41,6 +43,24 @@
       "title": {
         "en": "Previous Station",
         "nl": "Vorig station"
+      }
+    },
+    "volume_set": {
+      "title": {
+        "en": "Radio volume",
+        "nl": "Radio volume"
+      }
+    },
+    "volume_set.alarm": {
+      "title": {
+        "en": "Alarm volume",
+        "nl": "Alarm volume"
+      }
+    },
+    "button": {
+      "title": {
+        "en": "Join / Pair",
+        "nl": "Join / Pair"
       }
     }
   }

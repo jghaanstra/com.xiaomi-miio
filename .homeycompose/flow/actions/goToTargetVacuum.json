@@ -15,6 +15,10 @@
   "args": [
     {
       "name": "xcoordinate",
+      "title": {
+        "en": "X Coordinate",
+        "nl": "X coördinaat"
+      },
       "type": "number",
       "placeholder": {
         "en": "X Coordinate",
@@ -23,6 +27,10 @@
     },
     {
       "name": "ycoordinate",
+      "title": {
+        "en": "Y Coordinate",
+        "nl": "Y coördinaat"
+      },
       "type": "number",
       "placeholder": {
         "en": "Y Coordinate",
@@ -33,10 +41,10 @@
       "name": "device",
       "type": "device",
       "placeholder": {
-        "en": "Select Mi Robot",
-        "nl": "Selecteer Mi Robot"
+        "en": "Select Vacuum",
+        "nl": "Selecteer Stofzuiger"
       },
-      "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
+      "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6|vacuum_mi_roborock_vacuum_a08|vacuum_dreame_vacuum_p2029_p2041|vacuum_dreame_vacuum_mc1808|vacuum_viomi_vacuum_v7"
     }
   ],
   "platforms": ["local"]

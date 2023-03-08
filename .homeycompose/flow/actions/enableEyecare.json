@@ -11,6 +11,10 @@
   "args": [
     {
       "name": "eyecare",
+      "title": {
+        "en": "Eyecare",
+        "nl": "Eyecare"
+      },
       "type": "dropdown",
       "values": [
         {

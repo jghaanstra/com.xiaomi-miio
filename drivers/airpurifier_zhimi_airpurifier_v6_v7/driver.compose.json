@@ -14,7 +14,7 @@
   "capabilities": [
     "onoff",
     "dim",
-    "airpurifier_zhimi_airpurifier_mode",
+    "airpurifier_mode",
     "measure_temperature",
     "measure_humidity",
     "measure_pm25",

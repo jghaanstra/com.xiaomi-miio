@@ -1,5 +1,3 @@
-module.exports = MiTemperatureHumiditySensor;
-
 'use strict';
 
 const Homey = require('homey');

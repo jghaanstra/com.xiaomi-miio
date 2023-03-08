@@ -11,6 +11,10 @@
   "args": [
     {
       "name": "childlock",
+      "title": {
+        "en": "Childlock",
+        "nl": "Kinderslot"
+      },
       "type": "dropdown",
       "values": [
         {

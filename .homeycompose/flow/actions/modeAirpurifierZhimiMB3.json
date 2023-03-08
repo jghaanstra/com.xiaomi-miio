@@ -11,34 +11,38 @@
   "args": [
     {
       "name": "mode",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
       "type": "dropdown",
       "values": [
         {
-          "id": "0",
+          "id": "auto",
           "label": {
             "en": "Auto",
             "nl": "Auto"
           }
         },
         {
-          "id": "1",
+          "id": "night",
           "label": {
             "en": "Night",
             "nl": "Nacht"
           }
         },
         {
-          "id": "2",
+          "id": "favorite",
           "label": {
-            "en": "Manual",
-            "nl": "Handmatig"
+            "en": "Favorite",
+            "nl": "Favoriet"
           }
         },
         {
           "id": "3",
           "label": {
-            "en": "Favorite",
-            "nl": "Favoriet"
+            "en": "Idle",
+            "nl": "Inactief"
           }
         }
       ]

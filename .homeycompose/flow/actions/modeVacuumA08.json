@@ -11,6 +11,10 @@
   "args": [
     {
       "name": "mode",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
       "type": "dropdown",
       "values": [
         {

@@ -54,6 +54,7 @@ class MiRobotDevice extends Device {
               case "docked":
               case "charging":
                 await this.miio.pause();
+                await this.miio.activateCharging();
                 return await this.setCapabilityValue('onoff', false);
               default:
                 this.error("Not a valid vacuumcleaner_state");

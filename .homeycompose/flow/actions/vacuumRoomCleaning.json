@@ -1,0 +1,39 @@
+{
+  "id": "vacuumRoomCleaning",
+  "title": {
+    "en": "Start room cleaning",
+    "nl": "Start kamer stofzuigen"
+  },
+  "titleFormatted": {
+    "en": "Send vacuum cleaner to clean room [[rooms]]",
+    "nl": "Stuur stofzuiger naar kamer [[rooms]]"
+  },
+  "hint": {
+    "en": "Enter the room ID's (comma seperated)",
+    "nl": "Voer kamer ID's in (gescheiden door een komma)"
+  },
+  "args": [
+    {
+      "name": "rooms",
+      "title": {
+        "en": "Room(s)",
+        "nl": "Kamer(s)"
+      },
+      "type": "text",
+      "placeholder": {
+        "en": "Room(s)",
+        "nl": "Kamer(s)"
+      }
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Vacuum",
+        "nl": "Selecteer Vacuum"
+      },
+      "filter": "driver_id=vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
+    }
+  ],
+  "platforms": ["local"]
+}

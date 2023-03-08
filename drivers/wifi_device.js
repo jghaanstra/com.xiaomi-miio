@@ -153,7 +153,7 @@ class MiWifiDeviceDevice extends Homey.Device {
   /* log device info */
   async getDeviceInfo() {
     try {
-      this.log("WiFi Device Init: " + this.getName() + ' with ip '+ this.getSetting('address') + " and capabilities " + this.getCapabilities().toString() + " and model " + this.getStoreValue('model') + ' and store values ', this.getStoreKeys().toString());
+      this.log("WiFi Device Init: " + this.getName() + " with ip "+ this.getSetting('address') + " and capabilities " + this.getCapabilities().toString() + " and model " + this.getStoreValue('model') + " and store values ", this.getStoreKeys().toString());
       if (this.miio) {
         if (this.miio.matches('cap:state')) {
           const states = await this.miio.state();
@@ -400,83 +400,86 @@ class MiWifiDeviceDevice extends Homey.Device {
 
   /* START CAPABILITY LISTENERS */
   async startCapabilityListeners() {
+    try {
 
-    // debugging
-    // this.miio.on('stateChanged', (change) => {
-    //   this.log(JSON.stringify(change));
-    // });
+      // debugging
+      // this.miio.on('stateChanged', (change) => {
+      //   this.log(JSON.stringify(change));
+      // });
 
-    /* onoff */
-    this.miio.on('powerChanged', onoff => {
-      this.updateCapabilityValue('onoff', onoff);
-    });
+      /* onoff */
+      this.miio.on('powerChanged', onoff => {
+        this.updateCapabilityValue('onoff', onoff);
+      });
 
-    /* measure_power */
-    this.miio.on('powerLoadChanged', watt => {
-      this.updateCapabilityValue('measure_power', watt);
-    });
+      /* measure_power */
+      this.miio.on('powerLoadChanged', watt => {
+        this.updateCapabilityValue('measure_power', watt);
+      });
 
-    /* meter_power */
-    this.miio.on('powerConsumedChanged', wh => {
-      const kwh = wh / 1000;
-      this.updateCapabilityValue('meter_power', kwh);
-    });
+      /* meter_power */
+      this.miio.on('powerConsumedChanged', wh => {
+        const kwh = wh / 1000;
+        this.updateCapabilityValue('meter_power', kwh);
+      });
 
-    /* measure_battery */
-    this.miio.on('batteryLevelChanged', battery => {
-      this.updateCapabilityValue('measure_battery', this.util.clamp(battery, 0, 100));
-    });
+      /* measure_battery */
+      this.miio.on('batteryLevelChanged', battery => {
+        this.updateCapabilityValue('measure_battery', this.util.clamp(battery, 0, 100));
+      });
 
-    /* measure_temperature */
-    this.miio.on('temperatureChanged', temp => {
-      this.updateCapabilityValue('measure_temperature', temp.value);
-    });
+      /* measure_temperature */
+      this.miio.on('temperatureChanged', temp => {
+        this.updateCapabilityValue('measure_temperature', temp.value);
+      });
 
-    /* measure_humidity */
-    this.miio.on('relativeHumidityChanged', humidity => {
-      this.updateCapabilityValue('measure_humidity', humidity);
-    });
+      /* measure_humidity */
+      this.miio.on('relativeHumidityChanged', humidity => {
+        this.updateCapabilityValue('measure_humidity', humidity);
+      });
 
-    /* measure_pm25 */
-    this.miio.on('pm2.5Changed', aqi => {
-      this.updateCapabilityValue('measure_pm25', aqi);
-    });
+      /* measure_pm25 */
+      this.miio.on('pm2.5Changed', aqi => {
+        this.updateCapabilityValue('measure_pm25', aqi);
+      });
+      
+      /* measure_luminance */
+      this.miio.on('illuminanceChanged', illuminance => {
+        this.updateCapabilityValue('measure_luminance', illuminance.value);
+      });
+
+      /* light_temperature */
+      this.miio.on('colorChanged', c => {
+        const light_temperature = this.util.normalize(c.values[0], 3000, 5700);
+        this.updateCapabilityValue('light_temperature', light_temperature);
+      });
+
+      /* light_hue & light_saturation for child device */
+      if (this.miio.matches('cap:childeren')) {
+        this.miio.child('light').on('colorChanged', c => {
+          const colorChanged = tinycolor({r: c.rgb.red, g: c.rgb.green, b: c.rgb.blue});
+          const hsv = colorChanged.toHsv();
+          const hue = Math.round(hsv.h) / 359;
+          const saturation = Math.round(hsv.s);
     
-    /* measure_luminance */
-    this.miio.on('illuminanceChanged', illuminance => {
-      this.updateCapabilityValue('measure_luminance', illuminance.value);
-    });
+          this.updateCapabilityValue('light_hue', hue);
+          this.updateCapabilityValue('light_saturation', saturation);
+        });
+    
+        /* dim */
+        this.miio.child('light').on('brightnessChanged', brightness => {
+          const dim = brightness / 100;
+          this.updateCapabilityValue('dim', dim);
+        });
+      }
 
-    /* light_temperature */
-    this.miio.on('colorChanged', c => {
-      const light_temperature = this.util.normalize(c.values[0], 3000, 5700);
-      this.updateCapabilityValue('light_temperature', light_temperature);
-    });
-
-    /* light_hue & light_saturation for child device */
-    if (this.miio.matches('cap:childeren')) {
-      this.miio.child('light').on('colorChanged', c => {
-        const colorChanged = tinycolor({r: c.rgb.red, g: c.rgb.green, b: c.rgb.blue});
-        const hsv = colorChanged.toHsv();
-        const hue = Math.round(hsv.h) / 359;
-        const saturation = Math.round(hsv.s);
-  
-        this.updateCapabilityValue('light_hue', hue);
-        this.updateCapabilityValue('light_saturation', saturation);
+      /* mode */
+      this.miio.on('modeChanged', mode => {
+        this.handleModeEvent(mode);
       });
-  
-      /* dim */
-      this.miio.child('light').on('brightnessChanged', brightness => {
-        const dim = brightness / 100;
-        this.updateCapabilityValue('dim', dim);
-      });
+    } catch (error) {
+      this.log(error);
     }
-
-    /* mode */
-    this.miio.on('modeChanged', mode => {
-      this.handleModeEvent(mode);
-    });
-
   }
 
   /* HANDLE MODE EVENTS, CAN BE OVERWRITTEN ON DEVICE LEVEL */

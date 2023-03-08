@@ -45,7 +45,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('goToTargetVacuum')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.miio.goToTarget([args.xcoordinate, args.ycoordinate]);
+          return await args.device.miio.sendToLocation([args.xcoordinate, args.ycoordinate]);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -55,7 +55,17 @@ class XiaomiMiioApp extends Homey.App {
       .registerRunListener(async (args) => {
         try {
           const zones = JSON.parse("[" + args.zones + "]");
-          return await args.device.miio.activateZoneClean(zones);
+          return await args.device.miio.cleanZones(zones);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('vacuumRoomCleaning')
+      .registerRunListener(async (args) => {
+        try {
+          const rooms = JSON.parse("[" + args.rooms + "]");
+          return await args.device.miio.cleanRooms(rooms);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -417,11 +427,30 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('gateway_play_effect')
       .registerRunListener(async (args) => {
         try {
-          // untested and might not work as method on a gateway added through the miio library (but only through the developer API which isnt implemented in the gateway driver}
           let volume = parseInt(args.volume * 100);
-          await args.device.miio.call("welcome", [parseInt(args.toneID)], { retries: 1 });
+          return await args.device.miio.call("welcome", [parseInt(args.toneID)], { retries: 1 });
         } catch (error) {
           return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('gateway_set_volume')
+      .registerRunListener(async (args) => {
+        try {
+          let volume = parseInt(args.volume * 100);
+          switch (args.target) {
+            case "alarm":
+              return await args.device.miio.call("set_alarming_volume", [volume], { retries: 1 });
+            case "doorbell":
+              return await args.device.miio.call("set_doorbell_volume", [volume], { retries: 1 });
+            case "prompt":
+              return await args.device.miio.call("set_gateway_volume", [volume], { retries: 1 });
+            case "radio":
+              return await args.device.miio.call("volume_ctrl_fm", [volume], { retries: 1 });
+          }
+          return Promise.resolve(true);
+        } catch (error) {
+          return Promise.reject(error);
         }
       });
 

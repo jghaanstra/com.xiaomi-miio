@@ -9,7 +9,7 @@
   "setable": true,
   "values": [
     {
-      "id": "0",
+      "id": "auto",
       "title": {
         "en": "Auto",
         "nl": "Auto",
@@ -17,7 +17,7 @@
       }
     },
     {
-      "id": "1",
+      "id": "night",
       "title": {
         "en": "Night",
         "nl": "Nacht",
@@ -25,19 +25,19 @@
       }
     },
     {
-      "id": "2",
-      "title": {
-        "en": "Manual",
-        "nl": "Handmatig",
-        "de": "Handbetrieb"
-      }
-    },
-    {
-      "id": "3",
+      "id": "favorite",
       "title": {
         "en": "Favorite",
         "nl": "Favoriet",
         "de": "Favorit"
+      }
+    },
+    {
+      "id": "idle",
+      "title": {
+        "en": "Idle",
+        "nl": "Inactief",
+        "de": "Inaktiv"
       }
     }
   ]

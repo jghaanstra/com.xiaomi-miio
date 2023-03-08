@@ -19,7 +19,13 @@ class SmokeSensorDevice extends Device {
       /* alarm_tamper */
       if (device && device.data && device["data"]["alarm"] == "1") {
         await this.updateCapabilityValue("alarm_smoke", true);
-        this.homey.setTimeout(async () => { await this.updateCapabilityValue("alarm_smoke", false); }, 1000 * this.getSetting('alarm_duration_number'));
+
+        if (this.timeoutAlarm) { this.homey.clearTimeout(this.timeoutAlarm); }
+
+        this.timeoutAlarm = setTimeout(async () => {
+          await this.updateCapabilityValue("alarm_smoke", false);
+        }, this.getSetting('alarm_duration_number') * 1000);
+
       }
 
       /* measure_some_density */

@@ -10,6 +10,10 @@
   "args": [
     {
       "name": "code",
+      "title": {
+        "en": "Code",
+        "nl": "Code"
+      },
       "type": "text",
       "placeholder": {
         "en": "code",

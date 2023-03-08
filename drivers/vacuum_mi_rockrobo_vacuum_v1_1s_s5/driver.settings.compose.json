@@ -86,6 +86,15 @@
           "nl": "Totaal aantal opschoningen"
         },
         "value": "0"
+      },
+      {
+        "id": "rooms",
+        "type": "label",
+        "label": {
+          "en": "Room segments",
+          "nl": "Kamer segmenten"
+        },
+        "value": "[17,20,21]"
       }
     ]
   },
