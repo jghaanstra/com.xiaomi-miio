@@ -7,7 +7,7 @@ class MiMotionSensor extends Device {
 
   async onEventFromGateway(device) {
     try {
-      const settings = this.getSettings();
+      if (!this.getAvailable()) { this.setAvailable(); }
 
       /* measure_battery & alarm_battery */
       if (device && device.data && device.data["voltage"]) {
@@ -19,13 +19,15 @@ class MiMotionSensor extends Device {
       /* alarm_motion */
       if (device && device.data && device.data["status"] == "motion") {
         await this.updateCapabilityValue("alarm_motion", true);
-        if (this.timeout) { this.homey.clearTimeout(this.timeoutMotion); }
-        this.timeoutMotion = setTimeout(async () => {
+
+        if (this.timeoutAlarm) { this.homey.clearTimeout(this.timeoutAlarm); }
+
+        this.timeoutAlarm = setTimeout(async () => {
           await this.updateCapabilityValue("alarm_motion", false);
-        }, settings.alarm_duration_number * 1000);
+        }, this.getSetting('alarm_duration_number') * 1000);
+
       }
       if (device && device.data && device.data["no_motion"]) {
-        await this.updateCapabilityValue("alarm_motion", false);
         await this.homey.flow.getDeviceTriggerCard('motionSensorNoMotion'+ device.data["no_motion"]).trigger(this).catch(error => { this.error(error) });
       }
 

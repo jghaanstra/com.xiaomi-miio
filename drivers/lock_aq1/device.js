@@ -316,6 +316,8 @@ class LockAQ1Device extends Device {
 
   async onEventFromGateway(device) {
     try {
+      if (!this.getAvailable()) { this.setAvailable(); }
+      
       const settings = this.getSettings();
 
       /* measure_battery & alarm_battery */

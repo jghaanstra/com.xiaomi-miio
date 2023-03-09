@@ -157,7 +157,7 @@ class MiRobotT6Device extends Device {
             await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "charging" }).catch(error => { this.error(error) });
           }
         default:
-          this.error("Not a valid vacuumcleaner_state");
+          this.error("Not a valid vacuumcleaner_state", result[0]["state"]);
       }
 
       const consumables = await this.miio.call("get_consumable", [], { retries: 1 });
@@ -216,7 +216,7 @@ class MiRobotT6Device extends Device {
 
       const rooms = await this.miio.call("get_room_mapping", [], { retries: 1 });
       if (this.getSetting('rooms') !== rooms ) {
-        await this.setSettings({ rooms: rooms });
+        await this.setSettings({ rooms: rooms.toString() });
       }
       
 
@@ -229,7 +229,7 @@ class MiRobotT6Device extends Device {
 
       this.homey.setTimeout(() => { this.createDevice(); }, 60000);
 
-      this.error(error.message);
+      this.error(error);
     }
   }
 

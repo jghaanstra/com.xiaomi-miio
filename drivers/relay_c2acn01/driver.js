@@ -13,7 +13,7 @@ class RelayC2ACN01Driver extends Driver {
     this.homey.flow.getDeviceTriggerCard('rightSwitchOff');
 
     this.config = {
-      model: ["lumi.relay.c2acn01"]
+      model: ["lumi.relay.c2acn01", "relay.c2acn01"]
     }
   }
 

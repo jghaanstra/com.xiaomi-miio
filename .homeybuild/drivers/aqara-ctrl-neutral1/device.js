@@ -17,6 +17,7 @@ class AqaraNeutralSwitch extends Device {
 
   async onEventFromGateway(device) {
     try {
+      if (!this.getAvailable()) { this.setAvailable(); }
 
       /* onoff */
       if (device && device.data && device.data["channel_0"]) { await this.updateCapabilityValue("onoff", device.data["channel_0"] == "on" ? true : false); }

@@ -17,6 +17,7 @@ class MiPlug extends Device {
 
   async onEventFromGateway(device) {
     try {
+      if (!this.getAvailable()) { this.setAvailable(); }
 
       /* onoff */
       if (device && device.data && device.data["status"] == "on") { await this.updateCapabilityValue("onoff", true); }

@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.2",
+  "version": "3.1.3",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -11283,7 +11283,16 @@
                 "nl": "Totaal aantal opschoningen"
               },
               "value": "0"
-            },
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Room cleaning",
+            "nl": "Kamer stofzuigen"
+          },
+          "children": [
             {
               "id": "rooms",
               "type": "label",
@@ -11492,7 +11501,16 @@
                 "nl": "Totaal aantal opschoningen"
               },
               "value": "0"
-            },
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Room cleaning",
+            "nl": "Kamer stofzuigen"
+          },
+          "children": [
             {
               "id": "rooms",
               "type": "label",

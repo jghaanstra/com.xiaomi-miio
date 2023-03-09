@@ -7,7 +7,8 @@ class AqaraMagnetSensor extends Device {
 
   async onEventFromGateway(device) {
     try {
-
+      if (!this.getAvailable()) { this.setAvailable(); }
+      
       /* measure_battery & alarm_battery */
       if (device && device.data && device.data["voltage"]) {
         const battery = (device.data["voltage"] - 2800) / 5;

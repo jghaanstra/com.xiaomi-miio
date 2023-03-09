@@ -13,6 +13,8 @@ class MiSubDeviceDevice extends Homey.Device {
     this.data = this.getData();
     this.initialize();
     this.log("Sub Device Init: " + this.getName() + " with capabilities: " + this.getCapabilities().toString() + " and model " + this.getSetting('model'));
+
+    this.setUnavailable(this.homey.__('device.noupdates') + error.message).catch(error => { this.error(error) });
   }
 
   async onDeleted() {
@@ -80,23 +82,6 @@ class MiSubDeviceDevice extends Homey.Device {
       this.error(error);
     }
   }
-
-  // TODO: REMOVE THIS AS SOME POINT
-  // /* save the gateway sid per device */
-  // async updateGatewaySid() {
-  //   try {
-  //     const gateways = this.homey.app.mihub.gateways;
-  //     for (let sid in gateways) {
-  //       gateways[sid]["childDevices"].forEach(deviceSid => {
-  //         if (this.data.sid == deviceSid && this.getSetting('gatewaySid') !== sid) {
-  //           this.setSettings({ gatewaySid: sid });
-  //         }
-  //       });
-  //     }
-  //   } catch (error) {
-  //     this.error(error);
-  //   }
-  // }
 
 }
 

@@ -46,6 +46,7 @@ class AqaraCurtainAQ2 extends Device {
 
   async onEventFromGateway(device) {
     try {
+      if (!this.getAvailable()) { this.setAvailable(); }
 
       /* onoff */
       if (parseInt(device["data"]["curtain_level"]) > 0) { await this.updateCapabilityValue("onoff", true); }

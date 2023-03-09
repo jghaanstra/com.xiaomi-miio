@@ -18,6 +18,7 @@
     "no_gateways": "No gateways found. \n\n Before adding devices, please open the plugin settings and add your Xiaomi gateway.\n Aqara gateway is not yet supported."
   },
   "device": {
-    "unreachable": "Device is unreachable: "
+    "unreachable": "Device is unreachable: ",
+    "noupdates": "Device has not received any updates yet"
   }
 }

@@ -18,6 +18,7 @@
     "no_gateways": "Geen gateways gevonden. Open voordat u apparaten toevoegt de plug-ininstellingen en voeg uw Xiaomi-gateway toe. Aqara gateway wordt nog niet ondersteund."
   },
   "device": {
-    "unreachable": "Apparaat is onbereikbaar: "
+    "unreachable": "Apparaat is onbereikbaar: ",
+    "noupdates": "Apparaat heeft nog geen updates ontvangen"
   }
 }

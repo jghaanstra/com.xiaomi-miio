@@ -86,7 +86,16 @@
           "nl": "Totaal aantal opschoningen"
         },
         "value": "0"
-      },
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Room cleaning",
+      "nl": "Kamer stofzuigen"
+    },
+    "children": [
       {
         "id": "rooms",
         "type": "label",

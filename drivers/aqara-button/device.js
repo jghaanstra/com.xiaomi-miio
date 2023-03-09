@@ -7,6 +7,7 @@ class AqaraButton extends Device {
 
   async onEventFromGateway(device) {
     try {
+      if (!this.getAvailable()) { this.setAvailable(); }
 
       /* measure_battery & alarm_battery */
       if (device && device.data && device.data["voltage"]) {
