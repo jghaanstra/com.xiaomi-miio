@@ -321,18 +321,18 @@ class LockAQ1Device extends Device {
       const settings = this.getSettings();
 
       /* measure_battery & alarm_battery */
-      if (device && device.data && device.data["voltage"]) {
-        const battery = (device.data["voltage"] - 2800) / 5;
+      if (device.data.voltage) {
+        const battery = (device.data.voltage - 2800) / 5;
         await this.updateCapabilityValue("measure_battery", this.util.clamp(battery, 0, 100));
         await this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
       }
 
       
       /* alarm_motion.finger */
-      if (device && device.data && device.data["fing_verified"]) {
+      if (device.data.fing_verified) {
         await this.updateCapabilityValue("alarm_motion.finger", true);
         fingersId.forEach(async (item, i, arr) => {
-          if (device["data"]["fing_verified"] == item) {
+          if (device.data.fing_verified == item) {
             for (let u = 0; u < 10; u++) {
               if (settings[`user${u}FingerID`]) {
                 let userFingers = settings[`user${u}FingerID`];
@@ -359,10 +359,10 @@ class LockAQ1Device extends Device {
       }
 
       /* alarm_motion.code */
-      if (device && device.data && device.data["psw_verified"]) {
+      if (device.data.psw_verified) {
         await this.updateCapabilityValue("alarm_motion.code", true); 
         codesId.forEach(async (item, i, arr) => {
-          if (device["data"]["psw_verified"] == item) {
+          if (device.data.psw_verified == item) {
             for (let u = 0; u < 10; u++) {
               if (settings[`user${u}CodeID`]) {
                 let userCodes = settings[`user${u}CodeID`];

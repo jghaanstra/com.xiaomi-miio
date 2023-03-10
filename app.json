@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.5",
+  "version": "3.1.7",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -1066,27 +1066,6 @@
       }
     ],
     "conditions": [
-      {
-        "id": "inUse",
-        "title": {
-          "en": "!{{is|isn't}} in use",
-          "nl": "!{{is|is niet}} in gebruik"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "placeholder": {
-              "en": "Select device",
-              "nl": "Selecteer apparaat"
-            },
-            "filter": "driver_id=mi-plug"
-          }
-        ],
-        "platforms": [
-          "local"
-        ]
-      },
       {
         "id": "measure_humidity_between",
         "title": {
@@ -11256,8 +11235,8 @@
               "id": "total_cleared_area",
               "type": "label",
               "label": {
-                "en": "Total cleared area",
-                "nl": "Totaal geschoont"
+                "en": "Total cleared area (m2)",
+                "nl": "Totaal geschoont (m2)"
               },
               "value": "0"
             },
@@ -11474,8 +11453,8 @@
               "id": "total_cleared_area",
               "type": "label",
               "label": {
-                "en": "Total cleared area",
-                "nl": "Totaal geschoont"
+                "en": "Total cleared area (m2)",
+                "nl": "Totaal geschoont (m2)"
               },
               "value": "0"
             },

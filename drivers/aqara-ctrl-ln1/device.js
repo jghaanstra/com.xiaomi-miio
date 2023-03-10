@@ -20,7 +20,7 @@ class AqaraSwitch extends Device {
       if (!this.getAvailable()) { this.setAvailable(); }
 
       /* onoff */
-      if (device && device.data && device.data["channel_0"]) { await this.updateCapabilityValue("onoff", device.data["channel_0"] == "on" ? true : false); }
+      if (device.data.channel_0) { await this.updateCapabilityValue("onoff", device.data.channel_0 === "on" ? true : false); }
       
     } catch (error) {
       this.error(error);

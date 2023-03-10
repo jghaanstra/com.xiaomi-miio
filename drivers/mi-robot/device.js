@@ -43,17 +43,17 @@ class MiRobotDevice extends Device {
           if (this.miio) {
             switch (value) {
               case "cleaning":
-                await this.miio.activateCleaning();
+                await this.miio.clean();
                 return await this.setCapabilityValue('onoff', true);
               case "spot_cleaning":
-                await this.miio.activateSpotClean();
+                await this.miio.spotClean();
                 return await this.setCapabilityValue('onoff', true);
               case "stopped":
-                await this.miio.pause();
+                await this.miio.stop();
                 return await this.setCapabilityValue('onoff', false);
               case "docked":
               case "charging":
-                await this.miio.pause();
+                await this.miio.stop();
                 await this.miio.activateCharging();
                 return await this.setCapabilityValue('onoff', false);
               default:
@@ -70,6 +70,47 @@ class MiRobotDevice extends Device {
         }
       });
 
+    } catch (error) {
+      this.error(error);
+    }
+  }
+
+  async retrieveDeviceData() {
+    try {
+      var battery = this.miio.getState('batteryLevel');
+      var fanspeed = this.miio.getState('fanSpeed');
+
+      if (this.miio.property('state') == 'charging' && battery !== 100) {
+        var onoff = false;
+        var state = 'charging';
+      } else if (this.miio.property('state') == 'docking' || this.miio.property('state') == 'full' || this.miio.property('state') == 'returning' || this.miio.property('state') == 'waiting' || this.miio.property('state') == 'charging') {
+        var onoff = false;
+        var state = 'docked';
+      } else if (this.miio.property('state') == 'cleaning' || this.miio.property('state') == 'zone-cleaning') {
+        var onoff = true;
+        var state = 'cleaning';
+      } else if (this.miio.property('state') == 'spot-cleaning') {
+        var onoff = true;
+        var state = 'spot_cleaning';
+      } else {
+        var onoff = false;
+        var state = 'stopped';
+      }
+
+      if (this.getCapabilityValue('onoff') != onoff) {
+        this.setCapabilityValue('onoff', onoff);
+      }
+      if (this.getCapabilityValue('measure_battery') != battery) {
+        this.setCapabilityValue('measure_battery', battery);
+      }
+      if (this.getStoreValue('fanspeed') != fanspeed) {
+        this.setStoreValue('fanspeed', fanspeed);
+      }
+
+      if (this.getCapabilityValue('vacuumcleaner_state') !== state) {
+        await this.setCapabilityValue('vacuumcleaner_state', state);
+        await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": this.miio.property('state')}).catch(error => { this.error(error) });
+      }
     } catch (error) {
       this.error(error);
     }

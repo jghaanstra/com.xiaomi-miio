@@ -323,35 +323,6 @@ class MiWifiDeviceDevice extends Homey.Device {
 
       // DEVICE TYPE SPECIFIC
 
-      /* vacuum / mi-robot */
-      if (this.miio.matches('type:vacuum')) {
-        let onoff = false;
-        let state = 'stopped';
-
-        if (this.miio.property('state') == 'charging' && this.miio.getState('batteryLevel') !== 100) {
-          onoff = false;
-          state = 'charging';
-        } else if (this.miio.property('state') == 'docking' || this.miio.property('state') == 'full' || this.miio.property('state') == 'returning' || this.miio.property('state') == 'waiting' || this.miio.property('state') == 'charging') {
-          onoff = false;
-          state = 'docked';
-        } else if (this.miio.property('state') == 'cleaning' || this.miio.property('state') == 'zone-cleaning') {
-          onoff = true;
-          state = 'cleaning';
-        } else if (this.miio.property('state') == 'spot-cleaning') {
-          onoff = true;
-          state = 'spot_cleaning';
-        } else {
-          onoff = false;
-          state = 'stopped';
-        }
-
-        if (this.getCapabilityValue('onoff') !== onoff) { await this.setCapabilityValue('onoff', onoff); }
-        if (this.getCapabilityValue('vacuumcleaner_state') !== state) {
-          await this.setCapabilityValue('vacuumcleaner_state', state);
-          await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": this.miio.property('state')}).catch(error => { this.error(error) });
-        }
-      }
-
       /* multifunction air monitor */
       if (this.getStoreValue('model') === 'cgllc.airmonitor.b1') {
         const data = await this.miio.call('get_air_data', []);

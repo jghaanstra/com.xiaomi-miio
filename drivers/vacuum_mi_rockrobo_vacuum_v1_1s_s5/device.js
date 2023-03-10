@@ -30,7 +30,13 @@ class MiRobotV11SS5Device extends Device {
       this.registerCapabilityListener('onoff', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call(value ? "app_start" : "app_pause", [], { retries: 1 });
+            if (value) {
+              await this.miio.clean();
+              return await this.setCapabilityValue('vacuumcleaner_state', 'cleaning');
+            } else {
+              await this.miio.stop();
+              return this.setCapabilityValue('vacuumcleaner_state', 'stopped');
+            }
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -73,17 +79,17 @@ class MiRobotV11SS5Device extends Device {
           if (this.miio) {
             switch (value) {
               case "cleaning":
-                await this.miio.activateCleaning();
+                await this.miio.clean();
                 return await this.setCapabilityValue('onoff', true);
               case "spot_cleaning":
-                await this.miio.activateSpotClean();
+                await this.miio.spotClean();
                 return await this.setCapabilityValue('onoff', true);
               case "stopped":
-                await this.miio.pause();
+                await this.miio.stop();
                 return await this.setCapabilityValue('onoff', false);
               case "docked":
               case "charging":
-                await this.miio.pause();
+                await this.miio.stop();
                 await this.miio.activateCharging();
                 return await this.setCapabilityValue('onoff', false);
               default:
@@ -126,7 +132,6 @@ class MiRobotV11SS5Device extends Device {
       const result = await this.miio.call("get_status", [], { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
-      await this.updateCapabilityValue("onoff", result[0]["state"] === 5 ? true : false);
       await this.updateCapabilityValue("dim", this.speeds[parseInt(result[0]["fan_power"])]);
       await this.updateCapabilityValue("measure_battery", parseInt(result[0]["battery"]));
       await this.updateCapabilityValue("alarm_battery", parseInt(result[0]["battery"]) === 20 ? true : false);
@@ -135,30 +140,41 @@ class MiRobotV11SS5Device extends Device {
         case 5:
           if (this.getCapabilityValue('vacuumcleaner_state') !== "cleaning") {
             await this.updateCapabilityValue("vacuumcleaner_state", "cleaning");
+            await this.updateCapabilityValue("onoff", true);
             await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "cleaning" }).catch(error => { this.error(error) });
           }
+          break;
         case 11:
           if (this.getCapabilityValue('vacuumcleaner_state') !== "spot_cleaning") {
             await this.updateCapabilityValue("vacuumcleaner_state", "spot_cleaning");
+            await this.updateCapabilityValue("onoff", true);
             await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "spot_cleaning" }).catch(error => { this.error(error) });
           }
+          break;
         case 10:
           if (this.getCapabilityValue('vacuumcleaner_state') !== "stopped") {
             await this.updateCapabilityValue("vacuumcleaner_state", "stopped");
+            await this.updateCapabilityValue("onoff", false);
             await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "stopped" }).catch(error => { this.error(error) });
           }
+          break;
         case 15:
           if (this.getCapabilityValue('vacuumcleaner_state') !== "docker") {
             await this.updateCapabilityValue("vacuumcleaner_state", "docked");
+            await this.updateCapabilityValue("onoff", false);
             await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "docked" }).catch(error => { this.error(error) });
           }
+          break;
         case 8:
           if (this.getCapabilityValue('vacuumcleaner_state') !== "charging") {
             await this.updateCapabilityValue("vacuumcleaner_state", "charging");
+            await this.updateCapabilityValue("onoff", false);
             await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "charging" }).catch(error => { this.error(error) });
           }
+          break;
         default:
           this.error("Not a valid vacuumcleaner_state", result[0]["state"]);
+          break;
       }
 
       const consumables = await this.miio.call("get_consumable", [], { retries: 1 });
@@ -205,8 +221,8 @@ class MiRobotV11SS5Device extends Device {
       }
 
       const totals = await this.miio.call("get_clean_summary", [], { retries: 1 });
-      if (this.getSetting('total_work_time') !== this.convertMS(parseInt(totals[0])) ) {
-        await this.setSettings({ total_work_time: this.convertMS(parseInt(totals[0])) });
+      if (this.getSetting('total_work_time') !== parseInt(totals[0]).toString() ) {
+        await this.setSettings({ total_work_time: parseInt(totals[0]).toString() });
       }
       if (this.getSetting('total_cleared_area') !== parseInt(totals[1] / 1000000).toString() ) {
         await this.setSettings({ total_cleared_area: parseInt(totals[1] / 1000000).toString() });
@@ -231,18 +247,6 @@ class MiRobotV11SS5Device extends Device {
 
       this.error(error);
     }
-  }
-
-  convertMS(milliseconds) {
-    var day, hour, minute, seconds;
-    seconds = Math.floor(milliseconds / 1000);
-    minute = Math.floor(seconds / 60);
-    seconds = seconds % 60;
-    hour = Math.floor(minute / 60);
-    minute = minute % 60;
-    day = Math.floor(hour / 24);
-    hour = hour % 24;
-    return day + "Day, " + hour + "h, " + minute + "m, " + seconds + "s";
   }
 
 }

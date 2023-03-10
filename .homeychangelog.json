@@ -67,5 +67,11 @@
   },
   "3.1.5": {
     "en": "This release is a complete rewrite of the app including many breaking changes. The app has been fully rewritten with SDK3 to make it futureproof. This new version also merged the devices from the community app Mi Homey. Some previously paired devices might continu to work but please re-pair your devices and/or fix your flows before reporting any issue. If the issue persists after re-pair please report it on the community forum or Github."
+  },
+  "3.1.6": {
+    "en": "This release is a complete rewrite of the app including many breaking changes. The app has been fully rewritten with SDK3 to make it futureproof. This new version also merged the devices from the community app Mi Homey. Some previously paired devices might continu to work but please re-pair your devices and/or fix your flows before reporting any issue. If the issue persists after re-pair please report it on the community forum or Github."
+  },
+  "3.1.7": {
+    "en": "This release is a complete rewrite of the app including many breaking changes. The app has been fully rewritten with SDK3 to make it futureproof. This new version also merged the devices from the community app Mi Homey. Some previously paired devices might continu to work but please re-pair your devices and/or fix your flows before reporting any issue. If the issue persists after re-pair please report it on the community forum or Github."
   }
 }

@@ -13,7 +13,6 @@ class MiPlug extends Driver {
       model: ['plug']
     }
 
-    this.homey.flow.getDeviceTriggerCard('triggerPlugInUse');
   }
 
 }

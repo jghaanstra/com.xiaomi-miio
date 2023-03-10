@@ -13,7 +13,6 @@ class MiSubDeviceDevice extends Homey.Device {
     this.data = this.getData();
     this.initialize();
     this.log("Sub Device Init: " + this.getName() + " with capabilities: " + this.getCapabilities().toString() + " and model " + this.getSetting('model'));
-
   }
 
   async onDeleted() {

@@ -12,14 +12,14 @@ class SmokeSensorDevice extends Device {
       const settings = this.getSettings();
 
       /* measure_battery & alarm_battery */
-      if (device && device.data && device.data["voltage"]) {
-        const battery = (device.data["voltage"] - 2800) / 5;
+      if (device.data.voltage) {
+        const battery = (device.data.voltage - 2800) / 5;
         await this.updateCapabilityValue("measure_battery", this.util.clamp(battery, 0, 100));
         await this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
       }
 
       /* alarm_tamper */
-      if (device && device.data && device["data"]["alarm"] == "1") {
+      if (device.data.alarm == "1") {
         await this.updateCapabilityValue("alarm_smoke", true);
 
         if (this.timeoutAlarm) { this.homey.clearTimeout(this.timeoutAlarm); }
@@ -31,7 +31,7 @@ class SmokeSensorDevice extends Device {
       }
 
       /* measure_some_density */
-      if (device["data"]["density"]) { await this.updateCapabilityValue("measure_smoke_density", parseInt(device["data"]["density"])); }
+      if (device.data.density) { await this.updateCapabilityValue("measure_smoke_density", parseInt(device.data.density)); }
   
     } catch (error) {
       this.error(error);

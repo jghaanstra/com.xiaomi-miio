@@ -54,11 +54,11 @@ class AqaraCurtain extends Device {
       if (!this.getAvailable()) { this.setAvailable(); }
 
       /* onoff */
-      if (parseInt(device["data"]["curtain_level"]) > 0) { await this.updateCapabilityValue("onoff", true); }
-      if (parseInt(device["data"]["curtain_level"]) == 0) { await this.updateCapabilityValue("onoff", false); }
+      if (parseInt(device.data.curtain_level) > 0) { await this.updateCapabilityValue("onoff", true); }
+      if (parseInt(device.data.curtain_level) == 0) { await this.updateCapabilityValue("onoff", false); }
   
       /* dim (curtain_level) */
-      if (device["data"]["curtain_level"]) { await this.updateCapabilityValue("dim", parseInt(device["data"]["curtain_level"]) / 100); }
+      if (device.data.curtain_level) { await this.updateCapabilityValue("dim", parseInt(device.data.curtain_level) / 100); }
       this.homey.clearTimeout(this.curtainTernaryTimeout);
       this.curtainTernaryTimeout = setTimeout(() => {
         this.setCapabilityValue("windowcoverings_state", "idle");

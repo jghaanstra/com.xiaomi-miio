@@ -10,14 +10,14 @@ class VibrationSensorDevice extends Device {
       if (!this.getAvailable()) { this.setAvailable(); }
 
       /* measure_battery & alarm_battery */
-      if (device && device.data && device.data["voltage"]) {
-        const battery = (device.data["voltage"] - 2800) / 5;
+      if (device.data.voltage) {
+        const battery = (device.data.voltage - 2800) / 5;
         await this.updateCapabilityValue("measure_battery", this.util.clamp(battery, 0, 100));
         await this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
       }
 
       /* alarm_tamper */
-      if (device && device.data && device["data"]["status"] == "vibrate") {
+      if (device.data.status === "vibrate") {
         await this.updateCapabilityValue("alarm_tamper", true);
 
         if (this.timeoutAlarmTamper) { this.homey.clearTimeout(this.timeoutAlarmTamper); }
@@ -28,7 +28,7 @@ class VibrationSensorDevice extends Device {
       }
 
       /* alarm_motion.tilt */
-      if (device && device.data && device["data"]["status"] == "tilt") {
+      if (device.data.status === "tilt") {
         await this.updateCapabilityValue("alarm_motion.tilt", true);
         await this.homey.flow.getDeviceTriggerCard('triggerVibrationTiltAlarm').trigger(this).catch(error => { this.error(error) });
 
@@ -40,7 +40,7 @@ class VibrationSensorDevice extends Device {
       }
   
       /* alarm_motion.freefall */
-      if (device && device.data && device["data"]["status"] == "free_fall") {
+      if (device.data.status === "free_fall") {
         await this.updateCapabilityValue("alarm_motion.freefall", true);
         await this.homey.flow.getDeviceTriggerCard('triggerVibrationFreeFallAlarm').trigger(this).catch(error => { this.error(error) });
 

@@ -45,7 +45,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('goToTargetVacuum')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.miio.sendToLocation([args.xcoordinate, args.ycoordinate]);
+          return await args.device.miio.sendToLocation(args.xcoordinate, args.ycoordinate);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -302,16 +302,6 @@ class XiaomiMiioApp extends Homey.App {
           return Promise.reject(error.message);
         }
       });
-
-    /* MI-PLUG */
-    this.homey.flow.getConditionCard('inUse')
-      .registerRunListener(async (args) => {
-        if (args.device) {
-          return args.device.getStoreValue("inUse");
-        } else {
-          return false;
-        }
-      })
 
     /* aqara-ctrl-ln2 & aqara-ctrl-neutral2 */
     this.homey.flow.getConditionCard('rightSwitch')

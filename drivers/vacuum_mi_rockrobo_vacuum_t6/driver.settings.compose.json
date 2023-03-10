@@ -73,8 +73,8 @@
         "id": "total_cleared_area",
         "type": "label",
         "label": {
-          "en": "Total cleared area",
-          "nl": "Totaal geschoont"
+          "en": "Total cleared area (m2)",
+          "nl": "Totaal geschoont (m2)"
         },
         "value": "0"
       },
