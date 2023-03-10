@@ -4,8 +4,8 @@
     "nl": "Speel effect"
   },
   "titleFormatted": {
-    "en": "Play effect [[toneID]] with volume [[volume]]",
-    "nl": "Speel effect [[toneID]] met volume [[volume]]"
+    "en": "Play effect [[toneID]]",
+    "nl": "Speel effect [[toneID]]"
   },
   "args": [
     {
@@ -161,20 +161,6 @@
           }
         }
       ]
-    },
-    {
-      "type": "range",
-      "title": {
-        "en": "Volume",
-        "nl": "Volume"
-      },
-      "name": "volume",
-      "min": 0,
-      "max": 1,
-      "step": 0.01,
-      "label": "%",
-      "labelMultiplier": 100,
-      "labelDecimals": 0
     },
     {
       "name": "device",

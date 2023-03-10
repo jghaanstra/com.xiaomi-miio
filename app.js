@@ -427,7 +427,6 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('gateway_play_effect')
       .registerRunListener(async (args) => {
         try {
-          let volume = parseInt(args.volume * 100);
           return await args.device.miio.call("welcome", [parseInt(args.toneID)], { retries: 1 });
         } catch (error) {
           return Promise.reject(error.message);
@@ -446,7 +445,7 @@ class XiaomiMiioApp extends Homey.App {
             case "prompt":
               return await args.device.miio.call("set_gateway_volume", [volume], { retries: 1 });
             case "radio":
-              return await args.device.miio.call("volume_ctrl_fm", [volume], { retries: 1 });
+              return await args.device.miio.call("volume_ctrl_fm", [volume.toString()], { retries: 1 });
           }
           return Promise.resolve(true);
         } catch (error) {

@@ -153,7 +153,7 @@ class GatewayDevice extends Device {
         try {
           if (this.miio) {
             let volume = parseInt(value * 100);
-            return await this.miio.call("volume_ctrl_fm", [volume], { retries: 1 });
+            return await this.miio.call("volume_ctrl_fm", [volume.toString()], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
