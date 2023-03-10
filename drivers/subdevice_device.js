@@ -14,7 +14,7 @@ class MiSubDeviceDevice extends Homey.Device {
     this.initialize();
     this.log("Sub Device Init: " + this.getName() + " with capabilities: " + this.getCapabilities().toString() + " and model " + this.getSetting('model'));
 
-    this.setUnavailable(this.homey.__('device.noupdates') + error.message).catch(error => { this.error(error) });
+    this.setUnavailable(this.homey.__('device.noupdates')).catch(error => { this.error(error) });
   }
 
   async onDeleted() {
