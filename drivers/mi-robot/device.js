@@ -17,58 +17,8 @@ class MiRobotDevice extends Device {
       this.homey.flow.getDeviceTriggerCard('statusVacuum');
 
       // LISTENERS FOR UPDATING CAPABILITIES
-      this.registerCapabilityListener('onoff', async ( value ) => {
-        try {
-          if (this.miio) {
-            if (value) {
-              await this.miio.clean();
-              return await this.setCapabilityValue('vacuumcleaner_state', 'cleaning');
-            } else {
-              await this.miio.stop();
-              return this.setCapabilityValue('vacuumcleaner_state', 'stopped');
-            }
-          } else {
-            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
-            this.createDevice();
-            return Promise.reject('Device unreachable, please try again ...');
-          }
-        } catch (error) {
-          this.error(error);
-          return Promise.reject(error);
-        }
-      });
-
-      this.registerCapabilityListener('vacuumcleaner_state', async ( value ) => {
-        try {
-          if (this.miio) {
-            switch (value) {
-              case "cleaning":
-                await this.miio.clean();
-                return await this.setCapabilityValue('onoff', true);
-              case "spot_cleaning":
-                await this.miio.spotClean();
-                return await this.setCapabilityValue('onoff', true);
-              case "stopped":
-                await this.miio.stop();
-                return await this.setCapabilityValue('onoff', false);
-              case "docked":
-              case "charging":
-                await this.miio.stop();
-                await this.miio.activateCharging();
-                return await this.setCapabilityValue('onoff', false);
-              default:
-                this.error("Not a valid vacuumcleaner_state");
-            }
-          } else {
-            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
-            this.createDevice();
-            return Promise.reject('Device unreachable, please try again ...');
-          }
-        } catch (error) {
-          this.error(error);
-          return Promise.reject(error);
-        }
-      });
+      this.registerCapabilityListener("onoff", this.onCapabilityOnoffVacuumcleaner.bind(this));
+      this.registerCapabilityListener("vacuumcleaner_state", this.onCapabilityVacuumcleanerState.bind(this));
 
     } catch (error) {
       this.error(error);

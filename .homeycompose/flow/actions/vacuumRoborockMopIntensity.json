@@ -1,0 +1,54 @@
+{
+  "id": "vacuumRoborockMopIntensity",
+  "title": {
+    "en": "Set Scrub intensity",
+    "nl": "Stel mop intensiteit in"
+  },
+  "titleFormatted": {
+    "en": "Set scrub intensity [[intensity]]",
+    "nl": "Stel mop intensiteit in op [[intensity]]"
+  },
+  "args": [
+    {
+      "name": "intensity",
+      "title": {
+        "en": "Scrub Intensity",
+        "nl": "Mop intensiteit"
+      },
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "101",
+          "label": {
+            "en": "Mild",
+            "nl": "Mild"
+          }
+        },
+        {
+          "id": "102",
+          "label": {
+            "en": "Moderate",
+            "nl": "Gemiddeld"
+          }
+        },
+        {
+          "id": "103",
+          "label": {
+            "en": "Intense",
+            "nl": "Intens"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Robot",
+        "nl": "Selecteer Mi Robot"
+      },
+      "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced&capabilities=vacuum_roborock_mop_intensity"
+    }
+  ],
+  "platforms": ["local"]
+}

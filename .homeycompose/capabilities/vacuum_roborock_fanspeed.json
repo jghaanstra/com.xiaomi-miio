@@ -1,36 +1,36 @@
 {
   "type": "enum",
   "title": {
-    "en": "Mode",
-    "nl": "Modus"
+    "en": "Fanspeed",
+    "nl": "Fanspeed"
   },
   "values": [
     {
       "id": "101",
       "title": {
-        "en": "Silent",
+        "en": "Quiet",
         "nl": "Stil"
       }
     },
     {
       "id": "102",
       "title": {
-        "en": "Basic",
-        "nl": "Basis"
+        "en": "Balanced",
+        "nl": "Gebalanceerd"
       }
     },
     {
       "id": "103",
       "title": {
-        "en": "Strong",
-        "nl": "Sterk"
+        "en": "Turbo",
+        "nl": "Turbo"
       }
     },
     {
       "id": "104",
       "title": {
-        "en": "Full Speed",
-        "nl": "Volle kracht"
+        "en": "Max",
+        "nl": "Max"
       }
     }
   ],

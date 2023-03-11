@@ -27,8 +27,8 @@
         "id": "main_brush_work_time",
         "type": "label",
         "label": {
-          "en": "Main brush work time",
-          "nl": "Hoofdborstel gebruikstijd"
+          "en": "Main brush remaining (%)",
+          "nl": "Hoofdborstel over (%)"
         },
         "value": "0%"
       },
@@ -36,8 +36,8 @@
         "id": "side_brush_work_time",
         "type": "label",
         "label": {
-          "en": "Side brush work time",
-          "nl": "Zijborstel gebruikstijd"
+          "en": "Side brush remaining",
+          "nl": "Zijborstel over"
         },
         "value": "0%"
       },
@@ -45,8 +45,8 @@
         "id": "filter_work_time",
         "type": "label",
         "label": {
-          "en": "Filter work time",
-          "nl": "Filter gebruikstijd"
+          "en": "Filter remaining",
+          "nl": "Filter over"
         },
         "value": "0%"
       },
@@ -54,8 +54,8 @@
         "id": "sensor_dirty_time",
         "type": "label",
         "label": {
-          "en": "Sensor dirty time",
-          "nl": "Sensor vuil gebruikstijd"
+          "en": "Sensors dirty remaining",
+          "nl": "Sensor vuil over"
         },
         "value": "0%"
       },
@@ -73,8 +73,8 @@
         "id": "total_cleared_area",
         "type": "label",
         "label": {
-          "en": "Total cleared area (m2)",
-          "nl": "Totaal geschoont (m2)"
+          "en": "Total cleaned area",
+          "nl": "Totaal geschoont"
         },
         "value": "0"
       },

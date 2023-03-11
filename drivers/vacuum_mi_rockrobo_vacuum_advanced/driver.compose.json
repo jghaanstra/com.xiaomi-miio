@@ -1,11 +1,11 @@
 {
   "name": {
-    "en": "Mi Roborock Vacuum v1 / 1s / s5 (WiFi)",
-    "nl": "Mi Roborock Vacuum v1 / 1s / s5 (WiFi)"
+    "en": "Advanced Vacuum Cleaner (WiFi)",
+    "nl": "Geadvanceerde Vacuum Cleaner (WiFi)"
   },
   "images": {
-    "large": "drivers/vacuum_mi_rockrobo_vacuum_v1_1s_s5/assets/images/large.jpg",
-    "small": "drivers/vacuum_mi_rockrobo_vacuum_v1_1s_s5/assets/images/small.jpg"
+    "large": "drivers/vacuum_mi_rockrobo_vacuum_advanced/assets/images/large.jpg",
+    "small": "drivers/vacuum_mi_rockrobo_vacuum_advanced/assets/images/small.jpg"
   },
   "class": "vacuumcleaner",
   "$extends": [
@@ -14,8 +14,8 @@
   "capabilities": [
     "onoff",
     "button.consumable",
-    "dim",
     "vacuumcleaner_state",
+    "vacuum_roborock_fanspeed",
     "measure_battery",
     "alarm_battery",
     "alarm_main_brush_work_time",
@@ -24,12 +24,6 @@
     "alarm_sensor_dirty_time"
   ],
   "capabilitiesOptions": {
-    "dim": {
-      "title": {
-        "en": "Speed",
-        "nl": "Snelheid"
-      }
-    },
     "button.consumable": {
       "maintenanceAction": true,
       "title": {

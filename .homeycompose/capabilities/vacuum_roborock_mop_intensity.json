@@ -1,0 +1,32 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Scrub Intensity",
+    "nl": "Mop intensiteit"
+  },
+  "values": [
+    {
+      "id": "201",
+      "title": {
+        "en": "Mild",
+        "nl": "Mild"
+      }
+    },
+    {
+      "id": "202",
+      "title": {
+        "en": "Moderate",
+        "nl": "Gemiddeld"
+      }
+    },
+    {
+      "id": "203",
+      "title": {
+        "en": "Intense",
+        "nl": "Intens"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

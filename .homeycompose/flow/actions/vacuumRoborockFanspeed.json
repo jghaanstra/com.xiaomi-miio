@@ -1,5 +1,5 @@
 {
-  "id": "fanPowerVacuum",
+  "id": "vacuumRoborockFanspeed",
   "title": {
     "en": "Set Fanspeed",
     "nl": "Stel ventilator in"
@@ -18,28 +18,28 @@
       "type": "dropdown",
       "values": [
         {
-          "id": "38",
+          "id": "101",
           "label": {
             "en": "Quiet",
             "nl": "Stil"
           }
         },
         {
-          "id": "66",
+          "id": "102",
           "label": {
             "en": "Balanced",
             "nl": "Gebalanceerd"
           }
         },
         {
-          "id": "77",
+          "id": "103",
           "label": {
             "en": "Turbo",
             "nl": "Turbo"
           }
         },
         {
-          "id": "90",
+          "id": "104",
           "label": {
             "en": "Max",
             "nl": "Maximum"
@@ -54,7 +54,7 @@
         "en": "Select Mi Robot",
         "nl": "Selecteer Mi Robot"
       },
-      "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_t6"
+      "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced"
     }
   ],
   "platforms": ["local"]

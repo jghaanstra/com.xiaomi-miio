@@ -42,6 +42,25 @@ class XiaomiMiioApp extends Homey.App {
         }
       });
 
+    this.homey.flow.getActionCard('vacuumRoborockFanspeed')
+      .registerRunListener(async (args) => {
+        try {
+          await args.device.miio.changeFanSpeed(Number(args.fanspeed));
+          return await args.device.setStoreValue("fanspeed", args.fanspeed);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('vacuumRoborockMopIntensity')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.miio.setWaterBoxMode(Number(args.intensity));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
     this.homey.flow.getActionCard('goToTargetVacuum')
       .registerRunListener(async (args) => {
         try {
@@ -66,15 +85,6 @@ class XiaomiMiioApp extends Homey.App {
         try {
           const rooms = JSON.parse("[" + args.rooms + "]");
           return await args.device.miio.cleanRooms(rooms);
-        } catch (error) {
-          return Promise.reject(error.message);
-        }
-      });
-
-    this.homey.flow.getActionCard('modeVacuumA08')
-      .registerRunListener(async (args) => {
-        try {
-          return await triggerCapabilityListener('dmaker_fan_1c_mode', Number(args.mode));
         } catch (error) {
           return Promise.reject(error.message);
         }

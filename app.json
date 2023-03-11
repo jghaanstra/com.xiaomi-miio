@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.7",
+  "version": "3.1.8",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -158,7 +158,7 @@
               "en": "Select Vacuum",
               "nl": "Selecteer stofzuiger"
             },
-            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6|vacuum_dreame_vacuum_mc1808|vacuum_dreame_vacuum_p2029_p2041|vacuum_viomi_vacuum_v7"
+            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6|vacuum_dreame_vacuum_mc1808|vacuum_dreame_vacuum_p2029_p2041|vacuum_viomi_vacuum_v7"
           }
         ],
         "platforms": [
@@ -929,7 +929,7 @@
               "en": "Select Mi Robot",
               "nl": "Selecteer Mi Robot"
             },
-            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6|vacuum_mi_roborock_vacuum_a08|vacuum_dreame_vacuum_mc1808|vacuum_dreame_vacuum_p2029_p2041|vacuum_viomi_vacuum_v7"
+            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6|vacuum_mi_roborock_vacuum_a08|vacuum_dreame_vacuum_mc1808|vacuum_dreame_vacuum_p2029_p2041|vacuum_viomi_vacuum_v7"
           }
         ],
         "platforms": [
@@ -1426,7 +1426,7 @@
               "en": "Select Vacuum",
               "nl": "Selecteer Stofzuiger"
             },
-            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
+            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6"
           }
         ],
         "platforms": [
@@ -1590,11 +1590,11 @@
       {
         "id": "fanPowerVacuum",
         "title": {
-          "en": "Set Fan Power",
+          "en": "Set Fanspeed",
           "nl": "Stel ventilator in"
         },
         "titleFormatted": {
-          "en": "Set Fan Power [[fanspeed]]",
+          "en": "Set Fanspeed [[fanspeed]]",
           "nl": "Stel ventilator in op [[fanspeed]]"
         },
         "args": [
@@ -1630,7 +1630,7 @@
               {
                 "id": "90",
                 "label": {
-                  "en": "Full Speed",
+                  "en": "Max",
                   "nl": "Maximum"
                 }
               }
@@ -1643,7 +1643,7 @@
               "en": "Select Mi Robot",
               "nl": "Selecteer Mi Robot"
             },
-            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
+            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_t6"
           }
         ],
         "platforms": [
@@ -1668,7 +1668,7 @@
               "en": "Select Mi Robot",
               "nl": "Selecteer Mi Robot"
             },
-            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
+            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6"
           }
         ],
         "platforms": [
@@ -3067,69 +3067,6 @@
         ]
       },
       {
-        "id": "modeVacuumA08",
-        "title": {
-          "en": "Set Mode",
-          "nl": "Stel modus in"
-        },
-        "titleFormatted": {
-          "en": "Set mode to [[mode]]",
-          "nl": "Stel modus in op [[mode]]"
-        },
-        "args": [
-          {
-            "name": "mode",
-            "title": {
-              "en": "Mode",
-              "nl": "Modus"
-            },
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "101",
-                "title": {
-                  "en": "Silent",
-                  "nl": "Stil"
-                }
-              },
-              {
-                "id": "102",
-                "title": {
-                  "en": "Basic",
-                  "nl": "Basis"
-                }
-              },
-              {
-                "id": "103",
-                "title": {
-                  "en": "Strong",
-                  "nl": "Sterk"
-                }
-              },
-              {
-                "id": "104",
-                "title": {
-                  "en": "Full Speed",
-                  "nl": "Volle kracht"
-                }
-              }
-            ]
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "placeholder": {
-              "en": "Select Vacuum",
-              "nl": "Selecteer Stofzuiger"
-            },
-            "filter": "driver_id=vacuum_mi_roborock_vacuum_a08"
-          }
-        ],
-        "platforms": [
-          "local"
-        ]
-      },
-      {
         "id": "modeVacuumMop",
         "title": {
           "en": "Set Mode",
@@ -3407,6 +3344,125 @@
         ]
       },
       {
+        "id": "vacuumRoborockFanspeed",
+        "title": {
+          "en": "Set Fanspeed",
+          "nl": "Stel ventilator in"
+        },
+        "titleFormatted": {
+          "en": "Set Fanspeed [[fanspeed]]",
+          "nl": "Stel ventilator in op [[fanspeed]]"
+        },
+        "args": [
+          {
+            "name": "fanspeed",
+            "title": {
+              "en": "Fanspeed",
+              "nl": "Fan snelheid"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "101",
+                "label": {
+                  "en": "Quiet",
+                  "nl": "Stil"
+                }
+              },
+              {
+                "id": "102",
+                "label": {
+                  "en": "Balanced",
+                  "nl": "Gebalanceerd"
+                }
+              },
+              {
+                "id": "103",
+                "label": {
+                  "en": "Turbo",
+                  "nl": "Turbo"
+                }
+              },
+              {
+                "id": "104",
+                "label": {
+                  "en": "Max",
+                  "nl": "Maximum"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Mi Robot",
+              "nl": "Selecteer Mi Robot"
+            },
+            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "vacuumRoborockMopIntensity",
+        "title": {
+          "en": "Set Scrub intensity",
+          "nl": "Stel mop intensiteit in"
+        },
+        "titleFormatted": {
+          "en": "Set scrub intensity [[intensity]]",
+          "nl": "Stel mop intensiteit in op [[intensity]]"
+        },
+        "args": [
+          {
+            "name": "intensity",
+            "title": {
+              "en": "Scrub Intensity",
+              "nl": "Mop intensiteit"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "101",
+                "label": {
+                  "en": "Mild",
+                  "nl": "Mild"
+                }
+              },
+              {
+                "id": "102",
+                "label": {
+                  "en": "Moderate",
+                  "nl": "Gemiddeld"
+                }
+              },
+              {
+                "id": "103",
+                "label": {
+                  "en": "Intense",
+                  "nl": "Intens"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Mi Robot",
+              "nl": "Selecteer Mi Robot"
+            },
+            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced&capabilities=vacuum_roborock_mop_intensity"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
         "id": "vacuumRoomCleaning",
         "title": {
           "en": "Start room cleaning",
@@ -3440,7 +3496,7 @@
               "en": "Select Vacuum",
               "nl": "Selecteer Vacuum"
             },
-            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_v1_1s_s5|vacuum_mi_rockrobo_vacuum_t6"
+            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6"
           }
         ],
         "platforms": [
@@ -9366,8 +9422,8 @@
         "lan"
       ],
       "name": {
-        "en": "Robot Vacuum Cleaners Generic (WiFi)",
-        "nl": "Robot Stofzuigers Generiek (WiFi)"
+        "en": "Basic Vacuum Cleaner (WiFi)",
+        "nl": "Basic Vacuum Cleaner (WiFi)"
       },
       "images": {
         "large": "drivers/mi-robot/assets/images/large.jpg",
@@ -11000,7 +11056,7 @@
       ]
     },
     {
-      "icon": "/drivers/vacuum_mi_roborock_vacuum_a08/assets/icon.svg",
+      "icon": "/drivers/vacuum_mi_rockrobo_vacuum_advanced/assets/icon.svg",
       "pair": [
         {
           "id": "start",
@@ -11022,331 +11078,19 @@
         "lan"
       ],
       "name": {
-        "en": "Mi Roborock Vacuum S6 Pure (WiFi)",
-        "nl": "Mi Roborock Vacuum S6 Pure (WiFi)"
+        "en": "Advanced Vacuum Cleaner (WiFi)",
+        "nl": "Geadvanceerde Vacuum Cleaner (WiFi)"
       },
       "images": {
-        "large": "drivers/vacuum_mi_roborock_vacuum_a08/assets/images/large.jpg",
-        "small": "drivers/vacuum_mi_roborock_vacuum_a08/assets/images/small.jpg"
-      },
-      "class": "vacuumcleaner",
-      "capabilities": [
-        "onoff",
-        "vacuumcleaner_state",
-        "vacuum_roborock_a08_mode",
-        "measure_battery",
-        "alarm_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "INTERNAL"
-        ]
-      },
-      "id": "vacuum_mi_roborock_vacuum_a08",
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "Device Settings",
-            "nl": "Apparaat instellingen"
-          },
-          "children": [
-            {
-              "id": "address",
-              "type": "text",
-              "value": "0.0.0.0",
-              "label": {
-                "en": "IP Address",
-                "nl": "IP adres"
-              }
-            },
-            {
-              "id": "token",
-              "type": "text",
-              "value": "",
-              "label": {
-                "en": "Mi Device Token",
-                "nl": "Mi Apparaat Token"
-              }
-            },
-            {
-              "id": "polling",
-              "type": "number",
-              "value": 60,
-              "attr": {
-                "min": 5,
-                "max": 3600
-              },
-              "label": {
-                "en": "Polling Frequency",
-                "nl": "Polling frequentie"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "icon": "/drivers/vacuum_mi_rockrobo_vacuum_t6/assets/icon.svg",
-      "pair": [
-        {
-          "id": "start",
-          "navigation": {
-            "next": "pair"
-          }
-        },
-        {
-          "id": "pair"
-        },
-        {
-          "id": "add_device"
-        }
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "name": {
-        "en": "Mi Roborock Vacuum T6 (WiFi)",
-        "nl": "Mi Roborock Vacuum T6 (WiFi)"
-      },
-      "images": {
-        "large": "drivers/vacuum_mi_rockrobo_vacuum_t6/assets/images/large.jpg",
-        "small": "drivers/vacuum_mi_rockrobo_vacuum_t6/assets/images/small.jpg"
+        "large": "drivers/vacuum_mi_rockrobo_vacuum_advanced/assets/images/large.jpg",
+        "small": "drivers/vacuum_mi_rockrobo_vacuum_advanced/assets/images/small.jpg"
       },
       "class": "vacuumcleaner",
       "capabilities": [
         "onoff",
         "button.consumable",
-        "dim",
         "vacuumcleaner_state",
-        "measure_battery",
-        "alarm_battery",
-        "alarm_main_brush_work_time",
-        "alarm_side_brush_work_time",
-        "alarm_filter_work_time",
-        "alarm_sensor_dirty_time",
-        "alarm_motion"
-      ],
-      "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Speed",
-            "nl": "Snelheid"
-          }
-        },
-        "alarm_motion": {
-          "title": {
-            "en": "Container Not Installed",
-            "nl": "Container niet geinstalleerd"
-          }
-        },
-        "button.consumable": {
-          "maintenanceAction": true,
-          "title": {
-            "en": "Reset consumables",
-            "nl": "Reset verbruiksartikelen"
-          },
-          "desc": {
-            "en": "Reset the usage of vacuum cleaner consumables.",
-            "nl": "Reset het gebruik van de verbruiksartikelen"
-          }
-        }
-      },
-      "energy": {
-        "batteries": [
-          "INTERNAL"
-        ]
-      },
-      "id": "vacuum_mi_rockrobo_vacuum_t6",
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "Vacuum Consumables",
-            "nl": "Stofzuiger verbruiksartikelen"
-          },
-          "children": [
-            {
-              "id": "alarm_threshold",
-              "type": "number",
-              "label": {
-                "en": "Alarm threshold",
-                "nl": "Alarm ondergrens"
-              },
-              "hint": {
-                "en": "Threshold below which the alarm will be activated.",
-                "nl": "Ondergrens voor het triggeren van het alarm"
-              },
-              "value": 20,
-              "attr": {
-                "min": 1,
-                "max": 90
-              }
-            },
-            {
-              "id": "main_brush_work_time",
-              "type": "label",
-              "label": {
-                "en": "Main brush work time",
-                "nl": "Hoofdborstel gebruikstijd"
-              },
-              "value": "0%"
-            },
-            {
-              "id": "side_brush_work_time",
-              "type": "label",
-              "label": {
-                "en": "Side brush work time",
-                "nl": "Zijborstel gebruikstijd"
-              },
-              "value": "0%"
-            },
-            {
-              "id": "filter_work_time",
-              "type": "label",
-              "label": {
-                "en": "Filter work time",
-                "nl": "Filter gebruikstijd"
-              },
-              "value": "0%"
-            },
-            {
-              "id": "sensor_dirty_time",
-              "type": "label",
-              "label": {
-                "en": "Sensor dirty time",
-                "nl": "Sensor vuil gebruikstijd"
-              },
-              "value": "0%"
-            },
-            {
-              "id": "total_work_time",
-              "type": "label",
-              "label": {
-                "en": "Total work time",
-                "nl": "Totale gebruikstijd"
-              },
-              "value": "0"
-            },
-            {
-              "id": "total_cleared_area",
-              "type": "label",
-              "label": {
-                "en": "Total cleared area (m2)",
-                "nl": "Totaal geschoont (m2)"
-              },
-              "value": "0"
-            },
-            {
-              "id": "total_clean_count",
-              "type": "label",
-              "label": {
-                "en": "Total clean count",
-                "nl": "Totaal aantal opschoningen"
-              },
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Room cleaning",
-            "nl": "Kamer stofzuigen"
-          },
-          "children": [
-            {
-              "id": "rooms",
-              "type": "label",
-              "label": {
-                "en": "Room segments",
-                "nl": "Kamer segmenten"
-              },
-              "value": "[17,20,21]"
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Device Settings",
-            "nl": "Apparaat instellingen"
-          },
-          "children": [
-            {
-              "id": "address",
-              "type": "text",
-              "value": "0.0.0.0",
-              "label": {
-                "en": "IP Address",
-                "nl": "IP adres"
-              }
-            },
-            {
-              "id": "token",
-              "type": "text",
-              "value": "",
-              "label": {
-                "en": "Mi Device Token",
-                "nl": "Mi Apparaat Token"
-              }
-            },
-            {
-              "id": "polling",
-              "type": "number",
-              "value": 60,
-              "attr": {
-                "min": 5,
-                "max": 3600
-              },
-              "label": {
-                "en": "Polling Frequency",
-                "nl": "Polling frequentie"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "icon": "/drivers/vacuum_mi_rockrobo_vacuum_v1_1s_s5/assets/icon.svg",
-      "pair": [
-        {
-          "id": "start",
-          "navigation": {
-            "next": "pair"
-          }
-        },
-        {
-          "id": "pair"
-        },
-        {
-          "id": "add_device"
-        }
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "name": {
-        "en": "Mi Roborock Vacuum v1 / 1s / s5 (WiFi)",
-        "nl": "Mi Roborock Vacuum v1 / 1s / s5 (WiFi)"
-      },
-      "images": {
-        "large": "drivers/vacuum_mi_rockrobo_vacuum_v1_1s_s5/assets/images/large.jpg",
-        "small": "drivers/vacuum_mi_rockrobo_vacuum_v1_1s_s5/assets/images/small.jpg"
-      },
-      "class": "vacuumcleaner",
-      "capabilities": [
-        "onoff",
-        "button.consumable",
-        "dim",
-        "vacuumcleaner_state",
+        "vacuum_roborock_fanspeed",
         "measure_battery",
         "alarm_battery",
         "alarm_main_brush_work_time",
@@ -11355,12 +11099,6 @@
         "alarm_sensor_dirty_time"
       ],
       "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Speed",
-            "nl": "Snelheid"
-          }
-        },
         "button.consumable": {
           "maintenanceAction": true,
           "title": {
@@ -11378,7 +11116,7 @@
           "INTERNAL"
         ]
       },
-      "id": "vacuum_mi_rockrobo_vacuum_v1_1s_s5",
+      "id": "vacuum_mi_rockrobo_vacuum_advanced",
       "settings": [
         {
           "type": "group",
@@ -11408,8 +11146,8 @@
               "id": "main_brush_work_time",
               "type": "label",
               "label": {
-                "en": "Main brush work time",
-                "nl": "Hoofdborstel gebruikstijd"
+                "en": "Main brush remaining (%)",
+                "nl": "Hoofdborstel over (%)"
               },
               "value": "0%"
             },
@@ -11417,8 +11155,8 @@
               "id": "side_brush_work_time",
               "type": "label",
               "label": {
-                "en": "Side brush work time",
-                "nl": "Zijborstel gebruikstijd"
+                "en": "Side brush remaining",
+                "nl": "Zijborstel over"
               },
               "value": "0%"
             },
@@ -11426,8 +11164,8 @@
               "id": "filter_work_time",
               "type": "label",
               "label": {
-                "en": "Filter work time",
-                "nl": "Filter gebruikstijd"
+                "en": "Filter remaining",
+                "nl": "Filter over"
               },
               "value": "0%"
             },
@@ -11435,8 +11173,8 @@
               "id": "sensor_dirty_time",
               "type": "label",
               "label": {
-                "en": "Sensor dirty time",
-                "nl": "Sensor vuil gebruikstijd"
+                "en": "Sensors dirty remaining",
+                "nl": "Sensor vuil over"
               },
               "value": "0%"
             },
@@ -11453,8 +11191,8 @@
               "id": "total_cleared_area",
               "type": "label",
               "label": {
-                "en": "Total cleared area (m2)",
-                "nl": "Totaal geschoont (m2)"
+                "en": "Total cleaned area",
+                "nl": "Totaal geschoont"
               },
               "value": "0"
             },
@@ -11634,8 +11372,8 @@
               "id": "main_brush_work_time",
               "type": "label",
               "label": {
-                "en": "Main brush work time",
-                "nl": "Hoofdborstel gebruikstijd"
+                "en": "Main brush remaining (%)",
+                "nl": "Hoofdborstel over (%)"
               },
               "value": "0%"
             },
@@ -11643,8 +11381,8 @@
               "id": "side_brush_work_time",
               "type": "label",
               "label": {
-                "en": "Side brush work time",
-                "nl": "Zijborstel gebruikstijd"
+                "en": "Side brush remaining (%)",
+                "nl": "Zijborstel over (%)"
               },
               "value": "0%"
             },
@@ -11652,8 +11390,8 @@
               "id": "filter_work_time",
               "type": "label",
               "label": {
-                "en": "Filter work time",
-                "nl": "Filter gebruikstijd"
+                "en": "Filter over (%)",
+                "nl": "Filter over (%)"
               },
               "value": "0%"
             }
@@ -12871,39 +12609,71 @@
       "getable": true,
       "setable": true
     },
-    "vacuum_roborock_a08_mode": {
+    "vacuum_roborock_fanspeed": {
       "type": "enum",
       "title": {
-        "en": "Mode",
-        "nl": "Modus"
+        "en": "Fanspeed",
+        "nl": "Fanspeed"
       },
       "values": [
         {
           "id": "101",
           "title": {
-            "en": "Silent",
+            "en": "Quiet",
             "nl": "Stil"
           }
         },
         {
           "id": "102",
           "title": {
-            "en": "Basic",
-            "nl": "Basis"
+            "en": "Balanced",
+            "nl": "Gebalanceerd"
           }
         },
         {
           "id": "103",
           "title": {
-            "en": "Strong",
-            "nl": "Sterk"
+            "en": "Turbo",
+            "nl": "Turbo"
           }
         },
         {
           "id": "104",
           "title": {
-            "en": "Full Speed",
-            "nl": "Volle kracht"
+            "en": "Max",
+            "nl": "Max"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
+    "vacuum_roborock_mop_intensity": {
+      "type": "enum",
+      "title": {
+        "en": "Scrub Intensity",
+        "nl": "Mop intensiteit"
+      },
+      "values": [
+        {
+          "id": "201",
+          "title": {
+            "en": "Mild",
+            "nl": "Mild"
+          }
+        },
+        {
+          "id": "202",
+          "title": {
+            "en": "Moderate",
+            "nl": "Gemiddeld"
+          }
+        },
+        {
+          "id": "203",
+          "title": {
+            "en": "Intense",
+            "nl": "Intens"
           }
         }
       ],

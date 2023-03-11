@@ -27,8 +27,8 @@
         "id": "main_brush_work_time",
         "type": "label",
         "label": {
-          "en": "Main brush work time",
-          "nl": "Hoofdborstel gebruikstijd"
+          "en": "Main brush remaining (%)",
+          "nl": "Hoofdborstel over (%)"
         },
         "value": "0%"
       },
@@ -36,8 +36,8 @@
         "id": "side_brush_work_time",
         "type": "label",
         "label": {
-          "en": "Side brush work time",
-          "nl": "Zijborstel gebruikstijd"
+          "en": "Side brush remaining (%)",
+          "nl": "Zijborstel over (%)"
         },
         "value": "0%"
       },
@@ -45,8 +45,8 @@
         "id": "filter_work_time",
         "type": "label",
         "label": {
-          "en": "Filter work time",
-          "nl": "Filter gebruikstijd"
+          "en": "Filter over (%)",
+          "nl": "Filter over (%)"
         },
         "value": "0%"
       }

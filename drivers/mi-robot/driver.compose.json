@@ -1,7 +1,7 @@
 {
   "name": {
-    "en": "Robot Vacuum Cleaners Generic (WiFi)",
-    "nl": "Robot Stofzuigers Generiek (WiFi)"
+    "en": "Basic Vacuum Cleaner (WiFi)",
+    "nl": "Basic Vacuum Cleaner (WiFi)"
   },
   "images": {
     "large": "drivers/mi-robot/assets/images/large.jpg",

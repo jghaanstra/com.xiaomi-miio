@@ -90,7 +90,110 @@ class MiWifiDeviceDevice extends Homey.Device {
       this.error(error);
       return Promise.reject(error);
     }
-  };  
+  };
+
+  /* vacuumcleaner onoff */
+  async onCapabilityOnoffVacuumcleaner(value, opts) {
+    try {
+      if (this.miio) {
+        if (value) {
+          await this.miio.clean();
+          return await this.setCapabilityValue('vacuumcleaner_state', 'cleaning');
+        } else {
+          await this.miio.stop();
+          return this.setCapabilityValue('vacuumcleaner_state', 'stopped');
+        }
+      } else {
+        this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    } catch (error) {
+      this.error(error);
+      return Promise.reject(error);
+    }
+  }
+
+  /* vacuumcleaner_state */
+  async onCapabilityVacuumcleanerState(value, opts) {
+    try {
+      if (this.miio) {
+        switch (value) {
+          case "cleaning":
+            await this.miio.clean();
+            return await this.setCapabilityValue('onoff', true);
+          case "spot_cleaning":
+            await this.miio.spotClean();
+            return await this.setCapabilityValue('onoff', true);
+          case "stopped":
+            await this.miio.stop();
+            return await this.setCapabilityValue('onoff', false);
+          case "docked":
+          case "charging":
+            await this.miio.stop();
+            await this.miio.activateCharging();
+            return await this.setCapabilityValue('onoff', false);
+          default:
+            this.error("Not a valid vacuumcleaner_state");
+        }
+      } else {
+        this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    } catch (error) {
+      this.error(error);
+      return Promise.reject(error);
+    }
+  };
+
+  /* vacuumcleaner fanspeed */
+  async onCapabilityVacuumFanspeed(value, opts) {
+    try {
+      if (this.miio) {
+        return await this.miio.call("set_custom_mode", [Number(value)], { retries: 1 });
+      } else {
+        this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    } catch (error) {
+      this.error(error);
+      return Promise.reject(error);
+    }
+  };
+
+  /* vacuumcleaner mop intensity */
+  async onCapabilityVacuumMopIntensity(value, opts) {
+    try {
+      if (this.miio) {
+        return await this.miio.call("set_water_box_custom_mode", [Number(value)], { retries: 1 });
+      } else {
+        this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    } catch (error) {
+      this.error(error);
+      return Promise.reject(error);
+    }
+  };
+
+  /* button.consumables */
+  async onCapabilityButtonConsumable(value, opts) {
+    try {
+      if (this.miio) {
+        return await this.miio.call("reset_consumable", ["main_brush_work_time", "side_brush_work_time", "filter_work_time", "sensor_dirty_time"], { retries: 1 });
+      } else {
+        this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+        this.createDevice();
+        return Promise.reject('Device unreachable, please try again ...');
+      }
+    } catch (error) {
+      this.error(error);
+      return Promise.reject(error);
+    }
+  };
 
   // HELPER FUNCTIONS
 
@@ -480,6 +583,147 @@ class MiWifiDeviceDevice extends Homey.Device {
           this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": mode, "previous_mode": previous_mode.toString() }).catch(error => { this.error(error) });
         }
       }
+    } catch (error) {
+      this.error(error);
+    }
+  }
+
+  /* VACUUMCLEANER STATE, CAN BE OVERWRITTEN ON DEVICE LEVEL */
+  async vacuumCleanerState(state) {
+    try {
+      switch (state) {
+        case 5:
+          if (this.getCapabilityValue('vacuumcleaner_state') !== "cleaning") {
+            await this.updateCapabilityValue("vacuumcleaner_state", "cleaning");
+            await this.updateCapabilityValue("onoff", true);
+            await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "cleaning" }).catch(error => { this.error(error) });
+          }
+          break;
+        case 11:
+          if (this.getCapabilityValue('vacuumcleaner_state') !== "spot_cleaning") {
+            await this.updateCapabilityValue("vacuumcleaner_state", "spot_cleaning");
+            await this.updateCapabilityValue("onoff", true);
+            await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "spot_cleaning" }).catch(error => { this.error(error) });
+          }
+          break;
+        case 3:
+        case 10:
+        case 13:
+          if (this.getCapabilityValue('vacuumcleaner_state') !== "stopped") {
+            await this.updateCapabilityValue("vacuumcleaner_state", "stopped");
+            await this.updateCapabilityValue("onoff", false);
+            await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "stopped" }).catch(error => { this.error(error) });
+          }
+          break;
+        case 15:
+          if (this.getCapabilityValue('vacuumcleaner_state') !== "docked") {
+            await this.updateCapabilityValue("vacuumcleaner_state", "docked");
+            await this.updateCapabilityValue("onoff", false);
+            await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "docked" }).catch(error => { this.error(error) });
+          }
+          break;
+        case 8:
+          if (this.getCapabilityValue('measure_battery') === 100) {
+            if (this.getCapabilityValue('vacuumcleaner_state') !== "docked") {
+              await this.updateCapabilityValue("vacuumcleaner_state", "docked");
+              await this.updateCapabilityValue("onoff", false);
+              await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "docked" }).catch(error => { this.error(error) });
+            }
+          } else {
+            if (this.getCapabilityValue('vacuumcleaner_state') !== "charging") {
+              await this.updateCapabilityValue("vacuumcleaner_state", "charging");
+              await this.updateCapabilityValue("onoff", false);
+              await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "charging" }).catch(error => { this.error(error) });
+            }
+          }
+          break;
+        default:
+          this.log("Not a valid vacuumcleaner_state", state);
+          break;
+      }
+    } catch (error) {
+      this.error(error);
+    }
+  }
+
+  /* VACUUMCLEANER CONSUMABLES, CAN BE OVERWRITTEN ON DEVICE LEVEL */
+  async vacuumConsumables(consumables) {
+    try {
+      
+      /* main_brush_work_time */
+      const main_brush_remaining = (100 - Math.ceil((consumables[0]["main_brush_work_time"] / 1080000) * 100)+ "%");
+      if (this.getSetting("main_brush_work_time") !== main_brush_remaining) {
+        this.setSettings({ main_brush_work_time: main_brush_remaining });
+        if (main_brush_remaining < this.getSetting("alarm_threshold")) {
+          this.updateCapabilityValue("alarm_main_brush_work_time", true);
+          await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Main Brush", "value": main_brush_remaining }).catch(error => { this.error(error) });
+        } else if (main_brush_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_main_brush_work_time')) {
+          this.updateCapabilityValue("alarm_main_brush_work_time", false);
+        }
+      }
+
+      /* alarm_side_brush_work_time */
+      const side_brush_remaining = (100 - Math.ceil((consumables[0]["side_brush_work_time"] / 720000) * 100)+ "%");
+      if (this.getSetting("side_brush_work_time") !== side_brush_remaining) {
+        this.setSettings({ side_brush_work_time: side_brush_remaining });
+        if (side_brush_remaining < this.getSetting("alarm_threshold")) {
+          this.updateCapabilityValue("alarm_side_brush_work_time", true);
+          await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Side Brush", "value": side_brush_remaining }).catch(error => { this.error(error) });
+        } else if (side_brush_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_side_brush_work_time')) {
+          this.updateCapabilityValue("alarm_side_brush_work_time", false);
+        }
+      }
+
+      /* filter_work_time */
+      const filter_remaining = (100 - Math.ceil((consumables[0]["filter_work_time"] / 540000) * 100)+ "%");
+      if (this.getSetting("filter_work_time") !== filter_remaining) {
+        this.setSettings({ filter_work_time: filter_remaining });
+        if (filter_remaining < this.getSetting("alarm_threshold")) {
+          this.updateCapabilityValue("alarm_filter_work_time", true);
+          await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Filter", "value": filter_remaining }).catch(error => { this.error(error) });
+        } else if (filter_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_filter_work_time')) {
+          this.updateCapabilityValue("alarm_filter_work_time", false);
+        }
+      }
+
+      /* sensor_dirty_work_time */
+      const sensor_dirty_remaining = (100 - Math.ceil((consumables[0]["sensor_dirty_time"] / 108000) * 100)+ "%");
+      if (this.getSetting("sensor_dirty_time") !== sensor_dirty_remaining) {
+        this.setSettings({ sensor_dirty_time: sensor_dirty_remaining });
+        if (sensor_dirty_remaining < this.getSetting("alarm_threshold")) {
+          this.updateCapabilityValue("alarm_sensor_dirty_time", true);
+          await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Sensor", "value": sensor_dirty_remaining }).catch(error => { this.error(error) });
+        } else if (sensor_dirty_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_sensor_dirty_time')) {
+          this.updateCapabilityValue("alarm_sensor_dirty_time", false);
+        }
+      }
+
+    } catch (error) {
+      this.error(error);
+    }
+  }
+
+  /* VACUUMCLEANER TOTALS, CAN BE OVERWRITTEN ON DEVICE LEVEL */
+  async vacuumTotals(totals) {
+    try {
+
+      /* total_work_time */
+      const total_work_time = Math.round(totals.clean_time / 3600) + " h";
+      if (this.getSetting("total_work_time") !== total_work_time) {
+        await this.setSettings({ total_work_time: total_work_time });
+      }
+
+      /* total_cleared_area */
+      const total_cleared_area = Math.round(totals.clean_area / 1000000) + " m2";
+      if (this.getSetting("total_cleared_area") !== total_cleared_area) {
+        await this.setSettings({ total_cleared_area: total_cleared_area });
+      }
+
+      /* total_clean_count */
+      if (this.getSetting("total_clean_count") !== totals.clean_count) {
+        await this.setSettings({ total_clean_count: String(totals.clean_count) });
+      }
+
     } catch (error) {
       this.error(error);
     }
