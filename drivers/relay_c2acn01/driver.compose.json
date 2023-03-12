@@ -7,7 +7,7 @@
     "large": "/drivers/relay_c2acn01/assets/images/large.jpg",
     "small": "/drivers/relay_c2acn01/assets/images/small.jpg"
   },
-  "class": "sensor",
+  "class": "socket",
   "$extends": [
     "defaults_subdevice"
   ],

@@ -10,7 +10,7 @@ class MiHumidifier2Device extends Device {
     try {
       if (!this.util) this.util = new Util({homey: this.homey});
 
-      // TODO: remove this on the next release
+      // TODO: remove this on the next official release
       if (!this.hasCapability('measure_power')) { this.addCapability('measure_power'); }
       if (!this.hasCapability('humidifier2_mode')) { this.addCapability('humidifier2_mode'); }
       

@@ -637,6 +637,9 @@ class MiWifiDeviceDevice extends Homey.Device {
             }
           }
           break;
+        case 12:
+          await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "error" }).catch(error => { this.error(error) });
+          break;
         default:
           this.log("Not a valid vacuumcleaner_state", state);
           break;
@@ -707,21 +710,36 @@ class MiWifiDeviceDevice extends Homey.Device {
   async vacuumTotals(totals) {
     try {
 
+      let worktime = 0;
+      let cleared_area = 0;
+      let clean_count = 0;
+
+      // different models use different values
+      if (totals.hasOwnProperty('clean_time')) {
+        worktime = totals.clean_time;
+        cleared_area = totals.clean_area;
+        clean_count = totals.clean_count;
+      } else {
+        worktime = totals[0];
+        cleared_area = totals[1];
+        clean_count = totals[2];
+      }
+
       /* total_work_time */
-      const total_work_time = Math.round(totals.clean_time / 3600) + " h";
+      const total_work_time = Math.round(worktime / 3600) + " h";
       if (this.getSetting("total_work_time") !== total_work_time) {
         await this.setSettings({ total_work_time: total_work_time });
       }
 
       /* total_cleared_area */
-      const total_cleared_area = Math.round(totals.clean_area / 1000000) + " m2";
+      const total_cleared_area = Math.round(cleared_area / 1000000) + " m2";
       if (this.getSetting("total_cleared_area") !== total_cleared_area) {
         await this.setSettings({ total_cleared_area: total_cleared_area });
       }
 
       /* total_clean_count */
-      if (this.getSetting("total_clean_count") !== totals.clean_count) {
-        await this.setSettings({ total_clean_count: String(totals.clean_count) });
+      if (this.getSetting("total_clean_count") !== clean_count) {
+        await this.setSettings({ total_clean_count: String(clean_count) });
       }
 
     } catch (error) {

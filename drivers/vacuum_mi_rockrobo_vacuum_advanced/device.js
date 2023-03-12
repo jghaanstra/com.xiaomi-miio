@@ -13,9 +13,40 @@ class MiRobotAdvancedDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // DEVICE VARIABLES
+      this.vacuumErrorCodes = {
+        0: "No error",
+        1: "Laser distance sensor error",
+        2: "Collision sensor error",
+        3: "Wheels on top of void, move robot",
+        4: "Clean hovering sensors, move robot",
+        5: "Clean main brush",
+        6: "Clean side brush",
+        7: "Main wheel stuck?",
+        8: "Device stuck, clean area",
+        9: "Dust collector missing",
+        10: "Clean filter",
+        11: "Stuck in magnetic barrier",
+        12: "Low battery",
+        13: "Charging fault",
+        14: "Battery fault",
+        15: "Wall sensors dirty, wipe them",
+        16: "Place me on flat surface",
+        17: "Side brushes problem, reboot me",
+        18: "Suction fan problem",
+        19: "Unpowered charging station",
+      };
+
+      // RESET CONSUMABLE ALARMS
+      this.updateCapabilityValue("alarm_main_brush_work_time", false);
+      this.updateCapabilityValue("alarm_side_brush_work_time", false);
+      this.updateCapabilityValue("alarm_filter_work_time", false);
+      this.updateCapabilityValue("alarm_sensor_dirty_time", false);
+
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('statusVacuum');
       this.homey.flow.getDeviceTriggerCard('alertVacuum');
+      this.homey.flow.getDeviceTriggerCard('triggerVacuumRoomSegments');
 
       // LISTENERS FOR UPDATING CAPABILITIES
       this.registerCapabilityListener("onoff", this.onCapabilityOnoffVacuumcleaner.bind(this));
@@ -38,6 +69,16 @@ class MiRobotAdvancedDevice extends Device {
       await this.updateCapabilityValue("measure_battery", parseInt(result[0]["battery"]));
       await this.updateCapabilityValue("alarm_battery", parseInt(result[0]["battery"]) === 20 ? true : false);
 
+      if (result[0].hasOwnProperty('error_code')) {
+        const error = this.vacuumErrorCodes[result[0].error_code];
+        if (this.getSetting('error') !== error ) {
+          await this.setSettings({ error: error });
+          if (error !== 0) {
+            await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": error }).catch(error => { this.error(error) });
+          }
+        }
+      }
+
       if (result[0].hasOwnProperty('water_box_mode')) {
         if (!this.hasCapability('vacuum_roborock_mop_intensity')) {
           this.addCapability('vacuum_roborock_mop_intensity')
@@ -55,8 +96,15 @@ class MiRobotAdvancedDevice extends Device {
       this.vacuumTotals(totals);
 
       const rooms = await this.miio.call("get_room_mapping", [], { retries: 1 });
-      if (this.getSetting('rooms') !== rooms ) {
-        await this.setSettings({ rooms: rooms.toString() });
+      if (rooms.toString() !== 'unknown_method') {
+        if (this.getSetting('rooms') !== rooms ) {
+          await this.setSettings({ rooms: rooms.toString() });
+          await this.homey.flow.getDeviceTriggerCard('triggerVacuumRoomSegments').trigger(this, {"segments": rooms.toString() }).catch(error => { this.error(error) });
+        }
+      } else {
+        if (this.getSetting('rooms') !== 'Feature Not Supported' ) {
+          await this.setSettings({ rooms: 'Feature Not Supported' });
+        }
       }
 
     } catch (error) {

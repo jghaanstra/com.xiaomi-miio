@@ -110,6 +110,24 @@
   {
     "type": "group",
     "label": {
+      "en": "Device data",
+      "nl": "Apparaat data"
+    },
+    "children": [
+      {
+        "id": "error",
+        "type": "label",
+        "label": {
+          "en": "Error",
+          "nl": "Error"
+        },
+        "value": "No error"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
       "en": "Device Settings",
       "nl": "Apparaat instellingen"
     },

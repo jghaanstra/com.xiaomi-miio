@@ -1,0 +1,139 @@
+{
+  "name": {
+    "en": "Aqara 2 Channel Relay (Gateway)",
+    "nl": "Aqara 2 Channel Relay (Gateway)"
+  },
+  "images": {
+    "large": "/drivers/relay_c2acn01/assets/images/large.jpg",
+    "small": "/drivers/relay_c2acn01/assets/images/small.jpg"
+  },
+  "class": "socket",
+  "capabilities": [
+    "onoff.1",
+    "onoff.2",
+    "measure_power"
+  ],
+  "capabilitiesOptions": {
+    "onoff.1": {
+      "title": {
+        "en": "Channel 1",
+        "nl": "Kanaal 1"
+      }
+    },
+    "onoff.2": {
+      "title": {
+        "en": "Channel 2",
+        "nl": "Kanaal 2"
+      }
+    }
+  },
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "Device settings"
+      },
+      "children": [
+        {
+          "id": "deviceIp",
+          "type": "text",
+          "label": {
+            "en": "Device IP"
+          },
+          "hint": {
+            "en": "Enter Mi IR remote controller IP address."
+          },
+          "value": ""
+        },
+        {
+          "id": "deviceToken",
+          "type": "text",
+          "label": {
+            "en": "Device Token"
+          },
+          "hint": {
+            "en": "Enter Mi IR remote controller token."
+          },
+          "value": ""
+        },
+        {
+          "id": "updateTimer",
+          "type": "number",
+          "value": 60,
+          "attr": {
+            "min": 5,
+            "max": 3600
+          },
+          "label": {
+            "en": "Device update timer",
+            "nl": ""
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Device information"
+      },
+      "children": [
+        {
+          "id": "deviceSid",
+          "type": "label",
+          "label": {
+            "en": "Device sid"
+          },
+          "value": "0123456789abcd"
+        },
+        {
+          "id": "deviceFromGatewaySid",
+          "type": "label",
+          "label": {
+            "en": "Gateway sid"
+          },
+          "value": "0123456789ab"
+        },
+        {
+          "id": "deviceModelName",
+          "type": "label",
+          "label": {
+            "en": "Device model"
+          },
+          "value": "lumi.device"
+        },
+        {
+          "id": "deviceModelCodeName",
+          "type": "label",
+          "label": {
+            "en": "Device model code"
+          },
+          "value": "AABBCC01LM"
+        }
+      ]
+    }
+  ],
+  "pair": [
+    {
+      "id": "gateways"
+    },
+    {
+      "id": "devices",
+      "navigation": {
+        "prev": "gateways"
+      }
+    },
+    {
+      "id": "deviceSettings",
+      "navigation": {
+        "prev": "devices"
+      }
+    },
+    {
+      "id": "done",
+      "navigation": {
+        "prev": "devices"
+      }
+    }
+  ],
+  "deprecated": true
+}

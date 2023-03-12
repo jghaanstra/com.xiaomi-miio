@@ -1,0 +1,66 @@
+<link type="text/css" rel="stylesheet" href="../../../assets/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="../../../assets/bootstrap-vue.min.css" />
+<script src="../../../assets/vue.min.js"></script>
+<script src="../../../assets/bootstrap-vue.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<div id="aqaraRelay">
+  <b-container fluid class="mt-3">
+    <div role="group">
+      <label for="input-live">Name:</label>
+      <b-form-input
+        id="input-live"
+        v-model="device.name"
+        aria-describedby="input-live-help input-live-feedback"
+        placeholder="Enter device name"
+        trim
+        style="border: 1px solid #ced4da; padding: 10px;"
+      ></b-form-input>
+    </div>
+    <div role="group" class="mt-3">
+      <label for="input-live">Polling time:</label>
+      <b-form-input
+        id="input-live"
+        v-model="device.settings.updateTimer"
+        aria-describedby="input-live-help input-live-feedback"
+        placeholder="Enter polling time"
+        trim
+        style="border: 1px solid #ced4da; padding: 10px;"
+      ></b-form-input>
+    </div>
+    <div class="mt-5">
+      <b-button block variant="primary" @click="saveSettings" style="color: #fff; background-color: #28a745; border-color: #28a745; padding: 10px;">Add device</b-button>
+    </div>
+  </b-container>
+</div>
+
+<script>
+  Homey.setTitle("Device settings");
+
+  Homey.emit('getDevice')
+    .then(device => {
+      new Vue({
+        el: "#aqaraRelay",
+        data: {
+          device: {}
+        },
+        mounted() {
+          this.device = device;
+        },
+        methods: {
+          saveSettings() {
+            this.device.settings.updateTimer > 3600 ? 3600 : this.device.settings.updateTimer;
+            this.device.settings.updateTimer < 5 ? 5 : this.device.settings.updateTimer;
+            Homey.emit('saveSettings', {device: this.device})
+              .then(result => {
+                Homey.nextView();
+              }).catch(error => {
+                return Homey.alert(error);
+              });
+          }
+        }
+      });
+    }).catch(error => {
+      return Homey.alert(error);
+    });
+</script>

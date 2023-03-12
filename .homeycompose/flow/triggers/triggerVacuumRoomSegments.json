@@ -1,0 +1,30 @@
+{
+  "id": "triggerVacuumRoomSegments",
+  "title": {
+    "en": "Room segments has changed",
+    "nl": "Kamer segmenten is gewijzigd"
+  },
+  "tokens": [
+    {
+      "name": "segments",
+      "type": "string",
+      "title": {
+        "en": "Segments",
+        "nl": "Segmenten"
+      },
+      "example": "[16,17]"
+    }
+  ],
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Mi Robot",
+        "nl": "Selecteer Mi Robot"
+      },
+      "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced"
+    }
+  ],
+  "platforms": ["local"]
+}

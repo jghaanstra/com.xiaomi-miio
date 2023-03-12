@@ -1,0 +1,41 @@
+<link type="text/css" rel="stylesheet" href="../../../assets/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="../../../assets/bootstrap-vue.min.css" />
+<script src="../../../assets/vue.min.js"></script>
+<script src="../../../assets/bootstrap-vue.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<script>
+  Homey.setTitle("Select relay device");
+
+  Homey.emit('getDevices')
+    .then(devices => {
+      new Vue({
+        el: "#allDevices",
+        data: {
+          devices: []
+        },
+        mounted() {
+          this.devices = devices;
+        },
+        methods: {
+          selectedDevice(device) {
+            Homey.emit('selectedDevice', {device})
+              .then(result => {
+                Homey.nextView();
+              }).catch(error => {
+                return Homey.alert(error);
+              });
+          }
+        }
+      });
+    }).catch(error => {
+      return Homey.alert(error);
+    });
+</script>
+
+<div id="allDevices">
+  <div class="text-center">
+    <b-list-group v-for="device in devices" :key="device.sid">
+      <b-list-group-item @click="selectedDevice(device)">Aqara relay | {{ device.sid }}</b-list-group-item>
+    </b-list-group>
+  </div>
+</div>
