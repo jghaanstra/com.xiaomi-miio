@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.9",
+  "version": "3.1.10",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -12699,6 +12699,14 @@
             "en": "High",
             "nl": "Hoog",
             "de": "Hoch"
+          }
+        },
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto",
+            "nl": "Auto",
+            "de": "Auto"
           }
         }
       ]

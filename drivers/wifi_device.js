@@ -338,7 +338,7 @@ class MiWifiDeviceDevice extends Homey.Device {
 
       /* measure_waterlevel */
       if (this.miio.matches('cap:depth')) {
-        const value = await this.miio.depth();
+        const depth = await this.miio.depth();
         const waterlevel = this.util.clamp(Math.round(depth), 0, 100);
         if (this.getCapabilityValue('measure_waterlevel') !== waterlevel) {
           const previous_waterlevel = await this.getCapabilityValue('measure_waterlevel');
@@ -516,6 +516,12 @@ class MiWifiDeviceDevice extends Homey.Device {
       this.miio.on('pm2.5Changed', aqi => {
         this.updateCapabilityValue('measure_pm25', aqi);
       });
+
+      /* measure_waterlevel (not sure if this works, it's undocumented) */
+      this.miio.on('depthChanged', depth => {
+        const waterlevel = this.util.clamp(Math.round(depth), 0, 100);
+        this.setCapabilityValue('measure_waterlevel', waterlevel);
+      });
       
       /* measure_luminance */
       this.miio.on('illuminanceChanged', illuminance => {
@@ -637,7 +643,10 @@ class MiWifiDeviceDevice extends Homey.Device {
             }
           }
           break;
+        case 9:
         case 12:
+        case 13:
+          await this.updateCapabilityValue("vacuumcleaner_state", "stopped");
           await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "error" }).catch(error => { this.error(error) });
           break;
         default:
@@ -654,51 +663,59 @@ class MiWifiDeviceDevice extends Homey.Device {
     try {
       
       /* main_brush_work_time */
-      const main_brush_remaining = (100 - Math.ceil((consumables[0]["main_brush_work_time"] / 1080000) * 100)+ "%");
+      const main_brush_remaining_value = (100 - Math.ceil((consumables[0]["main_brush_work_time"] / 1080000) * 100));
+      const main_brush_remaining = main_brush_remaining_value + "%";
       if (this.getSetting("main_brush_work_time") !== main_brush_remaining) {
-        this.setSettings({ main_brush_work_time: main_brush_remaining });
-        if (main_brush_remaining < this.getSetting("alarm_threshold")) {
-          this.updateCapabilityValue("alarm_main_brush_work_time", true);
-          await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Main Brush", "value": main_brush_remaining }).catch(error => { this.error(error) });
-        } else if (main_brush_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_main_brush_work_time')) {
-          this.updateCapabilityValue("alarm_main_brush_work_time", false);
-        }
+        await this.setSettings({ main_brush_work_time: main_brush_remaining });
+        await this.main_brush_lifetime_token.setValue(main_brush_remaining_value);
+      }
+      if (main_brush_remaining < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_main_brush_work_time')) {
+        await this.updateCapabilityValue("alarm_main_brush_work_time", true);
+        await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Main Brush", "value": main_brush_remaining }).catch(error => { this.error(error) });
+      } else if (main_brush_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_main_brush_work_time')) {
+        this.updateCapabilityValue("alarm_main_brush_work_time", false);
       }
 
       /* alarm_side_brush_work_time */
-      const side_brush_remaining = (100 - Math.ceil((consumables[0]["side_brush_work_time"] / 720000) * 100)+ "%");
+      const side_brush_remaining_value = (100 - Math.ceil((consumables[0]["side_brush_work_time"] / 720000) * 100));
+      const side_brush_remaining = side_brush_remaining_value + "%";
       if (this.getSetting("side_brush_work_time") !== side_brush_remaining) {
-        this.setSettings({ side_brush_work_time: side_brush_remaining });
-        if (side_brush_remaining < this.getSetting("alarm_threshold")) {
-          this.updateCapabilityValue("alarm_side_brush_work_time", true);
-          await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Side Brush", "value": side_brush_remaining }).catch(error => { this.error(error) });
-        } else if (side_brush_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_side_brush_work_time')) {
-          this.updateCapabilityValue("alarm_side_brush_work_time", false);
-        }
+        await this.setSettings({ side_brush_work_time: side_brush_remaining });
+        await this.side_brush_lifetime_token.setValue(side_brush_remaining_value);
+      }
+      if (side_brush_remaining < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_side_brush_work_time')) {
+        await this.updateCapabilityValue("alarm_side_brush_work_time", true);
+        await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Side Brush", "value": side_brush_remaining }).catch(error => { this.error(error) });
+      } else if (side_brush_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_side_brush_work_time')) {
+        this.updateCapabilityValue("alarm_side_brush_work_time", false);
       }
 
       /* filter_work_time */
-      const filter_remaining = (100 - Math.ceil((consumables[0]["filter_work_time"] / 540000) * 100)+ "%");
+      const filter_remaining_value = (100 - Math.ceil((consumables[0]["filter_work_time"] / 540000) * 100));
+      const filter_remaining = filter_remaining_value + "%";
       if (this.getSetting("filter_work_time") !== filter_remaining) {
-        this.setSettings({ filter_work_time: filter_remaining });
-        if (filter_remaining < this.getSetting("alarm_threshold")) {
-          this.updateCapabilityValue("alarm_filter_work_time", true);
-          await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Filter", "value": filter_remaining }).catch(error => { this.error(error) });
-        } else if (filter_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_filter_work_time')) {
-          this.updateCapabilityValue("alarm_filter_work_time", false);
-        }
+        await this.setSettings({ filter_work_time: filter_remaining });
+        await this.filter_lifetime_token.setValue(filter_remaining_value);
+      }
+      if (filter_remaining < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_filter_work_time')) {
+        await this.updateCapabilityValue("alarm_filter_work_time", true);
+        await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Filter", "value": filter_remaining }).catch(error => { this.error(error) });
+      } else if (filter_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_filter_work_time')) {
+        this.updateCapabilityValue("alarm_filter_work_time", false);
       }
 
       /* sensor_dirty_work_time */
-      const sensor_dirty_remaining = (100 - Math.ceil((consumables[0]["sensor_dirty_time"] / 108000) * 100)+ "%");
+      const sensor_dirty_remaining_value = (100 - Math.ceil((consumables[0]["sensor_dirty_time"] / 108000) * 100));
+      const sensor_dirty_remaining = sensor_dirty_remaining_value + "%";
       if (this.getSetting("sensor_dirty_time") !== sensor_dirty_remaining) {
-        this.setSettings({ sensor_dirty_time: sensor_dirty_remaining });
-        if (sensor_dirty_remaining < this.getSetting("alarm_threshold")) {
-          this.updateCapabilityValue("alarm_sensor_dirty_time", true);
-          await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Sensor", "value": sensor_dirty_remaining }).catch(error => { this.error(error) });
-        } else if (sensor_dirty_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_sensor_dirty_time')) {
-          this.updateCapabilityValue("alarm_sensor_dirty_time", false);
-        }
+        await this.setSettings({ sensor_dirty_time: sensor_dirty_remaining });
+        await this.sensor_dirty_lifetime_token.setValue(sensor_dirty_remaining_value);
+      }
+      if (sensor_dirty_remaining < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_sensor_dirty_time')) {
+        await this.updateCapabilityValue("alarm_sensor_dirty_time", true);
+        await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Sensor", "value": sensor_dirty_remaining }).catch(error => { this.error(error) });
+      } else if (sensor_dirty_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_sensor_dirty_time')) {
+        this.updateCapabilityValue("alarm_sensor_dirty_time", false);
       }
 
     } catch (error) {
@@ -726,20 +743,25 @@ class MiWifiDeviceDevice extends Homey.Device {
       }
 
       /* total_work_time */
-      const total_work_time = Math.round(worktime / 3600) + " h";
+      const total_work_time_value = Math.round(worktime / 3600);
+      const total_work_time = total_work_time_value + " h";
       if (this.getSetting("total_work_time") !== total_work_time) {
         await this.setSettings({ total_work_time: total_work_time });
+        await this.total_work_time_token.setValue(total_work_time_value);
       }
 
       /* total_cleared_area */
-      const total_cleared_area = Math.round(cleared_area / 1000000) + " m2";
+      const total_cleared_area_value = Math.round(cleared_area / 1000000);
+      const total_cleared_area = total_cleared_area_value + " m2";
       if (this.getSetting("total_cleared_area") !== total_cleared_area) {
         await this.setSettings({ total_cleared_area: total_cleared_area });
+        await this.total_cleared_area_token.setValue(total_cleared_area_value);
       }
 
       /* total_clean_count */
       if (this.getSetting("total_clean_count") !== clean_count) {
         await this.setSettings({ total_clean_count: String(clean_count) });
+        await this.total_clean_count_token.setValue(clean_count);
       }
 
     } catch (error) {

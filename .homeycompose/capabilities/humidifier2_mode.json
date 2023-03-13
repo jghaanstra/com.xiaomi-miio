@@ -38,6 +38,14 @@
         "nl": "Hoog",
         "de": "Hoch"
       }
+    },
+    {
+      "id": "auto",
+      "title": {
+        "en": "Auto",
+        "nl": "Auto",
+        "de": "Auto"
+      }
     }
   ]
 }

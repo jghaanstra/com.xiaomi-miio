@@ -43,6 +43,15 @@ class MiRobotAdvancedDevice extends Device {
       this.updateCapabilityValue("alarm_filter_work_time", false);
       this.updateCapabilityValue("alarm_sensor_dirty_time", false);
 
+      // DEVICE TOKENS
+      this.main_brush_lifetime_token = await this.homey.flow.createToken("main_brush_lifetime", {type: "number", title: "Main Brush Lifetime (%)" });
+      this.side_brush_lifetime_token = await this.homey.flow.createToken("side_brush_lifetime", {type: "number", title: "Side Brush Lifetime (%)" });
+      this.filter_lifetime_token = await this.homey.flow.createToken("filter_lifetime", {type: "number", title: "Filter LifeTime (%)" });
+      this.sensor_dirty_lifetime_token = await this.homey.flow.createToken("sensor_dirty_lifetime", {type: "number", title: "Sensor Dirty Time (%)" });
+      this.total_work_time_token = await this.homey.flow.createToken("total_work_time", {type: "number", title: "Total Work Time (h)" });
+      this.total_cleared_area_token = await this.homey.flow.createToken("total_cleared_area", {type: "number", title: "Total Cleaned Area (m2)" });
+      this.total_clean_count_token = await this.homey.flow.createToken("total_clean_count", {type: "number", title: "Total Clean Count" });
+
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('statusVacuum');
       this.homey.flow.getDeviceTriggerCard('alertVacuum');
