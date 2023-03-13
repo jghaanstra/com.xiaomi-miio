@@ -1,17 +1,20 @@
-# event-lite.js [![npm version](https://badge.fury.io/js/event-lite.svg)](http://badge.fury.io/js/event-lite) [![Build Status](https://travis-ci.org/kawanet/event-lite.svg?branch=master)](https://travis-ci.org/kawanet/event-lite)
+# event-lite.js
+[![Node.js CI](https://github.com/kawanet/event-lite/workflows/Node.js%20CI/badge.svg?branch=master)](https://github.com/kawanet/event-lite/actions/)
+[![npm version](https://badge.fury.io/js/event-lite.svg)](https://www.npmjs.com/package/event-lite)
+[![gzip size](https://img.badgesize.io/https://unpkg.com/event-lite/dist/event-lite.min.js?compression=gzip)](https://unpkg.com/event-lite/dist/event-lite.min.js)
 
 Light-weight EventEmitter (less than 1KB when gzipped)
 
 ### Usage
 
 ```js
-var EventLite = require("event-lite");
+const EventLite = require("event-lite");
 
 function MyClass() {...}             // your class
 
 EventLite.mixin(MyClass.prototype);  // import event methods
 
-var obj = new MyClass();
+const obj = new MyClass();
 obj.on("foo", function(v) {...});    // add event listener
 obj.once("bar", function(v) {...});  // add one-time event listener
 obj.emit("foo", v);                  // dispatch event
@@ -28,7 +31,7 @@ npm install event-lite --save
 ### Browsers
 
 ```html
-<script src="https://raw.githubusercontent.com/kawanet/event-lite/master/dist/event-lite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/event-lite/dist/event-lite.min.js"></script>
 ```
 
 ### TypeScript
@@ -36,7 +39,7 @@ npm install event-lite --save
 ```typescript
 import EventLite = require("event-lite");
 
-class MyClass() extends EventLite {
+class MyClass extends EventLite {
     // your class
 }
 
@@ -64,7 +67,7 @@ obj.off("foo");                      // remove event listener
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2018 Yusuke Kawasaki
+Copyright (c) 2015-2023 Yusuke Kawasaki
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

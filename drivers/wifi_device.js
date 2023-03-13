@@ -718,6 +718,15 @@ class MiWifiDeviceDevice extends Homey.Device {
         this.updateCapabilityValue("alarm_sensor_dirty_time", false);
       }
 
+      /* initial update tokens */
+      if (!this.initialTokenConsumable || this.initialTokenConsumable == undefined) {
+        await this.main_brush_lifetime_token.setValue(main_brush_remaining_value);
+        await this.side_brush_lifetime_token.setValue(side_brush_remaining_value);
+        await this.filter_lifetime_token.setValue(filter_remaining_value);
+        await this.sensor_dirty_lifetime_token.setValue(sensor_dirty_remaining_value);
+        this.initialTokenConsumable = true;
+      }
+
     } catch (error) {
       this.error(error);
     }
@@ -762,6 +771,14 @@ class MiWifiDeviceDevice extends Homey.Device {
       if (this.getSetting("total_clean_count") !== clean_count) {
         await this.setSettings({ total_clean_count: String(clean_count) });
         await this.total_clean_count_token.setValue(clean_count);
+      }
+
+      /* initial update tokens */
+      if (!this.initialTokenTotal || this.initialTokenTotal == undefined) {
+        await this.total_work_time_token.setValue(total_work_time_value);
+        await this.total_cleared_area_token.setValue(total_cleared_area_value);
+        await this.total_clean_count_token.setValue(clean_count);
+        this.initialTokenTotal = true;
       }
 
     } catch (error) {

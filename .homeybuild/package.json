@@ -1,6 +1,6 @@
 {
   "name": "com.xiaomi-miio",
-  "version": "3.1.10",
+  "version": "3.1.11",
   "main": "app.js",
   "scripts": {},
   "devDependencies": {
@@ -12,6 +12,11 @@
     "miio": "^0.15.6",
     "mimorelinks": "^1.2.1",
     "tinycolor2": "^1.5.2"
+  },
+  "overrides": {
+    "miio": {
+      "yargs": "^17.7.1"
+    }
   },
   "repository": {
     "type": "git",
