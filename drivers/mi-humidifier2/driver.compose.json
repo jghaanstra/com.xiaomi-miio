@@ -13,7 +13,6 @@
   ],
   "capabilities": [
     "onoff",
-    "measure_power",
     "measure_temperature",
     "measure_humidity",
     "measure_waterlevel",

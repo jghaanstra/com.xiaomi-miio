@@ -6,28 +6,28 @@
   },
   "values": [
     {
-      "id": "low",
+      "id": "1",
       "title": {
         "en": "Low",
         "nl": "Laag"
       }
     },
     {
-      "id": "medium",
+      "id": "2",
       "title": {
         "en": "Medium",
         "nl": "Medium"
       }
     },
     {
-      "id": "high",
+      "id": "3",
       "title": {
         "en": "High",
         "nl": "Hoog"
       }
     },
     {
-      "id": "humidity",
+      "id": "4",
       "title": {
         "en": "Humidity",
         "nl": "Luchtvochtigheid"

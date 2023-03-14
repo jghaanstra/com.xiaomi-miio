@@ -669,10 +669,10 @@ class MiWifiDeviceDevice extends Homey.Device {
         await this.setSettings({ main_brush_work_time: main_brush_remaining });
         await this.main_brush_lifetime_token.setValue(main_brush_remaining_value);
       }
-      if (main_brush_remaining < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_main_brush_work_time')) {
+      if (main_brush_remaining_value < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_main_brush_work_time')) {
         await this.updateCapabilityValue("alarm_main_brush_work_time", true);
         await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Main Brush", "value": main_brush_remaining }).catch(error => { this.error(error) });
-      } else if (main_brush_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_main_brush_work_time')) {
+      } else if (main_brush_remaining_value > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_main_brush_work_time')) {
         this.updateCapabilityValue("alarm_main_brush_work_time", false);
       }
 
@@ -683,10 +683,10 @@ class MiWifiDeviceDevice extends Homey.Device {
         await this.setSettings({ side_brush_work_time: side_brush_remaining });
         await this.side_brush_lifetime_token.setValue(side_brush_remaining_value);
       }
-      if (side_brush_remaining < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_side_brush_work_time')) {
+      if (side_brush_remaining_value < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_side_brush_work_time')) {
         await this.updateCapabilityValue("alarm_side_brush_work_time", true);
         await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Side Brush", "value": side_brush_remaining }).catch(error => { this.error(error) });
-      } else if (side_brush_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_side_brush_work_time')) {
+      } else if (side_brush_remaining_value > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_side_brush_work_time')) {
         this.updateCapabilityValue("alarm_side_brush_work_time", false);
       }
 
@@ -697,10 +697,10 @@ class MiWifiDeviceDevice extends Homey.Device {
         await this.setSettings({ filter_work_time: filter_remaining });
         await this.filter_lifetime_token.setValue(filter_remaining_value);
       }
-      if (filter_remaining < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_filter_work_time')) {
+      if (filter_remaining_value < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_filter_work_time')) {
         await this.updateCapabilityValue("alarm_filter_work_time", true);
         await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Filter", "value": filter_remaining }).catch(error => { this.error(error) });
-      } else if (filter_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_filter_work_time')) {
+      } else if (filter_remaining_value > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_filter_work_time')) {
         this.updateCapabilityValue("alarm_filter_work_time", false);
       }
 
@@ -711,10 +711,10 @@ class MiWifiDeviceDevice extends Homey.Device {
         await this.setSettings({ sensor_dirty_time: sensor_dirty_remaining });
         await this.sensor_dirty_lifetime_token.setValue(sensor_dirty_remaining_value);
       }
-      if (sensor_dirty_remaining < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_sensor_dirty_time')) {
+      if (sensor_dirty_remaining_value < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_sensor_dirty_time')) {
         await this.updateCapabilityValue("alarm_sensor_dirty_time", true);
         await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Sensor", "value": sensor_dirty_remaining }).catch(error => { this.error(error) });
-      } else if (sensor_dirty_remaining > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_sensor_dirty_time')) {
+      } else if (sensor_dirty_remaining_value > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_sensor_dirty_time')) {
         this.updateCapabilityValue("alarm_sensor_dirty_time", false);
       }
 

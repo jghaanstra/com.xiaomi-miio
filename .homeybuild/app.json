@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.11",
+  "version": "3.1.12",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -7009,8 +7009,8 @@
         "lan"
       ],
       "name": {
-        "en": "Mijia Smart Sterilization Humidifier JSQ (WiFi)",
-        "nl": "Mijia Smart Sterilization Humidifier JSQ (WiFi)"
+        "en": "Mijia Smart Sterilization Humidifier JSQ / JSQ1 / MJJSQ (WiFi)",
+        "nl": "Mijia Smart Sterilization Humidifier JSQ / JSQ1 / MJJSQ (WiFi)"
       },
       "images": {
         "large": "drivers/humidifier_deerma_humidifier_jsq/assets/images/large.jpg",
@@ -7020,16 +7020,17 @@
       "capabilities": [
         "onoff",
         "dim",
-        "humidifier_deerma_jsq4_mode",
+        "humidifier_deerma_jsq_mode",
         "measure_temperature",
         "measure_humidity",
-        "alarm_water"
+        "alarm_water",
+        "alarm_water.tank"
       ],
       "capabilitiesOptions": {
         "dim": {
           "title": {
-            "en": "Speedlevel",
-            "nl": "Snelheid"
+            "en": "Target Relative Humidity",
+            "nl": "Doel relatieve vochtigheid"
           },
           "min": 40,
           "max": 70
@@ -7038,6 +7039,12 @@
           "title": {
             "en": "Waterlevel",
             "nl": "Waterniveau"
+          }
+        },
+        "alarm_water.tank": {
+          "title": {
+            "en": "Water tank status",
+            "nl": "Watertank status"
           }
         }
       },
@@ -7294,137 +7301,6 @@
         }
       },
       "id": "humidifier_deerma_humidifier_jsq5",
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "User Settings",
-            "nl": "Gebruikersinstellingem"
-          },
-          "children": [
-            {
-              "id": "led",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "LED",
-                "nl": "LED"
-              }
-            },
-            {
-              "id": "buzzer",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Buzzer",
-                "nl": "Buzzer"
-              }
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Device Settings",
-            "nl": "Apparaat instellingen"
-          },
-          "children": [
-            {
-              "id": "address",
-              "type": "text",
-              "value": "0.0.0.0",
-              "label": {
-                "en": "IP Address",
-                "nl": "IP adres"
-              }
-            },
-            {
-              "id": "token",
-              "type": "text",
-              "value": "",
-              "label": {
-                "en": "Mi Device Token",
-                "nl": "Mi Apparaat Token"
-              }
-            },
-            {
-              "id": "polling",
-              "type": "number",
-              "value": 60,
-              "attr": {
-                "min": 5,
-                "max": 3600
-              },
-              "label": {
-                "en": "Polling Frequency",
-                "nl": "Polling frequentie"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "icon": "/drivers/humidifier_deerma_humidifier_mjjsq/assets/icon.svg",
-      "pair": [
-        {
-          "id": "start",
-          "navigation": {
-            "next": "pair"
-          }
-        },
-        {
-          "id": "pair"
-        },
-        {
-          "id": "add_device"
-        }
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "name": {
-        "en": "Mijia Smart Sterilization Humidifier MJJSQ (WiFi)",
-        "nl": "Mijia Smart Sterilization Humidifier MJJSQ (WiFi)"
-      },
-      "images": {
-        "large": "drivers/humidifier_deerma_humidifier_mjjsq/assets/images/large.jpg",
-        "small": "drivers/humidifier_deerma_humidifier_mjjsq/assets/images/small.jpg"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "onoff",
-        "dim",
-        "humidifier_deerma_mode",
-        "measure_temperature",
-        "measure_humidity",
-        "alarm_water",
-        "alarm_motion.tank"
-      ],
-      "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Humidity",
-            "nl": "Luchtvochtigheid"
-          }
-        },
-        "alarm_water": {
-          "title": {
-            "en": "Waterlevel",
-            "nl": "Waterniveau"
-          }
-        },
-        "alarm_motion.tank": {
-          "title": {
-            "en": "Water tank status",
-            "nl": "Watertank status"
-          }
-        }
-      },
-      "id": "humidifier_deerma_humidifier_mjjsq",
       "settings": [
         {
           "type": "group",
@@ -8919,7 +8795,6 @@
       "class": "sensor",
       "capabilities": [
         "onoff",
-        "measure_power",
         "measure_temperature",
         "measure_humidity",
         "measure_waterlevel",
@@ -12486,6 +12361,45 @@
       "getable": true,
       "setable": true
     },
+    "humidifier_deerma_jsq_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "values": [
+        {
+          "id": "1",
+          "title": {
+            "en": "Low",
+            "nl": "Laag"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Medium",
+            "nl": "Medium"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "High",
+            "nl": "Hoog"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "Humidity",
+            "nl": "Luchtvochtigheid"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
     "humidifier_deerma_jsq4_mode": {
       "type": "enum",
       "title": {
@@ -12548,45 +12462,6 @@
         },
         {
           "id": "4",
-          "title": {
-            "en": "Humidity",
-            "nl": "Luchtvochtigheid"
-          }
-        }
-      ],
-      "getable": true,
-      "setable": true
-    },
-    "humidifier_deerma_mode": {
-      "type": "enum",
-      "title": {
-        "en": "Mode",
-        "nl": "Modus"
-      },
-      "values": [
-        {
-          "id": "low",
-          "title": {
-            "en": "Low",
-            "nl": "Laag"
-          }
-        },
-        {
-          "id": "medium",
-          "title": {
-            "en": "Medium",
-            "nl": "Medium"
-          }
-        },
-        {
-          "id": "high",
-          "title": {
-            "en": "High",
-            "nl": "Hoog"
-          }
-        },
-        {
-          "id": "humidity",
           "title": {
             "en": "Humidity",
             "nl": "Luchtvochtigheid"
