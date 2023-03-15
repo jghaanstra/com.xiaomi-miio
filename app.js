@@ -264,16 +264,17 @@ class XiaomiMiioApp extends Homey.App {
         }
       });
 
-    // AIR PURIFIER, HUMDIFIER, ZHIMI FAN
+    // AIR PURIFIER, ZHIMI FAN
     this.homey.flow.getActionCard('ledAirpurifierHumidifier')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.miio.changeLEDBrightness(args.brightness);
+          return await args.device.miio.call('set_led_b', Number(args.brightness), { retries: 1 });
         } catch (error) {
           return Promise.reject(error.message);
         }
       });
 
+    // FANS
     this.homey.flow.getActionCard('modeDmakerFan1C')
       .registerRunListener(async (args) => {
         try {

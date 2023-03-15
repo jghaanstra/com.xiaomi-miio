@@ -17,11 +17,11 @@
       }
     },
     {
-      "id": "night",
+      "id": "silent",
       "title": {
-        "en": "Night",
-        "nl": "Nacht",
-        "de": "Nacht"
+        "en": "Silent",
+        "nl": "Stil",
+        "de": "Ruhig"
       }
     },
     {

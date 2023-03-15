@@ -50,6 +50,7 @@ class MiWifiDeviceDevice extends Homey.Device {
     }
   }
 
+  // UPDATE DEVICE SETTINGS, CAN BE OVERWRITTEN ON DEVICE LEVEL */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     if (changedKeys.includes("address") || changedKeys.includes("token") || changedKeys.includes("polling")) {
       this.refreshDevice();
@@ -383,6 +384,7 @@ class MiWifiDeviceDevice extends Homey.Device {
       /* mode */
       if (this.miio.matches('cap:mode')) {
         const mode = await this.miio.mode();
+        this.handleModeEvent(mode);
         if (this.getStoreValue('mode') !== mode && mode !== null) { this.setStoreValue('mode', mode); }       
       }
 
@@ -435,27 +437,8 @@ class MiWifiDeviceDevice extends Homey.Device {
         });
       }
 
-      /* humidifier measure_power */
-      if (this.hasCapability('humidifier2_mode')) {
-        const mode = await this.miio.mode();
-        let power = 0;
-        switch (mode) {
-          case 'idle':
-            power = 2.4;
-            break;
-          case 'silent':
-            power = 2.7;
-            break;
-          case 'medium':
-            power = 3.4;
-            break;
-          case 'high':
-            power = 4.8;
-            break;
-        }
-        this.updateCapabilityValue('measure_power', power);
-
-      }
+      // DEVICE SETTINGS
+      this.handleDeviceSettings();
 
       if (!this.getAvailable()) { this.setAvailable(); }
 
@@ -570,7 +553,7 @@ class MiWifiDeviceDevice extends Homey.Device {
         const previous_mode = this.getCapabilityValue('airpurifier_mode');
         if (previous_mode !== mode) {
           this.setCapabilityValue('airpurifier_mode', mode);
-          this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": mode, "previous_mode": previous_mode.toString() }).catch(error => { this.error(error) });
+          this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": mode, "previous_mode": previous_mode }).catch(error => { this.error(error) });
         }
       }
 
@@ -586,13 +569,16 @@ class MiWifiDeviceDevice extends Homey.Device {
         const previous_mode = this.getCapabilityValue('humidifier2_mode');
         if (previous_mode !== mode) {
           this.setCapabilityValue('humidifier2_mode', mode);
-          this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": mode, "previous_mode": previous_mode.toString() }).catch(error => { this.error(error) });
+          this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": mode, "previous_mode": previous_mode }).catch(error => { this.error(error) });
         }
       }
     } catch (error) {
       this.error(error);
     }
   }
+
+  /* HANDLE DEVICE SETTINGS, NEED TO OVERWRITTEN ON DEVICE LEVEL */
+  async handleDeviceSettings() { }
 
   /* VACUUMCLEANER STATE, CAN BE OVERWRITTEN ON DEVICE LEVEL */
   async vacuumCleanerState(state) {

@@ -18,21 +18,21 @@
       "type": "dropdown",
       "values": [
         {
-          "id": "bright",
+          "id": "1",
           "label": {
             "en": "Bright",
             "nl": "Helder"
           }
         },
         {
-          "id": "dim",
+          "id": "2",
           "label": {
             "en": "Dim",
             "nl": "Gedimd"
           }
         },
         {
-          "id": "off",
+          "id": "3",
           "label": {
             "en": "Off",
             "nl": "Uit"

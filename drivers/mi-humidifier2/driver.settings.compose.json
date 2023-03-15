@@ -2,6 +2,65 @@
   {
     "type": "group",
     "label": {
+      "en": "User Settings",
+      "nl": "Gebruikersinstellingem"
+    },
+    "children": [
+      {
+        "id": "led",
+        "type": "dropdown",
+        "value": "1",
+        "label": {
+          "en": "LED brightness",
+          "nl": "LED helderheid"
+        },
+        "values": [
+          {
+            "id": "1",
+            "label": {
+              "en": "Bright",
+              "nl": "Helder"
+            }
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Dim",
+              "nl": "Gedimd"
+            }
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Off",
+              "nl": "Uit"
+            }
+          }
+        ]
+      },
+      {
+        "id": "buzzer",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Buzzer",
+          "nl": "Buzzer"
+        }
+      },
+      {
+        "id": "childLock",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Child Lock",
+          "nl": "Kinderslot"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
       "en": "Device Settings",
       "nl": "Apparaat instellingen"
     },

@@ -22,8 +22,9 @@ class HumidifierDeermaJSQDevice extends Device {
 
       // TODO: remove after next release
       if (this.hasCapability('humidifier_deerma_jsq4_mode')) { this.removeCapability('humidifier_deerma_jsq4_mode'); }
-      if (!this.hasCapability('humidifier_deerma_jsq_mode')) { this.removeCapability('humidifier_deerma_jsq_mode'); }
-      if (!this.hasCapability('alarm_water.tank')) { this.removeCapability('alarm_water.tank'); }
+      if (!this.hasCapability('humidifier_deerma_jsq_mode')) { this.addCapability('humidifier_deerma_jsq_mode'); }
+      if (this.hasCapability('alarm_motion.tank')) { this.removeCapability('alarm_motion.tank'); }
+      if (!this.hasCapability('alarm_water.tank')) { this.addCapability('alarm_water.tank'); }
 
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');

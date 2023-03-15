@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.12",
+  "version": "3.1.13",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -2250,21 +2250,21 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "bright",
+                "id": "1",
                 "label": {
                   "en": "Bright",
                   "nl": "Helder"
                 }
               },
               {
-                "id": "dim",
+                "id": "2",
                 "label": {
                   "en": "Dim",
                   "nl": "Gedimd"
                 }
               },
               {
-                "id": "off",
+                "id": "3",
                 "label": {
                   "en": "Off",
                   "nl": "Uit"
@@ -8461,6 +8461,42 @@
         {
           "type": "group",
           "label": {
+            "en": "User Settings",
+            "nl": "Gebruikersinstellingem"
+          },
+          "children": [
+            {
+              "id": "led",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "LED",
+                "nl": "LED"
+              }
+            },
+            {
+              "id": "buzzer",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Buzzer",
+                "nl": "Buzzer"
+              }
+            },
+            {
+              "id": "childLock",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Child Lock",
+                "nl": "Kinderslot"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
             "en": "Device Settings",
             "nl": "Apparaat instellingen"
           },
@@ -8807,6 +8843,65 @@
       },
       "id": "mi-humidifier2",
       "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "User Settings",
+            "nl": "Gebruikersinstellingem"
+          },
+          "children": [
+            {
+              "id": "led",
+              "type": "dropdown",
+              "value": "1",
+              "label": {
+                "en": "LED brightness",
+                "nl": "LED helderheid"
+              },
+              "values": [
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "Bright",
+                    "nl": "Helder"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "Dim",
+                    "nl": "Gedimd"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "Off",
+                    "nl": "Uit"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "buzzer",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Buzzer",
+                "nl": "Buzzer"
+              }
+            },
+            {
+              "id": "childLock",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Child Lock",
+                "nl": "Kinderslot"
+              }
+            }
+          ]
+        },
         {
           "type": "group",
           "label": {
@@ -12116,11 +12211,11 @@
           }
         },
         {
-          "id": "night",
+          "id": "silent",
           "title": {
-            "en": "Night",
-            "nl": "Nacht",
-            "de": "Nacht"
+            "en": "Silent",
+            "nl": "Stil",
+            "de": "Ruhig"
           }
         },
         {
@@ -12545,14 +12640,6 @@
       "setable": true,
       "values": [
         {
-          "id": "idle",
-          "title": {
-            "en": "Off",
-            "nl": "Uit",
-            "de": "Aus"
-          }
-        },
-        {
           "id": "silent",
           "title": {
             "en": "Silent",
@@ -12582,6 +12669,14 @@
             "en": "Auto",
             "nl": "Auto",
             "de": "Auto"
+          }
+        },
+        {
+          "id": "strong",
+          "title": {
+            "en": "Strong",
+            "nl": "Sterk",
+            "de": "Stark"
           }
         }
       ]
