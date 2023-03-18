@@ -18,31 +18,38 @@
       "type": "dropdown",
       "values": [
         {
-          "id": "idle",
-          "label": {
-            "en": "Off",
-            "nl": "Uit"
-          }
-        },
-        {
           "id": "silent",
-          "label": {
+          "title": {
             "en": "Silent",
             "nl": "Stil"
           }
         },
         {
           "id": "medium",
-          "label": {
+          "title": {
             "en": "Medium",
             "nl": "Middel"
           }
         },
         {
           "id": "high",
-          "label": {
+          "title": {
             "en": "High",
             "nl": "Hoog"
+          }
+        },
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto",
+            "nl": "Auto"
+          }
+        },
+        {
+          "id": "strong",
+          "title": {
+            "en": "Strong",
+            "nl": "Sterk"
           }
         }
       ]

@@ -11,10 +11,6 @@
         "$extends": "deviceSid"
       },
       {
-        "id": "gatewaySid",
-        "$extends": "gatewaySid"
-      },
-      {
         "id": "model",
         "$extends": "model"
       },

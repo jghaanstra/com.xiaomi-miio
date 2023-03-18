@@ -10,7 +10,7 @@ class MiPlug extends Driver {
     if (!this.util) this.util = new Util({homey: this.homey});
 
     this.config = {
-      model: ['plug']
+      model: ["plug"]
     }
 
   }

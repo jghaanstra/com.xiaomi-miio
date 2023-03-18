@@ -12,7 +12,7 @@
         "en": "Select device",
         "nl": "Selecteer apparaat"
       },
-      "filter": "driver_id=aqara-86sw2-advanced|db86_switch"
+      "filter": "driver_id=aqara_86sw2_switch|aqara-86sw2-advanced|db86_switch"
     }
   ],
   "platforms": ["local"]

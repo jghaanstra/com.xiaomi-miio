@@ -222,7 +222,7 @@ class MiWifiDeviceDevice extends Homey.Device {
   async createDevice() {
     try {
       this.miio = await miio.device({ address: this.getSetting('address'), token: this.getSetting('token') });
-      if (!this.getAvailable()) { this.setAvailable(); }
+      if (!this.getAvailable()) { await this.setAvailable(); }
       this.startCapabilityListeners();
       this.pollDevice();
     } catch (error) {
@@ -440,7 +440,7 @@ class MiWifiDeviceDevice extends Homey.Device {
       // DEVICE SETTINGS
       this.handleDeviceSettings();
 
-      if (!this.getAvailable()) { this.setAvailable(); }
+      if (!this.getAvailable()) { await this.setAvailable(); }
 
     } catch (error) {
       this.homey.clearInterval(this.pollingInterval);

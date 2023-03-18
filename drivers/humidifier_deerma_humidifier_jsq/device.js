@@ -20,12 +20,6 @@ class HumidifierDeermaJSQDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove after next release
-      if (this.hasCapability('humidifier_deerma_jsq4_mode')) { this.removeCapability('humidifier_deerma_jsq4_mode'); }
-      if (!this.hasCapability('humidifier_deerma_jsq_mode')) { this.addCapability('humidifier_deerma_jsq_mode'); }
-      if (this.hasCapability('alarm_motion.tank')) { this.removeCapability('alarm_motion.tank'); }
-      if (!this.hasCapability('alarm_water.tank')) { this.addCapability('alarm_water.tank'); }
-
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 
@@ -63,7 +57,7 @@ class HumidifierDeermaJSQDevice extends Device {
       this.registerCapabilityListener('humidifier_deerma_jsq_mode', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("Set_HumidifierGears", [value.toString()]);
+            return await this.miio.call("Set_HumidifierGears", [Number(value)]);
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -106,8 +100,8 @@ class HumidifierDeermaJSQDevice extends Device {
       await this.updateCapabilityValue("dim", parseInt(result[2]) / 100);
       await this.updateCapabilityValue("onoff", result[4] === 1 ? true : false);
       await this.updateCapabilityValue("measure_temperature", parseInt(result[5]));
-      await this.updateCapabilityValue("alarm_water", result[7] === 0 ? false : true);
-      await this.updateCapabilityValue("alarm_motion.tank", result[8] === 0 ? false : true);
+      await this.updateCapabilityValue("alarm_water", result[7] === 0 ? true : false);
+      await this.updateCapabilityValue("alarm_water.tank", result[8] === 0 ? false : true);
       
       await this.setSettings({ led: result[3] === 1 ? true : false });
       await this.setSettings({ buzzer: result[6] === 1 ? true : false });

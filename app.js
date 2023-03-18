@@ -268,7 +268,11 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('ledAirpurifierHumidifier')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.miio.call('set_led_b', Number(args.brightness), { retries: 1 });
+          if (this.hasCapability('airpurifier_mode')) {
+            return await args.device.miio.call('set_led', [args.brightness === "3" ? "off" : "on"], { retries: 1 });
+          } else {
+            return await args.device.miio.call('set_led_b', [Number(args.brightness)], { retries: 1 });
+          }          
         } catch (error) {
           return Promise.reject(error.message);
         }

@@ -15,17 +15,15 @@ class MiHomeSubDeviceDriver extends Homey.Driver {
       try {
         if (this.homey.app.mihub.hubs) {
           const discoverDevices = await this.homey.app.mihub.getDevicesByModel(this.config.model);
-          const name = await this.util.getFriendlyNameSubdevice(this.config.model[0]) || 'Unknown model';
 
           return discoverDevices.map(device => {
             return {
-              name: name + " | " + device.sid,
+              name: device.name + " | " + device.sid,
               data: {
                 sid: device.sid
               },
               settings: {
                 deviceSid: device.sid,
-                gatewaySid: device.gatewaySid,
                 model: device.model,
                 modelCode: device.modelCode
               }

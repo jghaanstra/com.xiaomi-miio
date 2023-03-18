@@ -54,6 +54,7 @@ class MiHub extends EventEmitter {
 
   async getDevicesByModel(modelTypes) {
     const devices = MiGateway.getDeviceList();
+    console.log(devices);
     return devices.filter(device => modelTypes.includes(device.model));
   }
 

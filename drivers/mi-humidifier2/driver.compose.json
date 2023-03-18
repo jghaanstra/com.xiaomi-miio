@@ -17,10 +17,5 @@
     "measure_humidity",
     "measure_waterlevel",
     "humidifier2_mode"
-  ],
-  "capabilitiesOptions": {
-    "measure_power": {
-      "isApproximated": true
-    }
-  }
+  ]
 }

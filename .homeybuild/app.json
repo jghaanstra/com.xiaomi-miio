@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.13",
+  "version": "3.1.14",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -347,7 +347,7 @@
               "en": "Select device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=aqara-86sw2-advanced|db86_switch"
+            "filter": "driver_id=aqara_86sw2_switch|aqara-86sw2-advanced|db86_switch"
           }
         ],
         "platforms": [
@@ -368,7 +368,7 @@
               "en": "Select device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=aqara-86sw2-advanced|db86_switch"
+            "filter": "driver_id=aqara_86sw2_switch|aqara-86sw2-advanced|db86_switch"
           }
         ],
         "platforms": [
@@ -389,7 +389,7 @@
               "en": "Select device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=aqara-86sw2-advanced|db86_switch"
+            "filter": "driver_id=aqara_86sw2_switch|aqara-86sw2-advanced|db86_switch"
           }
         ],
         "platforms": [
@@ -2320,10 +2320,10 @@
                 }
               },
               {
-                "id": "night",
+                "id": "silent",
                 "label": {
-                  "en": "Night",
-                  "nl": "Nacht"
+                  "en": "Silent",
+                  "nl": "Stil"
                 }
               },
               {
@@ -2754,31 +2754,38 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "idle",
-                "label": {
-                  "en": "Off",
-                  "nl": "Uit"
-                }
-              },
-              {
                 "id": "silent",
-                "label": {
+                "title": {
                   "en": "Silent",
                   "nl": "Stil"
                 }
               },
               {
                 "id": "medium",
-                "label": {
+                "title": {
                   "en": "Medium",
                   "nl": "Middel"
                 }
               },
               {
                 "id": "high",
-                "label": {
+                "title": {
                   "en": "High",
                   "nl": "Hoog"
+                }
+              },
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "strong",
+                "title": {
+                  "en": "Strong",
+                  "nl": "Sterk"
                 }
               }
             ]
@@ -4868,15 +4875,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -4956,15 +4954,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
@@ -5050,15 +5039,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -5141,15 +5121,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -5223,15 +5194,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
@@ -5326,15 +5288,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -5408,15 +5361,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
@@ -5511,15 +5455,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -5608,15 +5543,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
@@ -5727,15 +5653,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -5816,15 +5733,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
@@ -5935,15 +5843,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
@@ -6072,15 +5971,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -6161,15 +6051,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
@@ -6255,15 +6136,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -6346,15 +6218,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -6430,15 +6293,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
@@ -8022,15 +7876,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -8597,15 +8442,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -8685,15 +8521,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
@@ -8836,11 +8663,6 @@
         "measure_waterlevel",
         "humidifier2_mode"
       ],
-      "capabilitiesOptions": {
-        "measure_power": {
-          "isApproximated": true
-        }
-      },
       "id": "mi-humidifier2",
       "settings": [
         {
@@ -9006,15 +8828,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -9122,15 +8935,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
@@ -9589,15 +9393,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -9709,15 +9504,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
@@ -10443,15 +10229,6 @@
               }
             },
             {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
-              }
-            },
-            {
               "id": "model",
               "type": "label",
               "value": "lumi.device",
@@ -10816,15 +10593,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
@@ -11702,15 +11470,6 @@
               "label": {
                 "en": "Device SID",
                 "nl": "Apparaat SID"
-              }
-            },
-            {
-              "id": "gatewaySid",
-              "type": "label",
-              "value": "0123456789ab",
-              "label": {
-                "en": "Gateway SID",
-                "nl": "Gateway SID"
               }
             },
             {
