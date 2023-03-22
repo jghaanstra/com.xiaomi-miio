@@ -42,7 +42,8 @@ class HumidifierDeermaJSQDevice extends Device {
       this.registerCapabilityListener('dim', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("Set_HumiValue", [value]);
+            const humidity = value * 100;
+            return await this.miio.call("Set_HumiValue", [humidity]);
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();

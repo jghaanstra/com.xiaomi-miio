@@ -32,10 +32,7 @@
       "title": {
         "en": "Speedlevel",
         "nl": "Snelheid"
-      },
-      "min": 1,
-      "max": 100,
-      "step": 1
+      }
     },
     "dim.target": {
       "title": {

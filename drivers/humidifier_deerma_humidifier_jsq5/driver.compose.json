@@ -25,8 +25,8 @@
         "en": "Speedlevel",
         "nl": "Snelheid"
       },
-      "min": 40,
-      "max": 70
+      "min": 0.4,
+      "max": 0.7
     },
     "alarm_water": {
       "title": {

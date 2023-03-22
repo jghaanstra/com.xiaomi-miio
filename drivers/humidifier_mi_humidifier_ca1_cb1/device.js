@@ -41,9 +41,7 @@ class MiHumidifierCa1Cb1Device extends Device {
         try {
           if (this.miio) {
             let humidity = value * 100;
-            if (humidity > 0) {
-              return await this.miio.call("set_limit_hum", [humidity]);
-            }
+            return await this.miio.call("set_limit_hum", [humidity]);
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();

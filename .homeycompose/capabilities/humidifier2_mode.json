@@ -8,6 +8,14 @@
   "setable": true,
   "values": [
     {
+      "id": "idle",
+      "title": {
+        "en": "Off",
+        "nl": "Uit",
+        "de": "Aus"
+      }
+    },
+    {
       "id": "silent",
       "title": {
         "en": "Silent",

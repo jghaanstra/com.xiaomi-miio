@@ -52,6 +52,7 @@ class HumidifierDeermaJSQ5Device extends Device {
       this.registerCapabilityListener('dim', async ( value ) => {
         try {
           if (this.miio) {
+            const humidity = value * 100;
             return await this.miio.call("set_properties", [{ siid: 2, piid: 6, value: humidity }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
@@ -115,7 +116,7 @@ class HumidifierDeermaJSQ5Device extends Device {
       const deviceLedBrightnessResult = result.filter((r) => r.siid == 6 && r.piid == 1)[0];
 
       await this.updateCapabilityValue("onoff", powerResult.value);
-      await this.updateCapabilityValue("dim", +deviceFanLevelResult.value);
+      await this.updateCapabilityValue("dim", deviceFanLevelResult.value / 100);
       await this.updateCapabilityValue("measure_humidity", +deviceHumidityResult.value);
       await this.updateCapabilityValue("measure_temperature", +deviceTemperatureResult.value);
       await this.updateCapabilityValue("alarm_water", +deviceFaultResult.value != 0);

@@ -47,7 +47,7 @@
         "en": "Select Mi Humidifier",
         "nl": "Selecteer Mi Luchtbevochtiger"
       },
-      "filter": "driver_id=humidifier_deerma_humidifier_jsq|humidifier_deerma_humidifier_jsq4"
+      "filter": "driver_id=humidifier_deerma_humidifier_jsq4"
     }
   ],
   "platforms": ["local"]

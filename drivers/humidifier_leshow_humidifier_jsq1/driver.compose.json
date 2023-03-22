@@ -24,8 +24,8 @@
         "en": "Target Relative Humidity",
         "nl": "Doel relatieve vochtigheid"
       },
-      "min": 30,
-      "max": 80
+      "min": 0.3,
+      "max": 0.8
     },
     "measure_water": {
       "title": {

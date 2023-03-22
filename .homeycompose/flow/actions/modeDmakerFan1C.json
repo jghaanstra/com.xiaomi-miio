@@ -27,8 +27,8 @@
         {
           "id": "1",
           "label": {
-            "en": "Sleep",
-            "nl": "Slaapstand"
+            "en": "Natural Wind / Sleep",
+            "nl": "Natuurlijke wind / Slaapstand"
           }
         }
       ]
@@ -40,7 +40,7 @@
         "en": "Select Dmaker Fan",
         "nl": "Selecteer Dmaker Fan"
       },
-      "filter": "driver_id=dmaker_fan_1c"
+      "filter": "driver_id=dmaker_fan_1c|fan_dmaker_fan_p11_p15"
     }
   ],
   "platforms": ["local"]

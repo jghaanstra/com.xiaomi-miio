@@ -35,7 +35,7 @@
         "en": "Select Device",
         "nl": "Selecteer apparaat"
       },
-      "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_airpurifier_mb4|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh_va2|airfresh_zhimi_airfresh_va4|mi-humidifier2|humidifier_mi_humidifier_v1|humidifier_mi_humidifier_ca1_cb1|humidifier_mi_humidifier_ca4|humidifier_deerma_humidifier_jsq|dmaker_fan_1c|zhimi_fan_za5"
+      "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_airpurifier_mb4|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh_va2|airfresh_zhimi_airfresh_va4|mi-humidifier2|humidifier_mi_humidifier_v1|humidifier_mi_humidifier_ca1_cb1|humidifier_mi_humidifier_ca4|humidifier_deerma_humidifier_jsq|dmaker_fan_1c|fan_dmaker_fan_p11_p15|zhimi_fan_za5"
     }
   ],
   "platforms": ["local"]

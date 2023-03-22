@@ -51,7 +51,8 @@ class MiHumidifierLeshowJSQ1Device extends Device {
       this.registerCapabilityListener('dim', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ siid: 2, piid: 6, value }], { retries: 1 });
+            const humidity = value * 100;
+            return await this.miio.call("set_properties", [{ siid: 2, piid: 6, humidity }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -108,7 +109,7 @@ class MiHumidifierLeshowJSQ1Device extends Device {
       const deviceLedResult = result.filter((r) => r.siid == 8 && r.piid == 6)[0];
 
       await this.updateCapabilityValue("onoff", deviceStatusResult.value);
-      await this.updateCapabilityValue("measure_humidity", +deviceHumidityResult.value);
+      await this.updateCapabilityValue("measure_humidity", deviceHumidityResult.value / 100);
       await this.updateCapabilityValue("dim", deviceTargetHumidityResult.value);
       await this.updateCapabilityValue("measure_water", deviceWaterLevelResult.value);
       

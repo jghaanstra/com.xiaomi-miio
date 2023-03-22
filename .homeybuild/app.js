@@ -231,7 +231,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('modeHumidifierDeerma')
       .registerRunListener(async (args) => {
         try {
-          return await triggerCapabilityListener('humidifier_deerma_mode', args.mode);
+          return await triggerCapabilityListener('humidifier_deerma_jsq_mode', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -268,7 +268,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('ledAirpurifierHumidifier')
       .registerRunListener(async (args) => {
         try {
-          if (this.hasCapability('airpurifier_mode')) {
+          if (args.device.hasCapability('airpurifier_mode')) {
             return await args.device.miio.call('set_led', [args.brightness === "3" ? "off" : "on"], { retries: 1 });
           } else {
             return await args.device.miio.call('set_led_b', [Number(args.brightness)], { retries: 1 });

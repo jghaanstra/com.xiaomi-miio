@@ -1,0 +1,57 @@
+{
+  "name": {
+    "en": "Mi Smart Standing Fan Pro (WiFi)",
+    "nl": "Mi Smart Standing Fan Pro (WiFi)"
+  },
+  "images": {
+    "large": "drivers/fan_dmaker_fan_p11_p15/assets/images/large.jpg",
+    "small": "drivers/fan_dmaker_fan_p11_p15/assets/images/small.jpg"
+  },
+  "class": "fan",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "onoff.swing",
+    "dim",
+    "dim.swing_angle",
+    "dim.fanspeed",
+    "dmaker_fan_1c_mode"
+  ],
+  "capabilitiesOptions": {
+    "onoff.swing": {
+      "title": {
+        "en": "Swing Mode",
+        "nl": "Swing modus"
+      }
+    },
+    "dim": {
+      "title": {
+        "en": "Fanlevel",
+        "nl": "Ventilator niveau"
+      },
+      "min": 1,
+      "max": 4,
+      "step": 1
+    },
+    "dim.swing_angle": {
+      "title": {
+        "en": "Swing Angle",
+        "nl": "Draai hoek"
+      },
+      "min": 1,
+      "max": 5,
+      "step": 1
+    },
+    "dim.fanspeed": {
+      "title": {
+        "en": "Fanspeed",
+        "nl": "Ventilator snelheid"
+      },
+      "min": 1,
+      "max": 100,
+      "step": 1
+    }
+  }
+}

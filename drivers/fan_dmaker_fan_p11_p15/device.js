@@ -7,19 +7,34 @@ const Util = require('../../lib/util.js');
 const params = [
   { did: "get", siid: 2, piid: 1 }, // power (onoff)
   { did: "get", siid: 2, piid: 2 }, // fan_level (dim)
-  { did: "get", siid: 2, piid: 3 }, // swing_mode (onoff.swing)
-  { did: "get", siid: 2, piid: 7 }, // mode (dmaker_fan_1c_mode)
-  { did: "get", siid: 3, piid: 1 }, // child_lock (settings.childLock)
-  { did: "get", siid: 2, piid: 11 }, // buzzer (settings.buzzer)
-  { did: "get", siid: 2, piid: 12 }, // light (setting.led)
+  { did: "get", siid: 2, piid: 3 }, // mode (dmaker_fan_1c_mode)
+  { did: "get", siid: 2, piid: 4 }, // swing_mode (onoff.swing)
+  { did: "get", siid: 2, piid: 5 }, // swing_mode_angle (dim.swing_angle)
+  { did: "get", siid: 2, piid: 6 }, // fan_speed (dim.fanspeed)
+  { did: "get", siid: 4, piid: 1 }, // light (settings.led)
+  { did: "get", siid: 5, piid: 1 }, // buzzer (settings.buzzer)
+  { did: "get", siid: 7, piid: 1 } // child_lock (settings.childLock)
 ];
 
 const modes = {
-  0: "Straight",
-  1: "Sleep"
+  0: "Straight Wind",
+  1: "Natural Wind"
 };
 
-class DmakerFan1CDevice extends Device {
+const swing_mode_angles = {
+  1: 30,
+  2: 60,
+  3: 90,
+  4: 120,
+  5: 140,
+  30: 1,
+  60: 2,
+  90: 3,
+  120: 4,
+  140: 5
+};
+
+class DmakerFanP11P15Device extends Device {
 
   async onInit() {
     try {
@@ -50,7 +65,7 @@ class DmakerFan1CDevice extends Device {
       this.registerCapabilityListener('onoff.swing', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ did: "set", siid: 2, piid: 3, value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ did: "set", siid: 2, piid: 4, value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -77,10 +92,40 @@ class DmakerFan1CDevice extends Device {
         }
       });
 
+      this.registerCapabilityListener('dim.swing_angle', async ( value ) => {
+        try {
+          if (this.miio) {
+            return await this.miio.call("set_properties", [{ did: "set", siid: 2, piid: 5, value: swing_mode_angles[+value] }], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
+      this.registerCapabilityListener('dim.fanspeed', async ( value ) => {
+        try {
+          if (this.miio) {
+            return await this.miio.call("set_properties", [{ did: "set", siid: 2, piid: 6, value: value }], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
       this.registerCapabilityListener('dmaker_fan_1c_mode', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ did: "set", siid: 2, piid: 7, value: +value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ did: "set", siid: 2, piid: 3, value: +value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -103,15 +148,15 @@ class DmakerFan1CDevice extends Device {
     }
 
     if (changedKeys.includes("led")) {
-      await this.miio.call("set_properties", [{ did: "set", siid: 2, piid: 12, value: newSettings.led }], { retries: 1 });
+      await this.miio.call("set_properties", [{ did: "set", siid: 4, piid: 1, value: newSettings.led }], { retries: 1 });
     }
 
     if (changedKeys.includes("buzzer")) {
-      await this.miio.call("set_properties", [{ did: "set", siid: 2, piid: 11, value: newSettings.buzzer }], { retries: 1 });
+      await this.miio.call("set_properties", [{ did: "set", siid: 5, piid: 1, value: newSettings.buzzer }], { retries: 1 });
     }
 
     if (changedKeys.includes("childLock")) {
-      await this.miio.call("set_properties", [{ did: "set", siid: 3, piid: 1, value: newSettings.childLock }], { retries: 1 });
+      await this.miio.call("set_properties", [{ did: "set", siid: 7, piid: 1, value: newSettings.childLock }], { retries: 1 });
     }
 
     return Promise.resolve(true);
@@ -122,24 +167,29 @@ class DmakerFan1CDevice extends Device {
       const result = await this.miio.call("get_properties", params, { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
-      const powerResult = result.filter((r) => r.siid == 2 && r.piid == 1)[0];
-      const deviceFanLevelResult = result.filter((r) => r.siid == 2 && r.piid == 2)[0];
-      const swingResult = result.filter((r) => r.siid == 2 && r.piid == 3)[0];
-      const deviceModeResult = result.filter((r) => r.siid == 2 && r.piid == 7)[0];
-      const devicePhyicalLockResult = result.filter((r) => r.siid == 3 && r.piid == 1)[0];
-      const deviceBuzzerResult = result.filter((r) => r.siid == 2 && r.piid == 11)[0];
-      const deviceLedBrightnessResult = result.filter((r) => r.siid == 2 && r.piid == 12)[0];
+      const onoff = result.find(obj => obj.did === 'power');
+      const onoff_swing_mode = result.find(obj => obj.did === 'swing_mode');
+      const dim_fan_level = result.find(obj => obj.did === 'fan_level');
+      const dim_swing_mode_angle = result.find(obj => obj.did === 'swing_mode_angle');
+      const dim_fan_speed = result.find(obj => obj.did === 'fan_speed');
+      const mode = result.find(obj => obj.did === 'mode');
+      
+      const led = result.find(obj => obj.did === 'light');
+      const buzzer = result.find(obj => obj.did === 'buzzer');
+      const child_lock = result.find(obj => obj.did === 'child_lock');
 
-      await this.updateCapabilityValue("onoff", powerResult.value);
-      await this.updateCapabilityValue("onoff.swing", swingResult.value);
-      await this.updateCapabilityValue("dim", +deviceFanLevelResult.value);
+      await this.updateCapabilityValue("onoff", onoff.value);
+      await this.updateCapabilityValue("onoff.swing", onoff_swing_mode.value);
+      await this.updateCapabilityValue("dim", +dim_fan_level.value);
+      await this.updateCapabilityValue("dim.swing_angle", swing_mode_angles[+dim_swing_mode_angle.value]);
+      await this.updateCapabilityValue("dim.fanspeed", +dim_fan_speed.value);
+      
+      await this.setSettings({ led: !!led.value });
+      await this.setSettings({ buzzer: buzzer.value });
+      await this.setSettings({ childLock: child_lock.value });
 
-      await this.setSettings({ led: !!deviceLedBrightnessResult.value });
-      await this.setSettings({ buzzer: deviceBuzzerResult.value });
-      await this.setSettings({ childLock: devicePhyicalLockResult.value });
-
-      /* mode trigger card */
-      this.handleModeEvent(deviceModeResult.value);
+      /* handle mode updates */
+      this.handleModeEvent(mode.value);
 
     } catch (error) {
       this.homey.clearInterval(this.pollingInterval);
@@ -168,4 +218,4 @@ class DmakerFan1CDevice extends Device {
 
 }
 
-module.exports = DmakerFan1CDevice;
+module.exports = DmakerFanP11P15Device;

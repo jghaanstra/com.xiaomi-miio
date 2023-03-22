@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.14",
+  "version": "3.1.15",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -994,7 +994,7 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_airpurifier_mb4|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh_va2|airfresh_zhimi_airfresh_va4|mi-humidifier2|humidifier_mi_humidifier_v1|humidifier_mi_humidifier_ca1_cb1|humidifier_mi_humidifier_ca4|humidifier_deerma_humidifier_jsq|dmaker_fan_1c|zhimi_fan_za5"
+            "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_airpurifier_mb4|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh_va2|airfresh_zhimi_airfresh_va4|mi-humidifier2|humidifier_mi_humidifier_v1|humidifier_mi_humidifier_ca1_cb1|humidifier_mi_humidifier_ca4|humidifier_deerma_humidifier_jsq|dmaker_fan_1c|fan_dmaker_fan_p11_p15|zhimi_fan_za5"
           }
         ],
         "platforms": [
@@ -2602,8 +2602,8 @@
               {
                 "id": "1",
                 "label": {
-                  "en": "Sleep",
-                  "nl": "Slaapstand"
+                  "en": "Natural Wind / Sleep",
+                  "nl": "Natuurlijke wind / Slaapstand"
                 }
               }
             ]
@@ -2615,7 +2615,7 @@
               "en": "Select Dmaker Fan",
               "nl": "Selecteer Dmaker Fan"
             },
-            "filter": "driver_id=dmaker_fan_1c"
+            "filter": "driver_id=dmaker_fan_1c|fan_dmaker_fan_p11_p15"
           }
         ],
         "platforms": [
@@ -2754,6 +2754,14 @@
             "type": "dropdown",
             "values": [
               {
+                "id": "idle",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
+              },
+              {
                 "id": "silent",
                 "title": {
                   "en": "Silent",
@@ -2887,28 +2895,28 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "low",
+                "id": "1",
                 "label": {
                   "en": "Low",
                   "nl": "Laag"
                 }
               },
               {
-                "id": "medium",
+                "id": "2",
                 "label": {
                   "en": "Medium",
                   "nl": "Medium"
                 }
               },
               {
-                "id": "high",
+                "id": "3",
                 "label": {
                   "en": "High",
                   "nl": "Hoog"
                 }
               },
               {
-                "id": "humidity",
+                "id": "4",
                 "label": {
                   "en": "Humidity",
                   "nl": "Luchtvochtigheid"
@@ -2923,7 +2931,7 @@
               "en": "Select Mi Humidifier",
               "nl": "Selecteer Mi Luchtbevochtiger"
             },
-            "filter": "driver_id=humidifier_deerma_humidifier_mjjsq"
+            "filter": "driver_id=humidifier_deerma_humidifier_jsq|humidifier_deerma_humidifier_mjjsq"
           }
         ],
         "platforms": [
@@ -2979,7 +2987,7 @@
               "en": "Select Mi Humidifier",
               "nl": "Selecteer Mi Luchtbevochtiger"
             },
-            "filter": "driver_id=humidifier_deerma_humidifier_jsq|humidifier_deerma_humidifier_jsq4"
+            "filter": "driver_id=humidifier_deerma_humidifier_jsq4"
           }
         ],
         "platforms": [
@@ -6529,6 +6537,160 @@
       ]
     },
     {
+      "icon": "/drivers/fan_dmaker_fan_p11_p15/assets/icon.svg",
+      "pair": [
+        {
+          "id": "start",
+          "navigation": {
+            "next": "pair"
+          }
+        },
+        {
+          "id": "pair"
+        },
+        {
+          "id": "add_device"
+        }
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "name": {
+        "en": "Mi Smart Standing Fan Pro (WiFi)",
+        "nl": "Mi Smart Standing Fan Pro (WiFi)"
+      },
+      "images": {
+        "large": "drivers/fan_dmaker_fan_p11_p15/assets/images/large.jpg",
+        "small": "drivers/fan_dmaker_fan_p11_p15/assets/images/small.jpg"
+      },
+      "class": "fan",
+      "capabilities": [
+        "onoff",
+        "onoff.swing",
+        "dim",
+        "dim.swing_angle",
+        "dim.fanspeed",
+        "dmaker_fan_1c_mode"
+      ],
+      "capabilitiesOptions": {
+        "onoff.swing": {
+          "title": {
+            "en": "Swing Mode",
+            "nl": "Swing modus"
+          }
+        },
+        "dim": {
+          "title": {
+            "en": "Fanlevel",
+            "nl": "Ventilator niveau"
+          },
+          "min": 1,
+          "max": 4,
+          "step": 1
+        },
+        "dim.swing_angle": {
+          "title": {
+            "en": "Swing Angle",
+            "nl": "Draai hoek"
+          },
+          "min": 1,
+          "max": 5,
+          "step": 1
+        },
+        "dim.fanspeed": {
+          "title": {
+            "en": "Fanspeed",
+            "nl": "Ventilator snelheid"
+          },
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      },
+      "id": "fan_dmaker_fan_p11_p15",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "User Settings",
+            "nl": "Gebruikersinstellingem"
+          },
+          "children": [
+            {
+              "id": "led",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "LED",
+                "nl": "LED"
+              }
+            },
+            {
+              "id": "buzzer",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Buzzer",
+                "nl": "Buzzer"
+              }
+            },
+            {
+              "id": "childLock",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Child Lock",
+                "nl": "Kinderslot"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device Settings",
+            "nl": "Apparaat instellingen"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "value": "0.0.0.0",
+              "label": {
+                "en": "IP Address",
+                "nl": "IP adres"
+              }
+            },
+            {
+              "id": "token",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Mi Device Token",
+                "nl": "Mi Apparaat Token"
+              }
+            },
+            {
+              "id": "polling",
+              "type": "number",
+              "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+              "label": {
+                "en": "Polling Frequency",
+                "nl": "Polling frequentie"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "icon": "/drivers/gateway/assets/icon.svg",
       "pair": [
         {
@@ -6886,8 +7048,8 @@
             "en": "Target Relative Humidity",
             "nl": "Doel relatieve vochtigheid"
           },
-          "min": 40,
-          "max": 70
+          "min": 0.4,
+          "max": 0.7
         },
         "alarm_water": {
           "title": {
@@ -7018,8 +7180,8 @@
             "en": "Target Relative Humidity",
             "nl": "Doel relatieve vochtigheid"
           },
-          "min": 40,
-          "max": 70
+          "min": 0.4,
+          "max": 0.7
         },
         "alarm_water": {
           "title": {
@@ -7144,8 +7306,8 @@
             "en": "Speedlevel",
             "nl": "Snelheid"
           },
-          "min": 40,
-          "max": 70
+          "min": 0.4,
+          "max": 0.7
         },
         "alarm_water": {
           "title": {
@@ -7269,8 +7431,8 @@
             "en": "Target Relative Humidity",
             "nl": "Doel relatieve vochtigheid"
           },
-          "min": 30,
-          "max": 80
+          "min": 0.3,
+          "max": 0.8
         },
         "measure_water": {
           "title": {
@@ -7536,10 +7698,7 @@
           "title": {
             "en": "Speedlevel",
             "nl": "Snelheid"
-          },
-          "min": 1,
-          "max": 100,
-          "step": 1
+          }
         },
         "dim.target": {
           "title": {
@@ -12168,8 +12327,8 @@
         {
           "id": "1",
           "title": {
-            "en": "Sleep",
-            "nl": "Slaapstand"
+            "en": "Natural Wind / Sleep",
+            "nl": "Natuurlijke Wind / Sleep"
           }
         }
       ],
@@ -12398,6 +12557,14 @@
       "getable": true,
       "setable": true,
       "values": [
+        {
+          "id": "idle",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus"
+          }
+        },
         {
           "id": "silent",
           "title": {

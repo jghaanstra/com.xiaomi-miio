@@ -76,6 +76,7 @@ class MiHumidifierCa4Device extends Device {
       this.registerCapabilityListener('dim', async ( value ) => {
         try {
           if (this.miio) {
+            const humidity = value * 100;
             return await this.miio.call("set_properties", [{ siid: 2, piid: 6, value: humidity }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
