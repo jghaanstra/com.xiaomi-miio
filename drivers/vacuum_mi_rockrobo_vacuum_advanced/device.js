@@ -106,7 +106,7 @@ class MiRobotAdvancedDevice extends Device {
 
       const rooms = await this.miio.call("get_room_mapping", [], { retries: 1 });
       if (rooms.toString() !== 'unknown_method') {
-        if (this.getSetting('rooms') !== rooms ) {
+        if (this.getSetting('rooms') !== rooms.toString() ) {
           await this.setSettings({ rooms: rooms.toString() });
           await this.homey.flow.getDeviceTriggerCard('triggerVacuumRoomSegments').trigger(this, {"segments": rooms.toString() }).catch(error => { this.error(error) });
         }

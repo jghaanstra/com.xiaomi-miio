@@ -27,21 +27,21 @@ class RelayC2ACN01Device extends Device {
       if (!this.getAvailable()) { this.setAvailable(); }
 
       /* onoff left switch */
-      if (device && device.data && device.data["channel_0"]) { await this.updateCapabilityValue("onoff", device.data["channel_0"] == "on" ? true : false); }
+      if (device.data["channel_0"]) { await this.updateCapabilityValue("onoff", device.data["channel_0"] == "on" ? true : false); }
 
       /* onoff right switch */
-      if (device && device.data && device.data["channel_1"]) {
+      if (device.data["channel_1"]) {
         await this.updateCapabilityValue("onoff.1", device.data["channel_1"] == "on" ? true : false);
   
-        if (device && device.data && device.data["channel_1"] == "on") {
+        if (device.data["channel_1"] == "on") {
           await this.homey.flow.getDeviceTriggerCard('rightSwitchOn').trigger(this).catch(error => { this.error(error) });
-        } else if (device && device.data && device.data["channel_1"] == "off") {
+        } else if (device.data["channel_1"] == "off") {
           await this.homey.flow.getDeviceTriggerCard('rightSwitchOff').trigger(this).catch(error => { this.error(error) });
         }
       }
 
       /* measure_power */
-      if (device && device.data && device.data["load_power"]) {
+      if (device.data["load_power"]) {
         await this.updateCapabilityValue("measure_power", parseInt(device.data["load_power"]));
       }
 

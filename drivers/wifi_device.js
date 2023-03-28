@@ -500,10 +500,10 @@ class MiWifiDeviceDevice extends Homey.Device {
         this.updateCapabilityValue('measure_pm25', aqi);
       });
 
-      /* measure_waterlevel (not sure if this works, it's undocumented) */
+      /* measure_waterlevel */
       this.miio.on('depthChanged', depth => {
         const waterlevel = this.util.clamp(Math.round(depth), 0, 100);
-        this.setCapabilityValue('measure_waterlevel', waterlevel);
+        this.updateCapabilityValue('measure_waterlevel', waterlevel);
       });
       
       /* measure_luminance */

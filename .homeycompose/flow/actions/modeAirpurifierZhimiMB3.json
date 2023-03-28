@@ -18,21 +18,21 @@
       "type": "dropdown",
       "values": [
         {
-          "id": "auto",
+          "id": "0",
           "label": {
             "en": "Auto",
             "nl": "Auto"
           }
         },
         {
-          "id": "night",
+          "id": "1",
           "label": {
             "en": "Night",
             "nl": "Nacht"
           }
         },
         {
-          "id": "favorite",
+          "id": "2",
           "label": {
             "en": "Favorite",
             "nl": "Favoriet"

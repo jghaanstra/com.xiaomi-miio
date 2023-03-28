@@ -76,8 +76,8 @@ class MiHumidifierCa4Device extends Device {
       this.registerCapabilityListener('dim', async ( value ) => {
         try {
           if (this.miio) {
-            const humidity = value * 100;
-            return await this.miio.call("set_properties", [{ siid: 2, piid: 6, value: humidity }], { retries: 1 });
+            const speed = this.util.denormalize(value, 200, 2000);
+            return await this.miio.call("set_properties", [{ siid: 2, piid: 6, value: speed }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -150,7 +150,7 @@ class MiHumidifierCa4Device extends Device {
       await this.updateCapabilityValue("onoff.dry", deviceDryResult.value);
       await this.updateCapabilityValue("measure_humidity", +deviceHumidityResult.value);
       await this.updateCapabilityValue("measure_temperature", +deviceTemperatureResult.value);
-      await this.updateCapabilityValue("dim", (+deviceSpeedLevelResult.value / 200) * 10);
+      await this.updateCapabilityValue("dim", this.util.normalize(+deviceSpeedLevelResult, 200, 2000));
       await this.updateCapabilityValue("dim.target", +deviceTargetHumidityResult.value);
       await this.updateCapabilityValue("measure_water", +deviceWaterLevelResult.value);
 

@@ -22,7 +22,11 @@ const modes = {
   "auto": 0,
   "night": 1,
   "favorite": 2,
-  "idle": 3
+  "idle": 3,
+  0: "auto",
+  1: "night",
+  2: "favorite",
+  3: "idle"
 };
 
 class MiAirPurifier3HDevice extends Device {
@@ -72,7 +76,7 @@ class MiAirPurifier3HDevice extends Device {
         try {
           if (this.miio) {
             const mode = modes[value];
-            return await this.miio.call("set_properties", [{ siid: 2, piid: 5, value: mode }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ siid: 2, piid: 5, value: modes[mode] }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -150,31 +154,10 @@ class MiAirPurifier3HDevice extends Device {
 
   async handleModeEvent(mode) {
     try {
-      let new_mode = '';
-
-      switch (mode) {
-        case '0':
-        case 'auto':
-          new_mode = 'auto';
-          break;
-        case '1':
-        case 'night':
-          new_mode = 'night';
-          break;
-        case '2':
-        case 'favorite':
-          new_mode = 'favorite';
-          break;
-        case '3':
-        case 'idle':
-          new_mode = 'idle';
-          break;
-      }
-
-      if (this.getCapabilityValue('airpurifier_zhimi_airpurifier_mb3_mode') !== new_mode) {
+      if (this.getCapabilityValue('airpurifier_zhimi_airpurifier_mb3_mode') !== modes[mode]) {
         const previous_mode = this.getCapabilityValue('airpurifier_zhimi_airpurifier_mb3_mode');
-        await this.setCapabilityValue('airpurifier_zhimi_airpurifier_mb3_mode', new_mode);
-        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": new_mode, "previous_mode": previous_mode }).catch(error => { this.error(error) });
+        await this.setCapabilityValue('airpurifier_zhimi_airpurifier_mb3_mode', modes[mode]);
+        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[mode], "previous_mode": previous_mode }).catch(error => { this.error(error) });
       }
     } catch (error) {
       this.error(error);

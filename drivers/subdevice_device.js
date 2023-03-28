@@ -71,7 +71,7 @@ class MiSubDeviceDevice extends Homey.Device {
           await this.setCapabilityValue(capability, value);
         }
       } else {
-        this.log('adding capability '+ capability +' to '+ this.getData().id +' as the device seems to have values for this capability ...');
+        this.log('adding capability '+ capability +' to '+ this.getName() +' with model '+ this.getSettings('model') +' as the device seems to have values for this capability ...');
             await this.addCapability(capability);
             await this.setCapabilityValue(capability, value);
         }

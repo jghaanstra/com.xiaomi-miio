@@ -12,7 +12,7 @@
     "defaults_subdevice"
   ],
   "capabilities": [
-    "onoff.",
+    "onoff",
     "onoff.1",
     "measure_power"
   ],

@@ -93,7 +93,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('modeVacuumMop')
       .registerRunListener(async (args) => {
         try {
-          return await triggerCapabilityListener('vacuum_mop_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('vacuum_mop_mode', Number(args.mode));
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -213,7 +213,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('modeHumidifier2')
       .registerRunListener(async (args) => {
         try {
-          return await triggerCapabilityListener('humidifier2_mode', args.mode);
+          return await args.device.triggerCapabilityListener('humidifier2_mode', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -222,7 +222,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('modeHumidifierCA4')
       .registerRunListener(async (args) => {
         try {
-          return await triggerCapabilityListener('humidifier_ca4_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('humidifier_ca4_mode', Number(args.mode));
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -231,7 +231,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('modeHumidifierDeerma')
       .registerRunListener(async (args) => {
         try {
-          return await triggerCapabilityListener('humidifier_deerma_jsq_mode', args.mode);
+          return await args.device.triggerCapabilityListener('humidifier_deerma_jsq_mode', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -240,7 +240,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('modeHumidifierDeermaJSQ4')
       .registerRunListener(async (args) => {
         try {
-          return await triggerCapabilityListener('humidifier_deerma_jsq4_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('humidifier_deerma_jsq4_mode', Number(args.mode));
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -249,7 +249,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('modeHumidifierDeermaJSQ5')
       .registerRunListener(async (args) => {
         try {
-          return await triggerCapabilityListener('humidifier_deerma_jsq5_fanlevel', Number(args.mode));
+          return await args.device.triggerCapabilityListener('humidifier_deerma_jsq5_fanlevel', Number(args.mode));
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -258,7 +258,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('modeHumidifierLeshowJSQ1')
       .registerRunListener(async (args) => {
         try {
-          return await triggerCapabilityListener('humidifier_leshow_jsq1_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('humidifier_leshow_jsq1_mode', Number(args.mode));
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -282,7 +282,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('modeDmakerFan1C')
       .registerRunListener(async (args) => {
         try {
-          return await triggerCapabilityListener('dmaker_fan_1c_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('dmaker_fan_1c_mode', Number(args.mode));
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -291,7 +291,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('modeZhimiFanZA5')
       .registerRunListener(async (args) => {
         try {
-          return await triggerCapabilityListener('zhimi_fan_za5_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('zhimi_fan_za5_mode', Number(args.mode));
         } catch (error) {
           return Promise.reject(error.message);
         }
