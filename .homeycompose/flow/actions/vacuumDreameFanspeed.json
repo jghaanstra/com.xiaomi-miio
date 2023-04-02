@@ -1,0 +1,61 @@
+{
+  "id": "vacuumDreameFanspeed",
+  "title": {
+    "en": "Set Fanspeed",
+    "nl": "Stel ventilator in"
+  },
+  "titleFormatted": {
+    "en": "Set Fanspeed [[fanspeed]]",
+    "nl": "Stel ventilator in op [[fanspeed]]"
+  },
+  "args": [
+    {
+      "name": "fanspeed",
+      "title": {
+        "en": "Fanspeed",
+        "nl": "Fan snelheid"
+      },
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Silent",
+            "nl": "Stil"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Basic",
+            "nl": "Basis"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Strong",
+            "nl": "Sterk"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Full speed",
+            "nl": "Volle snelheid"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Vacuum",
+        "nl": "Selecteer stofzuiger"
+      },
+      "filter": "driver_id=vacuum_dreame_vacuum"
+    }
+  ],
+  "platforms": ["local"]
+}

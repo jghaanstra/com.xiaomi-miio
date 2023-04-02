@@ -11,7 +11,7 @@ class GatewayDevice extends Device {
     try {
       if (!this.util) this.util = new Util({homey: this.homey});
 
-      // TODO: remove after public release
+      // TODO: remove this after the next public release
       if (!this.hasCapability('volume_set.alarm')) {
         this.addCapability('volume_set.alarm');
       }

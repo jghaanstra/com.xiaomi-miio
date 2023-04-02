@@ -15,10 +15,10 @@ class AqaraMagnetSensor extends Device {
         await this.updateCapabilityValue("measure_battery", this.util.clamp(battery, 0, 100));
         await this.updateCapabilityValue("alarm_battery", battery <= 20 ? true : false);
       }
-  
+
       /* alarm_contact */
-      if (device.data.status === "open") { await this.updateCapabilityValue("alarm_contact", true); }
-      if (device.data.status === "close") { await this.updateCapabilityValue("alarm_contact", false); }
+      if (device.data.status === "open") { await this.updateCapabilityValue("alarm_contact", this.getSetting('inverted') ? false : true); }
+      if (device.data.status === "close") { await this.updateCapabilityValue("alarm_contact", this.getSetting('inverted') ? true : false); }
   
     } catch (error) {
       this.error(error);

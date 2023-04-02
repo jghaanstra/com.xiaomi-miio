@@ -1,8 +1,8 @@
 {
   "id": "vacuumRoborockMopIntensity",
   "title": {
-    "en": "Set Scrub intensity",
-    "nl": "Stel mop intensiteit in"
+    "en": "Set Mop Intesity",
+    "nl": "Stel dweil intensiteit in"
   },
   "titleFormatted": {
     "en": "Set scrub intensity [[intensity]]",
@@ -12,8 +12,8 @@
     {
       "name": "intensity",
       "title": {
-        "en": "Scrub Intensity",
-        "nl": "Mop intensiteit"
+        "en": "Mop Intensity",
+        "nl": "Dweil intensiteit"
       },
       "type": "dropdown",
       "values": [
@@ -44,8 +44,8 @@
       "name": "device",
       "type": "device",
       "placeholder": {
-        "en": "Select Mi Robot",
-        "nl": "Selecteer Mi Robot"
+        "en": "Select Vacuum",
+        "nl": "Selecteer stofzuiger"
       },
       "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced&capabilities=vacuum_roborock_mop_intensity"
     }

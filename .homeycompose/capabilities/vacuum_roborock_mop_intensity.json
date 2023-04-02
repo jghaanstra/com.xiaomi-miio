@@ -1,8 +1,8 @@
 {
   "type": "enum",
   "title": {
-    "en": "Scrub Intensity",
-    "nl": "Mop intensiteit"
+    "en": "Mop Intensity",
+    "nl": "Dweil intensiteit"
   },
   "values": [
     {

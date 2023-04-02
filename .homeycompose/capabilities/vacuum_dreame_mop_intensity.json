@@ -1,0 +1,32 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Mop Intensity",
+    "nl": "Dweil intensiteit"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Low",
+        "nl": "Laag"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Medium",
+        "nl": "Medium"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "High",
+        "nl": "Hoog"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

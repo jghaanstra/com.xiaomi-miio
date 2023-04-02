@@ -72,10 +72,10 @@ class ViomiV7Device extends Device {
         }
       });
 
-      this.registerCapabilityListener('vacuum_mop_mode', async ( value ) => {
+      this.registerCapabilityListener('vacuum_viomi_mop_mode', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_mop", [value], { retries: 1 });
+            return await this.miio.call("set_mop", [Number(value)], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -142,7 +142,7 @@ class ViomiV7Device extends Device {
 
       await this.updateCapabilityValue("measure_battery", parseInt(result[2]));
       await this.updateCapabilityValue("alarm_battery", parseInt(result[2]) <= 20 ? true : false);
-      await this.updateCapabilityValue("vacuum_cleaner_mop_mode", parseInt(result[3]));
+      await this.updateCapabilityValue("vacuum_viomi_mop_mode", parseInt(result[3]));
 
       switch (parseInt(result[4])) {
         case 0:

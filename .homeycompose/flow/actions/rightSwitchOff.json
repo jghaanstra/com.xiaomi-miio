@@ -16,7 +16,7 @@
         "en": "Select Device",
         "nl": "Selecteer apparaat"
       },
-      "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
+      "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
     }
   ],
   "platforms": ["local"]

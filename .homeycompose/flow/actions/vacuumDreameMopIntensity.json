@@ -1,0 +1,54 @@
+{
+  "id": "vacuumDreameMopIntensity",
+  "title": {
+    "en": "Set Mop Intesity",
+    "nl": "Stel dweil intensiteit in"
+  },
+  "titleFormatted": {
+    "en": "Set mop intensity to [[intensity]]",
+    "nl": "Stel dweil intensiteit in op [[intensity]]"
+  },
+  "args": [
+    {
+      "name": "intensity",
+      "title": {
+        "en": "Mop Intensity",
+        "nl": "Dweil intensiteit"
+      },
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Low",
+            "nl": "Laag"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Medium",
+            "nl": "Medium"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "High",
+            "nl": "Hoog"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Vacuum",
+        "nl": "Selecteer stofzuiger"
+      },
+      "filter": "driver_id=vacuum_dreame_vacuum&capabilities=vacuum_dreame_mop_intensity"
+    }
+  ],
+  "platforms": ["local"]
+}

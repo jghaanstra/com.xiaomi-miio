@@ -30,7 +30,7 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer Vacuum"
+        "nl": "Selecteer stofzuiger"
       },
       "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6"
     }

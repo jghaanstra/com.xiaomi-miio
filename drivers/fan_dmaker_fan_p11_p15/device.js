@@ -5,15 +5,15 @@ const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
 const params = [
-  { did: "get", siid: 2, piid: 1 }, // power (onoff)
-  { did: "get", siid: 2, piid: 2 }, // fan_level (dim)
-  { did: "get", siid: 2, piid: 3 }, // mode (dmaker_fan_1c_mode)
-  { did: "get", siid: 2, piid: 4 }, // swing_mode (onoff.swing)
-  { did: "get", siid: 2, piid: 5 }, // swing_mode_angle (dim.swing_angle)
-  { did: "get", siid: 2, piid: 6 }, // fan_speed (dim.fanspeed)
-  { did: "get", siid: 4, piid: 1 }, // light (settings.led)
-  { did: "get", siid: 5, piid: 1 }, // buzzer (settings.buzzer)
-  { did: "get", siid: 7, piid: 1 } // child_lock (settings.childLock)
+  { did: "power", siid: 2, piid: 1 }, // onoff
+  { did: "fan_level", siid: 2, piid: 2 }, // dim
+  { did: "mode", siid: 2, piid: 3 }, // dmaker_fan_1c_mode
+  { did: "swing_mode", siid: 2, piid: 4 }, // onoff.swing
+  { did: "swing_mode_angle", siid: 2, piid: 5 }, // dim.swing_angle
+  { did: "fan_speed", siid: 2, piid: 6 }, // dim.fanspeed
+  { did: "light", siid: 4, piid: 1 }, // settings.led
+  { did: "buzzer", siid: 5, piid: 1 }, // settings.buzzer
+  { did: "child_lock", siid: 7, piid: 1 } // settings.childLock
 ];
 
 const modes = {
@@ -125,7 +125,7 @@ class DmakerFanP11P15Device extends Device {
       this.registerCapabilityListener('dmaker_fan_1c_mode', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ did: "set", siid: 2, piid: 3, value: +value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ did: "set", siid: 2, piid: 3, value: Number(value) }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();

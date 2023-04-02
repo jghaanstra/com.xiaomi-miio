@@ -1,7 +1,7 @@
 {
   "name": {
-    "en": "Advanced Vacuum Cleaner (WiFi)",
-    "nl": "Geadvanceerde Vacuum Cleaner (WiFi)"
+    "en": "Roborock Advanced Vacuum Cleaner (WiFi)",
+    "nl": "Roborock geadvanceerde stofzuiger (WiFi)"
   },
   "images": {
     "large": "drivers/vacuum_mi_rockrobo_vacuum_advanced/assets/images/large.jpg",
@@ -13,8 +13,8 @@
   ],
   "capabilities": [
     "onoff",
-    "button.consumable",
     "vacuumcleaner_state",
+    "button.consumable",
     "vacuum_roborock_fanspeed",
     "measure_battery",
     "alarm_battery",

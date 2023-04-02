@@ -2,6 +2,24 @@
   {
     "type": "group",
     "label": {
+      "en": "User settings",
+      "nl": "Gebruikersinstellingen"
+    },
+    "children": [
+      {
+        "id": "inverted",
+        "type": "checkbox",
+        "label": {
+          "en": "Inverted alarm",
+          "nl": "Omgekeerd alarm"
+        },
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
       "en": "Device Settings",
       "nl": "Apparaat instellingen"
     },

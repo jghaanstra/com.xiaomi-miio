@@ -86,7 +86,7 @@ class DreameP2029Device extends Device {
       this.registerCapabilityListener('dim', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ siid: 4, piid: 4, value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ siid: 4, piid: 4, value: value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -101,7 +101,7 @@ class DreameP2029Device extends Device {
       this.registerCapabilityListener('dim.water', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ siid: 4, piid: 5, value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ siid: 4, piid: 5, value: value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();

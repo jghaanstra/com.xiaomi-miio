@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.17",
+  "version": "3.1.18",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -158,7 +158,7 @@
               "en": "Select Vacuum",
               "nl": "Selecteer stofzuiger"
             },
-            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6|vacuum_dreame_vacuum_mc1808|vacuum_dreame_vacuum_p2029_p2041|vacuum_viomi_vacuum_v7"
+            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_dreame_vacuum|vacuum_viomi_vacuum_v7"
           }
         ],
         "platforms": [
@@ -929,7 +929,7 @@
               "en": "Select Mi Robot",
               "nl": "Selecteer Mi Robot"
             },
-            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6|vacuum_mi_roborock_vacuum_a08|vacuum_dreame_vacuum_mc1808|vacuum_dreame_vacuum_p2029_p2041|vacuum_viomi_vacuum_v7"
+            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_advanced|vacuum_dreame_vacuum|vacuum_viomi_vacuum_v7"
           }
         ],
         "platforms": [
@@ -1230,7 +1230,7 @@
               "en": "Select device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
           }
         ],
         "platforms": [
@@ -3270,7 +3270,7 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
           }
         ],
         "platforms": [
@@ -3295,7 +3295,7 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
           }
         ],
         "platforms": [
@@ -3320,7 +3320,7 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2"
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
           }
         ],
         "platforms": [
@@ -3391,6 +3391,125 @@
         ]
       },
       {
+        "id": "vacuumDreameFanspeed",
+        "title": {
+          "en": "Set Fanspeed",
+          "nl": "Stel ventilator in"
+        },
+        "titleFormatted": {
+          "en": "Set Fanspeed [[fanspeed]]",
+          "nl": "Stel ventilator in op [[fanspeed]]"
+        },
+        "args": [
+          {
+            "name": "fanspeed",
+            "title": {
+              "en": "Fanspeed",
+              "nl": "Fan snelheid"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Silent",
+                  "nl": "Stil"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Basic",
+                  "nl": "Basis"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Strong",
+                  "nl": "Sterk"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Full speed",
+                  "nl": "Volle snelheid"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Vacuum",
+              "nl": "Selecteer stofzuiger"
+            },
+            "filter": "driver_id=vacuum_dreame_vacuum"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "vacuumDreameMopIntensity",
+        "title": {
+          "en": "Set Mop Intesity",
+          "nl": "Stel dweil intensiteit in"
+        },
+        "titleFormatted": {
+          "en": "Set mop intensity to [[intensity]]",
+          "nl": "Stel dweil intensiteit in op [[intensity]]"
+        },
+        "args": [
+          {
+            "name": "intensity",
+            "title": {
+              "en": "Mop Intensity",
+              "nl": "Dweil intensiteit"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Low",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Medium",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "High",
+                  "nl": "Hoog"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Vacuum",
+              "nl": "Selecteer stofzuiger"
+            },
+            "filter": "driver_id=vacuum_dreame_vacuum&capabilities=vacuum_dreame_mop_intensity"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
         "id": "vacuumRoborockFanspeed",
         "title": {
           "en": "Set Fanspeed",
@@ -3443,8 +3562,8 @@
             "name": "device",
             "type": "device",
             "placeholder": {
-              "en": "Select Mi Robot",
-              "nl": "Selecteer Mi Robot"
+              "en": "Select Vacuum",
+              "nl": "Selecteer stofzuiger"
             },
             "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced"
           }
@@ -3456,8 +3575,8 @@
       {
         "id": "vacuumRoborockMopIntensity",
         "title": {
-          "en": "Set Scrub intensity",
-          "nl": "Stel mop intensiteit in"
+          "en": "Set Mop Intesity",
+          "nl": "Stel dweil intensiteit in"
         },
         "titleFormatted": {
           "en": "Set scrub intensity [[intensity]]",
@@ -3467,8 +3586,8 @@
           {
             "name": "intensity",
             "title": {
-              "en": "Scrub Intensity",
-              "nl": "Mop intensiteit"
+              "en": "Mop Intensity",
+              "nl": "Dweil intensiteit"
             },
             "type": "dropdown",
             "values": [
@@ -3499,8 +3618,8 @@
             "name": "device",
             "type": "device",
             "placeholder": {
-              "en": "Select Mi Robot",
-              "nl": "Selecteer Mi Robot"
+              "en": "Select Vacuum",
+              "nl": "Selecteer stofzuiger"
             },
             "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced&capabilities=vacuum_roborock_mop_intensity"
           }
@@ -3541,7 +3660,7 @@
             "type": "device",
             "placeholder": {
               "en": "Select Vacuum",
-              "nl": "Selecteer Vacuum"
+              "nl": "Selecteer stofzuiger"
             },
             "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6"
           }
@@ -5540,6 +5659,33 @@
         {
           "type": "group",
           "label": {
+            "en": "User settings",
+            "nl": "Gebruikersinstellingen"
+          },
+          "children": [
+            {
+              "id": "inverted_mode",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Inverted operation mode",
+                "nl": "Omgekeerde operatie modus"
+              }
+            },
+            {
+              "id": "inverted_state",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Inverted state",
+                "nl": "Omgekeerde status"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
             "en": "Device Settings",
             "nl": "Apparaat instellingen"
           },
@@ -5569,22 +5715,6 @@
               "label": {
                 "en": "Device Model Code",
                 "nl": "Apparaat modelcode"
-              }
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Operation Mode"
-          },
-          "children": [
-            {
-              "id": "reverted",
-              "type": "checkbox",
-              "value": false,
-              "label": {
-                "en": "Reverted"
               }
             }
           ]
@@ -5644,6 +5774,33 @@
       },
       "id": "aqara-curtain-aq2",
       "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "User settings",
+            "nl": "Gebruikersinstellingen"
+          },
+          "children": [
+            {
+              "id": "inverted_mode",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Inverted operation mode",
+                "nl": "Omgekeerde operatie modus"
+              }
+            },
+            {
+              "id": "inverted_state",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Inverted state",
+                "nl": "Omgekeerde status"
+              }
+            }
+          ]
+        },
         {
           "type": "group",
           "label": {
@@ -5727,6 +5884,24 @@
       },
       "id": "aqara-magnet-sensor",
       "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "User settings",
+            "nl": "Gebruikersinstellingen"
+          },
+          "children": [
+            {
+              "id": "inverted",
+              "type": "checkbox",
+              "label": {
+                "en": "Inverted alarm",
+                "nl": "Omgekeerd alarm"
+              },
+              "value": false
+            }
+          ]
+        },
         {
           "type": "group",
           "label": {
@@ -8976,6 +9151,24 @@
         {
           "type": "group",
           "label": {
+            "en": "User settings",
+            "nl": "Gebruikersinstellingen"
+          },
+          "children": [
+            {
+              "id": "inverted",
+              "type": "checkbox",
+              "label": {
+                "en": "Inverted alarm",
+                "nl": "Omgekeerd alarm"
+              },
+              "value": false
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
             "en": "Device Settings",
             "nl": "Apparaat instellingen"
           },
@@ -10355,28 +10548,6 @@
         {
           "type": "group",
           "label": {
-            "en": "Duration of the sensor alarm",
-            "nl": "Duur van het sensor alarm"
-          },
-          "children": [
-            {
-              "id": "alarm_duration_number",
-              "type": "number",
-              "label": {
-                "en": "Disable after",
-                "nl": "Uitschakelen na"
-              },
-              "value": 60,
-              "attr": {
-                "min": 60,
-                "max": 86400
-              }
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
             "en": "Device Settings",
             "nl": "Apparaat instellingen"
           },
@@ -10640,6 +10811,208 @@
       ]
     },
     {
+      "icon": "/drivers/vacuum_dreame_vacuum/assets/icon.svg",
+      "pair": [
+        {
+          "id": "start",
+          "navigation": {
+            "next": "pair"
+          }
+        },
+        {
+          "id": "pair"
+        },
+        {
+          "id": "add_device"
+        }
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "name": {
+        "en": "Dreame Advanced Vacuum Cleaner (WiFi)",
+        "nl": "Dreame geadvanceerde stofzuiger (WiFi)"
+      },
+      "images": {
+        "large": "drivers/vacuum_dreame_vacuum/assets/images/large.jpg",
+        "small": "drivers/vacuum_dreame_vacuum/assets/images/small.jpg"
+      },
+      "class": "vacuumcleaner",
+      "capabilities": [
+        "onoff",
+        "vacuumcleaner_state",
+        "vacuum_dreame_fanspeed",
+        "button.consumable",
+        "measure_battery",
+        "alarm_battery",
+        "alarm_main_brush_work_time",
+        "alarm_side_brush_work_time",
+        "alarm_filter_work_time"
+      ],
+      "capabilitiesOptions": {
+        "button.consumable": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Reset consumables",
+            "nl": "Reset verbruiksartikelen"
+          },
+          "desc": {
+            "en": "Reset the usage of vacuum cleaner consumables.",
+            "nl": "Reset het gebruik van de verbruiksartikelen"
+          }
+        }
+      },
+      "energy": {
+        "batteries": [
+          "INTERNAL"
+        ]
+      },
+      "id": "vacuum_dreame_vacuum",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Vacuum Consumables",
+            "nl": "Stofzuiger verbruiksartikelen"
+          },
+          "children": [
+            {
+              "id": "alarm_threshold",
+              "type": "number",
+              "label": {
+                "en": "Alarm threshold",
+                "nl": "Alarm ondergrens"
+              },
+              "hint": {
+                "en": "Threshold below which the alarm will be activated.",
+                "nl": "Ondergrens voor het triggeren van het alarm"
+              },
+              "value": 20,
+              "attr": {
+                "min": 1,
+                "max": 90
+              }
+            },
+            {
+              "id": "main_brush_work_time",
+              "type": "label",
+              "label": {
+                "en": "Main brush remaining (%)",
+                "nl": "Hoofdborstel over (%)"
+              },
+              "value": "0%"
+            },
+            {
+              "id": "side_brush_work_time",
+              "type": "label",
+              "label": {
+                "en": "Side brush remaining",
+                "nl": "Zijborstel over"
+              },
+              "value": "0%"
+            },
+            {
+              "id": "filter_work_time",
+              "type": "label",
+              "label": {
+                "en": "Filter remaining",
+                "nl": "Filter over"
+              },
+              "value": "0%"
+            },
+            {
+              "id": "total_work_time",
+              "type": "label",
+              "label": {
+                "en": "Total work time",
+                "nl": "Totale gebruikstijd"
+              },
+              "value": "0"
+            },
+            {
+              "id": "total_cleared_area",
+              "type": "label",
+              "label": {
+                "en": "Total cleaned area",
+                "nl": "Totaal geschoont"
+              },
+              "value": "0"
+            },
+            {
+              "id": "total_clean_count",
+              "type": "label",
+              "label": {
+                "en": "Total clean count",
+                "nl": "Totaal aantal opschoningen"
+              },
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device data",
+            "nl": "Apparaat data"
+          },
+          "children": [
+            {
+              "id": "error",
+              "type": "label",
+              "label": {
+                "en": "Error",
+                "nl": "Error"
+              },
+              "value": "No error"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device Settings",
+            "nl": "Apparaat instellingen"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "value": "0.0.0.0",
+              "label": {
+                "en": "IP Address",
+                "nl": "IP adres"
+              }
+            },
+            {
+              "id": "token",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Mi Device Token",
+                "nl": "Mi Apparaat Token"
+              }
+            },
+            {
+              "id": "polling",
+              "type": "number",
+              "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+              "label": {
+                "en": "Polling Frequency",
+                "nl": "Polling frequentie"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "icon": "/drivers/vacuum_dreame_vacuum_mc1808/assets/icon.svg",
       "pair": [
         {
@@ -10716,6 +11089,7 @@
           "INTERNAL"
         ]
       },
+      "deprecated": true,
       "id": "vacuum_dreame_vacuum_mc1808",
       "settings": [
         {
@@ -10890,6 +11264,7 @@
           "INTERNAL"
         ]
       },
+      "deprecated": true,
       "id": "vacuum_dreame_vacuum_p2029_p2041",
       "settings": [
         {
@@ -11010,8 +11385,8 @@
         "lan"
       ],
       "name": {
-        "en": "Advanced Vacuum Cleaner (WiFi)",
-        "nl": "Geadvanceerde Vacuum Cleaner (WiFi)"
+        "en": "Roborock Advanced Vacuum Cleaner (WiFi)",
+        "nl": "Roborock geadvanceerde stofzuiger (WiFi)"
       },
       "images": {
         "large": "drivers/vacuum_mi_rockrobo_vacuum_advanced/assets/images/large.jpg",
@@ -11020,8 +11395,8 @@
       "class": "vacuumcleaner",
       "capabilities": [
         "onoff",
-        "button.consumable",
         "vacuumcleaner_state",
+        "button.consumable",
         "vacuum_roborock_fanspeed",
         "measure_battery",
         "alarm_battery",
@@ -11252,7 +11627,7 @@
         "onoff",
         "dim",
         "dim.water",
-        "vacuum_mop_mode",
+        "vacuum_viomi_mop_mode",
         "measure_battery",
         "alarm_battery"
       ],
@@ -12534,32 +12909,71 @@
       "step": 1,
       "insights": true
     },
-    "vacuum_mop_mode": {
+    "vacuum_dreame_fanspeed": {
       "type": "enum",
       "title": {
-        "en": "Vacuum Mode",
-        "nl": "Stofzuiger modus"
+        "en": "Fanspeed",
+        "nl": "Fanspeed"
       },
       "values": [
         {
           "id": "0",
           "title": {
-            "en": "Vacuum",
-            "nl": "Stofzuigen"
+            "en": "Silent",
+            "nl": "Stil"
           }
         },
         {
           "id": "1",
           "title": {
-            "en": "Vacuum + Mop",
-            "nl": "Stofzuigen + moppen"
+            "en": "Basic",
+            "nl": "Basis"
           }
         },
         {
           "id": "2",
           "title": {
-            "en": "Mop",
-            "nl": "Moppen"
+            "en": "Strong",
+            "nl": "Sterk"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Full speed",
+            "nl": "Volle snelheid"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
+    "vacuum_dreame_mop_intensity": {
+      "type": "enum",
+      "title": {
+        "en": "Mop Intensity",
+        "nl": "Dweil intensiteit"
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Low",
+            "nl": "Laag"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Medium",
+            "nl": "Medium"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "High",
+            "nl": "Hoog"
           }
         }
       ],
@@ -12608,8 +13022,8 @@
     "vacuum_roborock_mop_intensity": {
       "type": "enum",
       "title": {
-        "en": "Scrub Intensity",
-        "nl": "Mop intensiteit"
+        "en": "Mop Intensity",
+        "nl": "Dweil intensiteit"
       },
       "values": [
         {
@@ -12631,6 +13045,38 @@
           "title": {
             "en": "Intense",
             "nl": "Intens"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
+    "vacuum_viomi_mop_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Vacuum Mode",
+        "nl": "Stofzuiger modus"
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Vacuum",
+            "nl": "Stofzuigen"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Vacuum + Mop",
+            "nl": "Stofzuigen + moppen"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Mop",
+            "nl": "Moppen"
           }
         }
       ],

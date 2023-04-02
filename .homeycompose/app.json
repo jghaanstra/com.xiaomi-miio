@@ -10,7 +10,7 @@
     "en": ["Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway"],
     "nl": ["Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway"]
   },
-  "version": "3.1.17",
+  "version": "3.1.18",
   "compatibility": ">=8.0.0",
   "platforms": ["local"],
   "author": {

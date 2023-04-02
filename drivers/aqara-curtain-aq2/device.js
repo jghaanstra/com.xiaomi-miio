@@ -29,10 +29,10 @@ class AqaraCurtainAQ2 extends Device {
         const settings = this.getSettings();
         const states = { up: "open", idle: "stop", down: "close" };
         if (value == "up") {
-          const data = { curtain_status: states[settings.reverted ? "down" : "up"] };
+          const data = { curtain_status: states[settings.inverted_mode ? "down" : "up"] };
           return await this.homey.app.mihub.sendWrite(this.data.sid, data);
         } else if (value == "down") {
-          const data = { curtain_status: states[settings.reverted ? "up" : "down"] };
+          const data = { curtain_status: states[settings.inverted_mode ? "up" : "down"] };
           return await this.homey.app.mihub.sendWrite(this.data.sid, data);
         } else {
           const data = { curtain_status: states[value] };
@@ -49,8 +49,8 @@ class AqaraCurtainAQ2 extends Device {
       if (!this.getAvailable()) { this.setAvailable(); }
 
       /* onoff */
-      if (parseInt(device.data.curtain_level) > 0) { await this.updateCapabilityValue("onoff", true); }
-      if (parseInt(device.data.curtain_level) == 0) { await this.updateCapabilityValue("onoff", false); }
+      if (parseInt(device.data.curtain_level) > 0) { await this.updateCapabilityValue("onoff", this.getSetting('inverted_state') ? false : true); }
+      if (parseInt(device.data.curtain_level) == 0) { await this.updateCapabilityValue("onoff", this.getSetting('inverted_state') ? true : false); }
   
       /* dim (curtain_level) */
       if (device.data.curtain_level) { await this.updateCapabilityValue("dim", parseInt(device.data.curtain_level) / 100); }

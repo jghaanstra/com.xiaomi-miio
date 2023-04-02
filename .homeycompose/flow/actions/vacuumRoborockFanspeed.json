@@ -51,8 +51,8 @@
       "name": "device",
       "type": "device",
       "placeholder": {
-        "en": "Select Mi Robot",
-        "nl": "Selecteer Mi Robot"
+        "en": "Select Vacuum",
+        "nl": "Selecteer stofzuiger"
       },
       "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced"
     }

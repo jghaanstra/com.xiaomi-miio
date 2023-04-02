@@ -17,8 +17,8 @@ class MiMagnetSensor extends Device {
       }
   
       /* alarm_contact */
-      if (device.data.status === "open") { await this.updateCapabilityValue("alarm_contact", true); }
-      if (device.data.status === "close") { await this.updateCapabilityValue("alarm_contact", false); }
+      if (device.data.status === "open") { await this.updateCapabilityValue("alarm_contact", this.getSetting('inverted') ? false : true); }
+      if (device.data.status === "close") { await this.updateCapabilityValue("alarm_contact", this.getSetting('inverted') ? true : false); }
   
     } catch (error) {
       this.error(error);

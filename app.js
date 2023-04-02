@@ -35,8 +35,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('fanPowerVacuum')
       .registerRunListener(async (args) => {
         try {
-          await args.device.miio.changeFanSpeed(Number(args.fanspeed));
-          return await args.device.setStoreValue("fanspeed", args.fanspeed);
+          return await args.device.miio.changeFanSpeed(Number(args.fanspeed));
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -45,8 +44,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('vacuumRoborockFanspeed')
       .registerRunListener(async (args) => {
         try {
-          await args.device.miio.changeFanSpeed(Number(args.fanspeed));
-          return await args.device.setStoreValue("fanspeed", args.fanspeed);
+          return await args.device.miio.changeFanSpeed(Number(args.fanspeed));
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -56,6 +54,24 @@ class XiaomiMiioApp extends Homey.App {
       .registerRunListener(async (args) => {
         try {
           return await args.device.miio.setWaterBoxMode(Number(args.intensity));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('vacuumDreameFanspeed')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.triggerCapabilityListener('vacuum_dreame_fanspeed', Number(args.fanspeed));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('vacuumDreameMopIntensity')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.triggerCapabilityListener('vacuum_dreame_mop_intensity', Number(args.intensity));
         } catch (error) {
           return Promise.reject(error.message);
         }

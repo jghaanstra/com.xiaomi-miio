@@ -2,6 +2,33 @@
   {
     "type": "group",
     "label": {
+      "en": "User settings",
+      "nl": "Gebruikersinstellingen"
+    },
+    "children": [
+      {
+        "id": "inverted_mode",
+        "type": "checkbox",
+        "value": false,
+        "label": {
+          "en": "Inverted operation mode",
+          "nl": "Omgekeerde operatie modus"
+        }
+      },
+      {
+        "id": "inverted_state",
+        "type": "checkbox",
+        "value": false,
+        "label": {
+          "en": "Inverted state",
+          "nl": "Omgekeerde status"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
       "en": "Device Settings",
       "nl": "Apparaat instellingen"
     },

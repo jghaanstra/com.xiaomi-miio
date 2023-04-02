@@ -96,7 +96,46 @@ class MiRobotAdvancedDevice extends Device {
         }
       }
 
-      this.vacuumCleanerState(result[0]["state"]);
+      /* vacuumcleaner_state */
+      switch (result[0]["state"]) {
+        case 1:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 16:
+        case 17:
+        case 18:
+          this.vacuumCleanerState("cleaning");
+          break;
+        case 11:
+          this.vacuumCleanerState("spot_cleaning");
+          break;
+        case 3:
+        case 10:
+        case 13:
+          this.vacuumCleanerState("stopped");
+          break;
+        case 15:
+          this.vacuumCleanerState("docked");
+          break;
+        case 8:
+          if (this.getCapabilityValue('measure_battery') === 100) {
+            this.vacuumCleanerState("docked");
+          } else {
+            this.vacuumCleanerState("charging");
+          }
+          break;
+        case 9:
+        case 12:
+        case 13:
+        case 101:
+          this.vacuumCleanerState("stopped_error");
+          break;
+        default:
+          this.log("Not a valid vacuumcleaner_state", state);
+          break;
+      }
 
       const consumables = await this.miio.call("get_consumable", [], { retries: 1 });
       this.vacuumConsumables(consumables);

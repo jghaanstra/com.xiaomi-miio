@@ -148,7 +148,7 @@ class MiWifiDeviceDevice extends Homey.Device {
     }
   };
 
-  /* vacuumcleaner fanspeed */
+  /* vacuumcleaner roborock fanspeed */
   async onCapabilityVacuumFanspeed(value, opts) {
     try {
       if (this.miio) {
@@ -584,59 +584,47 @@ class MiWifiDeviceDevice extends Homey.Device {
   async vacuumCleanerState(state) {
     try {
       switch (state) {
-        case 5:
+        case "cleaning":
           if (this.getCapabilityValue('vacuumcleaner_state') !== "cleaning") {
             await this.updateCapabilityValue("vacuumcleaner_state", "cleaning");
             await this.updateCapabilityValue("onoff", true);
             await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "cleaning" }).catch(error => { this.error(error) });
           }
           break;
-        case 11:
+        case "spot_cleaning":
           if (this.getCapabilityValue('vacuumcleaner_state') !== "spot_cleaning") {
             await this.updateCapabilityValue("vacuumcleaner_state", "spot_cleaning");
             await this.updateCapabilityValue("onoff", true);
             await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "spot_cleaning" }).catch(error => { this.error(error) });
           }
           break;
-        case 3:
-        case 10:
-        case 13:
+        case "stopped":
           if (this.getCapabilityValue('vacuumcleaner_state') !== "stopped") {
             await this.updateCapabilityValue("vacuumcleaner_state", "stopped");
             await this.updateCapabilityValue("onoff", false);
             await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "stopped" }).catch(error => { this.error(error) });
           }
           break;
-        case 15:
+        case "docked":
           if (this.getCapabilityValue('vacuumcleaner_state') !== "docked") {
             await this.updateCapabilityValue("vacuumcleaner_state", "docked");
             await this.updateCapabilityValue("onoff", false);
             await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "docked" }).catch(error => { this.error(error) });
           }
           break;
-        case 8:
-          if (this.getCapabilityValue('measure_battery') === 100) {
-            if (this.getCapabilityValue('vacuumcleaner_state') !== "docked") {
-              await this.updateCapabilityValue("vacuumcleaner_state", "docked");
-              await this.updateCapabilityValue("onoff", false);
-              await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "docked" }).catch(error => { this.error(error) });
-            }
-          } else {
-            if (this.getCapabilityValue('vacuumcleaner_state') !== "charging") {
-              await this.updateCapabilityValue("vacuumcleaner_state", "charging");
-              await this.updateCapabilityValue("onoff", false);
-              await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "charging" }).catch(error => { this.error(error) });
-            }
+        case "charging":
+          if (this.getCapabilityValue('vacuumcleaner_state') !== "charging") {
+            await this.updateCapabilityValue("vacuumcleaner_state", "charging");
+            await this.updateCapabilityValue("onoff", false);
+            await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "charging" }).catch(error => { this.error(error) });
           }
           break;
-        case 9:
-        case 12:
-        case 13:
+        case "stopped_error":
           await this.updateCapabilityValue("vacuumcleaner_state", "stopped");
+          await this.updateCapabilityValue("onoff", false);
           await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": "error" }).catch(error => { this.error(error) });
           break;
         default:
-          this.log("Not a valid vacuumcleaner_state", state);
           break;
       }
     } catch (error) {
@@ -647,62 +635,74 @@ class MiWifiDeviceDevice extends Homey.Device {
   /* VACUUMCLEANER CONSUMABLES, CAN BE OVERWRITTEN ON DEVICE LEVEL */
   async vacuumConsumables(consumables) {
     try {
-      
+      let main_brush_remaining_value = 0;
+      let side_brush_remaining_value = 0;
+      let filter_remaining_value = 0;
+      let sensor_dirty_remaining_value = 0;
+
       /* main_brush_work_time */
-      const main_brush_remaining_value = (100 - Math.ceil((consumables[0]["main_brush_work_time"] / 1080000) * 100));
-      const main_brush_remaining = main_brush_remaining_value + "%";
-      if (this.getSetting("main_brush_work_time") !== main_brush_remaining) {
-        await this.setSettings({ main_brush_work_time: main_brush_remaining });
-        await this.main_brush_lifetime_token.setValue(main_brush_remaining_value);
-      }
-      if (main_brush_remaining_value < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_main_brush_work_time')) {
-        await this.updateCapabilityValue("alarm_main_brush_work_time", true);
-        await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Main Brush", "value": main_brush_remaining }).catch(error => { this.error(error) });
-      } else if (main_brush_remaining_value > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_main_brush_work_time')) {
-        this.updateCapabilityValue("alarm_main_brush_work_time", false);
+      if (consumables[0].hasOwnProperty("main_brush_work_time")) {
+        main_brush_remaining_value = (100 - Math.ceil((consumables[0]["main_brush_work_time"] / 1080000) * 100));
+        const main_brush_remaining = main_brush_remaining_value + "%";
+        if (this.getSetting("main_brush_work_time") !== main_brush_remaining) {
+          await this.setSettings({ main_brush_work_time: main_brush_remaining });
+          await this.main_brush_lifetime_token.setValue(main_brush_remaining_value);
+        }
+        if (main_brush_remaining_value < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_main_brush_work_time')) {
+          await this.updateCapabilityValue("alarm_main_brush_work_time", true);
+          await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Main Brush", "value": main_brush_remaining }).catch(error => { this.error(error) });
+        } else if (main_brush_remaining_value > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_main_brush_work_time')) {
+          this.updateCapabilityValue("alarm_main_brush_work_time", false);
+        }
       }
 
-      /* alarm_side_brush_work_time */
-      const side_brush_remaining_value = (100 - Math.ceil((consumables[0]["side_brush_work_time"] / 720000) * 100));
-      const side_brush_remaining = side_brush_remaining_value + "%";
-      if (this.getSetting("side_brush_work_time") !== side_brush_remaining) {
-        await this.setSettings({ side_brush_work_time: side_brush_remaining });
-        await this.side_brush_lifetime_token.setValue(side_brush_remaining_value);
-      }
-      if (side_brush_remaining_value < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_side_brush_work_time')) {
-        await this.updateCapabilityValue("alarm_side_brush_work_time", true);
-        await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Side Brush", "value": side_brush_remaining }).catch(error => { this.error(error) });
-      } else if (side_brush_remaining_value > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_side_brush_work_time')) {
-        this.updateCapabilityValue("alarm_side_brush_work_time", false);
-      }
+      /* side_brush_work_time */
+      if (consumables[0].hasOwnProperty("side_brush_work_time")) {
+        side_brush_remaining_value = (100 - Math.ceil((consumables[0]["side_brush_work_time"] / 720000) * 100));
+        const side_brush_remaining = side_brush_remaining_value + "%";
+        if (this.getSetting("side_brush_work_time") !== side_brush_remaining) {
+          await this.setSettings({ side_brush_work_time: side_brush_remaining });
+          await this.side_brush_lifetime_token.setValue(side_brush_remaining_value);
+        }
+        if (side_brush_remaining_value < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_side_brush_work_time')) {
+          await this.updateCapabilityValue("alarm_side_brush_work_time", true);
+          await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Side Brush", "value": side_brush_remaining }).catch(error => { this.error(error) });
+        } else if (side_brush_remaining_value > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_side_brush_work_time')) {
+          this.updateCapabilityValue("alarm_side_brush_work_time", false);
+        }
+      }      
 
       /* filter_work_time */
-      const filter_remaining_value = (100 - Math.ceil((consumables[0]["filter_work_time"] / 540000) * 100));
-      const filter_remaining = filter_remaining_value + "%";
-      if (this.getSetting("filter_work_time") !== filter_remaining) {
-        await this.setSettings({ filter_work_time: filter_remaining });
-        await this.filter_lifetime_token.setValue(filter_remaining_value);
-      }
-      if (filter_remaining_value < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_filter_work_time')) {
-        await this.updateCapabilityValue("alarm_filter_work_time", true);
-        await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Filter", "value": filter_remaining }).catch(error => { this.error(error) });
-      } else if (filter_remaining_value > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_filter_work_time')) {
-        this.updateCapabilityValue("alarm_filter_work_time", false);
+      if (consumables[0].hasOwnProperty("filter_work_time")) {
+        filter_remaining_value = (100 - Math.ceil((consumables[0]["filter_work_time"] / 540000) * 100));
+        const filter_remaining = filter_remaining_value + "%";
+        if (this.getSetting("filter_work_time") !== filter_remaining) {
+          await this.setSettings({ filter_work_time: filter_remaining });
+          await this.filter_lifetime_token.setValue(filter_remaining_value);
+        }
+        if (filter_remaining_value < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_filter_work_time')) {
+          await this.updateCapabilityValue("alarm_filter_work_time", true);
+          await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Filter", "value": filter_remaining }).catch(error => { this.error(error) });
+        } else if (filter_remaining_value > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_filter_work_time')) {
+          this.updateCapabilityValue("alarm_filter_work_time", false);
+        }
       }
 
       /* sensor_dirty_work_time */
-      const sensor_dirty_remaining_value = (100 - Math.ceil((consumables[0]["sensor_dirty_time"] / 108000) * 100));
-      const sensor_dirty_remaining = sensor_dirty_remaining_value + "%";
-      if (this.getSetting("sensor_dirty_time") !== sensor_dirty_remaining) {
-        await this.setSettings({ sensor_dirty_time: sensor_dirty_remaining });
-        await this.sensor_dirty_lifetime_token.setValue(sensor_dirty_remaining_value);
-      }
-      if (sensor_dirty_remaining_value < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_sensor_dirty_time')) {
-        await this.updateCapabilityValue("alarm_sensor_dirty_time", true);
-        await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Sensor", "value": sensor_dirty_remaining }).catch(error => { this.error(error) });
-      } else if (sensor_dirty_remaining_value > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_sensor_dirty_time')) {
-        this.updateCapabilityValue("alarm_sensor_dirty_time", false);
-      }
+      if (consumables[0].hasOwnProperty("sensor_dirty_time")) {
+        sensor_dirty_remaining_value = (100 - Math.ceil((consumables[0]["sensor_dirty_time"] / 108000) * 100));
+        const sensor_dirty_remaining = sensor_dirty_remaining_value + "%";
+        if (this.getSetting("sensor_dirty_time") !== sensor_dirty_remaining) {
+          await this.setSettings({ sensor_dirty_time: sensor_dirty_remaining });
+          await this.sensor_dirty_lifetime_token.setValue(sensor_dirty_remaining_value);
+        }
+        if (sensor_dirty_remaining_value < this.getSetting("alarm_threshold") && !this.getCapabilityValue('alarm_sensor_dirty_time')) {
+          await this.updateCapabilityValue("alarm_sensor_dirty_time", true);
+          await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Sensor", "value": sensor_dirty_remaining }).catch(error => { this.error(error) });
+        } else if (sensor_dirty_remaining_value > this.getSetting("alarm_threshold") && this.getCapabilityValue('alarm_sensor_dirty_time')) {
+          this.updateCapabilityValue("alarm_sensor_dirty_time", false);
+        }
+      }     
 
       /* initial update tokens */
       if (!this.initialTokenConsumable || this.initialTokenConsumable == undefined) {
