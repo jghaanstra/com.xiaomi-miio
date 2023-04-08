@@ -113,7 +113,7 @@ class MiHumidifierLeshowJSQ1Device extends Device {
       await this.updateCapabilityValue("dim", deviceTargetHumidityResult.value);
       await this.updateCapabilityValue("measure_water", deviceWaterLevelResult.value);
       
-      await this.setSettings({ led: !!deviceLedResult.value });
+      await this.updateSettingValue("led", !!deviceLedResult.value);
 
       /* mode trigger card */
       this.handleModeEvent(deviceModeResult.value);

@@ -9,6 +9,8 @@ class RelayC2ACN01Driver extends Driver {
 
     if (!this.util) this.util = new Util({homey: this.homey});
 
+    this.homey.flow.getDeviceTriggerCard('leftSwitchOn');
+    this.homey.flow.getDeviceTriggerCard('leftSwitchOff');
     this.homey.flow.getDeviceTriggerCard('rightSwitchOn');
     this.homey.flow.getDeviceTriggerCard('rightSwitchOff');
 

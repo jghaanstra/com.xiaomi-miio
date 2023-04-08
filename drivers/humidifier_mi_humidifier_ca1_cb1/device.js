@@ -105,9 +105,9 @@ class MiHumidifierCa1Cb1Device extends Device {
       await this.updateCapabilityValue("measure_water", parseInt(result[5]));
       await this.updateCapabilityValue("onoff.dry", result[6] === "on" ? true : false);
       
-      await this.setSettings({ led: result[7] === 2 ? false : true });
-      await this.setSettings({ buzzer: result[8] === "on" ? true : false });
-      await this.setSettings({ childLock: result[9] === "on" ? true : false });
+      await this.updateSettingValue("led", result[7] === 2 ? false : true);
+      await this.updateSettingValue("buzzer", result[8] === "on" ? true : false);
+      await this.updateSettingValue("childLock", result[9] === "on" ? true : false);
 
       /* mode trigger card */
       this.handleModeEvent(result[3]);

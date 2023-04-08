@@ -3,12 +3,14 @@
 const Driver = require('../subdevice_driver.js');
 const Util = require('../../lib/util.js');
 
-class AqaraSwitch extends Driver {
+class AqaraCtrlLn2SwitchDriver extends Driver {
 
   async onInit() {
 
     if (!this.util) this.util = new Util({homey: this.homey});
 
+    this.homey.flow.getDeviceTriggerCard('leftSwitchOn');
+    this.homey.flow.getDeviceTriggerCard('leftSwitchOff');
     this.homey.flow.getDeviceTriggerCard('rightSwitchOn');
     this.homey.flow.getDeviceTriggerCard('rightSwitchOff');
 
@@ -20,4 +22,4 @@ class AqaraSwitch extends Driver {
 
 }
 
-module.exports = AqaraSwitch;
+module.exports = AqaraCtrlLn2SwitchDriver;

@@ -184,9 +184,9 @@ class DmakerFanP11P15Device extends Device {
       await this.updateCapabilityValue("dim.swing_angle", swing_mode_angles[+dim_swing_mode_angle.value]);
       await this.updateCapabilityValue("dim.fanspeed", +dim_fan_speed.value);
       
-      await this.setSettings({ led: !!led.value });
-      await this.setSettings({ buzzer: buzzer.value });
-      await this.setSettings({ childLock: child_lock.value });
+      await this.updateSettingValue("led", !!led.value);
+      await this.updateSettingValue("buzzer", buzzer.value);
+      await this.updateSettingValue("childLock", child_lock.value);
 
       /* handle mode updates */
       this.handleModeEvent(mode.value);

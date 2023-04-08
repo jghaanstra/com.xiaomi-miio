@@ -99,11 +99,11 @@ class MiAirFreshVA2Device extends Device {
       await this.updateCapabilityValue("measure_humidity", parseInt(result[4]));
       await this.updateCapabilityValue("measure_temperature", parseInt(result[5] / 10));
       await this.updateCapabilityValue("dim", parseInt(parseInt(result[6] / 10.3) / 100));
-      
-      await this.setSettings({ led: result[7] == "on" ? true : false });
-      await this.setSettings({ buzzer: result[8] == "on" ? true : false });
-      await this.setSettings({ childLock: result[9] == "on" ? true : false });
-      await this.setSettings({ f1_hour_used: result[10] + "%" });
+
+      await this.updateSettingValue("childLock", result[9] == "on" ? true : false);
+      await this.updateSettingValue("led", result[7] == "on" ? true : false);
+      await this.updateSettingValue("buzzer", result[8] == "on" ? true : false);
+      await this.updateSettingValue("f1_hour_used", result[10] + "%");
 
       /* mode trigger card */
       this.handleModeEvent(result[1]);

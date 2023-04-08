@@ -104,11 +104,11 @@ class MiAirPurifierV6V7Device extends Device {
       await this.updateCapabilityValue("air_purifier_mode", );
       await this.updateCapabilityValue("dim", parseInt(this.favoriteLevel[result[7]] / 100));
 
-      await this.setSettings({ filter1_life: result[8] + "%" });
-      await this.setSettings({ purify_volume: result[10] + " m3" });
-      await this.setSettings({ led: result[11] == "on" ? true : false });
-      await this.setSettings({ volume: result[12] >= 1 ? true : false });
-      await this.setSettings({ childLock: result[13] == "on" ? true : false });
+      await this.updateSettingValue("filter1_life", result[8] + "%");
+      await this.updateSettingValue("purify_volume", result[10] + " m3");
+      await this.updateSettingValue("led", result[11] == "on" ? true : false);
+      await this.updateSettingValue("volume", result[12] >= 1 ? true : false);
+      await this.updateSettingValue("childLock", result[13] == "on" ? true : false);
 
       /* mode trigger card */
       this.handleModeEvent(result[6]);

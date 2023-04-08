@@ -4,7 +4,12 @@ const Homey = require('homey');
 const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
-class ZhiMiFanZA4Device extends Device {
+const modes = {
+  1: "Natural Wind",
+  2: "Straight Wind"
+};
+
+class ZhiMiFanAdvancedDevice extends Device {
 
   async onInit() {
     try {
@@ -12,6 +17,9 @@ class ZhiMiFanZA4Device extends Device {
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
+
+      // FLOW TRIGGER CARDS
+      this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 
       // LISTENERS FOR UPDATING CAPABILITIES
       this.registerCapabilityListener('onoff', async ( value ) => {
@@ -47,7 +55,7 @@ class ZhiMiFanZA4Device extends Device {
       this.registerCapabilityListener('dim', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_speed_level", [+(value.toFixed())], { retries: 1 });
+            return await this.miio.call("set_speed_level", [value], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -62,7 +70,22 @@ class ZhiMiFanZA4Device extends Device {
       this.registerCapabilityListener('dim.angle', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_angle", [+(value.toFixed())], { retries: 1 });
+            return await this.miio.call("set_angle", [value], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
+      this.registerCapabilityListener('fan_zhimi_mode', async ( value ) => {
+        try {
+          if (this.miio) {
+            return await this.miio.call("set_natural_level", [+value], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -101,7 +124,7 @@ class ZhiMiFanZA4Device extends Device {
 
   async retrieveDeviceData() {
     try {
-      const result = await this.miio.call("get_prop", ["power", "angle", "angle_enable", "speed_level", "natural_level", "child_lock", "poweroff_time", "buzzer", "led_b"], { retries: 1 });
+      const result = await this.miio.call("get_prop", ["power", "angle", "angle_enable", "speed_level", "natural_level", "child_lock", "buzzer", "led_b"], { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
       await this.updateCapabilityValue("onoff", result[0] == "on");
@@ -109,9 +132,26 @@ class ZhiMiFanZA4Device extends Device {
       await this.updateCapabilityValue("onoff.swing", result[2] == "on");
       await this.updateCapabilityValue("dim", +result[3]);
 
-      await this.setSettings({ childLock: result[5] == "on" });
-      await this.setSettings({ buzzer: !!result[7] });
-      await this.setSettings({ led: !!result[8] });
+      await this.updateSettingValue("childLock", result[5] == "on");
+      await this.updateSettingValue("buzzer",!!result[6]);
+      await this.updateSettingValue("led", !!result[7]);
+
+      /* mode trigger card */
+      if (this.getCapabilityValue('fan_zhimi_mode') !== result[4].toString()) {
+        const previous_mode = this.getCapabilityValue('fan_zhimi_mode');
+        await this.setCapabilityValue('fan_zhimi_mode', result[4].toString());
+        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[result[4]], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
+      }
+
+      /* zhimi.fan.v2 & zhimi.fan.v3 */
+      if (this.getStoreValue('model') === 'zhimi.fan.v2' || this.getStoreValue('model') === 'zhimi.fan.v3') {
+        await this.util.sleep(2000);
+        const resultv2 = await this.miio.call("get_prop", ["battery", "humidity", "temp_dec"], { retries: 1 });
+
+        await this.updateCapabilityValue("measure_battery", +resultv2[0]);
+        await this.updateCapabilityValue("measure_humidity", +resultv2[1]);
+        await this.updateCapabilityValue("measure_temperature", +resultv2[2] / 10);
+      }
 
     } catch (error) {
       this.homey.clearInterval(this.pollingInterval);
@@ -128,4 +168,4 @@ class ZhiMiFanZA4Device extends Device {
 
 }
 
-module.exports = ZhiMiFanZA4Device;
+module.exports = ZhiMiFanAdvancedDevice;

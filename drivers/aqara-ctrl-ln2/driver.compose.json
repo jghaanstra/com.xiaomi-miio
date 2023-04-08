@@ -12,11 +12,11 @@
     "defaults_subdevice"
   ],
   "capabilities": [
-    "onoff",
+    "onoff.0",
     "onoff.1"
   ],
   "capabilitiesOptions": {
-    "onoff": {
+    "onoff.0": {
       "title": {
         "en": "Left button",
         "nl": "Linkerknop"

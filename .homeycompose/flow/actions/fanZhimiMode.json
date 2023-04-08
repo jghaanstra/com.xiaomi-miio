@@ -1,5 +1,4 @@
 {
-  "id": "modeZhimiFanZA5",
   "title": {
     "en": "Set Mode",
     "nl": "Stel modus in"
@@ -18,14 +17,14 @@
       "type": "dropdown",
       "values": [
         {
-          "id": "0",
+          "id": "1",
           "title": {
             "en": "Natural Wind",
             "nl": "Natuur wind"
           }
         },
         {
-          "id": "1",
+          "id": "2",
           "title": {
             "en": "Straight Wind",
             "nl": "Rechte wind"
@@ -37,10 +36,10 @@
       "name": "device",
       "type": "device",
       "placeholder": {
-        "en": "Select Zhimi Fan ZA5",
-        "nl": "Selecteer Zhimi Fan ZA5"
+        "en": "Select Fan",
+        "nl": "Selecteer Fan"
       },
-      "filter": "driver_id=zhimi_fan_za5"
+      "filter": "driver_id=fan_zhimi_advanced|fan_zhimi_fan_za5"
     }
   ],
   "platforms": ["local"]

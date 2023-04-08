@@ -131,10 +131,10 @@ class MiAirPurifier3HDevice extends Device {
       await this.updateCapabilityValue("measure_temperature", +deviceTemperatureResult.value);
       await this.updateCapabilityValue("dim", deviceFanLevelResult.value);
       
-      await this.setSettings({ filter1_life: deviceFilterLifeLevelResult.value + "%" });
-      await this.setSettings({ purify_volume: devicePurifierVolumeResult.value + " m3" });
-      await this.setSettings({ led: !!deviceLedResult.value });
-      await this.setSettings({ childLock: deviceLockResult.value });
+      await this.updateSettingValue("filter1_life", deviceFilterLifeLevelResult.value + "%");
+      await this.updateSettingValue("purify_volume", devicePurifierVolumeResult.value + " m3");
+      await this.updateSettingValue("led", !!deviceLedResult.value);
+      await this.updateSettingValue("childLock", deviceLockResult.value);
 
       /* mode trigger card */
       this.handleModeEvent(deviceModeResult.value);

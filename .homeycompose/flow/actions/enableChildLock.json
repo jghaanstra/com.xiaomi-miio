@@ -40,7 +40,7 @@
         "en": "Select Device",
         "nl": "Selecteer apparaat"
       },
-      "filter": "driver_id=zhimi-fan|dmaker-fan"
+      "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5"
     }
   ],
   "platforms": ["local"]

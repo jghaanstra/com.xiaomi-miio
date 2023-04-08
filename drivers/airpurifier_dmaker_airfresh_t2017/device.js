@@ -143,12 +143,11 @@ class MiAirPurifierT2017Device extends Device {
         await this.updateCapabilityValue("air_heater_mode", "off");
       }
 
-      await this.setSettings({ display: result[7] });
-      await this.setSettings({ sound: result[8] });
-      await this.setSettings({ childLock: result[9] });
-      await this.setSettings({ filter_efficient: parseInt(result[10]).toString() + "%" });
-      await this.setSettings({ filter_intermediate: parseInt(result[11]).toString() + "%" });
-      await this.setSettings({ screen_direction: result[12] });
+      await this.updateSettingValue("childLock", result[9]);
+      await this.updateSettingValue("display", result[7]);
+      await this.updateSettingValue("filter_efficient", parseInt(result[10]).toString() + "%");
+      await this.updateSettingValue("filter_intermediate", parseInt(result[11]).toString() + "%");
+      await this.updateSettingValue("screen_direction", result[12]);
 
       /* mode trigger card */
       this.handleModeEvent(result[4]);

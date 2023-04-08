@@ -49,9 +49,9 @@ class MiHumidifier2Device extends Device {
       const result = await this.miio.call("get_prop", ["led_b", "buzzer", "child_lock"], { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
-      await this.setSettings({ led: result[0].toString() });
-      await this.setSettings({ buzzer: result[1] == "on" ? true : false });
-      await this.setSettings({ childLock: result[2] == "on" ? true : false });
+      await this.updateSettingValue("led", result[0].toString());
+      await this.updateSettingValue("buzzer", result[1] == "on" ? true : false);
+      await this.updateSettingValue("childLock", result[2] == "on" ? true : false);
 
     } catch (error) {
       this.homey.clearInterval(this.pollingInterval);

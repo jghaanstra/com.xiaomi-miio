@@ -3,7 +3,7 @@
 const Homey = require('homey');
 const Device = require('../subdevice_device.js');
 
-class AqaraSwitch extends Device {
+class AqaraCtrlLn1SwitchDevice extends Device {
 
   async registerCapabilities() {
     this.registerCapabilityListener('onoff', async (value) => {
@@ -29,4 +29,4 @@ class AqaraSwitch extends Device {
 
 }
 
-module.exports = AqaraSwitch;
+module.exports = AqaraCtrlLn1SwitchDevice;

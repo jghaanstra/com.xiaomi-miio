@@ -103,11 +103,11 @@ class MiAirPurifierS2Device extends Device {
       await this.updateCapabilityValue("measure_luminance", parseInt(result[5]));
       await this.updateCapabilityValue("dim", parseInt(this.favoriteLevel[result[7]] / 100));
       
-      await this.setSettings({ filter1_life: result[8] + "%" });
-      await this.setSettings({ purify_volume: result[10] + " m3" });
-      await this.setSettings({ led: result[11] == "on" ? true : false });
-      await this.setSettings({ buzzer: result[12] == "on" ? true : false });
-      await this.setSettings({ childLock: result[13] == "on" ? true : false });
+      await this.updateSettingValue("filter1_life", result[8] + "%");
+      await this.updateSettingValue("purify_volume", result[10] + " m3");
+      await this.updateSettingValue("led", result[11] == "on" ? true : false);
+      await this.updateSettingValue("buzzer", result[12] == "on" ? true : false);
+      await this.updateSettingValue("childLock", result[13] == "on" ? true : false);
 
       /* mode trigger card */
       this.handleModeEvent(result[6]);

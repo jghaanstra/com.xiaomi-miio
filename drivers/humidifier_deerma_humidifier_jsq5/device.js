@@ -122,8 +122,8 @@ class HumidifierDeermaJSQ5Device extends Device {
       await this.updateCapabilityValue("measure_temperature", +deviceTemperatureResult.value);
       await this.updateCapabilityValue("alarm_water", +deviceFaultResult.value != 0);
 
-      await this.setSettings({ led: !!deviceLedBrightnessResult.value });
-      await this.setSettings({ buzzer: deviceBuzzerResult.value });
+      await this.updateSettingValue("led", !!deviceLedBrightnessResult.value);
+      await this.updateSettingValue("buzzer", deviceBuzzerResult.value);
 
       /* mode trigger card */
       this.handleModeEvent(deviceModeResult.value);

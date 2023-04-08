@@ -1,0 +1,47 @@
+{
+  "name": {
+    "en": "Smartmi Standing Fan 3 (WiFi)",
+    "nl": "Smartmi Standing Fan 3 (WiFi)"
+  },
+  "images": {
+    "large": "drivers/fan_zhimi_fan_za5/assets/images/large.jpg",
+    "small": "drivers/fan_zhimi_fan_za5/assets/images/small.jpg"
+  },
+  "class": "fan",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "onoff.swing",
+    "onoff.ion",
+    "dim",
+    "fan_zhimi_angle",
+    "fan_zhimi_mode",
+    "measure_humidity",
+    "measure_temperature"
+  ],
+  "capabilitiesOptions": {
+    "onoff.swing": {
+      "title": {
+        "en": "Enable oscillation",
+        "nl": "Inschakelen oscillation"
+      }
+    },
+    "onoff.ion": {
+      "title": {
+        "en": "Enable ions",
+        "nl": "Inschakelen ionen"
+      }
+    },
+    "dim": {
+      "title": {
+        "en": "Fanlevel",
+        "nl": "Ventilator niveau"
+      },
+      "min": 1,
+      "max": 4,
+      "step": 1
+    }
+  }
+}

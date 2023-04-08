@@ -1,0 +1,39 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Angle",
+    "nl": "Hoek"
+  },
+  "values": [
+    {
+      "id": "30",
+      "title": {
+        "en": "30°",
+        "nl": "30°"
+      }
+    },
+    {
+      "id": "60",
+      "title": {
+        "en": "60°",
+        "nl": "60°"
+      }
+    },
+    {
+      "id": "90",
+      "title": {
+        "en": "90°",
+        "nl": "90°"
+      }
+    },
+    {
+      "id": "120",
+      "title": {
+        "en": "120°",
+        "nl": "120°"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

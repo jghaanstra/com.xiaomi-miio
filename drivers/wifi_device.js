@@ -218,6 +218,20 @@ class MiWifiDeviceDevice extends Homey.Device {
     }
   }
 
+  /* updating settings */
+  async updateSettingValue(setting, value) {
+    try {
+      if (this.getSetting(setting) !== undefined) {
+        if (this.getSetting(setting) !== value) {
+          await this.setSettings({ setting: value });
+        }
+      }
+    } catch (error) {
+      this.error('Trying to update or add capability', capability, 'with value', value, 'for device', this.getName(), 'with device id', this.getData().id);
+      this.error(error);
+    }
+  }
+
   /* create device instance and start polling */
   async createDevice() {
     try {

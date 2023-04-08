@@ -1,8 +1,8 @@
 {
-  "id": "rightSwitchToggle",
+  "id": "leftSwitchToggle",
   "title": {
-    "en": "Toggle Right Switch",
-    "nl": "Schakel rechterschakelaar"
+    "en": "Toggle Left Switch",
+    "nl": "Schakel linkerschakelaar"
   },
   "args": [
     {

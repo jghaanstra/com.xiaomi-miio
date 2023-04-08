@@ -124,50 +124,7 @@ class XiaomiMiioApp extends Homey.App {
         } catch (error) {
           return Promise.reject(error.message);
         }
-      });
-
-    // DMAKER FAN & ZHIMI
-    this.homey.flow.getActionCard('changeSpeed')
-      .registerRunListener(async (args) => {
-        try {
-          await args.device.miio.changeSpeed(args.speed);
-          return await args.device.setStoreValue("speed", args.speed);
-        } catch (error) {
-          return Promise.reject(error.message);
-        }
-      });
-
-    this.homey.flow.getActionCard('enableAngle')
-      .registerRunListener(async (args) => {
-        try {
-          await args.device.miio.enableAngle(args.angle);
-          const angle = args.angle === 'on' ? true : false;
-          return await args.device.setStoreValue("angle_enable", angle);
-        } catch (error) {
-          return Promise.reject(error.message);
-        }
-      });
-
-    this.homey.flow.getActionCard('setAngle')
-      .registerRunListener(async (args) => {
-        try {
-          await args.device.miio.changeAngle(Number(args.angle));
-          return await args.device.setStoreValue("angle", Number(args.angle));
-        } catch (error) {
-          return Promise.reject(error.message);
-        }
-      });
-
-    this.homey.flow.getActionCard('enableChildLock')
-      .registerRunListener(async (args) => {
-        try {
-          await args.device.miio.changeChildLock(args.childlock);
-          const child_lock = args.childlock === 'on' ? true : false;
-          return await args.device.setStoreValue("child_lock", child_lock);
-        } catch (error) {
-          return Promise.reject(error.message);
-        }
-      });
+      });   
 
     // AIR PURIFIER
     this.homey.flow.getActionCard('modeAirpurifier')
@@ -295,6 +252,55 @@ class XiaomiMiioApp extends Homey.App {
       });
 
     // FANS
+    this.homey.flow.getActionCard('changeSpeed')
+      .registerRunListener(async (args) => {
+        try {
+          await args.device.miio.changeSpeed(args.speed);
+          return await args.device.setStoreValue("speed", args.speed);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('enableAngle')
+      .registerRunListener(async (args) => {
+        try {
+          if (args.device.getStoreValue('model') === 'zhimi.fan.za5') {
+            return await args.device.triggerCapabilityListener('onoff.swing', args.angle == 'on');
+          } else {
+            return await args.device.miio.enableAngle(args.angle);
+          }
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('setAngle')
+      .registerRunListener(async (args) => {
+        try {
+          if (args.device.getStoreValue('model') === 'zhimi.fan.za5') {
+            return await args.device.triggerCapabilityListener('fan_zhimi_angle', Number(args.angle));
+          } else {
+            return await args.device.miio.changeAngle(Number(args.angle));
+          }
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('enableChildLock')
+      .registerRunListener(async (args) => {
+        try {
+          if (args.device.getStoreValue('model') === 'zhimi.fan.za5') {
+            return await args.device.miio.call("set_properties", [{ siid: 3, piid: 1, value: args.childlock == "on" }], { retries: 1 });
+          } else {
+            return await args.device.miio.changeChildLock(args.childlock);
+          }
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
     this.homey.flow.getActionCard('modeDmakerFan1C')
       .registerRunListener(async (args) => {
         try {
@@ -304,10 +310,10 @@ class XiaomiMiioApp extends Homey.App {
         }
       });
 
-    this.homey.flow.getActionCard('modeZhimiFanZA5')
+    this.homey.flow.getActionCard('fanZhimiMode')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('zhimi_fan_za5_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('fan_zhimi_mode', Number(args.mode));
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -334,7 +340,7 @@ class XiaomiMiioApp extends Homey.App {
         }
       });
 
-    /* aqara-ctrl-ln2 & aqara-ctrl-neutral2 */
+    /* aqara-ctrl-ln2, aqara-ctrl-neutral2 & relay_c2acn01  */
     this.homey.flow.getConditionCard('rightSwitch')
       .registerRunListener(async (args) => {
         if (args.device) {
@@ -366,6 +372,42 @@ class XiaomiMiioApp extends Homey.App {
       .registerRunListener(async (args) => {
         try {
           return await this.mihub.sendWrite(args.device.data.sid, { channel_1: "toggle" });
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+    
+    this.homey.flow.getConditionCard('leftSwitch')
+      .registerRunListener(async (args) => {
+        if (args.device) {
+          return args.device.getCapabilityValue("onoff.0");
+        } else {
+          return false;
+        }
+      })
+
+    this.homey.flow.getActionCard('leftSwitchOn')
+      .registerRunListener(async (args) => {
+        try {
+          return await this.mihub.sendWrite(args.device.data.sid, { channel_0: "on" });
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('leftSwitchOff')
+      .registerRunListener(async (args) => {
+        try {
+          return await this.mihub.sendWrite(args.device.data.sid, { channel_0: "off" });
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('leftSwitchToggle')
+      .registerRunListener(async (args) => {
+        try {
+          return await this.mihub.sendWrite(args.device.data.sid, { channel_0: "toggle" });
         } catch (error) {
           return Promise.reject(error.message);
         }

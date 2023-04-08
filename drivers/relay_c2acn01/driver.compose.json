@@ -12,21 +12,21 @@
     "defaults_subdevice"
   ],
   "capabilities": [
-    "onoff",
+    "onoff.0",
     "onoff.1",
     "measure_power"
   ],
   "capabilitiesOptions": {
-    "onoff": {
+    "onoff.0": {
       "title": {
-        "en": "Channel 1",
-        "nl": "Kanaal 1"
+        "en": "Left Switch",
+        "nl": "Linkerschakelaar"
       }
     },
     "onoff.1": {
       "title": {
-        "en": "Channel 2",
-        "nl": "Kanaal 2"
+        "en": "Right Switch",
+        "nl": "Rechterschakelaar"
       }
     }
   }

@@ -6,14 +6,14 @@
   },
   "values": [
     {
-      "id": "0",
+      "id": "1",
       "title": {
         "en": "Natural Wind",
         "nl": "Natuur wind"
       }
     },
     {
-      "id": "1",
+      "id": "2",
       "title": {
         "en": "Straight Wind",
         "nl": "Rechte wind"

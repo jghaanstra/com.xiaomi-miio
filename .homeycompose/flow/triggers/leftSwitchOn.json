@@ -1,15 +1,15 @@
 {
-  "id": "rightSwitchToggle",
+  "id": "leftSwitchOn",
   "title": {
-    "en": "Toggle Right Switch",
-    "nl": "Schakel rechterschakelaar"
+    "en": "Left Switch On",
+    "nl": "Linkerschakelaar aan"
   },
   "args": [
     {
       "name": "device",
       "type": "device",
       "placeholder": {
-        "en": "Select Device",
+        "en": "Select device",
         "nl": "Selecteer apparaat"
       },
       "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"

@@ -20,29 +20,29 @@
         {
           "id": "30",
           "label": {
-            "en": "30º",
-            "nl": "30º"
+            "en": "30°",
+            "nl": "30°"
           }
         },
         {
           "id": "60",
           "label": {
-            "en": "60º",
-            "nl": "60º"
+            "en": "60°",
+            "nl": "60°"
           }
         },
         {
           "id": "90",
           "label": {
-            "en": "90º",
-            "nl": "90º"
+            "en": "90°",
+            "nl": "90°"
           }
         },
         {
           "id": "120",
           "label": {
-            "en": "120º",
-            "nl": "120º"
+            "en": "120°",
+            "nl": "120°"
           }
         }
       ]
@@ -54,7 +54,7 @@
         "en": "Select Device",
         "nl": "Selecteer apparaat"
       },
-      "filter": "driver_id=zhimi-fan|dmaker-fan"
+      "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5"
     }
   ],
   "platforms": ["local"]

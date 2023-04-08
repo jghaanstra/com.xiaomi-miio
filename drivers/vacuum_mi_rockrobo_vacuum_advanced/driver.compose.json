@@ -1,7 +1,7 @@
 {
   "name": {
-    "en": "Roborock Advanced Vacuum Cleaner (WiFi)",
-    "nl": "Roborock geadvanceerde stofzuiger (WiFi)"
+    "en": "Advanced Roborock Vacuum Cleaner (WiFi)",
+    "nl": "Geadvanceerde Roborock stofzuiger (WiFi)"
   },
   "images": {
     "large": "drivers/vacuum_mi_rockrobo_vacuum_advanced/assets/images/large.jpg",

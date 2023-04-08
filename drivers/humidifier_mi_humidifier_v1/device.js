@@ -80,8 +80,8 @@ class MiHumidifierV1Device extends Device {
       await this.updateCapabilityValue("measure_temperature", parseInt(result[2] / 10));
       await this.updateCapabilityValue("dim", parseInt(result[4] / 100));
       
-      await this.setSettings({ led: result[5] === 2 ? false : true });
-      await this.setSettings({ buzzer: result[6] === "on" ? true : false });
+      await this.updateSettingValue("led", result[5] === 2 ? false : true);
+      await this.updateSettingValue("buzzer", result[6] === "on" ? true : false);
 
       /* mode trigger card */
       this.handleModeEvent(result[3]);

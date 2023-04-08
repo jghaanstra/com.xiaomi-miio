@@ -3,7 +3,7 @@
 const Driver = require('../subdevice_driver.js');
 const Util = require('../../lib/util.js');
 
-class AqaraSwitch extends Driver {
+class AqaraCtrlLn1SwitchDriver extends Driver {
 
   async onInit() {
 
@@ -17,4 +17,4 @@ class AqaraSwitch extends Driver {
 
 }
 
-module.exports = AqaraSwitch;
+module.exports = AqaraCtrlLn1SwitchDriver;

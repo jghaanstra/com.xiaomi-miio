@@ -1,11 +1,11 @@
 {
   "name": {
-    "en": "Mi Smart Standing Fan 2S (WiFi)",
-    "nl": "Mi Smart Standing Fan 2S (WiFi)"
+    "en": "Advanced Smartmi/ZhiMi Fan (WiFi)",
+    "nl": "Geadvanceerde Smartmi/ZhiMi Fan (WiFi)"
   },
   "images": {
-    "large": "drivers/zhimi_fan_za4/assets/images/large.jpg",
-    "small": "drivers/zhimi_fan_za4/assets/images/small.jpg"
+    "large": "drivers/fan_zhimi_advanced/assets/images/large.jpg",
+    "small": "drivers/fan_zhimi_advanced/assets/images/small.jpg"
   },
   "class": "fan",
   "$extends": [
@@ -15,7 +15,8 @@
     "onoff",
     "onoff.swing",
     "dim",
-    "dim.angle"
+    "dim.angle",
+    "fan_zhimi_mode"
   ],
   "capabilitiesOptions": {
     "onoff.swing": {
@@ -30,15 +31,17 @@
         "nl": "Ventilator niveau"
       },
       "min": 1,
-      "max": 100
+      "max": 4,
+      "step": 1
     },
     "dim.angle": {
       "title": {
         "en": "Horizontal Angle",
         "nl": "Horizontale hoek"
       },
-      "min": 30,
-      "max": 120
+      "min": 0,
+      "max": 120,
+      "step": 1
     }
   }
 }

@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.18",
+  "version": "3.1.19",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -569,6 +569,48 @@
         ]
       },
       {
+        "id": "leftSwitchOff",
+        "title": {
+          "en": "Left Switch Off",
+          "nl": "Linkerschakelaar uit"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select device",
+              "nl": "Selecteer apparaat"
+            },
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "leftSwitchOn",
+        "title": {
+          "en": "Left Switch On",
+          "nl": "Linkerschakelaar aan"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select device",
+              "nl": "Selecteer apparaat"
+            },
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
         "title": {
           "en": "Lock Event",
           "nl": "Lock event"
@@ -994,7 +1036,7 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_airpurifier_mb4|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh_va2|airfresh_zhimi_airfresh_va4|mi-humidifier2|humidifier_mi_humidifier_v1|humidifier_mi_humidifier_ca1_cb1|humidifier_mi_humidifier_ca4|humidifier_deerma_humidifier_jsq|dmaker_fan_1c|fan_dmaker_fan_p11_p15|zhimi_fan_za5"
+            "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_airpurifier_mb4|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh_va2|airfresh_zhimi_airfresh_va4|mi-humidifier2|humidifier_mi_humidifier_v1|humidifier_mi_humidifier_ca1_cb1|humidifier_mi_humidifier_ca4|humidifier_deerma_humidifier_jsq|dmaker_fan_1c|fan_dmaker_fan_p11_p15|fan_zhimi_advanced|zhimi_fan_za5"
           }
         ],
         "platforms": [
@@ -1098,6 +1140,27 @@
       }
     ],
     "conditions": [
+      {
+        "id": "leftSwitch",
+        "title": {
+          "en": "Left switch !{{on|off}}",
+          "nl": "Linkerschakelaar !{{aan|uit}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select device",
+              "nl": "Selecteer apparaat"
+            },
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
       {
         "id": "measure_humidity_between",
         "title": {
@@ -1507,7 +1570,7 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=zhimi-fan|dmaker-fan"
+            "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5"
           }
         ],
         "platforms": [
@@ -1556,7 +1619,7 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=zhimi-fan|dmaker-fan"
+            "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5"
           }
         ],
         "platforms": [
@@ -1681,6 +1744,55 @@
         "platforms": [
           "local"
         ]
+      },
+      {
+        "title": {
+          "en": "Set Mode",
+          "nl": "Stel modus in"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Stel modus in op [[mode]]"
+        },
+        "args": [
+          {
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "1",
+                "title": {
+                  "en": "Natural Wind",
+                  "nl": "Natuur wind"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Straight Wind",
+                  "nl": "Rechte wind"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Fan",
+              "nl": "Selecteer Fan"
+            },
+            "filter": "driver_id=fan_zhimi_advanced|fan_zhimi_fan_za5"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "fanZhimiMode"
       },
       {
         "id": "findVacuum",
@@ -2280,6 +2392,69 @@
               "nl": "Selecteer Mi Luchtreiniger"
             },
             "filter": "driver_id=mi-airpurifier|mi-humidifier2|zhimi-fan"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "leftSwitchOff",
+        "title": {
+          "en": "Turn Left Switch Off",
+          "nl": "Schakel linkerschakelaar uit"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Device",
+              "nl": "Selecteer apparaat"
+            },
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "leftSwitchOn",
+        "title": {
+          "en": "Turn Left Switch On",
+          "nl": "Schakel linkerschakelaar aan"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Device",
+              "nl": "Selecteer apparaat"
+            },
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "leftSwitchToggle",
+        "title": {
+          "en": "Toggle Left Switch",
+          "nl": "Schakel linkerschakelaar"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Device",
+              "nl": "Selecteer apparaat"
+            },
+            "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
           }
         ],
         "platforms": [
@@ -3170,55 +3345,6 @@
         ]
       },
       {
-        "id": "modeZhimiFanZA5",
-        "title": {
-          "en": "Set Mode",
-          "nl": "Stel modus in"
-        },
-        "titleFormatted": {
-          "en": "Set mode to [[mode]]",
-          "nl": "Stel modus in op [[mode]]"
-        },
-        "args": [
-          {
-            "name": "mode",
-            "title": {
-              "en": "Mode",
-              "nl": "Modus"
-            },
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "0",
-                "title": {
-                  "en": "Natural Wind",
-                  "nl": "Natuur wind"
-                }
-              },
-              {
-                "id": "1",
-                "title": {
-                  "en": "Straight Wind",
-                  "nl": "Rechte wind"
-                }
-              }
-            ]
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "placeholder": {
-              "en": "Select Zhimi Fan ZA5",
-              "nl": "Selecteer Zhimi Fan ZA5"
-            },
-            "filter": "driver_id=zhimi_fan_za5"
-          }
-        ],
-        "platforms": [
-          "local"
-        ]
-      },
-      {
         "title": {
           "en": "Send IR code",
           "nl": "IR code versturen"
@@ -3261,10 +3387,6 @@
         "args": [
           {
             "name": "device",
-            "title": {
-              "en": "Right Switch Off",
-              "nl": "Rechterschakelaar uit"
-            },
             "type": "device",
             "placeholder": {
               "en": "Select Device",
@@ -3286,10 +3408,6 @@
         "args": [
           {
             "name": "device",
-            "title": {
-              "en": "Right Switch on",
-              "nl": "Rechterschakelaar aan"
-            },
             "type": "device",
             "placeholder": {
               "en": "Select Device",
@@ -3311,10 +3429,6 @@
         "args": [
           {
             "name": "device",
-            "title": {
-              "en": "Right Switch Toggle",
-              "nl": "Rechterschakelaar schakelen"
-            },
             "type": "device",
             "placeholder": {
               "en": "Select Device",
@@ -3349,29 +3463,29 @@
               {
                 "id": "30",
                 "label": {
-                  "en": "30º",
-                  "nl": "30º"
+                  "en": "30°",
+                  "nl": "30°"
                 }
               },
               {
                 "id": "60",
                 "label": {
-                  "en": "60º",
-                  "nl": "60º"
+                  "en": "60°",
+                  "nl": "60°"
                 }
               },
               {
                 "id": "90",
                 "label": {
-                  "en": "90º",
-                  "nl": "90º"
+                  "en": "90°",
+                  "nl": "90°"
                 }
               },
               {
                 "id": "120",
                 "label": {
-                  "en": "120º",
-                  "nl": "120º"
+                  "en": "120°",
+                  "nl": "120°"
                 }
               }
             ]
@@ -3383,7 +3497,7 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=zhimi-fan|dmaker-fan"
+            "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5"
           }
         ],
         "platforms": [
@@ -5379,11 +5493,11 @@
       },
       "class": "light",
       "capabilities": [
-        "onoff",
+        "onoff.0",
         "onoff.1"
       ],
       "capabilitiesOptions": {
-        "onoff": {
+        "onoff.0": {
           "title": {
             "en": "Left button",
             "nl": "Linkerknop"
@@ -5546,11 +5660,11 @@
       },
       "class": "light",
       "capabilities": [
-        "onoff",
+        "onoff.0",
         "onoff.1"
       ],
       "capabilitiesOptions": {
-        "onoff": {
+        "onoff.0": {
           "title": {
             "en": "Left button",
             "nl": "Linkerknop"
@@ -6786,6 +6900,294 @@
         }
       },
       "id": "fan_dmaker_fan_p11_p15",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "User Settings",
+            "nl": "Gebruikersinstellingem"
+          },
+          "children": [
+            {
+              "id": "led",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "LED",
+                "nl": "LED"
+              }
+            },
+            {
+              "id": "buzzer",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Buzzer",
+                "nl": "Buzzer"
+              }
+            },
+            {
+              "id": "childLock",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Child Lock",
+                "nl": "Kinderslot"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device Settings",
+            "nl": "Apparaat instellingen"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "value": "0.0.0.0",
+              "label": {
+                "en": "IP Address",
+                "nl": "IP adres"
+              }
+            },
+            {
+              "id": "token",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Mi Device Token",
+                "nl": "Mi Apparaat Token"
+              }
+            },
+            {
+              "id": "polling",
+              "type": "number",
+              "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+              "label": {
+                "en": "Polling Frequency",
+                "nl": "Polling frequentie"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "/drivers/fan_zhimi_advanced/assets/icon.svg",
+      "pair": [
+        {
+          "id": "start",
+          "navigation": {
+            "next": "pair"
+          }
+        },
+        {
+          "id": "pair"
+        },
+        {
+          "id": "add_device"
+        }
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "name": {
+        "en": "Advanced Smartmi/ZhiMi Fan (WiFi)",
+        "nl": "Geadvanceerde Smartmi/ZhiMi Fan (WiFi)"
+      },
+      "images": {
+        "large": "drivers/fan_zhimi_advanced/assets/images/large.jpg",
+        "small": "drivers/fan_zhimi_advanced/assets/images/small.jpg"
+      },
+      "class": "fan",
+      "capabilities": [
+        "onoff",
+        "onoff.swing",
+        "dim",
+        "dim.angle",
+        "fan_zhimi_mode"
+      ],
+      "capabilitiesOptions": {
+        "onoff.swing": {
+          "title": {
+            "en": "Horizontal Swing",
+            "nl": "Horizontale swing"
+          }
+        },
+        "dim": {
+          "title": {
+            "en": "Fanlevel",
+            "nl": "Ventilator niveau"
+          },
+          "min": 1,
+          "max": 4,
+          "step": 1
+        },
+        "dim.angle": {
+          "title": {
+            "en": "Horizontal Angle",
+            "nl": "Horizontale hoek"
+          },
+          "min": 0,
+          "max": 120,
+          "step": 1
+        }
+      },
+      "id": "fan_zhimi_advanced",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "User Settings",
+            "nl": "Gebruikersinstellingem"
+          },
+          "children": [
+            {
+              "id": "led",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "LED",
+                "nl": "LED"
+              }
+            },
+            {
+              "id": "buzzer",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Buzzer",
+                "nl": "Buzzer"
+              }
+            },
+            {
+              "id": "childLock",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Child Lock",
+                "nl": "Kinderslot"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device Settings",
+            "nl": "Apparaat instellingen"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "value": "0.0.0.0",
+              "label": {
+                "en": "IP Address",
+                "nl": "IP adres"
+              }
+            },
+            {
+              "id": "token",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Mi Device Token",
+                "nl": "Mi Apparaat Token"
+              }
+            },
+            {
+              "id": "polling",
+              "type": "number",
+              "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+              "label": {
+                "en": "Polling Frequency",
+                "nl": "Polling frequentie"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "/drivers/fan_zhimi_fan_za5/assets/icon.svg",
+      "pair": [
+        {
+          "id": "start",
+          "navigation": {
+            "next": "pair"
+          }
+        },
+        {
+          "id": "pair"
+        },
+        {
+          "id": "add_device"
+        }
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "name": {
+        "en": "Smartmi Standing Fan 3 (WiFi)",
+        "nl": "Smartmi Standing Fan 3 (WiFi)"
+      },
+      "images": {
+        "large": "drivers/fan_zhimi_fan_za5/assets/images/large.jpg",
+        "small": "drivers/fan_zhimi_fan_za5/assets/images/small.jpg"
+      },
+      "class": "fan",
+      "capabilities": [
+        "onoff",
+        "onoff.swing",
+        "onoff.ion",
+        "dim",
+        "fan_zhimi_angle",
+        "fan_zhimi_mode",
+        "measure_humidity",
+        "measure_temperature"
+      ],
+      "capabilitiesOptions": {
+        "onoff.swing": {
+          "title": {
+            "en": "Enable oscillation",
+            "nl": "Inschakelen oscillation"
+          }
+        },
+        "onoff.ion": {
+          "title": {
+            "en": "Enable ions",
+            "nl": "Inschakelen ionen"
+          }
+        },
+        "dim": {
+          "title": {
+            "en": "Fanlevel",
+            "nl": "Ventilator niveau"
+          },
+          "min": 1,
+          "max": 4,
+          "step": 1
+        }
+      },
+      "id": "fan_zhimi_fan_za5",
       "settings": [
         {
           "type": "group",
@@ -10525,21 +10927,21 @@
       },
       "class": "socket",
       "capabilities": [
-        "onoff",
+        "onoff.0",
         "onoff.1",
         "measure_power"
       ],
       "capabilitiesOptions": {
-        "onoff": {
+        "onoff.0": {
           "title": {
-            "en": "Channel 1",
-            "nl": "Kanaal 1"
+            "en": "Left Switch",
+            "nl": "Linkerschakelaar"
           }
         },
         "onoff.1": {
           "title": {
-            "en": "Channel 2",
-            "nl": "Kanaal 2"
+            "en": "Right Switch",
+            "nl": "Rechterschakelaar"
           }
         }
       },
@@ -11385,8 +11787,8 @@
         "lan"
       ],
       "name": {
-        "en": "Roborock Advanced Vacuum Cleaner (WiFi)",
-        "nl": "Roborock geadvanceerde stofzuiger (WiFi)"
+        "en": "Advanced Roborock Vacuum Cleaner (WiFi)",
+        "nl": "Geadvanceerde Roborock stofzuiger (WiFi)"
       },
       "images": {
         "large": "drivers/vacuum_mi_rockrobo_vacuum_advanced/assets/images/large.jpg",
@@ -11914,8 +12316,8 @@
         "lan"
       ],
       "name": {
-        "en": "ZhiMi Mi Fan Generic (WiFi)",
-        "nl": "ZhiMi Mi Ventilator Generic (WiFi)"
+        "en": "Basic Smartmi/ZhiMi Fan (WiFi)",
+        "nl": "Basic Smartmi/ZhiMi Fan (WiFi)"
       },
       "images": {
         "large": "drivers/zhimi-fan/assets/images/large.jpg",
@@ -11927,291 +12329,6 @@
       ],
       "id": "zhimi-fan",
       "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "Device Settings",
-            "nl": "Apparaat instellingen"
-          },
-          "children": [
-            {
-              "id": "address",
-              "type": "text",
-              "value": "0.0.0.0",
-              "label": {
-                "en": "IP Address",
-                "nl": "IP adres"
-              }
-            },
-            {
-              "id": "token",
-              "type": "text",
-              "value": "",
-              "label": {
-                "en": "Mi Device Token",
-                "nl": "Mi Apparaat Token"
-              }
-            },
-            {
-              "id": "polling",
-              "type": "number",
-              "value": 60,
-              "attr": {
-                "min": 5,
-                "max": 3600
-              },
-              "label": {
-                "en": "Polling Frequency",
-                "nl": "Polling frequentie"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "icon": "/drivers/zhimi_fan_za4/assets/icon.svg",
-      "pair": [
-        {
-          "id": "start",
-          "navigation": {
-            "next": "pair"
-          }
-        },
-        {
-          "id": "pair"
-        },
-        {
-          "id": "add_device"
-        }
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "name": {
-        "en": "Mi Smart Standing Fan 2S (WiFi)",
-        "nl": "Mi Smart Standing Fan 2S (WiFi)"
-      },
-      "images": {
-        "large": "drivers/zhimi_fan_za4/assets/images/large.jpg",
-        "small": "drivers/zhimi_fan_za4/assets/images/small.jpg"
-      },
-      "class": "fan",
-      "capabilities": [
-        "onoff",
-        "onoff.swing",
-        "dim",
-        "dim.angle"
-      ],
-      "capabilitiesOptions": {
-        "onoff.swing": {
-          "title": {
-            "en": "Horizontal Swing",
-            "nl": "Horizontale swing"
-          }
-        },
-        "dim": {
-          "title": {
-            "en": "Fanlevel",
-            "nl": "Ventilator niveau"
-          },
-          "min": 1,
-          "max": 100
-        },
-        "dim.angle": {
-          "title": {
-            "en": "Horizontal Angle",
-            "nl": "Horizontale hoek"
-          },
-          "min": 30,
-          "max": 120
-        }
-      },
-      "id": "zhimi_fan_za4",
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "User Settings",
-            "nl": "Gebruikersinstellingem"
-          },
-          "children": [
-            {
-              "id": "led",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "LED",
-                "nl": "LED"
-              }
-            },
-            {
-              "id": "buzzer",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Buzzer",
-                "nl": "Buzzer"
-              }
-            },
-            {
-              "id": "childLock",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Child Lock",
-                "nl": "Kinderslot"
-              }
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Device Settings",
-            "nl": "Apparaat instellingen"
-          },
-          "children": [
-            {
-              "id": "address",
-              "type": "text",
-              "value": "0.0.0.0",
-              "label": {
-                "en": "IP Address",
-                "nl": "IP adres"
-              }
-            },
-            {
-              "id": "token",
-              "type": "text",
-              "value": "",
-              "label": {
-                "en": "Mi Device Token",
-                "nl": "Mi Apparaat Token"
-              }
-            },
-            {
-              "id": "polling",
-              "type": "number",
-              "value": 60,
-              "attr": {
-                "min": 5,
-                "max": 3600
-              },
-              "label": {
-                "en": "Polling Frequency",
-                "nl": "Polling frequentie"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "icon": "/drivers/zhimi_fan_za5/assets/icon.svg",
-      "pair": [
-        {
-          "id": "start",
-          "navigation": {
-            "next": "pair"
-          }
-        },
-        {
-          "id": "pair"
-        },
-        {
-          "id": "add_device"
-        }
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "name": {
-        "en": "Mi Smart Standing Fan 3 (WiFi)",
-        "nl": "Mi Smart Standing Fan 3 (WiFi)"
-      },
-      "images": {
-        "large": "drivers/zhimi_fan_za5/assets/images/large.jpg",
-        "small": "drivers/zhimi_fan_za5/assets/images/small.jpg"
-      },
-      "class": "fan",
-      "capabilities": [
-        "onoff",
-        "onoff.swing",
-        "dim",
-        "dim.angle",
-        "zhimi_fan_za5_mode",
-        "measure_humidity",
-        "measure_temperature"
-      ],
-      "capabilitiesOptions": {
-        "onoff.swing": {
-          "title": {
-            "en": "Horizontal Swing",
-            "nl": "Horizontale swing"
-          }
-        },
-        "dim": {
-          "title": {
-            "en": "Fanlevel",
-            "nl": "Ventilator niveau"
-          },
-          "min": 1,
-          "max": 4
-        },
-        "dim.angle": {
-          "title": {
-            "en": "Horizontal Angle",
-            "nl": "Horizontale hoek"
-          },
-          "min": 30,
-          "max": 120
-        }
-      },
-      "id": "zhimi_fan_za5",
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "User Settings",
-            "nl": "Gebruikersinstellingem"
-          },
-          "children": [
-            {
-              "id": "led",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "LED",
-                "nl": "LED"
-              }
-            },
-            {
-              "id": "buzzer",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Buzzer",
-                "nl": "Buzzer"
-              }
-            },
-            {
-              "id": "childLock",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Child Lock",
-                "nl": "Kinderslot"
-              }
-            }
-          ]
-        },
         {
           "type": "group",
           "label": {
@@ -12567,6 +12684,70 @@
           "title": {
             "en": "Natural Wind / Sleep",
             "nl": "Natuurlijke Wind / Sleep"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
+    "fan_zhimi_angle": {
+      "type": "enum",
+      "title": {
+        "en": "Angle",
+        "nl": "Hoek"
+      },
+      "values": [
+        {
+          "id": "30",
+          "title": {
+            "en": "30°",
+            "nl": "30°"
+          }
+        },
+        {
+          "id": "60",
+          "title": {
+            "en": "60°",
+            "nl": "60°"
+          }
+        },
+        {
+          "id": "90",
+          "title": {
+            "en": "90°",
+            "nl": "90°"
+          }
+        },
+        {
+          "id": "120",
+          "title": {
+            "en": "120°",
+            "nl": "120°"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
+    "fan_zhimi_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "values": [
+        {
+          "id": "1",
+          "title": {
+            "en": "Natural Wind",
+            "nl": "Natuur wind"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Straight Wind",
+            "nl": "Rechte wind"
           }
         }
       ],
@@ -13077,31 +13258,6 @@
           "title": {
             "en": "Mop",
             "nl": "Moppen"
-          }
-        }
-      ],
-      "getable": true,
-      "setable": true
-    },
-    "zhimi_fan_za5_mode": {
-      "type": "enum",
-      "title": {
-        "en": "Mode",
-        "nl": "Modus"
-      },
-      "values": [
-        {
-          "id": "0",
-          "title": {
-            "en": "Natural Wind",
-            "nl": "Natuur wind"
-          }
-        },
-        {
-          "id": "1",
-          "title": {
-            "en": "Straight Wind",
-            "nl": "Rechte wind"
           }
         }
       ],

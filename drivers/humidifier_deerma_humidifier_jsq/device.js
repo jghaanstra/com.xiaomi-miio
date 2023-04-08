@@ -104,8 +104,8 @@ class HumidifierDeermaJSQDevice extends Device {
       await this.updateCapabilityValue("alarm_water", result[7] === 0 ? true : false);
       await this.updateCapabilityValue("alarm_water.tank", result[8] === 0 ? false : true);
       
-      await this.setSettings({ led: result[3] === 1 ? true : false });
-      await this.setSettings({ buzzer: result[6] === 1 ? true : false });
+      await this.updateSettingValue("led", result[3] === 1 ? true : false);
+      await this.updateSettingValue("buzzer", result[6] === 1 ? true : false);
 
       /* mode trigger card */
       this.handleModeEvent(result[0]);
