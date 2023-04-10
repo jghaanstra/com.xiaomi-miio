@@ -301,10 +301,10 @@ class XiaomiMiioApp extends Homey.App {
         }
       });
 
-    this.homey.flow.getActionCard('modeDmakerFan1C')
+    this.homey.flow.getActionCard('fanDmakerMode')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('dmaker_fan_1c_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('fan_dmaker_mode', Number(args.mode));
         } catch (error) {
           return Promise.reject(error.message);
         }

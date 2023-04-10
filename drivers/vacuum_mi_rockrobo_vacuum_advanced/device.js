@@ -4,6 +4,149 @@ const Homey = require('homey');
 const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
+/* basic supported devices */
+// https://home.miot-spec.com/spec/rockrobo.vacuum.v1
+// https://home.miot-spec.com/spec/rockrobo.vacuum.m1s
+// https://home.miot-spec.com/spec/rockrobo.vacuum.c1
+// https://home.miot-spec.com/spec/roborock.vacuum.e2
+// https://home.miot-spec.com/spec/roborock.vacuum.s4
+// https://home.miot-spec.com/spec/roborock.vacuum.s5
+// https://home.miot-spec.com/spec/roborock.vacuum.s5e
+// https://home.miot-spec.com/spec/roborock.vacuum.s6
+// https://home.miot-spec.com/spec/roborock.vacuum.t6
+// https://home.miot-spec.com/spec/roborock.vacuum.a01
+// https://home.miot-spec.com/spec/roborock.vacuum.a08
+// https://home.miot-spec.com/spec/roborock.vacuum.a10
+// https://home.miot-spec.com/spec/roborock.vacuum.a11
+// https://home.miot-spec.com/spec/roborock.vacuum.a14
+// https://home.miot-spec.com/spec/roborock.vacuum.a15
+// https://home.miot-spec.com/spec/roborock.vacuum.a19
+// https://home.miot-spec.com/spec/roborock.vacuum.a23
+// https://home.miot-spec.com/spec/roborock.vacuum.a27
+// https://home.miot-spec.com/spec/roborock.vacuum.a29
+// https://home.miot-spec.com/spec/roborock.vacuum.a34
+// https://home.miot-spec.com/spec/roborock.vacuum.a38
+// https://home.miot-spec.com/spec/roborock.vacuum.a40
+// https://home.miot-spec.com/spec/roborock.vacuum.a46
+// https://home.miot-spec.com/spec/roborock.vacuum.a62
+
+const mapping = {
+  "rockrobo.vacuum.v1": "rockrobo_vacuum_v3",
+  "rockrobo.vacuum.m1s": "rockrobo_vacuum_v2",
+	"rockrobo.vacuum.c1": "rockrobo_vacuum_v2",
+	"roborock.vacuum.e2": "rockrobo_vacuum_e2",
+	"roborock.vacuum.s4": "rockrobo_vacuum_v2",
+  "roborock.vacuum.t4": "rockrobo_vacuum_v2",
+	"roborock.vacuum.s5": "rockrobo_vacuum_v2",
+	"roborock.vacuum.s5e": "rockrobo_vacuum_v2",
+	"roborock.vacuum.s6": "rockrobo_vacuum_v2",
+	"roborock.vacuum.a01": "rockrobo_vacuum_v2",
+  "roborock.vacuum.a08": "rockrobo_vacuum_v2",
+  "roborock.vacuum.a09": "rockrobo_vacuum_v2",
+	"roborock.vacuum.a10": "rockrobo_vacuum_v2",
+  "roborock.vacuum.a11": "rockrobo_vacuum_v2",
+  "roborock.vacuum.a14": "rockrobo_vacuum_v2",
+	"roborock.vacuum.a15": "rockrobo_vacuum_s7",
+	"roborock.vacuum.a19": "rockrobo_vacuum_v2",
+	"roborock.vacuum.a23": "rockrobo_vacuum_v2",
+  "roborock.vacuum.a26": "rockrobo_vacuum_v2",
+	"roborock.vacuum.a27": "rockrobo_vacuum_s7_vmax",
+	"roborock.vacuum.a29": "rockrobo_vacuum_v2",
+	"roborock.vacuum.a34": "rockrobo_vacuum_v2",
+	"roborock.vacuum.a38": "rockrobo_vacuum_v2",
+  "roborock.vacuum.a40": "rockrobo_vacuum_v2",
+	"roborock.vacuum.a46": "rockrobo_vacuum_v2",
+  "roborock.vacuum.a62": "rockrobo_vacuum_v2",
+  "roborock.vacuum.*": "rockrobo_vacuum_v2",
+};
+
+const properties = {
+  "rockrobo_vacuum_v1": {
+    "fanspeeds": {
+      1: 38,
+      2: 60,
+      3: 77,
+      4: 90,
+      5: 90,
+      38: 1,
+      60: 2,
+      77: 3,
+      90: 4
+    }
+  },
+  "rockrobo_vacuum_v2": {
+    "fanspeeds": {
+      1: 101,
+      2: 102,
+      3: 103,
+      4: 104,
+      5: 105,
+      101: 1,
+      102: 2,
+      103: 3,
+      104: 4,
+      105: 5,
+      106: 5
+    }
+  },
+  "rockrobo_vacuum_v3": {
+    "fanspeeds": {
+      1: 38,
+      2: 60,
+      3: 75,
+      4: 100,
+      5: 100,
+      38: 1,
+      60: 2,
+      75: 3,
+      100: 4
+    }
+  },
+  "rockrobo_vacuum_e2": {
+    "fanspeeds": {
+      1: 41,
+      2: 50,
+      3: 68,
+      4: 79,
+      5: 100,
+      41: 1,
+      50: 2,
+      68: 3,
+      79: 4,
+      100: 5
+    }
+  },
+  "rockrobo_vacuum_s7": {
+    "fanspeeds": {
+      1: 101,
+      2: 102,
+      3: 103,
+      4: 104,
+      5: 105,
+      101: 1,
+      102: 2,
+      103: 3,
+      104: 4,
+      105: 5
+    }
+  },
+  "rockrobo_vacuum_s7_vmax": {
+    "fanspeeds": {
+      1: 101,
+      2: 102,
+      3: 103,
+      4: 104,
+      5: 108,
+      101: 1,
+      102: 2,
+      103: 3,
+      104: 4,
+      105: 4,
+      108: 5
+    }
+  }
+}
+
 class MiRobotAdvancedDevice extends Device {
 
   async onInit() {
@@ -12,6 +155,9 @@ class MiRobotAdvancedDevice extends Device {
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
+
+      // DEVICE VARIABLES
+      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('roborock.vacuum.*')]];
 
       // DEVICE VARIABLES
       this.vacuumErrorCodes = {
@@ -60,9 +206,24 @@ class MiRobotAdvancedDevice extends Device {
       // LISTENERS FOR UPDATING CAPABILITIES
       this.registerCapabilityListener("onoff", this.onCapabilityOnoffVacuumcleaner.bind(this));
       this.registerCapabilityListener("vacuumcleaner_state", this.onCapabilityVacuumcleanerState.bind(this));
-      this.registerCapabilityListener("vacuum_roborock_fanspeed", this.onCapabilityVacuumFanspeed.bind(this));
       this.registerCapabilityListener("vacuum_roborock_mop_intensity", this.onCapabilityVacuumMopIntensity.bind(this));
       this.registerCapabilityListener("button.consumable", this.onCapabilityButtonConsumable.bind(this));
+
+      this.registerCapabilityListener('vacuum_roborock_fanspeed', async ( value ) => {
+        try {
+          if (this.miio) {
+            const fanspeed = this.deviceProperties.fanspeeds[+value];
+            return await this.miio.call("set_custom_mode", [fanspeed], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
 
     } catch (error) {
       this.error(error);
@@ -74,7 +235,8 @@ class MiRobotAdvancedDevice extends Device {
       const result = await this.miio.call("get_status", [], { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
-      await this.updateCapabilityValue("vacuum_roborock_fanspeed", result[0]["fan_power"].toString());
+      const fanspeed = this.deviceProperties.fanspeeds[result[0]["fan_power"]];
+      await this.updateCapabilityValue("vacuum_roborock_fanspeed", fanspeed.toString());
       await this.updateCapabilityValue("measure_battery", parseInt(result[0]["battery"]));
       await this.updateCapabilityValue("alarm_battery", parseInt(result[0]["battery"]) === 20 ? true : false);
 

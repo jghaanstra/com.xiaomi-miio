@@ -4,6 +4,19 @@ const Homey = require('homey');
 const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
+/* supported devices */
+// https://home.miot-spec.com/spec/dreame.vacuum.mc1808
+// https://home.miot-spec.com/spec/dreame.vacuum.p2008
+// https://home.miot-spec.com/spec/dreame.vacuum.p2009
+// https://home.miot-spec.com/spec/dreame.vacuum.p2028
+// https://home.miot-spec.com/spec/dreame.vacuum.p2041o
+// https://home.miot-spec.com/spec/dreame.vacuum.p2150a
+// https://home.miot-spec.com/spec/dreame.vacuum.p2150o
+// https://home.miot-spec.com/spec/dreame.vacuum.p2029
+// https://home.miot-spec.com/spec/dreame.vacuum.p2041
+// https://home.miot-spec.com/spec/dreame.vacuum.p2029
+// https://home.miot-spec.com/spec/dreame.vacuum.p2041
+
 const mapping = {
   "dreame.vacuum.mc1808": "properties_mc1808",
   "dreame.vacuum.p2008": "properties_p2008",

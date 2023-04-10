@@ -1,5 +1,4 @@
 {
-  "id": "modeDmakerFan1C",
   "title": {
     "en": "Set Mode",
     "nl": "Stel modus in"
@@ -27,8 +26,8 @@
         {
           "id": "1",
           "label": {
-            "en": "Natural Wind / Sleep",
-            "nl": "Natuurlijke wind / Slaapstand"
+            "en": "Natural Wind",
+            "nl": "Natuurlijke wind"
           }
         }
       ]
@@ -40,7 +39,7 @@
         "en": "Select Dmaker Fan",
         "nl": "Selecteer Dmaker Fan"
       },
-      "filter": "driver_id=dmaker_fan_1c|fan_dmaker_fan_p11_p15"
+      "filter": "driver_id=dmaker_fan_advanced"
     }
   ],
   "platforms": ["local"]

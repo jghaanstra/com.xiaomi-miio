@@ -146,23 +146,7 @@ class MiWifiDeviceDevice extends Homey.Device {
       this.error(error);
       return Promise.reject(error);
     }
-  };
-
-  /* vacuumcleaner roborock fanspeed */
-  async onCapabilityVacuumFanspeed(value, opts) {
-    try {
-      if (this.miio) {
-        return await this.miio.call("set_custom_mode", [Number(value)], { retries: 1 });
-      } else {
-        this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
-        this.createDevice();
-        return Promise.reject('Device unreachable, please try again ...');
-      }
-    } catch (error) {
-      this.error(error);
-      return Promise.reject(error);
-    }
-  };
+  }; 
 
   /* vacuumcleaner mop intensity */
   async onCapabilityVacuumMopIntensity(value, opts) {

@@ -4,6 +4,14 @@ const Homey = require('homey');
 const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
+/* supported devices */
+// https://home.miot-spec.com/spec/zhimi.fan.v2
+// https://home.miot-spec.com/spec/zhimi.fan.v3
+// https://home.miot-spec.com/spec/zhimi.fan.sa1
+// https://home.miot-spec.com/spec/zhimi.fan.za1
+// https://home.miot-spec.com/spec/zhimi.fan.za3
+// https://home.miot-spec.com/spec/zhimi.fan.za4
+
 const modes = {
   1: "Natural Wind",
   2: "Straight Wind"
@@ -85,6 +93,9 @@ class ZhiMiFanAdvancedDevice extends Device {
       this.registerCapabilityListener('fan_zhimi_mode', async ( value ) => {
         try {
           if (this.miio) {
+            if (this.getStoreValue('model') === 'zhimi.fan.sa1' || this.getStoreValue('model') === 'zhimi.fan.za1') {
+              value = +value + 1;
+            }
             return await this.miio.call("set_natural_level", [+value], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
@@ -137,9 +148,15 @@ class ZhiMiFanAdvancedDevice extends Device {
       await this.updateSettingValue("led", !!result[7]);
 
       /* mode trigger card */
-      if (this.getCapabilityValue('fan_zhimi_mode') !== result[4].toString()) {
+      let mode;
+      if (this.getStoreValue('model') === 'zhimi.fan.sa1' || this.getStoreValue('model') === 'zhimi.fan.za1') {
+        mode = result[4] - 1;
+      } else {
+        mode = result[4]
+      }
+      if (this.getCapabilityValue('fan_zhimi_mode') !== mode.toString()) {
         const previous_mode = this.getCapabilityValue('fan_zhimi_mode');
-        await this.setCapabilityValue('fan_zhimi_mode', result[4].toString());
+        await this.setCapabilityValue('fan_zhimi_mode', mode.toString());
         await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[result[4]], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
       }
 

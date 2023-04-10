@@ -18,31 +18,38 @@
       "type": "dropdown",
       "values": [
         {
-          "id": "101",
-          "label": {
+          "id": "1",
+          "title": {
             "en": "Quiet",
             "nl": "Stil"
           }
         },
         {
-          "id": "102",
-          "label": {
-            "en": "Balanced",
-            "nl": "Gebalanceerd"
+          "id": "2",
+          "title": {
+            "en": "Standard",
+            "nl": "Standaard"
           }
         },
         {
-          "id": "103",
-          "label": {
+          "id": "3",
+          "title": {
+            "en": "Medium",
+            "nl": "Medium"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
             "en": "Turbo",
             "nl": "Turbo"
           }
         },
         {
-          "id": "104",
-          "label": {
+          "id": "5",
+          "title": {
             "en": "Max",
-            "nl": "Maximum"
+            "nl": "Max"
           }
         }
       ]

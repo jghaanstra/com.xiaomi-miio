@@ -1,11 +1,11 @@
 {
   "name": {
-    "en": "Mi Smart Standing Fan Pro (WiFi)",
-    "nl": "Mi Smart Standing Fan Pro (WiFi)"
+    "en": "Advanced Mi Smart Standing Fan (WiFi)",
+    "nl": "Geadvanceerde Mi Smart Standing Fan (WiFi)"
   },
   "images": {
-    "large": "drivers/fan_dmaker_fan_p11_p15/assets/images/large.jpg",
-    "small": "drivers/fan_dmaker_fan_p11_p15/assets/images/small.jpg"
+    "large": "drivers/fan_dmaker_advanced/assets/images/large.jpg",
+    "small": "drivers/fan_dmaker_advanced/assets/images/small.jpg"
   },
   "class": "fan",
   "$extends": [
@@ -17,7 +17,7 @@
     "dim",
     "dim.swing_angle",
     "dim.fanspeed",
-    "dmaker_fan_1c_mode"
+    "fan_dmaker_mode"
   ],
   "capabilitiesOptions": {
     "onoff.swing": {

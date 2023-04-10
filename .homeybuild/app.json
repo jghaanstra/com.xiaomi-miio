@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.19",
+  "version": "3.1.20",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -1683,6 +1683,55 @@
         ]
       },
       {
+        "title": {
+          "en": "Set Mode",
+          "nl": "Stel modus in"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Stel modus in op [[mode]]"
+        },
+        "args": [
+          {
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Straigth Wind",
+                  "nl": "Rechte wind"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Natural Wind",
+                  "nl": "Natuurlijke wind"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Dmaker Fan",
+              "nl": "Selecteer Dmaker Fan"
+            },
+            "filter": "driver_id=dmaker_fan_advanced"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "fanDmakerMode"
+      },
+      {
         "id": "fanPowerVacuum",
         "title": {
           "en": "Set Fanspeed",
@@ -1738,7 +1787,7 @@
               "en": "Select Mi Robot",
               "nl": "Selecteer Mi Robot"
             },
-            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_t6"
+            "filter": "driver_id=mi-robot"
           }
         ],
         "platforms": [
@@ -1764,14 +1813,14 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "1",
+                "id": "0",
                 "title": {
                   "en": "Natural Wind",
                   "nl": "Natuur wind"
                 }
               },
               {
-                "id": "2",
+                "id": "1",
                 "title": {
                   "en": "Straight Wind",
                   "nl": "Rechte wind"
@@ -2749,55 +2798,6 @@
         ]
       },
       {
-        "id": "modeDmakerFan1C",
-        "title": {
-          "en": "Set Mode",
-          "nl": "Stel modus in"
-        },
-        "titleFormatted": {
-          "en": "Set mode to [[mode]]",
-          "nl": "Stel modus in op [[mode]]"
-        },
-        "args": [
-          {
-            "name": "mode",
-            "title": {
-              "en": "Mode",
-              "nl": "Modus"
-            },
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "0",
-                "label": {
-                  "en": "Straigth Wind",
-                  "nl": "Rechte wind"
-                }
-              },
-              {
-                "id": "1",
-                "label": {
-                  "en": "Natural Wind / Sleep",
-                  "nl": "Natuurlijke wind / Slaapstand"
-                }
-              }
-            ]
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "placeholder": {
-              "en": "Select Dmaker Fan",
-              "nl": "Selecteer Dmaker Fan"
-            },
-            "filter": "driver_id=dmaker_fan_1c|fan_dmaker_fan_p11_p15"
-          }
-        ],
-        "platforms": [
-          "local"
-        ]
-      },
-      {
         "id": "modeEyecare",
         "title": {
           "en": "Set Mode",
@@ -3643,31 +3643,38 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "101",
-                "label": {
+                "id": "1",
+                "title": {
                   "en": "Quiet",
                   "nl": "Stil"
                 }
               },
               {
-                "id": "102",
-                "label": {
-                  "en": "Balanced",
-                  "nl": "Gebalanceerd"
+                "id": "2",
+                "title": {
+                  "en": "Standard",
+                  "nl": "Standaard"
                 }
               },
               {
-                "id": "103",
-                "label": {
+                "id": "3",
+                "title": {
+                  "en": "Medium",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
                   "en": "Turbo",
                   "nl": "Turbo"
                 }
               },
               {
-                "id": "104",
-                "label": {
+                "id": "5",
+                "title": {
                   "en": "Max",
-                  "nl": "Maximum"
+                  "nl": "Max"
                 }
               }
             ]
@@ -6637,8 +6644,8 @@
         "lan"
       ],
       "name": {
-        "en": "Dmaker Mi Fan Generic (WiFi)",
-        "nl": "Dmaker Mi Fan Generic (WiFi)"
+        "en": "Basic  Mi Smart Fan Generic (WiFi)",
+        "nl": "Basic Mi Smart Fan Generic (WiFi)"
       },
       "images": {
         "large": "drivers/dmaker-fan/assets/images/large.jpg",
@@ -6693,7 +6700,7 @@
       ]
     },
     {
-      "icon": "/drivers/dmaker_fan_1c/assets/icon.svg",
+      "icon": "/drivers/fan_dmaker_advanced/assets/icon.svg",
       "pair": [
         {
           "id": "start",
@@ -6715,145 +6722,12 @@
         "lan"
       ],
       "name": {
-        "en": "Mi Smart Standing Fan 2 Lite (WiFi)",
-        "nl": "Mi Smart Standing Fan 2 Lite (WiFi)"
+        "en": "Advanced Mi Smart Standing Fan (WiFi)",
+        "nl": "Geadvanceerde Mi Smart Standing Fan (WiFi)"
       },
       "images": {
-        "large": "drivers/dmaker_fan_1c/assets/images/large.jpg",
-        "small": "drivers/dmaker_fan_1c/assets/images/small.jpg"
-      },
-      "class": "fan",
-      "capabilities": [
-        "onoff",
-        "onoff.swing",
-        "dim",
-        "dmaker_fan_1c_mode"
-      ],
-      "capabilitiesOptions": {
-        "onoff.swing": {
-          "title": {
-            "en": "Horizontal Swing",
-            "nl": "Horizontale Swing"
-          }
-        },
-        "dim": {
-          "title": {
-            "en": "Fanlevel",
-            "nl": "Ventilator niveau"
-          },
-          "min": 1,
-          "max": 3
-        }
-      },
-      "id": "dmaker_fan_1c",
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "User Settings",
-            "nl": "Gebruikersinstellingem"
-          },
-          "children": [
-            {
-              "id": "led",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "LED",
-                "nl": "LED"
-              }
-            },
-            {
-              "id": "buzzer",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Buzzer",
-                "nl": "Buzzer"
-              }
-            },
-            {
-              "id": "childLock",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Child Lock",
-                "nl": "Kinderslot"
-              }
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Device Settings",
-            "nl": "Apparaat instellingen"
-          },
-          "children": [
-            {
-              "id": "address",
-              "type": "text",
-              "value": "0.0.0.0",
-              "label": {
-                "en": "IP Address",
-                "nl": "IP adres"
-              }
-            },
-            {
-              "id": "token",
-              "type": "text",
-              "value": "",
-              "label": {
-                "en": "Mi Device Token",
-                "nl": "Mi Apparaat Token"
-              }
-            },
-            {
-              "id": "polling",
-              "type": "number",
-              "value": 60,
-              "attr": {
-                "min": 5,
-                "max": 3600
-              },
-              "label": {
-                "en": "Polling Frequency",
-                "nl": "Polling frequentie"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "icon": "/drivers/fan_dmaker_fan_p11_p15/assets/icon.svg",
-      "pair": [
-        {
-          "id": "start",
-          "navigation": {
-            "next": "pair"
-          }
-        },
-        {
-          "id": "pair"
-        },
-        {
-          "id": "add_device"
-        }
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "name": {
-        "en": "Mi Smart Standing Fan Pro (WiFi)",
-        "nl": "Mi Smart Standing Fan Pro (WiFi)"
-      },
-      "images": {
-        "large": "drivers/fan_dmaker_fan_p11_p15/assets/images/large.jpg",
-        "small": "drivers/fan_dmaker_fan_p11_p15/assets/images/small.jpg"
+        "large": "drivers/fan_dmaker_advanced/assets/images/large.jpg",
+        "small": "drivers/fan_dmaker_advanced/assets/images/small.jpg"
       },
       "class": "fan",
       "capabilities": [
@@ -6862,7 +6736,7 @@
         "dim",
         "dim.swing_angle",
         "dim.fanspeed",
-        "dmaker_fan_1c_mode"
+        "fan_dmaker_mode"
       ],
       "capabilitiesOptions": {
         "onoff.swing": {
@@ -6899,7 +6773,7 @@
           "step": 1
         }
       },
-      "id": "fan_dmaker_fan_p11_p15",
+      "id": "fan_dmaker_advanced",
       "settings": [
         {
           "type": "group",
@@ -11415,356 +11289,6 @@
       ]
     },
     {
-      "icon": "/drivers/vacuum_dreame_vacuum_mc1808/assets/icon.svg",
-      "pair": [
-        {
-          "id": "start",
-          "navigation": {
-            "next": "pair"
-          }
-        },
-        {
-          "id": "pair"
-        },
-        {
-          "id": "add_device"
-        }
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "name": {
-        "en": "Xiaomi Mijia Vacuum 1C (WiFi)",
-        "nl": "Xiaomi Mijia Vacuum 1C (WiFi)"
-      },
-      "images": {
-        "large": "drivers/vacuum_dreame_vacuum_mc1808/assets/images/large.jpg",
-        "small": "drivers/vacuum_dreame_vacuum_mc1808/assets/images/small.jpg"
-      },
-      "class": "vacuumcleaner",
-      "capabilities": [
-        "onoff",
-        "button",
-        "dim",
-        "dim.water",
-        "vacuumcleaner_state",
-        "measure_battery",
-        "alarm_battery",
-        "button.consumable"
-      ],
-      "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Speed",
-            "nl": "Snelheid"
-          },
-          "min": 0,
-          "max": 3,
-          "step": 1
-        },
-        "dim.water": {
-          "title": {
-            "en": "Mop mode",
-            "nl": "Dweil modus"
-          },
-          "min": 0,
-          "max": 3,
-          "step": 1
-        },
-        "button.consumable": {
-          "maintenanceAction": true,
-          "title": {
-            "en": "Reset consumables",
-            "nl": "Reset verbruiksartikelen"
-          },
-          "desc": {
-            "en": "Reset the usage of vacuum cleaner consumables.",
-            "nl": "Reset het gebruik van de verbruiksartikelen"
-          }
-        }
-      },
-      "energy": {
-        "batteries": [
-          "INTERNAL"
-        ]
-      },
-      "deprecated": true,
-      "id": "vacuum_dreame_vacuum_mc1808",
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "Vacuum Consumables",
-            "nl": "Stofzuiger verbruiksartikelen"
-          },
-          "children": [
-            {
-              "id": "alarm_threshold",
-              "type": "number",
-              "label": {
-                "en": "Alarm threshold",
-                "nl": "Alarm ondergrens"
-              },
-              "hint": {
-                "en": "Threshold below which the alarm will be activated.",
-                "nl": "Ondergrens voor het triggeren van het alarm"
-              },
-              "value": 20,
-              "attr": {
-                "min": 1,
-                "max": 90
-              }
-            },
-            {
-              "id": "main_brush_work_time",
-              "type": "label",
-              "label": {
-                "en": "Main brush work time",
-                "nl": "Hoofdborstel gebruikstijd"
-              },
-              "value": "0%"
-            },
-            {
-              "id": "side_brush_work_time",
-              "type": "label",
-              "label": {
-                "en": "Side brush work time",
-                "nl": "Zijborstel gebruikstijd"
-              },
-              "value": "0%"
-            },
-            {
-              "id": "filter_work_time",
-              "type": "label",
-              "label": {
-                "en": "Filter work time",
-                "nl": "Filter gebruikstijd"
-              },
-              "value": "0%"
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Device Settings",
-            "nl": "Apparaat instellingen"
-          },
-          "children": [
-            {
-              "id": "address",
-              "type": "text",
-              "value": "0.0.0.0",
-              "label": {
-                "en": "IP Address",
-                "nl": "IP adres"
-              }
-            },
-            {
-              "id": "token",
-              "type": "text",
-              "value": "",
-              "label": {
-                "en": "Mi Device Token",
-                "nl": "Mi Apparaat Token"
-              }
-            },
-            {
-              "id": "polling",
-              "type": "number",
-              "value": 60,
-              "attr": {
-                "min": 5,
-                "max": 3600
-              },
-              "label": {
-                "en": "Polling Frequency",
-                "nl": "Polling frequentie"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "icon": "/drivers/vacuum_dreame_vacuum_p2029_p2041/assets/icon.svg",
-      "pair": [
-        {
-          "id": "start",
-          "navigation": {
-            "next": "pair"
-          }
-        },
-        {
-          "id": "pair"
-        },
-        {
-          "id": "add_device"
-        }
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "name": {
-        "en": "Dreame Bot L10 Pro / Xiaomi Vacuum 1T (WiFi)",
-        "nl": "Dreame Bot L10 Pro / Xiaomi Vacuum 1T (WiFi)"
-      },
-      "images": {
-        "large": "drivers/vacuum_dreame_vacuum_p2029_p2041/assets/images/large.jpg",
-        "small": "drivers/vacuum_dreame_vacuum_p2029_p2041/assets/images/small.jpg"
-      },
-      "class": "vacuumcleaner",
-      "capabilities": [
-        "onoff",
-        "button",
-        "dim",
-        "dim.water",
-        "vacuumcleaner_state",
-        "measure_battery",
-        "alarm_battery",
-        "button.consumable"
-      ],
-      "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Speed",
-            "nl": "Snelheid"
-          },
-          "min": 0,
-          "max": 3,
-          "step": 1
-        },
-        "dim.water": {
-          "title": {
-            "en": "Mop mode",
-            "nl": "Dweil modus"
-          },
-          "min": 0,
-          "max": 3,
-          "step": 1
-        },
-        "button.consumable": {
-          "maintenanceAction": true,
-          "title": {
-            "en": "Reset consumables",
-            "nl": "Reset verbruiksartikelen"
-          },
-          "desc": {
-            "en": "Reset the usage of vacuum cleaner consumables.",
-            "nl": "Reset het gebruik van de verbruiksartikelen"
-          }
-        }
-      },
-      "energy": {
-        "batteries": [
-          "INTERNAL"
-        ]
-      },
-      "deprecated": true,
-      "id": "vacuum_dreame_vacuum_p2029_p2041",
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "Vacuum Consumables",
-            "nl": "Stofzuiger verbruiksartikelen"
-          },
-          "children": [
-            {
-              "id": "alarm_threshold",
-              "type": "number",
-              "label": {
-                "en": "Alarm threshold",
-                "nl": "Alarm ondergrens"
-              },
-              "hint": {
-                "en": "Threshold below which the alarm will be activated.",
-                "nl": "Ondergrens voor het triggeren van het alarm"
-              },
-              "value": 20,
-              "attr": {
-                "min": 1,
-                "max": 90
-              }
-            },
-            {
-              "id": "main_brush_work_time",
-              "type": "label",
-              "label": {
-                "en": "Main brush work time",
-                "nl": "Hoofdborstel gebruikstijd"
-              },
-              "value": "0%"
-            },
-            {
-              "id": "side_brush_work_time",
-              "type": "label",
-              "label": {
-                "en": "Side brush work time",
-                "nl": "Zijborstel gebruikstijd"
-              },
-              "value": "0%"
-            },
-            {
-              "id": "filter_work_time",
-              "type": "label",
-              "label": {
-                "en": "Filter work time",
-                "nl": "Filter gebruikstijd"
-              },
-              "value": "0%"
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Device Settings",
-            "nl": "Apparaat instellingen"
-          },
-          "children": [
-            {
-              "id": "address",
-              "type": "text",
-              "value": "0.0.0.0",
-              "label": {
-                "en": "IP Address",
-                "nl": "IP adres"
-              }
-            },
-            {
-              "id": "token",
-              "type": "text",
-              "value": "",
-              "label": {
-                "en": "Mi Device Token",
-                "nl": "Mi Apparaat Token"
-              }
-            },
-            {
-              "id": "polling",
-              "type": "number",
-              "value": 60,
-              "attr": {
-                "min": 5,
-                "max": 3600
-              },
-              "label": {
-                "en": "Polling Frequency",
-                "nl": "Polling frequentie"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
       "icon": "/drivers/vacuum_mi_rockrobo_vacuum_advanced/assets/icon.svg",
       "pair": [
         {
@@ -12665,7 +12189,7 @@
       "setable": false,
       "icon": "/assets/icons/vacuum_side_brush.svg"
     },
-    "dmaker_fan_1c_mode": {
+    "fan_dmaker_mode": {
       "type": "enum",
       "title": {
         "en": "Mode",
@@ -12682,8 +12206,8 @@
         {
           "id": "1",
           "title": {
-            "en": "Natural Wind / Sleep",
-            "nl": "Natuurlijke Wind / Sleep"
+            "en": "Natural Wind",
+            "nl": "Natuurlijke Wind"
           }
         }
       ],
@@ -12737,14 +12261,14 @@
       },
       "values": [
         {
-          "id": "1",
+          "id": "0",
           "title": {
             "en": "Natural Wind",
             "nl": "Natuur wind"
           }
         },
         {
-          "id": "2",
+          "id": "1",
           "title": {
             "en": "Straight Wind",
             "nl": "Rechte wind"
@@ -13169,28 +12693,35 @@
       },
       "values": [
         {
-          "id": "101",
+          "id": "1",
           "title": {
             "en": "Quiet",
             "nl": "Stil"
           }
         },
         {
-          "id": "102",
+          "id": "2",
           "title": {
-            "en": "Balanced",
-            "nl": "Gebalanceerd"
+            "en": "Standard",
+            "nl": "Standaard"
           }
         },
         {
-          "id": "103",
+          "id": "3",
+          "title": {
+            "en": "Medium",
+            "nl": "Medium"
+          }
+        },
+        {
+          "id": "4",
           "title": {
             "en": "Turbo",
             "nl": "Turbo"
           }
         },
         {
-          "id": "104",
+          "id": "5",
           "title": {
             "en": "Max",
             "nl": "Max"

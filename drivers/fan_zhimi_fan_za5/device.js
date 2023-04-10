@@ -4,6 +4,9 @@ const Homey = require('homey');
 const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
+/* supported devices */
+// https://home.miot-spec.com/spec/zhimi.fan.za5
+
 const params = [
   { did: "power", siid: 2, piid: 1 }, // onoff
   { did: "fan_level", siid: 2, piid: 2 }, // dim
@@ -114,7 +117,7 @@ class ZhiMiFanZA5Device extends Device {
       this.registerCapabilityListener('fan_zhimi_mode', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ siid: 2, piid: 7, value: +value - 1 }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ siid: 2, piid: 7, value: +value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -182,11 +185,10 @@ class ZhiMiFanZA5Device extends Device {
 
       /* mode trigger card */
       const mode = result.find(obj => obj.did === 'mode');
-      const zhimi_mode = +mode.value + 1;
-      if (this.getCapabilityValue('fan_zhimi_mode') !== zhimi_mode.toString()) {
+      if (this.getCapabilityValue('fan_zhimi_mode') !== mode.toString()) {
         const previous_mode = this.getCapabilityValue('fan_zhimi_mode');
-        await this.setCapabilityValue('fan_zhimi_mode', zhimi_mode.toString());
-        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[zhimi_mode], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
+        await this.setCapabilityValue('fan_zhimi_mode', mode.toString());
+        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[mode], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
       }
 
     } catch (error) {
