@@ -1,0 +1,53 @@
+{
+  "title": {
+    "en": "Set Mode",
+    "nl": "Stel modus in"
+  },
+  "titleFormatted": {
+    "en": "Set fan level to [[fanlevel]]",
+    "nl": "Stel fan level in op [[fanlevel]]"
+  },
+  "args": [
+    {
+      "name": "fanlevel",
+      "title": {
+        "en": "Fan Level",
+        "nl": "Fan Level"
+      },
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "1",
+          "title": {
+            "en": "Level 1",
+            "nl": "Level 1"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Level 2",
+            "nl": "Level 2"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Level 3",
+            "nl": "Level 3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Airpurifier",
+        "nl": "Selecteer Airpurifier"
+      },
+      "filter": "driver_id=airpurifier_zhimi_advanced_miot"
+    }
+  ],
+  "platforms": ["local"]
+}

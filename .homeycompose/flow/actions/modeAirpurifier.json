@@ -1,5 +1,4 @@
 {
-  "id": "modeAirpurifier",
   "title": {
     "en": "Set mode",
     "nl": "Stel modus in"
@@ -18,31 +17,59 @@
       "type": "dropdown",
       "values": [
         {
-          "id": "idle",
-          "label": {
-            "en": "Idle",
-            "nl": "Standby"
-          }
-        },
-        {
           "id": "auto",
-          "label": {
+          "title": {
             "en": "Auto",
             "nl": "Auto"
           }
         },
         {
           "id": "silent",
-          "label": {
+          "title": {
             "en": "Silent",
             "nl": "Stil"
           }
         },
         {
           "id": "favorite",
-          "label": {
+          "title": {
             "en": "Favorite",
             "nl": "Favoriet"
+          }
+        },
+        {
+          "id": "idle",
+          "title": {
+            "en": "Idle",
+            "nl": "Standby"
+          }
+        },
+        {
+          "id": "low",
+          "title": {
+            "en": "Low",
+            "nl": "Laag"
+          }
+        },
+        {
+          "id": "medium",
+          "title": {
+            "en": "Medium",
+            "nl": "Medium"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High",
+            "nl": "Hoog"
+          }
+        },
+        {
+          "id": "strong",
+          "title": {
+            "en": "Strong",
+            "nl": "Sterk"
           }
         }
       ]
@@ -54,7 +81,7 @@
         "en": "Select Mi Air Purifier",
         "nl": "Selecteer Mi Luchtreiniger"
       },
-      "filter": "driver_id=mi-airpurifier"
+      "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_advanced"
     }
   ],
   "platforms": ["local"]

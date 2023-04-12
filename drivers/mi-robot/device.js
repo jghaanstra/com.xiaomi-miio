@@ -51,7 +51,7 @@ class MiRobotDevice extends Device {
         this.setCapabilityValue('onoff', onoff);
       }
       if (this.getCapabilityValue('measure_battery') != battery) {
-        this.setCapabilityValue('measure_battery', battery);
+        this.setCapabilityValue('measure_battery', this.util.clamp(battery, 0, 100));
       }
       if (this.getStoreValue('fanspeed') != fanspeed) {
         this.setStoreValue('fanspeed', fanspeed);

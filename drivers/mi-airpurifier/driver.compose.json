@@ -1,7 +1,7 @@
 {
   "name": {
-    "en": "Mi Air Purifiers Generic (WiFi)",
-    "nl": "Mi Luchtreinigers Generic (WiFi)"
+    "en": "Basic Mi Air Purifier (WiFi)",
+    "nl": "Basis Mi Air Purifier (WiFi)"
   },
   "images": {
     "large": "drivers/mi-airpurifier/assets/images/large.jpg",

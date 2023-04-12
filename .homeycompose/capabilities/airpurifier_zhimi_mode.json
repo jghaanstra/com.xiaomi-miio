@@ -2,34 +2,37 @@
   "type": "enum",
   "title": {
     "en": "Mode",
-    "nl": "Modus",
-    "de": "Modus"
+    "nl": "Modus"
   },
   "getable": true,
   "setable": true,
   "values": [
     {
-      "id": "auto",
+      "id": "0",
       "title": {
         "en": "Auto",
-        "nl": "Auto",
-        "de": "Auto"
+        "nl": "Auto"
       }
     },
     {
-      "id": "night",
+      "id": "1",
       "title": {
         "en": "Night",
-        "nl": "Nacht",
-        "de": "Nacht"
+        "nl": "Nacht"
       }
     },
     {
-      "id": "favorite",
+      "id": "2",
       "title": {
         "en": "Favorite",
-        "nl": "Favoriet",
-        "de": "Favorit"
+        "nl": "Favoriet"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "Idle",
+        "nl": "Inactief"
       }
     }
   ]

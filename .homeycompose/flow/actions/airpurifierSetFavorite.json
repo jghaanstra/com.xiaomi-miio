@@ -138,7 +138,7 @@
         "en": "Select Mi Air Purifier",
         "nl": "Selecteer Mi Luchtreiniger"
       },
-      "filter": "driver_id=mi-airpurifier"
+      "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_advanced"
     }
   ],
   "platforms": ["local"]

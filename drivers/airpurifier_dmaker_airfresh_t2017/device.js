@@ -4,6 +4,13 @@ const Homey = require('homey');
 const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
+const modes = {
+  0: "Auto",
+  1: "Night",
+  2: "Favorite",
+  3: "Idle"
+};
+
 class MiAirPurifierT2017Device extends Device {
 
   async onInit() {
@@ -80,10 +87,10 @@ class MiAirPurifierT2017Device extends Device {
         }
       });
 
-      this.registerCapabilityListener('airpurifier_zhimi_airpurifier_mode', async (value) => {
+      this.registerCapabilityListener('airpurifier_zhimi_mode', async (value) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_mode", [value], { retries: 1 });
+            return await this.miio.call("set_mode", [+value], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -149,8 +156,12 @@ class MiAirPurifierT2017Device extends Device {
       await this.updateSettingValue("filter_intermediate", parseInt(result[11]).toString() + "%");
       await this.updateSettingValue("screen_direction", result[12]);
 
-      /* mode trigger card */
-      this.handleModeEvent(result[4]);
+      /* mode capability */
+      if (this.getCapabilityValue('airpurifier_zhimi_mode') !== result[4].toString()) {
+        const previous_mode = this.getCapabilityValue('airpurifier_zhimi_mode');
+        await this.setCapabilityValue('airpurifier_zhimi_mode', result[4].toString());
+        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[result[4]], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
+      }
 
     } catch (error) {
       this.homey.clearInterval(this.pollingInterval);
@@ -167,11 +178,7 @@ class MiAirPurifierT2017Device extends Device {
 
   async handleModeEvent(mode) {
     try {
-      if (this.getCapabilityValue('airpurifier_zhimi_airpurifier_mode') !== mode) {
-        const previous_mode = this.getCapabilityValue('airpurifier_zhimi_airpurifier_mode');
-        await this.setCapabilityValue('airpurifier_zhimi_airpurifier_mode', mode);
-        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": mode, "previous_mode": previous_mode }).catch(error => { this.error(error) });
-      }
+      
     } catch (error) {
       this.error(error);
     }

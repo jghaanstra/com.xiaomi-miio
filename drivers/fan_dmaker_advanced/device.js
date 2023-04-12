@@ -20,7 +20,8 @@ const mapping = {
 	"dmaker.fan.p15": "properties_p11",
 	"dmaker.fan.p18": "properties_p10",
 	"dmaker.fan.p33": "properties_p33",
-	"dmaker.fan.1c": "properties_1c"
+	"dmaker.fan.1c": "properties_1c",
+  "dmaker.fan.*": "properties_p9"
 };
 
 const properties = {
@@ -150,7 +151,7 @@ const swing_mode_angles = {
   140: 5
 };
 
-class DmakerFanP11P15Device extends Device {
+class AdvancedDmakerFanMiotDevice extends Device {
 
   async onInit() {
     try {
@@ -170,7 +171,7 @@ class DmakerFanP11P15Device extends Device {
       }
 
       // DEVICE VARIABLES
-      this.deviceProperties = properties[mapping[this.getStoreValue('model')]];
+      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('dmaker.fan.*')]];
 
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
@@ -296,6 +297,7 @@ class DmakerFanP11P15Device extends Device {
       const result = await this.miio.call("get_properties", this.deviceProperties.get_properties, { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
+      /* data */
       const onoff = result.find(obj => obj.did === 'power');
       const onoff_swing_mode = result.find(obj => obj.did === 'swing_mode');
       const dim_fan_level = result.find(obj => obj.did === 'fan_level');
@@ -305,11 +307,10 @@ class DmakerFanP11P15Device extends Device {
       const buzzer = result.find(obj => obj.did === 'buzzer');
       const child_lock = result.find(obj => obj.did === 'child_lock');
 
+      /* capabilities */
       await this.updateCapabilityValue("onoff", onoff.value);
       await this.updateCapabilityValue("onoff.swing", onoff_swing_mode.value);
       await this.updateCapabilityValue("dim", +dim_fan_level.value);
-      
-
       if (this.hasCapability('dim.swing_angle')) {
         const dim_swing_mode_angle = result.find(obj => obj.did === 'swing_mode_angle');
         await this.updateCapabilityValue("dim.swing_angle", swing_mode_angles[+dim_swing_mode_angle.value]);
@@ -319,12 +320,17 @@ class DmakerFanP11P15Device extends Device {
         await this.updateCapabilityValue("dim.fanspeed", +dim_fan_speed.value);
       }
       
+      /* settings */
       await this.updateSettingValue("led", !!led.value);
       await this.updateSettingValue("buzzer", buzzer.value);
       await this.updateSettingValue("childLock", child_lock.value);
 
-      /* handle mode updates */
-      this.handleModeEvent(mode.value);
+      /* mode capability */
+      if (this.getCapabilityValue('fan_dmaker_mode') !== mode.value.toString()) {
+        const previous_mode = this.getCapabilityValue('fan_dmaker_mode');
+        await this.setCapabilityValue('fan_dmaker_mode', mode.value.toString());
+        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[mode.value], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
+      }
 
     } catch (error) {
       this.homey.clearInterval(this.pollingInterval);
@@ -339,18 +345,6 @@ class DmakerFanP11P15Device extends Device {
     }
   }
 
-  async handleModeEvent(mode) {
-    try {
-      if (this.getCapabilityValue('fan_dmaker_mode') !== mode.toString()) {
-        const previous_mode = this.getCapabilityValue('fan_dmaker_mode');
-        await this.setCapabilityValue('fan_dmaker_mode', mode.toString());
-        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[mode], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
-      }
-    } catch (error) {
-      this.error(error);
-    }
-  }
-
 }
 
-module.exports = DmakerFanP11P15Device;
+module.exports = AdvancedDmakerFanMiotDevice;

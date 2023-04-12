@@ -1,0 +1,27 @@
+{
+  "name": {
+    "en": "Advanced Mi Air Purifier MIoT (WiFi)",
+    "nl": "Geadvanceerde Mi Air Purifier MIoT (WiFi)"
+  },
+  "images": {
+    "large": "drivers/airpurifier_zhimi_advanced_miot/assets/images/large.jpg",
+    "small": "drivers/airpurifier_zhimi_advanced_miot/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "measure_pm25",
+    "airpurifier_zhimi_mode"
+  ],
+  "capabilitiesOptions": {
+    "onoff.ion": {
+      "title": {
+        "en": "Enable ions",
+        "nl": "Inschakelen ionen"
+      }
+    }
+  }
+}

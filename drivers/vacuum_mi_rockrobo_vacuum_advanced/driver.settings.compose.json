@@ -2,8 +2,8 @@
   {
     "type": "group",
     "label": {
-      "en": "Vacuum Consumables",
-      "nl": "Stofzuiger verbruiksartikelen"
+      "en": "Consumables",
+      "nl": "Verbruiksartikelen"
     },
     "children": [
       {

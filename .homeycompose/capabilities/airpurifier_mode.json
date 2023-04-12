@@ -2,8 +2,7 @@
   "type": "enum",
   "title": {
     "en": "Mode",
-    "nl": "Modus",
-    "de": "Modus"
+    "nl": "Modus"
   },
   "getable": true,
   "setable": true,
@@ -12,32 +11,56 @@
       "id": "auto",
       "title": {
         "en": "Auto",
-        "nl": "Auto",
-        "de": "Auto"
+        "nl": "Auto"
       }
     },
     {
       "id": "silent",
       "title": {
         "en": "Silent",
-        "nl": "Stil",
-        "de": "Ruhig"
+        "nl": "Stil"
       }
     },
     {
       "id": "favorite",
       "title": {
         "en": "Favorite",
-        "nl": "Favoriet",
-        "de": "Favorit"
+        "nl": "Favoriet"
       }
     },
     {
       "id": "idle",
       "title": {
         "en": "Idle",
-        "nl": "Standby",
-        "de": "Leerlauf"
+        "nl": "Standby"
+      }
+    },
+    {
+      "id": "low",
+      "title": {
+        "en": "Low",
+        "nl": "Laag"
+      }
+    },
+    {
+      "id": "medium",
+      "title": {
+        "en": "Medium",
+        "nl": "Medium"
+      }
+    },
+    {
+      "id": "high",
+      "title": {
+        "en": "High",
+        "nl": "Hoog"
+      }
+    },
+    {
+      "id": "strong",
+      "title": {
+        "en": "Strong",
+        "nl": "Sterk"
       }
     }
   ]

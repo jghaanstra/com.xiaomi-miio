@@ -2,6 +2,6 @@
 
 const Driver = require('../wifi_driver.js');
 
-class DreameAdvancedP2xDriver extends Driver {}
+class AdvancedDreameMiotDriver extends Driver {}
 
-module.exports = DreameAdvancedP2xDriver;
+module.exports = AdvancedDreameMiotDriver;

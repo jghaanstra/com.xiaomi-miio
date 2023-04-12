@@ -4,7 +4,23 @@ const Homey = require('homey');
 const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
-class MiAirPurifierV6V7Device extends Device {
+/* supported devices */
+// https://home.miot-spec.com/spec/zhimi.airpurifier.v1 // Air Purifier
+// https://home.miot-spec.com/spec/zhimi.airpurifier.v2 // Air Purifier v2
+// https://home.miot-spec.com/spec/zhimi.airpurifier.v3 // Air Purifier v3
+// https://home.miot-spec.com/spec/zhimi.airpurifier.v5 // Air Purifier v5
+// https://home.miot-spec.com/spec/zhimi.airpurifier.v6 // Air Purifier Pro
+// https://home.miot-spec.com/spec/zhimi.airpurifier.v7 // Air Purifier Pro v7
+// https://home.miot-spec.com/spec/zhimi.airpurifier.m1 // Air Purifier 2 Mini
+// https://home.miot-spec.com/spec/zhimi.airpurifier.m2 // Air Purifier Mini
+// https://home.miot-spec.com/spec/zhimi.airpurifier.ma1 // Air Purifier 2S
+// https://home.miot-spec.com/spec/zhimi.airpurifier.ma2 // Air Purifier 2S
+// https://home.miot-spec.com/spec/zhimi.airpurifier.sa1 // Air Purifier Super/Max
+// https://home.miot-spec.com/spec/zhimi.airpurifier.sa2 // Air Purifier Super/Max 2
+// https://home.miot-spec.com/spec/zhimi.airpurifier.mc1 // Air Purifier 2S
+// https://home.miot-spec.com/spec/zhimi.airpurifier.mc2 // Air Purifier 2H
+
+class AdvancedOlderMiAirPurifierDevice extends Device {
 
   async onInit() {
     try {
@@ -12,9 +28,6 @@ class MiAirPurifierV6V7Device extends Device {
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
-
-      // DEVICE VARIABLES
-      this.favoriteLevel = [0, 5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 95, 100];
 
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
@@ -38,7 +51,7 @@ class MiAirPurifierV6V7Device extends Device {
       this.registerCapabilityListener('dim', async (value) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_level_favorite", [this.getFavoriteLevel(speed)], { retries: 1 });
+            return await this.miio.call("set_level_favorite", [value], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -79,8 +92,8 @@ class MiAirPurifierV6V7Device extends Device {
       const led = await this.miio.call("set_led", [newSettings.led ? "on" : "off"], { retries: 1 });
     }
 
-    if (changedKeys.includes("volume")) {
-      const buzzer = await this.miio.call("set_volume", [newSettings.volume ? 100 : 0], { retries: 1 });
+    if (changedKeys.includes("buzzer")) {
+      const buzzer = await this.miio.call("set_buzzer", [newSettings.buzzer ? "on" : "off"], { retries: 1 });
     }
 
     if (changedKeys.includes("childLock")) {
@@ -93,25 +106,30 @@ class MiAirPurifierV6V7Device extends Device {
   async retrieveDeviceData() {
     try {
 
-      const result = await this.miio.call("get_prop", ["power", "aqi", "average_aqi", "humidity", "temp_dec", "bright", "mode", "favorite_level", "filter1_life", "use_time", "purify_volume", "led", "volume", "child_lock"], { retries: 1 });
+      const result = await this.miio.call("get_prop", ["power", "aqi", "humidity", "temp_dec", "bright", "mode", "favorite_level", "buzzer", "led", "child_lock", "filter1_life", "f1_hour_used" ], { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
+      /* capabilities */
       await this.updateCapabilityValue("onoff", result[0] === "on" ? true : false);
-      await this.updateCapabilityValue("measure_pm25", parseInt(result[1]));
-      await this.updateCapabilityValue("measure_humidity", parseInt(result[3]));
-      await this.updateCapabilityValue("measure_temperature", parseInt(result[4] / 10));
-      await this.updateCapabilityValue("measure_luminance", parseInt(result[5]));
-      await this.updateCapabilityValue("air_purifier_mode", );
-      await this.updateCapabilityValue("dim", parseInt(this.favoriteLevel[result[7]] / 100));
+      await this.updateCapabilityValue("measure_pm25", result[1]);
+      await this.updateCapabilityValue("measure_humidity", result[2]);
+      await this.updateCapabilityValue("measure_temperature", result[3] / 10);
+      await this.updateCapabilityValue("measure_luminance", result[4]);
+      await this.updateCapabilityValue("dim", result[6]);
 
-      await this.updateSettingValue("filter1_life", result[8] + "%");
-      await this.updateSettingValue("purify_volume", result[10] + " m3");
-      await this.updateSettingValue("led", result[11] == "on" ? true : false);
-      await this.updateSettingValue("volume", result[12] >= 1 ? true : false);
-      await this.updateSettingValue("childLock", result[13] == "on" ? true : false);
+      /* settings */
+      await this.updateSettingValue("buzzer", result[7] === "on" ? true : false);
+      await this.updateSettingValue("led", result[8] === "on" ? true : false);
+      await this.updateSettingValue("childLock", result[9] == "on" ? true : false);
+      await this.updateSettingValue("filter1_life", result[10] + "%");
+      await this.updateSettingValue("f1_hour_used", result[11] + "h");   
 
-      /* mode trigger card */
-      this.handleModeEvent(result[6]);
+      /* mode capability */
+      if (this.getCapabilityValue('airpurifier_mode') !== result[5]) {
+        const previous_mode = this.getCapabilityValue('airpurifier_mode');
+        await this.setCapabilityValue('airpurifier_mode', result[5]);
+        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": result[5], "previous_mode": previous_mode }).catch(error => { this.error(error) });
+      }
 
     } catch (error) {
       this.homey.clearInterval(this.pollingInterval);
@@ -126,28 +144,6 @@ class MiAirPurifierV6V7Device extends Device {
     }
   }
 
-  async handleModeEvent(mode) {
-    try {
-      if (this.getCapabilityValue('airpurifier_mode') !== mode) {
-        const previous_mode = this.getCapabilityValue('airpurifier_mode');
-        await this.setCapabilityValue('airpurifier_mode', mode);
-        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": mode, "previous_mode": previous_mode }).catch(error => { this.error(error) });
-      }
-    } catch (error) {
-      this.error(error);
-    }
-  }
-
-  getFavoriteLevel(speed) {
-    for (var i = 1; i < this.favoriteLevel.length; i++) {
-      if (speed > this.favoriteLevel[i - 1] && speed <= this.favoriteLevel[i]) {
-        return i;
-      }
-    }
-
-    return 1;
-  }
-
 }
 
-module.exports = MiAirPurifierV6V7Device;
+module.exports = AdvancedOlderMiAirPurifierDevice;

@@ -14,7 +14,7 @@
   "capabilities": [
     "onoff",
     "dim",
-    "airpurifier_zhimi_airpurifier_mode",
+    "airpurifier_zhimi_mode",
     "onoff.ptc",
     "airpurifier_heater_mode",
     "measure_temperature",

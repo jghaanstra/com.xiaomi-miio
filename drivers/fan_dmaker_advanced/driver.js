@@ -2,6 +2,6 @@
 
 const Driver = require('../wifi_driver.js');
 
-class DmakerFanP11P15Driver extends Driver {}
+class AdvancedDmakerFanMiotDriver extends Driver {}
 
-module.exports = DmakerFanP11P15Driver;
+module.exports = AdvancedDmakerFanMiotDriver;

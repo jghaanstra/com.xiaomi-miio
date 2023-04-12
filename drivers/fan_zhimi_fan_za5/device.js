@@ -159,6 +159,7 @@ class ZhiMiFanZA5Device extends Device {
       const result = await this.miio.call("get_properties", params, { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
+      /* data */
       const onoff = result.find(obj => obj.did === 'power');
       const dim = result.find(obj => obj.did === 'fan_level');
       const onoff_swing = result.find(obj => obj.did === 'swing_mode');
@@ -171,6 +172,7 @@ class ZhiMiFanZA5Device extends Device {
       const led = result.find(obj => obj.did === 'light');
       const buzzer = result.find(obj => obj.did === 'buzzer');
       
+      /* capabilities */
       await this.updateCapabilityValue("onoff", onoff.value);
       await this.updateCapabilityValue("dim", dim.value);
       await this.updateCapabilityValue("onoff.swing", onoff_swing.value);
@@ -179,16 +181,17 @@ class ZhiMiFanZA5Device extends Device {
       await this.updateCapabilityValue("measure_humidity", measure_humidity.value);
       await this.updateCapabilityValue("measure_temperature", measure_temperature.value);
 
+      /* settings */
       await this.updateSettingValue("childLock", childLock.value);
       await this.updateSettingValue("led", led.value);
       await this.updateSettingValue("buzzer", buzzer.value);
 
-      /* mode trigger card */
+      /* mode capability */
       const mode = result.find(obj => obj.did === 'mode');
-      if (this.getCapabilityValue('fan_zhimi_mode') !== mode.toString()) {
+      if (this.getCapabilityValue('fan_zhimi_mode') !== mode.value.toString()) {
         const previous_mode = this.getCapabilityValue('fan_zhimi_mode');
-        await this.setCapabilityValue('fan_zhimi_mode', mode.toString());
-        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[mode], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
+        await this.setCapabilityValue('fan_zhimi_mode', mode.value.toString());
+        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[mode.value], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
       }
 
     } catch (error) {

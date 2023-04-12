@@ -235,6 +235,7 @@ class MiRobotAdvancedDevice extends Device {
       const result = await this.miio.call("get_status", [], { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
+      /* data */
       const fanspeed = this.deviceProperties.fanspeeds[result[0]["fan_power"]];
       await this.updateCapabilityValue("vacuum_roborock_fanspeed", fanspeed.toString());
       await this.updateCapabilityValue("measure_battery", parseInt(result[0]["battery"]));

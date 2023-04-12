@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.20",
+  "version": "3.1.21",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -1036,7 +1036,7 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_airpurifier_mb4|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh_va2|airfresh_zhimi_airfresh_va4|mi-humidifier2|humidifier_mi_humidifier_v1|humidifier_mi_humidifier_ca1_cb1|humidifier_mi_humidifier_ca4|humidifier_deerma_humidifier_jsq|dmaker_fan_1c|fan_dmaker_fan_p11_p15|fan_zhimi_advanced|zhimi_fan_za5"
+            "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_advanced|airpurifier_zhimi_advanced_miot|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh_va2|airfresh_zhimi_airfresh_va4|mi-humidifier2|humidifier_mi_humidifier_v1|humidifier_mi_humidifier_ca1_cb1|humidifier_mi_humidifier_ca4|humidifier_deerma_humidifier_jsq|dmaker_fan_1c|fan_zhimi_advanced|zhimi_fan_za5"
           }
         ],
         "platforms": [
@@ -1442,12 +1442,131 @@
               "en": "Select Mi Air Purifier",
               "nl": "Selecteer Mi Luchtreiniger"
             },
-            "filter": "driver_id=mi-airpurifier"
+            "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_advanced"
           }
         ],
         "platforms": [
           "local"
         ]
+      },
+      {
+        "title": {
+          "en": "Set Mode",
+          "nl": "Stel modus in"
+        },
+        "titleFormatted": {
+          "en": "Set fan level to [[fanlevel]]",
+          "nl": "Stel fan level in op [[fanlevel]]"
+        },
+        "args": [
+          {
+            "name": "fanlevel",
+            "title": {
+              "en": "Fan Level",
+              "nl": "Fan Level"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "1",
+                "title": {
+                  "en": "Level 1",
+                  "nl": "Level 1"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Level 2",
+                  "nl": "Level 2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Level 3",
+                  "nl": "Level 3"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Airpurifier",
+              "nl": "Selecteer Airpurifier"
+            },
+            "filter": "driver_id=airpurifier_zhimi_advanced_miot"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "airpurifierZhimiFanlevel"
+      },
+      {
+        "title": {
+          "en": "Set mode",
+          "nl": "Stel modus in"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Stel modus in op [[mode]]"
+        },
+        "args": [
+          {
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Night",
+                  "nl": "Nacht"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Favorite",
+                  "nl": "Favoriet"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Idle",
+                  "nl": "Inactief"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Airpurifier",
+              "nl": "Selecteer Airpurifier"
+            },
+            "filter": "driver_id=airpurifier_zhimi_advanced_miot|airpurifier_dmaker_airfresh_t2017"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "airpurifierZhimiMode"
       },
       {
         "id": "changeSpeed",
@@ -2511,7 +2630,6 @@
         ]
       },
       {
-        "id": "modeAirpurifier",
         "title": {
           "en": "Set mode",
           "nl": "Stel modus in"
@@ -2530,150 +2648,59 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "idle",
-                "label": {
-                  "en": "Idle",
-                  "nl": "Standby"
-                }
-              },
-              {
                 "id": "auto",
-                "label": {
+                "title": {
                   "en": "Auto",
                   "nl": "Auto"
                 }
               },
               {
                 "id": "silent",
-                "label": {
+                "title": {
                   "en": "Silent",
                   "nl": "Stil"
                 }
               },
               {
                 "id": "favorite",
-                "label": {
-                  "en": "Favorite",
-                  "nl": "Favoriet"
-                }
-              }
-            ]
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "placeholder": {
-              "en": "Select Mi Air Purifier",
-              "nl": "Selecteer Mi Luchtreiniger"
-            },
-            "filter": "driver_id=mi-airpurifier"
-          }
-        ],
-        "platforms": [
-          "local"
-        ]
-      },
-      {
-        "id": "modeAirpurifierZhimi",
-        "title": {
-          "en": "Set mode",
-          "nl": "Stel modus in"
-        },
-        "titleFormatted": {
-          "en": "Set mode to [[mode]]",
-          "nl": "Stel modus in op [[mode]]"
-        },
-        "args": [
-          {
-            "name": "mode",
-            "title": {
-              "en": "Mode",
-              "nl": "Modus"
-            },
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "label": {
-                  "en": "Auto",
-                  "nl": "Auto"
-                }
-              },
-              {
-                "id": "night",
-                "label": {
-                  "en": "Night",
-                  "nl": "Nacht"
-                }
-              },
-              {
-                "id": "favorite",
-                "label": {
-                  "en": "Favorite",
-                  "nl": "Favoriet"
-                }
-              }
-            ]
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "placeholder": {
-              "en": "Select Mi Air Purifier",
-              "nl": "Selecteer Mi Luchtreiniger"
-            },
-            "filter": "driver_id=airpurifier_zhimi_airpurifier_ma2|airpurifier_zhimi_airpurifier_v6_v7|airpurifier_dmaker_airfresh_t2017"
-          }
-        ],
-        "platforms": [
-          "local"
-        ]
-      },
-      {
-        "id": "modeAirpurifierZhimiMB3",
-        "title": {
-          "en": "Set mode",
-          "nl": "Stel modus in"
-        },
-        "titleFormatted": {
-          "en": "Set mode to [[mode]]",
-          "nl": "Stel modus in op [[mode]]"
-        },
-        "args": [
-          {
-            "name": "mode",
-            "title": {
-              "en": "Mode",
-              "nl": "Modus"
-            },
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "0",
-                "label": {
-                  "en": "Auto",
-                  "nl": "Auto"
-                }
-              },
-              {
-                "id": "1",
-                "label": {
-                  "en": "Night",
-                  "nl": "Nacht"
-                }
-              },
-              {
-                "id": "2",
-                "label": {
+                "title": {
                   "en": "Favorite",
                   "nl": "Favoriet"
                 }
               },
               {
-                "id": "3",
-                "label": {
+                "id": "idle",
+                "title": {
                   "en": "Idle",
-                  "nl": "Inactief"
+                  "nl": "Standby"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "medium",
+                "title": {
+                  "en": "Medium",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High",
+                  "nl": "Hoog"
+                }
+              },
+              {
+                "id": "strong",
+                "title": {
+                  "en": "Strong",
+                  "nl": "Sterk"
                 }
               }
             ]
@@ -2685,68 +2712,13 @@
               "en": "Select Mi Air Purifier",
               "nl": "Selecteer Mi Luchtreiniger"
             },
-            "filter": "driver_id=airpurifier_zhimi_airpurifier_ma2"
+            "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_advanced"
           }
         ],
         "platforms": [
           "local"
-        ]
-      },
-      {
-        "id": "modeAirpurifierZhimiMB4",
-        "title": {
-          "en": "Set mode",
-          "nl": "Stel modus in"
-        },
-        "titleFormatted": {
-          "en": "Set mode to [[mode]]",
-          "nl": "Stel modus in op [[mode]]"
-        },
-        "args": [
-          {
-            "name": "mode",
-            "title": {
-              "en": "Mode",
-              "nl": "Modus"
-            },
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "label": {
-                  "en": "Auto",
-                  "nl": "Auto"
-                }
-              },
-              {
-                "id": "night",
-                "label": {
-                  "en": "Night",
-                  "nl": "Nacht"
-                }
-              },
-              {
-                "id": "favorite",
-                "label": {
-                  "en": "Favorite",
-                  "nl": "Favoriet"
-                }
-              }
-            ]
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "placeholder": {
-              "en": "Select Mi Air Purifier",
-              "nl": "Selecteer Mi Luchtreiniger"
-            },
-            "filter": "driver_id=airpurifier_zhimi_airpurifier_mb4"
-          }
         ],
-        "platforms": [
-          "local"
-        ]
+        "id": "modeAirpurifier"
       },
       {
         "id": "modeDmakerFan",
@@ -4362,7 +4334,7 @@
       "capabilities": [
         "onoff",
         "dim",
-        "airpurifier_zhimi_airpurifier_mode",
+        "airpurifier_zhimi_mode",
         "onoff.ptc",
         "airpurifier_heater_mode",
         "measure_temperature",
@@ -4504,7 +4476,7 @@
       ]
     },
     {
-      "icon": "/drivers/airpurifier_zhimi_airpurifier_ma2/assets/icon.svg",
+      "icon": "/drivers/airpurifier_zhimi_advanced/assets/icon.svg",
       "pair": [
         {
           "id": "start",
@@ -4526,317 +4498,35 @@
         "lan"
       ],
       "name": {
-        "en": "Mi Air Purifier Pro v6 (WiFi)",
-        "nl": "Mi Air Purifier Pro v6 (WiFi)"
+        "en": "Advanced Older Mi Air Purifier (WiFi)",
+        "nl": "Geadvanceerde oudere Mi Air Purifier (WiFi)"
       },
       "images": {
-        "large": "drivers/airpurifier_zhimi_airpurifier_ma2/assets/images/large.jpg",
-        "small": "drivers/airpurifier_zhimi_airpurifier_ma2/assets/images/small.jpg"
+        "large": "drivers/airpurifier_zhimi_advanced/assets/images/large.jpg",
+        "small": "drivers/airpurifier_zhimi_advanced/assets/images/small.jpg"
       },
       "class": "sensor",
       "capabilities": [
         "onoff",
-        "dim",
-        "measure_temperature",
-        "measure_humidity",
         "measure_pm25",
-        "measure_luminance",
-        "airpurifier_mode"
-      ],
-      "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Speedlevel",
-            "nl": "Snelheid"
-          }
-        }
-      },
-      "id": "airpurifier_zhimi_airpurifier_ma2",
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "User Settings",
-            "nl": "Gebruikersinstellingem"
-          },
-          "children": [
-            {
-              "id": "led",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "LED",
-                "nl": "LED"
-              }
-            },
-            {
-              "id": "buzzer",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Buzzer",
-                "nl": "Buzzer"
-              }
-            },
-            {
-              "id": "childLock",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Child Lock",
-                "nl": "Kinderslot"
-              }
-            },
-            {
-              "id": "filter1_life",
-              "type": "label",
-              "label": {
-                "en": "Filter life",
-                "nl": "Filter duur"
-              },
-              "value": "0%"
-            },
-            {
-              "id": "purify_volume",
-              "type": "label",
-              "label": {
-                "en": "Air Cleared (m3)",
-                "nl": "Lucht geschoond (m3)"
-              },
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Device Settings",
-            "nl": "Apparaat instellingen"
-          },
-          "children": [
-            {
-              "id": "address",
-              "type": "text",
-              "value": "0.0.0.0",
-              "label": {
-                "en": "IP Address",
-                "nl": "IP adres"
-              }
-            },
-            {
-              "id": "token",
-              "type": "text",
-              "value": "",
-              "label": {
-                "en": "Mi Device Token",
-                "nl": "Mi Apparaat Token"
-              }
-            },
-            {
-              "id": "polling",
-              "type": "number",
-              "value": 60,
-              "attr": {
-                "min": 5,
-                "max": 3600
-              },
-              "label": {
-                "en": "Polling Frequency",
-                "nl": "Polling frequentie"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "icon": "/drivers/airpurifier_zhimi_airpurifier_mb3/assets/icon.svg",
-      "pair": [
-        {
-          "id": "start",
-          "navigation": {
-            "next": "pair"
-          }
-        },
-        {
-          "id": "pair"
-        },
-        {
-          "id": "add_device"
-        }
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "name": {
-        "en": "Mi Air Purifier 3H (WiFi)",
-        "nl": "Mi Air Purifier 3H (WiFi)"
-      },
-      "images": {
-        "large": "drivers/airpurifier_zhimi_airpurifier_mb3/assets/images/large.jpg",
-        "small": "drivers/airpurifier_zhimi_airpurifier_mb3/assets/images/small.jpg"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "onoff",
-        "dim",
-        "airpurifier_zhimi_airpurifier_mb3_mode",
-        "measure_temperature",
         "measure_humidity",
-        "measure_pm25"
+        "measure_temperature",
+        "measure_luminance",
+        "airpurifier_mode",
+        "dim"
       ],
       "capabilitiesOptions": {
         "dim": {
           "title": {
-            "en": "Fanlevel",
-            "nl": "Ventilator snelheid"
+            "en": "Favorite Level",
+            "nl": "Favoriet niveau"
           },
-          "min": 1,
-          "max": 3,
+          "min": 0,
+          "max": 16,
           "step": 1
         }
       },
-      "id": "airpurifier_zhimi_airpurifier_mb3",
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "User Settings",
-            "nl": "Gebruikersinstellingem"
-          },
-          "children": [
-            {
-              "id": "led",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "LED",
-                "nl": "LED"
-              }
-            },
-            {
-              "id": "childLock",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Child Lock",
-                "nl": "Kinderslot"
-              }
-            },
-            {
-              "id": "filter1_life",
-              "type": "label",
-              "label": {
-                "en": "Filter life",
-                "nl": "Filter duur"
-              },
-              "value": "0%"
-            },
-            {
-              "id": "purify_volume",
-              "type": "label",
-              "label": {
-                "en": "Air Cleared (m3)",
-                "nl": "Lucht geschoond (m3)"
-              },
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Device Settings",
-            "nl": "Apparaat instellingen"
-          },
-          "children": [
-            {
-              "id": "address",
-              "type": "text",
-              "value": "0.0.0.0",
-              "label": {
-                "en": "IP Address",
-                "nl": "IP adres"
-              }
-            },
-            {
-              "id": "token",
-              "type": "text",
-              "value": "",
-              "label": {
-                "en": "Mi Device Token",
-                "nl": "Mi Apparaat Token"
-              }
-            },
-            {
-              "id": "polling",
-              "type": "number",
-              "value": 60,
-              "attr": {
-                "min": 5,
-                "max": 3600
-              },
-              "label": {
-                "en": "Polling Frequency",
-                "nl": "Polling frequentie"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "icon": "/drivers/airpurifier_zhimi_airpurifier_mb4/assets/icon.svg",
-      "pair": [
-        {
-          "id": "start",
-          "navigation": {
-            "next": "pair"
-          }
-        },
-        {
-          "id": "pair"
-        },
-        {
-          "id": "add_device"
-        }
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "name": {
-        "en": "Mi Air Purifier 3C (WiFi)",
-        "nl": "Mi Air Purifier 3C (WiFi)"
-      },
-      "images": {
-        "large": "drivers/airpurifier_zhimi_airpurifier_mb4/assets/images/large.jpg",
-        "small": "drivers/airpurifier_zhimi_airpurifier_mb4/assets/images/small.jpg"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "onoff",
-        "dim",
-        "measure_pm25",
-        "airpurifier_zhimi_airpurifier_mb4_mode"
-      ],
-      "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Speedlevel",
-            "nl": "Snelheid"
-          },
-          "min": 390,
-          "max": 2000,
-          "step": 10
-        }
-      },
-      "id": "airpurifier_zhimi_airpurifier_mb4",
+      "id": "airpurifier_zhimi_advanced",
       "settings": [
         {
           "type": "group",
@@ -4877,6 +4567,33 @@
         {
           "type": "group",
           "label": {
+            "en": "Device Data",
+            "nl": "Apparaat Data"
+          },
+          "children": [
+            {
+              "id": "filter1_life",
+              "type": "label",
+              "label": {
+                "en": "Filter life",
+                "nl": "Filter duur"
+              },
+              "value": "0%"
+            },
+            {
+              "id": "f1_hour_used",
+              "type": "label",
+              "label": {
+                "en": "Filter hours used",
+                "nl": "Filter uur gebruikt"
+              },
+              "value": "0h"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
             "en": "Device Settings",
             "nl": "Apparaat instellingen"
           },
@@ -4917,7 +4634,7 @@
       ]
     },
     {
-      "icon": "/drivers/airpurifier_zhimi_airpurifier_v6_v7/assets/icon.svg",
+      "icon": "/drivers/airpurifier_zhimi_advanced_miot/assets/icon.svg",
       "pair": [
         {
           "id": "start",
@@ -4939,32 +4656,28 @@
         "lan"
       ],
       "name": {
-        "en": "Mi Air Purifier Pro v6/7 (WiFi)",
-        "nl": "Mi Air Purifier Pro v6/7 (WiFi)"
+        "en": "Advanced Mi Air Purifier MIoT (WiFi)",
+        "nl": "Geadvanceerde Mi Air Purifier MIoT (WiFi)"
       },
       "images": {
-        "large": "drivers/airpurifier_zhimi_airpurifier_v6_v7/assets/images/large.jpg",
-        "small": "drivers/airpurifier_zhimi_airpurifier_v6_v7/assets/images/small.jpg"
+        "large": "drivers/airpurifier_zhimi_advanced_miot/assets/images/large.jpg",
+        "small": "drivers/airpurifier_zhimi_advanced_miot/assets/images/small.jpg"
       },
       "class": "sensor",
       "capabilities": [
         "onoff",
-        "dim",
-        "airpurifier_mode",
-        "measure_temperature",
-        "measure_humidity",
         "measure_pm25",
-        "measure_luminance"
+        "airpurifier_zhimi_mode"
       ],
       "capabilitiesOptions": {
-        "dim": {
+        "onoff.ion": {
           "title": {
-            "en": "Speedlevel",
-            "nl": "Snelheid"
+            "en": "Enable ions",
+            "nl": "Inschakelen ionen"
           }
         }
       },
-      "id": "airpurifier_zhimi_airpurifier_v6_v7",
+      "id": "airpurifier_zhimi_advanced_miot",
       "settings": [
         {
           "type": "group",
@@ -4983,12 +4696,12 @@
               }
             },
             {
-              "id": "volume",
+              "id": "buzzer",
               "type": "checkbox",
               "value": true,
               "label": {
-                "en": "Volume",
-                "nl": "Volume"
+                "en": "Buzzer",
+                "nl": "Buzzer"
               }
             },
             {
@@ -4999,24 +4712,42 @@
                 "en": "Child Lock",
                 "nl": "Kinderslot"
               }
-            },
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device Data",
+            "nl": "Apparaat Data"
+          },
+          "children": [
             {
-              "id": "filter1_life",
+              "id": "filter_life_remaining",
               "type": "label",
               "label": {
-                "en": "Filter life",
-                "nl": "Filter duur"
+                "en": "Filter remaining",
+                "nl": "Filter over"
               },
               "value": "0%"
+            },
+            {
+              "id": "filter_hours_used",
+              "type": "label",
+              "label": {
+                "en": "Filter hours used",
+                "nl": "Filter uur gebruikt"
+              },
+              "value": "0h"
             },
             {
               "id": "purify_volume",
               "type": "label",
               "label": {
-                "en": "Air Cleared (m3)",
-                "nl": "Lucht geschoond (m3)"
+                "en": "Air Cleared",
+                "nl": "Lucht geschoond"
               },
-              "value": "0"
+              "value": "0m3"
             }
           ]
         },
@@ -6722,8 +6453,8 @@
         "lan"
       ],
       "name": {
-        "en": "Advanced Mi Smart Standing Fan (WiFi)",
-        "nl": "Geadvanceerde Mi Smart Standing Fan (WiFi)"
+        "en": "Advanced Mi Smart Standing Fan MIoT (WiFi)",
+        "nl": "Geadvanceerde Mi Smart Standing Fan MIoT (WiFi)"
       },
       "images": {
         "large": "drivers/fan_dmaker_advanced/assets/images/large.jpg",
@@ -8901,8 +8632,8 @@
         "lan"
       ],
       "name": {
-        "en": "Mi Air Purifiers Generic (WiFi)",
-        "nl": "Mi Luchtreinigers Generic (WiFi)"
+        "en": "Basic Mi Air Purifier (WiFi)",
+        "nl": "Basis Mi Air Purifier (WiFi)"
       },
       "images": {
         "large": "drivers/mi-airpurifier/assets/images/large.jpg",
@@ -9860,7 +9591,7 @@
       ],
       "name": {
         "en": "Basic Vacuum Cleaner (WiFi)",
-        "nl": "Basic Vacuum Cleaner (WiFi)"
+        "nl": "Basis Vacuum Cleaner (WiFi)"
       },
       "images": {
         "large": "drivers/mi-robot/assets/images/large.jpg",
@@ -11109,8 +10840,8 @@
         "lan"
       ],
       "name": {
-        "en": "Dreame Advanced Vacuum Cleaner (WiFi)",
-        "nl": "Dreame geadvanceerde stofzuiger (WiFi)"
+        "en": "Advanced Dreame Vacuum Cleaner MIoT (WiFi)",
+        "nl": "Geadvanceerde Dreame stofzuiger MIoT (WiFi)"
       },
       "images": {
         "large": "drivers/vacuum_dreame_vacuum/assets/images/large.jpg",
@@ -11151,8 +10882,8 @@
         {
           "type": "group",
           "label": {
-            "en": "Vacuum Consumables",
-            "nl": "Stofzuiger verbruiksartikelen"
+            "en": "Consumables",
+            "nl": "Verbruiksartikelen"
           },
           "children": [
             {
@@ -11354,8 +11085,8 @@
         {
           "type": "group",
           "label": {
-            "en": "Vacuum Consumables",
-            "nl": "Stofzuiger verbruiksartikelen"
+            "en": "Consumables",
+            "nl": "Verbruiksartikelen"
           },
           "children": [
             {
@@ -11841,7 +11572,7 @@
       ],
       "name": {
         "en": "Basic Smartmi/ZhiMi Fan (WiFi)",
-        "nl": "Basic Smartmi/ZhiMi Fan (WiFi)"
+        "nl": "Basis Smartmi/ZhiMi Fan (WiFi)"
       },
       "images": {
         "large": "drivers/zhimi-fan/assets/images/large.jpg",
@@ -11993,8 +11724,7 @@
       "type": "enum",
       "title": {
         "en": "Mode",
-        "nl": "Modus",
-        "de": "Modus"
+        "nl": "Modus"
       },
       "getable": true,
       "setable": true,
@@ -12003,32 +11733,56 @@
           "id": "auto",
           "title": {
             "en": "Auto",
-            "nl": "Auto",
-            "de": "Auto"
+            "nl": "Auto"
           }
         },
         {
           "id": "silent",
           "title": {
             "en": "Silent",
-            "nl": "Stil",
-            "de": "Ruhig"
+            "nl": "Stil"
           }
         },
         {
           "id": "favorite",
           "title": {
             "en": "Favorite",
-            "nl": "Favoriet",
-            "de": "Favorit"
+            "nl": "Favoriet"
           }
         },
         {
           "id": "idle",
           "title": {
             "en": "Idle",
-            "nl": "Standby",
-            "de": "Leerlauf"
+            "nl": "Standby"
+          }
+        },
+        {
+          "id": "low",
+          "title": {
+            "en": "Low",
+            "nl": "Laag"
+          }
+        },
+        {
+          "id": "medium",
+          "title": {
+            "en": "Medium",
+            "nl": "Medium"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High",
+            "nl": "Hoog"
+          }
+        },
+        {
+          "id": "strong",
+          "title": {
+            "en": "Strong",
+            "nl": "Sterk"
           }
         }
       ]
@@ -12077,74 +11831,73 @@
         }
       ]
     },
-    "airpurifier_zhimi_airpurifier_mb4_mode": {
+    "airpurifier_zhimi_fanlevel": {
       "type": "enum",
       "title": {
-        "en": "Mode",
-        "nl": "Modus",
-        "de": "Modus"
+        "en": "Fan Level",
+        "nl": "Fan Level"
       },
       "getable": true,
       "setable": true,
       "values": [
         {
-          "id": "auto",
+          "id": "1",
           "title": {
-            "en": "Auto",
-            "nl": "Auto",
-            "de": "Auto"
+            "en": "Level 1",
+            "nl": "Level 1"
           }
         },
         {
-          "id": "night",
+          "id": "2",
           "title": {
-            "en": "Night",
-            "nl": "Nacht",
-            "de": "Nacht"
+            "en": "Level 2",
+            "nl": "Level 2"
           }
         },
         {
-          "id": "favorite",
+          "id": "3",
           "title": {
-            "en": "Favorite",
-            "nl": "Favoriet",
-            "de": "Favorit"
+            "en": "Level 3",
+            "nl": "Level 3"
           }
         }
       ]
     },
-    "airpurifier_zhimi_airpurifier_mode": {
+    "airpurifier_zhimi_mode": {
       "type": "enum",
       "title": {
         "en": "Mode",
-        "nl": "Modus",
-        "de": "Modus"
+        "nl": "Modus"
       },
       "getable": true,
       "setable": true,
       "values": [
         {
-          "id": "auto",
+          "id": "0",
           "title": {
             "en": "Auto",
-            "nl": "Auto",
-            "de": "Auto"
+            "nl": "Auto"
           }
         },
         {
-          "id": "night",
+          "id": "1",
           "title": {
             "en": "Night",
-            "nl": "Nacht",
-            "de": "Nacht"
+            "nl": "Nacht"
           }
         },
         {
-          "id": "favorite",
+          "id": "2",
           "title": {
             "en": "Favorite",
-            "nl": "Favoriet",
-            "de": "Favorit"
+            "nl": "Favoriet"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Idle",
+            "nl": "Inactief"
           }
         }
       ]

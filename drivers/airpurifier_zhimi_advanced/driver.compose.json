@@ -1,0 +1,34 @@
+{
+  "name": {
+    "en": "Advanced Older Mi Air Purifier (WiFi)",
+    "nl": "Geadvanceerde oudere Mi Air Purifier (WiFi)"
+  },
+  "images": {
+    "large": "drivers/airpurifier_zhimi_advanced/assets/images/large.jpg",
+    "small": "drivers/airpurifier_zhimi_advanced/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "measure_pm25",
+    "measure_humidity",
+    "measure_temperature",
+    "measure_luminance",
+    "airpurifier_mode",
+    "dim"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Favorite Level",
+        "nl": "Favoriet niveau"
+      },
+      "min": 0,
+      "max": 16,
+      "step": 1
+    }
+  }
+}

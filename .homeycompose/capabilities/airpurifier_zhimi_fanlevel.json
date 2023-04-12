@@ -1,0 +1,32 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Fan Level",
+    "nl": "Fan Level"
+  },
+  "getable": true,
+  "setable": true,
+  "values": [
+    {
+      "id": "1",
+      "title": {
+        "en": "Level 1",
+        "nl": "Level 1"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Level 2",
+        "nl": "Level 2"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "Level 3",
+        "nl": "Level 3"
+      }
+    }
+  ]
+}

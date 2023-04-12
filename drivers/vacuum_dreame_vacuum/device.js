@@ -29,6 +29,7 @@ const mapping = {
 	"dreame.vacuum.p2041": "properties_p2008",
   "dreame.vacuum.p2029": "properties_p2029",
 	"dreame.vacuum.p2041": "properties_p2029",
+  "dreame.vacuum.*": "properties_p2008",
 };
 
 const properties = {
@@ -105,7 +106,7 @@ const properties = {
   }
 }
 
-class DreameAdvancedP2xDevice extends Device {
+class AdvancedDreameMiotDevice extends Device {
 
   async onInit() {
     try {
@@ -122,7 +123,7 @@ class DreameAdvancedP2xDevice extends Device {
       }
 
       // DEVICE VARIABLES
-      this.deviceProperties = properties[mapping[this.getStoreValue('model')]];
+      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('dreame.vacuum.*')]];
 
       this.vacuumErrorCodes = {
         0: "Normal",
@@ -275,6 +276,7 @@ class DreameAdvancedP2xDevice extends Device {
       const result = await this.miio.call("get_properties", this.deviceProperties.get_properties, { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
+      /* data */
       const device_status = result.find(obj => obj.did === 'device_status');
       const battery_level = result.find(obj => obj.did === 'battery_level');
       const cleaning_mode = result.find(obj => obj.did === 'cleaning_mode');
@@ -369,4 +371,4 @@ class DreameAdvancedP2xDevice extends Device {
 
 }
 
-module.exports = DreameAdvancedP2xDevice;
+module.exports = AdvancedDreameMiotDevice;

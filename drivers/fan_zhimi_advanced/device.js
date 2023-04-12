@@ -138,16 +138,18 @@ class ZhiMiFanAdvancedDevice extends Device {
       const result = await this.miio.call("get_prop", ["power", "angle", "angle_enable", "speed_level", "natural_level", "child_lock", "buzzer", "led_b"], { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
+      /* capabilities */
       await this.updateCapabilityValue("onoff", result[0] == "on");
       await this.updateCapabilityValue("dim.angle", +result[1]);
       await this.updateCapabilityValue("onoff.swing", result[2] == "on");
       await this.updateCapabilityValue("dim", +result[3]);
 
+      /* settings */
       await this.updateSettingValue("childLock", result[5] == "on");
       await this.updateSettingValue("buzzer",!!result[6]);
       await this.updateSettingValue("led", !!result[7]);
 
-      /* mode trigger card */
+      /* mode capability */
       let mode;
       if (this.getStoreValue('model') === 'zhimi.fan.sa1' || this.getStoreValue('model') === 'zhimi.fan.za1') {
         mode = result[4] - 1;

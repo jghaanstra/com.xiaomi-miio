@@ -16,12 +16,12 @@
         }
       },
       {
-        "id": "volume",
+        "id": "buzzer",
         "type": "checkbox",
         "value": true,
         "label": {
-          "en": "Volume",
-          "nl": "Volume"
+          "en": "Buzzer",
+          "nl": "Buzzer"
         }
       },
       {
@@ -32,7 +32,16 @@
           "en": "Child Lock",
           "nl": "Kinderslot"
         }
-      },
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Data",
+      "nl": "Apparaat Data"
+    },
+    "children": [
       {
         "id": "filter1_life",
         "type": "label",
@@ -43,13 +52,13 @@
         "value": "0%"
       },
       {
-        "id": "purify_volume",
+        "id": "f1_hour_used",
         "type": "label",
         "label": {
-          "en": "Air Cleared (m3)",
-          "nl": "Lucht geschoond (m3)"
+          "en": "Filter hours used",
+          "nl": "Filter uur gebruikt"
         },
-        "value": "0"
+        "value": "0h"
       }
     ]
   },
