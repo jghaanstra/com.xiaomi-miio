@@ -320,7 +320,7 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
   async retrieveDeviceData() {
     try {
 
-      const result = await this.miio.call("get_properties", params, { retries: 1 });
+      const result = await this.miio.call("get_properties", this.deviceProperties.get_properties, { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
       /* data */
