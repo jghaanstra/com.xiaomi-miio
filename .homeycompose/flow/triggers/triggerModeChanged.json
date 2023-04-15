@@ -1,5 +1,4 @@
 {
-  "id": "triggerModeChanged",
   "title": {
     "en": "Mode has changed",
     "nl": "Modus gewijzigd",
@@ -35,7 +34,7 @@
         "en": "Select Device",
         "nl": "Selecteer apparaat"
       },
-      "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_advanced|airpurifier_zhimi_advanced_miot|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh_va2|airfresh_zhimi_airfresh_va4|mi-humidifier2|humidifier_mi_humidifier_v1|humidifier_mi_humidifier_ca1_cb1|humidifier_mi_humidifier_ca4|humidifier_deerma_humidifier_jsq|dmaker_fan_1c|fan_zhimi_advanced|zhimi_fan_za5"
+      "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_advanced|airpurifier_zhimi_advanced_miot|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh_va2|airfresh_zhimi_airfresh_va4|humidifier_zhimi_humidifier|humidifier_zhimi_humidifier_miot|humidifier_deerma_humidifier_jsq|dmaker_fan_1c|fan_zhimi_advanced|zhimi_fan_za5"
     }
   ],
   "platforms": ["local"]

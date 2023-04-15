@@ -10,15 +10,14 @@ class MiHumidifier2Device extends Device {
     try {
       if (!this.util) this.util = new Util({homey: this.homey});
 
-      // TODO: remove this after the next public release
-      if (!this.hasCapability('humidifier2_mode')) { this.addCapability('humidifier2_mode'); }
-      
+      // TODO: remove this driver after the next public release (including humidifier2_mode capability)
+
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
       // FLOW TRIGGER CARDS
-      this.homey.flow.getDeviceTriggerCard('humidifier2Waterlevel');
-      this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
+      //this.homey.flow.getDeviceTriggerCard('humidifier2Waterlevel');
+      //this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 
       // LISTENERS FOR UPDATING CAPABILITIES
       this.registerCapabilityListener("onoff", this.onCapabilityOnoff.bind(this));

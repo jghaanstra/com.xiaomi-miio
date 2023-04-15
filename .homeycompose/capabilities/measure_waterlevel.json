@@ -12,8 +12,5 @@
     "en": "%",
     "nl": "%"
   },
-  "min": 0,
-  "max": 110,
-  "step": 1,
   "insights": true
 }

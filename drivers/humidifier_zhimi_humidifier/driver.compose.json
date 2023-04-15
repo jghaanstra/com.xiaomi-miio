@@ -1,0 +1,47 @@
+{
+  "name": {
+    "en": "Smartmi Humidifier v1/v2 (WiFi)",
+    "nl": "Smartmi Humidifier v1/v2 (WiFi)"
+  },
+  "images": {
+    "large": "drivers/humidifier_zhimi_humidifier/assets/images/large.jpg",
+    "small": "drivers/humidifier_zhimi_humidifier/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "measure_temperature",
+    "measure_humidity",
+    "dim",
+    "humidifier_zhimi_mode"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Target Humidity",
+        "nl": "Doel vochtigheid"
+      },
+      "min": 30,
+      "max": 80,
+      "step": 10
+    },
+    "onoff.dry": {
+      "title": {
+        "en": "Dry mode",
+        "nl": "Droog modus"
+      }
+    },
+    "measure_water": {
+      "title": {
+        "en": "Waterlevel",
+        "nl": "Waterniveau"
+      },
+      "units": {
+        "en": "%"
+      }
+    }
+  }
+}

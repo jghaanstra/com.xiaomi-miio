@@ -1,5 +1,4 @@
 {
-  "id": "ledAirpurifierHumidifier",
   "title": {
     "en": "LED display brightness",
     "nl": "LED display helderheid"
@@ -44,10 +43,10 @@
       "name": "device",
       "type": "device",
       "placeholder": {
-        "en": "Select Mi Air Purifier",
-        "nl": "Selecteer Mi Luchtreiniger"
+        "en": "Select Device",
+        "nl": "Selecteer Apparaat"
       },
-      "filter": "driver_id=mi-airpurifier|mi-humidifier2|zhimi-fan"
+      "filter": "driver_id=mi-airpurifier|humidifier_zhimi_humidifier|zhimi-fan"
     }
   ],
   "platforms": ["local"]

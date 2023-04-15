@@ -555,21 +555,14 @@ class MiWifiDeviceDevice extends Homey.Device {
         }
       }
 
-      if (this.hasCapability('humidifier_mode')) {
-        const previous_mode = this.getCapabilityValue('humidifier_mode');
+      if (this.hasCapability('humidifier_zhimi_mode')) {
+        const previous_mode = this.getCapabilityValue('humidifier_zhimi_mode');
         if (previous_mode !== mode) {
-          this.setCapabilityValue('humidifier_mode', mode);
+          this.setCapabilityValue('humidifier_zhimi_mode', mode);
           this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": mode, "previous_mode": previous_mode.toString() }).catch(error => { this.error(error) });
         }
       }
 
-      if (this.hasCapability('humidifier2_mode')) {
-        const previous_mode = this.getCapabilityValue('humidifier2_mode');
-        if (previous_mode !== mode) {
-          this.setCapabilityValue('humidifier2_mode', mode);
-          this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": mode, "previous_mode": previous_mode }).catch(error => { this.error(error) });
-        }
-      }
     } catch (error) {
       this.error(error);
     }

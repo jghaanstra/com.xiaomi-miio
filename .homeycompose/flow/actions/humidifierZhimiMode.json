@@ -1,5 +1,4 @@
 {
-  "id": "modeHumidifier2",
   "title": {
     "en": "Set Mode",
     "nl": "Stel modus in"
@@ -29,35 +28,40 @@
           "id": "silent",
           "title": {
             "en": "Silent",
-            "nl": "Stil"
+            "nl": "Stil",
+            "de": "Leise"
           }
         },
         {
           "id": "medium",
           "title": {
             "en": "Medium",
-            "nl": "Middel"
+            "nl": "Middel",
+            "de": "Mittel"
           }
         },
         {
           "id": "high",
           "title": {
             "en": "High",
-            "nl": "Hoog"
+            "nl": "Hoog",
+            "de": "Hoch"
           }
         },
         {
           "id": "auto",
           "title": {
             "en": "Auto",
-            "nl": "Auto"
+            "nl": "Auto",
+            "de": "Auto"
           }
         },
         {
           "id": "strong",
           "title": {
             "en": "Strong",
-            "nl": "Sterk"
+            "nl": "Sterk",
+            "de": "Stark"
           }
         }
       ]
@@ -67,9 +71,9 @@
       "type": "device",
       "placeholder": {
         "en": "Select Mi Humidifier",
-        "nl": "Selecteer Mi Luchtbevochtiger"
+        "nl": "Selecteer Mi Humidifier"
       },
-      "filter": "driver_id=mi-humidifier2|humidifier_mi_humidifier_ca1_cb1"
+      "filter": "driver_id=humidifier_zhimi_humidifier"
     }
   ],
   "platforms": ["local"]

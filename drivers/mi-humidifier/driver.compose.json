@@ -15,5 +15,6 @@
     "onoff",
     "measure_temperature",
     "measure_humidity"
-  ]
+  ],
+  "deprecated": true
 }

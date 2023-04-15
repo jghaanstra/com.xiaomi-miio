@@ -9,6 +9,8 @@ class MiHumidifierDevice extends Device {
   async onInit() {
     try {
       if (!this.util) this.util = new Util({homey: this.homey});
+
+      // TODO: remove this driver after the next public release
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();

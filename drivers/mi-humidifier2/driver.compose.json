@@ -17,5 +17,6 @@
     "measure_humidity",
     "measure_waterlevel",
     "humidifier2_mode"
-  ]
+  ],
+  "deprecated": true
 }

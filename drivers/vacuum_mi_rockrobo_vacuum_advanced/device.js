@@ -127,7 +127,8 @@ const properties = {
       102: 2,
       103: 3,
       104: 4,
-      105: 5
+      105: 5,
+      106: 5
     }
   },
   "rockrobo_vacuum_s7_vmax": {
@@ -237,7 +238,9 @@ class MiRobotAdvancedDevice extends Device {
 
       /* data */
       const fanspeed = this.deviceProperties.fanspeeds[result[0]["fan_power"]];
-      await this.updateCapabilityValue("vacuum_roborock_fanspeed", fanspeed.toString());
+      if (fanspeed !== undefined) {
+        await this.updateCapabilityValue("vacuum_roborock_fanspeed", fanspeed.toString());
+      }
       await this.updateCapabilityValue("measure_battery", parseInt(result[0]["battery"]));
       await this.updateCapabilityValue("alarm_battery", parseInt(result[0]["battery"]) === 20 ? true : false);
 
@@ -307,16 +310,19 @@ class MiRobotAdvancedDevice extends Device {
       this.vacuumTotals(totals);
 
       const rooms = await this.miio.call("get_room_mapping", [], { retries: 1 });
-      if (rooms.toString() !== 'unknown_method') {
-        if (this.getSetting('rooms') !== rooms.toString() ) {
-          await this.setSettings({ rooms: rooms.toString() });
-          await this.homey.flow.getDeviceTriggerCard('triggerVacuumRoomSegments').trigger(this, {"segments": rooms.toString() }).catch(error => { this.error(error) });
-        }
-      } else {
-        if (this.getSetting('rooms') !== 'Feature Not Supported' ) {
-          await this.setSettings({ rooms: 'Feature Not Supported' });
+      if (rooms !== undefined) {
+        if (rooms.toString() !== 'unknown_method') {
+          if (this.getSetting('rooms') !== rooms.toString() ) {
+            await this.setSettings({ rooms: rooms.toString() });
+            await this.homey.flow.getDeviceTriggerCard('triggerVacuumRoomSegments').trigger(this, {"segments": rooms.toString() }).catch(error => { this.error(error) });
+          }
+        } else {
+          if (this.getSetting('rooms') !== 'Feature Not Supported' ) {
+            await this.setSettings({ rooms: 'Feature Not Supported' });
+          }
         }
       }
+      
 
     } catch (error) {
       this.homey.clearInterval(this.pollingInterval);

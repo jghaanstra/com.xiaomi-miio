@@ -211,7 +211,7 @@ const properties = {
     ],
     "set_properties": {
       "power": { siid: 2, piid: 1 },
-      "fanlevel": { siid: 2, piid: 4 },
+      "fan_level": { siid: 2, piid: 4 },
       "mode": {siid: 2, piid: 5 },
       "buzzer": { siid: 5, piid: 1 },
       "child_lock": { siid: 7, piid: 1 },
@@ -264,7 +264,7 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
       this.registerCapabilityListener('airpurifier_zhimi_fanlevel', async (value) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.fanlevel.siid, piid: this.deviceProperties.set_properties.fanlevel.piid, value: value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.fan_level.siid, piid: this.deviceProperties.set_properties.fan_level.piid, value: value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -325,7 +325,7 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
 
       /* data */
       const onoff = result.find(obj => obj.did === 'power');
-      const fanlevel = result.find(obj => obj.did === 'fanlevel');
+      const fan_level = result.find(obj => obj.did === 'fan_level');
       const measure_humidity = result.find(obj => obj.did === 'humidity');
       const measure_temperature = result.find(obj => obj.did === 'temperature');
       const measure_pm25 = result.find(obj => obj.did === 'aqi');
@@ -340,8 +340,8 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
 
       /* capabilities */
       await this.updateCapabilityValue("onoff", onoff.value);
-      if (fanlevel !== undefined) {
-        await this.updateCapabilityValue("airpurifier_zhimi_fanlevel", fanlevel.value.toString());
+      if (fan_level !== undefined) {
+        await this.updateCapabilityValue("airpurifier_zhimi_fanlevel", fan_level.value.toString());
       }
       if (measure_humidity !== undefined) {
         await this.updateCapabilityValue("measure_humidity", measure_humidity.value);

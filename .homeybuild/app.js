@@ -164,29 +164,19 @@ class XiaomiMiioApp extends Homey.App {
       });
 
     // AIR PURIFIER, HUMIDIFIER
-    this.homey.flow.getActionCard('modeHumidifier')
+    this.homey.flow.getActionCard('humidifierZhimiMode')
       .registerRunListener(async (args) => {
         try {
-          await args.device.miio.mode(args.mode);
-          return await args.device.setStoreValue("mode", args.mode);
+          return await args.device.triggerCapabilityListener('humidifier_zhimi_mode', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
       });
 
-    this.homey.flow.getActionCard('modeHumidifier2')
+    this.homey.flow.getActionCard('humidifierZhimiModeMIoT')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('humidifier2_mode', args.mode);
-        } catch (error) {
-          return Promise.reject(error.message);
-        }
-      });
-
-    this.homey.flow.getActionCard('modeHumidifierCA4')
-      .registerRunListener(async (args) => {
-        try {
-          return await args.device.triggerCapabilityListener('humidifier_ca4_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('humidifier_zhimi_mode_miot', Number(args.mode));
         } catch (error) {
           return Promise.reject(error.message);
         }

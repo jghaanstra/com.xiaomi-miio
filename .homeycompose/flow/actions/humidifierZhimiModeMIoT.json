@@ -1,5 +1,4 @@
 {
-  "id": "modeHumidifierCA4",
   "title": {
     "en": "Set Mode",
     "nl": "Stel modus in"
@@ -18,31 +17,31 @@
       "type": "dropdown",
       "values": [
         {
-          "id": "auto",
-          "label": {
+          "id": "0",
+          "title": {
             "en": "Auto",
             "nl": "Auto"
           }
         },
         {
           "id": "1",
-          "label": {
-            "en": "1",
-            "nl": "1"
+          "title": {
+            "en": "Level 1",
+            "nl": "Level 1"
           }
         },
         {
           "id": "2",
-          "label": {
-            "en": "2",
-            "nl": "2"
+          "title": {
+            "en": "Level 2",
+            "nl": "Level 2"
           }
         },
         {
           "id": "3",
-          "label": {
-            "en": "3",
-            "nl": "3"
+          "title": {
+            "en": "Level 3",
+            "nl": "Level 3"
           }
         }
       ]
@@ -52,9 +51,9 @@
       "type": "device",
       "placeholder": {
         "en": "Select Mi Humidifier",
-        "nl": "Selecteer Mi Luchtbevochtiger"
+        "nl": "Selecteer Mi Humidifier"
       },
-      "filter": "driver_id=humidifier_mi_humidifier_ca4"
+      "filter": "driver_id=humidifier_zhimi_humidifier_miot"
     }
   ],
   "platforms": ["local"]

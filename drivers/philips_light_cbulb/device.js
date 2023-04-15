@@ -61,7 +61,7 @@ class PhilipsColorBulbDevice extends Device {
 
       await this.updateCapabilityValue("onoff", result[0] == "on");
       await this.updateCapabilityValue("dim", result[1] / 100);
-      await this.updateCapabilityValue("light_temperature", this.util.normalize(result[2], 1880, 7000));
+      await this.updateCapabilityValue("light_temperature", this.util.clamp(this.util.normalize(result[2], 1880, 7000), 0 , 100));
       await this.updateCapabilityValue("light_hue", result[3] / 359);
 
     } catch (error) {

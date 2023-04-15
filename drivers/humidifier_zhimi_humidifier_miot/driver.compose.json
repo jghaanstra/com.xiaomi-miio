@@ -1,0 +1,50 @@
+{
+  "name": {
+    "en": "Smartmi Evaporative Humidifier v2 MIoT (WiFi)",
+    "nl": "Samrtmi Evaporative Humidifier v2 MIoT (WiFi)"
+  },
+  "images": {
+    "large": "drivers/humidifier_zhimi_humidifier_miot/assets/images/large.jpg",
+    "small": "drivers/humidifier_zhimi_humidifier_miot/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "onoff.dry",
+    "dim",
+    "dim.target",
+    "humidifier_zhimi_mode_miot",
+    "measure_temperature",
+    "measure_humidity",
+    "measure_waterlevel"
+  ],
+  "capabilitiesOptions": {
+    "onoff.dry": {
+      "title": {
+        "en": "Dry mode",
+        "nl": "Droog modus"
+      }
+    },
+    "dim": {
+      "title": {
+        "en": "Motor Speed",
+        "nl": "Motor snelheid"
+      },
+      "min": 0,
+      "max": 1,
+      "step": 0.1
+    },
+    "dim.target": {
+      "title": {
+        "en": "Target Humidity",
+        "nl": "Doel luchtvochtigheid"
+      },
+      "min": 30,
+      "max": 80,
+      "step": 10
+    }
+  }
+}

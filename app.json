@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.22",
+  "version": "3.1.23",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -561,7 +561,7 @@
               "en": "Select Humidifier 2",
               "nl": "Selecteer Humidifier 2"
             },
-            "filter": "driver_id=mi-humidifier2"
+            "filter": "driver_id=humidifier_zhimi_humidifier|humidifier_zhimi_humidifier_miot"
           }
         ],
         "platforms": [
@@ -1000,7 +1000,6 @@
         ]
       },
       {
-        "id": "triggerModeChanged",
         "title": {
           "en": "Mode has changed",
           "nl": "Modus gewijzigd",
@@ -1036,12 +1035,13 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_advanced|airpurifier_zhimi_advanced_miot|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh_va2|airfresh_zhimi_airfresh_va4|mi-humidifier2|humidifier_mi_humidifier_v1|humidifier_mi_humidifier_ca1_cb1|humidifier_mi_humidifier_ca4|humidifier_deerma_humidifier_jsq|dmaker_fan_1c|fan_zhimi_advanced|zhimi_fan_za5"
+            "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_advanced|airpurifier_zhimi_advanced_miot|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh_va2|airfresh_zhimi_airfresh_va4|humidifier_zhimi_humidifier|humidifier_zhimi_humidifier_miot|humidifier_deerma_humidifier_jsq|dmaker_fan_1c|fan_zhimi_advanced|zhimi_fan_za5"
           }
         ],
         "platforms": [
           "local"
-        ]
+        ],
+        "id": "triggerModeChanged"
       },
       {
         "id": "triggerPlugInUse",
@@ -2511,7 +2511,152 @@
         ]
       },
       {
-        "id": "ledAirpurifierHumidifier",
+        "title": {
+          "en": "Set Mode",
+          "nl": "Stel modus in"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Stel modus in op [[mode]]"
+        },
+        "args": [
+          {
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "idle",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
+              },
+              {
+                "id": "silent",
+                "title": {
+                  "en": "Silent",
+                  "nl": "Stil",
+                  "de": "Leise"
+                }
+              },
+              {
+                "id": "medium",
+                "title": {
+                  "en": "Medium",
+                  "nl": "Middel",
+                  "de": "Mittel"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High",
+                  "nl": "Hoog",
+                  "de": "Hoch"
+                }
+              },
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto",
+                  "nl": "Auto",
+                  "de": "Auto"
+                }
+              },
+              {
+                "id": "strong",
+                "title": {
+                  "en": "Strong",
+                  "nl": "Sterk",
+                  "de": "Stark"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Mi Humidifier",
+              "nl": "Selecteer Mi Humidifier"
+            },
+            "filter": "driver_id=humidifier_zhimi_humidifier"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "humidifierZhimiMode"
+      },
+      {
+        "title": {
+          "en": "Set Mode",
+          "nl": "Stel modus in"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Stel modus in op [[mode]]"
+        },
+        "args": [
+          {
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Level 1",
+                  "nl": "Level 1"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Level 2",
+                  "nl": "Level 2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Level 3",
+                  "nl": "Level 3"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Mi Humidifier",
+              "nl": "Selecteer Mi Humidifier"
+            },
+            "filter": "driver_id=humidifier_zhimi_humidifier_miot"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "humidifierZhimiModeMIoT"
+      },
+      {
         "title": {
           "en": "LED display brightness",
           "nl": "LED display helderheid"
@@ -2556,15 +2701,16 @@
             "name": "device",
             "type": "device",
             "placeholder": {
-              "en": "Select Mi Air Purifier",
-              "nl": "Selecteer Mi Luchtreiniger"
+              "en": "Select Device",
+              "nl": "Selecteer Apparaat"
             },
-            "filter": "driver_id=mi-airpurifier|mi-humidifier2|zhimi-fan"
+            "filter": "driver_id=mi-airpurifier|humidifier_zhimi_humidifier|zhimi-fan"
           }
         ],
         "platforms": [
           "local"
-        ]
+        ],
+        "id": "ledAirpurifierHumidifier"
       },
       {
         "id": "leftSwitchOff",
@@ -2819,203 +2965,6 @@
               "nl": "Selecteer Philips Eyecare Lamp"
             },
             "filter": "driver_id=philips-eyecare"
-          }
-        ],
-        "platforms": [
-          "local"
-        ]
-      },
-      {
-        "id": "modeHumidifier",
-        "title": {
-          "en": "Set Mode",
-          "nl": "Stel modus in"
-        },
-        "titleFormatted": {
-          "en": "Set mode to [[mode]]",
-          "nl": "Stel modus in op [[mode]]"
-        },
-        "args": [
-          {
-            "name": "mode",
-            "title": {
-              "en": "Mode",
-              "nl": "Modus"
-            },
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "silent",
-                "label": {
-                  "en": "Silent",
-                  "nl": "Stil"
-                }
-              },
-              {
-                "id": "medium",
-                "label": {
-                  "en": "Medium",
-                  "nl": "Middel"
-                }
-              },
-              {
-                "id": "high",
-                "label": {
-                  "en": "High",
-                  "nl": "Hoog"
-                }
-              }
-            ]
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "placeholder": {
-              "en": "Select Mi Humidifier",
-              "nl": "Selecteer Mi Luchtbevochtiger"
-            },
-            "filter": "driver_id=mi-humidifier|humidifier_mi_humidifier_v1"
-          }
-        ],
-        "platforms": [
-          "local"
-        ]
-      },
-      {
-        "id": "modeHumidifier2",
-        "title": {
-          "en": "Set Mode",
-          "nl": "Stel modus in"
-        },
-        "titleFormatted": {
-          "en": "Set mode to [[mode]]",
-          "nl": "Stel modus in op [[mode]]"
-        },
-        "args": [
-          {
-            "name": "mode",
-            "title": {
-              "en": "Mode",
-              "nl": "Modus"
-            },
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "idle",
-                "title": {
-                  "en": "Off",
-                  "nl": "Uit",
-                  "de": "Aus"
-                }
-              },
-              {
-                "id": "silent",
-                "title": {
-                  "en": "Silent",
-                  "nl": "Stil"
-                }
-              },
-              {
-                "id": "medium",
-                "title": {
-                  "en": "Medium",
-                  "nl": "Middel"
-                }
-              },
-              {
-                "id": "high",
-                "title": {
-                  "en": "High",
-                  "nl": "Hoog"
-                }
-              },
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto",
-                  "nl": "Auto"
-                }
-              },
-              {
-                "id": "strong",
-                "title": {
-                  "en": "Strong",
-                  "nl": "Sterk"
-                }
-              }
-            ]
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "placeholder": {
-              "en": "Select Mi Humidifier",
-              "nl": "Selecteer Mi Luchtbevochtiger"
-            },
-            "filter": "driver_id=mi-humidifier2|humidifier_mi_humidifier_ca1_cb1"
-          }
-        ],
-        "platforms": [
-          "local"
-        ]
-      },
-      {
-        "id": "modeHumidifierCA4",
-        "title": {
-          "en": "Set Mode",
-          "nl": "Stel modus in"
-        },
-        "titleFormatted": {
-          "en": "Set mode to [[mode]]",
-          "nl": "Stel modus in op [[mode]]"
-        },
-        "args": [
-          {
-            "name": "mode",
-            "title": {
-              "en": "Mode",
-              "nl": "Modus"
-            },
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "label": {
-                  "en": "Auto",
-                  "nl": "Auto"
-                }
-              },
-              {
-                "id": "1",
-                "label": {
-                  "en": "1",
-                  "nl": "1"
-                }
-              },
-              {
-                "id": "2",
-                "label": {
-                  "en": "2",
-                  "nl": "2"
-                }
-              },
-              {
-                "id": "3",
-                "label": {
-                  "en": "3",
-                  "nl": "3"
-                }
-              }
-            ]
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "placeholder": {
-              "en": "Select Mi Humidifier",
-              "nl": "Selecteer Mi Luchtbevochtiger"
-            },
-            "filter": "driver_id=humidifier_mi_humidifier_ca4"
           }
         ],
         "platforms": [
@@ -7686,7 +7635,7 @@
       ]
     },
     {
-      "icon": "/drivers/humidifier_mi_humidifier_ca1_cb1/assets/icon.svg",
+      "icon": "/drivers/humidifier_zhimi_humidifier/assets/icon.svg",
       "pair": [
         {
           "id": "start",
@@ -7708,34 +7657,35 @@
         "lan"
       ],
       "name": {
-        "en": "Mi (Air) Humidifier v2 (WiFi)",
-        "nl": "Mi (Air) Humidifier v2 (WiFi)"
+        "en": "Smartmi Humidifier v1/v2 (WiFi)",
+        "nl": "Smartmi Humidifier v1/v2 (WiFi)"
       },
       "images": {
-        "large": "drivers/humidifier_mi_humidifier_ca1_cb1/assets/images/large.jpg",
-        "small": "drivers/humidifier_mi_humidifier_ca1_cb1/assets/images/small.jpg"
+        "large": "drivers/humidifier_zhimi_humidifier/assets/images/large.jpg",
+        "small": "drivers/humidifier_zhimi_humidifier/assets/images/small.jpg"
       },
       "class": "sensor",
       "capabilities": [
         "onoff",
-        "onoff.dry",
         "measure_temperature",
         "measure_humidity",
-        "measure_water",
         "dim",
-        "humidifier2_mode"
+        "humidifier_zhimi_mode"
       ],
       "capabilitiesOptions": {
-        "onoff.dry": {
-          "title": {
-            "en": "Swing mode",
-            "nl": "Swing modus"
-          }
-        },
         "dim": {
           "title": {
-            "en": "Target Relative Humidity",
-            "nl": "Doel relatieve vochtigheid"
+            "en": "Target Humidity",
+            "nl": "Doel vochtigheid"
+          },
+          "min": 30,
+          "max": 80,
+          "step": 10
+        },
+        "onoff.dry": {
+          "title": {
+            "en": "Dry mode",
+            "nl": "Droog modus"
           }
         },
         "measure_water": {
@@ -7748,7 +7698,7 @@
           }
         }
       },
-      "id": "humidifier_mi_humidifier_ca1_cb1",
+      "id": "humidifier_zhimi_humidifier",
       "settings": [
         {
           "type": "group",
@@ -7829,7 +7779,7 @@
       ]
     },
     {
-      "icon": "/drivers/humidifier_mi_humidifier_ca4/assets/icon.svg",
+      "icon": "/drivers/humidifier_zhimi_humidifier_miot/assets/icon.svg",
       "pair": [
         {
           "id": "start",
@@ -7851,12 +7801,12 @@
         "lan"
       ],
       "name": {
-        "en": "Mi Evaporative Humidifier v2 (WiFi)",
-        "nl": "Mi Evaporative Humidifier v2 (WiFi)"
+        "en": "Smartmi Evaporative Humidifier v2 MIoT (WiFi)",
+        "nl": "Samrtmi Evaporative Humidifier v2 MIoT (WiFi)"
       },
       "images": {
-        "large": "drivers/humidifier_mi_humidifier_ca4/assets/images/large.jpg",
-        "small": "drivers/humidifier_mi_humidifier_ca4/assets/images/small.jpg"
+        "large": "drivers/humidifier_zhimi_humidifier_miot/assets/images/large.jpg",
+        "small": "drivers/humidifier_zhimi_humidifier_miot/assets/images/small.jpg"
       },
       "class": "sensor",
       "capabilities": [
@@ -7864,22 +7814,22 @@
         "onoff.dry",
         "dim",
         "dim.target",
-        "humidifier_ca4_mode",
+        "humidifier_zhimi_mode_miot",
         "measure_temperature",
         "measure_humidity",
-        "measure_water"
+        "measure_waterlevel"
       ],
       "capabilitiesOptions": {
         "onoff.dry": {
           "title": {
-            "en": "Dry",
-            "nl": "Drogen"
+            "en": "Dry mode",
+            "nl": "Droog modus"
           }
         },
         "dim": {
           "title": {
-            "en": "Speedlevel",
-            "nl": "Snelheid"
+            "en": "Motor Speed",
+            "nl": "Motor snelheid"
           },
           "min": 0,
           "max": 1,
@@ -7887,23 +7837,15 @@
         },
         "dim.target": {
           "title": {
-            "en": "Target Relative Humidity",
-            "nl": "Doel relatieve vochtigheid"
+            "en": "Target Humidity",
+            "nl": "Doel luchtvochtigheid"
           },
           "min": 30,
-          "max": 80
-        },
-        "measure_water": {
-          "title": {
-            "en": "Waterlevel",
-            "nl": "Waterniveau"
-          },
-          "units": {
-            "en": "%"
-          }
+          "max": 80,
+          "step": 10
         }
       },
-      "id": "humidifier_mi_humidifier_ca4",
+      "id": "humidifier_zhimi_humidifier_miot",
       "settings": [
         {
           "type": "group",
@@ -7937,123 +7879,6 @@
               "label": {
                 "en": "Child Lock",
                 "nl": "Kinderslot"
-              }
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Device Settings",
-            "nl": "Apparaat instellingen"
-          },
-          "children": [
-            {
-              "id": "address",
-              "type": "text",
-              "value": "0.0.0.0",
-              "label": {
-                "en": "IP Address",
-                "nl": "IP adres"
-              }
-            },
-            {
-              "id": "token",
-              "type": "text",
-              "value": "",
-              "label": {
-                "en": "Mi Device Token",
-                "nl": "Mi Apparaat Token"
-              }
-            },
-            {
-              "id": "polling",
-              "type": "number",
-              "value": 60,
-              "attr": {
-                "min": 5,
-                "max": 3600
-              },
-              "label": {
-                "en": "Polling Frequency",
-                "nl": "Polling frequentie"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "icon": "/drivers/humidifier_mi_humidifier_v1/assets/icon.svg",
-      "pair": [
-        {
-          "id": "start",
-          "navigation": {
-            "next": "pair"
-          }
-        },
-        {
-          "id": "pair"
-        },
-        {
-          "id": "add_device"
-        }
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "name": {
-        "en": "Mi Humidifier v1 (WiFi)",
-        "nl": "Mi Luchtbevochtiger v1 (WiFi)"
-      },
-      "images": {
-        "large": "drivers/humidifier_mi_humidifier_v1/assets/images/large.jpg",
-        "small": "drivers/humidifier_mi_humidifier_v1/assets/images/small.jpg"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "onoff",
-        "measure_temperature",
-        "measure_humidity",
-        "dim",
-        "humidifier_mode"
-      ],
-      "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Target Relative Humidity",
-            "nl": "Doel relatieve vochtigheid"
-          }
-        }
-      },
-      "id": "humidifier_mi_humidifier_v1",
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "User Settings",
-            "nl": "Gebruikersinstellingem"
-          },
-          "children": [
-            {
-              "id": "led",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "LED",
-                "nl": "LED"
-              }
-            },
-            {
-              "id": "buzzer",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Buzzer",
-                "nl": "Buzzer"
               }
             }
           ]
@@ -8925,6 +8750,7 @@
         "measure_temperature",
         "measure_humidity"
       ],
+      "deprecated": true,
       "id": "mi-humidifier",
       "settings": [
         {
@@ -9007,6 +8833,7 @@
         "measure_waterlevel",
         "humidifier2_mode"
       ],
+      "deprecated": true,
       "id": "mi-humidifier2",
       "settings": [
         {
@@ -12031,45 +11858,6 @@
       "getable": true,
       "setable": true
     },
-    "humidifier_ca4_mode": {
-      "type": "enum",
-      "title": {
-        "en": "Mode",
-        "nl": "Modus"
-      },
-      "values": [
-        {
-          "id": "0",
-          "title": {
-            "en": "Auto",
-            "nl": "Auto"
-          }
-        },
-        {
-          "id": "1",
-          "title": {
-            "en": "Level 1",
-            "nl": "Level 1"
-          }
-        },
-        {
-          "id": "2",
-          "title": {
-            "en": "Level 2",
-            "nl": "Level 2"
-          }
-        },
-        {
-          "id": "3",
-          "title": {
-            "en": "Level 3",
-            "nl": "Level 3"
-          }
-        }
-      ],
-      "getable": true,
-      "setable": true
-    },
     "humidifier_deerma_jsq_mode": {
       "type": "enum",
       "title": {
@@ -12212,7 +12000,66 @@
       "getable": true,
       "setable": true
     },
-    "humidifier_mode": {
+    "humidifier_zhimi_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "idle",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus"
+          }
+        },
+        {
+          "id": "silent",
+          "title": {
+            "en": "Silent",
+            "nl": "Stil",
+            "de": "Leise"
+          }
+        },
+        {
+          "id": "medium",
+          "title": {
+            "en": "Medium",
+            "nl": "Middel",
+            "de": "Mittel"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High",
+            "nl": "Hoog",
+            "de": "Hoch"
+          }
+        },
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto",
+            "nl": "Auto",
+            "de": "Auto"
+          }
+        },
+        {
+          "id": "strong",
+          "title": {
+            "en": "Strong",
+            "nl": "Sterk",
+            "de": "Stark"
+          }
+        }
+      ]
+    },
+    "humidifier_zhimi_mode_miot": {
       "type": "enum",
       "title": {
         "en": "Mode",
@@ -12220,24 +12067,31 @@
       },
       "values": [
         {
-          "id": "silent",
+          "id": "0",
           "title": {
-            "en": "Silent",
-            "nl": "Stil"
+            "en": "Auto",
+            "nl": "Auto"
           }
         },
         {
-          "id": "medium",
+          "id": "1",
           "title": {
-            "en": "Medium",
-            "nl": "Medium"
+            "en": "Level 1",
+            "nl": "Level 1"
           }
         },
         {
-          "id": "high",
+          "id": "2",
           "title": {
-            "en": "High",
-            "nl": "Hoog"
+            "en": "Level 2",
+            "nl": "Level 2"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Level 3",
+            "nl": "Level 3"
           }
         }
       ],
@@ -12362,9 +12216,6 @@
         "en": "%",
         "nl": "%"
       },
-      "min": 0,
-      "max": 110,
-      "step": 1,
       "insights": true
     },
     "vacuum_dreame_fanspeed": {
