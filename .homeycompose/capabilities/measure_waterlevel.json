@@ -4,7 +4,7 @@
     "en": "Waterlevel",
     "nl": "Waterniveau"
   },
-  "icon": "/drivers/mi-humidifier2/assets/waterlevel.svg",
+  "icon": "/assets/icons/measure_waterlevel.svg",
   "getable": true,
   "setable": false,
   "uiComponent": "sensor",

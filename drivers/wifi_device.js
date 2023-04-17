@@ -435,9 +435,6 @@ class MiWifiDeviceDevice extends Homey.Device {
         });
       }
 
-      // DEVICE SETTINGS
-      this.handleDeviceSettings();
-
       if (!this.getAvailable()) { await this.setAvailable(); }
 
     } catch (error) {

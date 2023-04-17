@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.23",
+  "version": "3.1.24",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -12190,7 +12190,7 @@
         "en": "TVOC",
         "nl": "TVOC"
       },
-      "icon": "/assets/icons/tvoc.svg",
+      "icon": "/assets/icons/measure_tvoc.svg",
       "getable": true,
       "setable": false,
       "units": {
@@ -12208,7 +12208,7 @@
         "en": "Waterlevel",
         "nl": "Waterniveau"
       },
-      "icon": "/drivers/mi-humidifier2/assets/waterlevel.svg",
+      "icon": "/assets/icons/measure_waterlevel.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",

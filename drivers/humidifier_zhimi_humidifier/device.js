@@ -19,6 +19,13 @@ class MiHumidifierDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // DEVICE SPECIFIC INIT ACTIONS
+      if (this.getStoreValue('model') !== 'zhimi.humidifier.v1') {
+        if (!this.hasCapabilityValue('measure_waterlevel')) {
+          this.addCapabilityValue('measure_waterlevel');
+        }
+      }
+
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
       this.homey.flow.getDeviceTriggerCard('humidifier2Waterlevel');

@@ -4,7 +4,7 @@
     "en": "TVOC",
     "nl": "TVOC"
   },
-  "icon": "/assets/icons/tvoc.svg",
+  "icon": "/assets/icons/measure_tvoc.svg",
   "getable": true,
   "setable": false,
   "units": {
