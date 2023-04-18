@@ -21,8 +21,8 @@ class MiHumidifierDevice extends Device {
 
       // DEVICE SPECIFIC INIT ACTIONS
       if (this.getStoreValue('model') !== 'zhimi.humidifier.v1') {
-        if (!this.hasCapabilityValue('measure_waterlevel')) {
-          this.addCapabilityValue('measure_waterlevel');
+        if (!this.hasCapability('measure_waterlevel')) {
+          this.addCapability('measure_waterlevel');
         }
       }
 
@@ -148,7 +148,7 @@ class MiHumidifierDevice extends Device {
         case 'zhimi.humidifier.cb1':
         case 'zhimi.humidifier.cb2':
           await this.util.sleep(2000);
-          const result_extra_props_cb = await this.miio.call("get_prop", ["temp_dec", "depth", "dry"], { retries: 1 });
+          const result_extra_props_cb = await this.miio.call("get_prop", ["temperature", "depth", "dry"], { retries: 1 });
           await this.updateCapabilityValue("measure_temperature", result_extra_props_cb[0] / 10);
           await this.updateCapabilityValue("onoff.dry", result[2] === "on" ? true : false);
           if (this.getCapabilityValue('measure_waterlevel') !== result_extra_props_cb[1]) {

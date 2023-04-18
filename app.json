@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.1.24",
+  "version": "3.1.25",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
