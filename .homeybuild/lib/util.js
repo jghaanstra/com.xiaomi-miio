@@ -137,6 +137,7 @@ class Util {
     
     'lumi.gateway.v2': 'Xiaomi Gateway v1',
     'lumi.gateway.v3': 'Xiaomi Gateway v2',
+    'lumi.gateway.mcn001': 'Xiaomi Smart Home Hub 2',
     'lumi.acpartner.v1': 'Aqara Gateway v1',
     'lumi.acpartner.v2': 'Aqara Gateway v2',
     'lumi.acpartner.v3': 'Aqara Gateway v3',

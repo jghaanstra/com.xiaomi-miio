@@ -299,7 +299,7 @@ class MiRobotAdvancedDevice extends Device {
           this.vacuumCleanerState("stopped_error");
           break;
         default:
-          this.log("Not a valid vacuumcleaner_state", state);
+          this.log("Not a valid vacuumcleaner_state", result[0]["state"]);
           break;
       }
 
