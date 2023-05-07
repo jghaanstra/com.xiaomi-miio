@@ -1,0 +1,30 @@
+{
+  "name": {
+    "en": "Smartmi Fresh Air System (WiFi)",
+    "nl": "Smartmi Fresh Air System (WiFi)"
+  },
+  "images": {
+    "large": "drivers/airfresh_zhimi_airfresh/assets/images/large.jpg",
+    "small": "drivers/airfresh_zhimi_airfresh/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "airpurifier_zhimi_airfresh_mode",
+    "measure_temperature",
+    "measure_humidity",
+    "measure_pm25",
+    "measure_co2"
+  ],
+  "capabilitiesOptions": {
+    "onoff.ptc": {
+      "title": {
+        "en": "Heat",
+        "nl": "Verwarmen"
+      }
+    }
+  }
+}

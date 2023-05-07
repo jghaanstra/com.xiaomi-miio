@@ -1,7 +1,7 @@
 {
   "name": {
-    "en": "Mi Air Purifier MJXFJ-300-G1 (WiFi)",
-    "nl": "Mi Air Purifier MJXFJ-300-G1 (WiFi)"
+    "en": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)",
+    "nl": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)"
   },
   "images": {
     "large": "drivers/airpurifier_dmaker_airfresh_t2017/assets/images/large.jpg",
@@ -16,7 +16,6 @@
     "dim",
     "airpurifier_zhimi_mode",
     "onoff.ptc",
-    "airpurifier_heater_mode",
     "measure_temperature",
     "measure_pm25",
     "measure_co2"

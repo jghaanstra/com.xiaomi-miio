@@ -1,0 +1,38 @@
+{
+  "name": {
+    "en": "Mi Smart Antibacterial Humidifier MIoT (WiFi)",
+    "nl": "Mi Smart Antibacterial Humidifier MIoT (WiFi)"
+  },
+  "images": {
+    "large": "drivers/humidifier_deerma_humidifier_miot/assets/images/large.jpg",
+    "small": "drivers/humidifier_deerma_humidifier_miot/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "humidifier_deerma_jsq_mode",
+    "measure_temperature",
+    "measure_humidity",
+    "alarm_water"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Target humidity",
+        "nl": "Doel luchtvochtigheid"
+      },
+      "min": 0.4,
+      "max": 0.8
+    },
+    "alarm_water": {
+      "title": {
+        "en": "Waterlevel",
+        "nl": "Waterniveau"
+      }
+    }
+  }
+}

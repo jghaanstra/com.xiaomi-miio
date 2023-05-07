@@ -191,19 +191,10 @@ class XiaomiMiioApp extends Homey.App {
         }
       });
 
-    this.homey.flow.getActionCard('modeHumidifierDeermaJSQ4')
+    this.homey.flow.getActionCard('modeZhimiAirfresh')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('humidifier_deerma_jsq4_mode', Number(args.mode));
-        } catch (error) {
-          return Promise.reject(error.message);
-        }
-      });
-
-    this.homey.flow.getActionCard('modeHumidifierDeermaJSQ5')
-      .registerRunListener(async (args) => {
-        try {
-          return await args.device.triggerCapabilityListener('humidifier_deerma_jsq5_fanlevel', Number(args.mode));
+          return await args.device.triggerCapabilityListener('airpurifier_zhimi_airfresh_mode', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }

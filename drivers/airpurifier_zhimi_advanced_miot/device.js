@@ -264,7 +264,7 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
       this.registerCapabilityListener('airpurifier_zhimi_fanlevel', async (value) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.fan_level.siid, piid: this.deviceProperties.set_properties.fan_level.piid, value: value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.fanlevel.siid, piid: this.deviceProperties.set_properties.fanlevel.piid, value: value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();

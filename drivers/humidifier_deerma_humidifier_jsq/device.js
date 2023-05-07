@@ -4,6 +4,11 @@ const Homey = require('homey');
 const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
+/* supported devices */
+// https://home.miot-spec.com/spec/deerma.humidifier.mjjsq // Mijia Smart Sterilization Humidifier MJJSQ
+// https://home.miot-spec.com/spec/deerma.humidifier.jsq // Mijia Smart Sterilization Humidifier JSQ
+// https://home.miot-spec.com/spec/deerma.humidifier.jsq1 // Mijia Smart Sterilization Humidifier JSQ1
+
 const modes = {
   1: "Low",
   2: "Medium",
@@ -97,6 +102,7 @@ class HumidifierDeermaJSQDevice extends Device {
       const result = await this.miio.call("get_prop", ["Humidifier_Gear", "Humidity_Value", "HumiSet_Value", "Led_State", "OnOff_State", "TemperatureValue", "TipSound_State", "waterstatus", "watertankstatus"], { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
+      /* capabilities */
       await this.updateCapabilityValue("measure_humidity", parseInt(result[1]));
       await this.updateCapabilityValue("dim", parseInt(result[2]) / 100);
       await this.updateCapabilityValue("onoff", result[4] === 1 ? true : false);
@@ -104,11 +110,16 @@ class HumidifierDeermaJSQDevice extends Device {
       await this.updateCapabilityValue("alarm_water", result[7] === 0 ? true : false);
       await this.updateCapabilityValue("alarm_water.tank", result[8] === 0 ? false : true);
       
+      /* settings */
       await this.updateSettingValue("led", result[3] === 1 ? true : false);
       await this.updateSettingValue("buzzer", result[6] === 1 ? true : false);
 
-      /* mode trigger card */
-      this.handleModeEvent(result[0]);
+      /* mode capability */
+      if (this.getCapabilityValue('humidifier_deerma_jsq_mode') !== result[0].toString()) {
+        const previous_mode = this.getCapabilityValue('humidifier_deerma_jsq_mode');
+        await this.setCapabilityValue('humidifier_deerma_jsq_mode', result[0].toString());
+        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[result[0]], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
+      }
 
     } catch (error) {
       this.homey.clearInterval(this.pollingInterval);
@@ -120,18 +131,6 @@ class HumidifierDeermaJSQDevice extends Device {
       this.homey.setTimeout(() => { this.createDevice(); }, 60000);
 
       this.error(error.message);
-    }
-  }
-
-  async handleModeEvent(mode) {
-    try {
-      if (this.getCapabilityValue('humidifier_deerma_jsq_mode') !== mode.toString()) {
-        const previous_mode = this.getCapabilityValue('humidifier_deerma_jsq_mode');
-        await this.setCapabilityValue('humidifier_deerma_jsq_mode', mode.toString());
-        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[mode], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
-      }
-    } catch (error) {
-      this.error(error);
     }
   }
 

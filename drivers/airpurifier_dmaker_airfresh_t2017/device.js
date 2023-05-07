@@ -4,6 +4,10 @@ const Homey = require('homey');
 const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
+/* supported devices */
+// https://home.miot-spec.com/spec/dmaker.airfresh.t2017 // Mi Air Purifier MJXFJ-300-G1
+// https://home.miot-spec.com/spec/dmaker.airfresh.a1 // Mi Air Purifier MJXFJ-150-A1
+
 const modes = {
   0: "Auto",
   1: "Night",
@@ -116,7 +120,7 @@ class MiAirPurifierT2017Device extends Device {
       const led = await this.miio.call("set_display", [newSettings.display ? "on" : "off"], { retries: 1 });
     }
 
-    if (changedKeys.includes("volume")) {
+    if (changedKeys.includes("sound")) {
       const buzzer = await this.miio.call("set_sound", [newSettings.sound ? "on" : "off"], { retries: 1 });
     }
 
@@ -134,33 +138,46 @@ class MiAirPurifierT2017Device extends Device {
   async retrieveDeviceData() {
     try {
 
-      const result = await this.miio.call("get_prop", ["power", "pm25", "co2", "temperature_outside", "mode", "ptc_level", "favourite_speed", "display", "sound", "child_lock", "filter_efficient", "filter_intermediate", "screen_direction", "ptc_level", "ptc_on", "ptc_status"], { retries: 1 });
+      const result = await this.miio.call("get_prop", ["power", "pm25", "co2", "temperature_outside", "mode", "favourite_speed", "display", "sound", "child_lock", "ptc_on", "ptc_status"], { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
       await this.updateCapabilityValue("onoff", result[0]);
       await this.updateCapabilityValue("measure_pm25", parseInt(result[1]));
       await this.updateCapabilityValue("measure_co2", parseInt(result[2]));
       await this.updateCapabilityValue("measure_temperature", parseInt(result[3]));
-      await this.updateCapabilityValue("air_heater_mode", result[5]);
-      await this.updateCapabilityValue("dim", parseInt(this.util.normalize[result[6]], 60, 300));
-      await this.updateCapabilityValue("onoff.ptc", result[14]);
-      if (result[13] && result[14]) {
-        await this.updateCapabilityValue("air_heater_mode", result[13]);
-      } else {
-        await this.updateCapabilityValue("air_heater_mode", "off");
-      }
+      
+      await this.updateCapabilityValue("dim", parseInt(this.util.normalize[result[5]], 60, 300));
+      await this.updateCapabilityValue("onoff.ptc", result[9]);
 
-      await this.updateSettingValue("childLock", result[9]);
-      await this.updateSettingValue("display", result[7]);
-      await this.updateSettingValue("filter_efficient", parseInt(result[10]).toString() + "%");
-      await this.updateSettingValue("filter_intermediate", parseInt(result[11]).toString() + "%");
-      await this.updateSettingValue("screen_direction", result[12]);
+      await this.updateSettingValue("display", result[6]);
+      await this.updateSettingValue("sound", result[7]);
+      await this.updateSettingValue("childLock", result[8]);
 
       /* mode capability */
       if (this.getCapabilityValue('airpurifier_zhimi_mode') !== result[4].toString()) {
         const previous_mode = this.getCapabilityValue('airpurifier_zhimi_mode');
         await this.setCapabilityValue('airpurifier_zhimi_mode', result[4].toString());
         await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[result[4]], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
+      }
+      
+      /* model specific capabilities */
+      switch (this.getStoreValue('model')) {
+        case 'dmaker.airfresh.t2017':
+          await this.util.sleep(2000);
+          const result_t2017 = await this.miio.call("get_prop", ["ptc_level", "filter_efficient", "filter_intermediate", "screen_direction"], { retries: 1 });
+          await this.updateCapabilityValue("air_heater_mode", result_t2017[0]);
+          await this.updateSettingValue("filter_efficient", parseInt(result_t2017[1]).toString() + "%");
+          await this.updateSettingValue("filter_intermediate", parseInt(result_t2017[2]).toString() + "%");
+          await this.updateSettingValue("screen_direction", result_t2017[3]);
+          break;
+        case 'dmaker.airfresh.a1':
+          await this.util.sleep(2000);
+          const result_a1 = await this.miio.call("get_prop", ["filter_rate", "filter_day"], { retries: 1 });
+          await this.updateSettingValue("filter_efficient", parseInt(result_a1[0]).toString() + "%");
+          await this.updateSettingValue("filter_intermediate", parseInt(result_a1[0]).toString() + "%");
+          break;
+        default:
+          break;
       }
 
     } catch (error) {
@@ -173,14 +190,6 @@ class MiAirPurifierT2017Device extends Device {
       this.homey.setTimeout(() => { this.createDevice(); }, 60000);
 
       this.error(error.message);
-    }
-  }
-
-  async handleModeEvent(mode) {
-    try {
-      
-    } catch (error) {
-      this.error(error);
     }
   }
 

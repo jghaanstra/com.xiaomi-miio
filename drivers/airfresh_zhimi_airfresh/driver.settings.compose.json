@@ -7,21 +7,21 @@
     },
     "children": [
       {
-        "id": "display",
+        "id": "led",
         "type": "checkbox",
         "value": true,
         "label": {
-          "en": "Display",
-          "nl": "Display"
+          "en": "LED",
+          "nl": "LED"
         }
       },
       {
-        "id": "Sound",
+        "id": "buzzer",
         "type": "checkbox",
         "value": true,
         "label": {
-          "en": "Sound",
-          "nl": "Sound"
+          "en": "Buzzer",
+          "nl": "Buzzer"
         }
       },
       {
@@ -34,50 +34,22 @@
         }
       },
       {
-        "id": "filter_efficient",
+        "id": "f1_hour_used",
         "type": "label",
         "label": {
           "en": "Filter life",
-          "nl": "Fil;ter duur"
+          "nl": "Filter duur"
         },
         "value": "0%"
       },
       {
-        "id": "filter_intermediate",
+        "id": "motor_speed",
         "type": "label",
         "label": {
-          "en": "Filter life 2"
+          "en": "Motorspeed",
+          "nl": "Motorsnelheid"
         },
-        "value": "0"
-      },
-      {
-        "id": "screen_direction",
-        "type": "dropdown",
-        "value": "forward",
-        "label": {
-          "en": "Screen Direction",
-          "nl": "Scherm orientatie"
-        },
-        "values": [
-          {
-            "id": "forward",
-            "label": {
-              "en": "Normal"
-            }
-          },
-          {
-            "id": "left",
-            "label": {
-              "en": "-90"
-            }
-          },
-          {
-            "id": "right",
-            "label": {
-              "en": "+90"
-            }
-          }
-        ]
+        "value": "400"
       }
     ]
   },

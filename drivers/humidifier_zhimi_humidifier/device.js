@@ -127,8 +127,7 @@ class MiHumidifierDevice extends Device {
         await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": result[1], "previous_mode": previous_mode.toString() }).catch(error => { this.error(error) });
       }
 
-      // DEVICE SPECIFIC CAPABILITIES
-      let extra_props = [];
+      /* model specific capabilities */
       switch (this.getStoreValue('model')) {
         case 'zhimi.humidifier.v1':
           await this.util.sleep(2000);
@@ -152,7 +151,8 @@ class MiHumidifierDevice extends Device {
           const result_extra_props_cb = await this.miio.call("get_prop", ["temperature", "depth", "dry"], { retries: 1 });
           await this.updateCapabilityValue("measure_temperature", result_extra_props_cb[0]);
           await this.updateCapabilityValue("onoff.dry", result_extra_props_cb[2] === "on" ? true : false);
-          const measure_waterlevel_cb = this.util.normalize(result_extra_props_cb[1], 0 , 120) * 100;
+          const measure_waterlevel_cb_value = this.util.normalize(result_extra_props_cb[1], 0 , 120) * 100;
+          const measure_waterlevel_cb = this.util.clamp(measure_waterlevel_cb_value, 0 , 100);
           if (this.getCapabilityValue('measure_waterlevel') !== measure_waterlevel_cb) {
             const previous_waterlevel = await this.getCapabilityValue('measure_waterlevel');
             await this.setCapabilityValue('measure_waterlevel', measure_waterlevel_cb);

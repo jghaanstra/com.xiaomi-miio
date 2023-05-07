@@ -1,0 +1,20 @@
+{
+  "name": {
+    "en": "Mi Air Quality Monitor (WiFi)",
+    "nl": "Mi Air Quality Monitor (WiFi)"
+  },
+  "images": {
+    "large": "drivers/airmonitor_cgllc_zhimi_airmonitor/assets/images/large.jpg",
+    "small": "drivers/airmonitor_cgllc_zhimi_airmonitor/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "measure_pm25"
+  ],
+  "energy": {
+    "batteries": [ "INTERNAL" ]
+  }
+}
