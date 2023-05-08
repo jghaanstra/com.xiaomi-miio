@@ -136,10 +136,10 @@ class HumidifierDeermaMiotDevice extends Device {
 
       /* mode capability */
       const mode = result.find(obj => obj.did === 'mode');
-      if (this.getCapabilityValue('humidifier_deerma_jsq_mode') !== mode.toString()) {
+      if (this.getCapabilityValue('humidifier_deerma_jsq_mode') !== mode.value.toString()) {
         const previous_mode = this.getCapabilityValue('humidifier_deerma_jsq_mode');
-        await this.setCapabilityValue('humidifier_deerma_jsq_mode', mode.toString());
-        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[mode], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
+        await this.setCapabilityValue('humidifier_deerma_jsq_mode', mode.value.toString());
+        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[mode.value], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
       }
 
     } catch (error) {

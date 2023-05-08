@@ -197,7 +197,6 @@ const properties = {
   "mapping_za1": {
     "get_properties": [
       { did: "power", siid: 2, piid: 1 }, // onoff
-      { did: "fan_level", siid : 2, piid: 4 }, // airpurifier_zhimi_fanlevel
       { did: "mode", siid: 2, piid: 5 }, // airpurifier_zhimi_mode
       { did: "humidity", siid: 3, piid: 7 }, // measure_humidity
       { did: "temperature", siid: 3, piid: 8 }, // measure_temperature
@@ -211,7 +210,6 @@ const properties = {
     ],
     "set_properties": {
       "power": { siid: 2, piid: 1 },
-      "fan_level": { siid: 2, piid: 4 },
       "mode": {siid: 2, piid: 5 },
       "buzzer": { siid: 5, piid: 1 },
       "child_lock": { siid: 7, piid: 1 },
@@ -264,7 +262,7 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
       this.registerCapabilityListener('airpurifier_zhimi_fanlevel', async (value) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.fanlevel.siid, piid: this.deviceProperties.set_properties.fanlevel.piid, value: value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.fanlevel.siid, piid: this.deviceProperties.set_properties.fanlevel.piid, value: +value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
