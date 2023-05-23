@@ -1,0 +1,29 @@
+{
+  "name": {
+    "en": "Air Fryers MIoT (WiFi)",
+    "nl": "Air Fryers MIoT (WiFi)"
+  },
+  "images": {
+    "large": "drivers/airfryer_careli_miot/assets/images/large.jpg",
+    "small": "drivers/airfryer_careli_miot/assets/images/small.jpg"
+  },
+  "class": "other",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "airfryer_careli_target_time",
+    "airfryer_careli_target_temperature",
+    "onoff.preheat",
+    "airfryer_careli_food_quantity"
+  ],
+  "capabilitiesOptions": {
+    "measure_temperature": {
+      "title": {
+        "en": "Preheat switch",
+        "nl": "Preheat schakelaar"
+      }
+    }
+  }
+}

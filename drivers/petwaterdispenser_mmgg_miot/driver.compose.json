@@ -1,0 +1,34 @@
+{
+  "name": {
+    "en": "Smart Pet Water Dispenser MIoT (WiFi)",
+    "nl": "Smart Pet Water Dispenser MIoT (WiFi)"
+  },
+  "images": {
+    "large": "drivers/petwaterdispenser_mmgg_miot/assets/images/large.jpg",
+    "small": "drivers/petwaterdispenser_mmgg_miot/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "petwaterdispenser_mmgg_mode",
+    "alarm_water",
+    "alarm_generic"
+  ],
+  "capabilitiesOptions": {
+    "alarm_water": {
+      "title": {
+        "en": "No Water",
+        "nl": "Geen Water"
+      }
+    },
+    "alarm_generic": {
+      "title": {
+        "en": "Pump Blocked",
+        "nl": "Pomp geblokkeerd"
+      }
+    }
+  }
+}

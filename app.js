@@ -209,6 +209,15 @@ class XiaomiMiioApp extends Homey.App {
         }
       });
 
+    this.homey.flow.getActionCard('petwaterdispenserMmggMode')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.triggerCapabilityListener('petwaterdispenser_mmgg_mode', Number(args.mode));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
     // AIR PURIFIER, ZHIMI FAN
     this.homey.flow.getActionCard('ledAirpurifierHumidifier')
       .registerRunListener(async (args) => {

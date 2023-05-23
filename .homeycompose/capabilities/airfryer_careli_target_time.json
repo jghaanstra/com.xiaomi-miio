@@ -1,0 +1,18 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Target time",
+    "nl": "Target time"
+  },
+  "icon": "/assets/icons/target_time.svg",
+  "getable": true,
+  "setable": true,
+  "units": {
+    "en": "minutes",
+    "nl": "minuten"
+  },
+  "min": 0,
+  "max": 1440,
+  "decimals": 0,
+  "insights": false
+}

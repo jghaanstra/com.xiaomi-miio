@@ -1,0 +1,25 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Pet Waterdispenser Mode",
+    "nl": "Pet Waterdispenser Mode"
+  },
+  "values": [
+    {
+      "id": "1",
+      "title": {
+        "en": "Common",
+        "nl": "Normaal"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Smart",
+        "nl": "Slim"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

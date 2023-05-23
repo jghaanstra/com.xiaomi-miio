@@ -1,0 +1,81 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Air Fryer Mode",
+    "nl": "Air Fryer Mode"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Shutdown",
+        "nl": "Uitgeschakeld"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Standby",
+        "nl": "Standby"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Pause",
+        "nl": "Pauze"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "Schedule",
+        "nl": "Schema"
+      }
+    },
+    {
+      "id": "4",
+      "title": {
+        "en": "Cooking",
+        "nl": "Bakken"
+      }
+    },
+    {
+      "id": "5",
+      "title": {
+        "en": "Preheat",
+        "nl": "Voorverwarmen"
+      }
+    },
+    {
+      "id": "6",
+      "title": {
+        "en": "Cooked",
+        "nl": "Gebakken"
+      }
+    },
+    {
+      "id": "7",
+      "title": {
+        "en": "Preheat finished",
+        "nl": "Voorverwarmen klaar"
+      }
+    },
+    {
+      "id": "8",
+      "title": {
+        "en": "Preheat paused",
+        "nl": "Voorverwarmen gepauzeerd"
+      }
+    },
+    {
+      "id": "9",
+      "title": {
+        "en": "Pause2",
+        "nl": "Pause2"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": false
+}

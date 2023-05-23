@@ -1,0 +1,27 @@
+{
+  "name": {
+    "en": "Advanced Mija Vacuum Cleaner MIoT (WiFi)",
+    "nl": "Geadvanceerde Mija stofzuiger MIoT (WiFi)"
+  },
+  "images": {
+    "large": "drivers/vacuum_mija_vacuum_miot/assets/images/large.jpg",
+    "small": "drivers/vacuum_mija_vacuum_miot/assets/images/small.jpg"
+  },
+  "class": "vacuumcleaner",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "vacuumcleaner_state",
+    "vacuum_dreame_fanspeed",
+    "measure_battery",
+    "alarm_battery",
+    "alarm_main_brush_work_time",
+    "alarm_side_brush_work_time",
+    "alarm_filter_work_time"
+  ],
+  "energy": {
+    "batteries": ["INTERNAL"]
+  }
+}

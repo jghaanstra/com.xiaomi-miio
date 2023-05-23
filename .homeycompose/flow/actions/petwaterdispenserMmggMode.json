@@ -1,0 +1,46 @@
+{
+  "title": {
+    "en": "Set mode",
+    "nl": "Stel modus in"
+  },
+  "titleFormatted": {
+    "en": "Set mode to [[mode]]",
+    "nl": "Stel modus in op [[mode]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "1",
+          "title": {
+            "en": "Common",
+            "nl": "Normaal"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Smart",
+            "nl": "Slim"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Pet Waterdispenser",
+        "nl": "Selecteer Pet Waterdispenser"
+      },
+      "filter": "driver_id=petwaterdispenser_mmgg_miot"
+    }
+  ],
+  "platforms": ["local"]
+}

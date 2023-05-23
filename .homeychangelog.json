@@ -139,5 +139,11 @@
   },
   "3.2.1": {
     "en": "Development has been transferred to a new developer. This release is a complete rewrite of the app including many breaking changes. The app has been fully rewritten using SDK3 and has been tested with Homey Pro 2023 to make it futureproof. This new version also merged the devices from the Mi Homey community app. Some previously paired devices might continu to work but please re-pair your devices and/or fix your flows before reporting any issue. If the issue persists after re-pair please report it on the community forum or Github."
+  },
+  "3.2.2": {
+    "en": "This release adds support for mijia.vacuum.v1 and mijia.vacuum.v2 (Mija Vacuum G1). It also attempts to add support for various Air Fryers  and  various Xiaomi Smart Pet Fountains (see supported devices). And it fixes a bug with humidity percentage calculation for deerma.humidifier.jsq5."
+  },
+  "3.2.3": {
+    "en": "This release adds support for mijia.vacuum.v1 and mijia.vacuum.v2 (Mija Vacuum G1) and various Xiaomi Smart Pet Fountains (see supported devices). It also attempts to add support for various Air Fryers."
   }
 }

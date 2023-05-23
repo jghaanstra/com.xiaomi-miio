@@ -197,7 +197,6 @@ class AdvancedDreameMiotDevice extends Device {
       this.registerCapabilityListener('vacuumcleaner_state', async ( value ) => {
         try {
           if (this.miio) {
-            
             switch (value) {
               case "cleaning":
               case "spot_cleaning":

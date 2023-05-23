@@ -1,0 +1,46 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Food Quantity",
+    "nl": "Voedselhoeveelheid"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "None",
+        "nl": "Geen"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Single",
+        "nl": "Enkel"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Double",
+        "nl": "Dubbel"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "Half",
+        "nl": "Half"
+      }
+    },
+    {
+      "id": "4",
+      "title": {
+        "en": "Full",
+        "nl": "Vol"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

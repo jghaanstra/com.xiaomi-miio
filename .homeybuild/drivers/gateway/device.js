@@ -294,8 +294,8 @@ class GatewayDevice extends Device {
       }
 
       const channels = await this.miio.call("get_channels", { start: 0 }, { retries: 1 });
-      channels.chs.forEach((item, i, radios) => {
-        this.setSettings({[`favorite${i}ID`]: item.id + ", " + item.url});
+      channels.chs.forEach(async (item, i, radios) => {
+        await this.setSettings({[`favorite${i}ID`]: item.id + ", " + item.url});
         if (i == radios.length - 1) {
           i = radios.length;
           for (let j = i; j < 20; j++) {
