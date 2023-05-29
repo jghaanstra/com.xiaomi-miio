@@ -128,6 +128,9 @@ class Util {
     'viomi.vacuum.v7': 'Mi Robot Vacuum-Mop P v7',
     'viomi.vacuum.v8': 'Mi Robot Vacuum-Mop P v8',
 
+    'roidmi.vacuum.v60': 'Roidmi Eve',
+    'roidmi.vacuum.v66': 'Roidmi Eva',
+
     'chuangmi.plug.m1': 'Mi Smart Plug WiFi',
     'chuangmi.plug.v1': 'Mi Smart Plug With USB WiFi',
     'chuangmi.plug.v2': 'Mi Smart Plug With 2 USB WiFi',

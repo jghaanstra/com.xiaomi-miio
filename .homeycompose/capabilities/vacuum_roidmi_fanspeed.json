@@ -1,0 +1,46 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Fanspeed",
+    "nl": "Fanspeed"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Sweep",
+        "nl": "Sweep"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Silent",
+        "nl": "Stil"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Basic",
+        "nl": "Basis"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "Strong",
+        "nl": "Sterk"
+      }
+    },
+    {
+      "id": "4",
+      "title": {
+        "en": "Full speed",
+        "nl": "Volle snelheid"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

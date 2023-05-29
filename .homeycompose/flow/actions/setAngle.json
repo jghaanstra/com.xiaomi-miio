@@ -1,12 +1,11 @@
 {
-  "id": "setAngle",
   "title": {
-    "en": "Change Fan Oscillating Angle",
-    "nl": "Wijzig ventilator oscillatie hoek"
+    "en": "Change Oscillating Angle",
+    "nl": "Wijzig oscillatie hoek"
   },
   "titleFormatted": {
-    "en": "Change fan oscillating angle to [[angle]]",
-    "nl": "Wijzig ventilator oscillatie hoek naar [[angle]]"
+    "en": "Change oscillating angle to [[angle]]",
+    "nl": "Wijzig oscillatie hoek naar [[angle]]"
   },
   "args": [
     {
@@ -19,30 +18,44 @@
       "values": [
         {
           "id": "30",
-          "label": {
+          "title": {
             "en": "30°",
             "nl": "30°"
           }
         },
         {
           "id": "60",
-          "label": {
+          "title": {
             "en": "60°",
             "nl": "60°"
           }
         },
         {
           "id": "90",
-          "label": {
+          "title": {
             "en": "90°",
             "nl": "90°"
           }
         },
         {
           "id": "120",
-          "label": {
+          "title": {
             "en": "120°",
             "nl": "120°"
+          }
+        },
+        {
+          "id": "140",
+          "title": {
+            "en": "140°",
+            "nl": "140°"
+          }
+        },
+        {
+          "id": "150",
+          "title": {
+            "en": "150°",
+            "nl": "150°"
           }
         }
       ]
@@ -54,7 +67,7 @@
         "en": "Select Device",
         "nl": "Selecteer apparaat"
       },
-      "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5"
+      "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5|fan_dmaker_advanced"
     }
   ],
   "platforms": ["local"]

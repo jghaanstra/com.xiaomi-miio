@@ -1,0 +1,30 @@
+{
+  "name": {
+    "en": "Roidmi Vacuum Cleaner MIoT (WiFi)",
+    "nl": "Roidmi stofzuiger MIoT (WiFi)"
+  },
+  "images": {
+    "large": "drivers/vacuum_roidmi_vacuum_miot/assets/images/large.jpg",
+    "small": "drivers/vacuum_roidmi_vacuum_miot/assets/images/small.jpg"
+  },
+  "class": "vacuumcleaner",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "vacuumcleaner_state",
+    "vacuum_roidmi_fanspeed",
+    "vacuum_roidmi_mop_mode",
+    "vacuum_roidmi_waterlevel",
+    "measure_battery",
+    "alarm_battery",
+    "alarm_main_brush_work_time",
+    "alarm_side_brush_work_time",
+    "alarm_filter_work_time",
+    "alarm_sensor_dirty_time"
+  ],
+  "energy": {
+    "batteries": ["INTERNAL"]
+  }
+}

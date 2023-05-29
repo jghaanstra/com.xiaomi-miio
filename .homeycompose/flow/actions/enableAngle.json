@@ -1,16 +1,16 @@
 {
   "id": "enableAngle",
   "title": {
-    "en": "Enable Fan Oscillating",
-    "nl": "Instellen ventilator oscillatie"
+    "en": "Enable Oscillation",
+    "nl": "Inschakelen oscillatie"
   },
   "titleFormatted": {
-    "en": "[[angle]] Fan Oscillating",
-    "nl": "Ventilator oscillatie [[angle]]"
+    "en": "Oscillation [[oscillation]]",
+    "nl": "Oscillatie [[oscillation]]"
   },
   "args": [
     {
-      "name": "angle",
+      "name": "oscillation",
       "title": {
         "en": "Angle",
         "nl": "Hoek"
@@ -40,7 +40,7 @@
         "en": "Select Device",
         "nl": "Selecteer apparaat"
       },
-      "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5"
+      "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5|fan_dmaker_advanced"
     }
   ],
   "platforms": ["local"]

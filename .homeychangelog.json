@@ -145,5 +145,17 @@
   },
   "3.2.3": {
     "en": "This release adds support for mijia.vacuum.v1 and mijia.vacuum.v2 (Mija Vacuum G1) and various Xiaomi Smart Pet Fountains (see supported devices). It also attempts to add support for various Air Fryers."
+  },
+  "3.2.4": {
+    "en": "This release adds support for various Roidmi Eve/Eva vacuum cleaners."
+  },
+  "3.2.5": {
+    "en": "This release adds support for various Roidmi Eve/Eva vacuum cleaners."
+  },
+  "3.2.6": {
+    "en": "This release adds support for various Roidmi Eve/Eva vacuum cleaners. I|t also replaces the swing angle capability based on a dim level slider to a custom dropdown capability for the advanced Dmaker fan driver and added a flow action card for it as well."
+  },
+  "3.2.7": {
+    "en": "This release adds support for various Roidmi Eve/Eva vacuum cleaners. It also replaces the swing angle capability based on a dim level slider to a custom dropdown capability for the advanced Dmaker fan driver and added flow action card for enabling it and setting the angle."
   }
 }

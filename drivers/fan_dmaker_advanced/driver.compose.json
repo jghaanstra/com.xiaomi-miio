@@ -15,15 +15,15 @@
     "onoff",
     "onoff.swing",
     "dim",
-    "dim.swing_angle",
+    "fan_zhimi_angle",
     "dim.fanspeed",
     "fan_dmaker_mode"
   ],
   "capabilitiesOptions": {
     "onoff.swing": {
       "title": {
-        "en": "Swing Mode",
-        "nl": "Swing modus"
+        "en": "Oscillation",
+        "nl": "Oscillatie"
       }
     },
     "dim": {
@@ -33,15 +33,6 @@
       },
       "min": 1,
       "max": 4,
-      "step": 1
-    },
-    "dim.swing_angle": {
-      "title": {
-        "en": "Swing Angle",
-        "nl": "Draai hoek"
-      },
-      "min": 1,
-      "max": 5,
       "step": 1
     },
     "dim.fanspeed": {

@@ -1,7 +1,7 @@
 {
   "name": {
-    "en": "Advanced Mija Vacuum Cleaner MIoT (WiFi)",
-    "nl": "Geadvanceerde Mija stofzuiger MIoT (WiFi)"
+    "en": "Mija Vacuum Cleaner MIoT (WiFi)",
+    "nl": "Mija stofzuiger MIoT (WiFi)"
   },
   "images": {
     "large": "drivers/vacuum_mija_vacuum_miot/assets/images/large.jpg",

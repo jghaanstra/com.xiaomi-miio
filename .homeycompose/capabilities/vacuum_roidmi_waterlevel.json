@@ -1,0 +1,46 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Fanspeed",
+    "nl": "Fanspeed"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Mop",
+        "nl": "Mop"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "First",
+        "nl": "Eerste"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Second",
+        "nl": "Tweede"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "Third",
+        "nl": "Derde"
+      }
+    },
+    {
+      "id": "4",
+      "title": {
+        "en": "Fourth",
+        "nl": "Vierde"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": false
+}

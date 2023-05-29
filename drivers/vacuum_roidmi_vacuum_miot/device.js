@@ -5,13 +5,14 @@ const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
 /* supported devices */
-// https://home.miot-spec.com/spec/mijia.vacuum.v1
-// https://home.miot-spec.com/spec/mijia.vacuum.v2
+// https://home.miot-spec.com/spec/roidmi.vacuum.v60 // Roidmi Eve
+// https://home.miot-spec.com/spec/roidmi.vacuum.v66 // Roidmi Eva
+
 
 const mapping = {
-  "mijia.vacuum.v1": "properties_default",
-  "mijia.vacuum.v2": "properties_default",
-  "mijia.vacuum.*": "properties_default",
+  "roidmi.vacuum.v60": "properties_default",
+  "roidmi.vacuum.v66": "properties_default",
+  "roidmi.vacuum.*": "properties_default",
 };
 
 const properties = {
@@ -21,26 +22,30 @@ const properties = {
       { did: "charge_state", siid: 3, piid: 2 },
       { did: "device_fault", siid : 2, piid: 2 }, // settings.error
       { did: "device_status", siid: 2, piid: 1 }, // vacuumcleaner_state
-      { did: "operating_mode", siid: 2, piid: 4 }, // 1 = whole, 2 = spot, 3 = perimeter
-      { did: "main_brush_life_level", siid: 24, piid: 2 }, // settings.main_brush_work_time
-      { did: "side_brush_life_level", siid: 25, piid: 1 }, // settings.side_brush_work_time
-      { did: "filter_life_level", siid: 11, piid: 1 }, // settings.filter_work_time
-      { did: "fan_speed", siid: 2, piid: 6 }, // vacuum_dreame_fanspeed
-      { did: "total_clean_time", siid: 9, piid: 4 }, // settings.total_work_time
-      { did: "total_clean_count", siid: 9, piid: 5 }, // settings.clean_count
-      { did: "total_clean_area", siid: 9, piid: 3 } // settings.total_cleared_area
+      { did: "fan_speed", siid: 2, piid: 4 }, // vacuum_roidmi_fanspeed
+      { did: "sweep_mode", siid: 14, piid: 1 },
+      { did: "sweep_type", siid: 2, piid: 8 }, // vacuum_roidmi_mop_mode
+      { did: "water_level", siid: 8, piid: 11 }, // vacuum_roidmi_waterlevel
+      { did: "main_brush_time_remaining", siid: 11, piid: 2 }, // settings.main_brush_time_remaining
+      { did: "side_brush_time_remaining", siid: 12, piid: 2 }, // settings.side_brush_time_remaining
+      { did: "filter_time_remaining", siid: 10, piid: 1 }, // settings.filter_time_remaining
+      { did: "sensor_time_remaining", siid: 15, piid: 2 }, // settings.sensor_time_remaining
+      { did: "total_clean_area", siid: 8, piid: 14 }, // settings.total_cleared_area
+      { did: "total_clean_count", siid: 8, piid: 18 }, // settings.clean_count
+      { did: "total_clean_time", siid: 8, piid: 13 } // settings.total_work_time      
     ],
     "set_properties": {
       "start_clean": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
       "stop_clean": { siid: 2, aiid: 2, did: "call-2-2", in: [] },
-      "find": { siid: 6, aiid: 1, did: "call-6-1", in: [] },
-      "home": { siid: 2, aiid: 3, did: "call-2-3", in: [] },
-      "fanspeed": { siid: 2, piid: 6 }
+      "find": { siid: 8, aiid: 1, did: "call-8-1", in: [] },
+      "home": { siid: 3, aiid: 3, did: "call-3-1", in: [] },
+      "fanspeed": { siid: 2, piid: 4 },
+      "mopmode": { siid: 2, piid: 8 }
     }
   }
 }
 
-class MijaMiotDevice extends Device {
+class RoidmiMiotDevice extends Device {
 
   async onInit() {
     try {
@@ -50,34 +55,48 @@ class MijaMiotDevice extends Device {
       this.bootSequence();
 
       // DEVICE VARIABLES
-      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('mijia.vacuum.*')]];
+      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('roidmi.vacuum.*')]];
 
-      this.vacuumErrorCodes = {
+      var errorCodes = {
         0: "No Error",
-        1: "Left-wheel-error",
-        2: "Right-wheel-error",
-        3: "Cliff-error",
-        4: "Low-battery-error",
-        5: "Bump-error",
-        6: "Main-brush-error",
-        7: "Side-brush-error",
-        8: "Fan-motor-error",
-        9: "Dustbin-error",
-        10: "Charging-error",
-        11: "No-water-error",
-        0: "Everything-is-ok",
-        12: "Pick-up-error"
-      }
+        1: "Low Battery Find Charger",
+        2: "Low Battery And Poweroff",
+        3: "Wheel Trap",
+        4: "Collision Error",
+        5: "Tile Do Task",
+        6: "Lidar Point Error",
+        7: "Front Wall Error",
+        8: "Psd Dirty",
+        9: "Middle Brush Fatal",
+        10: "Sid Brush",
+        11: "Fan Speed Error",
+        12: "Lidar Cover",
+        13: "Garbage Box Full",
+        14: "Garbage Box Out",
+        15: "Garbage Box Full Out",
+        16: "Physical Trapped",
+        17: "Pick Up Do Task",
+        18: "No Water Box Do Task",
+        19: "Water Box Empty",
+        20: "Clean Cannot Arrive",
+        21: "Start Form Forbid",
+        22: "Drop",
+        23: "Kit Water Pump",
+        24: "Find Charger Failed",
+        25: "Low Power Clean"
+      };
 
       // RESET CONSUMABLE ALARMS
       this.updateCapabilityValue("alarm_main_brush_work_time", false);
       this.updateCapabilityValue("alarm_side_brush_work_time", false);
-      this.updateCapabilityValue("alarm_filter_work_time", false);
+      this.updateCapabilityValue("alarm_filter_time_remaining", false);
+      this.updateCapabilityValue("alarm_sensor_dirty_time", false);
 
       // DEVICE TOKENS
       this.main_brush_lifetime_token = await this.homey.flow.createToken("main_brush_lifetime"+ this.getData().id, {type: "number", title: "Main Brush Lifetime " + this.getName() +" (%)" });
       this.side_brush_lifetime_token = await this.homey.flow.createToken("side_brush_lifetime"+ this.getData().id, {type: "number", title: "Side Brush Lifetime " + this.getName() +" (%)" });
       this.filter_lifetime_token = await this.homey.flow.createToken("filter_lifetime"+ this.getData().id, {type: "number", title: "Filter LifeTime " + this.getName() +" (%)" });
+      this.sensor_dirty_lifetime_token = await this.homey.flow.createToken("sensor_dirty_lifetime"+ this.getData().id, {type: "number", title: "Sensor Dirty Time " + this.getName() +" (%)" });
       this.total_work_time_token = await this.homey.flow.createToken("total_work_time"+ this.getData().id, {type: "number", title: "Total Work Time " + this.getName() +" h)" });
       this.total_cleared_area_token = await this.homey.flow.createToken("total_cleared_area"+ this.getData().id, {type: "number", title: "Total Cleaned Area " + this.getName() +" (m2)" });
       this.total_clean_count_token = await this.homey.flow.createToken("total_clean_count"+ this.getData().id, {type: "number", title: "Total Clean Count "+ this.getName() });
@@ -130,11 +149,27 @@ class MijaMiotDevice extends Device {
         }
       });
 
-      /* vacuumcleaner dreame fanspeed */
-      this.registerCapabilityListener('vacuum_dreame_fanspeed', async ( value ) => {
+      /* vacuumcleaner roidmi fanspeed */
+      this.registerCapabilityListener('vacuum_roidmi_fanspeed', async ( value ) => {
         try {
           if (this.miio) {
             return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.fanspeed.siid, piid: this.deviceProperties.set_properties.fanspeed.piid, value: Number(value) }], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
+      /* vacuumcleaner roidmi mop mode */
+      this.registerCapabilityListener('vacuum_roidmi_mop_mode', async ( value ) => {
+        try {
+          if (this.miio) {
+            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.mopmode.siid, piid: this.deviceProperties.set_properties.mopmode.piid, value: Number(value) }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -161,9 +196,12 @@ class MijaMiotDevice extends Device {
       const device_status = result.find(obj => obj.did === 'device_status');
       const battery = result.find(obj => obj.did === 'battery');
       const fan_speed = result.find(obj => obj.did === 'fan_speed');
-      const main_brush_life_level = result.find(obj => obj.did === 'main_brush_life_level');
-      const side_brush_life_level = result.find(obj => obj.did === 'side_brush_life_level');
-      const filter_life_level = result.find(obj => obj.did === 'filter_life_level');
+      const mop_mode = result.find(obj => obj.did === 'sweep_type');
+      const water_level = result.find(obj => obj.did === 'water_level');
+      const main_brush_time_remaining = result.find(obj => obj.did === 'main_brush_time_remaining');
+      const side_brush_time_remaining = result.find(obj => obj.did === 'side_brush_time_remaining');
+      const filter_time_remaining = result.find(obj => obj.did === 'filter_time_remaining');
+      const sensor_time_remaining = result.find(obj => obj.did === 'sensor_time_remaining');
       const total_clean_time = result.find(obj => obj.did === 'total_clean_time');
       const total_clean_count = result.find(obj => obj.did === 'total_clean_count');
       const total_clean_area = result.find(obj => obj.did === 'total_clean_area');
@@ -171,9 +209,10 @@ class MijaMiotDevice extends Device {
 
       const consumables = [
         {
-          "main_brush_work_time": main_brush_life_level.value,
-          "side_brush_work_time": side_brush_life_level.value,
-          "filter_work_time": filter_life_level.value,
+          "main_brush_work_time": main_brush_time_remaining.value,
+          "side_brush_work_time": side_brush_time_remaining.value,
+          "filter_work_time": filter_time_remaining.value,
+          "sensor_dirty_time": sensor_time_remaining.value,
         }
       ]
 
@@ -185,28 +224,29 @@ class MijaMiotDevice extends Device {
 
       /* onoff & vacuumcleaner_state */
       switch (device_status.value) {
-        case 2:
-        case 6:
+        case 4:
+        case 5:
+        case 8:
           this.vacuumCleanerState("cleaning");
           break;
+        case 1:
+        case 2:
         case 3:
+        case 10:
+        case 11:
           this.vacuumCleanerState("stopped");
           break;
-        case 1:
-          if (this.getCapabilityValue('measure_battery') === 100) {
-            this.vacuumCleanerState("docked");
-          } else {
-            this.vacuumCleanerState("stopped");
-          }
-          break;
-        case 5:
+        case 6:
           if (this.getCapabilityValue('measure_battery') === 100) {
             this.vacuumCleanerState("docked");
           } else {
             this.vacuumCleanerState("charging");
           }
           break;
-        case 4:
+        case 9:
+          this.vacuumCleanerState("docked");
+          break;
+        case 7:
           this.vacuumCleanerState("stopped_error");
           break;
         default:
@@ -218,8 +258,14 @@ class MijaMiotDevice extends Device {
       await this.updateCapabilityValue("measure_battery", battery.value);
       await this.updateCapabilityValue("alarm_battery", battery.value <= 20 ? true : false);
 
-      /* vacuum_dreame_fanspeed */
-      await this.updateCapabilityValue("vacuum_dreame_fanspeed", fan_speed.value.toString());
+      /* vacuum_roidmi_fanspeed */
+      await this.updateCapabilityValue("vacuum_roidmi_fanspeed", fan_speed.value.toString());
+
+      /* vacuum_roidmi_mop_mode */
+      await this.updateCapabilityValue("vacuum_roidmi_mop_mode", mop_mode.value.toString());
+
+      /* vacuum_roidmi_waterlevel */
+      await this.updateCapabilityValue("vacuum_roidmi_waterlevel", water_level.value.toString());
 
       /* consumable settings */
       this.vacuumConsumables(consumables);
@@ -228,7 +274,7 @@ class MijaMiotDevice extends Device {
       this.vacuumTotals(totals);
 
       /* settings device error */
-      const error = this.vacuumErrorCodes[device_fault.value];
+      const error = this.errorCodes[device_fault.value];
       if (this.getSetting('error') !== error ) {
         await this.setSettings({ error: error });
         if (error !== 0) {
@@ -251,4 +297,4 @@ class MijaMiotDevice extends Device {
 
 }
 
-module.exports = MijaMiotDevice;
+module.exports = RoidmiMiotDevice;

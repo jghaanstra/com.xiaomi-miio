@@ -1,8 +1,8 @@
 {
   "type": "enum",
   "title": {
-    "en": "Angle",
-    "nl": "Hoek"
+    "en": "Swing Angle",
+    "nl": "Draaihoek"
   },
   "values": [
     {
@@ -31,6 +31,20 @@
       "title": {
         "en": "120°",
         "nl": "120°"
+      }
+    },
+    {
+      "id": "140",
+      "title": {
+        "en": "140°",
+        "nl": "140°"
+      }
+    },
+    {
+      "id": "150",
+      "title": {
+        "en": "150°",
+        "nl": "150°"
       }
     }
   ],

@@ -2,6 +2,6 @@
 
 const Driver = require('../wifi_driver.js');
 
-class AdvancedMijaMiotDriver extends Driver {}
+class MijaMiotDriver extends Driver {}
 
-module.exports = AdvancedMijaMiotDriver;
+module.exports = MijaMiotDriver;

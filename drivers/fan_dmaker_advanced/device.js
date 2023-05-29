@@ -31,7 +31,7 @@ const properties = {
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 4 }, // fan_dmaker_mode
       { did: "swing_mode", siid: 2, piid: 5 }, // onoff.swing
-      { did: "swing_mode_angle", siid: 2, piid: 6 }, // dim.swing_angle
+      { did: "swing_mode_angle", siid: 2, piid: 6 }, // fan_zhimi_angle
       { did: "fan_speed", siid: 2, piid: 11 }, // dim.fanspeed
       { did: "light", siid: 2, piid: 9 }, // settings.led
       { did: "buzzer", siid: 2, piid: 7 }, // settings.buzzer
@@ -53,7 +53,7 @@ const properties = {
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 3 }, // fan_dmaker_mode
       { did: "swing_mode", siid: 2, piid: 4 }, // onoff.swing
-      { did: "swing_mode_angle", siid: 2, piid: 5 }, // dim.swing_angle
+      { did: "swing_mode_angle", siid: 2, piid: 5 }, // fan_zhimi_angle
       { did: "fan_speed", siid: 2, piid: 10 }, // dim.fanspeed
       { did: "light", siid: 2, piid: 7 }, // settings.led
       { did: "buzzer", siid: 2, piid: 8 }, // settings.buzzer
@@ -75,7 +75,7 @@ const properties = {
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 3 }, // fan_dmaker_mode
       { did: "swing_mode", siid: 2, piid: 4 }, // onoff.swing
-      { did: "swing_mode_angle", siid: 2, piid: 5 }, // dim.swing_angle
+      { did: "swing_mode_angle", siid: 2, piid: 5 }, // fan_zhimi_angle
       { did: "fan_speed", siid: 2, piid: 6 }, // dim.fanspeed
       { did: "light", siid: 4, piid: 1 }, // settings.led
       { did: "buzzer", siid: 5, piid: 1 }, // settings.buzzer
@@ -97,7 +97,7 @@ const properties = {
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 3 }, // fan_dmaker_mode
       { did: "swing_mode", siid: 2, piid: 4 }, // onoff.swing
-      { did: "swing_mode_angle", siid: 2, piid: 5 }, // dim.swing_angle
+      { did: "swing_mode_angle", siid: 2, piid: 5 }, // fan_zhimi_angle
       { did: "fan_speed", siid: 2, piid: 6 }, // dim.fanspeed
       { did: "light", siid: 4, piid: 1 }, // settings.led
       { did: "buzzer", siid: 5, piid: 1 }, // settings.buzzer
@@ -119,6 +119,7 @@ const properties = {
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 7 }, // fan_dmaker_mode
       { did: "swing_mode", siid: 2, piid: 3 }, // onoff.swing
+      { did: "swing_mode_angle", siid: 2, piid: 5 }, // fan_zhimi_angle
       { did: "light", siid: 2, piid: 12 }, // setting.led
       { did: "buzzer", siid: 2, piid: 11 }, // settings.buzzer
       { did: "child_lock", siid: 3, piid: 1 } // settings.childLock
@@ -138,19 +139,6 @@ const modes = {
   1: "Natural Wind"
 };
 
-const swing_mode_angles = {
-  1: 30,
-  2: 60,
-  3: 90,
-  4: 120,
-  5: 140,
-  30: 1,
-  60: 2,
-  90: 3,
-  120: 4,
-  140: 5
-};
-
 class AdvancedDmakerFanMiotDevice extends Device {
 
   async onInit() {
@@ -160,11 +148,16 @@ class AdvancedDmakerFanMiotDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // TODO: remove after some releases
+      if (this.hasCapability('dim.swing_angle')) {
+        this.removeCapability('dim.swing_angle');
+      }
+      if (!this.hasCapability('fan_zhimi_angle')) {
+        this.addCapability('fan_zhimi_angle');
+      }
+
       // ADD DEVICES DEPENDANT CAPABILITIES
       if (this.getStoreValue('model') === 'dmaker.fan.1c') {
-        if (this.hasCapability('dim.swing_angle')) {
-          this.removeCapability('dim.swing_angle');
-        }
         if (this.hasCapability('dim.fanspeed')) {
           this.removeCapability('dim.fanspeed');
         }
@@ -222,10 +215,10 @@ class AdvancedDmakerFanMiotDevice extends Device {
         }
       });
 
-      this.registerCapabilityListener('dim.swing_angle', async ( value ) => {
+      this.registerCapabilityListener('fan_zhimi_angle', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ did: "swing_mode_angle", siid: this.deviceProperties.set_properties.swing_mode_angle.siid, piid: this.deviceProperties.set_properties.swing_mode_angle.piid, value: swing_mode_angles[+value] }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ did: "fan_zhimi_angle", siid: this.deviceProperties.set_properties.swing_mode_angle.siid, piid: this.deviceProperties.set_properties.swing_mode_angle.piid, value: +value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -301,6 +294,7 @@ class AdvancedDmakerFanMiotDevice extends Device {
       const onoff = result.find(obj => obj.did === 'power');
       const onoff_swing_mode = result.find(obj => obj.did === 'swing_mode');
       const dim_fan_level = result.find(obj => obj.did === 'fan_level');
+      const dim_swing_mode_angle = result.find(obj => obj.did === 'swing_mode_angle');
       const mode = result.find(obj => obj.did === 'mode');
       
       const led = result.find(obj => obj.did === 'light');
@@ -311,10 +305,7 @@ class AdvancedDmakerFanMiotDevice extends Device {
       await this.updateCapabilityValue("onoff", onoff.value);
       await this.updateCapabilityValue("onoff.swing", onoff_swing_mode.value);
       await this.updateCapabilityValue("dim", +dim_fan_level.value);
-      if (this.hasCapability('dim.swing_angle')) {
-        const dim_swing_mode_angle = result.find(obj => obj.did === 'swing_mode_angle');
-        await this.updateCapabilityValue("dim.swing_angle", swing_mode_angles[+dim_swing_mode_angle.value]);
-      }
+      await this.updateCapabilityValue("fan_zhimi_angle", +dim_swing_mode_angle.value);
       if (this.hasCapability('dim.fanspeed')) {
         const dim_fan_speed = result.find(obj => obj.did === 'fan_speed');
         await this.updateCapabilityValue("dim.fanspeed", +dim_fan_speed.value);

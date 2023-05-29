@@ -1,0 +1,32 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Sweep and Mop Mode",
+    "nl": "Sweep and Mop modus"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Sweep",
+        "nl": "Sweep"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Mop",
+        "nl": "Mop"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Mop & Sweep",
+        "nl": "Mop & Sweep"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

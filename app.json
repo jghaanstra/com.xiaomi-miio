@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.2.3",
+  "version": "3.2.7",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -158,7 +158,7 @@
               "en": "Select Vacuum",
               "nl": "Selecteer stofzuiger"
             },
-            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_dreame_vacuum|vacuum_viomi_vacuum_v7|vacuum_mija_vacuum_miot"
+            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_dreame_vacuum|vacuum_viomi_vacuum_v7|vacuum_mija_vacuum_miot|vacuum_roidmi_vacuum_miot"
           }
         ],
         "platforms": [
@@ -971,7 +971,7 @@
               "en": "Select Mi Robot",
               "nl": "Selecteer Mi Robot"
             },
-            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_advanced|vacuum_dreame_vacuum|vacuum_viomi_vacuum_v7|vacuum_mija_vacuum_miot"
+            "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_advanced|vacuum_dreame_vacuum|vacuum_viomi_vacuum_v7|vacuum_mija_vacuum_miot|vacuum_roidmi_vacuum_miot"
           }
         ],
         "platforms": [
@@ -1650,16 +1650,16 @@
       {
         "id": "enableAngle",
         "title": {
-          "en": "Enable Fan Oscillating",
-          "nl": "Instellen ventilator oscillatie"
+          "en": "Enable Oscillation",
+          "nl": "Inschakelen oscillatie"
         },
         "titleFormatted": {
-          "en": "[[angle]] Fan Oscillating",
-          "nl": "Ventilator oscillatie [[angle]]"
+          "en": "Oscillation [[oscillation]]",
+          "nl": "Oscillatie [[oscillation]]"
         },
         "args": [
           {
-            "name": "angle",
+            "name": "oscillation",
             "title": {
               "en": "Angle",
               "nl": "Hoek"
@@ -1689,7 +1689,7 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5"
+            "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5|fan_dmaker_advanced"
           }
         ],
         "platforms": [
@@ -3370,14 +3370,13 @@
         ]
       },
       {
-        "id": "setAngle",
         "title": {
-          "en": "Change Fan Oscillating Angle",
-          "nl": "Wijzig ventilator oscillatie hoek"
+          "en": "Change Oscillating Angle",
+          "nl": "Wijzig oscillatie hoek"
         },
         "titleFormatted": {
-          "en": "Change fan oscillating angle to [[angle]]",
-          "nl": "Wijzig ventilator oscillatie hoek naar [[angle]]"
+          "en": "Change oscillating angle to [[angle]]",
+          "nl": "Wijzig oscillatie hoek naar [[angle]]"
         },
         "args": [
           {
@@ -3390,30 +3389,44 @@
             "values": [
               {
                 "id": "30",
-                "label": {
+                "title": {
                   "en": "30°",
                   "nl": "30°"
                 }
               },
               {
                 "id": "60",
-                "label": {
+                "title": {
                   "en": "60°",
                   "nl": "60°"
                 }
               },
               {
                 "id": "90",
-                "label": {
+                "title": {
                   "en": "90°",
                   "nl": "90°"
                 }
               },
               {
                 "id": "120",
-                "label": {
+                "title": {
                   "en": "120°",
                   "nl": "120°"
+                }
+              },
+              {
+                "id": "140",
+                "title": {
+                  "en": "140°",
+                  "nl": "140°"
+                }
+              },
+              {
+                "id": "150",
+                "title": {
+                  "en": "150°",
+                  "nl": "150°"
                 }
               }
             ]
@@ -3425,12 +3438,13 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5"
+            "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5|fan_dmaker_advanced"
           }
         ],
         "platforms": [
           "local"
-        ]
+        ],
+        "id": "setAngle"
       },
       {
         "id": "vacuumDreameFanspeed",
@@ -3676,6 +3690,132 @@
         "platforms": [
           "local"
         ]
+      },
+      {
+        "title": {
+          "en": "Set Fanspeed",
+          "nl": "Stel ventilator in"
+        },
+        "titleFormatted": {
+          "en": "Set Fanspeed [[fanspeed]]",
+          "nl": "Stel ventilator in op [[fanspeed]]"
+        },
+        "args": [
+          {
+            "name": "fanspeed",
+            "title": {
+              "en": "Fanspeed",
+              "nl": "Fan snelheid"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Sweep",
+                  "nl": "Sweep"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Silent",
+                  "nl": "Stil"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Basic",
+                  "nl": "Basis"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Strong",
+                  "nl": "Sterk"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "Full speed",
+                  "nl": "Volle snelheid"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Vacuum",
+              "nl": "Selecteer stofzuiger"
+            },
+            "filter": "driver_id=vacuum_roidmi_vacuum_miot"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "vacuumRoidmiFanspeed"
+      },
+      {
+        "title": {
+          "en": "Set Sweep and Mop Mode",
+          "nl": "Stel Sweep and Mop modus in"
+        },
+        "titleFormatted": {
+          "en": "Set Sweep and Mop Mode to [[mode]]",
+          "nl": "Stel Sweep and Mop modus in op [[mode]]"
+        },
+        "args": [
+          {
+            "name": "mode",
+            "title": {
+              "en": "Sweep and Mop Mode",
+              "nl": "Sweep and Mop modus"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Sweep",
+                  "nl": "Sweep"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Mop",
+                  "nl": "Mop"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Mop & Sweep",
+                  "nl": "Mop & Sweep"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Vacuum",
+              "nl": "Selecteer stofzuiger"
+            },
+            "filter": "driver_id=vacuum_roidmi_vacuum_miot"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "vacuumRoidmiMopMode"
       },
       {
         "id": "vacuumRoomCleaning",
@@ -6301,15 +6441,15 @@
         "onoff",
         "onoff.swing",
         "dim",
-        "dim.swing_angle",
+        "fan_zhimi_angle",
         "dim.fanspeed",
         "fan_dmaker_mode"
       ],
       "capabilitiesOptions": {
         "onoff.swing": {
           "title": {
-            "en": "Swing Mode",
-            "nl": "Swing modus"
+            "en": "Oscillation",
+            "nl": "Oscillatie"
           }
         },
         "dim": {
@@ -6319,15 +6459,6 @@
           },
           "min": 1,
           "max": 4,
-          "step": 1
-        },
-        "dim.swing_angle": {
-          "title": {
-            "en": "Swing Angle",
-            "nl": "Draai hoek"
-          },
-          "min": 1,
-          "max": 5,
           "step": 1
         },
         "dim.fanspeed": {
@@ -11027,8 +11158,8 @@
         "lan"
       ],
       "name": {
-        "en": "Advanced Mija Vacuum Cleaner MIoT (WiFi)",
-        "nl": "Geadvanceerde Mija stofzuiger MIoT (WiFi)"
+        "en": "Mija Vacuum Cleaner MIoT (WiFi)",
+        "nl": "Mija stofzuiger MIoT (WiFi)"
       },
       "images": {
         "large": "drivers/vacuum_mija_vacuum_miot/assets/images/large.jpg",
@@ -11111,6 +11242,206 @@
                 "nl": "Totale gebruikstijd"
               },
               "value": "0"
+            },
+            {
+              "id": "total_cleared_area",
+              "type": "label",
+              "label": {
+                "en": "Total cleaned area",
+                "nl": "Totaal geschoont"
+              },
+              "value": "0"
+            },
+            {
+              "id": "total_clean_count",
+              "type": "label",
+              "label": {
+                "en": "Total clean count",
+                "nl": "Totaal aantal opschoningen"
+              },
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device data",
+            "nl": "Apparaat data"
+          },
+          "children": [
+            {
+              "id": "error",
+              "type": "label",
+              "label": {
+                "en": "Error",
+                "nl": "Error"
+              },
+              "value": "No error"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device Settings",
+            "nl": "Apparaat instellingen"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "value": "0.0.0.0",
+              "label": {
+                "en": "IP Address",
+                "nl": "IP adres"
+              }
+            },
+            {
+              "id": "token",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Mi Device Token",
+                "nl": "Mi Apparaat Token"
+              }
+            },
+            {
+              "id": "polling",
+              "type": "number",
+              "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+              "label": {
+                "en": "Polling Frequency",
+                "nl": "Polling frequentie"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "/drivers/vacuum_roidmi_vacuum_miot/assets/icon.svg",
+      "pair": [
+        {
+          "id": "start",
+          "navigation": {
+            "next": "pair"
+          }
+        },
+        {
+          "id": "pair"
+        },
+        {
+          "id": "add_device"
+        }
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "name": {
+        "en": "Roidmi Vacuum Cleaner MIoT (WiFi)",
+        "nl": "Roidmi stofzuiger MIoT (WiFi)"
+      },
+      "images": {
+        "large": "drivers/vacuum_roidmi_vacuum_miot/assets/images/large.jpg",
+        "small": "drivers/vacuum_roidmi_vacuum_miot/assets/images/small.jpg"
+      },
+      "class": "vacuumcleaner",
+      "capabilities": [
+        "onoff",
+        "vacuumcleaner_state",
+        "vacuum_roidmi_fanspeed",
+        "vacuum_roidmi_mop_mode",
+        "vacuum_roidmi_waterlevel",
+        "measure_battery",
+        "alarm_battery",
+        "alarm_main_brush_work_time",
+        "alarm_side_brush_work_time",
+        "alarm_filter_work_time",
+        "alarm_sensor_dirty_time"
+      ],
+      "energy": {
+        "batteries": [
+          "INTERNAL"
+        ]
+      },
+      "id": "vacuum_roidmi_vacuum_miot",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Consumables",
+            "nl": "Verbruiksartikelen"
+          },
+          "children": [
+            {
+              "id": "alarm_threshold",
+              "type": "number",
+              "label": {
+                "en": "Alarm threshold",
+                "nl": "Alarm ondergrens"
+              },
+              "hint": {
+                "en": "Threshold below which the alarm will be activated.",
+                "nl": "Ondergrens voor het triggeren van het alarm"
+              },
+              "value": 20,
+              "attr": {
+                "min": 1,
+                "max": 90
+              }
+            },
+            {
+              "id": "main_brush_time_remaining",
+              "type": "label",
+              "label": {
+                "en": "Main brush remaining (%)",
+                "nl": "Hoofdborstel over (%)"
+              },
+              "value": "0%"
+            },
+            {
+              "id": "side_brush_time_remaining",
+              "type": "label",
+              "label": {
+                "en": "Side brush remaining",
+                "nl": "Zijborstel over"
+              },
+              "value": "0%"
+            },
+            {
+              "id": "filter_time_remaining",
+              "type": "label",
+              "label": {
+                "en": "Filter remaining",
+                "nl": "Filter over"
+              },
+              "value": "0%"
+            },
+            {
+              "id": "total_work_time",
+              "type": "label",
+              "label": {
+                "en": "Total work time",
+                "nl": "Totale gebruikstijd"
+              },
+              "value": "0"
+            },
+            {
+              "id": "sensor_dirty_time",
+              "type": "label",
+              "label": {
+                "en": "Sensors dirty remaining",
+                "nl": "Sensor vuil over"
+              },
+              "value": "0%"
             },
             {
               "id": "total_cleared_area",
@@ -12076,8 +12407,8 @@
     "fan_zhimi_angle": {
       "type": "enum",
       "title": {
-        "en": "Angle",
-        "nl": "Hoek"
+        "en": "Swing Angle",
+        "nl": "Draaihoek"
       },
       "values": [
         {
@@ -12106,6 +12437,20 @@
           "title": {
             "en": "120°",
             "nl": "120°"
+          }
+        },
+        {
+          "id": "140",
+          "title": {
+            "en": "140°",
+            "nl": "140°"
+          }
+        },
+        {
+          "id": "150",
+          "title": {
+            "en": "150°",
+            "nl": "150°"
           }
         }
       ],
@@ -12599,6 +12944,130 @@
       ],
       "getable": true,
       "setable": true
+    },
+    "vacuum_roidmi_fanspeed": {
+      "type": "enum",
+      "title": {
+        "en": "Fanspeed",
+        "nl": "Fanspeed"
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Sweep",
+            "nl": "Sweep"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Silent",
+            "nl": "Stil"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Basic",
+            "nl": "Basis"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Strong",
+            "nl": "Sterk"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "Full speed",
+            "nl": "Volle snelheid"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
+    "vacuum_roidmi_mop_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Sweep and Mop Mode",
+        "nl": "Sweep and Mop modus"
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Sweep",
+            "nl": "Sweep"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Mop",
+            "nl": "Mop"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Mop & Sweep",
+            "nl": "Mop & Sweep"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
+    "vacuum_roidmi_waterlevel": {
+      "type": "enum",
+      "title": {
+        "en": "Fanspeed",
+        "nl": "Fanspeed"
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Mop",
+            "nl": "Mop"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "First",
+            "nl": "Eerste"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Second",
+            "nl": "Tweede"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Third",
+            "nl": "Derde"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "Fourth",
+            "nl": "Vierde"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": false
     },
     "vacuum_viomi_mop_mode": {
       "type": "enum",
