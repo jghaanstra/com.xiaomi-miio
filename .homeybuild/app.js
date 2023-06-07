@@ -44,7 +44,11 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('vacuumRoborockFanspeed')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.miio.changeFanSpeed(Number(args.fanspeed));
+          if (args.device.hasCapability('vacuum_roborock_fanspeed')) {
+            return await args.device.triggerCapabilityListener('vacuum_roborock_fanspeed', Number(args.fanspeed));
+          } else {
+            return await args.device.miio.changeFanSpeed(Number(args.fanspeed));
+          }
         } catch (error) {
           return Promise.reject(error.message);
         }

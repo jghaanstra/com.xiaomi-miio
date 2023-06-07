@@ -159,7 +159,7 @@ class ZhiMiFanAdvancedDevice extends Device {
       if (this.getCapabilityValue('fan_zhimi_mode') !== mode.toString()) {
         const previous_mode = this.getCapabilityValue('fan_zhimi_mode');
         await this.setCapabilityValue('fan_zhimi_mode', mode.toString());
-        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[result[4]], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
+        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[mode], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
       }
 
       /* zhimi.fan.v2 & zhimi.fan.v3 */

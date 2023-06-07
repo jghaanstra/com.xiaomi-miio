@@ -157,5 +157,8 @@
   },
   "3.2.7": {
     "en": "This release adds support for various Roidmi Eve/Eva vacuum cleaners. It also replaces the swing angle capability based on a dim level slider to a custom dropdown capability for the advanced Dmaker fan driver and added flow action card for enabling it and setting the angle."
+  },
+  "3.2.8": {
+    "en": "This release fixes the following issues. Setting the fanspeed on some Roborock vacuum cleaners using the advanced driver. Setting the vacuumcleaner state for Dreame Vacuum Cleaners. And setting the fanspeed on certain Zhimi fans."
   }
 }

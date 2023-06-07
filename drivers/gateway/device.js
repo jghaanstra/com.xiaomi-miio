@@ -275,22 +275,22 @@ class GatewayDevice extends Device {
       /* alarm */
       const alarm = await this.miio.call("get_arming", [], { retries: 1 });
       if (alarm[0] == "on") {
-        this.setCapabilityValue("homealarm_state", "armed");
+        this.updateCapabilityValue("homealarm_state", "armed");
       } else if (alarm[0] == "off") {
-        this.setCapabilityValue("homealarm_state", "disarmed");
+        this.updateCapabilityValue("homealarm_state", "disarmed");
       }
 
       const alarm_volume = await this.miio.call("get_alarming_volume", [], { retries: 1 });
-      this.setCapabilityValue("volume_set.alarm", alarm_volume / 100);
+      this.updateCapabilityValue("volume_set.alarm", alarm_volume / 100);
 
       /* radio */
       const radio = await this.miio.call("get_prop_fm", [], { retries: 1 });
-      await this.setCapabilityValue("volume_set", radio.current_volume / 100);
+      await this.updateCapabilityValue("volume_set", radio.current_volume / 100);
       if (radio.current_status == "run") {
-        await this.setCapabilityValue("speaker_playing", true);
-        await this.setCapabilityValue("speaker_track", "Station: "+ radio.current_program);
+        await this.updateCapabilityValue("speaker_playing", true);
+        await this.updateCapabilityValue("speaker_track", "Station: "+ radio.current_program);
       } else if (radio.current_status == "pause") {
-        await this.setCapabilityValue("speaker_playing", false);
+        await this.updateCapabilityValue("speaker_playing", false);
       }
 
       const channels = await this.miio.call("get_channels", { start: 0 }, { retries: 1 });

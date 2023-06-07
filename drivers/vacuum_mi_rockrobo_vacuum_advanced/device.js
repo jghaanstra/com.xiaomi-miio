@@ -30,6 +30,8 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/roborock.vacuum.a46
 // https://home.miot-spec.com/spec/roborock.vacuum.a62
 
+// https://home.miot-spec.com/spec/roborock.vacuum.a51 untested
+
 const mapping = {
   "rockrobo.vacuum.v1": "rockrobo_vacuum_v3",
   "rockrobo.vacuum.m1s": "rockrobo_vacuum_v2",
@@ -56,6 +58,7 @@ const mapping = {
 	"roborock.vacuum.a38": "rockrobo_vacuum_v2",
   "roborock.vacuum.a40": "rockrobo_vacuum_v2",
 	"roborock.vacuum.a46": "rockrobo_vacuum_v2",
+  "roborock.vacuum.a51": "rockrobo_vacuum_v2", // untested
   "roborock.vacuum.a62": "rockrobo_vacuum_v2",
   "roborock.vacuum.*": "rockrobo_vacuum_v2",
 };

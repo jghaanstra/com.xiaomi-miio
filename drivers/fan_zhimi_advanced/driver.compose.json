@@ -31,7 +31,7 @@
         "nl": "Ventilator niveau"
       },
       "min": 1,
-      "max": 4,
+      "max": 100,
       "step": 1
     },
     "dim.angle": {

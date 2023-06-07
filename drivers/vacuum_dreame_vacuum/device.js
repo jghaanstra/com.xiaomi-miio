@@ -48,7 +48,8 @@ const properties = {
     ],
     "set_properties": {
       "start_clean": { siid: 3, aiid: 1, did: "call-3-1", in: [] },
-      "stop_clean": { siid: 3, aiid: 1, did: "call-3-2", in: [] },
+      "stop_clean": { siid: 3, aiid: 2, did: "call-3-2", in: [] },
+      "home": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
       "fanspeed": { siid: 18, piid: 6 }
     }
   },
@@ -77,7 +78,8 @@ const properties = {
     ],
     "set_properties": {
       "start_clean": { siid: 4, aiid: 1, did: "call-4-1", in: [] },
-      "stop_clean": { siid: 4, aiid: 1, did: "call-4-2", in: [] },
+      "stop_clean": { siid: 4, aiid: 2, did: "call-4-2", in: [] },
+      "home": { siid: 3, aiid: 1, did: "call-3-1", in: [] },
       "fanspeed": { siid: 4, piid: 4 },
       "mop_intensity": { siid: 4, piid: 5 }
     }
@@ -99,7 +101,8 @@ const properties = {
     ],
     "set_properties": {
       "start_clean": { siid: 4, aiid: 1, did: "call-4-1", in: [] },
-      "stop_clean": { siid: 4, aiid: 1, did: "call-4-2", in: [] },
+      "stop_clean": { siid: 4, aiid: 2, did: "call-4-2", in: [] },
+      "home": { siid: 3, aiid: 1, did: "call-3-1", in: [] },
       "fanspeed": { siid: 4, piid: 4 },
       "mop_intensity": { siid: 4, piid: 5 }
     }
@@ -203,6 +206,7 @@ class AdvancedDreameMiotDevice extends Device {
                 return await this.triggerCapabilityListener('onoff', true);
               case "docked":
               case "charging":
+                return await this.miio.call("action", this.deviceProperties.set_properties.home, { retries: 1 });
               case "stopped":
                 return await this.triggerCapabilityListener('onoff', false);
             }
