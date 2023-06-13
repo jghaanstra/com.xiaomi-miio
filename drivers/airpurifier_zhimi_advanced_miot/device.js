@@ -238,7 +238,7 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
       this.bootSequence();
 
       // DEVICE VARIABLES
-      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('zhimi.airpurifier.*')]];
+      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['zhimi.airpurifier.*']];
 
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');

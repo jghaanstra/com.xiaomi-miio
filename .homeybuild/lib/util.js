@@ -115,6 +115,7 @@ class Util {
     'dreame.vacuum.mc1808': 'Mijia Vacuum 1C',
     'dreame.vacuum.p2008': 'Dreame Robot Vacuum-Mop F9',
     'dreame.vacuum.p2009': 'Dreame Robot Vacuum D9',
+    'dreame.vacuum.p2027': 'Dreame Bot W10 Pro',
     'dreame.vacuum.p2028': 'Dreame Bot Z10 Pro',
     'dreame.vacuum.p2041o': 'Mi Robot Vacuum-Mop 2 Pro+',
     'dreame.vacuum.p2150a': 'Mi Robot Vacuum-Mop 2 Ultra',

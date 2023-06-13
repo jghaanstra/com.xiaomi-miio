@@ -63,7 +63,7 @@ class AirfryerCareliMiotDevice extends Device {
       this.bootSequence();
 
       // DEVICE VARIABLES
-      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('mijia.vacuum.*')]];
+      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['careli.fryer.*']];
 
       this.vacuumErrorCodes = {
         0: "No Error",

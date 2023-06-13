@@ -21,6 +21,7 @@ const mapping = {
   "dreame.vacuum.mc1808": "properties_mc1808",
   "dreame.vacuum.p2008": "properties_p2008",
 	"dreame.vacuum.p2009": "properties_p2008",
+  "dreame.vacuum.p2027": "properties_p2008",
 	"dreame.vacuum.p2028": "properties_p2008",
 	"dreame.vacuum.p2041o": "properties_p2008",
 	"dreame.vacuum.p2150a": "properties_p2008",
@@ -126,7 +127,7 @@ class AdvancedDreameMiotDevice extends Device {
       }
 
       // DEVICE VARIABLES
-      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('dreame.vacuum.*')]];
+      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['dreame.vacuum.*']];
 
       this.vacuumErrorCodes = {
         0: "Normal",

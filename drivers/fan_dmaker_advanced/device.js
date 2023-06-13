@@ -164,7 +164,7 @@ class AdvancedDmakerFanMiotDevice extends Device {
       }
 
       // DEVICE VARIABLES
-      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('dmaker.fan.*')]];
+      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['dmaker.fan.*']];
 
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
@@ -305,7 +305,7 @@ class AdvancedDmakerFanMiotDevice extends Device {
       await this.updateCapabilityValue("onoff", onoff.value);
       await this.updateCapabilityValue("onoff.swing", onoff_swing_mode.value);
       await this.updateCapabilityValue("dim", +dim_fan_level.value);
-      await this.updateCapabilityValue("fan_zhimi_angle", +dim_swing_mode_angle.value);
+      await this.updateCapabilityValue("fan_zhimi_angle", dim_swing_mode_angle.value.toString());
       if (this.hasCapability('dim.fanspeed')) {
         const dim_fan_speed = result.find(obj => obj.did === 'fan_speed');
         await this.updateCapabilityValue("dim.fanspeed", +dim_fan_speed.value);

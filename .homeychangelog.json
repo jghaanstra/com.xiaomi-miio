@@ -160,5 +160,8 @@
   },
   "3.2.8": {
     "en": "This release fixes the following issues. Setting the fanspeed on some Roborock vacuum cleaners using the advanced driver. Setting the vacuumcleaner state for Dreame Vacuum Cleaners. And setting the fanspeed on certain Zhimi fans."
+  },
+  "3.2.9": {
+    "en": "This release adds support for for Dreame Bot W10 Pro under the Advanced Dreame Vacuum Cleaner MIoT driver and it fixes an issue with the swing angle capability of the advanced Dmaker fan driver and an issue with the action card for setting the vacuumspeed on the Advanced Roborock driver."
   }
 }

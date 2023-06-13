@@ -45,7 +45,7 @@ class XiaomiMiioApp extends Homey.App {
       .registerRunListener(async (args) => {
         try {
           if (args.device.hasCapability('vacuum_roborock_fanspeed')) {
-            return await args.device.triggerCapabilityListener('vacuum_roborock_fanspeed', Number(args.fanspeed));
+            return await args.device.triggerCapabilityListener('vacuum_roborock_fanspeed', args.fanspeed);
           } else {
             return await args.device.miio.changeFanSpeed(Number(args.fanspeed));
           }
@@ -66,7 +66,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('vacuumDreameFanspeed')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('vacuum_dreame_fanspeed', Number(args.fanspeed));
+          return await args.device.triggerCapabilityListener('vacuum_dreame_fanspeed', args.fanspeed);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -75,7 +75,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('vacuumRoidmiFanspeed')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('vacuum_roidmi_fanspeed', Number(args.fanspeed));
+          return await args.device.triggerCapabilityListener('vacuum_roidmi_fanspeed', args.fanspeed);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -84,7 +84,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('vacuumRoidmiMopMode')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('vacuum_roidmi_mop_mode', Number(args.fanspeed));
+          return await args.device.triggerCapabilityListener('vacuum_roidmi_mop_mode', args.fanspeed);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -93,7 +93,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('vacuumDreameMopIntensity')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('vacuum_dreame_mop_intensity', Number(args.intensity));
+          return await args.device.triggerCapabilityListener('vacuum_dreame_mop_intensity', args.intensity);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -131,7 +131,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('modeVacuumMop')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('vacuum_mop_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('vacuum_mop_mode',args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -159,7 +159,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('airpurifierZhimiMode')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('airpurifier_zhimi_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('airpurifier_zhimi_mode', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -168,7 +168,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('airpurifierZhimiFanlevel')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('airpurifier_zhimi_fanlevel', Number(args.mode));
+          return await args.device.triggerCapabilityListener('airpurifier_zhimi_fanlevel', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -187,7 +187,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('humidifierZhimiModeMIoT')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('humidifier_zhimi_mode_miot', Number(args.mode));
+          return await args.device.triggerCapabilityListener('humidifier_zhimi_mode_miot', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -214,7 +214,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('modeHumidifierLeshowJSQ1')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('humidifier_leshow_jsq1_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('humidifier_leshow_jsq1_mode', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -223,7 +223,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('petwaterdispenserMmggMode')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('petwaterdispenser_mmgg_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('petwaterdispenser_mmgg_mode', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -281,7 +281,7 @@ class XiaomiMiioApp extends Homey.App {
       .registerRunListener(async (args) => {
         try {
           if (args.device.hasCapability('fan_zhimi_angle')) {
-            return await args.device.triggerCapabilityListener('fan_zhimi_angle', Number(args.angle));
+            return await args.device.triggerCapabilityListener('fan_zhimi_angle', args.angle);
           } else {
             return await args.device.miio.changeAngle(Number(args.angle));
           }
@@ -306,7 +306,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('fanDmakerMode')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('fan_dmaker_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('fan_dmaker_mode', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -315,7 +315,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('fanZhimiMode')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('fan_zhimi_mode', Number(args.mode));
+          return await args.device.triggerCapabilityListener('fan_zhimi_mode', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }

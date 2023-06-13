@@ -161,7 +161,7 @@ class MiRobotAdvancedDevice extends Device {
       this.bootSequence();
 
       // DEVICE VARIABLES
-      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('roborock.vacuum.*')]];
+      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['roborock.vacuum.*']];
 
       // DEVICE VARIABLES
       this.vacuumErrorCodes = {
