@@ -8,10 +8,11 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/dreame.vacuum.mc1808
 // https://home.miot-spec.com/spec/dreame.vacuum.p2008
 // https://home.miot-spec.com/spec/dreame.vacuum.p2009
-// https://home.miot-spec.com/spec/dreame.vacuum.p2028
 // https://home.miot-spec.com/spec/dreame.vacuum.p2041o
 // https://home.miot-spec.com/spec/dreame.vacuum.p2150a
 // https://home.miot-spec.com/spec/dreame.vacuum.p2150o
+// https://home.miot-spec.com/spec/dreame.vacuum.p2027
+// https://home.miot-spec.com/spec/dreame.vacuum.p2028
 // https://home.miot-spec.com/spec/dreame.vacuum.p2029
 // https://home.miot-spec.com/spec/dreame.vacuum.p2041
 // https://home.miot-spec.com/spec/dreame.vacuum.p2029
@@ -23,12 +24,11 @@ const mapping = {
 	"dreame.vacuum.p2009": "properties_p2008",
   "dreame.vacuum.p2027": "properties_p2008",
 	"dreame.vacuum.p2028": "properties_p2008",
+  "dreame.vacuum.p2029": "properties_p2029",
 	"dreame.vacuum.p2041o": "properties_p2008",
 	"dreame.vacuum.p2150a": "properties_p2008",
 	"dreame.vacuum.p2150o": "properties_p2008",
-	"dreame.vacuum.p2029": "properties_p2008",
 	"dreame.vacuum.p2041": "properties_p2008",
-  "dreame.vacuum.p2029": "properties_p2029",
 	"dreame.vacuum.p2041": "properties_p2029",
   "dreame.vacuum.*": "properties_p2008",
 };

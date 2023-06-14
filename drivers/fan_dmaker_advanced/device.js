@@ -119,7 +119,6 @@ const properties = {
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 7 }, // fan_dmaker_mode
       { did: "swing_mode", siid: 2, piid: 3 }, // onoff.swing
-      { did: "swing_mode_angle", siid: 2, piid: 5 }, // fan_zhimi_angle
       { did: "light", siid: 2, piid: 12 }, // setting.led
       { did: "buzzer", siid: 2, piid: 11 }, // settings.buzzer
       { did: "child_lock", siid: 3, piid: 1 } // settings.childLock
@@ -148,18 +147,13 @@ class AdvancedDmakerFanMiotDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove after some releases
-      if (this.hasCapability('dim.swing_angle')) {
-        this.removeCapability('dim.swing_angle');
-      }
-      if (!this.hasCapability('fan_zhimi_angle')) {
-        this.addCapability('fan_zhimi_angle');
-      }
-
       // ADD DEVICES DEPENDANT CAPABILITIES
       if (this.getStoreValue('model') === 'dmaker.fan.1c') {
         if (this.hasCapability('dim.fanspeed')) {
           this.removeCapability('dim.fanspeed');
+        }
+        if (this.hasCapability('fan_zhimi_angle')) {
+          this.removeCapability('fan_zhimi_angle');
         }
       }
 
