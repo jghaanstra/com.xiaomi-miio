@@ -65,7 +65,7 @@ class AirfryerCareliMiotDevice extends Device {
       // DEVICE VARIABLES
       this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['careli.fryer.*']];
 
-      this.vacuumErrorCodes = {
+      this.errorCodes = {
         0: "No Error",
         1: "E1",
         2: "E2"
@@ -183,10 +183,8 @@ class AirfryerCareliMiotDevice extends Device {
       await this.updateCapabilityValue("airfryer_careli_food_quantity", food_quantity.value.toString());
 
       /* settings */
-      const error = this.vacuumErrorCodes[fault.value];
-      if (this.getSetting('error') !== error ) {
-        await this.setSettings({ error: error });
-      }
+      const error = this.errorCodes[fault.value];
+      await this.updateSettingValue("error", error);
 
       /* onoff */
       switch (status.value) {

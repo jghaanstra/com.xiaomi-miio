@@ -163,5 +163,8 @@
   },
   "3.2.9": {
     "en": "This release adds support for for Dreame Bot W10 Pro under the Advanced Dreame Vacuum Cleaner MIoT driver and it fixes an issue with the swing angle capability of the advanced Dmaker fan driver and an issue with the action card for setting the vacuumspeed on the Advanced Roborock driver."
+  },
+  "3.2.10": {
+    "en": "This release adds support for Roborock Vacuum S8 (roborock.vacuum.a51) and Mi Fresh Air Ventilator C1-80 (zhimi.airfresh.ua1). It fixes an issue with Dmaker fan model dmaker.fan.1c as it not supports setting the angle and also fixes an issue with Dreame Bot vacuum cleaners when in a specific state that is not support by the app resulting in the device not being available."
   }
 }

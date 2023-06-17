@@ -122,7 +122,11 @@ class XiaomiMiioApp extends Homey.App {
       .registerRunListener(async (args) => {
         try {
           const rooms = JSON.parse("[" + args.rooms + "]");
-          return await args.device.miio.cleanRooms(rooms);
+          if (args.device.getStoreValue('model').startsWith('dreame.vacuum')) {
+            return await args.device.miio.call("action", { siid: 2, aiid: 3, did: "call-2-3", in: rooms }, { retries: 1 });
+          } else {
+            return await args.device.miio.cleanRooms(rooms);
+          }
         } catch (error) {
           return Promise.reject(error.message);
         }

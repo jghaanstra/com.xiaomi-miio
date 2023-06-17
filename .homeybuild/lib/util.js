@@ -42,6 +42,8 @@ class Util {
     'zhimi.airfresh.va2': 'Smartmi Fresh Air System VA2',
     'zhimi.airfresh.va4': 'Smartmi Fresh Air System VA4',
 
+    'zhimi.airfresh.ua1': 'Mi Fresh Air Ventilator C1-80',
+
     'airdog.airpurifier.x3': 'Airdog X3 Air Purifier',
     'airdog.airpurifier.x5': 'Airdog X5 Air Purifier',
     'airdog.airpurifier.x7sm': 'Airdog X7s Air Purifier',

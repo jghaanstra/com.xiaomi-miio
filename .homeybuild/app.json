@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.2.9",
+  "version": "3.2.10",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -1842,7 +1842,7 @@
               "en": "Select Dmaker Fan",
               "nl": "Selecteer Dmaker Fan"
             },
-            "filter": "driver_id=dmaker_fan_advanced"
+            "filter": "driver_id=fan_dmaker_advanced"
           }
         ],
         "platforms": [
@@ -3851,7 +3851,7 @@
               "en": "Select Vacuum",
               "nl": "Selecteer stofzuiger"
             },
-            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6"
+            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6|vacuum_dreame_vacuum"
           }
         ],
         "platforms": [
@@ -3961,6 +3961,139 @@
                 "nl": "Motorsnelheid"
               },
               "value": "400"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device Settings",
+            "nl": "Apparaat instellingen"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "value": "0.0.0.0",
+              "label": {
+                "en": "IP Address",
+                "nl": "IP adres"
+              }
+            },
+            {
+              "id": "token",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Mi Device Token",
+                "nl": "Mi Apparaat Token"
+              }
+            },
+            {
+              "id": "polling",
+              "type": "number",
+              "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+              "label": {
+                "en": "Polling Frequency",
+                "nl": "Polling frequentie"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "/drivers/airfresh_zhimi_airfresh_miot/assets/icon.svg",
+      "pair": [
+        {
+          "id": "start",
+          "navigation": {
+            "next": "pair"
+          }
+        },
+        {
+          "id": "pair"
+        },
+        {
+          "id": "add_device"
+        }
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "name": {
+        "en": "Smartmi Fresh Air System MIoT (WiFi)",
+        "nl": "Smartmi Fresh Air System MIoT (WiFi)"
+      },
+      "images": {
+        "large": "drivers/airfresh_zhimi_airfresh_miot/assets/images/large.jpg",
+        "small": "drivers/airfresh_zhimi_airfresh_miot/assets/images/small.jpg"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "onoff",
+        "onoff.ptc",
+        "airpurifier_zhimi_fanlevel"
+      ],
+      "capabilitiesOptions": {
+        "onoff.ptc": {
+          "title": {
+            "en": "Heat",
+            "nl": "Verwarmen"
+          }
+        }
+      },
+      "id": "airfresh_zhimi_airfresh_miot",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "User Settings",
+            "nl": "Gebruikersinstellingem"
+          },
+          "children": [
+            {
+              "id": "led",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "LED",
+                "nl": "LED"
+              }
+            },
+            {
+              "id": "buzzer",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Buzzer",
+                "nl": "Buzzer"
+              }
+            },
+            {
+              "id": "childLock",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Child Lock",
+                "nl": "Kinderslot"
+              }
+            },
+            {
+              "id": "f1_hour_used",
+              "type": "label",
+              "label": {
+                "en": "Filter life",
+                "nl": "Filter duur"
+              },
+              "value": "0%"
             }
           ]
         },

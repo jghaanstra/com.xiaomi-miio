@@ -1,0 +1,27 @@
+{
+  "name": {
+    "en": "Smartmi Fresh Air System MIoT (WiFi)",
+    "nl": "Smartmi Fresh Air System MIoT (WiFi)"
+  },
+  "images": {
+    "large": "drivers/airfresh_zhimi_airfresh_miot/assets/images/large.jpg",
+    "small": "drivers/airfresh_zhimi_airfresh_miot/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "onoff.ptc",
+    "airpurifier_zhimi_fanlevel"
+  ],
+  "capabilitiesOptions": {
+    "onoff.ptc": {
+      "title": {
+        "en": "Heat",
+        "nl": "Verwarmen"
+      }
+    }
+  }
+}
