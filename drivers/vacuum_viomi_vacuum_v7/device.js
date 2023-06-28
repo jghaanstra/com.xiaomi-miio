@@ -166,19 +166,19 @@ class ViomiV7Device extends Device {
       const filterCurrentLife = parseInt(result[8]);
       const filterLifeTimePercent = (filterCurrentLife / filterLifeTime) * 100;
 
-      this.setSettings({ main_brush_work_time: parseInt(mainBrushLifeTimePercent) + "%" });
+      await this.updateSettingValue("main_brush_work_time", parseInt(mainBrushLifeTimePercent) + "%");
       let main_brush_alarm = 100 - parseInt(mainBrushLifeTimePercent) <= this.getSetting("alarm_threshold") ? true : false;
       if (main_brush_alarm) {
         await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Main Brush", "value": parseInt(mainBrushLifeTimePercent) + "%" }).catch(error => { this.error(error) });
       }
 
-      this.setSettings({ side_brush_work_time: parseInt(sideBrushLifeTimePercent) + "%" });
+      await this.updateSettingValue("side_brush_work_time", parseInt(sideBrushLifeTimePercent) + "%");
       let side_brush_alarm = 100 - parseInt(sideBrushLifeTimePercent) <= this.getSetting("alarm_threshold") ? true : false;
       if (side_brush_alarm) {
         await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Side Brush", "value": parseInt(sideBrushLifeTimePercent) + "%" }).catch(error => { this.error(error) });
       }
 
-      this.setSettings({ filter_work_time: parseInt(filterLifeTimePercent) + "%" });
+      await this.updateSettingValue("filter_work_time", parseInt(filterLifeTimePercent) + "%");
       let filter_alarm = 100 - parseInt(filterLifeTimePercent) <= this.getSetting("alarm_threshold") ? true : false;
       if (filter_alarm) {
         await this.homey.flow.getDeviceTriggerCard('alertVacuum').trigger(this, {"consumable": "Filter", "value": parseInt(sideBrushLifeTimePercent) + "%" }).catch(error => { this.error(error) });

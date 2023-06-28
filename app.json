@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.2.10",
+  "version": "3.2.11",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -7282,6 +7282,122 @@
       ]
     },
     {
+      "icon": "/drivers/heater_zhimi_heater_miot/assets/icon.svg",
+      "pair": [
+        {
+          "id": "start",
+          "navigation": {
+            "next": "pair"
+          }
+        },
+        {
+          "id": "pair"
+        },
+        {
+          "id": "add_device"
+        }
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "name": {
+        "en": "Smart Space/Fan Heater MIoT (WiFi)",
+        "nl": "Smart Space/Fan Heater MIoT (WiFi)"
+      },
+      "images": {
+        "large": "drivers/heater_zhimi_heater_miot/assets/images/large.jpg",
+        "small": "drivers/heater_zhimi_heater_miot/assets/images/small.jpg"
+      },
+      "class": "fan",
+      "capabilities": [
+        "onoff",
+        "heater_zhimi_heater_target_temperature",
+        "measure_temperature"
+      ],
+      "id": "heater_zhimi_heater_miot",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "User Settings",
+            "nl": "Gebruikersinstellingem"
+          },
+          "children": [
+            {
+              "id": "led",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "LED",
+                "nl": "LED"
+              }
+            },
+            {
+              "id": "buzzer",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Buzzer",
+                "nl": "Buzzer"
+              }
+            },
+            {
+              "id": "childLock",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Child Lock",
+                "nl": "Kinderslot"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device Settings",
+            "nl": "Apparaat instellingen"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "value": "0.0.0.0",
+              "label": {
+                "en": "IP Address",
+                "nl": "IP adres"
+              }
+            },
+            {
+              "id": "token",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Mi Device Token",
+                "nl": "Mi Apparaat Token"
+              }
+            },
+            {
+              "id": "polling",
+              "type": "number",
+              "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+              "label": {
+                "en": "Polling Frequency",
+                "nl": "Polling frequentie"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "icon": "/drivers/humidifier_deerma_humidifier_jsq/assets/icon.svg",
       "pair": [
         {
@@ -12611,6 +12727,24 @@
       ],
       "getable": true,
       "setable": true
+    },
+    "heater_zhimi_heater_target_temperature": {
+      "type": "number",
+      "title": {
+        "en": "Target Temperature",
+        "nl": "Target Temperature"
+      },
+      "icon": "/assets/icons/target_temperature.svg",
+      "getable": true,
+      "setable": true,
+      "units": {
+        "en": "°C",
+        "nl": "°C"
+      },
+      "min": 18,
+      "max": 28,
+      "decimals": 0,
+      "insights": false
     },
     "humidifier_deerma_jsq_mode": {
       "type": "enum",

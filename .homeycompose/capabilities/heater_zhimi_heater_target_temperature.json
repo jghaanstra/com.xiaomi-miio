@@ -1,0 +1,18 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Target Temperature",
+    "nl": "Target Temperature"
+  },
+  "icon": "/assets/icons/target_temperature.svg",
+  "getable": true,
+  "setable": true,
+  "units": {
+    "en": "°C",
+    "nl": "°C"
+  },
+  "min": 18,
+  "max": 28,
+  "decimals": 0,
+  "insights": false
+}

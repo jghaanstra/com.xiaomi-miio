@@ -63,7 +63,7 @@ class ZhiMiFanAdvancedDevice extends Device {
       this.registerCapabilityListener('dim', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_speed_level", [value], { retries: 1 });
+            return await this.miio.call("set_speed_level", [value * 100], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();

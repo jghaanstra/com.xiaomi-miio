@@ -288,7 +288,6 @@ class AdvancedDmakerFanMiotDevice extends Device {
       const onoff = result.find(obj => obj.did === 'power');
       const onoff_swing_mode = result.find(obj => obj.did === 'swing_mode');
       const dim_fan_level = result.find(obj => obj.did === 'fan_level');
-      const dim_swing_mode_angle = result.find(obj => obj.did === 'swing_mode_angle');
       const mode = result.find(obj => obj.did === 'mode');
       
       const led = result.find(obj => obj.did === 'light');
@@ -299,7 +298,11 @@ class AdvancedDmakerFanMiotDevice extends Device {
       await this.updateCapabilityValue("onoff", onoff.value);
       await this.updateCapabilityValue("onoff.swing", onoff_swing_mode.value);
       await this.updateCapabilityValue("dim", +dim_fan_level.value);
-      await this.updateCapabilityValue("fan_zhimi_angle", dim_swing_mode_angle.value.toString());
+      
+      if (this.hasCapability('fan_zhimi_angle')) {
+        const dim_swing_mode_angle = result.find(obj => obj.did === 'swing_mode_angle');
+        await this.updateCapabilityValue("fan_zhimi_angle", dim_swing_mode_angle.value.toString());
+      }
       if (this.hasCapability('dim.fanspeed')) {
         const dim_fan_speed = result.find(obj => obj.did === 'fan_speed');
         await this.updateCapabilityValue("dim.fanspeed", +dim_fan_speed.value);
@@ -326,7 +329,7 @@ class AdvancedDmakerFanMiotDevice extends Device {
 
       this.homey.setTimeout(() => { this.createDevice(); }, 60000);
 
-      this.error(error.message);
+      this.error(error);
     }
   }
 

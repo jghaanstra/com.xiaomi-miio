@@ -1,0 +1,19 @@
+{
+  "name": {
+    "en": "Smart Space/Fan Heater MIoT (WiFi)",
+    "nl": "Smart Space/Fan Heater MIoT (WiFi)"
+  },
+  "images": {
+    "large": "drivers/heater_zhimi_heater_miot/assets/images/large.jpg",
+    "small": "drivers/heater_zhimi_heater_miot/assets/images/small.jpg"
+  },
+  "class": "fan",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "heater_zhimi_heater_target_temperature",
+    "measure_temperature"
+  ]
+}

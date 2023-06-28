@@ -48,13 +48,13 @@ class MiRobotDevice extends Device {
       }
 
       if (this.getCapabilityValue('onoff') != onoff) {
-        this.setCapabilityValue('onoff', onoff);
+        await this.setCapabilityValue('onoff', onoff);
       }
       if (this.getCapabilityValue('measure_battery') != battery) {
-        this.setCapabilityValue('measure_battery', this.util.clamp(battery, 0, 100));
+        await this.setCapabilityValue('measure_battery', this.util.clamp(battery, 0, 100));
       }
       if (this.getStoreValue('fanspeed') != fanspeed) {
-        this.setStoreValue('fanspeed', fanspeed);
+        await this.setStoreValue('fanspeed', fanspeed);
       }
 
       if (this.getCapabilityValue('vacuumcleaner_state') !== state) {

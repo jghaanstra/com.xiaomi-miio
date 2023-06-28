@@ -85,6 +85,11 @@ class Util {
     'zhimi.fan.za4': 'Smartmi Standing Fan 2S',
     'zhimi.fan.za5': 'Smartmi Standing Fan 3',
 
+    'zhimi.heater.mc2': 'Smart Space Heater S',
+    'zhimi.heater.za2': 'Smart Space Heater 1S',
+    'leshow.heater.bs1s': 'Smart Space Heater BS1S',
+    'zhimi.heater.nb1': 'Smartmi Smart Fan Heater',
+
     'rockrobo.vacuum.v1': 'RoboRock Vacuum v1',
     'roborock.vacuum.c1': 'RoboRock Vacuum S5 Max',
     'rockrobo.vacuum.1s': 'RoboRock Vacuum 1S',
