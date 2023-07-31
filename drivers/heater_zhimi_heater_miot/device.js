@@ -8,7 +8,7 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/zhimi.heater.mc2
 // https://home.miot-spec.com/spec/zhimi.heater.za2
 // https://home.miot-spec.com/spec/leshow.heater.bs1s
-// https://home.miot-spec.com/spec/zhimi.heater.nb1
+// https://home.miot-spec.com/spec/zhimi.heater.nb1 ?
 
 const mapping = {
   "zhimi.heater.mc2": "properties_mc2",
@@ -81,7 +81,7 @@ const properties = {
       { did: "child_lock", siid: 7, piid: 1 } // settings.childLock
     ],
     "set_properties": {
-      "onoff": { siid: 2, piid: 1 },
+      "onoff": { siid: 2, piid: 2 },
       "target_temperature": { siid: 2, piid: 5 },
       "light": {siid: 6, piid: 1 },
       "buzzer": {siid: 3, piid: 1 },

@@ -259,16 +259,18 @@ class GatewayDevice extends Device {
 
       /* light */
       if (this.miio.matches('cap:children')) {
-        if (this.miio.child('light').matches('cap:colorable')) {
-          const color = await this.miio.child('light').color();
+        if (this.miio.child('light')) {
+          if (this.miio.child('light').matches('cap:colorable')) {
+            const color = await this.miio.child('light').color();
 
-          const colorChanged = tinycolor({r: color.values[0], g: color.values[1], b: color.values[2]});
-          const hsv = colorChanged.toHsv();
-          const hue = Math.round(hsv.h) / 359;
-          const saturation = Math.round(hsv.s);
+            const colorChanged = tinycolor({r: color.values[0], g: color.values[1], b: color.values[2]});
+            const hsv = colorChanged.toHsv();
+            const hue = Math.round(hsv.h) / 359;
+            const saturation = Math.round(hsv.s);
 
-          await this.setCapabilityValue('light_hue', hue);
-          await this.setCapabilityValue('light_saturation', saturation);
+            await this.setCapabilityValue('light_hue', hue);
+            await this.setCapabilityValue('light_saturation', saturation);
+          }
         }
       }
 
@@ -294,15 +296,17 @@ class GatewayDevice extends Device {
       }
 
       const channels = await this.miio.call("get_channels", { start: 0 }, { retries: 1 });
-      channels.chs.forEach(async (item, i, radios) => {
-        await this.setSettings({[`favorite${i}ID`]: item.id + ", " + item.url});
-        if (i == radios.length - 1) {
-          i = radios.length;
-          for (let j = i; j < 20; j++) {
-            this.setSettings({[`favorite${j}ID`]: ""});
+      if (Array.isArray(channels.chs)) {
+        channels.chs.forEach(async (item, i, radios) => {
+          await this.setSettings({[`favorite${i}ID`]: item.id + ", " + item.url});
+          if (i == radios.length - 1) {
+            i = radios.length;
+            for (let j = i; j < 20; j++) {
+              this.setSettings({[`favorite${j}ID`]: ""});
+            }
           }
-        }
-      });
+        });
+      }
 
     } catch (error) {
       this.homey.clearInterval(this.pollingInterval);

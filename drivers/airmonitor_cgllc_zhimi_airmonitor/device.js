@@ -18,6 +18,16 @@ class AirmonitorZhimiCgllcDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // ADD DEVICES DEPENDANT CAPABILITIES
+      if (this.getStoreValue('model') === 'cgllc.airmonitor.s1') {
+        if (this.hasCapability('measure_battery')) {
+          this.removeCapability('measure_battery');
+        }
+        if (this.hasCapability('alarm_battery')) {
+          this.removeCapability('alarm_battery');
+        }
+      }
+
       // LISTENERS FOR UPDATING CAPABILITIES
       this.registerCapabilityListener('onoff', async (value) => {
         try {
@@ -45,7 +55,6 @@ class AirmonitorZhimiCgllcDevice extends Device {
       /* model specific capabilities */
       switch (this.getStoreValue('model')) {
         case 'cgllc.airmonitor.v1':
-          await this.util.sleep(2000);
           const result_v1 = await this.miio.call("get_prop", ["power", "aqi", "battery"]);
           if (!this.getAvailable()) { await this.setAvailable(); }
           await this.updateCapabilityValue("onoff", result_v1[0]);
@@ -54,7 +63,6 @@ class AirmonitorZhimiCgllcDevice extends Device {
           await this.updateCapabilityValue("alarm_battery", this.util.clamp(parseInt(result_v1[2]), 0 , 100) > 20 ? false : true);
           break;
         case 'cgllc.airmonitor.b1':
-          await this.util.sleep(2000);
           const result = await this.miio.call("get_air_data", []);
           if (!this.getAvailable()) { await this.setAvailable(); }
           if (!this.hasCapability('measure_tvoc')) { await this.addCapability('measure_tvoc'); }
@@ -65,12 +73,8 @@ class AirmonitorZhimiCgllcDevice extends Device {
           await this.updateCapabilityValue("measure_tvoc", parseInt(result.result.tvoc));
           break;
         case 'cgllc.airmonitor.s1':
-          await this.util.sleep(2000);
           const result_s1 = await this.miio.call("get_prop", ["battery", "co2", "humidity", "pm25", "temperature", "tvoc"], { retries: 1 });
           if (!this.getAvailable()) { await this.setAvailable(); }
-          if (!this.hasCapability('measure_tvoc')) { await this.addCapability('measure_tvoc'); }
-          await this.updateCapabilityValue("measure_battery", this.util.clamp(parseInt(result_s1[0]), 0 , 100));
-          await this.updateCapabilityValue("alarm_battery", this.util.clamp(parseInt(result_s1[0]), 0 , 100) > 20 ? false : true);
           await this.updateCapabilityValue("measure_co2", result_s1[1]);
           await this.updateCapabilityValue("measure_humidity", result_s1[2]);
           await this.updateCapabilityValue("measure_pm25", parseFloat(result_s1[3]));

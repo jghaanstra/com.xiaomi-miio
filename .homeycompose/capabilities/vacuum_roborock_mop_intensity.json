@@ -6,6 +6,13 @@
   },
   "values": [
     {
+      "id": "200",
+      "title": {
+        "en": "Off",
+        "nl": "Uit"
+      }
+    },
+    {
       "id": "201",
       "title": {
         "en": "Mild",

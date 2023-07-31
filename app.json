@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.2.11",
+  "version": "3.2.12",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -3638,7 +3638,7 @@
       {
         "id": "vacuumRoborockMopIntensity",
         "title": {
-          "en": "Set Mop Intesity",
+          "en": "Set Mop Intensity",
           "nl": "Stel dweil intensiteit in"
         },
         "titleFormatted": {
@@ -3655,21 +3655,28 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "101",
+                "id": "200",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "201",
                 "label": {
                   "en": "Mild",
                   "nl": "Mild"
                 }
               },
               {
-                "id": "102",
+                "id": "202",
                 "label": {
                   "en": "Moderate",
                   "nl": "Gemiddeld"
                 }
               },
               {
-                "id": "103",
+                "id": "203",
                 "label": {
                   "en": "Intense",
                   "nl": "Intens"
@@ -12741,8 +12748,8 @@
         "en": "°C",
         "nl": "°C"
       },
-      "min": 18,
-      "max": 28,
+      "min": 16,
+      "max": 30,
       "decimals": 0,
       "insights": false
     },
@@ -13184,6 +13191,13 @@
         "nl": "Dweil intensiteit"
       },
       "values": [
+        {
+          "id": "200",
+          "title": {
+            "en": "Off",
+            "nl": "Uit"
+          }
+        },
         {
           "id": "201",
           "title": {

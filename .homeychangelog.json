@@ -169,5 +169,8 @@
   },
   "3.2.11": {
     "en": "This release adds support for various Smartmi Smart Fan Heater models. It also fixes these issues. Another fix for Dmaker fan model dmaker.fan.1c as it not supports setting the angle. Another fix for setting fan speed on Zhimi fans using the advanced driver. Fix small issue with Rodmi vacuumcleaner that are in a specific and unrecognised state."
+  },
+  "3.2.12": {
+    "en": "This release adds support for the Roborock S8 Ultra Pro (roborock.vacuum.a70). It also fixes an issue with with Smartmi Heater Fan (zhimi.heater.nb1), the Rodmi vacuumcleaner MIoT driver and some weird issue with the Gateway WiFi driver. And there is a fix for Mi Cleargrass Air (cgllc.airmonitor.s1) on firmware 4.x. This removes the measure_battery and alarm_battery capability as it's not reported anymore."
   }
 }

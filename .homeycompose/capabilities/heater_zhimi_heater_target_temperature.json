@@ -11,8 +11,8 @@
     "en": "°C",
     "nl": "°C"
   },
-  "min": 18,
-  "max": 28,
+  "min": 16,
+  "max": 30,
   "decimals": 0,
   "insights": false
 }

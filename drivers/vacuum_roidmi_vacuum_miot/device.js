@@ -57,7 +57,7 @@ class RoidmiMiotDevice extends Device {
       // DEVICE VARIABLES
       this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['roidmi.vacuum.*']];
 
-      var errorCodes = {
+      this.errorCodes = {
         0: "No Error",
         1: "Low Battery Find Charger",
         2: "Low Battery And Poweroff",
@@ -291,7 +291,7 @@ class RoidmiMiotDevice extends Device {
 
       this.homey.setTimeout(() => { this.createDevice(); }, 60000);
 
-      this.error(error.message);
+      this.error(error);
     }
   }
 

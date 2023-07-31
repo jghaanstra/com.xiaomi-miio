@@ -22,7 +22,7 @@ class AqaraMotionSensor extends Device {
 
         if (this.timeoutAlarm) { this.homey.clearTimeout(this.timeoutAlarm); }
 
-        this.timeoutAlarm = setTimeout(async () => {
+        this.timeoutAlarm = this.homey.setTimeout(async () => {
           await this.updateCapabilityValue("alarm_motion", false);
         }, this.getSetting('alarm_duration_number') * 1000);
       }

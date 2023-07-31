@@ -13,7 +13,7 @@ const mapping = {
   "mmgg.pet_waterer.s1": "mapping_sx", 
   "mmgg.pet_waterer.s4": "mapping_sx",
 	"mmgg.pet_waterer.wi11": "mapping_wix",
-  "mmgg.pet_waterer.*": "mapping_default",
+  "mmgg.pet_waterer.*": "mapping_sx",
 };
 
 const properties = {

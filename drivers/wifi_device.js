@@ -219,6 +219,7 @@ class MiWifiDeviceDevice extends Homey.Device {
   /* create device instance and start polling */
   async createDevice() {
     try {
+      if (this.miio) { this.miio.destroy(); }
       this.miio = await miio.device({ address: this.getSetting('address'), token: this.getSetting('token') });
       if (!this.getAvailable()) { await this.setAvailable(); }
       this.startCapabilityListeners();
