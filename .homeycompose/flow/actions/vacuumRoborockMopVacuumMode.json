@@ -1,0 +1,137 @@
+{
+  "id": "vacuumRoborockMopVacuumMode",
+  "title": {
+    "en": "Set mop/vacuummode and intensity",
+    "nl": "Stel mop/stofzuig modus en intensiteit in"
+  },
+  "titleFormatted": {
+    "en": "Set mode to [[mode]] with fan speed [[fanspeed]] and mop intensity [[mop]]",
+    "nl": "Stel mode in op [[mode]] met stofzuigkracht [[fanspeed]] en mop intensiteit [[mop]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "sweep",
+          "title": {
+            "en": "Vacuum",
+            "nl": "Stofzuigen"
+          }
+        },
+        {
+          "id": "mop",
+          "title": {
+            "en": "Mop",
+            "nl": "Moppen"
+          }
+        },
+        {
+          "id": "sweep-mop",
+          "title": {
+            "en": "Vacuum + Mop",
+            "nl": "Stofzuigen + moppen"
+          }
+        }
+      ]
+    },
+    {
+      "name": "fanspeed",
+      "title": {
+        "en": "Fanspeed",
+        "nl": "Fan snelheid"
+      },
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "1",
+          "title": {
+            "en": "Quiet",
+            "nl": "Stil"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Standard",
+            "nl": "Standaard"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Medium",
+            "nl": "Medium"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "Turbo",
+            "nl": "Turbo"
+          }
+        },
+        {
+          "id": "5",
+          "title": {
+            "en": "Max",
+            "nl": "Max"
+          }
+        }
+      ]
+    },
+    {
+      "name": "mop",
+      "title": {
+        "en": "Mop Intensity",
+        "nl": "Dweil intensiteit"
+      },
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "200",
+          "label": {
+            "en": "Off",
+            "nl": "Uit"
+          }
+        },
+        {
+          "id": "201",
+          "label": {
+            "en": "Mild",
+            "nl": "Mild"
+          }
+        },
+        {
+          "id": "202",
+          "label": {
+            "en": "Moderate",
+            "nl": "Gemiddeld"
+          }
+        },
+        {
+          "id": "203",
+          "label": {
+            "en": "Intense",
+            "nl": "Intens"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Vacuum",
+        "nl": "Selecteer stofzuiger"
+      },
+      "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced&capabilities=vacuum_roborock_mop_intensity"
+    }
+  ],
+  "platforms": ["local"]
+}

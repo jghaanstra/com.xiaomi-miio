@@ -62,6 +62,32 @@ class XiaomiMiioApp extends Homey.App {
           return Promise.reject(error.message);
         }
       });
+    
+    this.homey.flow.getActionCard('vacuumRoborockMopVacuumMode')
+      .registerRunListener(async (args) => {
+        try {
+          if (args.device.hasCapability('vacuum_roborock_fanspeed')) {
+            await args.device.triggerCapabilityListener('vacuum_roborock_fanspeed', args.fanspeed);
+          } else {
+            await args.device.miio.changeFanSpeed(Number(args.fanspeed));
+          }
+          await args.device.miio.setWaterBoxMode(Number(args.mop));
+          switch (args.mode) {
+            case "sweep":
+              return await this.miio.call("action", { siid: 2, aiid: 1, did: "call-2-1", in: [] }, { retries: 1 });
+            case "mop":
+              return await this.miio.call("action", { siid: 2, aiid: 4, did: "call-2-4", in: [] }, { retries: 1 });
+            case "sweep-mop":
+              return await this.miio.call("action", { siid: 2, aiid: 5, did: "call-2-5", in: [] }, { retries: 1 });
+            default:
+              break;
+          }
+
+          return await args.device.miio.setWaterBoxMode(Number(args.intensity));
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
 
     this.homey.flow.getActionCard('vacuumDreameFanspeed')
       .registerRunListener(async (args) => {
@@ -241,6 +267,29 @@ class XiaomiMiioApp extends Homey.App {
             return await args.device.miio.call('set_led', [args.brightness === "3" ? "off" : "on"], { retries: 1 });
           } else {
             return await args.device.miio.call('set_led_b', [Number(args.brightness)], { retries: 1 });
+          }          
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    // HEATERS
+    this.homey.flow.getActionCard('heaterZhimiOscillation')
+      .registerRunListener(async (args) => {
+        try {
+          if (args.device.hasCapability('heater_zhimi_oscillation')) {
+            return await args.device.miio.call("set_properties", [{ did: "heater_zhimi_oscillation", siid: 2, piid: 4, value: args.oscillation }], { retries: 1 });
+          }          
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('heaterZhimiHeatlevel')
+      .registerRunListener(async (args) => {
+        try {
+          if (args.device.hasCapability('heater_zhimi_heatlevel')) {
+            return await args.device.miio.call("set_properties", [{ did: "heater_zhimi_heatlevel", siid: 2, piid: 3, value: Number(args.heatlevel) }], { retries: 1 });
           }          
         } catch (error) {
           return Promise.reject(error.message);

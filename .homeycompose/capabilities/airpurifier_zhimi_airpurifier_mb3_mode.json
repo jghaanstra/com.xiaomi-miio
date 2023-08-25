@@ -40,5 +40,6 @@
         "de": "Inaktiv"
       }
     }
-  ]
+  ],
+  "icon": "/assets/icons/airpurifier-mode.svg"
 }

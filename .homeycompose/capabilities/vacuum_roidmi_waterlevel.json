@@ -42,5 +42,6 @@
     }
   ],
   "getable": true,
-  "setable": false
+  "setable": false,
+  "icon": "/assets/icons/measure_waterlevel.svg"
 }

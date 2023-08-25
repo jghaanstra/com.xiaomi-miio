@@ -8,7 +8,7 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/zhimi.heater.mc2
 // https://home.miot-spec.com/spec/zhimi.heater.za2
 // https://home.miot-spec.com/spec/leshow.heater.bs1s
-// https://home.miot-spec.com/spec/zhimi.heater.nb1 ?
+// https://home.miot-spec.com/spec/zhimi.heater.nb1
 
 const mapping = {
   "zhimi.heater.mc2": "properties_mc2",
@@ -78,14 +78,18 @@ const properties = {
       { did: "temperature", siid: 9, piid: 7 }, // measure_temperature
       { did: "light", siid: 6, piid: 1 }, // settings.led
       { did: "buzzer", siid: 3, piid: 1 }, // settings.buzzer
-      { did: "child_lock", siid: 7, piid: 1 } // settings.childLock
+      { did: "child_lock", siid: 7, piid: 1 }, // settings.childLock
+      { did: "heater_zhimi_heatlevel", siid: 2, piid: 3 }, // heater_zhimi_heatlevel
+      { did: "heater_zhimi_oscillation", siid: 2, piid: 4 } // heater_zhimi_oscillation
     ],
     "set_properties": {
       "onoff": { siid: 2, piid: 2 },
       "target_temperature": { siid: 2, piid: 5 },
       "light": {siid: 6, piid: 1 },
       "buzzer": {siid: 3, piid: 1 },
-      "child_lock": {siid: 7, piid: 1 }
+      "child_lock": {siid: 7, piid: 1 },
+      "heater_zhimi_heatlevel": { siid: 2, piid: 3 },
+      "heater_zhimi_oscillation": { siid: 2, piid: 4 }
     }
   }
 }
@@ -103,6 +107,15 @@ class ZhimiHeaterMiotDevice extends Device {
       if (this.getStoreValue('model') === 'zhimi.heater.za2') {
         if (!this.hasCapability('measure_humidity')) {
           this.addCapability('measure_humidity');
+        }
+      }
+
+      if (this.getStoreValue('model') === 'zhimi.heater.nb1') {
+        if (!this.hasCapability('heater_zhimi_heatlevel')) {
+          this.addCapability('heater_zhimi_heatlevel');
+        }
+        if (!this.hasCapability('heater_zhimi_oscillation')) {
+          this.addCapability('heater_zhimi_oscillation');
         }
       }
 
@@ -129,6 +142,36 @@ class ZhimiHeaterMiotDevice extends Device {
         try {
           if (this.miio) {
             return await this.miio.call("set_properties", [{ did: "target_temperature", siid: this.deviceProperties.set_properties.target_temperature.siid, piid: this.deviceProperties.set_properties.target_temperature.piid, value: value }], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
+      this.registerCapabilityListener('heater_zhimi_heatlevel', async ( value ) => {
+        try {
+          if (this.miio) {
+            return await this.miio.call("set_properties", [{ did: "heater_zhimi_heatlevel", siid: this.deviceProperties.set_properties.heater_zhimi_heatlevel.siid, piid: this.deviceProperties.set_properties.heater_zhimi_heatlevel.piid, value: Number(value) }], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
+      this.registerCapabilityListener('heater_zhimi_oscillation', async ( value ) => {
+        try {
+          if (this.miio) {
+            return await this.miio.call("set_properties", [{ did: "heater_zhimi_oscillation", siid: this.deviceProperties.set_properties.heater_zhimi_oscillation.siid, piid: this.deviceProperties.set_properties.heater_zhimi_oscillation.piid, value: value ? 1 : 0 }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -187,6 +230,16 @@ class ZhimiHeaterMiotDevice extends Device {
       if (this.hasCapability('measure_humidity')) {
         const measure_humidity = result.find(obj => obj.did === 'humidity');
         await this.updateCapabilityValue("measure_humidity", measure_humidity.value);
+      }
+
+      if (this.hasCapability('heater_zhimi_heatlevel')) {
+        const heater_zhimi_heatlevel = result.find(obj => obj.did === 'heater_zhimi_heatlevel');
+        await this.updateCapabilityValue("heater_zhimi_heatlevel", heater_zhimi_heatlevel.value.toString());
+      }
+
+      if (this.hasCapability('heater_zhimi_oscillation')) {
+        const heater_zhimi_oscillation = result.find(obj => obj.did === 'heater_zhimi_oscillation');
+        await this.updateCapabilityValue("heater_zhimi_oscillation", heater_zhimi_oscillation.value === 0 ? false : true);
       }
       
       /* settings */

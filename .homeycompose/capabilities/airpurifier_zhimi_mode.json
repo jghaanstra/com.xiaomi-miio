@@ -35,5 +35,6 @@
         "nl": "Inactief"
       }
     }
-  ]
+  ],
+  "icon": "/assets/icons/airpurifier-mode.svg"
 }

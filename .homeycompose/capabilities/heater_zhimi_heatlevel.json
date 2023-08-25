@@ -1,0 +1,26 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Heatlevel",
+    "nl": "Hitte stand"
+  },
+  "values": [
+    {
+      "id": "1",
+      "title": {
+        "en": "High",
+        "nl": "Hoog"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Low",
+        "nl": "Laag"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "icon": "/assets/icons/heatlevel.svg"
+}

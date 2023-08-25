@@ -10,7 +10,7 @@
     "en": ["Xiaomi", "Mi", "Mi Home", "miio", "vacuumcleaner", "robot", "purifier", "humidifier", "philips", "eyecare", "powerplug", "gateway"],
     "nl": ["Xiaomi", "Mi", "Mi home", "miio", "stofzuiger", "robot", "luchtreiniger", "luchtbevochtiger", "philips", "eyecare", "powerplug", "gateway"]
   },
-  "version": "3.2.12",
+  "version": "3.2.13",
   "compatibility": ">=8.0.0",
   "platforms": ["local"],
   "author": {
@@ -37,7 +37,7 @@
   "homeyCommunityTopicId": 118,
   "source": "https://github.com/jghaanstra/com.xiaomi-miio",
   "homepage": "https://community.athom.com/t/118",
-  "support": "mailto:homey@solidewebservices.com",
+  "support": "https://community.athom.com/t/118",
   "images": {
     "large": "./assets/images/large.jpg",
     "small": "./assets/images/small.jpg"

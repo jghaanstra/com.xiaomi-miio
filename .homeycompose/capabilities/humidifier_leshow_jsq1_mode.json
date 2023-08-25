@@ -28,5 +28,6 @@
     }
   ],
   "getable": true,
-  "setable": true
+  "setable": true,
+  "icon": "/assets/icons/humidifier-mode.svg"
 }

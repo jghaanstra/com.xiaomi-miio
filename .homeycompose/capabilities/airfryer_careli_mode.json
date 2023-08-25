@@ -77,5 +77,6 @@
     }
   ],
   "getable": true,
-  "setable": false
+  "setable": false,
+  "icon": "/assets/icons/airfryer-mode.svg"
 }

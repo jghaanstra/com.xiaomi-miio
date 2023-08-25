@@ -1,0 +1,12 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Oscillation",
+    "nl": "Oscillatie"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "toggle",
+  "insights": false,
+  "icon": "/assets/icons/oscillation.svg"
+}

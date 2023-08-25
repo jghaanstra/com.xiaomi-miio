@@ -63,5 +63,6 @@
         "nl": "Sterk"
       }
     }
-  ]
+  ],
+  "icon": "/assets/icons/airpurifier-mode.svg"
 }

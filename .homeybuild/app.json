@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.2.12",
+  "version": "3.2.13",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -66,7 +66,7 @@
   "homeyCommunityTopicId": 118,
   "source": "https://github.com/jghaanstra/com.xiaomi-miio",
   "homepage": "https://community.athom.com/t/118",
-  "support": "mailto:homey@solidewebservices.com",
+  "support": "https://community.athom.com/t/118",
   "images": {
     "large": "./assets/images/large.jpg",
     "small": "./assets/images/small.jpg"
@@ -2512,6 +2512,104 @@
       },
       {
         "title": {
+          "en": "Set heatlevel",
+          "nl": "Stel hitte in"
+        },
+        "titleFormatted": {
+          "en": "Set heatlevel to [[heatlevel]]",
+          "nl": "Stel hitte in op [[heatlevel]]"
+        },
+        "args": [
+          {
+            "name": "heatlevel",
+            "title": {
+              "en": "Heatlevel",
+              "nl": "Hitte"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "1",
+                "title": {
+                  "en": "High",
+                  "nl": "Hoog"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Low",
+                  "nl": "Laag"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Heater",
+              "nl": "Selecteer Heater"
+            },
+            "filter": "driver_id=heater_zhimi_heater_miot&capabilities=heater_zhimi_heatlevel"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "heaterZhimiHeatlevel"
+      },
+      {
+        "title": {
+          "en": "Set oscillation",
+          "nl": "Stel oscillatie in"
+        },
+        "titleFormatted": {
+          "en": "Set oscillation to [[oscillation]]",
+          "nl": "Stel oscillatie in op [[oscillation]]"
+        },
+        "args": [
+          {
+            "name": "oscillation",
+            "title": {
+              "en": "Oscillation",
+              "nl": "Oscillatie"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "On",
+                  "nl": "Aan"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Heater",
+              "nl": "Selecteer Heater"
+            },
+            "filter": "driver_id=heater_zhimi_heater_miot&capabilities=heater_zhimi_oscillation"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "heaterZhimiOscillation"
+      },
+      {
+        "title": {
           "en": "Set Mode",
           "nl": "Stel modus in"
         },
@@ -3648,6 +3746,145 @@
         "args": [
           {
             "name": "intensity",
+            "title": {
+              "en": "Mop Intensity",
+              "nl": "Dweil intensiteit"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "200",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "201",
+                "label": {
+                  "en": "Mild",
+                  "nl": "Mild"
+                }
+              },
+              {
+                "id": "202",
+                "label": {
+                  "en": "Moderate",
+                  "nl": "Gemiddeld"
+                }
+              },
+              {
+                "id": "203",
+                "label": {
+                  "en": "Intense",
+                  "nl": "Intens"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Vacuum",
+              "nl": "Selecteer stofzuiger"
+            },
+            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced&capabilities=vacuum_roborock_mop_intensity"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "vacuumRoborockMopVacuumMode",
+        "title": {
+          "en": "Set mop/vacuummode and intensity",
+          "nl": "Stel mop/stofzuig modus en intensiteit in"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]] with fan speed [[fanspeed]] and mop intensity [[mop]]",
+          "nl": "Stel mode in op [[mode]] met stofzuigkracht [[fanspeed]] en mop intensiteit [[mop]]"
+        },
+        "args": [
+          {
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "sweep",
+                "title": {
+                  "en": "Vacuum",
+                  "nl": "Stofzuigen"
+                }
+              },
+              {
+                "id": "mop",
+                "title": {
+                  "en": "Mop",
+                  "nl": "Moppen"
+                }
+              },
+              {
+                "id": "sweep-mop",
+                "title": {
+                  "en": "Vacuum + Mop",
+                  "nl": "Stofzuigen + moppen"
+                }
+              }
+            ]
+          },
+          {
+            "name": "fanspeed",
+            "title": {
+              "en": "Fanspeed",
+              "nl": "Fan snelheid"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "1",
+                "title": {
+                  "en": "Quiet",
+                  "nl": "Stil"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Standard",
+                  "nl": "Standaard"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Medium",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "Turbo",
+                  "nl": "Turbo"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "Max",
+                  "nl": "Max"
+                }
+              }
+            ]
+          },
+          {
+            "name": "mop",
             "title": {
               "en": "Mop Intensity",
               "nl": "Dweil intensiteit"
@@ -12199,7 +12436,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/food-quantity.svg"
     },
     "airfryer_careli_mode": {
       "type": "enum",
@@ -12280,7 +12518,8 @@
         }
       ],
       "getable": true,
-      "setable": false
+      "setable": false,
+      "icon": "/assets/icons/airfryer-mode.svg"
     },
     "airfryer_careli_target_temperature": {
       "type": "number",
@@ -12355,7 +12594,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/heater-mode.svg"
     },
     "airpurifier_mode": {
       "type": "enum",
@@ -12422,7 +12662,8 @@
             "nl": "Sterk"
           }
         }
-      ]
+      ],
+      "icon": "/assets/icons/airpurifier-mode.svg"
     },
     "airpurifier_zhimi_airfresh_mode": {
       "type": "enum",
@@ -12475,7 +12716,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/airpurifier-mode.svg"
     },
     "airpurifier_zhimi_airpurifier_mb3_mode": {
       "type": "enum",
@@ -12519,7 +12761,8 @@
             "de": "Inaktiv"
           }
         }
-      ]
+      ],
+      "icon": "/assets/icons/airpurifier-mode.svg"
     },
     "airpurifier_zhimi_fanlevel": {
       "type": "enum",
@@ -12551,7 +12794,8 @@
             "nl": "Level 3"
           }
         }
-      ]
+      ],
+      "icon": "/assets/icons/fanlevel.svg"
     },
     "airpurifier_zhimi_mode": {
       "type": "enum",
@@ -12590,7 +12834,8 @@
             "nl": "Inactief"
           }
         }
-      ]
+      ],
+      "icon": "/assets/icons/airpurifier-mode.svg"
     },
     "alarm_filter_work_time": {
       "title": {
@@ -12655,7 +12900,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/fanlevel.svg"
     },
     "fan_zhimi_angle": {
       "type": "enum",
@@ -12708,7 +12954,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/oscillation.svg"
     },
     "fan_zhimi_mode": {
       "type": "enum",
@@ -12733,7 +12980,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/fanlevel.svg"
     },
     "heater_zhimi_heater_target_temperature": {
       "type": "number",
@@ -12752,6 +13000,44 @@
       "max": 30,
       "decimals": 0,
       "insights": false
+    },
+    "heater_zhimi_heatlevel": {
+      "type": "enum",
+      "title": {
+        "en": "Heatlevel",
+        "nl": "Hitte stand"
+      },
+      "values": [
+        {
+          "id": "1",
+          "title": {
+            "en": "High",
+            "nl": "Hoog"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Low",
+            "nl": "Laag"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "icon": "/assets/icons/heatlevel.svg"
+    },
+    "heater_zhimi_oscillation": {
+      "type": "boolean",
+      "title": {
+        "en": "Oscillation",
+        "nl": "Oscillatie"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle",
+      "insights": false,
+      "icon": "/assets/icons/oscillation.svg"
     },
     "humidifier_deerma_jsq_mode": {
       "type": "enum",
@@ -12790,7 +13076,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/humidifier-mode.svg"
     },
     "humidifier_leshow_jsq1_mode": {
       "type": "enum",
@@ -12822,7 +13109,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/humidifier-mode.svg"
     },
     "humidifier_zhimi_mode": {
       "type": "enum",
@@ -12881,7 +13169,8 @@
             "de": "Stark"
           }
         }
-      ]
+      ],
+      "icon": "/assets/icons/humidifier-mode.svg"
     },
     "humidifier_zhimi_mode_miot": {
       "type": "enum",
@@ -12920,7 +13209,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/humidifier-mode.svg"
     },
     "humidifier2_mode": {
       "type": "enum",
@@ -12979,7 +13269,8 @@
             "de": "Stark"
           }
         }
-      ]
+      ],
+      "icon": "/assets/icons/humidifier-mode.svg"
     },
     "measure_gas_density": {
       "title": {
@@ -13065,7 +13356,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/waterdispenser-mode.svg"
     },
     "vacuum_dreame_fanspeed": {
       "type": "enum",
@@ -13104,7 +13396,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/fanlevel.svg"
     },
     "vacuum_dreame_mop_intensity": {
       "type": "enum",
@@ -13136,7 +13429,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/mopintensity.svg"
     },
     "vacuum_roborock_fanspeed": {
       "type": "enum",
@@ -13182,7 +13476,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/fanlevel.svg"
     },
     "vacuum_roborock_mop_intensity": {
       "type": "enum",
@@ -13221,7 +13516,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/mopintensity.svg"
     },
     "vacuum_roidmi_fanspeed": {
       "type": "enum",
@@ -13267,7 +13563,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/fanlevel.svg"
     },
     "vacuum_roidmi_mop_mode": {
       "type": "enum",
@@ -13299,7 +13596,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/vacuum-mop.svg"
     },
     "vacuum_roidmi_waterlevel": {
       "type": "enum",
@@ -13345,7 +13643,8 @@
         }
       ],
       "getable": true,
-      "setable": false
+      "setable": false,
+      "icon": "/assets/icons/measure_waterlevel.svg"
     },
     "vacuum_viomi_mop_mode": {
       "type": "enum",
@@ -13377,7 +13676,8 @@
         }
       ],
       "getable": true,
-      "setable": true
+      "setable": true,
+      "icon": "/assets/icons/vacuum-mop.svg"
     }
   }
 }

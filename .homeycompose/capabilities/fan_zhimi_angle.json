@@ -49,5 +49,6 @@
     }
   ],
   "getable": true,
-  "setable": true
+  "setable": true,
+  "icon": "/assets/icons/oscillation.svg"
 }

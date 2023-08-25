@@ -38,7 +38,7 @@ const properties = {
       "start_clean": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
       "stop_clean": { siid: 2, aiid: 2, did: "call-2-2", in: [] },
       "find": { siid: 8, aiid: 1, did: "call-8-1", in: [] },
-      "home": { siid: 3, aiid: 3, did: "call-3-1", in: [] },
+      "home": { siid: 3, aiid: 1, did: "call-3-1", in: [] },
       "fanspeed": { siid: 2, piid: 4 },
       "mopmode": { siid: 2, piid: 8 }
     }
@@ -89,7 +89,7 @@ class RoidmiMiotDevice extends Device {
       // RESET CONSUMABLE ALARMS
       this.updateCapabilityValue("alarm_main_brush_work_time", false);
       this.updateCapabilityValue("alarm_side_brush_work_time", false);
-      this.updateCapabilityValue("alarm_filter_time_remaining", false);
+      this.updateCapabilityValue("alarm_filter_work_time", false);
       this.updateCapabilityValue("alarm_sensor_dirty_time", false);
 
       // DEVICE TOKENS

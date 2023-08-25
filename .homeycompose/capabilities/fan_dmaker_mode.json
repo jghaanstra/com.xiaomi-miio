@@ -21,5 +21,6 @@
     }
   ],
   "getable": true,
-  "setable": true
+  "setable": true,
+  "icon": "/assets/icons/fanlevel.svg"
 }

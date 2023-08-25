@@ -1,0 +1,46 @@
+{
+  "title": {
+    "en": "Set heatlevel",
+    "nl": "Stel hitte in"
+  },
+  "titleFormatted": {
+    "en": "Set heatlevel to [[heatlevel]]",
+    "nl": "Stel hitte in op [[heatlevel]]"
+  },
+  "args": [
+    {
+      "name": "heatlevel",
+      "title": {
+        "en": "Heatlevel",
+        "nl": "Hitte"
+      },
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "1",
+          "title": {
+            "en": "High",
+            "nl": "Hoog"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Low",
+            "nl": "Laag"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Heater",
+        "nl": "Selecteer Heater"
+      },
+      "filter": "driver_id=heater_zhimi_heater_miot&capabilities=heater_zhimi_heatlevel"
+    }
+  ],
+  "platforms": ["local"]
+}

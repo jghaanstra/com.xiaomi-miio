@@ -172,5 +172,8 @@
   },
   "3.2.12": {
     "en": "This release adds support for the Roborock S8 Ultra Pro (roborock.vacuum.a70). It also fixes an issue with with Smartmi Heater Fan (zhimi.heater.nb1), the Rodmi vacuumcleaner MIoT driver and some weird issue with the Gateway WiFi driver. And there is a fix for Mi Cleargrass Air (cgllc.airmonitor.s1) on firmware 4.x. This removes the measure_battery and alarm_battery capability as it's not reported anymore."
+  },
+  "3.2.13": {
+    "en": "This release adds support for oscillation and heatlevel for Smartmi Smart Fan (zhimi.heater.nb1). It also adds an experimental action card for setting mop/vacuum mode and intensity for Roborock vacuumcleaners with mop capability. And it fixes setting docking / charging vacuumcleaner state for Roidmi Vacuum MioT driver and an issue with Mi Cleargrass Air Monitor (cgllc.airmonitor.s1)."
   }
 }

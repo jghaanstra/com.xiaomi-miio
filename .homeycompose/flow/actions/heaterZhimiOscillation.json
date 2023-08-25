@@ -1,0 +1,46 @@
+{
+  "title": {
+    "en": "Set oscillation",
+    "nl": "Stel oscillatie in"
+  },
+  "titleFormatted": {
+    "en": "Set oscillation to [[oscillation]]",
+    "nl": "Stel oscillatie in op [[oscillation]]"
+  },
+  "args": [
+    {
+      "name": "oscillation",
+      "title": {
+        "en": "Oscillation",
+        "nl": "Oscillatie"
+      },
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Off",
+            "nl": "Uit"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "On",
+            "nl": "Aan"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Heater",
+        "nl": "Selecteer Heater"
+      },
+      "filter": "driver_id=heater_zhimi_heater_miot&capabilities=heater_zhimi_oscillation"
+    }
+  ],
+  "platforms": ["local"]
+}

@@ -73,13 +73,13 @@ class AirmonitorZhimiCgllcDevice extends Device {
           await this.updateCapabilityValue("measure_tvoc", parseInt(result.result.tvoc));
           break;
         case 'cgllc.airmonitor.s1':
-          const result_s1 = await this.miio.call("get_prop", ["battery", "co2", "humidity", "pm25", "temperature", "tvoc"], { retries: 1 });
+          const result_s1 = await this.miio.call("get_prop", ["co2", "humidity", "pm25", "temperature", "tvoc"], { retries: 1 });
           if (!this.getAvailable()) { await this.setAvailable(); }
-          await this.updateCapabilityValue("measure_co2", result_s1[1]);
-          await this.updateCapabilityValue("measure_humidity", result_s1[2]);
-          await this.updateCapabilityValue("measure_pm25", parseFloat(result_s1[3]));
-          await this.updateCapabilityValue("measure_temperature", parseFloat(result_s1[4]));
-          await this.updateCapabilityValue("measure_tvoc", parseInt(result_s1[5]));
+          await this.updateCapabilityValue("measure_co2", result_s1[0]);
+          await this.updateCapabilityValue("measure_humidity", result_s1[1]);
+          await this.updateCapabilityValue("measure_pm25", parseFloat(result_s1[2]));
+          await this.updateCapabilityValue("measure_temperature", parseFloat(result_s1[3]));
+          await this.updateCapabilityValue("measure_tvoc", parseInt(result_s1[4]));
           break;
         default:
           break;
