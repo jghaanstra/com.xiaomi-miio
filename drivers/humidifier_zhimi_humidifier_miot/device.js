@@ -37,14 +37,6 @@ class MiHumidifierCa4Device extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove after the next release
-      if (this.hasCapability('measure_water')) {
-        this.removeCapability('measure_water');
-      }
-      if (!this.hasCapability('measure_waterlevel')) {
-        this.addCapability('measure_waterlevel');
-      }
-
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
       this.homey.flow.getDeviceTriggerCard('humidifier2Waterlevel');

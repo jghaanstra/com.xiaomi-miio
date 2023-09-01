@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.2.13",
+  "version": "3.2.14",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -2607,6 +2607,42 @@
           "local"
         ],
         "id": "heaterZhimiOscillation"
+      },
+      {
+        "title": {
+          "en": "Set target temperature",
+          "nl": "Stel doel temperatuur in"
+        },
+        "titleFormatted": {
+          "en": "Set target temperature to [[temperature]]",
+          "nl": "Stel doel temperatuur in op [[temperature]]"
+        },
+        "args": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Target Temperature",
+              "nl": "Doel temperatuur"
+            },
+            "min": 16,
+            "max": 30,
+            "step": 1
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Heater",
+              "nl": "Selecteer Heater"
+            },
+            "filter": "driver_id=heater_zhimi_heater_miot&capabilities=heater_zhimi_heater_target_temperature"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "heaterZhimiTargetTemperature"
       },
       {
         "title": {

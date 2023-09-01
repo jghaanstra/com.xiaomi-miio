@@ -9,9 +9,6 @@ class MiAirPurifierDevice extends Device {
   async onInit() {
     try {
       if (!this.util) this.util = new Util({homey: this.homey});
-
-      // TODO: remove this after the next public release
-      if (!this.hasCapability('airpurifier_mode')) { this.addCapability('airpurifier_mode'); }
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();

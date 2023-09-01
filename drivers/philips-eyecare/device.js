@@ -9,10 +9,6 @@ class PhilipsEyecareDevice extends Device {
   async onInit() {
     try {
       if (!this.util) this.util = new Util({homey: this.homey});
-
-      // TODO: remove this after the next public release
-      if (!this.hasCapability('onoff.ambilight')) { this.addCapability('onoff.ambilight'); }
-      if (!this.hasCapability('onoff.eyecare')) { this.addCapability('onoff.eyecare'); }
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();

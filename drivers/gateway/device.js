@@ -10,11 +10,6 @@ class GatewayDevice extends Device {
   async onInit() {
     try {
       if (!this.util) this.util = new Util({homey: this.homey});
-
-      // TODO: remove this after the next public release
-      if (!this.hasCapability('volume_set.alarm')) {
-        this.addCapability('volume_set.alarm');
-      }
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();

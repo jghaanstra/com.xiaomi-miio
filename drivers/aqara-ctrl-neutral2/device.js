@@ -7,14 +7,6 @@ class AqaraNeutral2Switch extends Device {
 
   async registerCapabilities() {
 
-    // TODO: remove on the next release
-    if (this.hasCapability('onoff')) {
-      this.removeCapability('onoff');
-    }
-    if (!this.hasCapability('onoff.0')) {
-      this.addCapability('onoff.0');
-    }
-
     this.registerCapabilityListener('onoff.0', async (value) => {
       try {
         return await this.homey.app.mihub.sendWrite(this.data.sid, { channel_0: value ? "on" : "off" });

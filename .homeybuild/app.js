@@ -74,11 +74,11 @@ class XiaomiMiioApp extends Homey.App {
           await args.device.miio.setWaterBoxMode(Number(args.mop));
           switch (args.mode) {
             case "sweep":
-              return await this.miio.call("action", { siid: 2, aiid: 1, did: "call-2-1", in: [] }, { retries: 1 });
+              return await args.device.miio.call("action", { siid: 2, aiid: 1, did: "call-2-1", in: [] }, { retries: 1 });
             case "mop":
-              return await this.miio.call("action", { siid: 2, aiid: 4, did: "call-2-4", in: [] }, { retries: 1 });
+              return await args.device.miio.call("action", { siid: 2, aiid: 4, did: "call-2-4", in: [] }, { retries: 1 });
             case "sweep-mop":
-              return await this.miio.call("action", { siid: 2, aiid: 5, did: "call-2-5", in: [] }, { retries: 1 });
+              return await args.device.miio.call("action", { siid: 2, aiid: 5, did: "call-2-5", in: [] }, { retries: 1 });
             default:
               break;
           }
@@ -274,11 +274,22 @@ class XiaomiMiioApp extends Homey.App {
       });
 
     // HEATERS
+    this.homey.flow.getActionCard('heaterZhimiTargetTemperature')
+      .registerRunListener(async (args) => {
+        try {
+          if (args.device.hasCapability('heater_zhimi_heater_target_temperature')) {
+            return await args.device.miio.call("set_properties", [{ did: "target_temperature", siid: args.device.deviceProperties.set_properties.target_temperature.siid, piid: args.device.deviceProperties.set_properties.target_temperature.piid, value: value }], { retries: 1 });
+          }          
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
     this.homey.flow.getActionCard('heaterZhimiOscillation')
       .registerRunListener(async (args) => {
         try {
           if (args.device.hasCapability('heater_zhimi_oscillation')) {
-            return await args.device.miio.call("set_properties", [{ did: "heater_zhimi_oscillation", siid: 2, piid: 4, value: args.oscillation }], { retries: 1 });
+            return await args.device.miio.call("set_properties", [{ did: "heater_zhimi_oscillation", siid: 2, piid: 4, value: Number(args.oscillation) }], { retries: 1 });
           }          
         } catch (error) {
           return Promise.reject(error.message);

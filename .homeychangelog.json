@@ -175,5 +175,8 @@
   },
   "3.2.13": {
     "en": "This release adds support for oscillation and heatlevel for Smartmi Smart Fan (zhimi.heater.nb1). It also adds an experimental action card for setting mop/vacuum mode and intensity for Roborock vacuumcleaners with mop capability. And it fixes setting docking / charging vacuumcleaner state for Roidmi Vacuum MioT driver and an issue with Mi Cleargrass Air Monitor (cgllc.airmonitor.s1)."
+  },
+  "3.2.14": {
+    "en": "This release adds an action card for setting the target temperature on a Smartmi Heater that supports it. It also fixes the issue for the oscillation action card for Smartmi Smart Fan (zhimi.heater.nb1) and the issue for sweep/mop action card for Roborock vacuumcleaners that have mop capability."
   }
 }
