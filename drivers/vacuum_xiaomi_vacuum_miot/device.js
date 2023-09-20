@@ -5,180 +5,21 @@ const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
 /* supported devices */
-// https://home.miot-spec.com/spec/mijia.vacuum.v1
-// https://home.miot-spec.com/spec/mijia.vacuum.v2
-// https://home.miot-spec.com/spec/mijia.vacuum.v3
-// https://home.miot-spec.com/spec/mijia.vacuum.b108za
-// https://home.miot-spec.com/spec/mijia.vacuum.b108zb
-// https://home.miot-spec.com/spec/ijai.vacuum.v1
-// https://home.miot-spec.com/spec/ijai.vacuum.v2
-// https://home.miot-spec.com/spec/ijai.vacuum.v3
-// https://home.miot-spec.com/spec/ijai.vacuum.v10
-// https://home.miot-spec.com/spec/ijai.vacuum.v13
-// https://home.miot-spec.com/spec/ijai.vacuum.v14
-// https://home.miot-spec.com/spec/ijai.vacuum.v15
-// https://home.miot-spec.com/spec/ijai.vacuum.v16
-// https://home.miot-spec.com/spec/ijai.vacuum.v17
-// https://home.miot-spec.com/spec/ijai.vacuum.v18
-// https://home.miot-spec.com/spec/ijai.vacuum.v19
+// https://home.miot-spec.com/spec/xiaomi.vacuum.b112gl
+// https://home.miot-spec.com/spec/xiaomi.vacuum.b106eu
+// https://home.miot-spec.com/spec/xiaomi.vacuum.b112
+// https://home.miot-spec.com/spec/xiaomi.vacuum.c101
 
 const mapping = {
-  "mijia.vacuum.v1": "properties_default",
-  "mijia.vacuum.v2": "properties_default",
-  "mijia.vacuum.v3": "properties_mijia_v3",
-  "mijia.vacuum.b108za": "properties_mijia_b108za",
-  "mijia.vacuum.b108zb": "properties_mijia_b108za",
-  "ijai.vacuum.v1": "properties_ijai_v1",
-  "ijai.vacuum.v2": "properties_ijai_v1",
-  "ijai.vacuum.v3": "properties_ijai_v1",
-  "ijai.vacuum.v10": "properties_ijai_v1",
-  "ijai.vacuum.v13": "properties_ijai_v1",
-  "ijai.vacuum.v14": "properties_ijai_v1",
-  "ijai.vacuum.v15": "properties_ijai_v1",
-  "ijai.vacuum.v16": "properties_ijai_v1",
-  "ijai.vacuum.v17": "properties_ijai_v1",
-  "ijai.vacuum.v18": "properties_ijai_v1",
-  "ijai.vacuum.v19": "properties_ijai_v1",
-  "mijia.vacuum.*": "properties_default",
+  "xiaomi.vacuum.b112gl": "properties_default",
+  "xiaomi.vacuum.b106eu": "properties_default",
+  "xiaomi.vacuum.b112": "properties_default",
+  "xiaomi.vacuum.c101": "properties_c101",
+  "xiaomi.vacuum.*": "properties_default",
 };
 
 const properties = {
   "properties_default": {
-    "get_properties": [
-      { did: "battery", siid: 3, piid: 1 }, // measure_battery
-      { did: "device_fault", siid : 2, piid: 2 }, // settings.error
-      { did: "device_status", siid: 2, piid: 1 }, // vacuumcleaner_state
-      { did: "fan_speed", siid: 2, piid: 6 }, // vacuum_dreame_fanspeed
-      { did: "main_brush_life_level", siid: 24, piid: 2 }, // settings.main_brush_work_time
-      { did: "side_brush_life_level", siid: 25, piid: 1 }, // settings.side_brush_work_time
-      { did: "filter_life_level", siid: 11, piid: 1 }, // settings.filter_work_time
-      { did: "total_clean_time", siid: 9, piid: 4 }, // settings.total_work_time
-      { did: "total_clean_count", siid: 9, piid: 5 }, // settings.clean_count
-      { did: "total_clean_area", siid: 9, piid: 3 } // settings.total_cleared_area
-    ],
-    "set_properties": {
-      "start_clean": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
-      "stop_clean": { siid: 2, aiid: 2, did: "call-2-2", in: [] },
-      "find": { siid: 6, aiid: 1, did: "call-6-1", in: [] },
-      "home": { siid: 2, aiid: 3, did: "call-2-3", in: [] },
-      "fanspeed": { siid: 2, piid: 6 }
-    },
-    "error_codes": {
-      0: "No Error",
-      1: "Left-wheel-error",
-      2: "Right-wheel-error",
-      3: "Cliff-error",
-      4: "Low-battery-error",
-      5: "Bump-error",
-      6: "Main-brush-error",
-      7: "Side-brush-error",
-      8: "Fan-motor-error",
-      9: "Dustbin-error",
-      10: "Charging-error",
-      11: "No-water-error",
-      0: "Everything-is-ok",
-      12: "Pick-up-error"
-    },
-    "status_mapping": {
-      "cleaning": [2, 6],
-      "spot_cleaning": [],
-      "docked": [],
-      "charging": [5],
-      "stopped": [1, 3],
-      "stopped_error": [4]
-    }
-  },
-  "properties_mijia_v3": {
-    "get_properties": [
-      { did: "battery", siid: 3, piid: 1 }, // measure_battery
-      { did: "device_fault", siid : 2, piid: 2 }, // settings.error
-      { did: "device_status", siid: 2, piid: 1 }, // vacuumcleaner_state
-      { did: "fan_speed", siid: 2, piid: 6 }, // vacuum_dreame_fanspeed
-      { did: "main_brush_life_level", siid: 14, piid: 1 }, // settings.main_brush_work_time
-      { did: "side_brush_life_level", siid: 15, piid: 1 }, // settings.side_brush_work_time
-      { did: "filter_life_level", siid: 11, piid: 1 }, // settings.filter_work_time
-      { did: "total_clean_time", siid: 9, piid: 4 }, // settings.total_work_time
-      { did: "total_clean_count", siid: 9, piid: 5 }, // settings.clean_count
-      { did: "total_clean_area", siid: 9, piid: 3 } // settings.total_cleared_area
-    ],
-    "set_properties": {
-      "start_clean": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
-      "stop_clean": { siid: 2, aiid: 2, did: "call-2-2", in: [] },
-      "find": { siid: 6, aiid: 1, did: "call-6-1", in: [] },
-      "home": { siid: 2, aiid: 3, did: "call-2-3", in: [] },
-      "fanspeed": { siid: 2, piid: 6 }
-    },
-    "error_codes": {
-      0: "No Error",
-      1: "Left-wheel-error",
-      2: "Right-wheel-error",
-      3: "Cliff-error",
-      4: "Low-battery-error",
-      5: "Bump-error",
-      6: "Main-brush-error",
-      7: "Side-brush-error",
-      8: "Fan-motor-error",
-      9: "Dustbin-error",
-      10: "Charging-error",
-      11: "No-water-error",
-      0: "Everything-is-ok",
-      12: "Pick-up-error"
-    },
-    "status_mapping": {
-      "cleaning": [2, 6],
-      "spot_cleaning": [],
-      "docked": [],
-      "charging": [5],
-      "stopped": [1, 3],
-      "stopped_error": [4]
-    }
-  },
-  "properties_mijia_b108za": {
-    "get_properties": [
-      { did: "battery", siid: 3, piid: 1 }, // measure_battery
-      { did: "device_fault", siid : 2, piid: 2 }, // settings.error
-      { did: "device_status", siid: 2, piid: 1 }, // vacuumcleaner_state
-      { did: "fan_speed", siid: 2, piid: 8 }, // vacuum_dreame_fanspeed
-      { did: "main_brush_life_level", siid: 8, piid: 1 }, // settings.main_brush_work_time
-      { did: "side_brush_life_level", siid: 9, piid: 1 }, // settings.side_brush_work_time
-      { did: "filter_life_level", siid: 10, piid: 2 }, // settings.filter_work_time
-      { did: "total_clean_time", siid: 2, piid: 6 }, // settings.total_work_time
-      { did: "total_clean_count", siid: 2, piid: 7 }, // settings.clean_count
-      { did: "total_clean_area", siid: 2, piid: 5 } // settings.total_cleared_area
-    ],
-    "set_properties": {
-      "start_clean": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
-      "stop_clean": { siid: 2, aiid: 2, did: "call-2-2", in: [] },
-      "find": { siid: 6, aiid: 6, did: "call-6-6", in: [] },
-      "home": { siid: 6, aiid: 15, did: "call-6-15", in: [] },
-      "fanspeed": { siid: 2, piid: 8 }
-    },
-    "error_codes": {
-      0: "No Error",
-      1: "Left-wheel-error",
-      2: "Right-wheel-error",
-      3: "Cliff-error",
-      4: "Low-battery-error",
-      5: "Bump-error",
-      6: "Main-brush-error",
-      7: "Side-brush-error",
-      8: "Fan-motor-error",
-      9: "Dustbin-error",
-      10: "Charging-error",
-      11: "No-water-error",
-      0: "Everything-is-ok",
-      12: "Pick-up-error"
-    },
-    "status_mapping": {
-      "cleaning": [4, 6, 7],
-      "spot_cleaning": [],
-      "docked": [8],
-      "charging": [2, 3],
-      "stopped": [1, 5, 9, 10],
-      "stopped_error": []
-    }
-  },
-  "properties_ijai_v1": {
     "get_properties": [
       { did: "device_status", siid: 2, piid: 1 }, // vacuumcleaner_state
       { did: "device_fault", siid : 2, piid: 2 }, // settings.error
@@ -220,10 +61,53 @@ const properties = {
       "stopped": [1, 2, 8],
       "stopped_error": []
     }
+  },
+  "properties_c101": {
+    "get_properties": [
+      { did: "device_status", siid: 2, piid: 1 }, // vacuumcleaner_state
+      { did: "device_fault", siid : 2, piid: 2 }, // settings.error
+      { did: "battery", siid: 3, piid: 1 }, // measure_battery
+      { did: "main_brush_life_level", siid: 16, piid: 1 }, // settings.main_brush_work_time
+      { did: "side_brush_life_level", siid: 17, piid: 1 }, // settings.side_brush_work_time
+      { did: "filter_life_level", siid: 15, piid: 1 }, // settings.filter_work_time
+      { did: "total_clean_time", siid: 7, piid: 28 }, // settings.total_work_time
+      { did: "total_clean_count", siid: 7, piid: 22 }, // settings.clean_count
+      { did: "total_clean_area", siid: 7, piid: 29 } // settings.total_cleared_area
+    ],
+    "set_properties": {
+      "start_clean": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
+      "stop_clean": { siid: 2, aiid: 2, did: "call-2-2", in: [] },
+      "find": { siid: 6, aiid: 6, did: "call-6-6", in: [] },
+      "home": { siid: 3, aiid: 1, did: "call-3-1", in: [] }
+    },
+    "error_codes": {
+      0: "No Error",
+      1: "Left-wheel-error",
+      2: "Right-wheel-error",
+      3: "Cliff-error",
+      4: "Low-battery-error",
+      5: "Bump-error",
+      6: "Main-brush-error",
+      7: "Side-brush-error",
+      8: "Fan-motor-error",
+      9: "Dustbin-error",
+      10: "Charging-error",
+      11: "No-water-error",
+      0: "Everything-is-ok",
+      12: "Pick-up-error"
+    },
+    "status_mapping": {
+      "cleaning": [3, 5, 6, 7],
+      "spot_cleaning": [],
+      "docked": [0, 9, 10, 11, 12],
+      "charging": [4],
+      "stopped": [1, 2, 8],
+      "stopped_error": []
+    }
   }
 }
 
-class MijaVacuumMiotDevice extends Device {
+class XiaomiVacuumMiotDevice extends Device {
 
   async onInit() {
     try {
@@ -233,14 +117,10 @@ class MijaVacuumMiotDevice extends Device {
       this.bootSequence();
 
       // ADD/REMOVE DEVICES DEPENDANT CAPABILITIES
-      if (this.getStoreValue('model').startsWith('ijai.vacuum')) {
-        if (this.hasCapability('vacuum_dreame_fanspeed')) {
-          this.removeCapability('vacuum_dreame_fanspeed');
-        }
-      }
+
 
       // DEVICE VARIABLES
-      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['mijia.vacuum.*']];
+      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['xiaomi.vacuum.*']];
 
       // RESET CONSUMABLE ALARMS
       this.updateCapabilityValue("alarm_main_brush_work_time", false);
@@ -408,4 +288,4 @@ class MijaVacuumMiotDevice extends Device {
 
 }
 
-module.exports = MijaVacuumMiotDevice;
+module.exports = XiaomiVacuumMiotDevice;

@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.2.14",
+  "version": "3.2.15",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -11684,8 +11684,8 @@
         "lan"
       ],
       "name": {
-        "en": "Mija Vacuum Cleaner MIoT (WiFi)",
-        "nl": "Mija stofzuiger MIoT (WiFi)"
+        "en": "Mija/Ijai Vacuum Cleaner MIoT (WiFi)",
+        "nl": "Mija/Ijai stofzuiger MIoT (WiFi)"
       },
       "images": {
         "large": "drivers/vacuum_mija_vacuum_miot/assets/images/large.jpg",
@@ -12176,6 +12176,193 @@
                 "nl": "Filter over (%)"
               },
               "value": "0%"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device Settings",
+            "nl": "Apparaat instellingen"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "value": "0.0.0.0",
+              "label": {
+                "en": "IP Address",
+                "nl": "IP adres"
+              }
+            },
+            {
+              "id": "token",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Mi Device Token",
+                "nl": "Mi Apparaat Token"
+              }
+            },
+            {
+              "id": "polling",
+              "type": "number",
+              "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+              "label": {
+                "en": "Polling Frequency",
+                "nl": "Polling frequentie"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "/drivers/vacuum_xiaomi_vacuum_miot/assets/icon.svg",
+      "pair": [
+        {
+          "id": "start",
+          "navigation": {
+            "next": "pair"
+          }
+        },
+        {
+          "id": "pair"
+        },
+        {
+          "id": "add_device"
+        }
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "name": {
+        "en": "Xiaomi Vacuum Cleaner MIoT (WiFi)",
+        "nl": "Xiaomi stofzuiger MIoT (WiFi)"
+      },
+      "images": {
+        "large": "drivers/vacuum_xiaomi_vacuum_miot/assets/images/large.jpg",
+        "small": "drivers/vacuum_xiaomi_vacuum_miot/assets/images/small.jpg"
+      },
+      "class": "vacuumcleaner",
+      "capabilities": [
+        "onoff",
+        "vacuumcleaner_state",
+        "measure_battery",
+        "alarm_battery",
+        "alarm_main_brush_work_time",
+        "alarm_side_brush_work_time",
+        "alarm_filter_work_time"
+      ],
+      "energy": {
+        "batteries": [
+          "INTERNAL"
+        ]
+      },
+      "id": "vacuum_xiaomi_vacuum_miot",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Consumables",
+            "nl": "Verbruiksartikelen"
+          },
+          "children": [
+            {
+              "id": "alarm_threshold",
+              "type": "number",
+              "label": {
+                "en": "Alarm threshold",
+                "nl": "Alarm ondergrens"
+              },
+              "hint": {
+                "en": "Threshold below which the alarm will be activated.",
+                "nl": "Ondergrens voor het triggeren van het alarm"
+              },
+              "value": 20,
+              "attr": {
+                "min": 1,
+                "max": 90
+              }
+            },
+            {
+              "id": "main_brush_work_time",
+              "type": "label",
+              "label": {
+                "en": "Main brush remaining (%)",
+                "nl": "Hoofdborstel over (%)"
+              },
+              "value": "0%"
+            },
+            {
+              "id": "side_brush_work_time",
+              "type": "label",
+              "label": {
+                "en": "Side brush remaining",
+                "nl": "Zijborstel over"
+              },
+              "value": "0%"
+            },
+            {
+              "id": "filter_work_time",
+              "type": "label",
+              "label": {
+                "en": "Filter remaining",
+                "nl": "Filter over"
+              },
+              "value": "0%"
+            },
+            {
+              "id": "total_work_time",
+              "type": "label",
+              "label": {
+                "en": "Total work time",
+                "nl": "Totale gebruikstijd"
+              },
+              "value": "0"
+            },
+            {
+              "id": "total_cleared_area",
+              "type": "label",
+              "label": {
+                "en": "Total cleaned area",
+                "nl": "Totaal geschoont"
+              },
+              "value": "0"
+            },
+            {
+              "id": "total_clean_count",
+              "type": "label",
+              "label": {
+                "en": "Total clean count",
+                "nl": "Totaal aantal opschoningen"
+              },
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device data",
+            "nl": "Apparaat data"
+          },
+          "children": [
+            {
+              "id": "error",
+              "type": "label",
+              "label": {
+                "en": "Error",
+                "nl": "Error"
+              },
+              "value": "No error"
             }
           ]
         },
@@ -13034,6 +13221,7 @@
       },
       "min": 16,
       "max": 30,
+      "step": 1,
       "decimals": 0,
       "insights": false
     },

@@ -141,7 +141,7 @@ class ZhimiHeaterMiotDevice extends Device {
       this.registerCapabilityListener('heater_zhimi_heater_target_temperature', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ did: "target_temperature", siid: this.deviceProperties.set_properties.target_temperature.siid, piid: this.deviceProperties.set_properties.target_temperature.piid, value: value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ did: "target_temperature", siid: this.deviceProperties.set_properties.target_temperature.siid, piid: this.deviceProperties.set_properties.target_temperature.piid, value: Number(value) }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();

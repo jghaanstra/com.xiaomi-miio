@@ -178,5 +178,8 @@
   },
   "3.2.14": {
     "en": "This release adds an action card for setting the target temperature on a Smartmi Heater that supports it. It also fixes the issue for the oscillation action card for Smartmi Smart Fan (zhimi.heater.nb1) and the issue for sweep/mop action card for Roborock vacuumcleaners that have mop capability."
+  },
+  "3.2.15": {
+    "en": "This release adds support for the Xiaomi Smart Air Purifier Elite, various Mi Robot Vacuum-Mop models (ijai.vacuum.*) and various Xiaomi Robot Vacuum models (xiaomi.vacuum.*).  It also contains a possible fix for room cleaning for Dreame vacuum cleaners."
   }
 }

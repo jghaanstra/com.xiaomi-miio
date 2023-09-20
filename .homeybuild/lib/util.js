@@ -38,6 +38,7 @@ class Util {
     'zhimi.airpurifier.rma1': 'Air Purifier 4 Lite',
     'zhimi.airp.rmb1': 'Air Purifier 4 Lite',
     'zhimi.airpurifier.za1': 'Smartmi Air Purifier',
+    'zhimi.airp.meb1': 'Xiaomi Smart Air Purifier Elite',
 
     'zhimi.airfresh.va2': 'Smartmi Fresh Air System VA2',
     'zhimi.airfresh.va4': 'Smartmi Fresh Air System VA4',
@@ -134,6 +135,26 @@ class Util {
 
     'mijia.vacuum.v1': 'Xiaomi Mijia G1 Robot Vacuum Mop v1',
     'mijia.vacuum.v2': 'Xiaomi Mijia G1 Robot Vacuum Mop v2',
+    'mijia.vacuum.v3': 'Mi Robot Vacuum-Mop Essential',
+    'mijia.vacuum.b108za': 'Mi Robot Vacuum-Mop 2S',
+    'mijia.vacuum.b108zb': 'Mi Robot Vacuum-Mop 3S',
+
+    'xiaomi.vacuum.b112gl': 'Xiaomi Robot Vacuum E12',
+    'xiaomi.vacuum.b106eu': 'Xiaomi Robot Vacuum S12',
+    'xiaomi.vacuum.b112': 'Xiaomi Robot Vacuum E10',
+    'xiaomi.vacuum.c101': 'Xiaomi Self-Cleaning Vacuum Robot 2 C101',
+
+    'ijai.vacuum.v1': 'Mi Robot Vacuum-Mop Pro',
+    'ijai.vacuum.v2': 'Mi Robot Vacuum-Mop 2',
+    'ijai.vacuum.v3': 'Mi Robot Vacuum-Mop 2 Pro',
+    'ijai.vacuum.v10': 'Mi Robot Vacuum-Mop 2 Lite',
+    'ijai.vacuum.v13': 'Mi Robot Vacuum-Mop 2 Pro',
+    'ijai.vacuum.v14': 'Mi Robot Vacuum-Mop G1',
+    'ijai.vacuum.v15': 'Mi Robot Vacuum-Mop 2 Pro',
+    'ijai.vacuum.v16': 'Mi Robot Vacuum-Mop 2i',
+    'ijai.vacuum.v17': 'Xiaomi Robot Vacuum S10',
+    'ijai.vacuum.v18': 'Mi Robot Vacuum-Mop 3C',
+    'ijai.vacuum.v19': 'Mi Robot Vacuum-Mop 2S',
 
     'viomi.vacuum.v7': 'Mi Robot Vacuum-Mop P v7',
     'viomi.vacuum.v8': 'Mi Robot Vacuum-Mop P v8',

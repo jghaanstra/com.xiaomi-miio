@@ -147,9 +147,9 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('vacuumRoomCleaning')
       .registerRunListener(async (args) => {
         try {
-          const rooms = JSON.parse("[" + args.rooms + "]");
+          const rooms = JSON.parse([{"piid":1,"value":18},{"piid":10,"value":"{\"selects\":[["+ args.rooms +"]]}"}]);
           if (args.device.getStoreValue('model').startsWith('dreame.vacuum')) {
-            return await args.device.miio.call("action", { siid: 2, aiid: 3, did: "call-2-3", in: rooms }, { retries: 1 });
+            return await args.device.miio.call("action", { siid: 2, aiid: 3, did: "call-2-3", in: [{"piid":1,"value":18},{"piid":10,"value":"{\"selects\":[[6,1,0,1,1]]}"}] }, { retries: 1 });
           } else {
             return await args.device.miio.cleanRooms(rooms);
           }
@@ -278,7 +278,7 @@ class XiaomiMiioApp extends Homey.App {
       .registerRunListener(async (args) => {
         try {
           if (args.device.hasCapability('heater_zhimi_heater_target_temperature')) {
-            return await args.device.miio.call("set_properties", [{ did: "target_temperature", siid: args.device.deviceProperties.set_properties.target_temperature.siid, piid: args.device.deviceProperties.set_properties.target_temperature.piid, value: value }], { retries: 1 });
+            return await args.device.triggerCapabilityListener('heater_zhimi_heater_target_temperature', Number(args.temperature));
           }          
         } catch (error) {
           return Promise.reject(error.message);
@@ -289,7 +289,7 @@ class XiaomiMiioApp extends Homey.App {
       .registerRunListener(async (args) => {
         try {
           if (args.device.hasCapability('heater_zhimi_oscillation')) {
-            return await args.device.miio.call("set_properties", [{ did: "heater_zhimi_oscillation", siid: 2, piid: 4, value: Number(args.oscillation) }], { retries: 1 });
+            return await args.device.triggerCapabilityListener('heater_zhimi_oscillation', Number(args.oscillation));
           }          
         } catch (error) {
           return Promise.reject(error.message);
@@ -300,7 +300,7 @@ class XiaomiMiioApp extends Homey.App {
       .registerRunListener(async (args) => {
         try {
           if (args.device.hasCapability('heater_zhimi_heatlevel')) {
-            return await args.device.miio.call("set_properties", [{ did: "heater_zhimi_heatlevel", siid: 2, piid: 3, value: Number(args.heatlevel) }], { retries: 1 });
+            return await args.device.triggerCapabilityListener('heater_zhimi_heatlevel', Number(args.heatlevel));
           }          
         } catch (error) {
           return Promise.reject(error.message);
