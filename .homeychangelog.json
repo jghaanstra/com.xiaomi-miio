@@ -181,5 +181,8 @@
   },
   "3.2.15": {
     "en": "This release adds support for the Xiaomi Smart Air Purifier Elite, various Mi Robot Vacuum-Mop models (ijai.vacuum.*) and various Xiaomi Robot Vacuum models (xiaomi.vacuum.*).  It also contains a possible fix for room cleaning for Dreame vacuum cleaners."
+  },
+  "3.2.16": {
+    "en": "This release adds support for the Roborock Vacuum Q8 Max (roborock.vacuum.a73). It also adds mop mode for Xiaomi vacuum models (xiaomi.vacuum.*) that support it. And it fixes a introduced bug in the vacuum room cleaning card for Roborock vacuum cleaners."
   }
 }

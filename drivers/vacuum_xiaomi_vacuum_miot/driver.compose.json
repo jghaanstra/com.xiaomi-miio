@@ -14,6 +14,7 @@
   "capabilities": [
     "onoff",
     "vacuumcleaner_state",
+    "vacuum_xiaomi_mop_mode",
     "measure_battery",
     "alarm_battery",
     "alarm_main_brush_work_time",

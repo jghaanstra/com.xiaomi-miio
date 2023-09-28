@@ -110,7 +110,16 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('vacuumRoidmiMopMode')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('vacuum_roidmi_mop_mode', args.fanspeed);
+          return await args.device.triggerCapabilityListener('vacuum_roidmi_mop_mode', args.mode);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('vacuumXiaomiMopMode')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.triggerCapabilityListener('vacuum_xiaomi_mop_mode', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
@@ -147,10 +156,11 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('vacuumRoomCleaning')
       .registerRunListener(async (args) => {
         try {
-          const rooms = JSON.parse([{"piid":1,"value":18},{"piid":10,"value":"{\"selects\":[["+ args.rooms +"]]}"}]);
           if (args.device.getStoreValue('model').startsWith('dreame.vacuum')) {
-            return await args.device.miio.call("action", { siid: 2, aiid: 3, did: "call-2-3", in: [{"piid":1,"value":18},{"piid":10,"value":"{\"selects\":[[6,1,0,1,1]]}"}] }, { retries: 1 });
+            const rooms = JSON.parse([{"piid":1,"value":18},{"piid":10,"value":"{\"selects\":[["+ args.rooms +"]]}"}]);
+            return await args.device.miio.call("action", { siid: 2, aiid: 3, did: "call-2-3", in: rooms }, { retries: 1 });
           } else {
+            const rooms = JSON.parse("[" + args.rooms + "]");
             return await args.device.miio.cleanRooms(rooms);
           }
         } catch (error) {

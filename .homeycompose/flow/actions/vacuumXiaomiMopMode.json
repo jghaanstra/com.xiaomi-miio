@@ -1,0 +1,53 @@
+{
+  "title": {
+    "en": "Set Sweep and Mop Mode",
+    "nl": "Stel Sweep and Mop modus in"
+  },
+  "titleFormatted": {
+    "en": "Set Sweep and Mop Mode to [[mode]]",
+    "nl": "Stel Sweep and Mop modus in op [[mode]]"
+  },
+  "args": [
+    {
+      "name": "mode",
+      "title": {
+        "en": "Sweep and Mop Mode",
+        "nl": "Sweep and Mop modus"
+      },
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Sweep",
+            "nl": "Sweep"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Sweep & Mop",
+            "nl": "Sweep & Mop"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Mop",
+            "nl": "Mop"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Vacuum",
+        "nl": "Selecteer stofzuiger"
+      },
+      "filter": "driver_id=vacuum_xiaomi_vacuum_miot"
+    }
+  ],
+  "platforms": ["local"]
+}

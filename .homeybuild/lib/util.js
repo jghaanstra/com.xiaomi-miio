@@ -118,6 +118,7 @@ class Util {
     'roborock.vacuum.a46': 'Roborock Vacuum G10S',
     'roborock.vacuum.a62': 'Roborock Vacuum S7 Pro Ultra',
     'roborock.vacuum.a70': 'Roborock S8 Ultra Pro',
+    'roborock.vacuum.a75': 'Roborock Vacuum Q8 Max',
     'roborock.vacuum.a75': 'Roborock Revo Q',
     'roborock.vacuum.p5': 'Roborock Vacuum P5',
     'roborock.vacuum.m1s': 'Mijia Vacuum M1S',

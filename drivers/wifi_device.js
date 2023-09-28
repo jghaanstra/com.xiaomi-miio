@@ -256,7 +256,7 @@ class MiWifiDeviceDevice extends Homey.Device {
   /* log device info */
   async getDeviceInfo() {
     try {
-      this.log("WiFi Device Init: " + this.getName() + " and model " + this.getStoreValue('model') + " with ip "+ this.getSetting('address') + " and capabilities " + this.getCapabilities().toString() + " and store values ", this.getStoreKeys().toString());
+      this.log("WiFi Device Init: " + this.getName() + " and model " + this.getStoreValue('model') + " with ip "+ this.getSetting('address') + " and capabilities " + this.getCapabilities().toString());
       if (this.miio) {
         if (this.miio.matches('cap:state')) {
           const states = await this.miio.state();

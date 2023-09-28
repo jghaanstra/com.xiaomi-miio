@@ -32,6 +32,20 @@
         "en": "Intense",
         "nl": "Intens"
       }
+    },
+    {
+      "id": "204",
+      "title": {
+        "en": "Unknown mop intensity",
+        "nl": "Unknown mop intensity"
+      }
+    },
+    {
+      "id": "207",
+      "title": {
+        "en": "Unknown mop intensity",
+        "nl": "Unknown mop intensity"
+      }
     }
   ],
   "getable": true,

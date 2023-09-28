@@ -1,0 +1,33 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Sweep and Mop Mode",
+    "nl": "Sweep and Mop modus"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Sweep",
+        "nl": "Sweep"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Sweep & Mop",
+        "nl": "Sweep & Mop"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Mop",
+        "nl": "Mop"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "icon": "/assets/icons/vacuum-mop.svg"
+}

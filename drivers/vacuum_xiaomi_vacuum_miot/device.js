@@ -23,6 +23,7 @@ const properties = {
     "get_properties": [
       { did: "device_status", siid: 2, piid: 1 }, // vacuumcleaner_state
       { did: "device_fault", siid : 2, piid: 2 }, // settings.error
+      { did: "mode", siid : 2, piid: 4 }, // vacuum_xiaomi_mop_mode
       { did: "battery", siid: 3, piid: 1 }, // measure_battery
       { did: "main_brush_life_level", siid: 7, piid: 10 }, // settings.main_brush_work_time
       { did: "side_brush_life_level", siid: 7, piid: 8 }, // settings.side_brush_work_time
@@ -35,7 +36,8 @@ const properties = {
       "start_clean": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
       "stop_clean": { siid: 2, aiid: 2, did: "call-2-2", in: [] },
       "find": { siid: 6, aiid: 6, did: "call-6-6", in: [] },
-      "home": { siid: 3, aiid: 1, did: "call-3-1", in: [] }
+      "home": { siid: 3, aiid: 1, did: "call-3-1", in: [] },
+      "mopmode": { siid: 2, piid: 4 }
     },
     "error_codes": {
       0: "No Error",
@@ -66,6 +68,7 @@ const properties = {
     "get_properties": [
       { did: "device_status", siid: 2, piid: 1 }, // vacuumcleaner_state
       { did: "device_fault", siid : 2, piid: 2 }, // settings.error
+      { did: "mode", siid : 2, piid: 4 }, // vacuum_xiaomi_mop_mode
       { did: "battery", siid: 3, piid: 1 }, // measure_battery
       { did: "main_brush_life_level", siid: 16, piid: 1 }, // settings.main_brush_work_time
       { did: "side_brush_life_level", siid: 17, piid: 1 }, // settings.side_brush_work_time
@@ -78,7 +81,8 @@ const properties = {
       "start_clean": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
       "stop_clean": { siid: 2, aiid: 2, did: "call-2-2", in: [] },
       "find": { siid: 6, aiid: 6, did: "call-6-6", in: [] },
-      "home": { siid: 3, aiid: 1, did: "call-3-1", in: [] }
+      "home": { siid: 3, aiid: 1, did: "call-3-1", in: [] },
+      "mopmode": { siid: 2, piid: 4 }
     },
     "error_codes": {
       0: "No Error",
@@ -199,6 +203,22 @@ class XiaomiVacuumMiotDevice extends Device {
         }
       });
 
+      /* vacuumcleaner xiaomi mop mode */
+      this.registerCapabilityListener('vacuum_xiaomi_mop_mode', async ( value ) => {
+        try {
+          if (this.miio) {
+            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.mopmode.siid, piid: this.deviceProperties.set_properties.mopmode.piid, value: Number(value) }], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
     } catch (error) {
       this.error(error);
     }
@@ -212,6 +232,7 @@ class XiaomiVacuumMiotDevice extends Device {
 
       /* data */
       const device_status = result.find(obj => obj.did === 'device_status');
+      const mop_mode = result.find(obj => obj.did === 'mode');
       const battery = result.find(obj => obj.did === 'battery');
       const fan_speed = result.find(obj => obj.did === 'fan_speed');
       const main_brush_life_level = result.find(obj => obj.did === 'main_brush_life_level');
@@ -257,6 +278,9 @@ class XiaomiVacuumMiotDevice extends Device {
       if (fan_speed !== undefined && this.hasCapability('vacuum_dreame_fanspeed')) {
         await this.updateCapabilityValue("vacuum_dreame_fanspeed", fan_speed.value.toString());
       }
+
+      /* vacuum_xiaomi_mop_mode */
+      await this.updateCapabilityValue("vacuum_xiaomi_mop_mode", mop_mode.value.toString());
 
       /* consumable settings */
       this.vacuumConsumables(consumables);

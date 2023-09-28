@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.2.15",
+  "version": "3.2.16",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -4137,6 +4137,62 @@
         "platforms": [
           "local"
         ]
+      },
+      {
+        "title": {
+          "en": "Set Sweep and Mop Mode",
+          "nl": "Stel Sweep and Mop modus in"
+        },
+        "titleFormatted": {
+          "en": "Set Sweep and Mop Mode to [[mode]]",
+          "nl": "Stel Sweep and Mop modus in op [[mode]]"
+        },
+        "args": [
+          {
+            "name": "mode",
+            "title": {
+              "en": "Sweep and Mop Mode",
+              "nl": "Sweep and Mop modus"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Sweep",
+                  "nl": "Sweep"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Sweep & Mop",
+                  "nl": "Sweep & Mop"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Mop",
+                  "nl": "Mop"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Vacuum",
+              "nl": "Selecteer stofzuiger"
+            },
+            "filter": "driver_id=vacuum_xiaomi_vacuum_miot"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "vacuumXiaomiMopMode"
       }
     ]
   },
@@ -12255,6 +12311,7 @@
       "capabilities": [
         "onoff",
         "vacuumcleaner_state",
+        "vacuum_xiaomi_mop_mode",
         "measure_battery",
         "alarm_battery",
         "alarm_main_brush_work_time",
@@ -13737,6 +13794,20 @@
             "en": "Intense",
             "nl": "Intens"
           }
+        },
+        {
+          "id": "204",
+          "title": {
+            "en": "Unknown mop intensity",
+            "nl": "Unknown mop intensity"
+          }
+        },
+        {
+          "id": "207",
+          "title": {
+            "en": "Unknown mop intensity",
+            "nl": "Unknown mop intensity"
+          }
         }
       ],
       "getable": true,
@@ -13896,6 +13967,39 @@
           "title": {
             "en": "Mop",
             "nl": "Moppen"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "icon": "/assets/icons/vacuum-mop.svg"
+    },
+    "vacuum_xiaomi_mop_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Sweep and Mop Mode",
+        "nl": "Sweep and Mop modus"
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Sweep",
+            "nl": "Sweep"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Sweep & Mop",
+            "nl": "Sweep & Mop"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Mop",
+            "nl": "Mop"
           }
         }
       ],
