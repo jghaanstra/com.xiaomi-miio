@@ -38,7 +38,7 @@ const mapping = {
   "zhimi.airpurifier.rma1": "mapping_rma1",
   "zhimi.airp.rmb1": "mapping_rmb1",
   "zhimi.airpurifier.za1": "mapping_za1",
-  "zhimi.airpurifier.za1": "mapping_airp_meb1",
+  "zhimi.airp.meb1": "mapping_airp_meb1",
   "zhimi.airpurifier.*": "mapping_default",
 };
 
@@ -94,7 +94,7 @@ const properties = {
   },
   "mapping_va2": {
     "get_properties": [
-      { did: "power", siid: 2, piid: 2 }, // onoff
+      { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "fan_level", siid : 2, piid: 5 }, // airpurifier_zhimi_fanlevel
       { did: "mode", siid: 2, piid: 4 }, // airpurifier_zhimi_mode
       { did: "humidity", siid: 3, piid: 1 }, // measure_humidity
@@ -109,7 +109,8 @@ const properties = {
       { did: "purify_volume", siid: 11, piid: 1 } // settings.purify_volume
     ],
     "set_properties": {
-      "power": { siid: 2, piid: 2 },
+      "power": { siid: 2, piid: 1 },
+      "ion": { siid: 2, piid: 6 },
       "fanlevel": { siid: 2, piid: 5 },
       "mode": {siid: 2, piid: 4 },
       "buzzer": { siid: 5, piid: 1 },
@@ -138,6 +139,7 @@ const properties = {
     ],
     "set_properties": {
       "power": { siid: 2, piid: 1 },
+      "ion": { siid: 2, piid: 6 },
       "fanlevel": { siid: 2, piid: 4 },
       "mode": {siid: 2, piid: 4 },
       "buzzer": { siid: 6, piid: 1 },
@@ -287,6 +289,21 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
         }
       });
 
+      this.registerCapabilityListener('onoff.ion', async (value) => {
+        try {
+          if (this.miio) {
+            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.ion.siid, piid: this.deviceProperties.set_properties.power.ion, value: value }], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
       this.registerCapabilityListener('airpurifier_zhimi_fanlevel', async (value) => {
         try {
           if (this.miio) {
@@ -376,6 +393,7 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
         await this.updateCapabilityValue("measure_temperature", measure_temperature.value);
       }
       await this.updateCapabilityValue("measure_pm25", measure_pm25.value);
+
       if (onoff_ion !== undefined) {
         await this.updateCapabilityValue("onoff.ion", onoff_ion.value);
       }

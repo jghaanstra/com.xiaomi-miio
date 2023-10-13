@@ -184,5 +184,8 @@
   },
   "3.2.16": {
     "en": "This release adds support for the Roborock Vacuum Q8 Max (roborock.vacuum.a73). It also adds mop mode for Xiaomi vacuum models (xiaomi.vacuum.*) that support it. And it fixes a introduced bug in the vacuum room cleaning card for Roborock vacuum cleaners."
+  },
+  "3.2.17": {
+    "en": "This release adds support for Roborock Q5 Pro (roborock.vacuum.a72) and it adds experimental and basic support for Xiaomi Smart Pet Food Feeder (mmgg.feeder.*). It also fixes a bug with on/off for certain Xiaomi Air Purifier models."
   }
 }

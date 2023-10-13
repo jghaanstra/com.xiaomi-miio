@@ -1,0 +1,18 @@
+{
+  "title": {
+    "en": "Serve food",
+    "nl": "Voedsel serveren"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=petfeeder_mmgg_miot"
+    }
+  ],
+  "platforms": ["local"]
+}

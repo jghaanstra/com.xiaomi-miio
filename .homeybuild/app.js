@@ -260,10 +260,21 @@ class XiaomiMiioApp extends Homey.App {
         }
       });
 
+    // PET WATERDISPENSER & FEEDER
+
     this.homey.flow.getActionCard('petwaterdispenserMmggMode')
       .registerRunListener(async (args) => {
         try {
           return await args.device.triggerCapabilityListener('petwaterdispenser_mmgg_mode', args.mode);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('petfeederServeFood')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.miio.call("action", args.device.deviceProperties.set_properties.serve_food, { retries: 1 });
         } catch (error) {
           return Promise.reject(error.message);
         }

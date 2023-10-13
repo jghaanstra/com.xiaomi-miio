@@ -1,0 +1,33 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Foodlevel",
+    "nl": "Voedselniveau"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Normal",
+        "nl": "Normaal"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Low",
+        "nl": "Laag"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Empty",
+        "nl": "Leeg"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "icon": "/assets/icons/petfeeder_foodlevel.svg"
+}

@@ -1,0 +1,18 @@
+{
+  "name": {
+    "en": "Smart Pet Feeder MIoT (WiFi)",
+    "nl": "Smart Pet Feeder MIoT (WiFi)"
+  },
+  "images": {
+    "xlarge": "drivers/petfeeder_mmgg_miot/assets/images/xlarge.jpg",
+    "large": "drivers/petfeeder_mmgg_miot/assets/images/large.jpg",
+    "small": "drivers/petfeeder_mmgg_miot/assets/images/small.jpg"
+  },
+  "class": "other",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "petfeeder_foodlevel"
+  ]
+}

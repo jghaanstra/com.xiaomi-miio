@@ -211,7 +211,7 @@ class MiWifiDeviceDevice extends Homey.Device {
         }
       }
     } catch (error) {
-      this.error('Trying to update or add capability', capability, 'with value', value, 'for device', this.getName(), 'with device id', this.getData().id);
+      this.error('Trying to update setting', setting, 'with value', value, 'for device', this.getName(), 'with device id', this.getData().id);
       this.error(error);
     }
   }
