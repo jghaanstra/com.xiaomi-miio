@@ -240,7 +240,7 @@ const properties = {
     "set_properties": {
       "power": { siid: 2, piid: 1 },
       "fanlevel": { siid: 2, piid: 5 },
-      "mode": { siid: 2, piid: 5 },
+      "mode": { siid: 2, piid: 4 },
       "buzzer": { siid: 6, piid: 1 },
       "child_lock": { siid: 8, piid: 1 },
       "light": { siid: 13, piid: 2 }
