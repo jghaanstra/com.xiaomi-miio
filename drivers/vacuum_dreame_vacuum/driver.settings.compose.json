@@ -88,6 +88,15 @@
     },
     "children": [
       {
+        "id": "rooms",
+        "type": "label",
+        "label": {
+          "en": "Room cleaning segments",
+          "nl": "Kamer stofzuig segmenten"
+        },
+        "value": "[17,20,21]"
+      },
+      {
         "id": "error",
         "type": "label",
         "label": {

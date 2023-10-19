@@ -226,11 +226,11 @@ const properties = {
   "mapping_airp_meb1": {
     "get_properties": [
       { did: "power", siid: 2, piid: 1 }, // onoff
-      { did: "fan_level", siid : 2, piid: 5 }, // airpurifier_zhimi_fanlevel
       { did: "mode", siid: 2, piid: 4 }, // airpurifier_zhimi_mode
+      { did: "fan_level", siid : 2, piid: 5 }, // airpurifier_zhimi_fanlevel
       { did: "humidity", siid: 3, piid: 1 }, // measure_humidity
-      { did: "temperature", siid: 3, piid: 7 }, // measure_temperature
       { did: "aqi", siid: 3, piid: 4 }, // measure_pm25
+      { did: "temperature", siid: 3, piid: 7 }, // measure_temperature
       { did: "buzzer", siid: 6, piid: 1 }, // settings.buzzer
       { did: "child_lock", siid: 8, piid: 1 }, // settings.childLock
       { did: "light", siid: 13, piid: 2 }, // settings.led
@@ -240,7 +240,7 @@ const properties = {
     "set_properties": {
       "power": { siid: 2, piid: 1 },
       "fanlevel": { siid: 2, piid: 5 },
-      "mode": { siid: 2, piid: 5 },
+      "mode": { siid: 2, piid: 4 },
       "buzzer": { siid: 6, piid: 1 },
       "child_lock": { siid: 8, piid: 1 },
       "light": { siid: 13, piid: 2 }

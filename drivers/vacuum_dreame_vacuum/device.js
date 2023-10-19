@@ -56,26 +56,18 @@ const properties = {
   },
   "properties_p2008": {
     "get_properties": [
-      { did: "battery_level", siid: 3, piid: 1 }, // measure_battery
-      { did: "device_fault", siid : 2, piid: 2 }, // settings.error
       { did: "device_status", siid: 2, piid: 1 }, // vacuumcleaner_state
-      { did: "brush_left_time", siid: 9, piid: 1 }, //
+      { did: "device_fault", siid : 2, piid: 2 }, // settings.error
+      { did: "rooms", siid: 2, piid: 4 }, // settings.rooms
+      { did: "battery_level", siid: 3, piid: 1 }, // measure_battery
+      { did: "cleaning_mode", siid: 4, piid: 4 }, // vacuum_dreame_fanspeed
+      { did: "water_flow", siid: 4, piid: 5 }, // vacuum_dreame_mop_intensity
       { did: "brush_life_level", siid: 9, piid: 2 }, // settings.main_brush_work_time
       { did: "filter_life_level", siid: 11, piid: 1 }, // settings.filter_work_time
-      { did: "filter_left_time", siid: 11, piid: 2 }, //  
-      { did: "brush_left_time2", siid: 10, piid: 1 }, //
       { did: "brush_life_level2", siid: 10, piid: 2 }, // settings.side_brush_work_time
-      { did: "operating_mode", siid: 4, piid: 1 }, // 
-      { did: "cleaning_mode", siid: 4, piid: 4 }, // vacuum_dreame_fanspeed
-      { did: "cleaning_time", siid: 4, piid: 2 }, //
-      { did: "cleaning_area", siid: 4, piid: 3 }, //
-      { did: "first_clean_time", siid: 12, piid: 1 }, //
       { did: "total_clean_time", siid: 12, piid: 2 }, // settings.total_work_time
       { did: "total_clean_times", siid: 12, piid: 3 }, // settings.clean_count
       { did: "total_clean_area", siid: 12, piid: 4 }, // settings.total_cleared_area
-      { did: "volume", siid: 7, piid: 1 }, //
-      { did: "water_flow", siid: 4, piid: 5 }, // vacuum_dreame_mop_intensity
-      { did: "water_box_carriage_status", siid: 4, piid: 6 } //
     ],
     "set_properties": {
       "start_clean": { siid: 4, aiid: 1, did: "call-4-1", in: [] },
@@ -87,18 +79,18 @@ const properties = {
   },
   "properties_p2029": {
     "get_properties": [
-      { did: "battery_level", siid: 3, piid: 1 }, // measure_battery
-      { did: "device_fault", siid : 2, piid: 2 }, // settings.error
       { did: "device_status", siid: 2, piid: 1 }, // vacuumcleaner_state
+      { did: "device_fault", siid : 2, piid: 2 }, // settings.error
+      { did: "rooms", siid: 2, piid: 4 }, // settings.rooms
+      { did: "battery_level", siid: 3, piid: 1 }, // measure_battery
+      { did: "cleaning_mode", siid: 4, piid: 4 }, // vacuum_dreame_fanspeed
+      { did: "water_flow", siid: 4, piid: 5 }, // vacuum_dreame_mop_intensity
       { did: "brush_life_level", siid: 9, piid: 2 }, // settings.main_brush_work_time
       { did: "filter_life_level", siid: 11, piid: 1 }, // settings.filter_work_time
       { did: "brush_life_level2", siid: 10, piid: 2 }, // settings.side_brush_work_time
-      { did: "cleaning_mode", siid: 4, piid: 4 }, // vacuum_dreame_fanspeed
       { did: "total_clean_time", siid: 12, piid: 2 }, // settings.total_work_time
       { did: "total_clean_times", siid: 12, piid: 3 }, // settings.clean_count
       { did: "total_clean_area", siid: 12, piid: 4 }, // settings.total_cleared_area
-      { did: "water_flow", siid: 4, piid: 5 }, // vacuum_dreame_mop_intensity
-      { did: "water_box_carriage_status", siid: 4, piid: 6 } //
     ],
     "set_properties": {
       "start_clean": { siid: 4, aiid: 1, did: "call-4-1", in: [] },
@@ -283,6 +275,7 @@ class AdvancedDreameMiotDevice extends Device {
       /* data */
       const device_status = result.find(obj => obj.did === 'device_status');
       const battery_level = result.find(obj => obj.did === 'battery_level');
+      const rooms = result.find(obj => obj.did === 'rooms');
       const cleaning_mode = result.find(obj => obj.did === 'cleaning_mode');
       const brush_life_level = result.find(obj => obj.did === 'brush_life_level');
       const brush_life_level2 = result.find(obj => obj.did === 'brush_life_level2');
@@ -350,6 +343,13 @@ class AdvancedDreameMiotDevice extends Device {
 
       /* totals */
       this.vacuumTotals(totals);
+
+      /* room ID settings */
+      if (rooms !== undefined) {
+        await this.updateSettingValue("rooms", rooms.value);
+      } else {
+        await this.updateSettingValue("rooms", "Not supported for this model");
+      }
 
       /* settings device error */
       const error = this.vacuumErrorCodes[device_fault.value];

@@ -92,28 +92,19 @@
   {
     "type": "group",
     "label": {
-      "en": "Room cleaning",
-      "nl": "Kamer stofzuigen"
+      "en": "Device data",
+      "nl": "Apparaat data"
     },
     "children": [
       {
         "id": "rooms",
         "type": "label",
         "label": {
-          "en": "Room segments",
-          "nl": "Kamer segmenten"
+          "en": "Room cleaning segments",
+          "nl": "Kamer stofzuig segmenten"
         },
         "value": "[17,20,21]"
-      }
-    ]
-  },
-  {
-    "type": "group",
-    "label": {
-      "en": "Device data",
-      "nl": "Apparaat data"
-    },
-    "children": [
+      },
       {
         "id": "error",
         "type": "label",

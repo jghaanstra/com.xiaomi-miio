@@ -20,7 +20,7 @@ const properties = {
   "default": {
     "get_properties": [
       { did: "error", siid: 2, piid: 1 }, // settings.error
-      { did: "foodlevel", siid: 2, piid: 5 }, // petfeeder_foodlevel
+      { did: "foodlevel", siid: 2, piid: 6 }, // petfeeder_foodlevel
       { did: "light", siid: 3, piid: 1 }, // settings.led
       { did: "buzzer", siid: 6, piid: 1 }, // settings.buzzer      
     ],

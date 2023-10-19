@@ -187,5 +187,8 @@
   },
   "3.2.17": {
     "en": "This release adds support for Roborock Q5 Pro (roborock.vacuum.a72) and it adds experimental and basic support for Xiaomi Smart Pet Food Feeder (mmgg.feeder.*). It also fixes a bug with on/off for certain Xiaomi Air Purifier models."
+  },
+  "3.2.18": {
+    "en": "This release adds support for Smartmi Smart Convector Heater 1S (zhimi.heater.zb1a). It also saves the room ID’s of some Dreame vacuum models to be used in the room cleaning card. And there is a small fix for setting the mode on Xiaomi Smart Purifier Elite (zhimi.airp.meb1) in there."
   }
 }

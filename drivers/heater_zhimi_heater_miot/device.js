@@ -15,6 +15,7 @@ const mapping = {
   "zhimi.heater.za2": "properties_za2",
 	"leshow.heater.bs1s": "properties_bs1s",
 	"zhimi.heater.nb1": "properties_nb1",
+  "zhimi.heater.zb1a": "properties_zb1a",
   "zhimi.heater.*": "properties_mc2"
 };
 
@@ -90,6 +91,23 @@ const properties = {
       "child_lock": {siid: 7, piid: 1 },
       "heater_zhimi_heatlevel": { siid: 2, piid: 3 },
       "heater_zhimi_oscillation": { siid: 2, piid: 4 }
+    }
+  },
+  "properties_zb1a": {
+    "get_properties": [
+      { did: "power", siid: 2, piid: 2 }, // onoff
+      { did: "target_temperature", siid: 2, piid: 6 }, // heater_zhimi_heater_target_temperature
+      { did: "buzzer", siid: 3, piid: 1 }, // settings.buzzer
+      { did: "temperature", siid: 5, piid: 8 }, // measure_temperature
+      { did: "light", siid: 6, piid: 1 }, // settings.led
+      { did: "child_lock", siid: 7, piid: 1 }, // settings.childLock
+    ],
+    "set_properties": {
+      "onoff": { siid: 2, piid: 2 },
+      "target_temperature": { siid: 2, piid: 6 },
+      "buzzer": {siid: 3, piid: 1 },
+      "light": {siid: 6, piid: 1 },
+      "child_lock": {siid: 7, piid: 1 }
     }
   }
 }

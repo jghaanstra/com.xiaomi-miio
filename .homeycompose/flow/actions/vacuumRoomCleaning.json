@@ -32,7 +32,7 @@
         "en": "Select Vacuum",
         "nl": "Selecteer stofzuiger"
       },
-      "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6|vacuum_dreame_vacuum"
+      "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_dreame_vacuum"
     }
   ],
   "platforms": ["local"]
