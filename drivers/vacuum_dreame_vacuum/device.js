@@ -17,6 +17,7 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/dreame.vacuum.p2041
 // https://home.miot-spec.com/spec/dreame.vacuum.p2029
 // https://home.miot-spec.com/spec/dreame.vacuum.p2041
+// https://home.miot-spec.com/spec/dreame.vacuum.r2205
 
 const mapping = {
   "dreame.vacuum.mc1808": "properties_mc1808",
@@ -30,6 +31,7 @@ const mapping = {
 	"dreame.vacuum.p2150o": "properties_p2008",
 	"dreame.vacuum.p2041": "properties_p2008",
 	"dreame.vacuum.p2041": "properties_p2029",
+  "dreame.vacuum.r2205": "properties_r2205",
   "dreame.vacuum.*": "properties_p2008",
 };
 
@@ -88,6 +90,29 @@ const properties = {
       { did: "brush_life_level", siid: 9, piid: 2 }, // settings.main_brush_work_time
       { did: "filter_life_level", siid: 11, piid: 1 }, // settings.filter_work_time
       { did: "brush_life_level2", siid: 10, piid: 2 }, // settings.side_brush_work_time
+      { did: "total_clean_time", siid: 12, piid: 2 }, // settings.total_work_time
+      { did: "total_clean_times", siid: 12, piid: 3 }, // settings.clean_count
+      { did: "total_clean_area", siid: 12, piid: 4 }, // settings.total_cleared_area
+    ],
+    "set_properties": {
+      "start_clean": { siid: 4, aiid: 1, did: "call-4-1", in: [] },
+      "stop_clean": { siid: 4, aiid: 2, did: "call-4-2", in: [] },
+      "home": { siid: 3, aiid: 1, did: "call-3-1", in: [] },
+      "fanspeed": { siid: 4, piid: 4 },
+      "mop_intensity": { siid: 4, piid: 5 }
+    }
+  },
+  "properties_r2205": {
+    "get_properties": [
+      { did: "device_status", siid: 2, piid: 1 }, // vacuumcleaner_state
+      { did: "device_fault", siid : 2, piid: 2 }, // settings.error
+      { did: "cleaning_mode", siid: 2, piid: 3 }, // vacuum_dreame_fanspeed
+      { did: "rooms", siid: 2, piid: 4 }, // settings.rooms
+      { did: "battery_level", siid: 3, piid: 1 }, // measure_battery
+      { did: "water_flow", siid: 4, piid: 5 }, // vacuum_dreame_mop_intensity
+      { did: "brush_life_level", siid: 9, piid: 2 }, // settings.main_brush_work_time
+      { did: "brush_life_level2", siid: 10, piid: 2 }, // settings.side_brush_work_time
+      { did: "filter_life_level", siid: 11, piid: 1 }, // settings.filter_work_time
       { did: "total_clean_time", siid: 12, piid: 2 }, // settings.total_work_time
       { did: "total_clean_times", siid: 12, piid: 3 }, // settings.clean_count
       { did: "total_clean_area", siid: 12, piid: 4 }, // settings.total_cleared_area
@@ -304,10 +329,12 @@ class AdvancedDreameMiotDevice extends Device {
         case 1:
         case 5:
         case 7:
+        case 12:
           this.vacuumCleanerState("cleaning");
           break;
         case 2:
         case 3:
+        case 11:
           this.vacuumCleanerState("stopped");
           break;
         case 6:
@@ -319,6 +346,10 @@ class AdvancedDreameMiotDevice extends Device {
           break;
         case 4:
           this.vacuumCleanerState("stopped_error");
+          break;
+        case 13:
+        case 14:
+          this.vacuumCleanerState("docked");
           break;
         default:
           this.log("Not a valid vacuumcleaner_state", device_status.value);

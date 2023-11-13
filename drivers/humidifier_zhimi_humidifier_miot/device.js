@@ -76,7 +76,22 @@ class MiHumidifierCa4Device extends Device {
         try {
           if (this.miio) {
             const speed = this.util.denormalize(value, 200, 2000);
-            return await this.miio.call("set_properties", [{ siid: 2, piid: 6, value: speed }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ siid: 2, piid: 11, value: speed }], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
+      this.registerCapabilityListener('dim.target', async ( value ) => {
+        try {
+          if (this.miio) {
+            return await this.miio.call("set_properties", [{ siid: 2, piid: 6, value: value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();

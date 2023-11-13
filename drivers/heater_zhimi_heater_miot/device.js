@@ -9,6 +9,7 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/zhimi.heater.za2
 // https://home.miot-spec.com/spec/leshow.heater.bs1s
 // https://home.miot-spec.com/spec/zhimi.heater.nb1
+// https://home.miot-spec.com/spec/zhimi.heater.zb1a
 
 const mapping = {
   "zhimi.heater.mc2": "properties_mc2",

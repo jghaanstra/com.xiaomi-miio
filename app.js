@@ -22,6 +22,20 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.settings.on('set', this.onSettingsChanged);
     this.homey.settings.on('unset', this.onSettingsChanged);
 
+    // GENERIC CARDS
+    this.homey.flow.getActionCard('enableLED')
+      .registerRunListener(async (args) => {
+        try {
+          if (args.device.deviceProperties.device_properties.light.max !== undefined) {
+            return await args.device.miio.call("set_properties", [{ siid: args.device.deviceProperties.set_properties.light.siid, piid: args.device.deviceProperties.set_properties.light.piid, value: Number(args.led) === 1 ? args.device.deviceProperties.device_properties.light.max : args.device.deviceProperties.device_properties.light.min }], { retries: 1 });
+          } else {
+            return await args.device.miio.call("set_properties", [{ siid: args.device.deviceProperties.set_properties.light.siid, piid: args.device.deviceProperties.set_properties.light.piid, value: Number(args.led) }], { retries: 1 });
+          }
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
     // VACUUMS
     this.homey.flow.getActionCard('findVacuum')
       .registerRunListener(async (args) => {
@@ -232,6 +246,15 @@ class XiaomiMiioApp extends Homey.App {
           return Promise.reject(error.message);
         }
       });
+
+    this.homey.flow.getActionCard('humidifierXiaomiMode')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.triggerCapabilityListener('humidifier_xiaomi_mode', args.mode);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
     
     this.homey.flow.getActionCard('modeHumidifierDeerma')
       .registerRunListener(async (args) => {
@@ -288,7 +311,7 @@ class XiaomiMiioApp extends Homey.App {
             return await args.device.miio.call('set_led', [args.brightness === "3" ? "off" : "on"], { retries: 1 });
           } else {
             return await args.device.miio.call('set_led_b', [Number(args.brightness)], { retries: 1 });
-          }          
+          }     
         } catch (error) {
           return Promise.reject(error.message);
         }

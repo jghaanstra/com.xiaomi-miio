@@ -35,7 +35,7 @@
         "en": "Select Humidifier 2",
         "nl": "Selecteer Humidifier 2"
       },
-      "filter": "driver_id=humidifier_zhimi_humidifier|humidifier_zhimi_humidifier_miot"
+      "filter": "driver_id=humidifier_zhimi_humidifier|humidifier_zhimi_humidifier_miot|humidifier_xiaomi_humidifier"
     }
   ],
   "platforms": ["local"]

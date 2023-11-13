@@ -31,7 +31,20 @@ class MiHumidifierDevice extends Device {
       this.homey.flow.getDeviceTriggerCard('humidifier2Waterlevel');
 
       // LISTENERS FOR UPDATING CAPABILITIES
-      this.registerCapabilityListener("onoff", this.onCapabilityOnoff.bind(this));
+      this.registerCapabilityListener('onoff', async ( value ) => {
+        try {
+          if (this.miio) {
+            return await this.miio.call("set_power", [value ? "on" : "off"]);
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
 
       this.registerCapabilityListener('onoff.dry', async ( value ) => {
         try {

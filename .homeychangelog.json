@@ -190,5 +190,8 @@
   },
   "3.2.18": {
     "en": "This release adds support for Smartmi Smart Convector Heater 1S (zhimi.heater.zb1a). It also saves the room ID’s of some Dreame vacuum models to be used in the room cleaning card. And there is a small fix for setting the mode on Xiaomi Smart Purifier Elite (zhimi.airp.meb1) in there."
+  },
+  "3.2.19": {
+    "en": "This release adds for some Humidifier v2 models (zhimi.humidifier.cb1 & cb2), Mijia Mistless Humidifier 3 Pro (xiaomi.humidifier.airmx) and the Dreame D10 Plus (dreame.vacuum.r2205). It also adds an action card for enabling/disabling the LED light on certain models that support it. And it contains a possible fix for toggling the power on some Smartmi Humidifiers v1/v2 and crashes on the Airfryer driver."
   }
 }

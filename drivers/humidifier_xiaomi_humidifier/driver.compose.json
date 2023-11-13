@@ -1,0 +1,40 @@
+{
+  "name": {
+    "en": "Xiaomi/Mijia Humidifier MIoT (WiFi)",
+    "nl": "Xiaomi/Mijia Humidifier MIoT (WiFi)"
+  },
+  "images": {
+    "large": "drivers/humidifier_xiaomi_humidifier/assets/images/large.jpg",
+    "small": "drivers/humidifier_xiaomi_humidifier/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "onoff.dry",
+    "dim",
+    "measure_temperature",
+    "measure_humidity",
+    "measure_waterlevel",
+    "humidifier_xiaomi_mode"
+  ],
+  "capabilitiesOptions": {
+    "onoff.dry": {
+      "title": {
+        "en": "Dry mode",
+        "nl": "Droog modus"
+      }
+    },
+    "dim": {
+      "title": {
+        "en": "Target Humidity",
+        "nl": "Doel luchtvochtigheid"
+      },
+      "min": 40,
+      "max": 70,
+      "step": 10
+    }
+  }
+}

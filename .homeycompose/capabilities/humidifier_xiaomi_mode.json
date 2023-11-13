@@ -1,0 +1,54 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Mode",
+    "nl": "Modus"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Constant Humidity",
+        "nl": "Constante luchtvochtigheid"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Strong",
+        "nl": "Sterk"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Sleep",
+        "nl": "Slaapstand"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "Air-dry",
+        "nl": "Air-dry"
+      }
+    },
+    {
+      "id": "4",
+      "title": {
+        "en": "Clean",
+        "nl": "Schonen"
+      }
+    },
+    {
+      "id": "5",
+      "title": {
+        "en": "Descale",
+        "nl": "Descale"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "icon": "/assets/icons/humidifier-mode.svg"
+}

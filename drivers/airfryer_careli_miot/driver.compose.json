@@ -13,6 +13,7 @@
   ],
   "capabilities": [
     "onoff",
+    "airfryer_careli_mode",
     "airfryer_careli_target_time",
     "airfryer_careli_target_temperature",
     "onoff.preheat",

@@ -32,12 +32,6 @@ const properties = {
   }
 }
 
-const modes = {
-  0: "Normal",
-  1: "Low",
-  2: "Empty"
-};
-
 class PetwaterFeederMmggMiotDevice extends Device {
 
   async onInit() {
@@ -57,11 +51,14 @@ class PetwaterFeederMmggMiotDevice extends Device {
         5: "Timeout"
       }
 
+      this.modes = {
+        0: "Normal",
+        1: "Low",
+        2: "Empty"
+      };
+
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
-
-      // LISTENERS FOR UPDATING CAPABILITIES
-
 
     } catch (error) {
       this.error(error);
@@ -112,7 +109,7 @@ class PetwaterFeederMmggMiotDevice extends Device {
       if (this.getCapabilityValue('petfeeder_foodlevel') !== foodlevel.value.toString()) {
         const previous_mode = this.getCapabilityValue('petfeeder_foodlevel');
         await this.setCapabilityValue('petfeeder_foodlevel', foodlevel.value.toString());
-        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[foodlevel.value], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
+        await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": this.modes[foodlevel.value], "previous_mode": this.modes[+previous_mode] }).catch(error => { this.error(error) });
       }
 
     } catch (error) {

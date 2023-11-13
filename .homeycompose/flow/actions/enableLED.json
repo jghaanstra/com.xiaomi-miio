@@ -1,0 +1,46 @@
+{
+  "title": {
+    "en": "Enable LED",
+    "nl": "Instellen LED"
+  },
+  "titleFormatted": {
+    "en": "Set LED [[led]]",
+    "nl": "Wijzig LED naar [[led]]"
+  },
+  "args": [
+    {
+      "name": "led",
+      "title": {
+        "en": "LED",
+        "nl": "LED"
+      },
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Off",
+            "nl": "Uit"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "On",
+            "nl": "Aan"
+          }
+        }
+      ]
+    },
+    {
+      "name": "device",
+      "type": "device",
+      "placeholder": {
+        "en": "Select Device",
+        "nl": "Selecteer apparaat"
+      },
+      "filter": "driver_id=airpurifier_zhimi_advanced_miot|fan_dmaker_advanced|heater_zhimi_heater_miot|humidifier_xiaomi_humidifier|petfeeder_mmgg_miot|petwaterdispenser_mmgg_miot"
+    }
+  ],
+  "platforms": ["local"]
+}
