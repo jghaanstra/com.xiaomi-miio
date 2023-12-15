@@ -23,7 +23,16 @@
     "dim": {
       "title": {
         "en": "Target humidity",
-        "nl": "Doel luchtvochtigheid"
+        "nl": "Doel luchtvochtigheid",
+        "de": "Ziel-Luftfeuchtigkeit",
+        "fr": "Humidité cible",
+        "it": "Umidità obiettivo",
+        "sv": "Måluftfuktighet",
+        "no": "Måluftfuktighet",
+        "es": "Humedad objetivo",
+        "da": "Mål luftfugtighed",
+        "ru": "Целевая влажность",
+        "pl": "Docelowa wilgotność"
       },
       "min": 0.4,
       "max": 0.8
@@ -31,7 +40,16 @@
     "alarm_water": {
       "title": {
         "en": "Waterlevel",
-        "nl": "Waterniveau"
+        "nl": "Waterniveau",
+        "de": "Wasserstand",
+        "fr": "Niveau d'eau",
+        "it": "Livello dell'acqua",
+        "sv": "Vattennivå",
+        "no": "Vannivå",
+        "es": "Nivel de agua",
+        "da": "Vandniveau",
+        "ru": "Уровень воды",
+        "pl": "Poziom wody"
       }
     }
   }

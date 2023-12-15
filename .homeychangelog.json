@@ -193,5 +193,8 @@
   },
   "3.2.19": {
     "en": "This release adds for some Humidifier v2 models (zhimi.humidifier.cb1 & cb2), Mijia Mistless Humidifier 3 Pro (xiaomi.humidifier.airmx) and the Dreame D10 Plus (dreame.vacuum.r2205). It also adds an action card for enabling/disabling the LED light on certain models that support it. And it contains a possible fix for toggling the power on some Smartmi Humidifiers v1/v2 and crashes on the Airfryer driver."
+  },
+  "3.2.20": {
+    "en": "This release attempts to fix the Advanced Dreame Vacuum Cleaner driver which is giving errors in certain scenarios. It also adds support for Roborock S7 Max Ultra (roborock.vacuum.a65), adds a pause cleaning session action card to Advanced Roborock driver and adds a enable notification sound action card to some models that support it and expanded support for the enable LED action card to more models."
   }
 }

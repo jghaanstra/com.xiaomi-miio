@@ -1,18 +1,18 @@
 {
   "title": {
-    "en": "Enable LED",
-    "nl": "Instellen LED"
+    "en": "Enable notification sound",
+    "nl": "Instellen notificatie geluid"
   },
   "titleFormatted": {
-    "en": "Set LED [[led]]",
-    "nl": "Wijzig LED naar [[led]]"
+    "en": "Set notification sound [[sound]]",
+    "nl": "Wijzig notificatie geluid naar [[sound]]"
   },
   "args": [
     {
-      "name": "led",
+      "name": "sound",
       "title": {
-        "en": "LED",
-        "nl": "LED"
+        "en": "Sound",
+        "nl": "Geluid"
       },
       "type": "dropdown",
       "values": [

@@ -36,11 +36,29 @@ class XiaomiMiioApp extends Homey.App {
         }
       });
 
+    this.homey.flow.getActionCard('enableBuzzer')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.miio.call("set_properties", [{ siid: args.device.deviceProperties.set_properties.buzzer.siid, piid: args.device.deviceProperties.set_properties.buzzer.piid, value: Number(args.sound) }], { retries: 1 });
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
     // VACUUMS
     this.homey.flow.getActionCard('findVacuum')
       .registerRunListener(async (args) => {
         try {
           return await args.device.miio.find();
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('vacuumRoborockPause')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.miio.pause();
         } catch (error) {
           return Promise.reject(error.message);
         }

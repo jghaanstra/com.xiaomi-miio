@@ -10,16 +10,35 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/deerma.humidifier.jsq5
 // https://home.miot-spec.com/spec/deerma.humidifier.jsq2w
 
-const params = [
-  { did: "power", siid: 2, piid: 1 }, // onoff
-  { did: "watertank_shortage_fault", siid: 7, piid: 1 }, // alarm.water
-  { did: "mode", siid: 2, piid: 5 }, // humidifier_deerma_jsq_mode
-  { did: "target_humidity", siid: 2, piid: 6 }, // dim [30, 40, 50, 60, 70, 80]
-  { did: "relative_humidity", siid: 3, piid: 1 }, // measure_humidity
-  { did: "temperature", siid: 3, piid: 7 }, // measure_temperature
-  { did: "buzzer", siid: 5, piid: 1 }, // settings.buzzer
-  { did: "led_light", siid: 6, piid: 1 }, // settings.led  
-];
+const mapping = {
+  "deerma.humidifier.jsqs": "mapping_default",
+  "deerma.humidifier.jsq4": "mapping_default",
+  "deerma.humidifier.jsq5": "mapping_default",
+  "deerma.humidifier.jsq2w": "mapping_default",
+  "deerma.humidifier.*": "mapping_default",
+};
+
+const properties = {
+  "mapping_default": {
+    "get_properties": [
+      { did: "power", siid: 2, piid: 1 }, // onoff
+      { did: "watertank_shortage_fault", siid: 7, piid: 1 }, // alarm.water
+      { did: "mode", siid: 2, piid: 5 }, // humidifier_deerma_jsq_mode
+      { did: "target_humidity", siid: 2, piid: 6 }, // dim [30, 40, 50, 60, 70, 80]
+      { did: "relative_humidity", siid: 3, piid: 1 }, // measure_humidity
+      { did: "temperature", siid: 3, piid: 7 }, // measure_temperature
+      { did: "buzzer", siid: 5, piid: 1 }, // settings.buzzer
+      { did: "led_light", siid: 6, piid: 1 }, // settings.led
+    ],
+    "set_properties": {
+      "power": { siid: 2, piid: 2 },
+      "mode": { siid: 2, piid: 5 },
+      "target_humidity": { siid: 2, piid: 6 },
+      "buzzer": { siid: 5, piid: 1 },
+      "light": { siid: 6, piid: 1 }
+    }
+  }
+}
 
 const modes = {
   1: "Level 1",
@@ -37,6 +56,9 @@ class HumidifierDeermaMiotDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // DEVICE VARIABLES
+      this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['deerma.humidifier.*']];
+
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 
@@ -44,7 +66,7 @@ class HumidifierDeermaMiotDevice extends Device {
       this.registerCapabilityListener('onoff', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ siid: 2, piid: 1, value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.power.siid, piid: this.deviceProperties.set_properties.power.piid, value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -60,7 +82,7 @@ class HumidifierDeermaMiotDevice extends Device {
         try {
           if (this.miio) {
             let humidity = value * 100;
-            return await this.miio.call("set_properties", [{ siid: 2, piid: 6, value: humidity }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.target_humidity.siid, piid: this.deviceProperties.set_properties.target_humidity.piid, value: humidity }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -75,7 +97,7 @@ class HumidifierDeermaMiotDevice extends Device {
       this.registerCapabilityListener('humidifier_deerma_jsq_mode', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ siid: 2, piid: 5, value: +value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.mode.siid, piid: this.deviceProperties.set_properties.mode.piid, value: +value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -98,11 +120,11 @@ class HumidifierDeermaMiotDevice extends Device {
     }
 
     if (changedKeys.includes("led")) {
-      const led = await this.miio.call("set_properties", [{ siid: 6, piid: 1, value: newSettings.led }], { retries: 1 });
+      const led = await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.light.siid, piid: this.deviceProperties.set_properties.light.piid, value: newSettings.led }], { retries: 1 });
     }
 
     if (changedKeys.includes("buzzer")) {
-      const buzzer = await this.miio.call("set_properties", [{ siid: 5, piid: 1, value: newSettings.buzzer }], { retries: 1 });
+      const buzzer = await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.buzzer.siid, piid: this.deviceProperties.set_properties.buzzer.piid, value: newSettings.buzzer }], { retries: 1 });
     }
 
     return Promise.resolve(true);
@@ -111,7 +133,7 @@ class HumidifierDeermaMiotDevice extends Device {
   async retrieveDeviceData() {
     try {
 
-      const result = await this.miio.call("get_properties", params, { retries: 1 });
+      const result = await this.miio.call("get_properties", this.deviceProperties.get_properties, { retries: 1 });
       if (!this.getAvailable()) { await this.setAvailable(); }
 
       /* data */

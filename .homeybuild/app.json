@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.2.19",
+  "version": "3.2.20",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -1697,6 +1697,55 @@
         ]
       },
       {
+        "title": {
+          "en": "Enable notification sound",
+          "nl": "Instellen notificatie geluid"
+        },
+        "titleFormatted": {
+          "en": "Set notification sound [[sound]]",
+          "nl": "Wijzig notificatie geluid naar [[sound]]"
+        },
+        "args": [
+          {
+            "name": "sound",
+            "title": {
+              "en": "Sound",
+              "nl": "Geluid"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Device",
+              "nl": "Selecteer apparaat"
+            },
+            "filter": "driver_id=airpurifier_zhimi_advanced_miot|fan_dmaker_advanced|heater_zhimi_heater_miot|humidifier_xiaomi_humidifier|petfeeder_mmgg_miot|petwaterdispenser_mmgg_miot|humidifier_deerma_humidifier_miot|humidifier_zhimi_humidifier_miot"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "enableBuzzer"
+      },
+      {
         "id": "enableChildLock",
         "title": {
           "en": "Enable Child Lock",
@@ -1842,7 +1891,7 @@
               "en": "Select Device",
               "nl": "Selecteer apparaat"
             },
-            "filter": "driver_id=airpurifier_zhimi_advanced_miot|fan_dmaker_advanced|heater_zhimi_heater_miot|humidifier_xiaomi_humidifier|petfeeder_mmgg_miot|petwaterdispenser_mmgg_miot"
+            "filter": "driver_id=airpurifier_zhimi_advanced_miot|fan_dmaker_advanced|heater_zhimi_heater_miot|humidifier_xiaomi_humidifier|petfeeder_mmgg_miot|petwaterdispenser_mmgg_miot|humidifier_deerma_humidifier_miot|humidifier_zhimi_humidifier_miot"
           }
         ],
         "platforms": [
@@ -4117,6 +4166,27 @@
         "platforms": [
           "local"
         ]
+      },
+      {
+        "title": {
+          "en": "Pause cleaning",
+          "nl": "Schoonmaken pauzeren"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Vacuum",
+              "nl": "Selecteer stofzuiger"
+            },
+            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "vacuumRoborockPause"
       },
       {
         "title": {
@@ -8057,7 +8127,16 @@
         "dim": {
           "title": {
             "en": "Target humidity",
-            "nl": "Doel luchtvochtigheid"
+            "nl": "Doel luchtvochtigheid",
+            "de": "Ziel-Luftfeuchtigkeit",
+            "fr": "Humidité cible",
+            "it": "Umidità obiettivo",
+            "sv": "Måluftfuktighet",
+            "no": "Måluftfuktighet",
+            "es": "Humedad objetivo",
+            "da": "Mål luftfugtighed",
+            "ru": "Целевая влажность",
+            "pl": "Docelowa wilgotność"
           },
           "min": 0.4,
           "max": 0.8
@@ -8065,7 +8144,16 @@
         "alarm_water": {
           "title": {
             "en": "Waterlevel",
-            "nl": "Waterniveau"
+            "nl": "Waterniveau",
+            "de": "Wasserstand",
+            "fr": "Niveau d'eau",
+            "it": "Livello dell'acqua",
+            "sv": "Vattennivå",
+            "no": "Vannivå",
+            "es": "Nivel de agua",
+            "da": "Vandniveau",
+            "ru": "Уровень воды",
+            "pl": "Poziom wody"
           }
         }
       },

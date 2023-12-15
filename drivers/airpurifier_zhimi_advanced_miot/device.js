@@ -246,7 +246,7 @@ const properties = {
       "light": { siid: 13, piid: 2 }
     },
     "device_properties": {
-      "light": { "min": 2, "max": 0 }
+      "light": { "min": 0, "max": 2 }
     }
   },
 }

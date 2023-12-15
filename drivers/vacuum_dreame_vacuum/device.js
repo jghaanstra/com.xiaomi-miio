@@ -187,6 +187,7 @@ class AdvancedDreameMiotDevice extends Device {
       this.main_brush_lifetime_token = await this.homey.flow.createToken("main_brush_lifetime"+ this.getData().id, {type: "number", title: "Main Brush Lifetime " + this.getName() +" (%)" });
       this.side_brush_lifetime_token = await this.homey.flow.createToken("side_brush_lifetime"+ this.getData().id, {type: "number", title: "Side Brush Lifetime " + this.getName() +" (%)" });
       this.filter_lifetime_token = await this.homey.flow.createToken("filter_lifetime"+ this.getData().id, {type: "number", title: "Filter LifeTime " + this.getName() +" (%)" });
+      this.sensor_dirty_lifetime_token = await this.homey.flow.createToken("sensor_dirty_lifetime"+ this.getData().id, {type: "number", title: "Sensor Dirty Time " + this.getName() +" (%)" });
       this.total_work_time_token = await this.homey.flow.createToken("total_work_time"+ this.getData().id, {type: "number", title: "Total Work Time " + this.getName() +" h)" });
       this.total_cleared_area_token = await this.homey.flow.createToken("total_cleared_area"+ this.getData().id, {type: "number", title: "Total Cleaned Area " + this.getName() +" (m2)" });
       this.total_clean_count_token = await this.homey.flow.createToken("total_clean_count"+ this.getData().id, {type: "number", title: "Total Clean Count "+ this.getName() });
@@ -321,7 +322,7 @@ class AdvancedDreameMiotDevice extends Device {
       const totals = {
         "clean_time": total_clean_time.value,
         "clean_count": total_clean_times.value,
-        "clean_area": total_clean_area.value,
+        "clean_area": total_clean_area.value
       }
 
       /* onoff & vacuumcleaner_state */
@@ -383,8 +384,8 @@ class AdvancedDreameMiotDevice extends Device {
       }
 
       /* settings device error */
-      const error = this.vacuumErrorCodes[device_fault.value];
-      if (this.getSetting('error') !== error ) {
+      const error = this.vacuumErrorCodes[device_fault.value] || String(device_fault.value);
+      if (this.getSetting('error') !== error && error !== undefined) {
         await this.setSettings({ error: error });
         if (error !== 0) {
           await this.homey.flow.getDeviceTriggerCard('statusVacuum').trigger(this, {"status": error }).catch(error => { this.error(error) });

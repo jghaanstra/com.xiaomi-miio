@@ -1,6 +1,6 @@
 {
   "name": "com.xiaomi-miio",
-  "version": "3.2.19",
+  "version": "3.2.20",
   "main": "app.js",
   "scripts": {},
   "devDependencies": {
