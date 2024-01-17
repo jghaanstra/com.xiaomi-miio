@@ -272,7 +272,6 @@ class MiRobotAdvancedDevice extends Device {
       /* vacuumcleaner_state */
       switch (result[0]["state"]) {
         case 1:
-        case 4:
         case 5:
         case 6:
         case 7:
@@ -285,6 +284,7 @@ class MiRobotAdvancedDevice extends Device {
           this.vacuumCleanerState("spot_cleaning");
           break;
         case 3:
+        case 4:
         case 10:
         case 13:
           this.vacuumCleanerState("stopped");

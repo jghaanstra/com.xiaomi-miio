@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.2.20",
+  "version": "3.2.21",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -5162,7 +5162,7 @@
       ],
       "name": {
         "en": "Advanced Older Mi Air Purifier (WiFi)",
-        "nl": "Geadvanceerde oudere Mi Air Purifier (WiFi)"
+        "nl": "Geavanceerde oudere Mi Air Purifier (WiFi)"
       },
       "images": {
         "large": "drivers/airpurifier_zhimi_advanced/assets/images/large.jpg",
@@ -5320,7 +5320,7 @@
       ],
       "name": {
         "en": "Advanced Mi Air Purifier MIoT (WiFi)",
-        "nl": "Geadvanceerde Mi Air Purifier MIoT (WiFi)"
+        "nl": "Geavanceerde Mi Air Purifier MIoT (WiFi)"
       },
       "images": {
         "large": "drivers/airpurifier_zhimi_advanced_miot/assets/images/large.jpg",
@@ -11824,7 +11824,7 @@
       ],
       "name": {
         "en": "Advanced Dreame Vacuum Cleaner MIoT (WiFi)",
-        "nl": "Geadvanceerde Dreame stofzuiger MIoT (WiFi)"
+        "nl": "Geavanceerde Dreame stofzuiger MIoT (WiFi)"
       },
       "images": {
         "large": "drivers/vacuum_dreame_vacuum/assets/images/large.jpg",
@@ -12035,7 +12035,7 @@
       ],
       "name": {
         "en": "Advanced Roborock Vacuum Cleaner (WiFi)",
-        "nl": "Geadvanceerde Roborock stofzuiger (WiFi)"
+        "nl": "Geavanceerde Roborock stofzuiger (WiFi)"
       },
       "images": {
         "large": "drivers/vacuum_mi_rockrobo_vacuum_advanced/assets/images/large.jpg",

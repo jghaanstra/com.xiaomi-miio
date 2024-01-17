@@ -31,7 +31,7 @@ const properties = {
       { did: "led_light", siid: 6, piid: 1 }, // settings.led
     ],
     "set_properties": {
-      "power": { siid: 2, piid: 2 },
+      "power": { siid: 2, piid: 1 },
       "mode": { siid: 2, piid: 5 },
       "target_humidity": { siid: 2, piid: 6 },
       "buzzer": { siid: 5, piid: 1 },

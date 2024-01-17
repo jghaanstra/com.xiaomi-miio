@@ -294,10 +294,12 @@ class GatewayDevice extends Device {
       if (Array.isArray(channels.chs)) {
         channels.chs.forEach(async (item, i, radios) => {
           await this.setSettings({[`favorite${i}ID`]: item.id + ", " + item.url});
+          await this.util.sleep(500);
           if (i == radios.length - 1) {
             i = radios.length;
             for (let j = i; j < 20; j++) {
-              this.setSettings({[`favorite${j}ID`]: ""});
+              await this.setSettings({[`favorite${j}ID`]: ""});
+              await this.util.sleep(500);
             }
           }
         });

@@ -18,6 +18,9 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/dreame.vacuum.p2029
 // https://home.miot-spec.com/spec/dreame.vacuum.p2041
 // https://home.miot-spec.com/spec/dreame.vacuum.r2205
+// https://home.miot-spec.com/spec/dreame.vacuum.r2228o
+// https://home.miot-spec.com/spec/dreame.vacuum.r2209
+
 
 const mapping = {
   "dreame.vacuum.mc1808": "properties_mc1808",
@@ -32,6 +35,8 @@ const mapping = {
 	"dreame.vacuum.p2041": "properties_p2008",
 	"dreame.vacuum.p2041": "properties_p2029",
   "dreame.vacuum.r2205": "properties_r2205",
+  "dreame.vacuum.r2228o": "properties_r2205",
+  "dreame.vacuum.r2209": "properties_r2205",
   "dreame.vacuum.*": "properties_p2008",
 };
 
