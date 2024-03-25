@@ -21,6 +21,7 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/zhimi.airp.rmb1 // Airpurifier 4 Lite
 // https://home.miot-spec.com/spec/zhimi.airpurifier.za1 // Smartmi Air Purifier
 // https://home.miot-spec.com/spec/zhimi.airp.meb1 // Xiaomi Smart Air Purifier Elite
+// https://home.miot-spec.com/spec/xiaomi.airp.cpa4 // Xiaomi Smart Air Purifier 4 Compact
 
 const mapping = {
   "zhimi.airpurifier.ma4": "mapping_default", 
@@ -39,6 +40,7 @@ const mapping = {
   "zhimi.airp.rmb1": "mapping_rmb1",
   "zhimi.airpurifier.za1": "mapping_za1",
   "zhimi.airp.meb1": "mapping_airp_meb1",
+  "xiaomi.airp.cpa4": "mapping_airp_cpa4",
   "zhimi.airpurifier.*": "mapping_default",
 };
 
@@ -240,6 +242,28 @@ const properties = {
     "set_properties": {
       "power": { siid: 2, piid: 1 },
       "fanlevel": { siid: 2, piid: 5 },
+      "mode": { siid: 2, piid: 4 },
+      "buzzer": { siid: 6, piid: 1 },
+      "child_lock": { siid: 8, piid: 1 },
+      "light": { siid: 13, piid: 2 }
+    },
+    "device_properties": {
+      "light": { "min": 0, "max": 2 }
+    }
+  },
+  "mapping_cpa4": {
+    "get_properties": [
+      { did: "power", siid: 2, piid: 1 }, // onoff
+      { did: "mode", siid: 2, piid: 4 }, // airpurifier_zhimi_mode
+      { did: "aqi", siid: 3, piid: 4 }, // measure_pm25
+      { did: "buzzer", siid: 6, piid: 1 }, // settings.buzzer
+      { did: "child_lock", siid: 8, piid: 1 }, // settings.childLock
+      { did: "light", siid: 13, piid: 2 }, // settings.led
+      { did: "filter_life_remaining", siid: 4, piid: 1 }, // settings.filter_life_remaining
+      { did: "filter_hours_used", siid: 4, piid: 3 } // settings.filter_hours_used
+    ],
+    "set_properties": {
+      "power": { siid: 2, piid: 1 },
       "mode": { siid: 2, piid: 4 },
       "buzzer": { siid: 6, piid: 1 },
       "child_lock": { siid: 8, piid: 1 },

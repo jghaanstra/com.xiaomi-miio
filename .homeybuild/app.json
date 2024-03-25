@@ -37,7 +37,7 @@
       "gateway"
     ]
   },
-  "version": "3.2.21",
+  "version": "3.2.22",
   "compatibility": ">=8.0.0",
   "platforms": [
     "local"
@@ -4356,6 +4356,58 @@
         ]
       },
       {
+        "id": "vacuumRoomCleaningRepeats",
+        "title": {
+          "en": "Start repeated room cleaning",
+          "nl": "Start herhaald kamer stofzuigen"
+        },
+        "titleFormatted": {
+          "en": "Send vacuum cleaner to clean room [[rooms]] and repeat [[repeats]] times",
+          "nl": "Stuur stofzuiger naar kamer [[rooms]] en herhaal [[repeats]] keer"
+        },
+        "hint": {
+          "en": "Enter the room ID's (comma seperated)",
+          "nl": "Voer kamer ID's in (gescheiden door een komma)"
+        },
+        "args": [
+          {
+            "name": "rooms",
+            "title": {
+              "en": "Room(s)",
+              "nl": "Kamer(s)"
+            },
+            "type": "text",
+            "placeholder": {
+              "en": "Room(s)",
+              "nl": "Kamer(s)"
+            }
+          },
+          {
+            "name": "repeats",
+            "title": {
+              "en": "Repeat",
+              "nl": "Herhaal"
+            },
+            "type": "number",
+            "min": 1,
+            "max": 3,
+            "step": 1
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Vacuum",
+              "nl": "Selecteer stofzuiger"
+            },
+            "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
         "title": {
           "en": "Set Sweep and Mop Mode",
           "nl": "Stel Sweep and Mop modus in"
@@ -7865,7 +7917,7 @@
         "large": "drivers/heater_zhimi_heater_miot/assets/images/large.jpg",
         "small": "drivers/heater_zhimi_heater_miot/assets/images/small.jpg"
       },
-      "class": "fan",
+      "class": "heater",
       "capabilities": [
         "onoff",
         "heater_zhimi_heater_target_temperature",
@@ -13791,6 +13843,7 @@
         "en": "°C",
         "nl": "°C"
       },
+      "uiComponent": "thermostat",
       "min": 16,
       "max": 30,
       "step": 1,

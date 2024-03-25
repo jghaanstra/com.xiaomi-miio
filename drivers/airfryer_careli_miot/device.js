@@ -11,6 +11,7 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/careli.fryer.maf02c // Mi Smart Air Fryer (3.5L)
 // https://home.miot-spec.com/spec/careli.fryer.maf07  // Mi Smart Air Fryer (3.5L)
 // https://home.miot-spec.com/spec/careli.fryer.maf02  // Mi Smart Air Fryer (3.5L)
+// https://home.miot-spec.com/spec/careli.fryer.maf10a  // Mi Smart Air Fryer 6.5L
 
 
 const mapping = {
@@ -20,6 +21,7 @@ const mapping = {
   "careli.fryer.maf02c": "properties_default",
   "careli.fryer.maf07": "properties_default",
   "careli.fryer.maf02": "properties_default",
+  "careli.fryer.maf10a": "properties_maf10a",
   "careli.fryer.*": "properties_default",
 };
 
@@ -32,6 +34,18 @@ const properties = {
       { did: "target_temperature", siid: 2, piid: 4 }, // airfryer_careli_target_temperature
       { did: "food_quantity", siid: 3, piid: 6 }, // airfryer_careli_food_quantity
       { did: "preheat_switch", siid: 3, piid: 7 } // onoff.preheat
+    ],
+    "set_properties": {
+      "start_cook": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
+      "stop_cook": { siid: 2, aiid: 2, did: "call-2-2", in: [] }
+    }
+  },
+  "properties_maf10a": {
+    "get_properties": [
+      { did: "status", siid: 2, piid: 1 }, // airfryer_careli_mode
+      { did: "fault", siid : 2, piid: 2 }, // settings.error
+      { did: "target_time", siid: 2, piid: 3 }, // airfryer_careli_target_time
+      { did: "target_temperature", siid: 2, piid: 4 } // airfryer_careli_target_temperature
     ],
     "set_properties": {
       "start_cook": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
@@ -61,11 +75,6 @@ class AirfryerCareliMiotDevice extends Device {
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
-
-      // TODO: remove after the next release
-      if (!this.hasCapability('airfryer_careli_mode')) {
-        this.addCapability('airfryer_careli_mode');
-      }
 
       // DEVICE VARIABLES
       this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['careli.fryer.*']];
@@ -185,7 +194,10 @@ class AirfryerCareliMiotDevice extends Device {
       /* capabilities */
       await this.updateCapabilityValue("airfryer_careli_target_time", target_time.value);
       await this.updateCapabilityValue("airfryer_careli_target_temperature", target_temperature.value);
-      await this.updateCapabilityValue("airfryer_careli_food_quantity", food_quantity.value.toString());
+
+      if (food_quantity !== undefined) {
+        await this.updateCapabilityValue("airfryer_careli_food_quantity", food_quantity.value.toString());
+      }
 
       /* settings */
       const error = this.errorCodes[fault.value];
@@ -205,13 +217,15 @@ class AirfryerCareliMiotDevice extends Device {
       }
 
       /* onoff.preheat */
-      switch (onoff_preheat.value) {
-        case 2:
-          await this.updateCapabilityValue("onoff.preheat", true);
-          break;
-        default:
-          await this.updateCapabilityValue("onoff.preheat", false);
-          break;
+      if (onoff_preheat !== undefined) {
+        switch (onoff_preheat.value) {
+          case 2:
+            await this.updateCapabilityValue("onoff.preheat", true);
+            break;
+          default:
+            await this.updateCapabilityValue("onoff.preheat", false);
+            break;
+        }
       }
 
       /* mode capability */

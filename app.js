@@ -196,7 +196,18 @@ class XiaomiMiioApp extends Homey.App {
           } else {
             const rooms = JSON.parse("[" + args.rooms + "]");
             return await args.device.miio.cleanRooms(rooms);
+            //return await args.device.miio.call("app_segment_clean",  [{"segments": rooms, "repeat": repeats}], { retries: 1 });
           }
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('vacuumRoomCleaningRepeats')
+      .registerRunListener(async (args) => {
+        try {
+          const rooms = JSON.parse("[" + args.rooms + "]");
+          return await args.device.miio.call("app_segment_clean",  [{"segments": rooms, "repeat": args.repeats}], { retries: 1 });
         } catch (error) {
           return Promise.reject(error.message);
         }

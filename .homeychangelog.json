@@ -199,5 +199,8 @@
   },
   "3.2.21": {
     "en": "This release adds support for the DreameBot L10s Ultra (dreame.vacuum.r2228o) and Xiaomi/Dreame Robot Vacuum X10 (dreame.vacuum.r2209) and for a a new model Mi Smart Plug (chuangmi.plug.hmi206). With this release the pause state of Roborock vacuum cleaners is now mapped to the \"stopped\" state in Homey instead of the the \"cleaning\" state. This makes sense for using it as condition. And it contains possible fixes for the LED light and notification sound toggle action card for some models like the Smart Mi Antibacterial Humidifier JSQ5 and a possible fix the room cleaning action card for Dreame vacuum cleaners."
+  },
+  "3.2.22": {
+    "en": "This release add a themostat UI component for target temperature on the Smart Space/Fan Heater MIoT driver. It also adds a new action card for the Roborock advanced driver that allows room cleaning including setting the number of repeats. And it adds support for for Xiaomi Smart Air Purifier 4 Compact (xiaomi.airp.cpa4), the Xiaomi/Dreame Robot Vacuum X10+ (dreame.vacuum.p2114a) and the Xiaomi Smart Air Fryer 6.5L (careli.fryer.maf10a)."
   }
 }

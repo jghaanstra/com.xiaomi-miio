@@ -30,6 +30,7 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/roborock.vacuum.a46
 // https://home.miot-spec.com/spec/roborock.vacuum.a51
 // https://home.miot-spec.com/spec/roborock.vacuum.a62
+// https://home.miot-spec.com/spec/roborock.vacuum.a70
 // https://home.miot-spec.com/spec/roborock.vacuum.a73
 // https://home.miot-spec.com/spec/roborock.vacuum.a75
 
