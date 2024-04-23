@@ -202,5 +202,8 @@
   },
   "3.2.22": {
     "en": "This release add a themostat UI component for target temperature on the Smart Space/Fan Heater MIoT driver. It also adds a new action card for the Roborock advanced driver that allows room cleaning including setting the number of repeats. And it adds support for for Xiaomi Smart Air Purifier 4 Compact (xiaomi.airp.cpa4), the Xiaomi/Dreame Robot Vacuum X10+ (dreame.vacuum.p2114a) and the Xiaomi Smart Air Fryer 6.5L (careli.fryer.maf10a)."
+  },
+  "3.2.23": {
+    "en": "This release tries to add support for the Xiaomi Lightstrip Pro (philips.light.strip5), Xiaomi Smart Plug v2 EU (cuco.plug.v2eur) and Xiaomi/Dreame Robot Vacuum S10+ (dreame.vacuum.r2211o)."
   }
 }

@@ -4,6 +4,9 @@ const Homey = require('homey');
 const Device = require('../wifi_device.js');
 const Util = require('../../lib/util.js');
 
+/* supported devices */
+// https://home.miot-spec.com/spec/chuangmi.plug.m1
+
 class MiSmartPlugWiFiDevice extends Device {
 
   async onInit() {

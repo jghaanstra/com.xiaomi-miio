@@ -1,0 +1,20 @@
+{
+  "name": {
+    "en": "Philips / Xiaomi Light Strip (WiFi)",
+    "nl": "Philips Xiaomi Light Strip (WiFi)"
+  },
+  "images": {
+    "large": "drivers/philips_light_strip/assets/images/large.jpg",
+    "small": "drivers/philips_light_strip/assets/images/small.jpg"
+  },
+  "class": "light",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim",
+    "light_hue",
+    "light_saturation"
+  ]
+}

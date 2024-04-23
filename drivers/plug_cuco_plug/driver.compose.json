@@ -1,0 +1,20 @@
+{
+  "name": {
+    "en": "Xiaomi Smart Plug (WiFi)",
+    "nl": "Xiaomi Smart Plug (WiFi)"
+  },
+  "images": {
+    "large": "drivers/plug_cuco_plug/assets/images/large.jpg",
+    "small": "drivers/plug_cuco_plug/assets/images/small.jpg"
+  },
+  "class": "socket",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "measure_power",
+    "meter_power",
+    "measure_voltage"
+  ]
+}
