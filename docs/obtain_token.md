@@ -2,7 +2,9 @@
 Use any of these methods to obtain the device token for the supported miio devices.
 
 ## Method 1 - Obtain device token from Mi home account
-[Windows app and MAC OS app](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases)
+Token info might be gathered using Mi `home/device_list` api method that returns the list of devices. There are two existing desktop app implementations:
+* [Get Mi Home Devices Token](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases) - allows to view device list with device info such as `ip`, `token`, etc.
+* [Mi Home Toolkit](https://github.com/ApplY3D/mi-home-toolkit/releases) - displays the same info as the previous one + `did`, but also allows to control devices, for example - toggling LAN/Developer mode for bulbs.
 
 
 ## Method 2 - Obtain device token for miio devices that hide their token after setup
