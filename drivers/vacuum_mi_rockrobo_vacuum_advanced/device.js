@@ -60,7 +60,7 @@ const mapping = {
 	"roborock.vacuum.a38": "rockrobo_vacuum_v2",
   "roborock.vacuum.a40": "rockrobo_vacuum_v2",
 	"roborock.vacuum.a46": "rockrobo_vacuum_v2",
-  "roborock.vacuum.a51": "rockrobo_vacuum_v2", // untested
+  "roborock.vacuum.a51": "rockrobo_vacuum_v2",
   "roborock.vacuum.a62": "rockrobo_vacuum_v2",
   "roborock.vacuum.a70": "rockrobo_vacuum_v2",
   "roborock.vacuum.a73": "rockrobo_vacuum_v2",

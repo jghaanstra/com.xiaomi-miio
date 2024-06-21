@@ -8,11 +8,13 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/mmgg.feeder.fi1 // Xiaomi Smart Pet Food Feeder
 // https://home.miot-spec.com/spec/mmgg.feeder.inland // ?
 // https://home.miot-spec.com/spec/mmgg.feeder.spec // XIAOWAN Smart Pet Feeder
+// https://home.miot-spec.com/spec/xiaomi.feeder.pi2001 // Xiaomi Smart Pet Food Feeder 2
 
 const mapping = {
   "mmgg.feeder.fi1": "default",
   "mmgg.feeder.inland": "default",
   "mmgg.feeder.spec": "default",
+  "xiaomi.feeder.pi2001": "pi2001",
   "mmgg.feeder.*": "default",
 };
 
@@ -22,12 +24,22 @@ const properties = {
       { did: "error", siid: 2, piid: 1 }, // settings.error
       { did: "foodlevel", siid: 2, piid: 6 }, // petfeeder_foodlevel
       { did: "light", siid: 3, piid: 1 }, // settings.led
-      { did: "buzzer", siid: 6, piid: 1 }, // settings.buzzer      
+      { did: "buzzer", siid: 6, piid: 1 }, // settings.buzzer
     ],
     "set_properties": {
       "serve_food": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
       "light": { siid: 3, piid: 1 },
       "buzzer": { siid: 6, piid: 1 }
+    }
+  },
+  "pi2001": {
+    "get_properties": [
+      { did: "error", siid: 2, piid: 1 }, // settings.error
+      { did: "foodlevel", siid: 2, piid: 6 }, // petfeeder_foodlevel
+      { did: "battery", siid: 4, piid: 4 } // measure_battery
+    ],
+    "set_properties": {
+      "serve_food": { siid: 2, aiid: 1, did: "call-2-1", in: [] }
     }
   }
 }
@@ -56,6 +68,11 @@ class PetwaterFeederMmggMiotDevice extends Device {
         1: "Low",
         2: "Empty"
       };
+
+      // DEVICE CAPABILITIES
+      if (this.getStoreValue('model') === 'xiaomi.feeder.pi2001' && !this.hasCapability('measure_battery')) {
+        this.addCapability('measure_battery');
+      }
 
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
@@ -88,15 +105,23 @@ class PetwaterFeederMmggMiotDevice extends Device {
       if (!this.getAvailable()) { await this.setAvailable(); }
 
       /* data */
+      const battery = result.find(obj => obj.did === 'battery');
       const led = result.find(obj => obj.did === 'light');
       const buzzer = result.find(obj => obj.did === 'buzzer');
 
       /* capabilities */
-
+      if (battery !== undefined && this.hasCapability('measure_battery')) {
+        await this.updateCapabilityValue("measure_battery", measure_battery.value);
+      }
 
       /* settings */
-      await this.updateSettingValue("led", led.value === 0 ? false : true);
-      await this.updateSettingValue("buzzer", buzzer.value === 0 ? false : true);
+      if (led !== undefined) {
+        await this.updateSettingValue("led", led.value === 0 ? false : true);
+      }
+
+      if (buzzer !== undefined) {
+        await this.updateSettingValue("buzzer", buzzer.value === 0 ? false : true);
+      }
 
 
       /* settings device error */

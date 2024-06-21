@@ -40,7 +40,7 @@ const mapping = {
   "zhimi.airp.rmb1": "mapping_rmb1",
   "zhimi.airpurifier.za1": "mapping_za1",
   "zhimi.airp.meb1": "mapping_airp_meb1",
-  "xiaomi.airp.cpa4": "mapping_airp_cpa4",
+  "xiaomi.airp.cpa4": "mapping_cpa4",
   "zhimi.airpurifier.*": "mapping_default",
 };
 

@@ -205,5 +205,8 @@
   },
   "3.2.23": {
     "en": "This release tries to add support for the Xiaomi Lightstrip Pro (philips.light.strip5), Xiaomi Smart Plug v2 EU (cuco.plug.v2eur) and Xiaomi/Dreame Robot Vacuum S10+ (dreame.vacuum.r2211o)."
+  },
+  "3.2.24": {
+    "en": "This release adds support for Xiaomi Smart Pet Food Feeder 2 (xiaomi.feeder.pi2001) and Dreame L10s Prime (dreame.vacuum.r2232c). And it fixes a bug for the Xiaomi Smart Air Purifier 4 Compact (xiaomi.airp.cpa4)."
   }
 }
