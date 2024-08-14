@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Curtain Motor (Gateway)",
-    "nl": "Aqara gordijnmotor (Gateway)"
+    "nl": "Aqara gordijnmotor (Gateway)",
+    "da": "Aqara gardinmotor (Gateway)",
+    "de": "Aqara Vorhangmotor (Gateway)",
+    "es": "Motor de cortina Aqara (Gateway)",
+    "fr": "Moteur de rideau Aqara (Gateway)",
+    "it": "Motore per tende Aqara (Gateway)",
+    "no": "Aqara gardinmotor (Gateway)",
+    "sv": "Aqara gardinmotor (Gateway)",
+    "pl": "Silnik zasłonowy Aqara (Gateway)",
+    "ru": "Шторный мотор Aqara (Gateway)",
+    "ko": "아카라 커튼 모터 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/aqara-curtain/assets/images/large.png",
@@ -19,13 +29,33 @@
   "capabilitiesOptions": {
     "onoff": {
       "title": {
-        "en": "Open Close"
+        "en": "Open Close",
+        "da": "Åbn Luk",
+        "de": "Öffnen Schließen",
+        "es": "Abrir Cerrar",
+        "fr": "Ouvrir Fermer",
+        "it": "Apri Chiudi",
+        "no": "Åpne Lukke",
+        "sv": "Öppna Stäng",
+        "pl": "Otwórz Zamknij",
+        "ru": "Открыть Закрыть",
+        "ko": "열기 닫기"
       },
       "greyout": false
     },
     "dim": {
       "title": {
-        "en": "Level"
+        "en": "Level",
+        "da": "Niveau",
+        "de": "Pegel",
+        "es": "Nivel",
+        "fr": "Niveau",
+        "it": "Livello",
+        "no": "Nivå",
+        "sv": "Nivå",
+        "pl": "Poziom",
+        "ru": "Уровень",
+        "ko": "수준"
       }
     }
   }

@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Set Mode",
-    "nl": "Stel modus in"
+    "nl": "Stel modus in",
+    "da": "Indstil tilstand",
+    "de": "Modus einstellen",
+    "es": "Ajustar modo",
+    "fr": "Régler le mode",
+    "it": "Imposta modalità",
+    "no": "Angi modus",
+    "sv": "Ställ in läge",
+    "pl": "Ustaw tryb",
+    "ru": "Установить режим",
+    "ko": "모드 설정"
   },
   "titleFormatted": {
     "en": "Set mode to [[mode]]",
-    "nl": "Stel modus in op [[mode]]"
+    "nl": "Stel modus in op [[mode]]",
+    "da": "Indstil tilstand til [[mode]]",
+    "de": "Modus auf [[mode]] einstellen",
+    "es": "Ajustar modo a [[mode]]",
+    "fr": "Régler le mode sur [[mode]]",
+    "it": "Imposta modalità su [[mode]]",
+    "no": "Angi modus til [[mode]]",
+    "sv": "Ställ in läge till [[mode]]",
+    "pl": "Ustaw tryb na [[mode]]",
+    "ru": "Установить режим на [[mode]]",
+    "ko": "[[mode]] 모드로 설정"
   },
   "args": [
     {
       "name": "mode",
       "title": {
         "en": "Mode",
-        "nl": "Modus"
+        "nl": "Modus",
+        "da": "Tilstand",
+        "de": "Modus",
+        "es": "Modo",
+        "fr": "Mode",
+        "it": "Modalità",
+        "no": "Modus",
+        "sv": "Läge",
+        "pl": "Tryb",
+        "ru": "Режим",
+        "ko": "모드"
       },
       "type": "dropdown",
       "values": [
@@ -20,28 +50,68 @@
           "id": "1",
           "label": {
             "en": "Low",
-            "nl": "Laag"
+            "nl": "Laag",
+            "da": "Lav",
+            "de": "Niedrig",
+            "es": "Bajo",
+            "fr": "Faible",
+            "it": "Basso",
+            "no": "Lav",
+            "sv": "Låg",
+            "pl": "Niski",
+            "ru": "Низкий",
+            "ko": "낮음"
           }
         },
         {
           "id": "2",
           "label": {
             "en": "Medium",
-            "nl": "Medium"
+            "nl": "Medium",
+            "da": "Mellem",
+            "de": "Mittel",
+            "es": "Medio",
+            "fr": "Moyen",
+            "it": "Medio",
+            "no": "Middels",
+            "sv": "Medium",
+            "pl": "Średni",
+            "ru": "Средний",
+            "ko": "중간"
           }
         },
         {
           "id": "3",
           "label": {
             "en": "High",
-            "nl": "Hoog"
+            "nl": "Hoog",
+            "da": "Høj",
+            "de": "Hoch",
+            "es": "Alto",
+            "fr": "Élevé",
+            "it": "Alto",
+            "no": "Høy",
+            "sv": "Hög",
+            "pl": "Wysoki",
+            "ru": "Высокий",
+            "ko": "높음"
           }
         },
         {
           "id": "4",
           "label": {
             "en": "Humidity",
-            "nl": "Luchtvochtigheid"
+            "nl": "Luchtvochtigheid",
+            "da": "Fugtighed",
+            "de": "Feuchtigkeit",
+            "es": "Humedad",
+            "fr": "Humidité",
+            "it": "Umidità",
+            "no": "Fuktighet",
+            "sv": "Luftfuktighet",
+            "pl": "Wilgotność",
+            "ru": "Влажность",
+            "ko": "습도"
           }
         }
       ]
@@ -51,10 +121,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Mi Humidifier",
-        "nl": "Selecteer Mi Luchtbevochtiger"
+        "nl": "Selecteer Mi Luchtbevochtiger",
+        "da": "Vælg Mi Luftfugter",
+        "de": "Wählen Sie Mi Luftbefeuchter",
+        "es": "Selecciona Mi Humidificador",
+        "fr": "Sélectionnez Mi Humidificateur",
+        "it": "Seleziona Mi Umidificatore",
+        "no": "Velg Mi Luftfukter",
+        "sv": "Välj Mi Luftfuktare",
+        "pl": "Wybierz Mi Nawilżacz",
+        "ru": "Выберите Mi Увлажнитель",
+        "ko": "Mi 가습기 선택"
       },
       "filter": "driver_id=humidifier_deerma_humidifier_jsq||humidifier_deerma_humidifier_miot"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

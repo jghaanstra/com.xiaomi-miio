@@ -2,42 +2,102 @@
   "type": "enum",
   "title": {
     "en": "Food Quantity",
-    "nl": "Voedselhoeveelheid"
+    "nl": "Voedselhoeveelheid",
+    "da": "Mad Kvantitet",
+    "de": "Lebensmittelmenge",
+    "es": "Cantidad de Comida",
+    "fr": "Quantité de Nourriture",
+    "it": "Quantità di Cibo",
+    "no": "Mat Mengde",
+    "sv": "Matmängd",
+    "pl": "Ilość Jedzenia",
+    "ru": "Количество Еды",
+    "ko": "음식 양"
   },
   "values": [
     {
       "id": "0",
       "title": {
         "en": "None",
-        "nl": "Geen"
+        "nl": "Geen",
+        "da": "Ingen",
+        "de": "Kein",
+        "es": "Ninguna",
+        "fr": "Aucun",
+        "it": "Nessuno",
+        "no": "Ingen",
+        "sv": "Inget",
+        "pl": "Brak",
+        "ru": "Нет",
+        "ko": "없음"
       }
     },
     {
       "id": "1",
       "title": {
         "en": "Single",
-        "nl": "Enkel"
+        "nl": "Enkel",
+        "da": "Enkelt",
+        "de": "Einzeln",
+        "es": "Único",
+        "fr": "Simple",
+        "it": "Singolo",
+        "no": "Enkelt",
+        "sv": "Enkel",
+        "pl": "Pojedynczy",
+        "ru": "Одинарный",
+        "ko": "단일"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Double",
-        "nl": "Dubbel"
+        "nl": "Dubbel",
+        "da": "Dobbelt",
+        "de": "Doppelt",
+        "es": "Doble",
+        "fr": "Double",
+        "it": "Doppio",
+        "no": "Dobbel",
+        "sv": "Dubbel",
+        "pl": "Podwójny",
+        "ru": "Двойной",
+        "ko": "더블"
       }
     },
     {
       "id": "3",
       "title": {
         "en": "Half",
-        "nl": "Half"
+        "nl": "Half",
+        "da": "Halv",
+        "de": "Halb",
+        "es": "Medio",
+        "fr": "Moitié",
+        "it": "Metà",
+        "no": "Halv",
+        "sv": "Halv",
+        "pl": "Połowa",
+        "ru": "Половина",
+        "ko": "반"
       }
     },
     {
       "id": "4",
       "title": {
         "en": "Full",
-        "nl": "Vol"
+        "nl": "Vol",
+        "da": "Fuldt",
+        "de": "Voll",
+        "es": "Completo",
+        "fr": "Complet",
+        "it": "Pieno",
+        "no": "Full",
+        "sv": "Full",
+        "pl": "Pełny",
+        "ru": "Полный",
+        "ko": "가득"
       }
     }
   ],

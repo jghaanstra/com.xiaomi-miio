@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Change Oscillating Angle",
-    "nl": "Wijzig oscillatie hoek"
+    "nl": "Wijzig oscillatie hoek",
+    "da": "Skift oscillerende vinkel",
+    "de": "Oszillationswinkel ändern",
+    "es": "Cambiar ángulo de oscilación",
+    "fr": "Changer l'angle d'oscillation",
+    "it": "Cambia angolo di oscillazione",
+    "no": "Endre oscillerende vinkel",
+    "sv": "Ändra oscillatorvinkel",
+    "pl": "Zmień kąt oscylacji",
+    "ru": "Изменить угол колебания",
+    "ko": "진동 각도 변경"
   },
   "titleFormatted": {
     "en": "Change oscillating angle to [[angle]]",
-    "nl": "Wijzig oscillatie hoek naar [[angle]]"
+    "nl": "Wijzig oscillatie hoek naar [[angle]]",
+    "da": "Skift oscillerende vinkel til [[angle]]",
+    "de": "Oszillationswinkel ändern zu [[angle]]",
+    "es": "Cambiar ángulo de oscilación a [[angle]]",
+    "fr": "Changer l'angle d'oscillation en [[angle]]",
+    "it": "Cambia angolo di oscillazione a [[angle]]",
+    "no": "Endre oscillerende vinkel til [[angle]]",
+    "sv": "Ändra oscillatorvinkel till [[angle]]",
+    "pl": "Zmień kąt oscylacji na [[angle]]",
+    "ru": "Изменить угол колебания на [[angle]]",
+    "ko": "진동 각도 [[angle]]로 변경"
   },
   "args": [
     {
       "name": "angle",
       "title": {
         "en": "Angle",
-        "nl": "Hoek"
+        "nl": "Hoek",
+        "da": "Vinkel",
+        "de": "Winkel",
+        "es": "Ángulo",
+        "fr": "Angle",
+        "it": "Angolo",
+        "no": "Vinkel",
+        "sv": "Vinkel",
+        "pl": "Kąt",
+        "ru": "Угол",
+        "ko": "각도"
       },
       "type": "dropdown",
       "values": [
@@ -65,10 +95,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выбрать устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5|fan_dmaker_advanced"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

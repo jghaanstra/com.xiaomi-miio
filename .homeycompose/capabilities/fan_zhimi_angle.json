@@ -2,7 +2,17 @@
   "type": "enum",
   "title": {
     "en": "Swing Angle",
-    "nl": "Draaihoek"
+    "nl": "Draaihoek",
+    "da": "Svingvinkel",
+    "de": "Schwenkwinkel",
+    "es": "Ángulo de giro",
+    "fr": "Angle de balancement",
+    "it": "Angolo di oscillazione",
+    "no": "Svingvinkel",
+    "sv": "Svängvinkel",
+    "pl": "Kąt huśtania",
+    "ru": "Угол поворота",
+    "ko": "스윙 각도"
   },
   "values": [
     {

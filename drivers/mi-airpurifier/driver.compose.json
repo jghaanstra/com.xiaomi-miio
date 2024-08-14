@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Basic Mi Air Purifier (WiFi)",
-    "nl": "Basis Mi Air Purifier (WiFi)"
+    "nl": "Basis Mi Air Purifier (WiFi)",
+    "da": "Grundlæggende Mi Air Purifier (WiFi)",
+    "de": "Basis Mi Luftreiniger (WiFi)",
+    "es": "Purificador de aire Mi Básico (WiFi)",
+    "fr": "Purificateur d'air Mi Basique (WiFi)",
+    "it": "Depuratore d'aria Mi Base (WiFi)",
+    "no": "Grunnleggende Mi luftrenser (WiFi)",
+    "sv": "Grundläggande Mi luftrenare (WiFi)",
+    "pl": "Podstawowy Mi oczyszczacz powietrza (WiFi)",
+    "ru": "Базовый Mi очиститель воздуха (WiFi)",
+    "ko": "기본 Mi 공기 청정기 (WiFi)"
   },
   "images": {
     "large": "drivers/mi-airpurifier/assets/images/large.jpg",

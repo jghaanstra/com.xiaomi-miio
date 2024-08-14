@@ -1,0 +1,24 @@
+{
+  "pair": {
+    "title": "Mi Home Gerät hinzufügen",
+    "startpairing": "Damit Homey mit Geräten über das miIO-Protokoll kommunizieren kann, muss ein einzigartiger Gerätetoken abgerufen werden. Technisches Wissen ist erforderlich, um diese Tokens zu erhalten. Wenn du nicht sehr technisch versiert bist, könnte die Nutzung dieser App herausfordernd sein. Sieh dir die Anweisungen im Support-Thema im Community-Forum zum Abrufen von Gerätetokens an.",
+    "nosettings": "Bitte fülle alle Felder aus.",
+    "intro": "Gib die Details deines Mi Home Geräts ein.",
+    "address": "IP-Adresse",
+    "token": "Token (32 Zeichen aus Zahlen und Buchstaben)",
+    "polling": "Abfragehäufigkeit",
+    "test": "Verbindung testen",
+    "testResult": "Verbindungstest erfolgreich, du kannst das Gerät jetzt mit Homey verbinden.",
+    "connect": "Verbinden",
+    "unknownerror": "Unbekannter Fehler, bist du sicher, dass du die richtige IP-Adresse und den richtigen Token eingegeben hast und dass Homey im selben Netzwerk wie das Mi Home Gerät ist? Bitte überprüfe deine Einstellungen und versuche es erneut.",
+    "state": "Status:",
+    "battery": "Batteriestand:",
+    "fanspeed": "Lüftergeschwindigkeit:",
+    "no_devices_found": "Keine Geräte gefunden.",
+    "no_gateways": "Keine Gateways gefunden. \n\n Bevor du Geräte hinzufügst, öffne bitte die Plug-in-Einstellungen und füge dein Xiaomi Gateway hinzu.\n Aqara Gateway wird noch nicht unterstützt."
+  },
+  "device": {
+    "unreachable": "Gerät ist nicht erreichbar: ",
+    "noupdates": "Gerät hat noch keine Updates erhalten"
+  }
+}

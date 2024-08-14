@@ -2,21 +2,51 @@
   "type": "enum",
   "title": {
     "en": "Pet Waterdispenser Mode",
-    "nl": "Pet Waterdispenser Mode"
+    "nl": "Pet Waterdispenser Mode",
+    "da": "Kæledyrsvanddispenser Mode",
+    "de": "Haustier Wasserspender Modus",
+    "es": "Modo dispensador de agua para mascotas",
+    "fr": "Mode distributeur d'eau pour animaux",
+    "it": "Modalità dispenser d'acqua per animali",
+    "no": "Kjæledyr vannedispensermodus",
+    "sv": "Husdjur vattendispenserläge",
+    "pl": "Tryb dozownika wody dla zwierząt",
+    "ru": "Режим поилки для питомцев",
+    "ko": "애완동물 물 디스펜서 모드"
   },
   "values": [
     {
       "id": "1",
       "title": {
         "en": "Common",
-        "nl": "Normaal"
+        "nl": "Normaal",
+        "da": "Almindelig",
+        "de": "Allgemein",
+        "es": "Común",
+        "fr": "Commun",
+        "it": "Comune",
+        "no": "Vanlig",
+        "sv": "Vanlig",
+        "pl": "Zwykły",
+        "ru": "Обычный",
+        "ko": "일반"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Smart",
-        "nl": "Slim"
+        "nl": "Slim",
+        "da": "Smart",
+        "de": "Intelligent",
+        "es": "Inteligente",
+        "fr": "Intelligent",
+        "it": "Intelligente",
+        "no": "Smart",
+        "sv": "Smart",
+        "pl": "Inteligentny",
+        "ru": "Умный",
+        "ko": "스마트"
       }
     }
   ],

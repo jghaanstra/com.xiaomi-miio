@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "User Settings",
-      "nl": "Gebruikersinstellingem"
+      "nl": "Gebruikersinstellingem",
+      "da": "Brugerindstillinger",
+      "de": "Benutzereinstellungen",
+      "es": "Configuración de usuario",
+      "fr": "Paramètres utilisateur",
+      "it": "Impostazioni utente",
+      "no": "Brukerinnstillinger",
+      "sv": "Användarinställningar",
+      "pl": "Ustawienia użytkownika",
+      "ru": "Настройки пользователя",
+      "ko": "사용자 설정"
     },
     "children": [
       {
@@ -12,28 +22,68 @@
         "value": "1",
         "label": {
           "en": "LED brightness",
-          "nl": "LED helderheid"
+          "nl": "LED helderheid",
+          "da": "LED-lysstyrke",
+          "de": "LED-Helligkeit",
+          "es": "Brillo LED",
+          "fr": "Luminosité LED",
+          "it": "Luminosità LED",
+          "no": "LED-lysstyrke",
+          "sv": "LED-ljusstyrka",
+          "pl": "Jasność LED",
+          "ru": "Яркость светодиода",
+          "ko": "LED 밝기"
         },
         "values": [
           {
             "id": "1",
             "label": {
               "en": "Bright",
-              "nl": "Helder"
+              "nl": "Helder",
+              "da": "Lyst",
+              "de": "Hell",
+              "es": "Brillante",
+              "fr": "Luminosité",
+              "it": "Luminoso",
+              "no": "Lys",
+              "sv": "Ljusstark",
+              "pl": "Jasny",
+              "ru": "Яркий",
+              "ko": "밝음"
             }
           },
           {
             "id": "2",
             "label": {
               "en": "Dim",
-              "nl": "Gedimd"
+              "nl": "Gedimd",
+              "da": "Dæmpet",
+              "de": "Gedimmt",
+              "es": "Tenue",
+              "fr": "Atténué",
+              "it": "Soffuso",
+              "no": "Dempe",
+              "sv": "Dämpad",
+              "pl": "Przyciemniony",
+              "ru": "Тусклый",
+              "ko": "어두움"
             }
           },
           {
             "id": "3",
             "label": {
               "en": "Off",
-              "nl": "Uit"
+              "nl": "Uit",
+              "da": "Slukket",
+              "de": "Aus",
+              "es": "Apagado",
+              "fr": "Éteint",
+              "it": "Spento",
+              "no": "Av",
+              "sv": "Av",
+              "pl": "Wyłączony",
+              "ru": "Выключено",
+              "ko": "끔"
             }
           }
         ]
@@ -44,7 +94,17 @@
         "value": true,
         "label": {
           "en": "Buzzer",
-          "nl": "Buzzer"
+          "nl": "Buzzer",
+          "da": "Summer",
+          "de": "Summer",
+          "es": "Zumbador",
+          "fr": "Sonnerie",
+          "it": "Cicalino",
+          "no": "Buzzer",
+          "sv": "Summer",
+          "pl": "Brzęczyk",
+          "ru": "Зуммер",
+          "ko": "부저"
         }
       },
       {
@@ -53,7 +113,17 @@
         "value": true,
         "label": {
           "en": "Child Lock",
-          "nl": "Kinderslot"
+          "nl": "Kinderslot",
+          "da": "Børnelås",
+          "de": "Kindersicherung",
+          "es": "Bloqueo infantil",
+          "fr": "Verrouillage enfant",
+          "it": "Blocco bambini",
+          "no": "Barnelås",
+          "sv": "Barnlås",
+          "pl": "Blokada rodzicielska",
+          "ru": "Детский замок",
+          "ko": "어린이 잠금"
         }
       }
     ]
@@ -62,7 +132,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuración del dispositivo",
+      "fr": "Paramètres de l'appareil",
+      "it": "Impostazioni del dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia urządzenia",
+      "ru": "Настройки устройства",
+      "ko": "장치 설정"
     },
     "children": [
       {

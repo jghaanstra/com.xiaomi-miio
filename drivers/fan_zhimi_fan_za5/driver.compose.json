@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Smartmi Standing Fan 3 (WiFi)",
-    "nl": "Smartmi Standing Fan 3 (WiFi)"
+    "nl": "Smartmi Standing Fan 3 (WiFi)",
+    "da": "Smartmi Standing Fan 3 (WiFi)",
+    "de": "Smartmi Standventilator 3 (WiFi)",
+    "es": "Ventilador de Pie Smartmi 3 (WiFi)",
+    "fr": "Ventilateur Debout Smartmi 3 (WiFi)",
+    "it": "Ventilatore a Piantana Smartmi 3 (WiFi)",
+    "no": "Smartmi Stående Vifte 3 (WiFi)",
+    "sv": "Smartmi Golvfläkt 3 (WiFi)",
+    "pl": "Wentylator stojący Smartmi 3 (WiFi)",
+    "ru": "Стоящий вентилятор Smartmi 3 (WiFi)",
+    "ko": "Smartmi 스탠딩 팬 3 (WiFi)"
   },
   "images": {
     "large": "drivers/fan_zhimi_fan_za5/assets/images/large.jpg",
@@ -25,19 +35,49 @@
     "onoff.swing": {
       "title": {
         "en": "Enable oscillation",
-        "nl": "Inschakelen oscillation"
+        "nl": "Inschakelen oscillation",
+        "da": "Aktiver svingning",
+        "de": "Oszillation aktivieren",
+        "es": "Activar oscilación",
+        "fr": "Activer l'oscillation",
+        "it": "Abilita l'oscillazione",
+        "no": "Aktiver svingning",
+        "sv": "Aktivera oscillation",
+        "pl": "Włącz oscylację",
+        "ru": "Включить осцилляцию",
+        "ko": "진동 활성화"
       }
     },
     "onoff.ion": {
       "title": {
         "en": "Enable ions",
-        "nl": "Inschakelen ionen"
+        "nl": "Inschakelen ionen",
+        "da": "Aktiver ioner",
+        "de": "Ionen aktivieren",
+        "es": "Activar iones",
+        "fr": "Activer les ions",
+        "it": "Abilita ioni",
+        "no": "Aktiver ioner",
+        "sv": "Aktivera joner",
+        "pl": "Włącz jony",
+        "ru": "Включить ионы",
+        "ko": "이온 활성화"
       }
     },
     "dim": {
       "title": {
         "en": "Fanlevel",
-        "nl": "Ventilator niveau"
+        "nl": "Ventilator niveau",
+        "da": "Fan niveau",
+        "de": "Ventilatorstufe",
+        "es": "Nivel del ventilador",
+        "fr": "Niveau du ventilateur",
+        "it": "Livello del ventilatore",
+        "no": "Viftenivå",
+        "sv": "Fläktnivå",
+        "pl": "Poziom wentylatora",
+        "ru": "Уровень вентилятора",
+        "ko": "팬 레벨"
       },
       "min": 1,
       "max": 4,

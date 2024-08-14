@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Smoke Sensor (Gateway)",
-    "nl": "Smoke Sensor (Gateway)"
+    "nl": "Smoke Sensor (Gateway)",
+    "da": "Røgsensor (Gateway)",
+    "de": "Rauchsensor (Gateway)",
+    "es": "Sensor de Humo (Gateway)",
+    "fr": "Capteur de Fumée (Gateway)",
+    "it": "Sensore di Fumo (Gateway)",
+    "no": "Røykvarsler (Gateway)",
+    "sv": "Röksensor (Gateway)",
+    "pl": "Czujnik Dymu (Gateway)",
+    "ru": "Датчик дыма (Gateway)",
+    "ko": "연기 센서 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/smoke_sensor/assets/images/large.jpg",
@@ -18,6 +28,8 @@
     "alarm_battery"
   ],
   "energy": {
-    "batteries": ["CR123A"]
+    "batteries": [
+      "CR123A"
+    ]
   }
 }

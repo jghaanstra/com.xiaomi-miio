@@ -2,27 +2,77 @@
   "id": "cleanZoneVacuum",
   "title": {
     "en": "Start zone cleaning",
-    "nl": "Start zone schoonmaken"
+    "nl": "Start zone schoonmaken",
+    "da": "Start zone rengøring",
+    "de": "Zonenreinigung starten",
+    "es": "Iniciar limpieza de zonas",
+    "fr": "Démarrer le nettoyage de zone",
+    "it": "Avvia pulizia della zona",
+    "no": "Start sone rengjøring",
+    "sv": "Starta zonstädning",
+    "pl": "Rozpocznij czyszczenie strefy",
+    "ru": "Начать уборку зоны",
+    "ko": "영역 청소 시작"
   },
   "titleFormatted": {
     "en": "Start zone cleaning [[zones]]",
-    "nl": "Start zone schoonmaken [[zones]]"
+    "nl": "Start zone schoonmaken [[zones]]",
+    "da": "Start zone rengøring [[zones]]",
+    "de": "Zonenreinigung starten [[zones]]",
+    "es": "Iniciar limpieza de zonas [[zones]]",
+    "fr": "Démarrer le nettoyage de zone [[zones]]",
+    "it": "Avvia pulizia della zona [[zones]]",
+    "no": "Start sone rengjøring [[zones]]",
+    "sv": "Starta zonstädning [[zones]]",
+    "pl": "Rozpocznij czyszczenie strefy [[zones]]",
+    "ru": "Начать уборку зоны [[zones]]",
+    "ko": "영역 청소 시작 [[zones]]"
   },
   "hint": {
     "en": "Takes in an a list of zones and the number of times to clean. Each zone contains an array of 5 values: bottom-left-x, bottom-left-y, top-right-x, top-right-y, number of clean times. Zones example: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
-    "nl": "Voer een lijst met zones in en het aantal keren om schoon te maken. Elke zone bevat een array met 5 waarden: bottom-left-x, bottom-left-y, top-right-x, top-right-y, number of clean times. Zones voorbeeld: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]"
+    "nl": "Voer een lijst met zones in en het aantal keren om schoon te maken. Elke zone bevat een array met 5 waarden: bottom-left-x, bottom-left-y, top-right-x, top-right-y, number of clean times. Zones voorbeeld: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
+    "da": "Indtast en liste over zoner og antallet af gange, der skal rengøres. Hver zone indeholder en række af 5 værdier: nederste venstre x, nederste venstre y, øverste højre x, øverste højre y, antal rengøringstider. Zoner eksempel: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
+    "de": "Geben Sie eine Liste der Zonen und die Anzahl der Reinigungsvorgänge ein. Jede Zone enthält ein Array von 5 Werten: unten-links-x, unten-links-y, oben-rechts-x, oben-rechts-y, Anzahl der Reinigungszeiten. Zonenbeispiel: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
+    "es": "Ingrese una lista de zonas y el número de veces para limpiar. Cada zona contiene una matriz de 5 valores: abajo-izquierda-x, abajo-izquierda-y, arriba-derecha-x, arriba-derecha-y, número de veces de limpieza. Ejemplo de zonas: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
+    "fr": "Saisissez une liste de zones et le nombre de fois à nettoyer. Chaque zone contient un tableau de 5 valeurs : en bas à gauche-x, en bas à gauche-y, en haut à droite-x, en haut à droite-y, nombre de fois à nettoyer. Exemple de zones : [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
+    "it": "Inserisci un elenco di zone e il numero di volte da pulire. Ogni zona contiene una matrice di 5 valori: in basso a sinistra x, in basso a sinistra y, in alto a destra x, in alto a destra y, numero di volte di pulizia. Esempio di zone: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
+    "no": "Skriv inn en liste over soner og antall ganger å rengjøre. Hver sone inneholder en rekke med 5 verdier: nederst-venstre-x, nederst-venstre-y, øverst-høyre-x, øverst-høyre-y, antall rengjøringstider. Soneeksempel: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
+    "sv": "Ange en lista över zoner och antalet gånger att städa. Varje zon innehåller en matris med 5 värden: nedre vänster-x, nedre vänster-y, övre höger-x, övre höger-y, antal rengöringstider. Exempel på zoner: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
+    "pl": "Wprowadź listę stref i liczbę razy do czyszczenia. Każda strefa zawiera tablicę z 5 wartościami: dolna-lewa-x, dolna-lewa-y, górna-prawa-x, górna-prawa-y, liczba razy do czyszczenia. Przykład stref: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
+    "ru": "Введите список зон и количество раз для уборки. Каждая зона содержит массив из 5 значений: слева внизу-x, слева внизу-y, справа вверху-x, справа вверху-y, количество уборок. Пример зон: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]",
+    "ko": "청소할 횟수와 목록을 입력합니다. 각 영역은 5가지 값의 배열을 포함합니다: 좌하단 x, 좌하단 y, 우상단 x, 우상단 y, 청소 횟수. 영역 예시: [26234,26042,26634,26642,1],[26232,25304,27282,25804,2],[26246,24189,27296,25139,2]"
   },
   "args": [
     {
       "name": "zones",
       "title": {
         "en": "Zones",
-        "nl": "Zones"
+        "nl": "Zones",
+        "da": "Zoner",
+        "de": "Zonen",
+        "es": "Zonas",
+        "fr": "Zones",
+        "it": "Zone",
+        "no": "Soner",
+        "sv": "Zoner",
+        "pl": "Strefy",
+        "ru": "Зоны",
+        "ko": "영역"
       },
       "type": "text",
       "placeholder": {
         "en": "Zones",
-        "nl": "Zones"
+        "nl": "Zones",
+        "da": "Zoner",
+        "de": "Zonen",
+        "es": "Zonas",
+        "fr": "Zones",
+        "it": "Zone",
+        "no": "Soner",
+        "sv": "Zoner",
+        "pl": "Strefy",
+        "ru": "Зоны",
+        "ko": "영역"
       }
     },
     {
@@ -30,10 +80,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer Stofzuiger"
+        "nl": "Selecteer Stofzuiger",
+        "da": "Vælg Støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Seleccionar aspiradora",
+        "fr": "Sélectionner l'aspirateur",
+        "it": "Seleziona aspirapolvere",
+        "no": "Velg Støvsuger",
+        "sv": "Välj Dammsugare",
+        "pl": "Wybierz Odkurzacz",
+        "ru": "Выберите пылесос",
+        "ko": "진공 청소기 선택"
       },
       "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

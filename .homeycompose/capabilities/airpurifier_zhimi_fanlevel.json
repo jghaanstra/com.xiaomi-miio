@@ -2,7 +2,17 @@
   "type": "enum",
   "title": {
     "en": "Fan Level",
-    "nl": "Fan Level"
+    "nl": "Fan Level",
+    "da": "Ventilatorniveau",
+    "de": "Lüfterstufe",
+    "es": "Nivel del ventilador",
+    "fr": "Niveau du ventilateur",
+    "it": "Livello della ventola",
+    "no": "Viftenivå",
+    "sv": "Fläktnivå",
+    "pl": "Poziom wentylatora",
+    "ru": "Уровень вентилятора",
+    "ko": "팬 레벨"
   },
   "getable": true,
   "setable": true,
@@ -11,21 +21,51 @@
       "id": "1",
       "title": {
         "en": "Level 1",
-        "nl": "Level 1"
+        "nl": "Level 1",
+        "da": "Niveau 1",
+        "de": "Stufe 1",
+        "es": "Nivel 1",
+        "fr": "Niveau 1",
+        "it": "Livello 1",
+        "no": "Nivå 1",
+        "sv": "Nivå 1",
+        "pl": "Poziom 1",
+        "ru": "Уровень 1",
+        "ko": "레벨 1"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Level 2",
-        "nl": "Level 2"
+        "nl": "Level 2",
+        "da": "Niveau 2",
+        "de": "Stufe 2",
+        "es": "Nivel 2",
+        "fr": "Niveau 2",
+        "it": "Livello 2",
+        "no": "Nivå 2",
+        "sv": "Nivå 2",
+        "pl": "Poziom 2",
+        "ru": "Уровень 2",
+        "ko": "레벨 2"
       }
     },
     {
       "id": "3",
       "title": {
         "en": "Level 3",
-        "nl": "Level 3"
+        "nl": "Level 3",
+        "da": "Niveau 3",
+        "de": "Stufe 3",
+        "es": "Nivel 3",
+        "fr": "Niveau 3",
+        "it": "Livello 3",
+        "no": "Nivå 3",
+        "sv": "Nivå 3",
+        "pl": "Poziom 3",
+        "ru": "Уровень 3",
+        "ko": "레벨 3"
       }
     }
   ],

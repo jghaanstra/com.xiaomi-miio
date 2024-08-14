@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mi Humidifier v2 - Generic (WiFi)",
-    "nl": "Mi Luchtbevochtiger v2 - Generic (WiFi)"
+    "nl": "Mi Luchtbevochtiger v2 - Generic (WiFi)",
+    "da": "Mi Luftfugter v2 - Generisk (WiFi)",
+    "de": "Mi Luftbefeuchter v2 - Generisch (WiFi)",
+    "es": "Mi Humidificador v2 - Genérico (WiFi)",
+    "fr": "Mi Humidificateur v2 - Générique (WiFi)",
+    "it": "Mi Umidificatore v2 - Generico (WiFi)",
+    "no": "Mi Luftfukter v2 - Generisk (WiFi)",
+    "sv": "Mi Luftfuktare v2 - Generisk (WiFi)",
+    "pl": "Mi Nawilżacz v2 - Ogólny (WiFi)",
+    "ru": "Mi Увлажнитель v2 - Общий (WiFi)",
+    "ko": "Mi 가습기 v2 - 일반 (WiFi)"
   },
   "images": {
     "large": "drivers/mi-humidifier2/assets/images/large.jpg",

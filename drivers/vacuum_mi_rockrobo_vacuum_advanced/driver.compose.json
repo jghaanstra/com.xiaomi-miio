@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Advanced Roborock Vacuum Cleaner (WiFi)",
-    "nl": "Geavanceerde Roborock stofzuiger (WiFi)"
+    "nl": "Geavanceerde Roborock stofzuiger (WiFi)",
+    "da": "Avanceret Roborock Støvsuger (WiFi)",
+    "de": "Fortschrittlicher Roborock Staubsauger (WLAN)",
+    "es": "Aspiradora Roborock Avanzada (WiFi)",
+    "fr": "Aspirateur Roborock Avancé (WiFi)",
+    "it": "Aspirapolvere Roborock Avanzato (WiFi)",
+    "no": "Avansert Roborock Støvsuger (WiFi)",
+    "sv": "Avancerad Roborock Dammsugare (WiFi)",
+    "pl": "Zaawansowany Odkurzacz Roborock (WiFi)",
+    "ru": "Продвинутый Робот-пылесос Roborock (WiFi)",
+    "ko": "고급 Roborock 진공 청소기 (WiFi)"
   },
   "images": {
     "large": "drivers/vacuum_mi_rockrobo_vacuum_advanced/assets/images/large.jpg",
@@ -28,15 +38,37 @@
       "maintenanceAction": true,
       "title": {
         "en": "Reset consumables",
-        "nl": "Reset verbruiksartikelen"
+        "nl": "Reset verbruiksartikelen",
+        "da": "Nulstil forbrugsvarer",
+        "de": "Verbrauchsmaterialien zurücksetzen",
+        "es": "Restablecer consumibles",
+        "fr": "Réinitialiser les consommables",
+        "it": "Resetta i materiali di consumo",
+        "no": "Tilbakestill forbruksvarer",
+        "sv": "Återställ förbrukningsvaror",
+        "pl": "Zresetuj materiały eksploatacyjne",
+        "ru": "Сбросить расходные материалы",
+        "ko": "소모품 초기화"
       },
       "desc": {
         "en": "Reset the usage of vacuum cleaner consumables.",
-        "nl": "Reset het gebruik van de verbruiksartikelen"
+        "nl": "Reset het gebruik van de verbruiksartikelen",
+        "da": "Nulstil brugen af støvsugerens forbrugsvarer.",
+        "de": "Setzen Sie die Verwendung von Staubsauger-Verbrauchsmaterialien zurück.",
+        "es": "Restablezca el uso de los consumibles de la aspiradora.",
+        "fr": "Réinitialisez l'utilisation des consommables de l'aspirateur.",
+        "it": "Reimposta l'uso dei materiali di consumo dell'aspirapolvere.",
+        "no": "Tilbakestill bruken av støvsugerens forbruksvarer.",
+        "sv": "Återställ användningen av dammsugarens förbrukningsvaror.",
+        "pl": "Zresetuj użycie materiałów eksploatacyjnych odkurzacza.",
+        "ru": "Сбросить использование расходных материалов для пылесоса.",
+        "ko": "진공 청소기 소모품 사용 초기화."
       }
     }
   },
   "energy": {
-    "batteries": ["INTERNAL"]
+    "batteries": [
+      "INTERNAL"
+    ]
   }
 }

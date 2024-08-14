@@ -2,7 +2,17 @@
   "id": "free_fall_cube",
   "title": {
     "en": "Free Fall",
-    "nl": "Vrije val"
+    "nl": "Vrije val",
+    "da": "Frit fald",
+    "de": "Freier Fall",
+    "es": "Caída libre",
+    "fr": "Chute libre",
+    "it": "Caduta libera",
+    "no": "Fritt fall",
+    "sv": "Fritt fall",
+    "pl": "Swobodny spadek",
+    "ru": "Свободное падение",
+    "ko": "자유낙하"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-aqara-cube"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

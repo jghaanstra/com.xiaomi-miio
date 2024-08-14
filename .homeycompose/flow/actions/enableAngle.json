@@ -2,18 +2,48 @@
   "id": "enableAngle",
   "title": {
     "en": "Enable Oscillation",
-    "nl": "Inschakelen oscillatie"
+    "nl": "Inschakelen oscillatie",
+    "da": "Aktivér oscillation",
+    "de": "Oszillation aktivieren",
+    "es": "Activar oscilación",
+    "fr": "Activer l'oscillation",
+    "it": "Abilita oscillazione",
+    "no": "Aktiver svinging",
+    "sv": "Aktivera oscillator",
+    "pl": "Włącz oscylację",
+    "ru": "Включить осцилляцию",
+    "ko": "진동 활성화"
   },
   "titleFormatted": {
     "en": "Oscillation [[oscillation]]",
-    "nl": "Oscillatie [[oscillation]]"
+    "nl": "Oscillatie [[oscillation]]",
+    "da": "Oscillation [[oscillation]]",
+    "de": "Oszillation [[oscillation]]",
+    "es": "Oscilación [[oscillation]]",
+    "fr": "Oscillation [[oscillation]]",
+    "it": "Oscillazione [[oscillation]]",
+    "no": "Oscillation [[oscillation]]",
+    "sv": "Oscillation [[oscillation]]",
+    "pl": "Oscylacja [[oscillation]]",
+    "ru": "Осцилляция [[oscillation]]",
+    "ko": "진동 [[oscillation]]"
   },
   "args": [
     {
       "name": "oscillation",
       "title": {
         "en": "Angle",
-        "nl": "Hoek"
+        "nl": "Hoek",
+        "da": "Vinkel",
+        "de": "Winkel",
+        "es": "Ángulo",
+        "fr": "Angle",
+        "it": "Angolo",
+        "no": "Vinkel",
+        "sv": "Vinkel",
+        "pl": "Kąt",
+        "ru": "Угол",
+        "ko": "각도"
       },
       "type": "dropdown",
       "values": [
@@ -21,14 +51,34 @@
           "id": "on",
           "label": {
             "en": "Enable",
-            "nl": "Inschakelen"
+            "nl": "Inschakelen",
+            "da": "Aktiver",
+            "de": "Aktivieren",
+            "es": "Habilitar",
+            "fr": "Activer",
+            "it": "Abilita",
+            "no": "Aktiver",
+            "sv": "Aktivera",
+            "pl": "Włącz",
+            "ru": "Включить",
+            "ko": "사용"
           }
         },
         {
           "id": "off",
           "label": {
             "en": "Disable",
-            "nl": "Uitschakelen"
+            "nl": "Uitschakelen",
+            "da": "Deaktiver",
+            "de": "Deaktivieren",
+            "es": "Deshabilitar",
+            "fr": "Désactiver",
+            "it": "Disabilita",
+            "no": "Deaktiver",
+            "sv": "Inaktivera",
+            "pl": "Wyłącz",
+            "ru": "Выключить",
+            "ko": "비활성화"
           }
         }
       ]
@@ -38,10 +88,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Choisir l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5|fan_dmaker_advanced"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

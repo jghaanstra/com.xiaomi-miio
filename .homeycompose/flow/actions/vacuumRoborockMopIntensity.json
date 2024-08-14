@@ -2,18 +2,48 @@
   "id": "vacuumRoborockMopIntensity",
   "title": {
     "en": "Set Mop Intensity",
-    "nl": "Stel dweil intensiteit in"
+    "nl": "Stel dweil intensiteit in",
+    "da": "Indstil Mop Intensitet",
+    "de": "Mop-Intensität einstellen",
+    "es": "Establecer intensidad de fregado",
+    "fr": "Régler l'intensité de la serpillière",
+    "it": "Imposta l'intensità della mop",
+    "no": "Sett moppintensitet",
+    "sv": "Ställ in moppintensitet",
+    "pl": "Ustaw intensywność mopa",
+    "ru": "Установить интенсивность швабры",
+    "ko": "걸레 강도 설정"
   },
   "titleFormatted": {
     "en": "Set scrub intensity [[intensity]]",
-    "nl": "Stel mop intensiteit in op [[intensity]]"
+    "nl": "Stel mop intensiteit in op [[intensity]]",
+    "da": "Indstil skrubbeintensitet [[intensity]]",
+    "de": "Schrubbintensität einstellen [[intensity]]",
+    "es": "Establecer intensidad de fregado [[intensity]]",
+    "fr": "Régler l'intensité de la serpillière [[intensity]]",
+    "it": "Regola l'intensità di pulizia [[intensity]]",
+    "no": "Sett skrubbeintensitet [[intensity]]",
+    "sv": "Ställ in skrubbeintensitet [[intensity]]",
+    "pl": "Ustaw intensywność szorowania [[intensity]]",
+    "ru": "Установить интенсивность чистки [[intensity]]",
+    "ko": "스크럽 강도 설정 [[intensity]]"
   },
   "args": [
     {
       "name": "intensity",
       "title": {
         "en": "Mop Intensity",
-        "nl": "Dweil intensiteit"
+        "nl": "Dweil intensiteit",
+        "da": "Mop Intensitet",
+        "de": "Mop-Intensität",
+        "es": "Intensidad de fregado",
+        "fr": "Intensité de la serpillière",
+        "it": "Intensità della mop",
+        "no": "Moppintensitet",
+        "sv": "Moppintensitet",
+        "pl": "Intensywność mopa",
+        "ru": "Интенсивность швабры",
+        "ko": "걸레 강도"
       },
       "type": "dropdown",
       "values": [
@@ -21,28 +51,68 @@
           "id": "200",
           "label": {
             "en": "Off",
-            "nl": "Uit"
+            "nl": "Uit",
+            "da": "Slukket",
+            "de": "Aus",
+            "es": "Apagado",
+            "fr": "Éteint",
+            "it": "Spento",
+            "no": "Av",
+            "sv": "Av",
+            "pl": "Wyłączone",
+            "ru": "Выкл",
+            "ko": "끄기"
           }
         },
         {
           "id": "201",
           "label": {
             "en": "Mild",
-            "nl": "Mild"
+            "nl": "Mild",
+            "da": "Mild",
+            "de": "Mild",
+            "es": "Suave",
+            "fr": "Doux",
+            "it": "Leggera",
+            "no": "Mild",
+            "sv": "Mild",
+            "pl": "Łagodny",
+            "ru": "Мягкий",
+            "ko": "약하게"
           }
         },
         {
           "id": "202",
           "label": {
             "en": "Moderate",
-            "nl": "Gemiddeld"
+            "nl": "Gemiddeld",
+            "da": "Moderat",
+            "de": "Mittel",
+            "es": "Moderada",
+            "fr": "Modérée",
+            "it": "Moderata",
+            "no": "Moderat",
+            "sv": "Måttlig",
+            "pl": "Średnia",
+            "ru": "Умеренный",
+            "ko": "중간"
           }
         },
         {
           "id": "203",
           "label": {
             "en": "Intense",
-            "nl": "Intens"
+            "nl": "Intens",
+            "da": "Intens",
+            "de": "Intensiv",
+            "es": "Intensa",
+            "fr": "Intense",
+            "it": "Intensa",
+            "no": "Intens",
+            "sv": "Intensiv",
+            "pl": "Intensywny",
+            "ru": "Интенсивный",
+            "ko": "강하게"
           }
         }
       ]
@@ -52,10 +122,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer stofzuiger"
+        "nl": "Selecteer stofzuiger",
+        "da": "Vælg Støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Seleccione Aspiradora",
+        "fr": "Sélectionnez Aspirateur",
+        "it": "Seleziona Aspirapolvere",
+        "no": "Velg Støvsuger",
+        "sv": "Välj Dammsugare",
+        "pl": "Wybierz Odkurzacz",
+        "ru": "Выберите пылесос",
+        "ko": "진공 청소기를 선택하세요"
       },
       "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced&capabilities=vacuum_roborock_mop_intensity"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

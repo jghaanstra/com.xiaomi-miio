@@ -1,23 +1,63 @@
 {
   "title": {
     "en": "Send IR code",
-    "nl": "IR code versturen"
+    "nl": "IR code versturen",
+    "da": "Send IR-kode",
+    "de": "IR-Code senden",
+    "es": "Enviar código IR",
+    "fr": "Envoyer le code IR",
+    "it": "Invia codice IR",
+    "no": "Send IR-kode",
+    "sv": "Skicka IR-kod",
+    "pl": "Wyślij kod IR",
+    "ru": "Отправить код IR",
+    "ko": "IR 코드 보내기"
   },
   "titleFormatted": {
     "en": "Send code [[code]]",
-    "nl": "Verstuur code [[code]]"
+    "nl": "Verstuur code [[code]]",
+    "da": "Send kode [[code]]",
+    "de": "Code [[code]] senden",
+    "es": "Enviar código [[code]]",
+    "fr": "Envoyer le code [[code]]",
+    "it": "Invia codice [[code]]",
+    "no": "Send kode [[code]]",
+    "sv": "Skicka kod [[code]]",
+    "pl": "Wyślij kod [[code]]",
+    "ru": "Отправить код [[code]]",
+    "ko": "코드 [[code]] 보내기"
   },
   "args": [
     {
       "name": "code",
       "title": {
         "en": "Code",
-        "nl": "Code"
+        "nl": "Code",
+        "da": "Kode",
+        "de": "Code",
+        "es": "Código",
+        "fr": "Code",
+        "it": "Codice",
+        "no": "Kode",
+        "sv": "Kod",
+        "pl": "Kod",
+        "ru": "Код",
+        "ko": "코드"
       },
       "type": "text",
       "placeholder": {
         "en": "code",
-        "nl": "code"
+        "nl": "code",
+        "da": "kode",
+        "de": "Code",
+        "es": "código",
+        "fr": "code",
+        "it": "codice",
+        "no": "kode",
+        "sv": "kod",
+        "pl": "kod",
+        "ru": "код",
+        "ko": "코드"
       }
     },
     {
@@ -25,7 +65,17 @@
       "type": "device",
       "placeholder": {
         "en": "Select IR Remote",
-        "nl": "Selecteer IR Remote"
+        "nl": "Selecteer IR Remote",
+        "da": "Vælg IR-fjernbetjening",
+        "de": "Wähle IR-Fernbedienung",
+        "es": "Selecciona Control Remoto IR",
+        "fr": "Sélectionnez la télécommande IR",
+        "it": "Seleziona telecomando IR",
+        "no": "Velg IR-fjernkontroll",
+        "sv": "Välj IR-fjärrkontroll",
+        "pl": "Wybierz pilot IR",
+        "ru": "Выберите ИК-пульт",
+        "ko": "IR 리모컨 선택"
       },
       "filter": "driver_id=remote_chuangmi_remote_v2"
     }

@@ -1,7 +1,17 @@
 {
   "title": {
     "en": "Filter Alert",
-    "nl": "Filter waarschuwing"
+    "nl": "Filter waarschuwing",
+    "da": "Filteralarm",
+    "de": "Filteralarm",
+    "es": "Alerta de Filtro",
+    "fr": "Alerte Filtre",
+    "it": "Allarme Filtro",
+    "no": "Filtervarsling",
+    "sv": "Filtervarning",
+    "pl": "Alarm filtra",
+    "ru": "Сигнал фильтра",
+    "ko": "필터 알림"
   },
   "type": "boolean",
   "getable": true,

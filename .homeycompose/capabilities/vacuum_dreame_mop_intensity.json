@@ -2,28 +2,68 @@
   "type": "enum",
   "title": {
     "en": "Mop Intensity",
-    "nl": "Dweil intensiteit"
+    "nl": "Dweil intensiteit",
+    "da": "Mop Intensity",
+    "de": "Wischintensität",
+    "es": "Intensidad de fregado",
+    "fr": "Intensité de la serpillière",
+    "it": "Intensità del mop",
+    "no": "Mop Intensity",
+    "sv": "Mop Intensity",
+    "pl": "Intensywność mopa",
+    "ru": "Интенсивность швабры",
+    "ko": "물걸레 강도"
   },
   "values": [
     {
       "id": "0",
       "title": {
         "en": "Low",
-        "nl": "Laag"
+        "nl": "Laag",
+        "da": "Lav",
+        "de": "Niedrig",
+        "es": "Bajo",
+        "fr": "Faible",
+        "it": "Basso",
+        "no": "Lav",
+        "sv": "Låg",
+        "pl": "Niski",
+        "ru": "Низкий",
+        "ko": "낮음"
       }
     },
     {
       "id": "1",
       "title": {
         "en": "Medium",
-        "nl": "Medium"
+        "nl": "Medium",
+        "da": "Middel",
+        "de": "Mittel",
+        "es": "Medio",
+        "fr": "Moyen",
+        "it": "Medio",
+        "no": "Medium",
+        "sv": "Medium",
+        "pl": "Średni",
+        "ru": "Средний",
+        "ko": "중간"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "High",
-        "nl": "Hoog"
+        "nl": "Hoog",
+        "da": "Høj",
+        "de": "Hoch",
+        "es": "Alto",
+        "fr": "Élevé",
+        "it": "Alto",
+        "no": "Høy",
+        "sv": "Hög",
+        "pl": "Wysoki",
+        "ru": "Высокий",
+        "ko": "높음"
       }
     }
   ],

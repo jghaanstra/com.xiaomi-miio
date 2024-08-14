@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Chingmi Smart Power Strip (WiFi)",
-    "nl": "Chingmi Smart Power Strip (WiFi)"
+    "nl": "Chingmi Smart Power Strip (WiFi)",
+    "da": "Chingmi Smart Power Strip (WiFi)",
+    "de": "Chingmi Smart Power Strip (WiFi)",
+    "es": "Chingmi Smart Power Strip (WiFi)",
+    "fr": "Chingmi Smart Power Strip (WiFi)",
+    "it": "Chingmi Smart Power Strip (WiFi)",
+    "no": "Chingmi Smart Power Strip (WiFi)",
+    "sv": "Chingmi Smart Power Strip (WiFi)",
+    "pl": "Chingmi Smart Power Strip (WiFi)",
+    "ru": "Chingmi Smart Power Strip (WiFi)",
+    "ko": "Chingmi Smart Power Strip (WiFi)"
   },
   "images": {
     "large": "drivers/powerstrip_qmi_powerstrip_v1/assets/images/large.jpg",

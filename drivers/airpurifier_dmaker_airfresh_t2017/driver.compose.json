@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)",
-    "nl": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)"
+    "nl": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)",
+    "da": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)",
+    "de": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)",
+    "es": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)",
+    "fr": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)",
+    "it": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)",
+    "no": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)",
+    "sv": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)",
+    "pl": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)",
+    "ru": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)",
+    "ko": "Mi Air Purifier MJXFJ-300-G1 / MJXFJ-150-A1 (WiFi)"
   },
   "images": {
     "large": "drivers/airpurifier_dmaker_airfresh_t2017/assets/images/large.jpg",
@@ -24,7 +34,17 @@
     "dim": {
       "title": {
         "en": "Speedlevel",
-        "nl": "Snelheid"
+        "nl": "Snelheid",
+        "da": "Hastighedsniveau",
+        "de": "Geschwindigkeitsstufe",
+        "es": "Nivel de velocidad",
+        "fr": "Niveau de vitesse",
+        "it": "Livello di velocità",
+        "no": "Hastighetsnivå",
+        "sv": "Hastighetsnivå",
+        "pl": "Poziom prędkości",
+        "ru": "Уровень скорости",
+        "ko": "속도 레벨"
       }
     }
   }

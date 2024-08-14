@@ -2,28 +2,68 @@
   "type": "enum",
   "title": {
     "en": "Sweep and Mop Mode",
-    "nl": "Sweep and Mop modus"
+    "nl": "Sweep and Mop modus",
+    "da": "Feje- og mopningstilstand",
+    "de": "Kehr- und Wischmodus",
+    "es": "Modo de barrido y fregado",
+    "fr": "Mode balayage et vadrouille",
+    "it": "Modalità spazzare e pulire",
+    "no": "Feie- og moppemodus",
+    "sv": "Sop- och moppningsläge",
+    "pl": "Tryb zamiatania i mopowania",
+    "ru": "Режим подметания и мытья полов",
+    "ko": "쓸기 및 물기 모드"
   },
   "values": [
     {
       "id": "0",
       "title": {
         "en": "Sweep",
-        "nl": "Sweep"
+        "nl": "Sweep",
+        "da": "Feje",
+        "de": "Kehren",
+        "es": "Barrer",
+        "fr": "Balayer",
+        "it": "Spazzare",
+        "no": "Feie",
+        "sv": "Sopa",
+        "pl": "Zamiatanie",
+        "ru": "Подметание",
+        "ko": "쓸기"
       }
     },
     {
       "id": "1",
       "title": {
         "en": "Mop",
-        "nl": "Mop"
+        "nl": "Mop",
+        "da": "Moppe",
+        "de": "Wischen",
+        "es": "Fregar",
+        "fr": "Passer la serpillière",
+        "it": "Pulire",
+        "no": "Moppe",
+        "sv": "Moppa",
+        "pl": "Mopowanie",
+        "ru": "Мытьё полов",
+        "ko": "물기"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Mop & Sweep",
-        "nl": "Mop & Sweep"
+        "nl": "Mop & Sweep",
+        "da": "Moppe & Feje",
+        "de": "Wischen & Kehren",
+        "es": "Fregar y Barrer",
+        "fr": "Vadrouille et Balayage",
+        "it": "Pulire e Spazzare",
+        "no": "Moppe og Feie",
+        "sv": "Moppa & Sopa",
+        "pl": "Mopowanie i zamiatanie",
+        "ru": "Мытьё полов и подметание",
+        "ko": "물기 및 쓸기"
       }
     }
   ],

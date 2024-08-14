@@ -4,6 +4,16 @@
   "value": "0123456789ab",
   "label": {
     "en": "Gateway SID",
-    "nl": "Gateway SID"
+    "nl": "Gateway SID",
+    "da": "Gateway SID",
+    "de": "Gateway SID",
+    "es": "Gateway SID",
+    "fr": "Gateway SID",
+    "it": "Gateway SID",
+    "no": "Gateway SID",
+    "sv": "Gateway SID",
+    "pl": "Gateway SID",
+    "ru": "Gateway SID",
+    "ko": "Gateway SID"
   }
 }

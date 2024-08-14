@@ -2,18 +2,48 @@
   "id": "enableChildLock",
   "title": {
     "en": "Enable Child Lock",
-    "nl": "Instellen kindbeveiliging"
+    "nl": "Instellen kindbeveiliging",
+    "da": "Aktivér børnelås",
+    "de": "Kindersicherung aktivieren",
+    "es": "Activar bloqueo infantil",
+    "fr": "Activer le verrouillage enfant",
+    "it": "Abilita blocco bambini",
+    "no": "Aktiver barnelås",
+    "sv": "Aktivera barnlås",
+    "pl": "Włącz blokadę rodzicielską",
+    "ru": "Включить детский замок",
+    "ko": "어린이 잠금 장치를 활성화"
   },
   "titleFormatted": {
     "en": "Set child lock [[childlock]]",
-    "nl": "Wijzig kindbeveiliging naar [[childlock]]"
+    "nl": "Wijzig kindbeveiliging naar [[childlock]]",
+    "da": "Indstil børnelås [[childlock]]",
+    "de": "Kindersicherung setzen [[childlock]]",
+    "es": "Configurar bloqueo infantil [[childlock]]",
+    "fr": "Définir le verrouillage enfant [[childlock]]",
+    "it": "Imposta blocco bambini [[childlock]]",
+    "no": "Sett barnelås [[childlock]]",
+    "sv": "Ställ in barnlåset [[childlock]]",
+    "pl": "Ustaw blokadę rodzicielską [[childlock]]",
+    "ru": "Установить детский замок [[childlock]]",
+    "ko": "어린이 잠금 설정 [[childlock]]"
   },
   "args": [
     {
       "name": "childlock",
       "title": {
         "en": "Childlock",
-        "nl": "Kinderslot"
+        "nl": "Kinderslot",
+        "da": "Børnelås",
+        "de": "Kindersicherung",
+        "es": "Bloqueo infantil",
+        "fr": "Verrouillage enfant",
+        "it": "Blocco bambini",
+        "no": "Barnelås",
+        "sv": "Barnlås",
+        "pl": "Blokada rodzicielska",
+        "ru": "Детский замок",
+        "ko": "어린이 잠금 장치"
       },
       "type": "dropdown",
       "values": [
@@ -21,14 +51,34 @@
           "id": "on",
           "label": {
             "en": "On",
-            "nl": "Aan"
+            "nl": "Aan",
+            "da": "Til",
+            "de": "Ein",
+            "es": "Encendido",
+            "fr": "Activé",
+            "it": "Acceso",
+            "no": "På",
+            "sv": "På",
+            "pl": "Włączone",
+            "ru": "Вкл",
+            "ko": "켜기"
           }
         },
         {
           "id": "off",
           "label": {
             "en": "Off",
-            "nl": "Uit"
+            "nl": "Uit",
+            "da": "Fra",
+            "de": "Aus",
+            "es": "Apagado",
+            "fr": "Désactivé",
+            "it": "Spento",
+            "no": "Av",
+            "sv": "Av",
+            "pl": "Wyłączone",
+            "ru": "Выкл",
+            "ko": "끄기"
           }
         }
       ]
@@ -38,10 +88,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Wireless Wall Double Switch (Gateway)",
-    "nl": "Aqara Wireless Wall Double Switch (Gateway)"
+    "nl": "Aqara Wireless Wall Double Switch (Gateway)",
+    "da": "Aqara Trådløs Væg Dobbeltkontakt (Gateway)",
+    "de": "Aqara Funk-Wandschalter Doppelt (Gateway)",
+    "es": "Interruptor Doble de Pared Inalámbrico Aqara (Gateway)",
+    "fr": "Interrupteur Double sans Fil Aqara (Gateway)",
+    "it": "Interruttore da Parete Wireless Doppio Aqara (Gateway)",
+    "no": "Aqara Trådløs Vegg Dobbel Bryter (Gateway)",
+    "sv": "Aqara Trådlös Väggdubbla Strömbrytare (Gateway)",
+    "pl": "Aqara Bezprzewodowy Podwójny Przełącznik Ścienny (Gateway)",
+    "ru": "Беспроводной Двойной Настенный Выключатель Aqara (Gateway)",
+    "ko": "아카라 무선 벽 이중 스위치 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/aqara_86sw2_switch/assets/images/large.jpg",
@@ -16,6 +26,8 @@
     "alarm_battery"
   ],
   "energy": {
-    "batteries": ["CR2032"]
+    "batteries": [
+      "CR2032"
+    ]
   }
 }

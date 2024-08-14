@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Smart Pet Water Dispenser MIoT (WiFi)",
-    "nl": "Smart Pet Water Dispenser MIoT (WiFi)"
+    "nl": "Smart Pet Water Dispenser MIoT (WiFi)",
+    "da": "Smart Pet Water Dispenser MIoT (WiFi)",
+    "de": "Smart Pet Water Dispenser MIoT (WiFi)",
+    "es": "Smart Pet Water Dispenser MIoT (WiFi)",
+    "fr": "Smart Pet Water Dispenser MIoT (WiFi)",
+    "it": "Smart Pet Water Dispenser MIoT (WiFi)",
+    "no": "Smart Pet Water Dispenser MIoT (WiFi)",
+    "sv": "Smart Pet Water Dispenser MIoT (WiFi)",
+    "pl": "Smart Pet Water Dispenser MIoT (WiFi)",
+    "ru": "Smart Pet Water Dispenser MIoT (WiFi)",
+    "ko": "Smart Pet Water Dispenser MIoT (WiFi)"
   },
   "images": {
     "large": "drivers/petwaterdispenser_mmgg_miot/assets/images/large.jpg",
@@ -21,13 +31,33 @@
     "alarm_water": {
       "title": {
         "en": "No Water",
-        "nl": "Geen Water"
+        "nl": "Geen Water",
+        "da": "Ingen vand",
+        "de": "Kein Wasser",
+        "es": "Sin agua",
+        "fr": "Pas d'eau",
+        "it": "Niente acqua",
+        "no": "Ingen vann",
+        "sv": "Inget vatten",
+        "pl": "Brak wody",
+        "ru": "Нет воды",
+        "ko": "물이 없음"
       }
     },
     "alarm_generic": {
       "title": {
         "en": "Pump Blocked",
-        "nl": "Pomp geblokkeerd"
+        "nl": "Pomp geblokkeerd",
+        "da": "Pumpe blokeret",
+        "de": "Pumpe blockiert",
+        "es": "Bomba bloqueada",
+        "fr": "Pompe bloquée",
+        "it": "Pompa bloccata",
+        "no": "Pumpe blokkert",
+        "sv": "Pump blockerad",
+        "pl": "Pompa zablokowana",
+        "ru": "Насос заблокирован",
+        "ko": "펌프 차단됨"
       }
     }
   }

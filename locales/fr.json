@@ -1,0 +1,24 @@
+{
+  "pair": {
+    "title": "Ajouter un appareil Mi Home",
+    "startpairing": "Pour que Homey puisse communiquer avec des appareils via le protocole miIO, un token unique doit être obtenu. Des connaissances techniques sont nécessaires pour obtenir ces tokens. Si vous n'êtes pas très à l'aise avec la technologie, utiliser cette application pourrait être un défi. Consultez les instructions sur le sujet de support sur le forum communautaire pour obtenir des tokens d'appareil.",
+    "nosettings": "Veuillez remplir tous les champs.",
+    "intro": "Entrez les détails de votre appareil Mi Home.",
+    "address": "Adresse IP",
+    "token": "Token (32 caractères de chiffres et lettres)",
+    "polling": "Fréquence de sondage",
+    "test": "Tester la connexion",
+    "testResult": "Test de connexion réussi, vous pouvez maintenant connecter l'appareil avec Homey.",
+    "connect": "Connecter",
+    "unknownerror": "Erreur inconnue, êtes-vous sûr d'avoir entré la bonne adresse IP et le bon token et que Homey est sur le même réseau que l'appareil Mi Home ? Veuillez vérifier vos paramètres et réessayer.",
+    "state": "État :",
+    "battery": "Niveau de batterie :",
+    "fanspeed": "Vitesse du ventilateur :",
+    "no_devices_found": "Aucun appareil trouvé.",
+    "no_gateways": "Aucune passerelle trouvée. \n\n Avant d'ajouter des appareils, veuillez ouvrir les paramètres du plugin et ajouter votre passerelle Xiaomi.\n La passerelle Aqara n'est pas encore prise en charge."
+  },
+  "device": {
+    "unreachable": "Appareil injoignable : ",
+    "noupdates": "L'appareil n'a pas encore reçu de mises à jour"
+  }
+}

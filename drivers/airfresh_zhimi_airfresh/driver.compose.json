@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Smartmi Fresh Air System (WiFi)",
-    "nl": "Smartmi Fresh Air System (WiFi)"
+    "nl": "Smartmi Fresh Air System (WiFi)",
+    "da": "Smartmi Friskluftsystem (WiFi)",
+    "de": "Smartmi Frischluftsystem (WiFi)",
+    "es": "Sistema de Aire Fresco Smartmi (WiFi)",
+    "fr": "Système d'air frais Smartmi (WiFi)",
+    "it": "Sistema di Aria Fresca Smartmi (WiFi)",
+    "no": "Smartmi Friskluftsystem (WiFi)",
+    "sv": "Smartmi Friskluftsystem (WiFi)",
+    "pl": "System świeżego powietrza Smartmi (WiFi)",
+    "ru": "Система свежего воздуха Smartmi (WiFi)",
+    "ko": "스마트미 신선한 공기 시스템 (WiFi)"
   },
   "images": {
     "large": "drivers/airfresh_zhimi_airfresh/assets/images/large.jpg",
@@ -23,7 +33,17 @@
     "onoff.ptc": {
       "title": {
         "en": "Heat",
-        "nl": "Verwarmen"
+        "nl": "Verwarmen",
+        "da": "Varme",
+        "de": "Heizen",
+        "es": "Calentar",
+        "fr": "Chauffer",
+        "it": "Riscaldare",
+        "no": "Varme",
+        "sv": "Värme",
+        "pl": "Grzanie",
+        "ru": "Нагрев",
+        "ko": "열기"
       }
     }
   }

@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Smart Wall Double Switch No Neutral (Gateway)",
-    "nl": "Aqara Smart Wall Double Switch zonder nuldraad (Gateway)"
+    "nl": "Aqara Smart Wall Double Switch zonder nuldraad (Gateway)",
+    "da": "Aqara Smart Væg Dobbeltafbryder Uden Neutral (Gateway)",
+    "de": "Aqara Smart Wanddoppelschalter Ohne Neutralleiter (Gateway)",
+    "es": "Interruptor Doble de Pared Inteligente Aqara Sin Neutro (Gateway)",
+    "fr": "Interrupteur Double Intelligent Aqara Sans Neutre (Gateway)",
+    "it": "Interruttore Doppio a Parete Intelligente Aqara Senza Neutro (Gateway)",
+    "no": "Aqara Smart Vegg Dobbel Bryter Uten Nøytral (Gateway)",
+    "sv": "Aqara Smart Vägg Dubbel Switch Utan Neutral (Gateway)",
+    "pl": "Aqara Smart Podwójny Włącznik Ścienny Bez N (Gateway)",
+    "ru": "Умный Настенный Двойной Выключатель Aqara Без Нейтрали (Шлюз)",
+    "ko": "아카라 스마트 벽 스위치 더블 무중성 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/aqara-ctrl-neutral2/assets/images/large.png",
@@ -19,13 +29,33 @@
     "onoff.0": {
       "title": {
         "en": "Left button",
-        "nl": "Linkerknop"
+        "nl": "Linkerknop",
+        "da": "Venstre knap",
+        "de": "Linker Knopf",
+        "es": "Botón izquierdo",
+        "fr": "Bouton gauche",
+        "it": "Pulsante sinistro",
+        "no": "Venstre knapp",
+        "sv": "Vänster knapp",
+        "pl": "Lewy przycisk",
+        "ru": "Левая кнопка",
+        "ko": "왼쪽 버튼"
       }
     },
     "onoff.1": {
       "title": {
         "en": "Right button",
-        "nl": "Rechterknop"
+        "nl": "Rechterknop",
+        "da": "Højre knap",
+        "de": "Rechter Knopf",
+        "es": "Botón derecho",
+        "fr": "Bouton droit",
+        "it": "Pulsante destro",
+        "no": "Høyre knapp",
+        "sv": "Höger knapp",
+        "pl": "Prawy przycisk",
+        "ru": "Правая кнопка",
+        "ko": "오른쪽 버튼"
       }
     }
   }

@@ -2,7 +2,17 @@
   "id": "click_long_right",
   "title": {
     "en": "Right Long Click",
-    "nl": "Lange klik rechts"
+    "nl": "Lange klik rechts",
+    "da": "Højre Lang Klik",
+    "de": "Rechter Langer Klick",
+    "es": "Clic Largo Derecho",
+    "fr": "Clic Long Droit",
+    "it": "Clic Lungo Destro",
+    "no": "Høyre Langt Klikk",
+    "sv": "Höger Lång Klick",
+    "pl": "Długie kliknięcie prawe",
+    "ru": "Длинный клик правой кнопкой",
+    "ko": "오른쪽 길게 클릭"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=aqara-86sw2-advanced"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

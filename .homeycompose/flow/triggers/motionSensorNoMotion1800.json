@@ -2,7 +2,17 @@
   "id": "motionSensorNoMotion1800",
   "title": {
     "en": "No motion detected in 30 minutes",
-    "nl": "Geen beweging gedetecteerd in 30 minuten"
+    "nl": "Geen beweging gedetecteerd in 30 minuten",
+    "da": "Ingen bevægelse registreret i 30 minutter",
+    "de": "Keine Bewegung in 30 Minuten erkannt",
+    "es": "No se detectó movimiento en 30 minutos",
+    "fr": "Aucun mouvement détecté en 30 minutes",
+    "it": "Nessun movimento rilevato in 30 minuti",
+    "no": "Ingen bevegelse oppdaget på 30 minutter",
+    "sv": "Ingen rörelse upptäckt på 30 minuter",
+    "pl": "Brak ruchu przez 30 minut",
+    "ru": "Движение не обнаружено в течение 30 минут",
+    "ko": "30분 동안 움직임이 감지되지 않았습니다."
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner le dispositif",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치를 선택하세요"
       },
       "filter": "driver_id=mi-motion-sensor|aqara-motion-sensor"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

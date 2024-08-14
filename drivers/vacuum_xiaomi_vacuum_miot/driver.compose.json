@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Xiaomi Vacuum Cleaner MIoT (WiFi)",
-    "nl": "Xiaomi stofzuiger MIoT (WiFi)"
+    "nl": "Xiaomi stofzuiger MIoT (WiFi)",
+    "da": "Xiaomi Støvsuger MIoT (WiFi)",
+    "de": "Xiaomi Staubsauger MIoT (WiFi)",
+    "es": "Aspiradora Xiaomi MIoT (WiFi)",
+    "fr": "Aspirateur Xiaomi MIoT (WiFi)",
+    "it": "Aspirapolvere Xiaomi MIoT (WiFi)",
+    "no": "Xiaomi Støvsuger MIoT (WiFi)",
+    "sv": "Xiaomi Dammsugare MIoT (WiFi)",
+    "pl": "Odkurzacz Xiaomi MIoT (WiFi)",
+    "ru": "Пылесос Xiaomi MIoT (WiFi)",
+    "ko": "샤오미 진공 청소기 MIoT (WiFi)"
   },
   "images": {
     "large": "drivers/vacuum_xiaomi_vacuum_miot/assets/images/large.jpg",
@@ -22,6 +32,8 @@
     "alarm_filter_work_time"
   ],
   "energy": {
-    "batteries": ["INTERNAL"]
+    "batteries": [
+      "INTERNAL"
+    ]
   }
 }

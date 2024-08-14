@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Basic Smartmi/ZhiMi Fan (WiFi)",
-    "nl": "Basis Smartmi/ZhiMi Fan (WiFi)"
+    "nl": "Basis Smartmi/ZhiMi Fan (WiFi)",
+    "da": "Basis Smartmi/ZhiMi Fan (WiFi)",
+    "de": "Basis Smartmi/ZhiMi Fan (WiFi)",
+    "es": "Ventilador Básico Smartmi/ZhiMi (WiFi)",
+    "fr": "Ventilateur Smartmi/ZhiMi de base (WiFi)",
+    "it": "Ventilatore Smartmi/ZhiMi Base (WiFi)",
+    "no": "Grunnleggende Smartmi/ZhiMi Vifte (WiFi)",
+    "sv": "Grundläggande Smartmi/ZhiMi Fläkt (WiFi)",
+    "pl": "Podstawowy wentylator Smartmi/ZhiMi (WiFi)",
+    "ru": "Базовый вентилятор Smartmi/ZhiMi (WiFi)",
+    "ko": "기본 Smartmi/ZhiMi 팬 (WiFi)"
   },
   "images": {
     "large": "drivers/zhimi-fan/assets/images/large.jpg",

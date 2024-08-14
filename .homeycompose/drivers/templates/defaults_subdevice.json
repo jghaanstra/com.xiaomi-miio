@@ -16,6 +16,10 @@
       "template": "add_devices"
     }
   ],
-  "platforms": [ "local" ],
-  "connectivity": [ "lan" ]
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ]
 }

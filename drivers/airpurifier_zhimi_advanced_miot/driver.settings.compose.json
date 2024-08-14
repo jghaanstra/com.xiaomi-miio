@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "User Settings",
-      "nl": "Gebruikersinstellingem"
+      "nl": "Gebruikersinstellingem",
+      "da": "Brugerindstillinger",
+      "de": "Benutzereinstellungen",
+      "es": "Configuración de usuario",
+      "fr": "Paramètres utilisateur",
+      "it": "Impostazioni utente",
+      "no": "Brukerinnstillinger",
+      "sv": "Användarinställningar",
+      "pl": "Ustawienia użytkownika",
+      "ru": "Настройки пользователя",
+      "ko": "사용자 설정"
     },
     "children": [
       {
@@ -12,7 +22,17 @@
         "value": true,
         "label": {
           "en": "LED",
-          "nl": "LED"
+          "nl": "LED",
+          "da": "LED",
+          "de": "LED",
+          "es": "LED",
+          "fr": "LED",
+          "it": "LED",
+          "no": "LED",
+          "sv": "LED",
+          "pl": "LED",
+          "ru": "Светодиод",
+          "ko": "LED"
         }
       },
       {
@@ -21,7 +41,17 @@
         "value": true,
         "label": {
           "en": "Buzzer",
-          "nl": "Buzzer"
+          "nl": "Buzzer",
+          "da": "Summer",
+          "de": "Summton",
+          "es": "Zumbador",
+          "fr": "Buzzer",
+          "it": "Cicalino",
+          "no": "Summer",
+          "sv": "Summer",
+          "pl": "Brzęczyk",
+          "ru": "Звуковой сигнал",
+          "ko": "버저"
         }
       },
       {
@@ -30,7 +60,17 @@
         "value": true,
         "label": {
           "en": "Child Lock",
-          "nl": "Kinderslot"
+          "nl": "Kinderslot",
+          "da": "Børnelås",
+          "de": "Kindersicherung",
+          "es": "Bloqueo Infantil",
+          "fr": "Verrouillage enfant",
+          "it": "Blocco bambini",
+          "no": "Barnelås",
+          "sv": "Barnlås",
+          "pl": "Blokada rodzicielska",
+          "ru": "Блокировка от детей",
+          "ko": "잠금"
         }
       }
     ]
@@ -39,7 +79,17 @@
     "type": "group",
     "label": {
       "en": "Device Data",
-      "nl": "Apparaat Data"
+      "nl": "Apparaat Data",
+      "da": "Enhedsdata",
+      "de": "Gerätedaten",
+      "es": "Datos del dispositivo",
+      "fr": "Données de l'appareil",
+      "it": "Dati del dispositivo",
+      "no": "Enhetsdata",
+      "sv": "Enhetsdata",
+      "pl": "Dane urządzenia",
+      "ru": "Данные устройства",
+      "ko": "기기 데이터"
     },
     "children": [
       {
@@ -47,7 +97,17 @@
         "type": "label",
         "label": {
           "en": "Filter remaining",
-          "nl": "Filter over"
+          "nl": "Filter over",
+          "da": "Filter tilbage",
+          "de": "Filter übrig",
+          "es": "Filtro restante",
+          "fr": "Filtre restant",
+          "it": "Filtro rimanente",
+          "no": "Filter gjenværende",
+          "sv": "Filter kvar",
+          "pl": "Pozostało filtra",
+          "ru": "Остаток фильтра",
+          "ko": "필터 잔여량"
         },
         "value": "0%"
       },
@@ -56,7 +116,17 @@
         "type": "label",
         "label": {
           "en": "Filter hours used",
-          "nl": "Filter uur gebruikt"
+          "nl": "Filter uur gebruikt",
+          "da": "Filter timer brugt",
+          "de": "Filterstunden verwendet",
+          "es": "Horas de filtro utilizadas",
+          "fr": "Heures de filtre utilisées",
+          "it": "Ore di filtro utilizzate",
+          "no": "Filter timer brukt",
+          "sv": "Filter timmar användes",
+          "pl": "Godziny używania filtra",
+          "ru": "Использованные часы фильтра",
+          "ko": "필터 사용 시간"
         },
         "value": "0h"
       },
@@ -65,7 +135,17 @@
         "type": "label",
         "label": {
           "en": "Air Cleared",
-          "nl": "Lucht geschoond"
+          "nl": "Lucht geschoond",
+          "da": "Luft renset",
+          "de": "Luft gereinigt",
+          "es": "Aire purificado",
+          "fr": "Air purifié",
+          "it": "Aria ripulita",
+          "no": "Luft renset",
+          "sv": "Luft rensad",
+          "pl": "Oczyszczone powietrze",
+          "ru": "Воздух очищен",
+          "ko": "정화된 공기"
         },
         "value": "0m3"
       }
@@ -75,7 +155,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuración del dispositivo",
+      "fr": "Paramètres de l'appareil",
+      "it": "Impostazioni del dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia urządzenia",
+      "ru": "Настройки устройства",
+      "ko": "기기 설정"
     },
     "children": [
       {

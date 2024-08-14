@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Temperature & Humidity Sensor (Gateway)",
-    "nl": "Aqara temperatuur & luchtvochtigheid sensor (Gateway)"
+    "nl": "Aqara temperatuur & luchtvochtigheid sensor (Gateway)",
+    "da": "Aqara Temperatur- og Fugtighedssensor (Gateway)",
+    "de": "Aqara Temperatur- und Feuchtigkeitssensor (Gateway)",
+    "es": "Sensor de temperatura y humedad Aqara (Gateway)",
+    "fr": "Capteur de température et d'humidité Aqara (Gateway)",
+    "it": "Sensore di temperatura e umidità Aqara (Gateway)",
+    "no": "Aqara temperatur- og fuktighetssensor (Gateway)",
+    "sv": "Aqara temperatur- och fuktighetssensor (Gateway)",
+    "pl": "Czujnik temperatury i wilgotności Aqara (Gateway)",
+    "ru": "Датчик температуры и влажности Aqara (Gateway)",
+    "ko": "아카라 온습도 센서 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/aqara-temperature-humidity-sensor/assets/images/large.png",
@@ -19,6 +29,8 @@
     "alarm_battery"
   ],
   "energy": {
-    "batteries": ["CR2032"]
+    "batteries": [
+      "CR2032"
+    ]
   }
 }

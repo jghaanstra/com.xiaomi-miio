@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Play favorite radio station",
-    "nl": "Afspelen favoriete radio station"
+    "nl": "Afspelen favoriete radio station",
+    "da": "Afspil favorit radiostation",
+    "de": "Favoriten-Radiosender abspielen",
+    "es": "Reproducir emisora de radio favorita",
+    "fr": "Jouer la station de radio favorite",
+    "it": "Riproduci stazione radio preferita",
+    "no": "Spill favoritt radiostasjon",
+    "sv": "Spela favorit radiostation",
+    "pl": "Odtwórz ulubioną stację radiową",
+    "ru": "Воспроизвести любимую радиостанцию",
+    "ko": "좋아하는 라디오 방송 재생"
   },
   "titleFormatted": {
     "en": "Play favorite radio station [[favoriteID]] with volume [[volume]]",
-    "nl": "Afspelen favoriete radio station [[favoriteID]] met volume [[volume]]"
+    "nl": "Afspelen favoriete radio station [[favoriteID]] met volume [[volume]]",
+    "da": "Afspil favorit radiostation [[favoriteID]] med lydstyrke [[volume]]",
+    "de": "Favoriten-Radiosender [[favoriteID]] mit Lautstärke [[volume]] abspielen",
+    "es": "Reproducir emisora de radio favorita [[favoriteID]] con volumen [[volume]]",
+    "fr": "Jouer la station de radio favorite [[favoriteID]] avec le volume [[volume]]",
+    "it": "Riproduci stazione radio preferita [[favoriteID]] con volume [[volume]]",
+    "no": "Spill favoritt radiostasjon [[favoriteID]] med volum [[volume]]",
+    "sv": "Spela favorit radiostation [[favoriteID]] med volym [[volume]]",
+    "pl": "Odtwórz ulubioną stację radiową [[favoriteID]] z głośnością [[volume]]",
+    "ru": "Воспроизвести любимую радиостанцию [[favoriteID]] с громкостью [[volume]]",
+    "ko": "좋아하는 라디오 방송 [[favoriteID]] 볼륨 [[volume]]으로 재생"
   },
   "args": [
     {
       "type": "dropdown",
       "title": {
         "en": "Station ID",
-        "nl": "Station ID"
+        "nl": "Station ID",
+        "da": "Station ID",
+        "de": "Stations-ID",
+        "es": "ID de estación",
+        "fr": "ID de la station",
+        "it": "ID stazione",
+        "no": "Stasjons-ID",
+        "sv": "Stations-ID",
+        "pl": "ID stacji",
+        "ru": "Идентификатор станции",
+        "ko": "스테이션 ID"
       },
       "name": "favoriteID",
       "values": [
@@ -20,105 +50,255 @@
           "id": "0",
           "label": {
             "en": "1 - favorite radio",
-            "nl": "1 - favoriete station"
+            "nl": "1 - favoriete station",
+            "da": "1 - favorit radio",
+            "de": "1 - Lieblingsradio",
+            "es": "1 - radio favorita",
+            "fr": "1 - radio favorite",
+            "it": "1 - radio preferita",
+            "no": "1 - favoritt radio",
+            "sv": "1 - favorit radio",
+            "pl": "1 - ulubione radio",
+            "ru": "1 - любимое радио",
+            "ko": "1 - 좋아하는 라디오"
           }
         },
         {
           "id": "1",
           "label": {
             "en": "2 - favorite radio",
-            "nl": "2 - favoriete station"
+            "nl": "2 - favoriete station",
+            "da": "2 - favorit radio",
+            "de": "2 - Lieblingsradio",
+            "es": "2 - radio favorita",
+            "fr": "2 - radio favorite",
+            "it": "2 - radio preferita",
+            "no": "2 - favoritt radio",
+            "sv": "2 - favorit radio",
+            "pl": "2 - ulubione radio",
+            "ru": "2 - любимое радио",
+            "ko": "2 - 좋아하는 라디오"
           }
         },
         {
           "id": "2",
           "label": {
             "en": "3 - favorite radio",
-            "nl": "3 - favoriete station"
+            "nl": "3 - favoriete station",
+            "da": "3 - favorit radio",
+            "de": "3 - Lieblingsradio",
+            "es": "3 - radio favorita",
+            "fr": "3 - radio favorite",
+            "it": "3 - radio preferita",
+            "no": "3 - favoritt radio",
+            "sv": "3 - favorit radio",
+            "pl": "3 - ulubione radio",
+            "ru": "3 - любимое радио",
+            "ko": "3 - 좋아하는 라디오"
           }
         },
         {
           "id": "3",
           "label": {
             "en": "4 - favorite radio",
-            "nl": "4 - favoriete station"
+            "nl": "4 - favoriete station",
+            "da": "4 - favorit radio",
+            "de": "4 - Lieblingsradio",
+            "es": "4 - radio favorita",
+            "fr": "4 - radio favorite",
+            "it": "4 - radio preferita",
+            "no": "4 - favoritt radio",
+            "sv": "4 - favorit radio",
+            "pl": "4 - ulubione radio",
+            "ru": "4 - любимое радио",
+            "ko": "4 - 좋아하는 라디오"
           }
         },
         {
           "id": "4",
           "label": {
             "en": "5 - favorite radio",
-            "nl": "5 - favoriete station"
+            "nl": "5 - favoriete station",
+            "da": "5 - favorit radio",
+            "de": "5 - Lieblingsradio",
+            "es": "5 - radio favorita",
+            "fr": "5 - radio favorite",
+            "it": "5 - radio preferita",
+            "no": "5 - favoritt radio",
+            "sv": "5 - favorit radio",
+            "pl": "5 - ulubione radio",
+            "ru": "5 - любимое радио",
+            "ko": "5 - 좋아하는 라디오"
           }
         },
         {
           "id": "5",
           "label": {
             "en": "6 - favorite radio",
-            "nl": "6 - favoriete station"
+            "nl": "6 - favoriete station",
+            "da": "6 - favorit radio",
+            "de": "6 - Lieblingsradio",
+            "es": "6 - radio favorita",
+            "fr": "6 - radio favorite",
+            "it": "6 - radio preferita",
+            "no": "6 - favoritt radio",
+            "sv": "6 - favorit radio",
+            "pl": "6 - ulubione radio",
+            "ru": "6 - любимое радио",
+            "ko": "6 - 좋아하는 라디오"
           }
         },
         {
           "id": "6",
           "label": {
             "en": "7 - favorite radio",
-            "nl": "7 - favoriete station"
+            "nl": "7 - favoriete station",
+            "da": "7 - favorit radio",
+            "de": "7 - Lieblingsradio",
+            "es": "7 - radio favorita",
+            "fr": "7 - radio favorite",
+            "it": "7 - radio preferita",
+            "no": "7 - favoritt radio",
+            "sv": "7 - favorit radio",
+            "pl": "7 - ulubione radio",
+            "ru": "7 - любимое радио",
+            "ko": "7 - 좋아하는 라디오"
           }
         },
         {
           "id": "7",
           "label": {
             "en": "8 - favorite radio",
-            "nl": "8 - favoriete station"
+            "nl": "8 - favoriete station",
+            "da": "8 - favorit radio",
+            "de": "8 - Lieblingsradio",
+            "es": "8 - radio favorita",
+            "fr": "8 - radio favorite",
+            "it": "8 - radio preferita",
+            "no": "8 - favoritt radio",
+            "sv": "8 - favorit radio",
+            "pl": "8 - ulubione radio",
+            "ru": "8 - любимое радио",
+            "ko": "8 - 좋아하는 라디오"
           }
         },
         {
           "id": "8",
           "label": {
             "en": "9 - favorite radio",
-            "nl": "9 - favoriete station"
+            "nl": "9 - favoriete station",
+            "da": "9 - favorit radio",
+            "de": "9 - Lieblingsradio",
+            "es": "9 - radio favorita",
+            "fr": "9 - radio favorite",
+            "it": "9 - radio preferita",
+            "no": "9 - favoritt radio",
+            "sv": "9 - favorit radio",
+            "pl": "9 - ulubione radio",
+            "ru": "9 - любимое радио",
+            "ko": "9 - 좋아하는 라디오"
           }
         },
         {
           "id": "9",
           "label": {
             "en": "10 - favorite radio",
-            "nl": "10 - favoriete station"
+            "nl": "10 - favoriete station",
+            "da": "10 - favorit radio",
+            "de": "10 - Lieblingsradio",
+            "es": "10 - radio favorita",
+            "fr": "10 - radio favorite",
+            "it": "10 - radio preferita",
+            "no": "10 - favoritt radio",
+            "sv": "10 - favorit radio",
+            "pl": "10 - ulubione radio",
+            "ru": "10 - любимое радио",
+            "ko": "10 - 좋아하는 라디오"
           }
         },
         {
           "id": "10",
           "label": {
             "en": "11 - favorite radio",
-            "nl": "11 - favoriete station"
+            "nl": "11 - favoriete station",
+            "da": "11 - favorit radio",
+            "de": "11 - Lieblingsradio",
+            "es": "11 - radio favorita",
+            "fr": "11 - radio favorite",
+            "it": "11 - radio preferita",
+            "no": "11 - favoritt radio",
+            "sv": "11 - favorit radio",
+            "pl": "11 - ulubione radio",
+            "ru": "11 - любимое радио",
+            "ko": "11 - 좋아하는 라디오"
           }
         },
         {
           "id": "11",
           "label": {
             "en": "12 - favorite radio",
-            "nl": "12 - favoriete station"
+            "nl": "12 - favoriete station",
+            "da": "12 - favorit radio",
+            "de": "12 - Lieblingsradio",
+            "es": "12 - radio favorita",
+            "fr": "12 - radio favorite",
+            "it": "12 - radio preferita",
+            "no": "12 - favoritt radio",
+            "sv": "12 - favorit radio",
+            "pl": "12 - ulubione radio",
+            "ru": "12 - любимое радио",
+            "ko": "12 - 좋아하는 라디오"
           }
         },
         {
           "id": "12",
           "label": {
             "en": "13 - favorite radio",
-            "nl": "13 - favoriete station"
+            "nl": "13 - favoriete station",
+            "da": "13 - favorit radio",
+            "de": "13 - Lieblingsradio",
+            "es": "13 - radio favorita",
+            "fr": "13 - radio favorite",
+            "it": "13 - radio preferita",
+            "no": "13 - favoritt radio",
+            "sv": "13 - favorit radio",
+            "pl": "13 - ulubione radio",
+            "ru": "13 - любимое радио",
+            "ko": "13 - 좋아하는 라디오"
           }
         },
         {
           "id": "13",
           "label": {
             "en": "14 - favorite radio",
-            "nl": "14 - favoriete station"
+            "nl": "14 - favoriete station",
+            "da": "14 - favorit radio",
+            "de": "14 - Lieblingsradio",
+            "es": "14 - radio favorita",
+            "fr": "14 - radio favorite",
+            "it": "14 - radio preferita",
+            "no": "14 - favoritt radio",
+            "sv": "14 - favorit radio",
+            "pl": "14 - ulubione radio",
+            "ru": "14 - любимое радио",
+            "ko": "14 - 좋아하는 라디오"
           }
         },
         {
           "id": "13",
           "label": {
             "en": "15 - favorite radio",
-            "nl": "15 - favoriete station"
+            "nl": "15 - favoriete station",
+            "da": "15 - favorit radio",
+            "de": "15 - Lieblingsradio",
+            "es": "15 - radio favorita",
+            "fr": "15 - radio favorite",
+            "it": "15 - radio preferita",
+            "no": "15 - favoritt radio",
+            "sv": "15 - favorit radio",
+            "pl": "15 - ulubione radio",
+            "ru": "15 - любимое радио",
+            "ko": "15 - 좋아하는 라디오"
           }
         }
       ]
@@ -127,7 +307,17 @@
       "type": "range",
       "title": {
         "en": "Volume",
-        "nl": "Volume"
+        "nl": "Volume",
+        "da": "Lydstyrke",
+        "de": "Lautstärke",
+        "es": "Volumen",
+        "fr": "Volume",
+        "it": "Volume",
+        "no": "Volum",
+        "sv": "Volym",
+        "pl": "Głośność",
+        "ru": "Громкость",
+        "ko": "볼륨"
       },
       "name": "volume",
       "min": 0,
@@ -142,7 +332,17 @@
       "type": "device",
       "placeholder": {
         "en": "Select Mi Robot",
-        "nl": "Selecteer Mi Robot"
+        "nl": "Selecteer Mi Robot",
+        "da": "Vælg Mi Robot",
+        "de": "Wählen Sie Mi Robot",
+        "es": "Selecciona Mi Robot",
+        "fr": "Sélectionnez Mi Robot",
+        "it": "Seleziona Mi Robot",
+        "no": "Velg Mi Robot",
+        "sv": "Välj Mi Robot",
+        "pl": "Wybierz Mi Robot",
+        "ru": "Выберите Mi Robot",
+        "ko": "Mi Robot 선택"
       },
       "filter": "driver_id=gateway"
     }

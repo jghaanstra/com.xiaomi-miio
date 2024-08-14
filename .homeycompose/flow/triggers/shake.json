@@ -2,7 +2,17 @@
   "id": "shake",
   "title": {
     "en": "Shake",
-    "nl": "Schudden"
+    "nl": "Schudden",
+    "da": "Ryst",
+    "de": "Schütteln",
+    "es": "Agitar",
+    "fr": "Secouer",
+    "it": "Scuoti",
+    "no": "Rist",
+    "sv": "Skaka",
+    "pl": "Potrząśnij",
+    "ru": "Встряхнуть",
+    "ko": "흔들기"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выбрать устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=aqara-button-advanced"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

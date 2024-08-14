@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara 2 Channel Relay (Gateway)",
-    "nl": "Aqara 2 Channel Relay (Gateway)"
+    "nl": "Aqara 2 Channel Relay (Gateway)",
+    "da": "Aqara 2-kanals relæ (Gateway)",
+    "de": "Aqara 2-Kanal-Relais (Gateway)",
+    "es": "Relé de 2 canales Aqara (Gateway)",
+    "fr": "Relais 2 canaux Aqara (Gateway)",
+    "it": "Relè a 2 canali Aqara (Gateway)",
+    "no": "Aqara 2-kanals relé (Gateway)",
+    "sv": "Aqara 2-kanals relä (Gateway)",
+    "pl": "Przekaźnik 2-kanałowy Aqara (Gateway)",
+    "ru": "Реле Aqara на 2 канала (Шлюз)",
+    "ko": "Aqara 2채널 릴레이 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/relay_c2acn01/assets/images/large.jpg",
@@ -20,13 +30,33 @@
     "onoff.0": {
       "title": {
         "en": "Left Switch",
-        "nl": "Linkerschakelaar"
+        "nl": "Linkerschakelaar",
+        "da": "Venstre kontakt",
+        "de": "Linker Schalter",
+        "es": "Interruptor izquierdo",
+        "fr": "Commutateur gauche",
+        "it": "Interruttore sinistro",
+        "no": "Venstre bryter",
+        "sv": "Vänster brytare",
+        "pl": "Lewy włącznik",
+        "ru": "Левый переключатель",
+        "ko": "왼쪽 스위치"
       }
     },
     "onoff.1": {
       "title": {
         "en": "Right Switch",
-        "nl": "Rechterschakelaar"
+        "nl": "Rechterschakelaar",
+        "da": "Højre kontakt",
+        "de": "Rechter Schalter",
+        "es": "Interruptor derecho",
+        "fr": "Commutateur droit",
+        "it": "Interruttore destro",
+        "no": "Høyre bryter",
+        "sv": "Höger brytare",
+        "pl": "Prawy włącznik",
+        "ru": "Правый переключатель",
+        "ko": "오른쪽 스위치"
       }
     }
   }

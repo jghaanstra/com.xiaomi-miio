@@ -2,42 +2,102 @@
   "type": "enum",
   "title": {
     "en": "Fanspeed",
-    "nl": "Fanspeed"
+    "nl": "Fanspeed",
+    "da": "Blæserhastighed",
+    "de": "Lüftergeschwindigkeit",
+    "es": "Velocidad del ventilador",
+    "fr": "Vitesse du ventilateur",
+    "it": "Velocità della ventola",
+    "no": "Viftehastighet",
+    "sv": "Fläkthastighet",
+    "pl": "Prędkość wentylatora",
+    "ru": "Скорость вентилятора",
+    "ko": "팬 속도"
   },
   "values": [
     {
       "id": "0",
       "title": {
         "en": "Mop",
-        "nl": "Mop"
+        "nl": "Mop",
+        "da": "Mop",
+        "de": "Mop",
+        "es": "Mopa",
+        "fr": "Serpillère",
+        "it": "Mop",
+        "no": "Mopp",
+        "sv": "Mopp",
+        "pl": "Mop",
+        "ru": "Швабра",
+        "ko": "걸레"
       }
     },
     {
       "id": "1",
       "title": {
         "en": "First",
-        "nl": "Eerste"
+        "nl": "Eerste",
+        "da": "Første",
+        "de": "Erste",
+        "es": "Primero",
+        "fr": "Premier",
+        "it": "Primo",
+        "no": "Første",
+        "sv": "Första",
+        "pl": "Pierwszy",
+        "ru": "Первый",
+        "ko": "첫번째"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Second",
-        "nl": "Tweede"
+        "nl": "Tweede",
+        "da": "Anden",
+        "de": "Zweite",
+        "es": "Segundo",
+        "fr": "Deuxième",
+        "it": "Secondo",
+        "no": "Andre",
+        "sv": "Andra",
+        "pl": "Drugi",
+        "ru": "Второй",
+        "ko": "두번째"
       }
     },
     {
       "id": "3",
       "title": {
         "en": "Third",
-        "nl": "Derde"
+        "nl": "Derde",
+        "da": "Tredje",
+        "de": "Dritte",
+        "es": "Tercero",
+        "fr": "Troisième",
+        "it": "Terzo",
+        "no": "Tredje",
+        "sv": "Tredje",
+        "pl": "Trzeci",
+        "ru": "Третий",
+        "ko": "세번째"
       }
     },
     {
       "id": "4",
       "title": {
         "en": "Fourth",
-        "nl": "Vierde"
+        "nl": "Vierde",
+        "da": "Fjerde",
+        "de": "Vierte",
+        "es": "Cuarto",
+        "fr": "Quatrième",
+        "it": "Quarto",
+        "no": "Fjerde",
+        "sv": "Fjärde",
+        "pl": "Czwarty",
+        "ru": "Четвертый",
+        "ko": "네번째"
       }
     }
   ],

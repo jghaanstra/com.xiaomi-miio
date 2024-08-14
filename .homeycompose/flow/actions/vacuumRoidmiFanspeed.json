@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Set Fanspeed",
-    "nl": "Stel ventilator in"
+    "nl": "Stel ventilator in",
+    "da": "Sæt ventilatorhastighed",
+    "de": "Lüftergeschwindigkeit einstellen",
+    "es": "Establecer velocidad del ventilador",
+    "fr": "Définir la vitesse du ventilateur",
+    "it": "Imposta la velocità della ventola",
+    "no": "Still inn viftehastighet",
+    "sv": "Ställ in fläkthastighet",
+    "pl": "Ustaw prędkość wentylatora",
+    "ru": "Установить скорость вентилятора",
+    "ko": "팬 속도 설정"
   },
   "titleFormatted": {
     "en": "Set Fanspeed [[fanspeed]]",
-    "nl": "Stel ventilator in op [[fanspeed]]"
+    "nl": "Stel ventilator in op [[fanspeed]]",
+    "da": "Sæt ventilatorhastighed [[fanspeed]]",
+    "de": "Lüftergeschwindigkeit einstellen [[fanspeed]]",
+    "es": "Establecer velocidad del ventilador [[fanspeed]]",
+    "fr": "Définir la vitesse du ventilateur [[fanspeed]]",
+    "it": "Imposta la velocità della ventola [[fanspeed]]",
+    "no": "Still inn viftehastighet [[fanspeed]]",
+    "sv": "Ställ in fläkthastighet [[fanspeed]]",
+    "pl": "Ustaw prędkość wentylatora [[fanspeed]]",
+    "ru": "Установить скорость вентилятора [[fanspeed]]",
+    "ko": "팬 속도 설정 [[fanspeed]]"
   },
   "args": [
     {
       "name": "fanspeed",
       "title": {
         "en": "Fanspeed",
-        "nl": "Fan snelheid"
+        "nl": "Fan snelheid",
+        "da": "Ventilatorhastighed",
+        "de": "Lüftergeschwindigkeit",
+        "es": "Velocidad del ventilador",
+        "fr": "Vitesse du ventilateur",
+        "it": "Velocità della ventola",
+        "no": "Viftehastighet",
+        "sv": "Fläkthastighet",
+        "pl": "Prędkość wentylatora",
+        "ru": "Скорость вентилятора",
+        "ko": "팬 속도"
       },
       "type": "dropdown",
       "values": [
@@ -20,35 +50,85 @@
           "id": "0",
           "title": {
             "en": "Sweep",
-            "nl": "Sweep"
+            "nl": "Sweep",
+            "da": "Sweep",
+            "de": "Sweep",
+            "es": "Sweep",
+            "fr": "Sweep",
+            "it": "Sweep",
+            "no": "Sweep",
+            "sv": "Sweep",
+            "pl": "Sweep",
+            "ru": "Sweep",
+            "ko": "Sweep"
           }
         },
         {
           "id": "1",
           "title": {
             "en": "Silent",
-            "nl": "Stil"
+            "nl": "Stil",
+            "da": "Stille",
+            "de": "Leise",
+            "es": "Silencioso",
+            "fr": "Silencieux",
+            "it": "Silenzioso",
+            "no": "Stille",
+            "sv": "Tyst",
+            "pl": "Cichy",
+            "ru": "Тихий",
+            "ko": "조용한"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "Basic",
-            "nl": "Basis"
+            "nl": "Basis",
+            "da": "Basal",
+            "de": "Grundlegend",
+            "es": "Básico",
+            "fr": "Basique",
+            "it": "Base",
+            "no": "Grunnleggende",
+            "sv": "Grundläggande",
+            "pl": "Podstawowy",
+            "ru": "Основной",
+            "ko": "기본"
           }
         },
         {
           "id": "3",
           "title": {
             "en": "Strong",
-            "nl": "Sterk"
+            "nl": "Sterk",
+            "da": "Stærk",
+            "de": "Stark",
+            "es": "Fuerte",
+            "fr": "Fort",
+            "it": "Forte",
+            "no": "Sterk",
+            "sv": "Stark",
+            "pl": "Mocny",
+            "ru": "Сильный",
+            "ko": "강한"
           }
         },
         {
           "id": "4",
           "title": {
             "en": "Full speed",
-            "nl": "Volle snelheid"
+            "nl": "Volle snelheid",
+            "da": "Fuld hastighed",
+            "de": "Volle Geschwindigkeit",
+            "es": "Máxima velocidad",
+            "fr": "Vitesse maximale",
+            "it": "Velocità massima",
+            "no": "Full hastighet",
+            "sv": "Full hastighet",
+            "pl": "Pełna prędkość",
+            "ru": "Полная скорость",
+            "ko": "최고 속도"
           }
         }
       ]
@@ -58,10 +138,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer stofzuiger"
+        "nl": "Selecteer stofzuiger",
+        "da": "Vælg støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Selecciona aspiradora",
+        "fr": "Sélectionnez l'aspirateur",
+        "it": "Seleziona l'aspirapolvere",
+        "no": "Velg støvsuger",
+        "sv": "Välj dammsugare",
+        "pl": "Wybierz odkurzacz",
+        "ru": "Выбрать пылесос",
+        "ko": "청소기 선택"
       },
       "filter": "driver_id=vacuum_roidmi_vacuum_miot"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

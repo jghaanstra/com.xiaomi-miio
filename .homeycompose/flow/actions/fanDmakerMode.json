@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Set Mode",
-    "nl": "Stel modus in"
+    "nl": "Stel modus in",
+    "da": "Indstil tilstand",
+    "de": "Modus einstellen",
+    "es": "Configurar modo",
+    "fr": "Définir le mode",
+    "it": "Imposta modalità",
+    "no": "Sett modus",
+    "sv": "Ställ in läge",
+    "pl": "Ustaw tryb",
+    "ru": "Установить режим",
+    "ko": "모드 설정"
   },
   "titleFormatted": {
     "en": "Set mode to [[mode]]",
-    "nl": "Stel modus in op [[mode]]"
+    "nl": "Stel modus in op [[mode]]",
+    "da": "Indstil tilstand til [[mode]]",
+    "de": "Modus auf [[mode]] einstellen",
+    "es": "Configurar modo en [[mode]]",
+    "fr": "Définir le mode sur [[mode]]",
+    "it": "Imposta modalità su [[mode]]",
+    "no": "Sett modus til [[mode]]",
+    "sv": "Ställ in läge till [[mode]]",
+    "pl": "Ustaw tryb na [[mode]]",
+    "ru": "Установить режим на [[mode]]",
+    "ko": "[[mode]]으로 설정"
   },
   "args": [
     {
       "name": "mode",
       "title": {
         "en": "Mode",
-        "nl": "Modus"
+        "nl": "Modus",
+        "da": "Tilstand",
+        "de": "Modus",
+        "es": "Modo",
+        "fr": "Mode",
+        "it": "Modalità",
+        "no": "Modus",
+        "sv": "Läge",
+        "pl": "Tryb",
+        "ru": "Режим",
+        "ko": "모드"
       },
       "type": "dropdown",
       "values": [
@@ -20,14 +50,34 @@
           "id": "0",
           "label": {
             "en": "Straigth Wind",
-            "nl": "Rechte wind"
+            "nl": "Rechte wind",
+            "da": "Lige Vind",
+            "de": "Gerader Wind",
+            "es": "Viento recto",
+            "fr": "Vent droit",
+            "it": "Vento dritto",
+            "no": "Rett vind",
+            "sv": "Rak vind",
+            "pl": "Prosty wiatr",
+            "ru": "Прямой ветер",
+            "ko": "직선 바람"
           }
         },
         {
           "id": "1",
           "label": {
             "en": "Natural Wind",
-            "nl": "Natuurlijke wind"
+            "nl": "Natuurlijke wind",
+            "da": "Naturlig Vind",
+            "de": "Natürlicher Wind",
+            "es": "Viento natural",
+            "fr": "Vent naturel",
+            "it": "Vento naturale",
+            "no": "Naturlig vind",
+            "sv": "Naturlig vind",
+            "pl": "Naturalny wiatr",
+            "ru": "Естественный ветер",
+            "ko": "자연풍"
           }
         }
       ]
@@ -37,10 +87,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Dmaker Fan",
-        "nl": "Selecteer Dmaker Fan"
+        "nl": "Selecteer Dmaker Fan",
+        "da": "Vælg Dmaker Ventilator",
+        "de": "Wählen Sie Dmaker Ventilator",
+        "es": "Seleccione Dmaker Fan",
+        "fr": "Sélectionnez Dmaker Ventilateur",
+        "it": "Seleziona Dmaker Ventilatore",
+        "no": "Velg Dmaker Vifte",
+        "sv": "Välj Dmaker Fläkt",
+        "pl": "Wybierz wentylator Dmaker",
+        "ru": "Выберите вентилятор Dmaker",
+        "ko": "Dmaker 팬 선택"
       },
       "filter": "driver_id=fan_dmaker_advanced"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

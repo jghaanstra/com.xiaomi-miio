@@ -2,7 +2,17 @@
   "id": "flip180_cube",
   "title": {
     "en": "Flip 180°",
-    "nl": "180° keren"
+    "nl": "180° keren",
+    "da": "Vend 180°",
+    "de": "180° drehen",
+    "es": "Girar 180°",
+    "fr": "Retourner 180°",
+    "it": "Capovolgere 180°",
+    "no": "Snur 180°",
+    "sv": "Vänd 180°",
+    "pl": "Odwróć 180°",
+    "ru": "Повернуть на 180°",
+    "ko": "180° 뒤집기"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-aqara-cube"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

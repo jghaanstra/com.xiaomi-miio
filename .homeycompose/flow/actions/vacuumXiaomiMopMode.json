@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Set Sweep and Mop Mode",
-    "nl": "Stel Sweep and Mop modus in"
+    "nl": "Stel Sweep and Mop modus in",
+    "da": "Indstil Sweep og Mop-tilstand",
+    "de": "Sweep- und Mop-Modus einstellen",
+    "es": "Establecer modo Sweep y Mop",
+    "fr": "Définir le mode Sweep et Mop",
+    "it": "Imposta modalità Sweep e Mop",
+    "no": "Sett Sweep og Mop-modus",
+    "sv": "Ställ in Sweep och Mop-läge",
+    "pl": "Ustaw tryb Sweep i Mop",
+    "ru": "Установите режим Sweep и Mop",
+    "ko": "쓸기 및 물걸레 모드 설정"
   },
   "titleFormatted": {
     "en": "Set Sweep and Mop Mode to [[mode]]",
-    "nl": "Stel Sweep and Mop modus in op [[mode]]"
+    "nl": "Stel Sweep and Mop modus in op [[mode]]",
+    "da": "Indstil Sweep og Mop-tilstand til [[mode]]",
+    "de": "Sweep- und Mop-Modus auf [[mode]] einstellen",
+    "es": "Establecer modo Sweep y Mop a [[mode]]",
+    "fr": "Définir le mode Sweep et Mop sur [[mode]]",
+    "it": "Imposta modalità Sweep e Mop su [[mode]]",
+    "no": "Sett Sweep og Mop-modus til [[mode]]",
+    "sv": "Ställ in Sweep och Mop-läge till [[mode]]",
+    "pl": "Ustaw tryb Sweep i Mop na [[mode]]",
+    "ru": "Установите режим Sweep и Mop на [[mode]]",
+    "ko": "[[mode]]로 쓸기 및 물걸레 모드 설정"
   },
   "args": [
     {
       "name": "mode",
       "title": {
         "en": "Sweep and Mop Mode",
-        "nl": "Sweep and Mop modus"
+        "nl": "Sweep and Mop modus",
+        "da": "Sweep og Mop-tilstand",
+        "de": "Sweep- und Mop-Modus",
+        "es": "Modo Sweep y Mop",
+        "fr": "Mode Sweep et Mop",
+        "it": "Modalità Sweep e Mop",
+        "no": "Sweep og Mop-modus",
+        "sv": "Sweep och Mop-läge",
+        "pl": "Tryb Sweep i Mop",
+        "ru": "Режим Sweep и Mop",
+        "ko": "쓸기 및 물걸레 모드"
       },
       "type": "dropdown",
       "values": [
@@ -20,21 +50,51 @@
           "id": "0",
           "title": {
             "en": "Sweep",
-            "nl": "Sweep"
+            "nl": "Sweep",
+            "da": "Sweep",
+            "de": "Sweep",
+            "es": "Sweep",
+            "fr": "Sweep",
+            "it": "Sweep",
+            "no": "Sweep",
+            "sv": "Sweep",
+            "pl": "Sweep",
+            "ru": "Sweep",
+            "ko": "쓸기"
           }
         },
         {
           "id": "1",
           "title": {
             "en": "Sweep & Mop",
-            "nl": "Sweep & Mop"
+            "nl": "Sweep & Mop",
+            "da": "Sweep & Mop",
+            "de": "Sweep & Mop",
+            "es": "Sweep & Mop",
+            "fr": "Sweep & Mop",
+            "it": "Sweep & Mop",
+            "no": "Sweep & Mop",
+            "sv": "Sweep & Mop",
+            "pl": "Sweep & Mop",
+            "ru": "Sweep & Mop",
+            "ko": "쓸기 & 물걸레"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "Mop",
-            "nl": "Mop"
+            "nl": "Mop",
+            "da": "Mop",
+            "de": "Mop",
+            "es": "Mop",
+            "fr": "Mop",
+            "it": "Mop",
+            "no": "Mop",
+            "sv": "Mop",
+            "pl": "Mop",
+            "ru": "Mop",
+            "ko": "물걸레"
           }
         }
       ]
@@ -44,10 +104,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer stofzuiger"
+        "nl": "Selecteer stofzuiger",
+        "da": "Vælg støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Seleccionar aspiradora",
+        "fr": "Sélectionner un aspirateur",
+        "it": "Seleziona l'aspirapolvere",
+        "no": "Velg støvsuger",
+        "sv": "Välj dammsugare",
+        "pl": "Wybierz odkurzacz",
+        "ru": "Выберите пылесос",
+        "ko": "진공청소기 선택"
       },
       "filter": "driver_id=vacuum_xiaomi_vacuum_miot"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

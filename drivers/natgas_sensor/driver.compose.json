@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mijia Gas Leak Detector (Gateway)",
-    "nl": "Mijia Gas Leak Detector (Gateway)"
+    "nl": "Mijia Gas Leak Detector (Gateway)",
+    "da": "Mijia Gaslæksensor (Gateway)",
+    "de": "Mijia Gasleckdetektor (Gateway)",
+    "es": "Detector de Fugas de Gas Mijia (Gateway)",
+    "fr": "Détecteur de Fuites de Gaz Mijia (Gateway)",
+    "it": "Rilevatore di Perdite di Gas Mijia (Gateway)",
+    "no": "Mijia Gasslekkasjedetektor (Gateway)",
+    "sv": "Mijia Gassläckdetektor (Gateway)",
+    "pl": "Czujnik Wycieków Gazu Mijia (Gateway)",
+    "ru": "Датчик Утечки Газа Mijia (Gateway)",
+    "ko": "Mijia 가스 누출 감지기 (Gateway)"
   },
   "images": {
     "large": "/drivers/natgas_sensor/assets/images/large.jpg",
@@ -21,11 +31,23 @@
     "alarm_co": {
       "title": {
         "en": "Gas Alarm",
-        "nl": "Gasalarm"
+        "nl": "Gasalarm",
+        "da": "Gasalarm",
+        "de": "Gasalarm",
+        "es": "Alarma de gas",
+        "fr": "Alarme de gaz",
+        "it": "Allarme gas",
+        "no": "Gassalarm",
+        "sv": "Gaslarm",
+        "pl": "Alarm Gazowy",
+        "ru": "Газовая Сигнализация",
+        "ko": "가스 경보"
       }
     }
   },
   "energy": {
-    "batteries": ["CR2450"]
+    "batteries": [
+      "CR2450"
+    ]
   }
 }

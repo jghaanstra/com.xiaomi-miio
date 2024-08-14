@@ -2,39 +2,109 @@
   "id": "goToTargetVacuum",
   "title": {
     "en": "Send vacuum cleaner to target",
-    "nl": "Stuur stofzuiger naar doel"
+    "nl": "Stuur stofzuiger naar doel",
+    "da": "Send støvsuger til mål",
+    "de": "Sende Staubsauger zum Ziel",
+    "es": "Enviar aspiradora al objetivo",
+    "fr": "Envoyer l'aspirateur à la cible",
+    "it": "Invia aspirapolvere al bersaglio",
+    "no": "Send støvsuger til mål",
+    "sv": "Skicka dammsugare till mål",
+    "pl": "Wyślij odkurzacz do celu",
+    "ru": "Отправить пылесос к цели",
+    "ko": "진공 청소기를 목표 지점으로 보내기"
   },
   "titleFormatted": {
     "en": "Send vacuum cleaner to coordinates X [[xcoordinate]] and Y [[ycoordinate]]",
-    "nl": "Stuur stofzuiger naar coördinaten X [[xcoordinate]] en Y [[ycoordinate]]"
+    "nl": "Stuur stofzuiger naar coördinaten X [[xcoordinate]] en Y [[ycoordinate]]",
+    "da": "Send støvsuger til koordinaterne X [[xcoordinate]] og Y [[ycoordinate]]",
+    "de": "Senden Sie den Staubsauger zu den Koordinaten X [[xcoordinate]] und Y [[ycoordinate]]",
+    "es": "Enviar aspiradora a las coordenadas X [[xcoordinate]] e Y [[ycoordinate]]",
+    "fr": "Envoyer l'aspirateur aux coordonnées X [[xcoordinate]] et Y [[ycoordinate]]",
+    "it": "Invia l'aspirapolvere alle coordinate X [[xcoordinate]] e Y [[ycoordinate]]",
+    "no": "Send støvsuger til koordinater X [[xcoordinate]] og Y [[ycoordinate]]",
+    "sv": "Skicka dammsugare till koordinaterna X [[xcoordinate]] och Y [[ycoordinate]]",
+    "pl": "Wyślij odkurzacz na współrzędne X [[xcoordinate]] i Y [[ycoordinate]]",
+    "ru": "Отправить пылесос на координаты X [[xcoordinate]] и Y [[ycoordinate]]",
+    "ko": "진공 청소기를 X [[xcoordinate]] 및 Y [[ycoordinate]] 좌표로 보내기"
   },
   "hint": {
     "en": "Enter the x and y coordinates of the target: ex. 25000 and 28000",
-    "nl": "Voer de x en y coördinaten van het doel in: bv. 25000 en 28000"
+    "nl": "Voer de x en y coördinaten van het doel in: bv. 25000 en 28000",
+    "da": "Indtast x- og y-koordinaterne for målet: f.eks. 25000 og 28000",
+    "de": "Geben Sie die x- und y-Koordinaten des Ziels ein: z.B. 25000 und 28000",
+    "es": "Introduzca las coordenadas x e y del objetivo: ej. 25000 y 28000",
+    "fr": "Entrez les coordonnées x et y de la cible : ex. 25000 et 28000",
+    "it": "Inserisci le coordinate x e y del bersaglio: es. 25000 e 28000",
+    "no": "Skriv inn x- og y-koordinatene til målet: f.eks. 25000 og 28000",
+    "sv": "Ange x- och y-koordinaterna för målet: ex. 25000 och 28000",
+    "pl": "Wpisz współrzędne x i y celu: np. 25000 i 28000",
+    "ru": "Введите координаты x и y цели: например, 25000 и 28000",
+    "ko": "목표의 x 및 y 좌표를 입력하세요: 예. 25000 및 28000"
   },
   "args": [
     {
       "name": "xcoordinate",
       "title": {
         "en": "X Coordinate",
-        "nl": "X coördinaat"
+        "nl": "X coördinaat",
+        "da": "X-koordinat",
+        "de": "X-Koordinate",
+        "es": "Coordenada X",
+        "fr": "Coordonnée X",
+        "it": "Coordinata X",
+        "no": "X-koordinat",
+        "sv": "X-koordinat",
+        "pl": "Współrzędna X",
+        "ru": "Координата X",
+        "ko": "X 좌표"
       },
       "type": "number",
       "placeholder": {
         "en": "X Coordinate",
-        "nl": "X coördinaat"
+        "nl": "X coördinaat",
+        "da": "X-koordinat",
+        "de": "X-Koordinate",
+        "es": "Coordenada X",
+        "fr": "Coordonnée X",
+        "it": "Coordinata X",
+        "no": "X-koordinat",
+        "sv": "X-koordinat",
+        "pl": "Współrzędna X",
+        "ru": "Координата X",
+        "ko": "X 좌표"
       }
     },
     {
       "name": "ycoordinate",
       "title": {
         "en": "Y Coordinate",
-        "nl": "Y coördinaat"
+        "nl": "Y coördinaat",
+        "da": "Y-koordinat",
+        "de": "Y-Koordinate",
+        "es": "Coordenada Y",
+        "fr": "Coordonnée Y",
+        "it": "Coordinata Y",
+        "no": "Y-koordinat",
+        "sv": "Y-koordinat",
+        "pl": "Współrzędna Y",
+        "ru": "Координата Y",
+        "ko": "Y 좌표"
       },
       "type": "number",
       "placeholder": {
         "en": "Y Coordinate",
-        "nl": "Y coördinaat"
+        "nl": "Y coördinaat",
+        "da": "Y-koordinat",
+        "de": "Y-Koordinate",
+        "es": "Coordenada Y",
+        "fr": "Coordonnée Y",
+        "it": "Coordinata Y",
+        "no": "Y-koordinat",
+        "sv": "Y-koordinat",
+        "pl": "Współrzędna Y",
+        "ru": "Координата Y",
+        "ko": "Y 좌표"
       }
     },
     {
@@ -42,10 +112,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer Stofzuiger"
+        "nl": "Selecteer Stofzuiger",
+        "da": "Vælg støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Seleccionar aspiradora",
+        "fr": "Choisir l'aspirateur",
+        "it": "Seleziona aspirapolvere",
+        "no": "Velg støvsuger",
+        "sv": "Välj dammsugare",
+        "pl": "Wybierz odkurzacz",
+        "ru": "Выберите пылесос",
+        "ko": "진공 청소기 선택"
       },
       "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6|vacuum_mi_roborock_vacuum_a08|vacuum_dreame_vacuum_p2029_p2041|vacuum_dreame_vacuum_mc1808|vacuum_viomi_vacuum_v7"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

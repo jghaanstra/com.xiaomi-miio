@@ -2,7 +2,17 @@
   "id": "click_double_left",
   "title": {
     "en": "Left Double Click",
-    "nl": "Dubbel klik links"
+    "nl": "Dubbel klik links",
+    "da": "Dobbeltklik til venstre",
+    "de": "Doppelklick links",
+    "es": "Doble clic izquierdo",
+    "fr": "Double clic gauche",
+    "it": "Doppio clic sinistro",
+    "no": "Dobbeltklikk venstre",
+    "sv": "Dubbelklick vänster",
+    "pl": "Podwójne kliknięcie lewym",
+    "ru": "Двойной клик левой кнопкой",
+    "ko": "왼쪽 더블 클릭"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Selecciona dispositivo",
+        "fr": "Sélectionner le périphérique",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=aqara-86sw2-advanced"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

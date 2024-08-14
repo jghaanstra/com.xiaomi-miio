@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Basic  Mi Smart Fan Generic (WiFi)",
-    "nl": "Basic Mi Smart Fan Generic (WiFi)"
+    "nl": "Basic Mi Smart Fan Generic (WiFi)",
+    "da": "Basis Mi Smart Fan Generic (WiFi)",
+    "de": "Basis Mi Smart Fan Generic (WiFi)",
+    "es": "Básico Mi Smart Fan Genérico (WiFi)",
+    "fr": "Basique Mi Smart Fan Générique (WiFi)",
+    "it": "Base Mi Smart Fan Generico (WiFi)",
+    "no": "Grunnleggende Mi Smart Fan Generic (WiFi)",
+    "sv": "Grundläggande Mi Smart Fan Generic (WiFi)",
+    "pl": "Podstawowy Mi Smart Fan Generic (WiFi)",
+    "ru": "Основной Mi Smart Fan Generic (WiFi)",
+    "ko": "베이직 Mi Smart Fan Generic (WiFi)"
   },
   "images": {
     "large": "drivers/dmaker-fan/assets/images/large.jpg",

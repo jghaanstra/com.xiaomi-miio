@@ -2,7 +2,17 @@
   "id": "alert_cube",
   "title": {
     "en": "Alert",
-    "nl": "Waarschuwing"
+    "nl": "Waarschuwing",
+    "da": "Alarm",
+    "de": "Alarm",
+    "es": "Alerta",
+    "fr": "Alerte",
+    "it": "Allarme",
+    "no": "Varsel",
+    "sv": "Varning",
+    "pl": "Alarm",
+    "ru": "Оповещение",
+    "ko": "경고"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionnez l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-aqara-cube"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

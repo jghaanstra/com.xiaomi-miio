@@ -2,21 +2,51 @@
   "type": "enum",
   "title": {
     "en": "Heatlevel",
-    "nl": "Hitte stand"
+    "nl": "Hitte stand",
+    "da": "Varmeniveau",
+    "de": "Heizstufe",
+    "es": "Nivel de calor",
+    "fr": "Niveau de chaleur",
+    "it": "Livello di calore",
+    "no": "Varmenivå",
+    "sv": "Värmenivå",
+    "pl": "Poziom ciepła",
+    "ru": "Уровень тепла",
+    "ko": "난방 레벨"
   },
   "values": [
     {
       "id": "1",
       "title": {
         "en": "High",
-        "nl": "Hoog"
+        "nl": "Hoog",
+        "da": "Høj",
+        "de": "Hoch",
+        "es": "Alto",
+        "fr": "Élevé",
+        "it": "Alto",
+        "no": "Høy",
+        "sv": "Hög",
+        "pl": "Wysoki",
+        "ru": "Высоко",
+        "ko": "높음"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Low",
-        "nl": "Laag"
+        "nl": "Laag",
+        "da": "Lav",
+        "de": "Niedrig",
+        "es": "Bajo",
+        "fr": "Bas",
+        "it": "Basso",
+        "no": "Lav",
+        "sv": "Låg",
+        "pl": "Niski",
+        "ru": "Низко",
+        "ko": "낮음"
       }
     }
   ],

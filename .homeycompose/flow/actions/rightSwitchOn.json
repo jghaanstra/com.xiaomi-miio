@@ -2,7 +2,17 @@
   "id": "rightSwitchOn",
   "title": {
     "en": "Turn Right Switch On",
-    "nl": "Schakel rechterschakelaar aan"
+    "nl": "Schakel rechterschakelaar aan",
+    "da": "Tænd højre kontakt",
+    "de": "Rechten Schalter einschalten",
+    "es": "Encender interruptor derecho",
+    "fr": "Allumer l'interrupteur droit",
+    "it": "Accendi l'interruttore destro",
+    "no": "Slå på høyre bryter",
+    "sv": "Slå på höger strömbrytare",
+    "pl": "Włącz prawy przełącznik",
+    "ru": "Включить правый переключатель",
+    "ko": "오른쪽 스위치 켜기"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

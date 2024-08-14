@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Wireless Button (Gateway)",
-    "nl": "Aqara Wireless Button (Gateway)"
+    "nl": "Aqara Wireless Button (Gateway)",
+    "da": "Aqara Trådløs Knap (Gateway)",
+    "de": "Aqara Kabelloser Knopf (Gateway)",
+    "es": "Botón Inalámbrico Aqara (Gateway)",
+    "fr": "Bouton Sans Fil Aqara (Gateway)",
+    "it": "Pulsante Wireless Aqara (Gateway)",
+    "no": "Aqara Trådløs Knapp (Gateway)",
+    "sv": "Aqara Trådlös Knapp (Gateway)",
+    "pl": "Bezprzewodowy Przycisk Aqara (Gateway)",
+    "ru": "Беспроводная Кнопка Aqara (Gateway)",
+    "ko": "아카라 무선 버튼 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/aqara-button/assets/images/large.png",
@@ -16,6 +26,8 @@
     "alarm_battery"
   ],
   "energy": {
-    "batteries": ["CR2032"]
+    "batteries": [
+      "CR2032"
+    ]
   }
 }

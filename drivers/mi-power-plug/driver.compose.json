@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mi Power Plug (WiFi)",
-    "nl": "Mi Power Plug (WiFi)"
+    "nl": "Mi Power Plug (WiFi)",
+    "da": "Mi Power Plug (WiFi)",
+    "de": "Mi Power Plug (WiFi)",
+    "es": "Mi Power Plug (WiFi)",
+    "fr": "Mi Power Plug (WiFi)",
+    "it": "Mi Power Plug (WiFi)",
+    "no": "Mi Power Plug (WiFi)",
+    "sv": "Mi Power Plug (WiFi)",
+    "pl": "Mi Power Plug (WiFi)",
+    "ru": "Mi Power Plug (WiFi)",
+    "ko": "Mi Power Plug (WiFi)"
   },
   "images": {
     "large": "drivers/mi-power-plug/assets/images/large.jpg",

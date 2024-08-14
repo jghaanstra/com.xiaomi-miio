@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mija/Ijai Vacuum Cleaner MIoT (WiFi)",
-    "nl": "Mija/Ijai stofzuiger MIoT (WiFi)"
+    "nl": "Mija/Ijai stofzuiger MIoT (WiFi)",
+    "da": "Mija/Ijai støvsuger MIoT (WiFi)",
+    "de": "Mija/Ijai Staubsauger MIoT (WiFi)",
+    "es": "Mija/Ijai aspiradora MIoT (WiFi)",
+    "fr": "Mija/Ijai Aspirateur MIoT (WiFi)",
+    "it": "Mija/Ijai Aspirapolvere MIoT (WiFi)",
+    "no": "Mija/Ijai støvsuger MIoT (WiFi)",
+    "sv": "Mija/Ijai dammsugare MIoT (WiFi)",
+    "pl": "Mija/Ijai Odkurzacz MIoT (WiFi)",
+    "ru": "Mija/Ijai пылесос MIoT (WiFi)",
+    "ko": "Mija/Ijai 진공 청소기 MIoT (WiFi)"
   },
   "images": {
     "large": "drivers/vacuum_mija_vacuum_miot/assets/images/large.jpg",
@@ -22,6 +32,8 @@
     "alarm_filter_work_time"
   ],
   "energy": {
-    "batteries": ["INTERNAL"]
+    "batteries": [
+      "INTERNAL"
+    ]
   }
 }

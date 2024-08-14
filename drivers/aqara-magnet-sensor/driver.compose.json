@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Magnet Sensor (Gateway)",
-    "nl": "Aqara magneetsensor (Gateway)"
+    "nl": "Aqara magneetsensor (Gateway)",
+    "da": "Aqara Magnet Sensor (Gateway)",
+    "de": "Aqara Magnetsensor (Gateway)",
+    "es": "Sensor Magnético Aqara (Gateway)",
+    "fr": "Capteur Magnétique Aqara (Gateway)",
+    "it": "Sensore Magnetico Aqara (Gateway)",
+    "no": "Aqara Magnet Sensor (Gateway)",
+    "sv": "Aqara Magnet Sensor (Gateway)",
+    "pl": "Czujnik Magnetyczny Aqara (Gateway)",
+    "ru": "Магнитный Датчик Aqara (Gateway)",
+    "ko": "아카라 자석 센서 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/aqara-magnet-sensor/assets/images/large.png",
@@ -17,6 +27,8 @@
     "alarm_battery"
   ],
   "energy": {
-    "batteries": ["CR1632"]
+    "batteries": [
+      "CR1632"
+    ]
   }
 }

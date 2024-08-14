@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mijia Smart Sterilization Humidifier JSQ / JSQ1 / MJJSQ (WiFi)",
-    "nl": "Mijia Smart Sterilization Humidifier JSQ / JSQ1 / MJJSQ (WiFi)"
+    "nl": "Mijia Smart Sterilization Humidifier JSQ / JSQ1 / MJJSQ (WiFi)",
+    "da": "Mijia Smart Sterilization Luftfugter JSQ / JSQ1 / MJJSQ (WiFi)",
+    "de": "Mijia Smart Sterilisation Luftbefeuchter JSQ / JSQ1 / MJJSQ (WiFi)",
+    "es": "Humidificador de Esterilización Inteligente Mijia JSQ / JSQ1 / MJJSQ (WiFi)",
+    "fr": "Humidificateur de Stérilisation Intelligent Mijia JSQ / JSQ1 / MJJSQ (WiFi)",
+    "it": "Umidificatore di Sterilizzazione Intelligente Mijia JSQ / JSQ1 / MJJSQ (WiFi)",
+    "no": "Mijia Smart Steriliseringsfukter JSQ / JSQ1 / MJJSQ (WiFi)",
+    "sv": "Mijia Smart Sterilisering Luftfuktare JSQ / JSQ1 / MJJSQ (WiFi)",
+    "pl": "Inteligentny Sterylizujący Nawilżacz Mijia JSQ / JSQ1 / MJJSQ (WiFi)",
+    "ru": "Умный стерилизующий увлажнитель Mijia JSQ / JSQ1 / MJJSQ (WiFi)",
+    "ko": "미지아 스마트 살균 가습기 JSQ / JSQ1 / MJJSQ (WiFi)"
   },
   "images": {
     "large": "drivers/humidifier_deerma_humidifier_jsq/assets/images/large.jpg",
@@ -24,7 +34,17 @@
     "dim": {
       "title": {
         "en": "Target Relative Humidity",
-        "nl": "Doel relatieve vochtigheid"
+        "nl": "Doel relatieve vochtigheid",
+        "da": "Målfugtighed",
+        "de": "Zielrelative Luftfeuchtigkeit",
+        "es": "Humedad Relativa Objetivo",
+        "fr": "Humidité Relative Cible",
+        "it": "Umidità Relativa Obiettivo",
+        "no": "Mål relativ fuktighet",
+        "sv": "Målrelativ luftfuktighet",
+        "pl": "Docelowa wilgotność względna",
+        "ru": "Целевая относительная влажность",
+        "ko": "목표 상대 습도"
       },
       "min": 0.4,
       "max": 0.7
@@ -32,13 +52,33 @@
     "alarm_water": {
       "title": {
         "en": "Waterlevel",
-        "nl": "Waterniveau"
+        "nl": "Waterniveau",
+        "da": "Vandniveau",
+        "de": "Wasserstand",
+        "es": "Nivel de agua",
+        "fr": "Niveau d'eau",
+        "it": "Livello dell'acqua",
+        "no": "Vannivå",
+        "sv": "Vattennivå",
+        "pl": "Poziom wody",
+        "ru": "Уровень воды",
+        "ko": "수위"
       }
     },
     "alarm_water.tank": {
       "title": {
         "en": "Water tank status",
-        "nl": "Watertank status"
+        "nl": "Watertank status",
+        "da": "Vandtankstatus",
+        "de": "Wassertankstatus",
+        "es": "Estado del tanque de agua",
+        "fr": "Statut du réservoir d'eau",
+        "it": "Stato del serbatoio d'acqua",
+        "no": "Vanntankstatus",
+        "sv": "Vattentanksstatus",
+        "pl": "Stan zbiornika na wodę",
+        "ru": "Состояние водяного бака",
+        "ko": "물탱크 상태"
       }
     }
   }

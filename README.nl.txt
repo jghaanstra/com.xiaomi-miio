@@ -1,0 +1,5 @@
+Gebruik Homey om WiFi apparaten te bedienen die verbonden zijn via de Xiaomi Mi Home app. Je kunt deze app ook gebruiken om Xiaomi / Aqara Zigbee apparaten te bedienen die verbonden zijn met een Xiaomi gateway. Er zijn geen beperkingen aan het aantal verbonden Zigbee apparaten, aangezien je meerdere Mi Gateway apparaten kunt hebben en alle Zigbee apparaten tussen hen kunt verdelen.
+
+Xiaomi ondersteunt officieel niet het bedienen van apparaten buiten de Mi Home app. Er zijn extra stappen nodig voor het koppelen van deze apparaten met Homey, wat enige technische kennis vereist. Dit betekent ook dat niet alle beschikbare apparaten worden ondersteund. Houd er ook rekening mee dat Xiaomi veranderingen kan doorvoeren in zijn ecosysteem, waardoor Homey deze apparaten mogelijk niet meer kan bedienen.
+
+Bezoek het supporttopic voor ondersteunde apparaten, installatie instructies en meer details.

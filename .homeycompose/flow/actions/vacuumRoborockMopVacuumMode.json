@@ -2,18 +2,48 @@
   "id": "vacuumRoborockMopVacuumMode",
   "title": {
     "en": "Set mop/vacuummode and intensity",
-    "nl": "Stel mop/stofzuig modus en intensiteit in"
+    "nl": "Stel mop/stofzuig modus en intensiteit in",
+    "da": "Indstil mop/suge tilstand og intensitet",
+    "de": "Stellen Sie den Mopp/Saugmodus und die Intensität ein",
+    "es": "Configura el modo de trapeado/aspirado y la intensidad",
+    "fr": "Réglez le mode mop/aspiration et l'intensité",
+    "it": "Imposta la modalità mop/aspirapolvere e l'intensità",
+    "no": "Still inn mopp/støvsugermodus og intensitet",
+    "sv": "Ställ in mopp/dammsugarläge och intensitet",
+    "pl": "Ustaw tryb mopowania/odkurzania i intensywność",
+    "ru": "Установите режим мытья/пылесоса и интенсивность",
+    "ko": "닦기/흡입 모드와 강도를 설정하세요"
   },
   "titleFormatted": {
     "en": "Set mode to [[mode]] with fan speed [[fanspeed]] and mop intensity [[mop]]",
-    "nl": "Stel mode in op [[mode]] met stofzuigkracht [[fanspeed]] en mop intensiteit [[mop]]"
+    "nl": "Stel mode in op [[mode]] met stofzuigkracht [[fanspeed]] en mop intensiteit [[mop]]",
+    "da": "Indstil tilstand til [[mode]] med blæserhastighed [[fanspeed]] og moppeintensitet [[mop]]",
+    "de": "Stellen Sie den Modus auf [[mode]] mit Gebläsegeschwindigkeit [[fanspeed]] und Mop-Intensität [[mop]] ein",
+    "es": "Configura el modo en [[mode]] con la velocidad del ventilador [[fanspeed]] y la intensidad del trapeado [[mop]]",
+    "fr": "Réglez le mode sur [[mode]] avec une vitesse de ventilateur de [[fanspeed]] et une intensité de mop [[mop]]",
+    "it": "Imposta la modalità su [[mode]] con velocità di ventilazione [[fanspeed]] e intensità del mop [[mop]]",
+    "no": "Sett modus til [[mode]] med viftehastighet [[fanspeed]] og moppintensitet [[mop]]",
+    "sv": "Ställ in läge till [[mode]] med fläkthastighet [[fanspeed]] och moppintensitet [[mop]]",
+    "pl": "Ustaw tryb na [[mode]] z prędkością wentylatora [[fanspeed]] i intensywnością mopowania [[mop]]",
+    "ru": "Установите режим на [[mode]] с скоростью вентилятора [[fanspeed]] и интенсивностью мытья [[mop]]",
+    "ko": "[[mode]] 모드로 설정하고 팬 속도 [[fanspeed]]와 걸레 세정 강도 [[mop]]를 조절하세요"
   },
   "args": [
     {
       "name": "mode",
       "title": {
         "en": "Mode",
-        "nl": "Modus"
+        "nl": "Modus",
+        "da": "Tilstand",
+        "de": "Modus",
+        "es": "Modo",
+        "fr": "Mode",
+        "it": "Modalità",
+        "no": "Modus",
+        "sv": "Läge",
+        "pl": "Tryb",
+        "ru": "Режим",
+        "ko": "모드"
       },
       "type": "dropdown",
       "values": [
@@ -21,21 +51,51 @@
           "id": "sweep",
           "title": {
             "en": "Vacuum",
-            "nl": "Stofzuigen"
+            "nl": "Stofzuigen",
+            "da": "Suge",
+            "de": "Saugen",
+            "es": "Aspirar",
+            "fr": "Aspirateur",
+            "it": "Aspirapolvere",
+            "no": "Støvsuge",
+            "sv": "Dammsug",
+            "pl": "Odkurzanie",
+            "ru": "Пылесос",
+            "ko": "진공 청소"
           }
         },
         {
           "id": "mop",
           "title": {
             "en": "Mop",
-            "nl": "Moppen"
+            "nl": "Moppen",
+            "da": "Moppe",
+            "de": "Wischen",
+            "es": "Trapeado",
+            "fr": "Mop",
+            "it": "Mocio",
+            "no": "Moppe",
+            "sv": "Moppa",
+            "pl": "Mopowanie",
+            "ru": "Моп",
+            "ko": "걸레질"
           }
         },
         {
           "id": "sweep-mop",
           "title": {
             "en": "Vacuum + Mop",
-            "nl": "Stofzuigen + moppen"
+            "nl": "Stofzuigen + moppen",
+            "da": "Suge + Moppe",
+            "de": "Saugen + Wischen",
+            "es": "Aspirar + Trapeado",
+            "fr": "Aspirateur + Mop",
+            "it": "Aspirapolvere + Mocio",
+            "no": "Støvsuge + Moppe",
+            "sv": "Dammsug + Moppa",
+            "pl": "Odkurzanie + Mopowanie",
+            "ru": "Пылесос + Моп",
+            "ko": "진공 청소 + 걸레질"
           }
         }
       ]
@@ -44,7 +104,17 @@
       "name": "fanspeed",
       "title": {
         "en": "Fanspeed",
-        "nl": "Fan snelheid"
+        "nl": "Fan snelheid",
+        "da": "Blæserhastighed",
+        "de": "Gebläsegeschwindigkeit",
+        "es": "Velocidad del ventilador",
+        "fr": "Vitesse du ventilateur",
+        "it": "Velocità della ventola",
+        "no": "Viftehastighet",
+        "sv": "Fläkthastighet",
+        "pl": "Prędkość wentylatora",
+        "ru": "Скорость вентилятора",
+        "ko": "팬 속도"
       },
       "type": "dropdown",
       "values": [
@@ -52,35 +122,85 @@
           "id": "1",
           "title": {
             "en": "Quiet",
-            "nl": "Stil"
+            "nl": "Stil",
+            "da": "Stille",
+            "de": "Leise",
+            "es": "Silencioso",
+            "fr": "Silencieux",
+            "it": "Silenzioso",
+            "no": "Stille",
+            "sv": "Tyst",
+            "pl": "Cichy",
+            "ru": "Тихий",
+            "ko": "조용한"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "Standard",
-            "nl": "Standaard"
+            "nl": "Standaard",
+            "da": "Standard",
+            "de": "Standard",
+            "es": "Estándar",
+            "fr": "Standard",
+            "it": "Standard",
+            "no": "Standard",
+            "sv": "Standard",
+            "pl": "Standard",
+            "ru": "Стандартный",
+            "ko": "표준"
           }
         },
         {
           "id": "3",
           "title": {
             "en": "Medium",
-            "nl": "Medium"
+            "nl": "Medium",
+            "da": "Medium",
+            "de": "Mittel",
+            "es": "Medio",
+            "fr": "Moyen",
+            "it": "Medio",
+            "no": "Medium",
+            "sv": "Medium",
+            "pl": "Średni",
+            "ru": "Средний",
+            "ko": "중간"
           }
         },
         {
           "id": "4",
           "title": {
             "en": "Turbo",
-            "nl": "Turbo"
+            "nl": "Turbo",
+            "da": "Turbo",
+            "de": "Turbo",
+            "es": "Turbo",
+            "fr": "Turbo",
+            "it": "Turbo",
+            "no": "Turbo",
+            "sv": "Turbo",
+            "pl": "Turbo",
+            "ru": "Турбо",
+            "ko": "터보"
           }
         },
         {
           "id": "5",
           "title": {
             "en": "Max",
-            "nl": "Max"
+            "nl": "Max",
+            "da": "Maks",
+            "de": "Max",
+            "es": "Máximo",
+            "fr": "Max",
+            "it": "Massimo",
+            "no": "Maksimum",
+            "sv": "Max",
+            "pl": "Maksymalny",
+            "ru": "Макс.",
+            "ko": "최대"
           }
         }
       ]
@@ -89,7 +209,17 @@
       "name": "mop",
       "title": {
         "en": "Mop Intensity",
-        "nl": "Dweil intensiteit"
+        "nl": "Dweil intensiteit",
+        "da": "Moppe Intensitet",
+        "de": "Mop-Intensität",
+        "es": "Intensidad del trapeado",
+        "fr": "Intensité de la mop",
+        "it": "Intensità del mocio",
+        "no": "Moppintensitet",
+        "sv": "Moppintensitet",
+        "pl": "Intensywność mopowania",
+        "ru": "Интенсивность мытья",
+        "ko": "걸레질 강도"
       },
       "type": "dropdown",
       "values": [
@@ -97,28 +227,68 @@
           "id": "200",
           "label": {
             "en": "Off",
-            "nl": "Uit"
+            "nl": "Uit",
+            "da": "Fra",
+            "de": "Aus",
+            "es": "Apagar",
+            "fr": "Éteint",
+            "it": "Spento",
+            "no": "Av",
+            "sv": "Av",
+            "pl": "Wył.",
+            "ru": "Выключено",
+            "ko": "끔"
           }
         },
         {
           "id": "201",
           "label": {
             "en": "Mild",
-            "nl": "Mild"
+            "nl": "Mild",
+            "da": "Mild",
+            "de": "Sanft",
+            "es": "Suave",
+            "fr": "Moyen",
+            "it": "Lieve",
+            "no": "Mild",
+            "sv": "Mild",
+            "pl": "Łagodny",
+            "ru": "Низкая",
+            "ko": "약하게"
           }
         },
         {
           "id": "202",
           "label": {
             "en": "Moderate",
-            "nl": "Gemiddeld"
+            "nl": "Gemiddeld",
+            "da": "Moderat",
+            "de": "Mäßig",
+            "es": "Moderado",
+            "fr": "Modéré",
+            "it": "Moderato",
+            "no": "Moderat",
+            "sv": "Moderat",
+            "pl": "Średni",
+            "ru": "Средняя",
+            "ko": "중간"
           }
         },
         {
           "id": "203",
           "label": {
             "en": "Intense",
-            "nl": "Intens"
+            "nl": "Intens",
+            "da": "Intens",
+            "de": "Intensiv",
+            "es": "Intenso",
+            "fr": "Intense",
+            "it": "Intenso",
+            "no": "Intens",
+            "sv": "Intensiv",
+            "pl": "Intensywny",
+            "ru": "Высокая",
+            "ko": "강하게"
           }
         }
       ]
@@ -128,10 +298,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer stofzuiger"
+        "nl": "Selecteer stofzuiger",
+        "da": "Vælg støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Seleccionar aspiradora",
+        "fr": "Sélectionnez l'aspirateur",
+        "it": "Seleziona l'aspirapolvere",
+        "no": "Velg støvsuger",
+        "sv": "Välj dammsugare",
+        "pl": "Wybierz odkurzacz",
+        "ru": "Выберите пылесос",
+        "ko": "청소기 선택"
       },
       "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced&capabilities=vacuum_roborock_mop_intensity"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Xiaomi Smart Plug (WiFi)",
-    "nl": "Xiaomi Smart Plug (WiFi)"
+    "nl": "Xiaomi Smart Plug (WiFi)",
+    "da": "Xiaomi Smart Plug (WiFi)",
+    "de": "Xiaomi Smart Plug (WiFi)",
+    "es": "Xiaomi Smart Plug (WiFi)",
+    "fr": "Xiaomi Smart Plug (WiFi)",
+    "it": "Xiaomi Smart Plug (WiFi)",
+    "no": "Xiaomi Smart Plug (WiFi)",
+    "sv": "Xiaomi Smart Plug (WiFi)",
+    "pl": "Xiaomi Smart Plug (WiFi)",
+    "ru": "Xiaomi Smart Plug (WiFi)",
+    "ko": "Xiaomi Smart Plug (WiFi)"
   },
   "images": {
     "large": "drivers/plug_cuco_plug/assets/images/large.jpg",

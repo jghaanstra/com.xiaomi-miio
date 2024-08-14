@@ -2,7 +2,17 @@
   "id": "leftSwitchOn",
   "title": {
     "en": "Turn Left Switch On",
-    "nl": "Schakel linkerschakelaar aan"
+    "nl": "Schakel linkerschakelaar aan",
+    "da": "Tænd Venstre Afbryder",
+    "de": "Schalten Sie den linken Schalter ein",
+    "es": "Enciende el interruptor izquierdo",
+    "fr": "Allumer l'interrupteur de gauche",
+    "it": "Accendi l'interruttore sinistro",
+    "no": "Slå på venstre bryter",
+    "sv": "Slå på vänster brytare",
+    "pl": "Włącz lewy przełącznik",
+    "ru": "Включите левый выключатель",
+    "ko": "왼쪽 스위치 켜기"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionnez l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

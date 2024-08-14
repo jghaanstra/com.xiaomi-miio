@@ -2,42 +2,102 @@
   "type": "enum",
   "title": {
     "en": "Fanspeed",
-    "nl": "Fanspeed"
+    "nl": "Fanspeed",
+    "da": "Blæserhastighed",
+    "de": "Lüftergeschwindigkeit",
+    "es": "Velocidad del ventilador",
+    "fr": "Vitesse du ventilateur",
+    "it": "Velocità della ventola",
+    "no": "Viftehastighet",
+    "sv": "Fläkthastighet",
+    "pl": "Prędkość wentylatora",
+    "ru": "Скорость вентилятора",
+    "ko": "팬 속도"
   },
   "values": [
     {
       "id": "1",
       "title": {
         "en": "Quiet",
-        "nl": "Stil"
+        "nl": "Stil",
+        "da": "Rolig",
+        "de": "Leise",
+        "es": "Silencioso",
+        "fr": "Silencieux",
+        "it": "Silenzioso",
+        "no": "Stille",
+        "sv": "Tyst",
+        "pl": "Cichy",
+        "ru": "Тихий",
+        "ko": "조용하게"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Standard",
-        "nl": "Standaard"
+        "nl": "Standaard",
+        "da": "Standard",
+        "de": "Standard",
+        "es": "Estándar",
+        "fr": "Standard",
+        "it": "Standard",
+        "no": "Standard",
+        "sv": "Standard",
+        "pl": "Standardowy",
+        "ru": "Стандартный",
+        "ko": "표준"
       }
     },
     {
       "id": "3",
       "title": {
         "en": "Medium",
-        "nl": "Medium"
+        "nl": "Medium",
+        "da": "Mellem",
+        "de": "Mittel",
+        "es": "Medio",
+        "fr": "Moyen",
+        "it": "Medio",
+        "no": "Middels",
+        "sv": "Mellan",
+        "pl": "Średni",
+        "ru": "Средний",
+        "ko": "중간"
       }
     },
     {
       "id": "4",
       "title": {
         "en": "Turbo",
-        "nl": "Turbo"
+        "nl": "Turbo",
+        "da": "Turbo",
+        "de": "Turbo",
+        "es": "Turbo",
+        "fr": "Turbo",
+        "it": "Turbo",
+        "no": "Turbo",
+        "sv": "Turbo",
+        "pl": "Turbo",
+        "ru": "Турбо",
+        "ko": "터보"
       }
     },
     {
       "id": "5",
       "title": {
         "en": "Max",
-        "nl": "Max"
+        "nl": "Max",
+        "da": "Maks",
+        "de": "Max",
+        "es": "Máximo",
+        "fr": "Max",
+        "it": "Massimo",
+        "no": "Maks",
+        "sv": "Max",
+        "pl": "Maks",
+        "ru": "Макс",
+        "ko": "최대"
       }
     }
   ],

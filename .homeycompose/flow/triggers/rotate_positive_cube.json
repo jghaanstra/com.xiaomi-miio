@@ -2,7 +2,17 @@
   "id": "rotate_positive_cube",
   "title": {
     "en": "Rotated Clockwise",
-    "nl": "Rotatie met de klok mee"
+    "nl": "Rotatie met de klok mee",
+    "da": "Drejet med uret",
+    "de": "Im Uhrzeigersinn gedreht",
+    "es": "Girado en el sentido de las agujas del reloj",
+    "fr": "Tourné dans le sens des aiguilles d'une montre",
+    "it": "Ruotato in senso orario",
+    "no": "Roterte med klokken",
+    "sv": "Roterad medurs",
+    "pl": "Obrócony zgodnie z ruchem wskazówek zegara",
+    "ru": "Повернут по часовой стрелке",
+    "ko": "시계 방향으로 회전"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionnez l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-aqara-cube"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }
