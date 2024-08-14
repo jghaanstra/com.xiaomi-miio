@@ -7,7 +7,7 @@
     "large": "drivers/airfresh_zhimi_airfresh_miot/assets/images/large.jpg",
     "small": "drivers/airfresh_zhimi_airfresh_miot/assets/images/small.jpg"
   },
-  "class": "sensor",
+  "class": "airpurifier",
   "$extends": [
     "defaults"
   ],

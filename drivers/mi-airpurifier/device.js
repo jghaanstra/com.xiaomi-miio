@@ -13,6 +13,12 @@ class MiAirPurifierDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // TODO: remove with the next release
+      if (this.getClass() !== 'airpurifier') {
+        this.log('Updating device class from', this.getClass(), 'to airpurifier');
+        this.setClass('airpurifier')
+      }
+
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 

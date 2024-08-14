@@ -23,6 +23,7 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/dreame.vacuum.p2114a
 // https://home.miot-spec.com/spec/dreame.vacuum.r2211o
 // https://home.miot-spec.com/spec/dreame.vacuum.r2232c
+// https://home.miot-spec.com/spec/dreame.vacuum.r2338a (not supported, docs is missing)
 
 
 const mapping = {
@@ -43,7 +44,9 @@ const mapping = {
   "dreame.vacuum.p2114a": "properties_r2205",
   "dreame.vacuum.r2211o": "properties_r2205",
   "dreame.vacuum.r2232c": "properties_r2205",
+  "dreame.vacuum.r2338a": "properties_r2205",
   "dreame.vacuum.*": "properties_p2008",
+  
 };
 
 const properties = {

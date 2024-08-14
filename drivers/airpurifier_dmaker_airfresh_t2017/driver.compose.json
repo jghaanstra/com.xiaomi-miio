@@ -7,7 +7,7 @@
     "large": "drivers/airpurifier_dmaker_airfresh_t2017/assets/images/large.jpg",
     "small": "drivers/airpurifier_dmaker_airfresh_t2017/assets/images/small.jpg"
   },
-  "class": "sensor",
+  "class": "airpurifier",
   "$extends": [
     "defaults"
   ],

@@ -7,7 +7,7 @@
     "large": "drivers/humidifier_deerma_humidifier_jsq/assets/images/large.jpg",
     "small": "drivers/humidifier_deerma_humidifier_jsq/assets/images/small.jpg"
   },
-  "class": "sensor",
+  "class": "humidifier",
   "$extends": [
     "defaults"
   ],

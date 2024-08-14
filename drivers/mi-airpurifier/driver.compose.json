@@ -7,7 +7,7 @@
     "large": "drivers/mi-airpurifier/assets/images/large.jpg",
     "small": "drivers/mi-airpurifier/assets/images/small.jpg"
   },
-  "class": "sensor",
+  "class": "airpurifier",
   "$extends": [
     "defaults"
   ],

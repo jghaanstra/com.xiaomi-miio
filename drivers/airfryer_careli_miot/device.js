@@ -76,6 +76,12 @@ class AirfryerCareliMiotDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // TODO: remove with the next release
+      if (this.getClass() !== 'airfryer') {
+        this.log('Updating device class from', this.getClass(), 'to airfryer');
+        this.setClass('airfryer')
+      }
+
       // DEVICE VARIABLES
       this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['careli.fryer.*']];
 

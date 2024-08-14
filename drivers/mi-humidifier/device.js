@@ -13,6 +13,12 @@ class MiHumidifierDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // TODO: remove with the next release
+      if (this.getClass() !== 'humidifier') {
+        this.log('Updating device class from', this.getClass(), 'to humidifier');
+        this.setClass('humidifier')
+      }
+
       // LISTENERS FOR UPDATING CAPABILITIES
       this.registerCapabilityListener("onoff", this.onCapabilityOnoff.bind(this));
 

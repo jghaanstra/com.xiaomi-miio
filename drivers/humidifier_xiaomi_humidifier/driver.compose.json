@@ -7,7 +7,7 @@
     "large": "drivers/humidifier_xiaomi_humidifier/assets/images/large.jpg",
     "small": "drivers/humidifier_xiaomi_humidifier/assets/images/small.jpg"
   },
-  "class": "sensor",
+  "class": "humidifier",
   "$extends": [
     "defaults"
   ],

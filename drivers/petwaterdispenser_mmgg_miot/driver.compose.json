@@ -7,7 +7,7 @@
     "large": "drivers/petwaterdispenser_mmgg_miot/assets/images/large.jpg",
     "small": "drivers/petwaterdispenser_mmgg_miot/assets/images/small.jpg"
   },
-  "class": "other",
+  "class": "petfeeder",
   "$extends": [
     "defaults"
   ],

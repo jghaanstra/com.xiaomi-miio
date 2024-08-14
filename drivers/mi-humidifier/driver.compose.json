@@ -7,7 +7,7 @@
     "large": "drivers/mi-humidifier/assets/images/large.jpg",
     "small": "drivers/mi-humidifier/assets/images/small.jpg"
   },
-  "class": "sensor",
+  "class": "humidifier",
   "$extends": [
     "defaults"
   ],

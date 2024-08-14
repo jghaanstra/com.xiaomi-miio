@@ -7,7 +7,7 @@
     "large": "drivers/airfryer_careli_miot/assets/images/large.jpg",
     "small": "drivers/airfryer_careli_miot/assets/images/small.jpg"
   },
-  "class": "other",
+  "class": "airfryer",
   "$extends": [
     "defaults"
   ],

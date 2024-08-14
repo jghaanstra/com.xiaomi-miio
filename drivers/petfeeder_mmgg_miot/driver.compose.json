@@ -8,7 +8,7 @@
     "large": "drivers/petfeeder_mmgg_miot/assets/images/large.jpg",
     "small": "drivers/petfeeder_mmgg_miot/assets/images/small.jpg"
   },
-  "class": "other",
+  "class": "petfeeder",
   "$extends": [
     "defaults"
   ],

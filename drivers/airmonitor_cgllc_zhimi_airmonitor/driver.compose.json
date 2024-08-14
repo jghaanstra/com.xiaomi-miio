@@ -7,7 +7,7 @@
     "large": "drivers/airmonitor_cgllc_zhimi_airmonitor/assets/images/large.jpg",
     "small": "drivers/airmonitor_cgllc_zhimi_airmonitor/assets/images/small.jpg"
   },
-  "class": "sensor",
+  "class": "airtreatment",
   "$extends": [
     "defaults"
   ],
