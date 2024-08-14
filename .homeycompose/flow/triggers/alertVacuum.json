@@ -2,7 +2,17 @@
   "id": "alertVacuum",
   "title": {
     "en": "Consumable Alert",
-    "nl": "Verbruiksartikel waarschuwing"
+    "nl": "Verbruiksartikel waarschuwing",
+    "da": "Forbrugsalarm",
+    "de": "Verbrauchsmaterial-Warnung",
+    "es": "Alerta de consumibles",
+    "fr": "Alerte de consommable",
+    "it": "Allarme consumabile",
+    "no": "Forbruksvarsel",
+    "sv": "Förbrukningsalarm",
+    "pl": "Alert materiałów eksploatacyjnych",
+    "ru": "Оповещение о расходных материалах",
+    "ko": "소모품 경고"
   },
   "tokens": [
     {
@@ -10,7 +20,17 @@
       "type": "string",
       "title": {
         "en": "consumable",
-        "nl": "verbruiksartikel"
+        "nl": "verbruiksartikel",
+        "da": "forbrugbar",
+        "de": "Verbrauchsmaterial",
+        "es": "consumible",
+        "fr": "consommable",
+        "it": "consumabile",
+        "no": "forbrukbar",
+        "sv": "förbrukningsvara",
+        "pl": "materiał eksploatacyjny",
+        "ru": "расходный материал",
+        "ko": "소모품"
       },
       "example": "filter"
     },
@@ -19,7 +39,17 @@
       "type": "string",
       "title": {
         "en": "value",
-        "nl": "waarde"
+        "nl": "waarde",
+        "da": "værdi",
+        "de": "Wert",
+        "es": "valor",
+        "fr": "valeur",
+        "it": "valore",
+        "no": "verdi",
+        "sv": "värde",
+        "pl": "wartość",
+        "ru": "значение",
+        "ko": "값"
       },
       "example": "10%"
     }
@@ -30,10 +60,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer stofzuiger"
+        "nl": "Selecteer stofzuiger",
+        "da": "Vælg støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Seleccionar aspiradora",
+        "fr": "Sélectionner l'aspirateur",
+        "it": "Selezionare aspirapolvere",
+        "no": "Velg støvsuger",
+        "sv": "Välj dammsugare",
+        "pl": "Wybierz odkurzacz",
+        "ru": "Выберите пылесос",
+        "ko": "진공청소기 선택"
       },
       "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced|vacuum_dreame_vacuum|vacuum_viomi_vacuum_v7|vacuum_mija_vacuum_miot|vacuum_roidmi_vacuum_miot"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

@@ -2,7 +2,17 @@
   "id": "click_single_left_right",
   "title": {
     "en": "Left and Right Click Together",
-    "nl": "Klik rechts en links tegelijk"
+    "nl": "Klik rechts en links tegelijk",
+    "da": "Venstre og højre klik sammen",
+    "de": "Links- und Rechtsklick zusammen",
+    "es": "Clic izquierdo y derecho juntos",
+    "fr": "Cliquez gauche et droit ensemble",
+    "it": "Clic sinistro e destro insieme",
+    "no": "Venstre og høyre klikk sammen",
+    "sv": "Vänster och höger klick tillsammans",
+    "pl": "Lewy i prawy klik razem",
+    "ru": "Левый и правый клик вместе",
+    "ko": "왼쪽 및 오른쪽 클릭 같이"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionnez l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=aqara_86sw2_switch|aqara-86sw2-advanced|db86_switch"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Smart Space/Fan Heater MIoT (WiFi)",
-    "nl": "Smart Space/Fan Heater MIoT (WiFi)"
+    "nl": "Smart Space/Fan Heater MIoT (WiFi)",
+    "da": "Smart Space/Fan Heater MIoT (WiFi)",
+    "de": "Smart Space/Fan Heater MIoT (WiFi)",
+    "es": "Smart Space/Fan Heater MIoT (WiFi)",
+    "fr": "Smart Space/Fan Heater MIoT (WiFi)",
+    "it": "Smart Space/Fan Heater MIoT (WiFi)",
+    "no": "Smart Space/Fan Heater MIoT (WiFi)",
+    "sv": "Smart Space/Fan Heater MIoT (WiFi)",
+    "pl": "Smart Space/Fan Heater MIoT (WiFi)",
+    "ru": "Smart Space/Fan Heater MIoT (WiFi)",
+    "ko": "Smart Space/Fan Heater MIoT (WiFi)"
   },
   "images": {
     "large": "drivers/heater_zhimi_heater_miot/assets/images/large.jpg",

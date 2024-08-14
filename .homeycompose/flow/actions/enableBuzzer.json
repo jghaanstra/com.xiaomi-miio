@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Enable notification sound",
-    "nl": "Instellen notificatie geluid"
+    "nl": "Instellen notificatie geluid",
+    "da": "Aktiver notifikationslyd",
+    "de": "Benachrichtigungston aktivieren",
+    "es": "Activar sonido de notificaciones",
+    "fr": "Activer le son de notification",
+    "it": "Abilita suono di notifica",
+    "no": "Aktiver varslingslyd",
+    "sv": "Aktivera notifikationsljud",
+    "pl": "Włącz dźwięk powiadomień",
+    "ru": "Включить звуковое уведомление",
+    "ko": "알림 소리 사용"
   },
   "titleFormatted": {
     "en": "Set notification sound [[sound]]",
-    "nl": "Wijzig notificatie geluid naar [[sound]]"
+    "nl": "Wijzig notificatie geluid naar [[sound]]",
+    "da": "Indstil notifikationslyd [[sound]]",
+    "de": "Benachrichtigungston einstellen [[sound]]",
+    "es": "Configurar sonido de notificación [[sound]]",
+    "fr": "Définir le son de notification [[sound]]",
+    "it": "Imposta suono di notifica [[sound]]",
+    "no": "Angi varslingslyd [[sound]]",
+    "sv": "Ställ in notifikationsljud [[sound]]",
+    "pl": "Ustaw dźwięk powiadomień [[sound]]",
+    "ru": "Установить звуковое уведомление [[sound]]",
+    "ko": "알림 소리 설정 [[sound]]"
   },
   "args": [
     {
       "name": "sound",
       "title": {
         "en": "Sound",
-        "nl": "Geluid"
+        "nl": "Geluid",
+        "da": "Lyd",
+        "de": "Klang",
+        "es": "Sonido",
+        "fr": "Son",
+        "it": "Suono",
+        "no": "Lyd",
+        "sv": "Ljud",
+        "pl": "Dźwięk",
+        "ru": "Звук",
+        "ko": "소리"
       },
       "type": "dropdown",
       "values": [
@@ -20,14 +50,34 @@
           "id": "0",
           "label": {
             "en": "Off",
-            "nl": "Uit"
+            "nl": "Uit",
+            "da": "Fra",
+            "de": "Aus",
+            "es": "Apagado",
+            "fr": "Désactivé",
+            "it": "Spento",
+            "no": "Av",
+            "sv": "Av",
+            "pl": "Wyłączone",
+            "ru": "Выкл.",
+            "ko": "끔"
           }
         },
         {
           "id": "1",
           "label": {
             "en": "On",
-            "nl": "Aan"
+            "nl": "Aan",
+            "da": "Til",
+            "de": "Ein",
+            "es": "Encendido",
+            "fr": "Activé",
+            "it": "Acceso",
+            "no": "På",
+            "sv": "På",
+            "pl": "Włączone",
+            "ru": "Вкл.",
+            "ko": "켬"
           }
         }
       ]
@@ -37,10 +87,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выбрать устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=airpurifier_zhimi_advanced_miot|fan_dmaker_advanced|heater_zhimi_heater_miot|humidifier_xiaomi_humidifier|petfeeder_mmgg_miot|petwaterdispenser_mmgg_miot|humidifier_deerma_humidifier_miot|humidifier_zhimi_humidifier_miot"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

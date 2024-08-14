@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Smartmi Humidifier v1/v2 (WiFi)",
-    "nl": "Smartmi Humidifier v1/v2 (WiFi)"
+    "nl": "Smartmi Humidifier v1/v2 (WiFi)",
+    "da": "Smartmi Luftfugter v1/v2 (WiFi)",
+    "de": "Smartmi Luftbefeuchter v1/v2 (WLAN)",
+    "es": "Humidificador Smartmi v1/v2 (WiFi)",
+    "fr": "Humidificateur Smartmi v1/v2 (WiFi)",
+    "it": "Umidificatore Smartmi v1/v2 (WiFi)",
+    "no": "Smartmi Luftfukter v1/v2 (WiFi)",
+    "sv": "Smartmi Luftfuktare v1/v2 (WiFi)",
+    "pl": "Nawilżacz Smartmi v1/v2 (WiFi)",
+    "ru": "Увлажнитель Smartmi v1/v2 (WiFi)",
+    "ko": "스마트미 가습기 v1/v2 (WiFi)"
   },
   "images": {
     "large": "drivers/humidifier_zhimi_humidifier/assets/images/large.jpg",
@@ -22,7 +32,17 @@
     "dim": {
       "title": {
         "en": "Target Humidity",
-        "nl": "Doel vochtigheid"
+        "nl": "Doel vochtigheid",
+        "da": "Målfugtighed",
+        "de": "Ziel-Luftfeuchtigkeit",
+        "es": "Humedad Objetivo",
+        "fr": "Humidité Cible",
+        "it": "Umidità Target",
+        "no": "Målfuktighet",
+        "sv": "Målfuktighet",
+        "pl": "Docelowa wilgotność",
+        "ru": "Целевая влажность",
+        "ko": "목표 습도"
       },
       "min": 30,
       "max": 80,
@@ -31,13 +51,33 @@
     "onoff.dry": {
       "title": {
         "en": "Dry mode",
-        "nl": "Droog modus"
+        "nl": "Droog modus",
+        "da": "Tør tilstand",
+        "de": "Trockenmodus",
+        "es": "Modo Seco",
+        "fr": "Mode Séchage",
+        "it": "Modalità Asciutta",
+        "no": "Tørrmodus",
+        "sv": "Torr läge",
+        "pl": "Tryb Suchy",
+        "ru": "Режим сушки",
+        "ko": "건조 모드"
       }
     },
     "measure_water": {
       "title": {
         "en": "Waterlevel",
-        "nl": "Waterniveau"
+        "nl": "Waterniveau",
+        "da": "Vandniveau",
+        "de": "Wasserstand",
+        "es": "Nivel de agua",
+        "fr": "Niveau d’eau",
+        "it": "Livello dell’acqua",
+        "no": "Vannivå",
+        "sv": "Vattennivå",
+        "pl": "Poziom wod",
+        "ru": "Уровень воды",
+        "ko": "물 수위"
       },
       "units": {
         "en": "%"

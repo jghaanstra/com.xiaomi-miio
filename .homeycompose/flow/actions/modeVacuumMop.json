@@ -2,18 +2,48 @@
   "id": "modeVacuumMop",
   "title": {
     "en": "Set Mode",
-    "nl": "Stel modus in"
+    "nl": "Stel modus in",
+    "da": "Indstil tilstand",
+    "de": "Modus einstellen",
+    "es": "Establecer modo",
+    "fr": "Définir le mode",
+    "it": "Imposta modalità",
+    "no": "Sett modus",
+    "sv": "Ställ in läge",
+    "pl": "Ustaw tryb",
+    "ru": "Установить режим",
+    "ko": "모드 설정"
   },
   "titleFormatted": {
     "en": "Set mode to [[mode]]",
-    "nl": "Stel modus in op [[mode]]"
+    "nl": "Stel modus in op [[mode]]",
+    "da": "Indstil tilstand til [[mode]]",
+    "de": "Modus einstellen auf [[mode]]",
+    "es": "Establecer modo en [[mode]]",
+    "fr": "Définir le mode sur [[mode]]",
+    "it": "Imposta modalità su [[mode]]",
+    "no": "Sett modus til [[mode]]",
+    "sv": "Ställ in läge till [[mode]]",
+    "pl": "Ustaw tryb na [[mode]]",
+    "ru": "Установить режим на [[mode]]",
+    "ko": "[[mode]] 모드 설정"
   },
   "args": [
     {
       "name": "mode",
       "title": {
         "en": "Mode",
-        "nl": "Modus"
+        "nl": "Modus",
+        "da": "Tilstand",
+        "de": "Modus",
+        "es": "Modo",
+        "fr": "Mode",
+        "it": "Modalità",
+        "no": "Modus",
+        "sv": "Läge",
+        "pl": "Tryb",
+        "ru": "Режим",
+        "ko": "모드"
       },
       "type": "dropdown",
       "values": [
@@ -21,21 +51,51 @@
           "id": "0",
           "title": {
             "en": "Vacuum",
-            "nl": "Stofzuigen"
+            "nl": "Stofzuigen",
+            "da": "Støvsug",
+            "de": "Staubsaugen",
+            "es": "Aspirar",
+            "fr": "Aspirer",
+            "it": "Aspirazione",
+            "no": "Støvsuging",
+            "sv": "Dammsug",
+            "pl": "Odkurzanie",
+            "ru": "Пылесос",
+            "ko": "청소"
           }
         },
         {
           "id": "1",
           "title": {
             "en": "Vacuum + Mop",
-            "nl": "Stofzuigen + moppen"
+            "nl": "Stofzuigen + moppen",
+            "da": "Støvsug + Mop",
+            "de": "Staubsaugen + Wischen",
+            "es": "Aspirar + Fregar",
+            "fr": "Aspirer + Nettoyer",
+            "it": "Aspirazione + Passaggio del mop",
+            "no": "Støvsuging + Mopping",
+            "sv": "Dammsug + Moppa",
+            "pl": "Odkurzanie + Mop",
+            "ru": "Пылесос + Мытье",
+            "ko": "청소 + 물걸레질"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "Mop",
-            "nl": "Moppen"
+            "nl": "Moppen",
+            "da": "Mop",
+            "de": "Wischen",
+            "es": "Fregar",
+            "fr": "Nettoyer",
+            "it": "Passaggio del mop",
+            "no": "Mopping",
+            "sv": "Moppa",
+            "pl": "Mop",
+            "ru": "Мытье",
+            "ko": "물걸레질"
           }
         }
       ]
@@ -45,10 +105,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer Stofzuiger"
+        "nl": "Selecteer Stofzuiger",
+        "da": "Vælg Støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Seleccionar Aspiradora",
+        "fr": "Sélectionnez l'aspirateur",
+        "it": "Seleziona Aspirapolvere",
+        "no": "Velg Støvsuger",
+        "sv": "Välj Dammsugare",
+        "pl": "Wybierz Odkurzacz",
+        "ru": "Выберите Пылесос",
+        "ko": "청소기 선택"
       },
       "filter": "driver_id=vacuum_viomi_vacuum_v7"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

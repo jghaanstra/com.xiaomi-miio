@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Set Mode",
-    "nl": "Stel modus in"
+    "nl": "Stel modus in",
+    "da": "Sæt tilstand",
+    "de": "Modus einstellen",
+    "es": "Establecer modo",
+    "fr": "Définir le mode",
+    "it": "Imposta modalità",
+    "no": "Sett modus",
+    "sv": "Ställ in läge",
+    "pl": "Ustaw tryb",
+    "ru": "Установить режим",
+    "ko": "모드 설정"
   },
   "titleFormatted": {
     "en": "Set mode to [[mode]]",
-    "nl": "Stel modus in op [[mode]]"
+    "nl": "Stel modus in op [[mode]]",
+    "da": "Indstil tilstand til [[mode]]",
+    "de": "Modus auf [[mode]] einstellen",
+    "es": "Establecer modo a [[mode]]",
+    "fr": "Définir le mode sur [[mode]]",
+    "it": "Imposta modalità su [[mode]]",
+    "no": "Sett modus til [[mode]]",
+    "sv": "Ställ in läge till [[mode]]",
+    "pl": "Ustaw tryb na [[mode]]",
+    "ru": "Установить режим на [[mode]]",
+    "ko": "[[mode]] 모드로 설정"
   },
   "args": [
     {
       "name": "mode",
       "title": {
         "en": "Mode",
-        "nl": "Modus"
+        "nl": "Modus",
+        "da": "Tilstand",
+        "de": "Modus",
+        "es": "Modo",
+        "fr": "Mode",
+        "it": "Modalità",
+        "no": "Modus",
+        "sv": "Läge",
+        "pl": "Tryb",
+        "ru": "Режим",
+        "ko": "모드"
       },
       "type": "dropdown",
       "values": [
@@ -20,28 +50,68 @@
           "id": "0",
           "title": {
             "en": "Auto",
-            "nl": "Auto"
+            "nl": "Auto",
+            "da": "Auto",
+            "de": "Auto",
+            "es": "Auto",
+            "fr": "Auto",
+            "it": "Auto",
+            "no": "Auto",
+            "sv": "Auto",
+            "pl": "Auto",
+            "ru": "Авто",
+            "ko": "자동"
           }
         },
         {
           "id": "1",
           "title": {
             "en": "Level 1",
-            "nl": "Level 1"
+            "nl": "Level 1",
+            "da": "Niveau 1",
+            "de": "Stufe 1",
+            "es": "Nivel 1",
+            "fr": "Niveau 1",
+            "it": "Livello 1",
+            "no": "Nivå 1",
+            "sv": "Nivå 1",
+            "pl": "Poziom 1",
+            "ru": "Уровень 1",
+            "ko": "레벨 1"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "Level 2",
-            "nl": "Level 2"
+            "nl": "Level 2",
+            "da": "Niveau 2",
+            "de": "Stufe 2",
+            "es": "Nivel 2",
+            "fr": "Niveau 2",
+            "it": "Livello 2",
+            "no": "Nivå 2",
+            "sv": "Nivå 2",
+            "pl": "Poziom 2",
+            "ru": "Уровень 2",
+            "ko": "레벨 2"
           }
         },
         {
           "id": "3",
           "title": {
             "en": "Level 3",
-            "nl": "Level 3"
+            "nl": "Level 3",
+            "da": "Niveau 3",
+            "de": "Stufe 3",
+            "es": "Nivel 3",
+            "fr": "Niveau 3",
+            "it": "Livello 3",
+            "no": "Nivå 3",
+            "sv": "Nivå 3",
+            "pl": "Poziom 3",
+            "ru": "Уровень 3",
+            "ko": "레벨 3"
           }
         }
       ]
@@ -51,10 +121,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Mi Humidifier",
-        "nl": "Selecteer Mi Humidifier"
+        "nl": "Selecteer Mi Humidifier",
+        "da": "Vælg Mi Luftfugter",
+        "de": "Wählen Sie Mi Luftbefeuchter",
+        "es": "Seleccionar Mi Humidificador",
+        "fr": "Sélectionnez Humidificateur Mi",
+        "it": "Seleziona Mi Umidificatore",
+        "no": "Velg Mi Luftfukter",
+        "sv": "Välj Mi Luftfuktare",
+        "pl": "Wybierz Mi Nawilżacz",
+        "ru": "Выберите Mi Увлажнитель",
+        "ko": "Mi 가습기 선택"
       },
       "filter": "driver_id=humidifier_zhimi_humidifier_miot"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

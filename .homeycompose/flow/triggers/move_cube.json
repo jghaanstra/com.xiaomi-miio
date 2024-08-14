@@ -2,7 +2,17 @@
   "id": "move_cube",
   "title": {
     "en": "Move",
-    "nl": "Verplaatsen"
+    "nl": "Verplaatsen",
+    "da": "Flyt",
+    "de": "Bewegen",
+    "es": "Mover",
+    "fr": "Déplacer",
+    "it": "Muovi",
+    "no": "Flytt",
+    "sv": "Flytta",
+    "pl": "Przenieś",
+    "ru": "Двигать",
+    "ko": "이동"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-aqara-cube"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

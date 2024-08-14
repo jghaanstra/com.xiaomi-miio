@@ -2,7 +2,17 @@
   "id": "rightSwitchOff",
   "title": {
     "en": "Right Switch Off",
-    "nl": "Rechterschakelaar uit"
+    "nl": "Rechterschakelaar uit",
+    "da": "Højre kontakt slukket",
+    "de": "Rechter Schalter aus",
+    "es": "Interruptor derecho apagado",
+    "fr": "Interrupteur droit éteint",
+    "it": "Interruttore destro spento",
+    "no": "Høyre bryter av",
+    "sv": "Högra strömställaren av",
+    "pl": "Przełącznik prawy wyłączony",
+    "ru": "Правый выключатель выключен",
+    "ko": "오른쪽 스위치 끄기"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

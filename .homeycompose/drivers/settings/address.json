@@ -4,6 +4,16 @@
   "value": "0.0.0.0",
   "label": {
     "en": "IP Address",
-    "nl": "IP adres"
+    "nl": "IP adres",
+    "da": "IP-adresse",
+    "de": "IP-Adresse",
+    "es": "Dirección IP",
+    "fr": "Adresse IP",
+    "it": "Indirizzo IP",
+    "no": "IP-adresse",
+    "sv": "IP-adress",
+    "pl": "Adres IP",
+    "ru": "IP-адрес",
+    "ko": "IP 주소"
   }
 }

@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "User Settings",
-      "nl": "Gebruikersinstellingem"
+      "nl": "Gebruikersinstellingem",
+      "da": "Brugerindstillinger",
+      "de": "Benutzereinstellungen",
+      "es": "Configuración de Usuario",
+      "fr": "Paramètres Utilisateur",
+      "it": "Impostazioni Utente",
+      "no": "Brukerinnstillinger",
+      "sv": "Användarinställningar",
+      "pl": "Ustawienia Użytkownika",
+      "ru": "Настройки Пользователя",
+      "ko": "사용자 설정"
     },
     "children": [
       {
@@ -12,7 +22,17 @@
         "value": true,
         "label": {
           "en": "LED",
-          "nl": "LED"
+          "nl": "LED",
+          "da": "LED",
+          "de": "LED",
+          "es": "LED",
+          "fr": "LED",
+          "it": "LED",
+          "no": "LED",
+          "sv": "LED",
+          "pl": "LED",
+          "ru": "LED",
+          "ko": "LED"
         }
       }
     ]
@@ -21,7 +41,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuración del Dispositivo",
+      "fr": "Paramètres de l'Appareil",
+      "it": "Impostazioni del Dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia Urządzenia",
+      "ru": "Настройки Устройства",
+      "ko": "장치 설정"
     },
     "children": [
       {

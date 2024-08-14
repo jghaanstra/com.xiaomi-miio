@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Universal Intelligent IR Remote Controller (WiFi)",
-    "nl": "Universal Intelligent IR Remote Controller (WiFi)"
+    "nl": "Universal Intelligent IR Remote Controller (WiFi)",
+    "da": "Universel intelligent IR-fjernbetjening (WiFi)",
+    "de": "Universeller intelligenter IR-Fernbedienungscontroller (WiFi)",
+    "es": "Controlador de mando a distancia IR inteligente universal (WiFi)",
+    "fr": "Contrôleur de télécommande IR intelligent universel (WiFi)",
+    "it": "Controller universale intelligente IR (WiFi)",
+    "no": "Universal intelligent IR-fjernkontroll (WiFi)",
+    "sv": "Universell intelligent IR-fjärrkontroll (WiFi)",
+    "pl": "Uniwersalny inteligentny kontroler zdalny IR (WiFi)",
+    "ru": "Универсальный интеллектуальный ИК-пульт дистанционного управления (WiFi)",
+    "ko": "범용 지능형 IR 리모컨 컨트롤러 (WiFi)"
   },
   "images": {
     "large": "drivers/remote_chuangmi_remote_v2/assets/images/large.jpg",

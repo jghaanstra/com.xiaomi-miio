@@ -2,7 +2,17 @@
   "type": "enum",
   "title": {
     "en": "Mode",
-    "nl": "Modus"
+    "nl": "Modus",
+    "da": "Tilstand",
+    "de": "Modus",
+    "es": "Modo",
+    "fr": "Mode",
+    "it": "Modalità",
+    "no": "Modus",
+    "sv": "Läge",
+    "pl": "Tryb",
+    "ru": "Режим",
+    "ko": "모드"
   },
   "getable": true,
   "setable": true,
@@ -11,28 +21,68 @@
       "id": "0",
       "title": {
         "en": "Auto",
-        "nl": "Auto"
+        "nl": "Auto",
+        "da": "Auto",
+        "de": "Auto",
+        "es": "Auto",
+        "fr": "Auto",
+        "it": "Auto",
+        "no": "Auto",
+        "sv": "Auto",
+        "pl": "Auto",
+        "ru": "Авто",
+        "ko": "자동"
       }
     },
     {
       "id": "1",
       "title": {
         "en": "Night",
-        "nl": "Nacht"
+        "nl": "Nacht",
+        "da": "Nat",
+        "de": "Nacht",
+        "es": "Noche",
+        "fr": "Nuit",
+        "it": "Notte",
+        "no": "Natt",
+        "sv": "Natt",
+        "pl": "Noc",
+        "ru": "Ночь",
+        "ko": "야간"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Favorite",
-        "nl": "Favoriet"
+        "nl": "Favoriet",
+        "da": "Favorit",
+        "de": "Favorit",
+        "es": "Favorito",
+        "fr": "Favori",
+        "it": "Preferito",
+        "no": "Favoritt",
+        "sv": "Favorit",
+        "pl": "Ulubiony",
+        "ru": "Избранное",
+        "ko": "선호"
       }
     },
     {
       "id": "3",
       "title": {
         "en": "Idle",
-        "nl": "Inactief"
+        "nl": "Inactief",
+        "da": "Inaktiv",
+        "de": "Inaktiv",
+        "es": "Inactivo",
+        "fr": "Inactif",
+        "it": "Inattivo",
+        "no": "Inaktiv",
+        "sv": "Inaktiv",
+        "pl": "Bezczynny",
+        "ru": "Бездействие",
+        "ko": "대기"
       }
     }
   ],

@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "Gateway Favorite Stations",
-      "nl": "Gateway favoriete stations"
+      "nl": "Gateway favoriete stations",
+      "da": "Gateway favoritradiostationer",
+      "de": "Gateway Lieblingsstationen",
+      "es": "Estaciones favoritas de Gateway",
+      "fr": "Stations favorites de la passerelle",
+      "it": "Stazioni preferite del gateway",
+      "no": "Gateway favorittstasjoner",
+      "sv": "Gateway favoritstationer",
+      "pl": "Ulubione stacje bramy",
+      "ru": "Избранные станции шлюза",
+      "ko": "게이트웨이 즐겨찾기 방송국"
     },
     "children": [
       {
@@ -12,7 +22,17 @@
         "value": "",
         "label": {
           "en": "1 - Favorite Radio",
-          "nl": "1 - Favoriet station"
+          "nl": "1 - Favoriet station",
+          "da": "1 - Favoritradiostation",
+          "de": "1 - Lieblingssender",
+          "es": "1 - Radio favorita",
+          "fr": "1 - Radio préférée",
+          "it": "1 - Radio preferita",
+          "no": "1 - Favorittradiostasjon",
+          "sv": "1 - Favoritstation",
+          "pl": "1 - Ulubiona stacja",
+          "ru": "1 - Любимая радиостанция",
+          "ko": "1 - 즐겨찾는 라디오"
         }
       },
       {
@@ -21,7 +41,17 @@
         "value": "",
         "label": {
           "en": "2 - Favorite Radio",
-          "nl": "2 - Favoriet station"
+          "nl": "2 - Favoriet station",
+          "da": "2 - Favoritradiostation",
+          "de": "2 - Lieblingssender",
+          "es": "2 - Radio favorita",
+          "fr": "2 - Radio préférée",
+          "it": "2 - Radio preferita",
+          "no": "2 - Favorittradiostasjon",
+          "sv": "2 - Favoritstation",
+          "pl": "2 - Ulubiona stacja",
+          "ru": "2 - Любимая радиостанция",
+          "ko": "2 - 즐겨찾는 라디오"
         }
       },
       {
@@ -30,7 +60,17 @@
         "value": "",
         "label": {
           "en": "3 - Favorite Radio",
-          "nl": "3 - Favoriet station"
+          "nl": "3 - Favoriet station",
+          "da": "3 - Favoritradiostation",
+          "de": "3 - Lieblingssender",
+          "es": "3 - Radio favorita",
+          "fr": "3 - Radio préférée",
+          "it": "3 - Radio preferita",
+          "no": "3 - Favorittradiostasjon",
+          "sv": "3 - Favoritstation",
+          "pl": "3 - Ulubiona stacja",
+          "ru": "3 - Любимая радиостанция",
+          "ko": "3 - 즐겨찾는 라디오"
         }
       },
       {
@@ -39,7 +79,17 @@
         "value": "",
         "label": {
           "en": "4 - Favorite Radio",
-          "nl": "4 - Favoriet station"
+          "nl": "4 - Favoriet station",
+          "da": "4 - Favoritradiostation",
+          "de": "4 - Lieblingssender",
+          "es": "4 - Radio favorita",
+          "fr": "4 - Radio préférée",
+          "it": "4 - Radio preferita",
+          "no": "4 - Favorittradiostasjon",
+          "sv": "4 - Favoritstation",
+          "pl": "4 - Ulubiona stacja",
+          "ru": "4 - Любимая радиостанция",
+          "ko": "4 - 즐겨찾는 라디오"
         }
       },
       {
@@ -48,7 +98,17 @@
         "value": "",
         "label": {
           "en": "5 - Favorite Radio",
-          "nl": "5 - Favoriet station"
+          "nl": "5 - Favoriet station",
+          "da": "5 - Favoritradiostation",
+          "de": "5 - Lieblingssender",
+          "es": "5 - Radio favorita",
+          "fr": "5 - Radio préférée",
+          "it": "5 - Radio preferita",
+          "no": "5 - Favorittradiostasjon",
+          "sv": "5 - Favoritstation",
+          "pl": "5 - Ulubiona stacja",
+          "ru": "5 - Любимая радиостанция",
+          "ko": "5 - 즐겨찾는 라디오"
         }
       },
       {
@@ -57,7 +117,17 @@
         "value": "",
         "label": {
           "en": "6 - Favorite Radio",
-          "nl": "6 - Favoriet station"
+          "nl": "6 - Favoriet station",
+          "da": "6 - Favoritradiostation",
+          "de": "6 - Lieblingssender",
+          "es": "6 - Radio favorita",
+          "fr": "6 - Radio préférée",
+          "it": "6 - Radio preferita",
+          "no": "6 - Favorittradiostasjon",
+          "sv": "6 - Favoritstation",
+          "pl": "6 - Ulubiona stacja",
+          "ru": "6 - Любимая радиостанция",
+          "ko": "6 - 즐겨찾는 라디오"
         }
       },
       {
@@ -66,7 +136,17 @@
         "value": "",
         "label": {
           "en": "7 - Favorite Radio",
-          "nl": "7 - Favoriet station"
+          "nl": "7 - Favoriet station",
+          "da": "7 - Favoritradiostation",
+          "de": "7 - Lieblingssender",
+          "es": "7 - Radio favorita",
+          "fr": "7 - Radio préférée",
+          "it": "7 - Radio preferita",
+          "no": "7 - Favorittradiostasjon",
+          "sv": "7 - Favoritstation",
+          "pl": "7 - Ulubiona stacja",
+          "ru": "7 - Любимая радиостанция",
+          "ko": "7 - 즐겨찾는 라디오"
         }
       },
       {
@@ -75,7 +155,17 @@
         "value": "",
         "label": {
           "en": "8 - Favorite Radio",
-          "nl": "8 - Favoriet station"
+          "nl": "8 - Favoriet station",
+          "da": "8 - Favoritradiostation",
+          "de": "8 - Lieblingssender",
+          "es": "8 - Radio favorita",
+          "fr": "8 - Radio préférée",
+          "it": "8 - Radio preferita",
+          "no": "8 - Favorittradiostasjon",
+          "sv": "8 - Favoritstation",
+          "pl": "8 - Ulubiona stacja",
+          "ru": "8 - Любимая радиостанция",
+          "ko": "8 - 즐겨찾는 라디오"
         }
       },
       {
@@ -84,7 +174,17 @@
         "value": "",
         "label": {
           "en": "9 - Favorite Radio",
-          "nl": "9 - Favoriet station"
+          "nl": "9 - Favoriet station",
+          "da": "9 - Favoritradiostation",
+          "de": "9 - Lieblingssender",
+          "es": "9 - Radio favorita",
+          "fr": "9 - Radio préférée",
+          "it": "9 - Radio preferita",
+          "no": "9 - Favorittradiostasjon",
+          "sv": "9 - Favoritstation",
+          "pl": "9 - Ulubiona stacja",
+          "ru": "9 - Любимая радиостанция",
+          "ko": "9 - 즐겨찾는 라디오"
         }
       },
       {
@@ -93,7 +193,17 @@
         "value": "",
         "label": {
           "en": "10 - Favorite Radio",
-          "nl": "10 - Favoriet station"
+          "nl": "10 - Favoriet station",
+          "da": "10 - Favoritradiostation",
+          "de": "10 - Lieblingssender",
+          "es": "10 - Radio favorita",
+          "fr": "10 - Radio préférée",
+          "it": "10 - Radio preferita",
+          "no": "10 - Favorittradiostasjon",
+          "sv": "10 - Favoritstation",
+          "pl": "10 - Ulubiona stacja",
+          "ru": "10 - Любимая радиостанция",
+          "ko": "10 - 즐겨찾는 라디오"
         }
       },
       {
@@ -102,7 +212,17 @@
         "value": "",
         "label": {
           "en": "11 - Favorite Radio",
-          "nl": "11 - Favoriet station"
+          "nl": "11 - Favoriet station",
+          "da": "11 - Favoritradiostation",
+          "de": "11 - Lieblingssender",
+          "es": "11 - Radio favorita",
+          "fr": "11 - Radio préférée",
+          "it": "11 - Radio preferita",
+          "no": "11 - Favorittradiostasjon",
+          "sv": "11 - Favoritstation",
+          "pl": "11 - Ulubiona stacja",
+          "ru": "11 - Любимая радиостанция",
+          "ko": "11 - 즐겨찾는 라디오"
         }
       },
       {
@@ -111,7 +231,17 @@
         "value": "",
         "label": {
           "en": "12 - Favorite Radio",
-          "nl": "12 - Favoriet station"
+          "nl": "12 - Favoriet station",
+          "da": "12 - Favoritradiostation",
+          "de": "12 - Lieblingssender",
+          "es": "12 - Radio favorita",
+          "fr": "12 - Radio préférée",
+          "it": "12 - Radio preferita",
+          "no": "12 - Favorittradiostasjon",
+          "sv": "12 - Favoritstation",
+          "pl": "12 - Ulubiona stacja",
+          "ru": "12 - Любимая радиостанция",
+          "ko": "12 - 즐겨찾는 라디오"
         }
       },
       {
@@ -120,7 +250,17 @@
         "value": "",
         "label": {
           "en": "13 - Favorite Radio",
-          "nl": "13 - Favoriet station"
+          "nl": "13 - Favoriet station",
+          "da": "13 - Favoritradiostation",
+          "de": "13 - Lieblingssender",
+          "es": "13 - Radio favorita",
+          "fr": "13 - Radio préférée",
+          "it": "13 - Radio preferita",
+          "no": "13 - Favorittradiostasjon",
+          "sv": "13 - Favoritstation",
+          "pl": "13 - Ulubiona stacja",
+          "ru": "13 - Любимая радиостанция",
+          "ko": "13 - 즐겨찾는 라디오"
         }
       },
       {
@@ -129,7 +269,17 @@
         "value": "",
         "label": {
           "en": "14 - Favorite Radio",
-          "nl": "14 - Favoriet station"
+          "nl": "14 - Favoriet station",
+          "da": "14 - Favoritradiostation",
+          "de": "14 - Lieblingssender",
+          "es": "14 - Radio favorita",
+          "fr": "14 - Radio préférée",
+          "it": "14 - Radio preferita",
+          "no": "14 - Favorittradiostasjon",
+          "sv": "14 - Favoritstation",
+          "pl": "14 - Ulubiona stacja",
+          "ru": "14 - Любимая радиостанция",
+          "ko": "14 - 즐겨찾는 라디오"
         }
       },
       {
@@ -138,7 +288,17 @@
         "value": "",
         "label": {
           "en": "15 - Favorite Radio",
-          "nl": "15 - Favoriet station"
+          "nl": "15 - Favoriet station",
+          "da": "15 - Favoritradiostation",
+          "de": "15 - Lieblingssender",
+          "es": "15 - Radio favorita",
+          "fr": "15 - Radio préférée",
+          "it": "15 - Radio preferita",
+          "no": "15 - Favorittradiostasjon",
+          "sv": "15 - Favoritstation",
+          "pl": "15 - Ulubiona stacja",
+          "ru": "15 - Любимая радиостанция",
+          "ko": "15 - 즐겨찾는 라디오"
         }
       },
       {
@@ -146,7 +306,17 @@
         "type": "text",
         "value": "",
         "label": {
-          "en": "16 - Favorite Radio"
+          "en": "16 - Favorite Radio",
+          "da": "16 - Favoritradiostation",
+          "de": "16 - Lieblingssender",
+          "es": "16 - Radio favorita",
+          "fr": "16 - Radio préférée",
+          "it": "16 - Radio preferita",
+          "no": "16 - Favorittradiostasjon",
+          "sv": "16 - Favoritstation",
+          "pl": "16 - Ulubiona stacja",
+          "ru": "16 - Любимая радиостанция",
+          "ko": "16 - 즐겨찾는 라디오"
         }
       },
       {
@@ -154,7 +324,17 @@
         "type": "text",
         "value": "",
         "label": {
-          "en": "17 - Favorite Radio"
+          "en": "17 - Favorite Radio",
+          "da": "17 - Favoritradiostation",
+          "de": "17 - Lieblingssender",
+          "es": "17 - Radio favorita",
+          "fr": "17 - Radio préférée",
+          "it": "17 - Radio preferita",
+          "no": "17 - Favorittradiostasjon",
+          "sv": "17 - Favoritstation",
+          "pl": "17 - Ulubiona stacja",
+          "ru": "17 - Любимая радиостанция",
+          "ko": "17 - 즐겨찾는 라디오"
         }
       },
       {
@@ -162,7 +342,17 @@
         "type": "text",
         "value": "",
         "label": {
-          "en": "18 - Favorite Radio"
+          "en": "18 - Favorite Radio",
+          "da": "18 - Favoritradiostation",
+          "de": "18 - Lieblingssender",
+          "es": "18 - Radio favorita",
+          "fr": "18 - Radio préférée",
+          "it": "18 - Radio preferita",
+          "no": "18 - Favorittradiostasjon",
+          "sv": "18 - Favoritstation",
+          "pl": "18 - Ulubiona stacja",
+          "ru": "18 - Любимая радиостанция",
+          "ko": "18 - 즐겨찾는 라디오"
         }
       },
       {
@@ -170,7 +360,17 @@
         "type": "text",
         "value": "",
         "label": {
-          "en": "19 - Favorite Radio"
+          "en": "19 - Favorite Radio",
+          "da": "19 - Favoritradiostation",
+          "de": "19 - Lieblingssender",
+          "es": "19 - Radio favorita",
+          "fr": "19 - Radio préférée",
+          "it": "19 - Radio preferita",
+          "no": "19 - Favorittradiostasjon",
+          "sv": "19 - Favoritstation",
+          "pl": "19 - Ulubiona stacja",
+          "ru": "19 - Любимая радиостанция",
+          "ko": "19 - 즐겨찾는 라디오"
         }
       },
       {
@@ -178,7 +378,17 @@
         "type": "text",
         "value": "",
         "label": {
-          "en": "20 - Favorite Radio"
+          "en": "20 - Favorite Radio",
+          "da": "20 - Favoritradiostation",
+          "de": "20 - Lieblingssender",
+          "es": "20 - Radio favorita",
+          "fr": "20 - Radio préférée",
+          "it": "20 - Radio preferita",
+          "no": "20 - Favorittradiostasjon",
+          "sv": "20 - Favoritstation",
+          "pl": "20 - Ulubiona stacja",
+          "ru": "20 - Любимая радиостанция",
+          "ko": "20 - 즐겨찾는 라디오"
         }
       }
     ]
@@ -187,7 +397,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuración del dispositivo",
+      "fr": "Paramètres de l'appareil",
+      "it": "Impostazioni del dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia urządzenia",
+      "ru": "Настройки устройства",
+      "ko": "장치 설정"
     },
     "children": [
       {

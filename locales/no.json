@@ -1,0 +1,24 @@
+{
+  "pair": {
+    "title": "Legg til Mi Home-enhet",
+    "startpairing": "For at Homey skal kunne kommunisere med enheter via miIO-protokollen, må en unik enhetstoken hentes. Teknisk kunnskap er nødvendig for å hente disse tokenene. Hvis du ikke er så teknisk anlagt, kan det være utfordrende å bruke denne appen. Se instruksjonene på støttesiden i samfunnsforumet for å hente enhetstokens.",
+    "nosettings": "Vennligst fyll ut alle feltene.",
+    "intro": "Skriv inn detaljene for din Mi Home-enhet.",
+    "address": "IP-adresse",
+    "token": "Token (32 tegn med tall og bokstaver)",
+    "polling": "Spørrefrekvens",
+    "test": "Test tilkobling",
+    "testResult": "Tilkoblingstest vellykket, du kan nå koble enheten til Homey.",
+    "connect": "Koble til",
+    "unknownerror": "Ukjent feil, er du sikker på at du har skrevet inn riktig IP-adresse og token, og at Homey er på samme nettverk som Mi Home-enheten? Vennligst sjekk innstillingene dine og prøv igjen.",
+    "state": "Status:",
+    "battery": "Batterinivå:",
+    "fanspeed": "Viftehastighet:",
+    "no_devices_found": "Ingen enheter funnet.",
+    "no_gateways": "Ingen gateways funnet. \n\n Før du legger til enheter, vennligst åpne plugin-innstillingene og legg til Xiaomi-gatewayen din.\n Aqara-gateway støttes ennå ikke."
+  },
+  "device": {
+    "unreachable": "Enheten er utilgjengelig: ",
+    "noupdates": "Enheten har ikke mottatt noen oppdateringer ennå"
+  }
+}

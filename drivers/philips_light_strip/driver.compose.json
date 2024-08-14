@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Philips / Xiaomi Light Strip (WiFi)",
-    "nl": "Philips Xiaomi Light Strip (WiFi)"
+    "nl": "Philips Xiaomi Light Strip (WiFi)",
+    "da": "Philips / Xiaomi Lysstrimmel (WiFi)",
+    "de": "Philips / Xiaomi Lichtleiste (WiFi)",
+    "es": "Philips / Xiaomi Tira de Luces (WiFi)",
+    "fr": "Philips / Xiaomi Bande Lumineuse (WiFi)",
+    "it": "Philips / Xiaomi Striscia Luminosa (WiFi)",
+    "no": "Philips / Xiaomi Lyslist (WiFi)",
+    "sv": "Philips / Xiaomi Ljusremsa (WiFi)",
+    "pl": "Philips / Xiaomi Pasek LED (WiFi)",
+    "ru": "Philips / Xiaomi Светодиодная лента (WiFi)",
+    "ko": "필립스 / 샤오미 라이트 스트립 (WiFi)"
   },
   "images": {
     "large": "drivers/philips_light_strip/assets/images/large.jpg",

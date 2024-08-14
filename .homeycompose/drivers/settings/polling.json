@@ -8,6 +8,16 @@
   },
   "label": {
     "en": "Polling Frequency",
-    "nl": "Polling frequentie"
+    "nl": "Polling frequentie",
+    "da": "Polling Frekvens",
+    "de": "Abfragefrequenz",
+    "es": "Frecuencia de sondeo",
+    "fr": "Fréquence de sondage",
+    "it": "Frequenza di polling",
+    "no": "Polling Frekvens",
+    "sv": "Pollingfrekvens",
+    "pl": "Częstotliwość odpytywania",
+    "ru": "Частота опроса",
+    "ko": "폴링 빈도"
   }
 }

@@ -2,7 +2,17 @@
   "id": "triggerVacuumRoomSegments",
   "title": {
     "en": "Room segments has changed",
-    "nl": "Kamer segmenten is gewijzigd"
+    "nl": "Kamer segmenten is gewijzigd",
+    "da": "Rumsegmenter er ændret",
+    "de": "Raumsegmente wurden geändert",
+    "es": "Los segmentos de la habitación han cambiado",
+    "fr": "Les segments de la pièce ont changé",
+    "it": "I segmenti della stanza sono cambiati",
+    "no": "Romsegmenter har blitt endret",
+    "sv": "Rumssegment har ändrats",
+    "pl": "Segmenty pokoju zostały zmienione",
+    "ru": "Сегменты комнаты изменились",
+    "ko": "룸 세그먼트가 변경되었습니다"
   },
   "tokens": [
     {
@@ -10,7 +20,17 @@
       "type": "string",
       "title": {
         "en": "Segments",
-        "nl": "Segmenten"
+        "nl": "Segmenten",
+        "da": "Segmenter",
+        "de": "Segmente",
+        "es": "Segmentos",
+        "fr": "Segments",
+        "it": "Segmenti",
+        "no": "Segmenter",
+        "sv": "Segment",
+        "pl": "Segmenty",
+        "ru": "Сегменты",
+        "ko": "세그먼트"
       },
       "example": "[16,17]"
     }
@@ -21,10 +41,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Mi Robot",
-        "nl": "Selecteer Mi Robot"
+        "nl": "Selecteer Mi Robot",
+        "da": "Vælg Mi Robot",
+        "de": "Wählen Sie Mi Robot",
+        "es": "Seleccionar Mi Robot",
+        "fr": "Sélectionner Mi Robot",
+        "it": "Seleziona Mi Robot",
+        "no": "Velg Mi Robot",
+        "sv": "Välj Mi Robot",
+        "pl": "Wybierz Mi Robot",
+        "ru": "Выберите Mi Robot",
+        "ko": "Mi 로봇 선택"
       },
       "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

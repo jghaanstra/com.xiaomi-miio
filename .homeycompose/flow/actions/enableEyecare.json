@@ -2,18 +2,48 @@
   "id": "enableEyecare",
   "title": {
     "en": "Switch Eyecare",
-    "nl": "Eyecare schakelen"
+    "nl": "Eyecare schakelen",
+    "da": "Skift Eyecare",
+    "de": "Eyecare einschalten",
+    "es": "Cambiar Eyecare",
+    "fr": "Changer Eyecare",
+    "it": "Cambia Eyecare",
+    "no": "Bytt Eyecare",
+    "sv": "Byt Eyecare",
+    "pl": "Przełącz Eyecare",
+    "ru": "Переключить Eyecare",
+    "ko": "아이케어 전환"
   },
   "titleFormatted": {
     "en": "Eyecare [[eyecare]]",
-    "nl": "Eyecare [[eyecare]]"
+    "nl": "Eyecare [[eyecare]]",
+    "da": "Eyecare [[eyecare]]",
+    "de": "Eyecare [[eyecare]]",
+    "es": "Eyecare [[eyecare]]",
+    "fr": "Eyecare [[eyecare]]",
+    "it": "Eyecare [[eyecare]]",
+    "no": "Eyecare [[eyecare]]",
+    "sv": "Eyecare [[eyecare]]",
+    "pl": "Eyecare [[eyecare]]",
+    "ru": "Eyecare [[eyecare]]",
+    "ko": "Eyecare [[eyecare]]"
   },
   "args": [
     {
       "name": "eyecare",
       "title": {
         "en": "Eyecare",
-        "nl": "Eyecare"
+        "nl": "Eyecare",
+        "da": "Eyecare",
+        "de": "Eyecare",
+        "es": "Eyecare",
+        "fr": "Eyecare",
+        "it": "Eyecare",
+        "no": "Eyecare",
+        "sv": "Eyecare",
+        "pl": "Eyecare",
+        "ru": "Eyecare",
+        "ko": "Eyecare"
       },
       "type": "dropdown",
       "values": [
@@ -21,21 +51,51 @@
           "id": "on",
           "label": {
             "en": "On",
-            "nl": "Aan"
+            "nl": "Aan",
+            "da": "Tænd",
+            "de": "An",
+            "es": "Encendido",
+            "fr": "Allumé",
+            "it": "Acceso",
+            "no": "På",
+            "sv": "På",
+            "pl": "Włącz",
+            "ru": "Вкл",
+            "ko": "켜짐"
           }
         },
         {
           "id": "off",
           "label": {
             "en": "Off",
-            "nl": "Uit"
+            "nl": "Uit",
+            "da": "Slukket",
+            "de": "Aus",
+            "es": "Apagado",
+            "fr": "Éteint",
+            "it": "Spento",
+            "no": "Av",
+            "sv": "Av",
+            "pl": "Wyłącz",
+            "ru": "Выкл",
+            "ko": "꺼짐"
           }
         },
         {
           "id": "phone",
           "label": {
             "en": "Phone",
-            "nl": "Telefoon"
+            "nl": "Telefoon",
+            "da": "Telefon",
+            "de": "Telefon",
+            "es": "Teléfono",
+            "fr": "Téléphone",
+            "it": "Telefono",
+            "no": "Telefon",
+            "sv": "Telefon",
+            "pl": "Telefon",
+            "ru": "Телефон",
+            "ko": "전화기"
           }
         }
       ]
@@ -45,10 +105,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Philips Eyecare Lamp",
-        "nl": "Selecteer Philips Eyecare Lamp"
+        "nl": "Selecteer Philips Eyecare Lamp",
+        "da": "Vælg Philips Eyecare Lampe",
+        "de": "Wählen Sie Philips Eyecare Lampe",
+        "es": "Seleccione Philips Eyecare Lamp",
+        "fr": "Sélectionnez Philips Eyecare Lamp",
+        "it": "Seleziona Philips Eyecare Lamp",
+        "no": "Velg Philips Eyecare Lamp",
+        "sv": "Välj Philips Eyecare Lamp",
+        "pl": "Wybierz lampę Philips Eyecare",
+        "ru": "Выберите лампу Philips Eyecare",
+        "ko": "필립스 아이케어 램프 선택"
       },
       "filter": "driver_id=philips-eyecare"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

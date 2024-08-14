@@ -2,7 +2,17 @@
   "id": "flip90_cube",
   "title": {
     "en": "Flip 90°",
-    "nl": "90° keren"
+    "nl": "90° keren",
+    "da": "Flip 90°",
+    "de": "90° drehen",
+    "es": "Girar 90°",
+    "fr": "Retourner à 90°",
+    "it": "Capovolgi di 90°",
+    "no": "Flipp 90°",
+    "sv": "Vänd 90°",
+    "pl": "Obróć o 90°",
+    "ru": "Повернуть на 90°",
+    "ko": "90° 뒤집기"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выбрать устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-aqara-cube"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

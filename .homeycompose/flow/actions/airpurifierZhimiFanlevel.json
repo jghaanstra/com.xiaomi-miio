@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Set Mode",
-    "nl": "Stel modus in"
+    "nl": "Stel modus in",
+    "da": "Indstil tilstand",
+    "de": "Modus einstellen",
+    "es": "Establecer modo",
+    "fr": "Définir le mode",
+    "it": "Imposta modalità",
+    "no": "Still inn modus",
+    "sv": "Ställ in läge",
+    "pl": "Ustaw tryb",
+    "ru": "Установить режим",
+    "ko": "모드 설정"
   },
   "titleFormatted": {
     "en": "Set fan level to [[fanlevel]]",
-    "nl": "Stel fan level in op [[fanlevel]]"
+    "nl": "Stel fan level in op [[fanlevel]]",
+    "da": "Indstil blæserniveau til [[fanlevel]]",
+    "de": "Lüfterstufe auf [[fanlevel]] einstellen",
+    "es": "Establecer el nivel del ventilador a [[fanlevel]]",
+    "fr": "Définir le niveau du ventilateur à [[fanlevel]]",
+    "it": "Imposta il livello della ventola a [[fanlevel]]",
+    "no": "Still inn viftenivå til [[fanlevel]]",
+    "sv": "Ställ in fläkthastighet till [[fanlevel]]",
+    "pl": "Ustaw poziom wentylatora na [[fanlevel]]",
+    "ru": "Установите уровень вентилятора на [[fanlevel]]",
+    "ko": "팬 레벨 [[fanlevel]]로 설정"
   },
   "args": [
     {
       "name": "fanlevel",
       "title": {
         "en": "Fan Level",
-        "nl": "Fan Level"
+        "nl": "Fan Level",
+        "da": "Blæserniveau",
+        "de": "Lüfterstufe",
+        "es": "Nivel del ventilador",
+        "fr": "Niveau de ventilateur",
+        "it": "Livello ventola",
+        "no": "Viftenivå",
+        "sv": "Fläkthastighet",
+        "pl": "Poziom wentylatora",
+        "ru": "Уровень вентилятора",
+        "ko": "팬 레벨"
       },
       "type": "dropdown",
       "values": [
@@ -20,21 +50,51 @@
           "id": "1",
           "title": {
             "en": "Level 1",
-            "nl": "Level 1"
+            "nl": "Level 1",
+            "da": "Niveau 1",
+            "de": "Stufe 1",
+            "es": "Nivel 1",
+            "fr": "Niveau 1",
+            "it": "Livello 1",
+            "no": "Nivå 1",
+            "sv": "Nivå 1",
+            "pl": "Poziom 1",
+            "ru": "Уровень 1",
+            "ko": "레벨 1"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "Level 2",
-            "nl": "Level 2"
+            "nl": "Level 2",
+            "da": "Niveau 2",
+            "de": "Stufe 2",
+            "es": "Nivel 2",
+            "fr": "Niveau 2",
+            "it": "Livello 2",
+            "no": "Nivå 2",
+            "sv": "Nivå 2",
+            "pl": "Poziom 2",
+            "ru": "Уровень 2",
+            "ko": "레벨 2"
           }
         },
         {
           "id": "3",
           "title": {
             "en": "Level 3",
-            "nl": "Level 3"
+            "nl": "Level 3",
+            "da": "Niveau 3",
+            "de": "Stufe 3",
+            "es": "Nivel 3",
+            "fr": "Niveau 3",
+            "it": "Livello 3",
+            "no": "Nivå 3",
+            "sv": "Nivå 3",
+            "pl": "Poziom 3",
+            "ru": "Уровень 3",
+            "ko": "레벨 3"
           }
         }
       ]
@@ -44,10 +104,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Airpurifier",
-        "nl": "Selecteer Airpurifier"
+        "nl": "Selecteer Airpurifier",
+        "da": "Vælg luftrenser",
+        "de": "Luftreiniger auswählen",
+        "es": "Seleccionar purificador de aire",
+        "fr": "Sélectionner le purificateur d'air",
+        "it": "Seleziona purificatore d'aria",
+        "no": "Velg luftrenser",
+        "sv": "Välj luftrenare",
+        "pl": "Wybierz oczyszczacz powietrza",
+        "ru": "Выберите очиститель воздуха",
+        "ko": "공기청정기 선택"
       },
       "filter": "driver_id=airpurifier_zhimi_advanced_miot"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

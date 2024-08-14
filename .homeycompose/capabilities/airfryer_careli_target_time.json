@@ -2,14 +2,34 @@
   "type": "number",
   "title": {
     "en": "Target time",
-    "nl": "Target time"
+    "nl": "Target time",
+    "da": "Måletid",
+    "de": "Zielzeit",
+    "es": "Tiempo objetivo",
+    "fr": "Temps cible",
+    "it": "Tempo target",
+    "no": "Måletid",
+    "sv": "Måltid",
+    "pl": "Czas docelowy",
+    "ru": "Целевое время",
+    "ko": "목표 시간"
   },
   "icon": "/assets/icons/target_time.svg",
   "getable": true,
   "setable": true,
   "units": {
     "en": "minutes",
-    "nl": "minuten"
+    "nl": "minuten",
+    "da": "minutter",
+    "de": "Minuten",
+    "es": "minutos",
+    "fr": "minutes",
+    "it": "minuti",
+    "no": "minutter",
+    "sv": "minuter",
+    "pl": "minuty",
+    "ru": "минуты",
+    "ko": "분"
   },
   "min": 0,
   "max": 1440,

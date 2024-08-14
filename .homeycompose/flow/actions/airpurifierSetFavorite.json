@@ -2,18 +2,48 @@
   "id": "airpurifierSetFavorite",
   "title": {
     "en": "Set Favorite Speed",
-    "nl": "Favoriete snelheid instellen"
+    "nl": "Favoriete snelheid instellen",
+    "da": "Indstil favorit hastighed",
+    "de": "Lieblingsgeschwindigkeit einstellen",
+    "es": "Establecer velocidad favorita",
+    "fr": "Définir la vitesse favorite",
+    "it": "Imposta velocità preferita",
+    "no": "Sett favoritt hastighet",
+    "sv": "Ställ in favorit hastighet",
+    "pl": "Ustaw ulubioną prędkość",
+    "ru": "Установить любимую скорость",
+    "ko": "즐겨찾기 속도 설정"
   },
   "titleFormatted": {
     "en": "Set favorite speed to [[favorite]]",
-    "nl": "Favoriete snelheid instellen op [[favorite]]"
+    "nl": "Favoriete snelheid instellen op [[favorite]]",
+    "da": "Indstil favorit hastighed til [[favorite]]",
+    "de": "Lieblingsgeschwindigkeit auf [[favorite]] einstellen",
+    "es": "Establecer velocidad favorita a [[favorite]]",
+    "fr": "Définir la vitesse favorite à [[favorite]]",
+    "it": "Imposta velocità preferita a [[favorite]]",
+    "no": "Sett favoritt hastighet til [[favorite]]",
+    "sv": "Ställ in favorit hastighet till [[favorite]]",
+    "pl": "Ustaw ulubioną prędkość na [[favorite]]",
+    "ru": "Установить любимую скорость на [[favorite]]",
+    "ko": "[[favorite]]로 즐겨찾기 속도 설정"
   },
   "args": [
     {
       "name": "favorite",
       "title": {
         "en": "Favorite",
-        "nl": "Favoriet"
+        "nl": "Favoriet",
+        "da": "Favorit",
+        "de": "Favorit",
+        "es": "Favorito",
+        "fr": "Favori",
+        "it": "Preferito",
+        "no": "Favoritt",
+        "sv": "Favorit",
+        "pl": "Ulubiony",
+        "ru": "Любимый",
+        "ko": "즐겨찾기"
       },
       "type": "dropdown",
       "values": [
@@ -136,10 +166,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Mi Air Purifier",
-        "nl": "Selecteer Mi Luchtreiniger"
+        "nl": "Selecteer Mi Luchtreiniger",
+        "da": "Vælg Mi luftrenser",
+        "de": "Wählen Sie Mi Luftreiniger",
+        "es": "Seleccione Mi Purificador de aire",
+        "fr": "Sélectionnez Mi Purificateur d'air",
+        "it": "Seleziona Mi Purificatore d'aria",
+        "no": "Velg Mi luftrenser",
+        "sv": "Välj Mi luftrenare",
+        "pl": "Wybierz Mi oczyszczacz powietrza",
+        "ru": "Выберите Mi Очиститель воздуха",
+        "ko": "Mi 공기청정기 선택"
       },
       "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_advanced"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

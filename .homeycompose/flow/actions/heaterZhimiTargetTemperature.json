@@ -1,11 +1,31 @@
 {
   "title": {
     "en": "Set target temperature",
-    "nl": "Stel doel temperatuur in"
+    "nl": "Stel doel temperatuur in",
+    "da": "Indstil måletemperatur",
+    "de": "Zieltemperatur einstellen",
+    "es": "Establecer temperatura objetivo",
+    "fr": "Régler la température cible",
+    "it": "Imposta la temperatura target",
+    "no": "Sett måltemperatur",
+    "sv": "Ställ in måttemperaturen",
+    "pl": "Ustaw temperaturę docelową",
+    "ru": "Установить целевую температуру",
+    "ko": "목표 온도 설정"
   },
   "titleFormatted": {
     "en": "Set target temperature to [[temperature]]",
-    "nl": "Stel doel temperatuur in op [[temperature]]"
+    "nl": "Stel doel temperatuur in op [[temperature]]",
+    "da": "Indstil måletemperatur til [[temperature]]",
+    "de": "Zieltemperatur auf [[temperature]] einstellen",
+    "es": "Establecer temperatura objetivo a [[temperature]]",
+    "fr": "Régler la température cible sur [[temperature]]",
+    "it": "Imposta la temperatura target a [[temperature]]",
+    "no": "Sett måltemperaturen til [[temperature]]",
+    "sv": "Ställ in måttemperaturen till [[temperature]]",
+    "pl": "Ustaw temperaturę docelową na [[temperature]]",
+    "ru": "Установить целевую температуру на [[temperature]]",
+    "ko": "[[temperature]]도로 설정"
   },
   "args": [
     {
@@ -13,22 +33,43 @@
       "type": "number",
       "title": {
         "en": "Target Temperature",
-        "nl": "Doel temperatuur"
+        "nl": "Doel temperatuur",
+        "da": "Måletemperatur",
+        "de": "Zieltemperatur",
+        "es": "Temperatura objetivo",
+        "fr": "Température cible",
+        "it": "Temperatura target",
+        "no": "Måltemperatur",
+        "sv": "Måttemperatur",
+        "pl": "Temperatura docelowa",
+        "ru": "Целевая температура",
+        "ko": "목표 온도"
       },
       "min": 16,
       "max": 30,
       "step": 1
-
     },
     {
       "name": "device",
       "type": "device",
       "placeholder": {
         "en": "Select Heater",
-        "nl": "Selecteer Heater"
+        "nl": "Selecteer Heater",
+        "da": "Vælg varmeapparat",
+        "de": "Heizung auswählen",
+        "es": "Seleccionar calentador",
+        "fr": "Sélectionner le radiateur",
+        "it": "Seleziona riscaldatore",
+        "no": "Velg varmeovn",
+        "sv": "Välj värmare",
+        "pl": "Wybierz grzejnik",
+        "ru": "Выбрать обогреватель",
+        "ko": "히터 선택"
       },
       "filter": "driver_id=heater_zhimi_heater_miot&capabilities=heater_zhimi_heater_target_temperature"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

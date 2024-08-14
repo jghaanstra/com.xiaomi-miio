@@ -4,6 +4,16 @@
   "value": "AABBCC01LM",
   "label": {
     "en": "Device Model Code",
-    "nl": "Apparaat modelcode"
+    "nl": "Apparaat modelcode",
+    "da": "Enhedsmodelkode",
+    "de": "Gerätemodellcode",
+    "es": "Código de modelo del dispositivo",
+    "fr": "Code modèle de l'appareil",
+    "it": "Codice modello del dispositivo",
+    "no": "Enhetsmodellkode",
+    "sv": "Enhetsmodellkod",
+    "pl": "Kod modelu urządzenia",
+    "ru": "Код модели устройства",
+    "ko": "장치 모델 코드"
   }
 }

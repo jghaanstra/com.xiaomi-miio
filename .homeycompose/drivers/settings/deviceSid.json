@@ -4,6 +4,16 @@
   "value": "0123456789abcd",
   "label": {
     "en": "Device SID",
-    "nl": "Apparaat SID"
+    "nl": "Apparaat SID",
+    "da": "Enhed SID",
+    "de": "Gerät SID",
+    "es": "Dispositivo SID",
+    "fr": "Appareil SID",
+    "it": "Dispositivo SID",
+    "no": "Enhet SID",
+    "sv": "Enhet SID",
+    "pl": "Urządzenie SID",
+    "ru": "Устройство SID",
+    "ko": "장치 SID"
   }
 }

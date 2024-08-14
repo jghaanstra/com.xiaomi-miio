@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Smartmi Evaporative Humidifier v2 MIoT (WiFi)",
-    "nl": "Samrtmi Evaporative Humidifier v2 MIoT (WiFi)"
+    "nl": "Samrtmi Evaporative Humidifier v2 MIoT (WiFi)",
+    "da": "Smartmi Evaporative Humidifier v2 MIoT (WiFi)",
+    "de": "Smartmi Evaporative Humidifier v2 MIoT (WiFi)",
+    "es": "Smartmi Humidificador Evaporativo v2 MIoT (WiFi)",
+    "fr": "Smartmi Humidificateur Évaporatif v2 MIoT (WiFi)",
+    "it": "Smartmi Umidificatore Evaporativo v2 MIoT (WiFi)",
+    "no": "Smartmi Evaporative Humidifier v2 MIoT (WiFi)",
+    "sv": "Smartmi Avdunstningsluftfuktare v2 MIoT (WiFi)",
+    "pl": "Smartmi Nawilżacz Parowy v2 MIoT (WiFi)",
+    "ru": "Smartmi Испарительный Увлажнитель v2 MIoT (WiFi)",
+    "ko": "Smartmi 증발식 가습기 v2 MIoT (WiFi)"
   },
   "images": {
     "large": "drivers/humidifier_zhimi_humidifier_miot/assets/images/large.jpg",
@@ -25,13 +35,33 @@
     "onoff.dry": {
       "title": {
         "en": "Dry mode",
-        "nl": "Droog modus"
+        "nl": "Droog modus",
+        "da": "Tør tilstand",
+        "de": "Trockenmodus",
+        "es": "Modo seco",
+        "fr": "Mode sec",
+        "it": "Modalità secca",
+        "no": "Tørrmodus",
+        "sv": "Torrläge",
+        "pl": "Tryb suszenia",
+        "ru": "Сухой режим",
+        "ko": "건조 모드"
       }
     },
     "dim": {
       "title": {
         "en": "Motor Speed",
-        "nl": "Motor snelheid"
+        "nl": "Motor snelheid",
+        "da": "Motors hastighed",
+        "de": "Motorgeschwindigkeit",
+        "es": "Velocidad del motor",
+        "fr": "Vitesse du moteur",
+        "it": "Velocità del motore",
+        "no": "Motors hastighet",
+        "sv": "Motorns hastighet",
+        "pl": "Prędkość silnika",
+        "ru": "Скорость двигателя",
+        "ko": "모터 속도"
       },
       "min": 0,
       "max": 1,
@@ -40,7 +70,17 @@
     "dim.target": {
       "title": {
         "en": "Target Humidity",
-        "nl": "Doel luchtvochtigheid"
+        "nl": "Doel luchtvochtigheid",
+        "da": "Mål fugtighed",
+        "de": "Ziel-Luftfeuchtigkeit",
+        "es": "Humedad objetivo",
+        "fr": "Humidité cible",
+        "it": "Umidità target",
+        "no": "Mål luftfuktighet",
+        "sv": "Målfuktighet",
+        "pl": "Docelowa wilgotność",
+        "ru": "Целевая влажность",
+        "ko": "목표 습도"
       },
       "min": 30,
       "max": 80,

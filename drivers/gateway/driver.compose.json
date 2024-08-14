@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Xiaomi Gateway v2 (WiFi)",
-    "nl": "Xiaomi Gateway v2 (WiFi)"
+    "nl": "Xiaomi Gateway v2 (WiFi)",
+    "da": "Xiaomi Gateway v2 (WiFi)",
+    "de": "Xiaomi Gateway v2 (WiFi)",
+    "es": "Xiaomi Gateway v2 (WiFi)",
+    "fr": "Xiaomi Gateway v2 (WiFi)",
+    "it": "Xiaomi Gateway v2 (WiFi)",
+    "no": "Xiaomi Gateway v2 (WiFi)",
+    "sv": "Xiaomi Gateway v2 (WiFi)",
+    "pl": "Xiaomi Gateway v2 (WiFi)",
+    "ru": "Xiaomi Gateway v2 (WiFi)",
+    "ko": "Xiaomi Gateway v2 (WiFi)"
   },
   "images": {
     "large": "drivers/gateway/assets/images/large.jpg",
@@ -30,37 +40,97 @@
     "speaker_playing": {
       "title": {
         "en": "Radio",
-        "nl": "Radio"
+        "nl": "Radio",
+        "da": "Radio",
+        "de": "Radio",
+        "es": "Radio",
+        "fr": "Radio",
+        "it": "Radio",
+        "no": "Radio",
+        "sv": "Radio",
+        "pl": "Radio",
+        "ru": "Радио",
+        "ko": "라디오"
       }
     },
     "speaker_next": {
       "title": {
         "en": "Next Station",
-        "nl": "Volgend station"
+        "nl": "Volgend station",
+        "da": "Næste station",
+        "de": "Nächste Station",
+        "es": "Siguiente estación",
+        "fr": "Prochaine station",
+        "it": "Stazione successiva",
+        "no": "Neste stasjon",
+        "sv": "Nästa station",
+        "pl": "Następna stacja",
+        "ru": "Следующая станция",
+        "ko": "다음 방송"
       }
     },
     "speaker_prev": {
       "title": {
         "en": "Previous Station",
-        "nl": "Vorig station"
+        "nl": "Vorig station",
+        "da": "Forrige station",
+        "de": "Vorherige Station",
+        "es": "Estación anterior",
+        "fr": "Station précédente",
+        "it": "Stazione precedente",
+        "no": "Forrige stasjon",
+        "sv": "Föregående station",
+        "pl": "Poprzednia stacja",
+        "ru": "Предыдущая станция",
+        "ko": "이전 방송"
       }
     },
     "volume_set": {
       "title": {
         "en": "Radio volume",
-        "nl": "Radio volume"
+        "nl": "Radio volume",
+        "da": "Radiovolumen",
+        "de": "Radiolautstärke",
+        "es": "Volumen de la radio",
+        "fr": "Volume de la radio",
+        "it": "Volume della radio",
+        "no": "Radiovolum",
+        "sv": "Radiovolym",
+        "pl": "Głośność radia",
+        "ru": "Громкость радио",
+        "ko": "라디오 볼륨"
       }
     },
     "volume_set.alarm": {
       "title": {
         "en": "Alarm volume",
-        "nl": "Alarm volume"
+        "nl": "Alarm volume",
+        "da": "Alarmvolumen",
+        "de": "Alarmlautstärke",
+        "es": "Volumen de la alarma",
+        "fr": "Volume de l'alarme",
+        "it": "Volume dell'allarme",
+        "no": "Alarmvolum",
+        "sv": "Alarmvolym",
+        "pl": "Głośność alarmu",
+        "ru": "Громкость сигнала тревоги",
+        "ko": "알람 볼륨"
       }
     },
     "button": {
       "title": {
         "en": "Join / Pair",
-        "nl": "Join / Pair"
+        "nl": "Join / Pair",
+        "da": "Join / Par",
+        "de": "Verbinden / Koppeln",
+        "es": "Unir / Emparejar",
+        "fr": "Joindre / Apparier",
+        "it": "Unisci / Abbina",
+        "no": "Koble til / Pare",
+        "sv": "Anslut / Para",
+        "pl": "Połącz / Sparuj",
+        "ru": "Присоединиться / Спарить",
+        "ko": "연결 / 페어링"
       }
     }
   }

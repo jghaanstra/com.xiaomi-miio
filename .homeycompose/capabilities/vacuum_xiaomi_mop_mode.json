@@ -2,28 +2,68 @@
   "type": "enum",
   "title": {
     "en": "Sweep and Mop Mode",
-    "nl": "Sweep and Mop modus"
+    "nl": "Sweep and Mop modus",
+    "da": "Feje og Moppe Tilstand",
+    "de": "Kehr- und Wischmodus",
+    "es": "Modo Barrer y Trapear",
+    "fr": "Mode Balayage et Lavage",
+    "it": "Modalità Spazza e Passa",
+    "no": "Feie- og Moppemodus",
+    "sv": "Sopa och Mopp-läge",
+    "pl": "Tryb zamiatania i mopowania",
+    "ru": "Режим подметания и мытья",
+    "ko": "청소 및 물걸레 모드"
   },
   "values": [
     {
       "id": "0",
       "title": {
         "en": "Sweep",
-        "nl": "Sweep"
+        "nl": "Sweep",
+        "da": "Feje",
+        "de": "Kehren",
+        "es": "Barrer",
+        "fr": "Balayer",
+        "it": "Spazza",
+        "no": "Feie",
+        "sv": "Sopa",
+        "pl": "Zamiatać",
+        "ru": "Подметать",
+        "ko": "청소"
       }
     },
     {
       "id": "1",
       "title": {
         "en": "Sweep & Mop",
-        "nl": "Sweep & Mop"
+        "nl": "Sweep & Mop",
+        "da": "Feje & Moppe",
+        "de": "Kehren & Wischen",
+        "es": "Barrer y Trapear",
+        "fr": "Balayer & Laver",
+        "it": "Spazza & Passa",
+        "no": "Feie & Moppe",
+        "sv": "Sopa & Mopp",
+        "pl": "Zamiatać i mopować",
+        "ru": "Подметать и мыть",
+        "ko": "청소 및 물걸레질"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Mop",
-        "nl": "Mop"
+        "nl": "Mop",
+        "da": "Moppe",
+        "de": "Wischen",
+        "es": "Trapear",
+        "fr": "Laver",
+        "it": "Passa",
+        "no": "Moppe",
+        "sv": "Mopp",
+        "pl": "Mopować",
+        "ru": "Мыть",
+        "ko": "물걸레질"
       }
     }
   ],

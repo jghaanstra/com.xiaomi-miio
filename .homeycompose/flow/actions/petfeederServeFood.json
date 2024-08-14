@@ -1,7 +1,17 @@
 {
   "title": {
     "en": "Serve food",
-    "nl": "Voedsel serveren"
+    "nl": "Voedsel serveren",
+    "da": "Server mad",
+    "de": "Essen servieren",
+    "es": "Servir comida",
+    "fr": "Servir la nourriture",
+    "it": "Servire cibo",
+    "no": "Server mat",
+    "sv": "Servera mat",
+    "pl": "Podawaj jedzenie",
+    "ru": "Подавать еду",
+    "ko": "음식 제공"
   },
   "args": [
     {
@@ -9,10 +19,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выбрать устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=petfeeder_mmgg_miot"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

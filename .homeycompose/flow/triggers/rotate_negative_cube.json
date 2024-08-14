@@ -2,7 +2,17 @@
   "id": "rotate_negative_cube",
   "title": {
     "en": "Rotated Anti Clockwise",
-    "nl": "Rotatie tegen de klok in"
+    "nl": "Rotatie tegen de klok in",
+    "da": "Drejet mod uret",
+    "de": "Gegen den Uhrzeigersinn gedreht",
+    "es": "Girado en sentido antihorario",
+    "fr": "Tourné dans le sens antihoraire",
+    "it": "Ruotato in senso antiorario",
+    "no": "Dreid mot klokka",
+    "sv": "Vriden moturs",
+    "pl": "Obrócony przeciwnie do ruchu wskazówek zegara",
+    "ru": "Повернуто против часовой стрелки",
+    "ko": "반시계 방향으로 회전"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-aqara-cube"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "User Settings",
-      "nl": "Gebruikersinstellingem"
+      "nl": "Gebruikersinstellingem",
+      "da": "Brugerindstillinger",
+      "de": "Benutzereinstellungen",
+      "es": "Configuración de Usuario",
+      "fr": "Paramètres de l'utilisateur",
+      "it": "Impostazioni utente",
+      "no": "Brukerinnstillinger",
+      "sv": "Användarinställningar",
+      "pl": "Ustawienia użytkownika",
+      "ru": "Настройки пользователя",
+      "ko": "사용자 설정"
     },
     "children": [
       {
@@ -12,7 +22,17 @@
         "value": true,
         "label": {
           "en": "Display",
-          "nl": "Display"
+          "nl": "Display",
+          "da": "Skærm",
+          "de": "Anzeige",
+          "es": "Pantalla",
+          "fr": "Affichage",
+          "it": "Schermo",
+          "no": "Skjerm",
+          "sv": "Skärm",
+          "pl": "Wyświetlacz",
+          "ru": "Дисплей",
+          "ko": "디스플레이"
         }
       },
       {
@@ -21,7 +41,17 @@
         "value": true,
         "label": {
           "en": "Sound",
-          "nl": "Sound"
+          "nl": "Sound",
+          "da": "Lyd",
+          "de": "Ton",
+          "es": "Sonido",
+          "fr": "Son",
+          "it": "Suono",
+          "no": "Lyd",
+          "sv": "Ljud",
+          "pl": "Dźwięk",
+          "ru": "Звук",
+          "ko": "소리"
         }
       },
       {
@@ -30,7 +60,17 @@
         "value": true,
         "label": {
           "en": "Child Lock",
-          "nl": "Kinderslot"
+          "nl": "Kinderslot",
+          "da": "Børnesikring",
+          "de": "Kindersicherung",
+          "es": "Bloqueo Infantil",
+          "fr": "Verrouillage enfant",
+          "it": "Blocco bambini",
+          "no": "Barnesikring",
+          "sv": "Barnlås",
+          "pl": "Blokada rodzicielska",
+          "ru": "Блокировка от детей",
+          "ko": "차일드 락"
         }
       },
       {
@@ -38,7 +78,17 @@
         "type": "label",
         "label": {
           "en": "Filter life",
-          "nl": "Fil;ter duur"
+          "nl": "Fil;ter duur",
+          "da": "Filter levetid",
+          "de": "Filterlebensdauer",
+          "es": "Vida del filtro",
+          "fr": "Durée de vie du filtre",
+          "it": "Durata del filtro",
+          "no": "Filterliv",
+          "sv": "Filterliv",
+          "pl": "Żywotność filtra",
+          "ru": "Ресурс фильтра",
+          "ko": "필터 수명"
         },
         "value": "0%"
       },
@@ -46,7 +96,17 @@
         "id": "filter_intermediate",
         "type": "label",
         "label": {
-          "en": "Filter life 2"
+          "en": "Filter life 2",
+          "da": "Filter levetid 2",
+          "de": "Filterlebensdauer 2",
+          "es": "Vida del filtro 2",
+          "fr": "Durée de vie du filtre 2",
+          "it": "Durata del filtro 2",
+          "no": "Filterliv 2",
+          "sv": "Filterliv 2",
+          "pl": "Żywotność filtra 2",
+          "ru": "Ресурс фильтра 2",
+          "ko": "필터 수명 2"
         },
         "value": "0"
       },
@@ -56,25 +116,65 @@
         "value": "forward",
         "label": {
           "en": "Screen Direction",
-          "nl": "Scherm orientatie"
+          "nl": "Scherm orientatie",
+          "da": "Skærmretning",
+          "de": "Bildschirmrichtung",
+          "es": "Dirección de la pantalla",
+          "fr": "Orientation de l'écran",
+          "it": "Orientamento schermo",
+          "no": "Skjermretning",
+          "sv": "Skärmriktning",
+          "pl": "Kierunek ekranu",
+          "ru": "Направление экрана",
+          "ko": "화면 방향"
         },
         "values": [
           {
             "id": "forward",
             "label": {
-              "en": "Normal"
+              "en": "Normal",
+              "da": "Normal",
+              "de": "Normal",
+              "es": "Normal",
+              "fr": "Normal",
+              "it": "Normale",
+              "no": "Normal",
+              "sv": "Normal",
+              "pl": "Normalny",
+              "ru": "Обычный",
+              "ko": "일반"
             }
           },
           {
             "id": "left",
             "label": {
-              "en": "-90"
+              "en": "-90",
+              "da": "-90",
+              "de": "-90",
+              "es": "-90",
+              "fr": "-90",
+              "it": "-90",
+              "no": "-90",
+              "sv": "-90",
+              "pl": "-90",
+              "ru": "-90",
+              "ko": "-90"
             }
           },
           {
             "id": "right",
             "label": {
-              "en": "+90"
+              "en": "+90",
+              "da": "+90",
+              "de": "+90",
+              "es": "+90",
+              "fr": "+90",
+              "it": "+90",
+              "no": "+90",
+              "sv": "+90",
+              "pl": "+90",
+              "ru": "+90",
+              "ko": "+90"
             }
           }
         ]
@@ -85,7 +185,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuración del dispositivo",
+      "fr": "Paramètres de l'appareil",
+      "it": "Impostazioni del dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia urządzenia",
+      "ru": "Настройки устройства",
+      "ko": "장치 설정"
     },
     "children": [
       {

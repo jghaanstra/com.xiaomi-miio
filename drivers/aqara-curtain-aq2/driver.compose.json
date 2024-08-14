@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Roller Shade Controller (Gateway)",
-    "nl": "Aqara Roller Shade Controller (Gateway)"
+    "nl": "Aqara Roller Shade Controller (Gateway)",
+    "da": "Aqara Rullegardin Controller (Gateway)",
+    "de": "Aqara Rollo-Controller (Gateway)",
+    "es": "Controlador de Persiana Enrollable Aqara (Gateway)",
+    "fr": "Contrôleur de Store Enrouleur Aqara (Gateway)",
+    "it": "Controllore Tapparella Aqara (Gateway)",
+    "no": "Aqara Rullgardin Kontroller (Gateway)",
+    "sv": "Aqara Rullgardinskontroll (Gateway)",
+    "pl": "Sterownik Rolet Aqara (Gateway)",
+    "ru": "Контроллер роликовых штор Aqara (Gateway)",
+    "ko": "아카라 롤러 셰이드 컨트롤러 (Gateway)"
   },
   "images": {
     "large": "/drivers/aqara-curtain-aq2/assets/images/large.png",
@@ -19,13 +29,33 @@
   "capabilitiesOptions": {
     "onoff": {
       "title": {
-        "en": "Open Close"
+        "en": "Open Close",
+        "da": "Åben Luk",
+        "de": "Öffnen Schließen",
+        "es": "Abrir Cerrar",
+        "fr": "Ouvrir Fermer",
+        "it": "Apri Chiudi",
+        "no": "Åpne Lukk",
+        "sv": "Öppna Stäng",
+        "pl": "Otwórz Zamknij",
+        "ru": "Открыть Закрыть",
+        "ko": "열기 닫기"
       },
       "greyout": false
     },
     "dim": {
       "title": {
-        "en": "Level"
+        "en": "Level",
+        "da": "Niveau",
+        "de": "Niveau",
+        "es": "Nivel",
+        "fr": "Niveau",
+        "it": "Livello",
+        "no": "Nivå",
+        "sv": "Nivå",
+        "pl": "Poziom",
+        "ru": "Уровень",
+        "ko": "수준"
       }
     }
   }

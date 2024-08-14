@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Advanced Older Mi Air Purifier (WiFi)",
-    "nl": "Geavanceerde oudere Mi Air Purifier (WiFi)"
+    "nl": "Geavanceerde oudere Mi Air Purifier (WiFi)",
+    "da": "Avanceret Ældre Mi Luft Purifier (WiFi)",
+    "de": "Erweiterter älterer Mi Luftreiniger (WiFi)",
+    "es": "Purificador de aire Mi avanzado para mayores (WiFi)",
+    "fr": "Purificateur d'air Mi ancien avancé (WiFi)",
+    "it": "Purificatore d'aria Mi avanzato più vecchio (WiFi)",
+    "no": "Avansert Eldre Mi Luft Purifier (WiFi)",
+    "sv": "Avancerad Äldre Mi Luft Purifier (WiFi)",
+    "pl": "Zaawansowany starszy oczyszczacz powietrza Mi (WiFi)",
+    "ru": "Продвинутый старый Mi Воздухоочиститель (WiFi)",
+    "ko": "고급 구형 Mi 공기청정기 (WiFi)"
   },
   "images": {
     "large": "drivers/airpurifier_zhimi_advanced/assets/images/large.jpg",
@@ -24,7 +34,17 @@
     "dim": {
       "title": {
         "en": "Favorite Level",
-        "nl": "Favoriet niveau"
+        "nl": "Favoriet niveau",
+        "da": "Favorit Niveau",
+        "de": "Lieblingsstufe",
+        "es": "Nivel Favorito",
+        "fr": "Niveau Favori",
+        "it": "Livello Preferito",
+        "no": "Favorittnivå",
+        "sv": "Favoritnivå",
+        "pl": "Ulubiony poziom",
+        "ru": "Любимый Уровень",
+        "ko": "즐겨찾기 레벨"
       },
       "min": 0,
       "max": 16,

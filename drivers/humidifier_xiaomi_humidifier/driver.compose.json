@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Xiaomi/Mijia Humidifier MIoT (WiFi)",
-    "nl": "Xiaomi/Mijia Humidifier MIoT (WiFi)"
+    "nl": "Xiaomi/Mijia Humidifier MIoT (WiFi)",
+    "da": "Xiaomi/Mijia Luftfugter MIoT (WiFi)",
+    "de": "Xiaomi/Mijia Luftbefeuchter MIoT (WiFi)",
+    "es": "Xiaomi/Mijia Humidificador MIoT (WiFi)",
+    "fr": "Xiaomi/Mijia Humidificateur MIoT (WiFi)",
+    "it": "Xiaomi/Mijia Umidificatore MIoT (WiFi)",
+    "no": "Xiaomi/Mijia Luftfukter MIoT (WiFi)",
+    "sv": "Xiaomi/Mijia Luftfuktare MIoT (WiFi)",
+    "pl": "Xiaomi/Mijia Nawilżacz MIoT (WiFi)",
+    "ru": "Xiaomi/Mijia Увлажнитель MIoT (WiFi)",
+    "ko": "샤오미/미지아 가습기 MIoT (WiFi)"
   },
   "images": {
     "large": "drivers/humidifier_xiaomi_humidifier/assets/images/large.jpg",
@@ -24,13 +34,33 @@
     "onoff.dry": {
       "title": {
         "en": "Dry mode",
-        "nl": "Droog modus"
+        "nl": "Droog modus",
+        "da": "Tør tilstand",
+        "de": "Trockenmodus",
+        "es": "Modo seco",
+        "fr": "Mode sec",
+        "it": "Modalità secco",
+        "no": "Tørrmodus",
+        "sv": "Torr läge",
+        "pl": "Tryb suchy",
+        "ru": "Сухой режим",
+        "ko": "건조 모드"
       }
     },
     "dim": {
       "title": {
         "en": "Target Humidity",
-        "nl": "Doel luchtvochtigheid"
+        "nl": "Doel luchtvochtigheid",
+        "da": "Mål fugtighed",
+        "de": "Ziel-Luftfeuchtigkeit",
+        "es": "Humedad objetivo",
+        "fr": "Humidité cible",
+        "it": "Umidità target",
+        "no": "Mål fuktighet",
+        "sv": "Målfuktighet",
+        "pl": "Docelowa wilgotność",
+        "ru": "Целевая влажность",
+        "ko": "목표 습도"
       },
       "min": 40,
       "max": 70,

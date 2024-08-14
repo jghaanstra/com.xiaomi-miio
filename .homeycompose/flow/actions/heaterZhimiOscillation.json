@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Set oscillation",
-    "nl": "Stel oscillatie in"
+    "nl": "Stel oscillatie in",
+    "da": "Indstil oscillation",
+    "de": "Oszillation einstellen",
+    "es": "Configurar oscilación",
+    "fr": "Régler l'oscillation",
+    "it": "Imposta oscillazione",
+    "no": "Sett svingning",
+    "sv": "Ställ in oscillation",
+    "pl": "Ustaw oscylację",
+    "ru": "Установить колебание",
+    "ko": "진동 설정"
   },
   "titleFormatted": {
     "en": "Set oscillation to [[oscillation]]",
-    "nl": "Stel oscillatie in op [[oscillation]]"
+    "nl": "Stel oscillatie in op [[oscillation]]",
+    "da": "Indstil oscillation til [[oscillation]]",
+    "de": "Oszillation einstellen auf [[oscillation]]",
+    "es": "Configurar oscilación a [[oscillation]]",
+    "fr": "Régler l'oscillation sur [[oscillation]]",
+    "it": "Imposta oscillazione su [[oscillation]]",
+    "no": "Sett svingning til [[oscillation]]",
+    "sv": "Ställ in oscillation till [[oscillation]]",
+    "pl": "Ustaw oscylację na [[oscillation]]",
+    "ru": "Установить колебание на [[oscillation]]",
+    "ko": "[[oscillation]]으로 진동 설정"
   },
   "args": [
     {
       "name": "oscillation",
       "title": {
         "en": "Oscillation",
-        "nl": "Oscillatie"
+        "nl": "Oscillatie",
+        "da": "Oscillation",
+        "de": "Oszillation",
+        "es": "Oscilación",
+        "fr": "Oscillation",
+        "it": "Oscillazione",
+        "no": "Svingning",
+        "sv": "Oscillation",
+        "pl": "Oscylacja",
+        "ru": "Колебание",
+        "ko": "진동"
       },
       "type": "dropdown",
       "values": [
@@ -20,14 +50,34 @@
           "id": "0",
           "title": {
             "en": "Off",
-            "nl": "Uit"
+            "nl": "Uit",
+            "da": "Fra",
+            "de": "Aus",
+            "es": "Apagar",
+            "fr": "Éteindre",
+            "it": "Spento",
+            "no": "Av",
+            "sv": "Av",
+            "pl": "Wyłącz",
+            "ru": "Выкл",
+            "ko": "꺼짐"
           }
         },
         {
           "id": "1",
           "title": {
             "en": "On",
-            "nl": "Aan"
+            "nl": "Aan",
+            "da": "Til",
+            "de": "An",
+            "es": "Encender",
+            "fr": "Allumer",
+            "it": "Acceso",
+            "no": "På",
+            "sv": "På",
+            "pl": "Włącz",
+            "ru": "Вкл",
+            "ko": "켜짐"
           }
         }
       ]
@@ -37,10 +87,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Heater",
-        "nl": "Selecteer Heater"
+        "nl": "Selecteer Heater",
+        "da": "Vælg varmer",
+        "de": "Heizung auswählen",
+        "es": "Seleccionar calentador",
+        "fr": "Sélectionner le chauffage",
+        "it": "Seleziona riscaldatore",
+        "no": "Velg varmeovn",
+        "sv": "Välj värmare",
+        "pl": "Wybierz grzejnik",
+        "ru": "Выберите обогреватель",
+        "ko": "히터 선택"
       },
       "filter": "driver_id=heater_zhimi_heater_miot&capabilities=heater_zhimi_oscillation"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

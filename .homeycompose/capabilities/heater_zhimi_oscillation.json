@@ -2,7 +2,17 @@
   "type": "boolean",
   "title": {
     "en": "Oscillation",
-    "nl": "Oscillatie"
+    "nl": "Oscillatie",
+    "da": "Oscillation",
+    "de": "Oszillation",
+    "es": "Oscilación",
+    "fr": "Oscillation",
+    "it": "Oscillazione",
+    "no": "Oscillasjon",
+    "sv": "Oscillation",
+    "pl": "Oscylacja",
+    "ru": "Колебание",
+    "ko": "진동"
   },
   "getable": true,
   "setable": true,

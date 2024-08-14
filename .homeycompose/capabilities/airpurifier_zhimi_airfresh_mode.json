@@ -2,49 +2,119 @@
   "type": "enum",
   "title": {
     "en": "Air Fresh Mode",
-    "nl": "Air Fresh Mode"
+    "nl": "Air Fresh Mode",
+    "da": "Luftfriskningstilstand",
+    "de": "Luftfrisch-Modus",
+    "es": "Modo Aire Fresco",
+    "fr": "Mode Air Fresh",
+    "it": "Modalità Aria Fresca",
+    "no": "Luftfriskmodus",
+    "sv": "Luftfräschläget",
+    "pl": "Tryb Odświeżania Powietrza",
+    "ru": "Режим Очистки Воздуха",
+    "ko": "에어 프레시 모드"
   },
   "values": [
     {
       "id": "auto",
       "title": {
         "en": "Auto",
-        "nl": "Auto"
+        "nl": "Auto",
+        "da": "Auto",
+        "de": "Automatisch",
+        "es": "Automático",
+        "fr": "Auto",
+        "it": "Auto",
+        "no": "Auto",
+        "sv": "Auto",
+        "pl": "Auto",
+        "ru": "Авто",
+        "ko": "자동"
       }
     },
     {
       "id": "silent",
       "title": {
         "en": "Silent",
-        "nl": "Stil"
+        "nl": "Stil",
+        "da": "Stille",
+        "de": "Leise",
+        "es": "Silencioso",
+        "fr": "Silencieux",
+        "it": "Silenzioso",
+        "no": "Stille",
+        "sv": "Tyst",
+        "pl": "Cichy",
+        "ru": "Тихий",
+        "ko": "무음"
       }
     },
     {
       "id": "interval",
       "title": {
         "en": "Interval",
-        "nl": "Interval"
+        "nl": "Interval",
+        "da": "Interval",
+        "de": "Intervall",
+        "es": "Intervalo",
+        "fr": "Intervalle",
+        "it": "Intervallo",
+        "no": "Intervall",
+        "sv": "Intervall",
+        "pl": "Interwał",
+        "ru": "Интервал",
+        "ko": "간격"
       }
     },
     {
       "id": "low",
       "title": {
         "en": "Low",
-        "nl": "Laag"
+        "nl": "Laag",
+        "da": "Lav",
+        "de": "Niedrig",
+        "es": "Bajo",
+        "fr": "Bas",
+        "it": "Basso",
+        "no": "Lav",
+        "sv": "Låg",
+        "pl": "Niski",
+        "ru": "Низкий",
+        "ko": "낮음"
       }
     },
     {
       "id": "middle",
       "title": {
         "en": "Medium",
-        "nl": "Medium"
+        "nl": "Medium",
+        "da": "Mellem",
+        "de": "Mittel",
+        "es": "Medio",
+        "fr": "Moyen",
+        "it": "Medio",
+        "no": "Middels",
+        "sv": "Medium",
+        "pl": "Średni",
+        "ru": "Средний",
+        "ko": "중간"
       }
     },
     {
       "id": "strong",
       "title": {
         "en": "High",
-        "nl": "Hoog"
+        "nl": "Hoog",
+        "da": "Høj",
+        "de": "Hoch",
+        "es": "Alto",
+        "fr": "Haut",
+        "it": "Alto",
+        "no": "Høy",
+        "sv": "Hög",
+        "pl": "Wysoki",
+        "ru": "Высокий",
+        "ko": "높음"
       }
     }
   ],

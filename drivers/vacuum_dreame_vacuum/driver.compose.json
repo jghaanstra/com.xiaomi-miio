@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Advanced Dreame Vacuum Cleaner MIoT (WiFi)",
-    "nl": "Geavanceerde Dreame stofzuiger MIoT (WiFi)"
+    "nl": "Geavanceerde Dreame stofzuiger MIoT (WiFi)",
+    "da": "Avanceret Dreame-støvsuger MIoT (WiFi)",
+    "de": "Erweiterter Dreame-Staubsauger MIoT (WiFi)",
+    "es": "Aspiradora Dreame Avanzada MIoT (WiFi)",
+    "fr": "Aspirateur Dreame Avancé MIoT (WiFi)",
+    "it": "Aspirapolvere Dreame Avanzato MIoT (WiFi)",
+    "no": "Avansert Dreame-støvsuger MIoT (WiFi)",
+    "sv": "Avancerad Dreame-städare MIoT (WiFi)",
+    "pl": "Zaawansowany odkurzacz Dreame MIoT (WiFi)",
+    "ru": "Продвинутый пылесос Dreame MIoT (WiFi)",
+    "ko": "고급 Dreame 진공 청소기 MIoT (WiFi)"
   },
   "images": {
     "large": "drivers/vacuum_dreame_vacuum/assets/images/large.jpg",
@@ -27,15 +37,37 @@
       "maintenanceAction": true,
       "title": {
         "en": "Reset consumables",
-        "nl": "Reset verbruiksartikelen"
+        "nl": "Reset verbruiksartikelen",
+        "da": "Nulstil forbrugsstoffer",
+        "de": "Verbrauchsmaterialien zurücksetzen",
+        "es": "Restablecer consumibles",
+        "fr": "Réinitialiser les consommables",
+        "it": "Reimposta consumabili",
+        "no": "Tilbakestill forbruksvarer",
+        "sv": "Återställ förbrukningsvaror",
+        "pl": "Zresetuj materiały eksploatacyjne",
+        "ru": "Сбросить расходные материалы",
+        "ko": "소모품 재설정"
       },
       "desc": {
         "en": "Reset the usage of vacuum cleaner consumables.",
-        "nl": "Reset het gebruik van de verbruiksartikelen"
+        "nl": "Reset het gebruik van de verbruiksartikelen",
+        "da": "Nulstil brugen af støvsugerens forbrugsstoffer.",
+        "de": "Verwendung der Staubsauger-Verbrauchsmaterialien zurücksetzen.",
+        "es": "Restablecer el uso de los consumibles de la aspiradora.",
+        "fr": "Réinitialiser l'utilisation des consommables de l'aspirateur.",
+        "it": "Reimposta l'uso dei consumabili dell'aspirapolvere.",
+        "no": "Tilbakestill bruken av støvsugerens forbruksvarer.",
+        "sv": "Återställ användningen av förbrukningsartiklar för dammsugaren.",
+        "pl": "Zresetuj użycie materiałów eksploatacyjnych odkurzacza.",
+        "ru": "Сбросить использование расходных материалов пылесоса.",
+        "ko": "진공 청소기 소모품 사용량 재설정."
       }
     }
   },
   "energy": {
-    "batteries": ["INTERNAL"]
+    "batteries": [
+      "INTERNAL"
+    ]
   }
 }

@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "Configure IR Codes",
-      "nl": "IR codes configureren"
+      "nl": "IR codes configureren",
+      "da": "Konfigurer IR-koder",
+      "de": "IR-Codes konfigurieren",
+      "es": "Configurar códigos IR",
+      "fr": "Configurer les codes IR",
+      "it": "Configura codici IR",
+      "no": "Konfigurer IR-koder",
+      "sv": "Konfigurera IR-koder",
+      "pl": "Konfiguruj kody IR",
+      "ru": "Настроить IR-коды",
+      "ko": "IR 코드 구성"
     },
     "children": [
       {
@@ -11,7 +21,17 @@
         "type": "number",
         "label": {
           "en": "Replay",
-          "nl": "Herhaal"
+          "nl": "Herhaal",
+          "da": "Genspil",
+          "de": "Wiederholen",
+          "es": "Repetir",
+          "fr": "Rejouer",
+          "it": "Rigioca",
+          "no": "Spill av igjen",
+          "sv": "Spela upp igen",
+          "pl": "Odtwórz ponownie",
+          "ru": "Повторить",
+          "ko": "재생"
         },
         "value": 1,
         "min": 1,
@@ -23,7 +43,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuración del dispositivo",
+      "fr": "Paramètres de l'appareil",
+      "it": "Impostazioni del dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia urządzenia",
+      "ru": "Настройки устройства",
+      "ko": "장치 설정"
     },
     "children": [
       {

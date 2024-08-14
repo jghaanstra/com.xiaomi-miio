@@ -2,28 +2,68 @@
   "type": "enum",
   "title": {
     "en": "Vacuum Mode",
-    "nl": "Stofzuiger modus"
+    "nl": "Stofzuiger modus",
+    "da": "Støvsugermodus",
+    "de": "Staubsaugermodus",
+    "es": "Modo de aspiradora",
+    "fr": "Mode aspirateur",
+    "it": "Modalità aspirapolvere",
+    "no": "Støvsugermodus",
+    "sv": "Dammsugarläge",
+    "pl": "Tryb odkurzacza",
+    "ru": "Режим пылесоса",
+    "ko": "진공 모드"
   },
   "values": [
     {
       "id": "0",
       "title": {
         "en": "Vacuum",
-        "nl": "Stofzuigen"
+        "nl": "Stofzuigen",
+        "da": "Støvsuge",
+        "de": "Staubsaugen",
+        "es": "Aspirar",
+        "fr": "Aspirer",
+        "it": "Aspirare",
+        "no": "Støvsuge",
+        "sv": "Dammsuga",
+        "pl": "Odkurzać",
+        "ru": "Пылесосить",
+        "ko": "진공"
       }
     },
     {
       "id": "1",
       "title": {
         "en": "Vacuum + Mop",
-        "nl": "Stofzuigen + moppen"
+        "nl": "Stofzuigen + moppen",
+        "da": "Støvsuge + moppe",
+        "de": "Staubsaugen + Wischen",
+        "es": "Aspirar + Trapear",
+        "fr": "Aspirer + Passer la serpillière",
+        "it": "Aspirare + Lavare",
+        "no": "Støvsuge + moppe",
+        "sv": "Dammsuga + moppa",
+        "pl": "Odkurzać + Mopować",
+        "ru": "Пылесосить + Мыть",
+        "ko": "진공 + 걸레질"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Mop",
-        "nl": "Moppen"
+        "nl": "Moppen",
+        "da": "Moppe",
+        "de": "Wischen",
+        "es": "Trapear",
+        "fr": "Passer la serpillière",
+        "it": "Lavare",
+        "no": "Moppe",
+        "sv": "Moppa",
+        "pl": "Mopować",
+        "ru": "Мыть",
+        "ko": "걸레질"
       }
     }
   ],

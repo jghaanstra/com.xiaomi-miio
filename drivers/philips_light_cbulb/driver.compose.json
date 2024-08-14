@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mijia Philips Color Bulb (WiFi)",
-    "nl": "Mijia Philips Color Bulb (WiFi)"
+    "nl": "Mijia Philips Color Bulb (WiFi)",
+    "da": "Mijia Philips Farve Pære (WiFi)",
+    "de": "Mijia Philips Farbige Glühbirne (WiFi)",
+    "es": "Mijia Philips Bombilla de Color (WiFi)",
+    "fr": "Mijia Philips Ampoule Couleur (WiFi)",
+    "it": "Mijia Philips Lampadina Colorata (WiFi)",
+    "no": "Mijia Philips Farget Lyspære (WiFi)",
+    "sv": "Mijia Philips Färglampa (WiFi)",
+    "pl": "Mijia Philips Kolorowa Żarówka (WiFi)",
+    "ru": "Mijia Philips Цветная Лампочка (WiFi)",
+    "ko": "Mijia Philips 컬러 전구 (WiFi)"
   },
   "images": {
     "large": "drivers/philips_light_cbulb/assets/images/large.jpg",

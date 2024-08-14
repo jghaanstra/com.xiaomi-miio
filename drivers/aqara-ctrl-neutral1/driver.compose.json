@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Smart Wall Single Switch No Neutral (Gateway)",
-    "nl": "Aqara Smart Wall Single Switch zonder nuldraad (Gateway)"
+    "nl": "Aqara Smart Wall Single Switch zonder nuldraad (Gateway)",
+    "da": "Aqara Smart Wall Enkelt Switch Ingen Neutral (Gateway)",
+    "de": "Aqara Smart Wall Einzelner Schalter Ohne Neutralleiter (Gateway)",
+    "es": "Aqara Smart Wall Interruptor Único Sin Neutro (Gateway)",
+    "fr": "Aqara Smart Wall Interrupteur Simple Sans Neutre (Gateway)",
+    "it": "Aqara Smart Wall Interruttore Singolo Senza Neutro (Gateway)",
+    "no": "Aqara Smart Wall Enkel Bryter Ingen Nøytral (Gateway)",
+    "sv": "Aqara Smart Wall Enkel Switch Ingen Neutral (Gateway)",
+    "pl": "Aqara Smart Wall Pojedynczy Przełącznik Bez Neutralnego (Gateway)",
+    "ru": "Aqara Smart Wall Одинарный Выключатель Без Нейтрального Провода (Gateway)",
+    "ko": "Aqara Smart Wall 단일 스위치 중성선 없음 (Gateway)"
   },
   "images": {
     "large": "/drivers/aqara-ctrl-neutral1/assets/images/large.png",
@@ -11,5 +21,7 @@
   "$extends": [
     "defaults_subdevice"
   ],
-  "capabilities": ["onoff"]
+  "capabilities": [
+    "onoff"
+  ]
 }

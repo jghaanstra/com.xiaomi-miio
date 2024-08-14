@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mi Smart Plug (WiFi)",
-    "nl": "Mi Smart Plug (WiFi)"
+    "nl": "Mi Smart Plug (WiFi)",
+    "da": "Mi Smart Plug (WiFi)",
+    "de": "Mi Smart Plug (WiFi)",
+    "es": "Mi Smart Plug (WiFi)",
+    "fr": "Mi Smart Plug (WiFi)",
+    "it": "Mi Smart Plug (WiFi)",
+    "no": "Mi Smart Plug (WiFi)",
+    "sv": "Mi Smart Plug (WiFi)",
+    "pl": "Mi Smart Plug (WiFi)",
+    "ru": "Mi Smart Plug (WiFi)",
+    "ko": "Mi Smart Plug (WiFi)"
   },
   "images": {
     "large": "drivers/plug_chuangmi_plug_m1/assets/images/large.jpg",
@@ -20,7 +30,17 @@
     "onoff.led": {
       "title": {
         "en": "WiFi LED",
-        "nl": "WiFi LED"
+        "nl": "WiFi LED",
+        "da": "WiFi LED",
+        "de": "WiFi LED",
+        "es": "WiFi LED",
+        "fr": "WiFi LED",
+        "it": "WiFi LED",
+        "no": "WiFi LED",
+        "sv": "WiFi LED",
+        "pl": "WiFi LED",
+        "ru": "WiFi LED",
+        "ko": "WiFi LED"
       }
     }
   }

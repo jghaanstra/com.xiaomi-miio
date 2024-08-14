@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Set volume for",
-    "nl": "Set volume voor"
+    "nl": "Set volume voor",
+    "da": "Indstil lydstyrke for",
+    "de": "Lautstärke einstellen für",
+    "es": "Establecer volumen para",
+    "fr": "Régler le volume pour",
+    "it": "Imposta il volume per",
+    "no": "Sett volum for",
+    "sv": "Ställ in volymen för",
+    "pl": "Ustaw głośność dla",
+    "ru": "Установить громкость для",
+    "ko": "볼륨 설정"
   },
   "titleFormatted": {
     "en": "Set volume to [[volume]] for [[target]]",
-    "nl": "Zet volume naar [[volume]] voor [[target]]"
+    "nl": "Zet volume naar [[volume]] voor [[target]]",
+    "da": "Indstil lydstyrke til [[volume]] for [[target]]",
+    "de": "Lautstärke auf [[volume]] einstellen für [[target]]",
+    "es": "Establecer volumen a [[volume]] para [[target]]",
+    "fr": "Régler le volume à [[volume]] pour [[target]]",
+    "it": "Imposta il volume a [[volume]] per [[target]]",
+    "no": "Sett volum til [[volume]] for [[target]]",
+    "sv": "Ställ in volymen till [[volume]] för [[target]]",
+    "pl": "Ustaw głośność na [[volume]] dla [[target]]",
+    "ru": "Установить громкость на [[volume]] для [[target]]",
+    "ko": "[[target]]의 [[volume]]로 볼륨 설정"
   },
   "args": [
     {
       "type": "dropdown",
       "title": {
         "en": "Target",
-        "nl": "Doel"
+        "nl": "Doel",
+        "da": "Mål",
+        "de": "Ziel",
+        "es": "Objetivo",
+        "fr": "Cible",
+        "it": "Obiettivo",
+        "no": "Mål",
+        "sv": "Mål",
+        "pl": "Cel",
+        "ru": "Цель",
+        "ko": "대상"
       },
       "name": "target",
       "values": [
@@ -20,28 +50,68 @@
           "id": "alarm",
           "label": {
             "en": "Alarm",
-            "nl": "Alarm"
+            "nl": "Alarm",
+            "da": "Alarm",
+            "de": "Alarm",
+            "es": "Alarma",
+            "fr": "Alarme",
+            "it": "Allarme",
+            "no": "Alarm",
+            "sv": "Larm",
+            "pl": "Alarm",
+            "ru": "Тревога",
+            "ko": "알람"
           }
         },
         {
           "id": "doorbell",
           "label": {
             "en": "Doorbell",
-            "nl": "Deurbel"
+            "nl": "Deurbel",
+            "da": "Dørklokke",
+            "de": "Türklingel",
+            "es": "Timbre",
+            "fr": "Sonnette",
+            "it": "Campanello",
+            "no": "Ringeklokke",
+            "sv": "Dörrklocka",
+            "pl": "Dzwonek do drzwi",
+            "ru": "Дверной звонок",
+            "ko": "초인종"
           }
         },
         {
           "id": "prompt",
           "label": {
             "en": "Prompt",
-            "nl": "Waarschuwing"
+            "nl": "Waarschuwing",
+            "da": "Påmindelse",
+            "de": "Eingabeaufforderung",
+            "es": "Mensaje",
+            "fr": "Message",
+            "it": "Richiesta",
+            "no": "Spørsmål",
+            "sv": "Uppmaning",
+            "pl": "Komunikat",
+            "ru": "Подсказка",
+            "ko": "프롬프트"
           }
         },
         {
           "id": "radio",
           "label": {
             "en": "Radio",
-            "nl": "Radio"
+            "nl": "Radio",
+            "da": "Radio",
+            "de": "Radio",
+            "es": "Radio",
+            "fr": "Radio",
+            "it": "Radio",
+            "no": "Radio",
+            "sv": "Radio",
+            "pl": "Radio",
+            "ru": "Радио",
+            "ko": "라디오"
           }
         }
       ]
@@ -50,7 +120,17 @@
       "type": "range",
       "title": {
         "en": "Volume",
-        "nl": "Volume"
+        "nl": "Volume",
+        "da": "Lydstyrke",
+        "de": "Lautstärke",
+        "es": "Volumen",
+        "fr": "Volume",
+        "it": "Volume",
+        "no": "Volum",
+        "sv": "Volym",
+        "pl": "Głośność",
+        "ru": "Громкость",
+        "ko": "볼륨"
       },
       "name": "volume",
       "min": 0,
@@ -65,10 +145,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Gateway",
-        "nl": "Selecteer Gateway"
+        "nl": "Selecteer Gateway",
+        "da": "Vælg Gateway",
+        "de": "Gateway auswählen",
+        "es": "Seleccionar Gateway",
+        "fr": "Sélectionner Gateway",
+        "it": "Seleziona Gateway",
+        "no": "Velg Gateway",
+        "sv": "Välj Gateway",
+        "pl": "Wybierz Gateway",
+        "ru": "Выберите Gateway",
+        "ko": "게이트웨이 선택"
       },
       "filter": "driver_id=gateway"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

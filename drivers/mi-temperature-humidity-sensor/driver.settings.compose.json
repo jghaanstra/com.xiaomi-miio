@@ -2,27 +2,71 @@
   {
     "type": "group",
     "label": {
-      "en": "Offset settings"
+      "en": "Offset settings",
+      "nl": "Offset instellingen",
+      "da": "Offset indstillinger",
+      "de": "Offset Einstellungen",
+      "es": "Configuraciones de compensación",
+      "fr": "Paramètres de décalage",
+      "it": "Impostazioni offset",
+      "no": "Forskyvningsinnstillinger",
+      "sv": "Förskjutningsinställningar",
+      "pl": "Ustawienia przesunięcia",
+      "ru": "Настройки смещения",
+      "ko": "오프셋 설정"
     },
     "children": [
       {
         "id": "addOrTakeOffset",
         "type": "radio",
         "label": {
-          "en": "Offset"
+          "en": "Offset",
+          "nl": "Offset",
+          "da": "Offset",
+          "de": "Offset",
+          "es": "Compensación",
+          "fr": "Décalage",
+          "it": "Offset",
+          "no": "Forskyvning",
+          "sv": "Förskjutning",
+          "pl": "Przesunięcie",
+          "ru": "Смещение",
+          "ko": "오프셋"
         },
         "value": "add",
         "values": [
           {
             "id": "add",
             "label": {
-              "en": "Add offset"
+              "en": "Add offset",
+              "nl": "Offset toevoegen",
+              "da": "Tilføj offset",
+              "de": "Offset hinzufügen",
+              "es": "Agregar compensación",
+              "fr": "Ajouter un décalage",
+              "it": "Aggiungi offset",
+              "no": "Legg til forskyvning",
+              "sv": "Lägg till förskjutning",
+              "pl": "Dodaj przesunięcie",
+              "ru": "Добавить смещение",
+              "ko": "오프셋 추가"
             }
           },
           {
             "id": "take",
             "label": {
-              "en": "Minus offset"
+              "en": "Minus offset",
+              "nl": "Offset aftrekken",
+              "da": "Minus offset",
+              "de": "Offset abziehen",
+              "es": "Restar compensación",
+              "fr": "Moins offset",
+              "it": "Sottrai offset",
+              "no": "Minus forskyvning",
+              "sv": "Minus förskjutning",
+              "pl": "Odejmij przesunięcie",
+              "ru": "Минус смещение",
+              "ko": "오프셋 빼기"
             }
           }
         ]
@@ -31,7 +75,18 @@
         "id": "offset",
         "type": "number",
         "label": {
-          "en": "Offset"
+          "en": "Offset",
+          "nl": "Offset",
+          "da": "Offset",
+          "de": "Offset",
+          "es": "Compensación",
+          "fr": "Décalage",
+          "it": "Offset",
+          "no": "Forskyvning",
+          "sv": "Förskjutning",
+          "pl": "Przesunięcie",
+          "ru": "Смещение",
+          "ko": "오프셋"
         },
         "value": 0,
         "min": 0,

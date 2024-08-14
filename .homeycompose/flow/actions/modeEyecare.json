@@ -2,18 +2,48 @@
   "id": "modeEyecare",
   "title": {
     "en": "Set Mode",
-    "nl": "Stel modus in"
+    "nl": "Stel modus in",
+    "da": "Indstil tilstand",
+    "de": "Modus einstellen",
+    "es": "Establecer modo",
+    "fr": "Définir le mode",
+    "it": "Imposta modalità",
+    "no": "Sett modus",
+    "sv": "Ställ in läge",
+    "pl": "Ustaw tryb",
+    "ru": "Установить режим",
+    "ko": "모드 설정"
   },
   "titleFormatted": {
     "en": "Set mode to [[mode]]",
-    "nl": "Stel modus in op [[mode]]"
+    "nl": "Stel modus in op [[mode]]",
+    "da": "Indstil tilstand til [[mode]]",
+    "de": "Modus einstellen auf [[mode]]",
+    "es": "Establecer modo a [[mode]]",
+    "fr": "Définir le mode sur [[mode]]",
+    "it": "Imposta modalità su [[mode]]",
+    "no": "Sett modus til [[mode]]",
+    "sv": "Ställ in läge till [[mode]]",
+    "pl": "Ustaw tryb na [[mode]]",
+    "ru": "Установить режим на [[mode]]",
+    "ko": "[[mode]] 모드로 설정"
   },
   "args": [
     {
       "name": "mode",
       "title": {
         "en": "Mode",
-        "nl": "Modus"
+        "nl": "Modus",
+        "da": "Tilstand",
+        "de": "Modus",
+        "es": "Modo",
+        "fr": "Mode",
+        "it": "Modalità",
+        "no": "Modus",
+        "sv": "Läge",
+        "pl": "Tryb",
+        "ru": "Режим",
+        "ko": "모드"
       },
       "type": "dropdown",
       "values": [
@@ -21,21 +51,51 @@
           "id": "study",
           "label": {
             "en": "Study",
-            "nl": "Studeer"
+            "nl": "Studeer",
+            "da": "Studie",
+            "de": "Studium",
+            "es": "Estudio",
+            "fr": "Étude",
+            "it": "Studio",
+            "no": "Studier",
+            "sv": "Studera",
+            "pl": "Studia",
+            "ru": "Учеба",
+            "ko": "공부"
           }
         },
         {
           "id": "reading",
           "label": {
             "en": "Reading",
-            "nl": "Lezen"
+            "nl": "Lezen",
+            "da": "Læsning",
+            "de": "Lesen",
+            "es": "Lectura",
+            "fr": "Lecture",
+            "it": "Lettura",
+            "no": "Lesing",
+            "sv": "Läsa",
+            "pl": "Czytanie",
+            "ru": "Чтение",
+            "ko": "독서"
           }
         },
         {
           "id": "phone",
           "label": {
             "en": "Phone",
-            "nl": "Telefoon"
+            "nl": "Telefoon",
+            "da": "Telefon",
+            "de": "Telefon",
+            "es": "Teléfono",
+            "fr": "Téléphone",
+            "it": "Telefono",
+            "no": "Telefon",
+            "sv": "Telefon",
+            "pl": "Telefon",
+            "ru": "Телефон",
+            "ko": "전화"
           }
         }
       ]
@@ -45,10 +105,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Philips Eyecare Lamp",
-        "nl": "Selecteer Philips Eyecare Lamp"
+        "nl": "Selecteer Philips Eyecare Lamp",
+        "da": "Vælg Philips Eyecare Lamp",
+        "de": "Wählen Sie Philips Eyecare Lampe",
+        "es": "Seleccionar lámpara Philips Eyecare",
+        "fr": "Sélectionnez la lampe Philips Eyecare",
+        "it": "Seleziona lampada Philips Eyecare",
+        "no": "Velg Philips Eyecare Lampe",
+        "sv": "Välj Philips Eyecare Lampa",
+        "pl": "Wybierz lampę Philips Eyecare",
+        "ru": "Выберите лампу Philips Eyecare",
+        "ko": "필립스 아이케어 램프 선택"
       },
       "filter": "driver_id=philips-eyecare"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

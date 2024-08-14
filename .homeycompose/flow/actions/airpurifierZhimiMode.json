@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Set mode",
-    "nl": "Stel modus in"
+    "nl": "Stel modus in",
+    "da": "Indstil tilstand",
+    "de": "Modus einstellen",
+    "es": "Configurar modo",
+    "fr": "Définir le mode",
+    "it": "Imposta modalità",
+    "no": "Angi modus",
+    "sv": "Ställ in läge",
+    "pl": "Ustaw tryb",
+    "ru": "Установить режим",
+    "ko": "모드 설정"
   },
   "titleFormatted": {
     "en": "Set mode to [[mode]]",
-    "nl": "Stel modus in op [[mode]]"
+    "nl": "Stel modus in op [[mode]]",
+    "da": "Indstil tilstand til [[mode]]",
+    "de": "Modus einstellen auf [[mode]]",
+    "es": "Configurar modo a [[mode]]",
+    "fr": "Définir le mode sur [[mode]]",
+    "it": "Imposta modalità su [[mode]]",
+    "no": "Angi modus til [[mode]]",
+    "sv": "Ställ in läge till [[mode]]",
+    "pl": "Ustaw tryb na [[mode]]",
+    "ru": "Установить режим на [[mode]]",
+    "ko": "[[mode]]로 설정"
   },
   "args": [
     {
       "name": "mode",
       "title": {
         "en": "Mode",
-        "nl": "Modus"
+        "nl": "Modus",
+        "da": "Tilstand",
+        "de": "Modus",
+        "es": "Modo",
+        "fr": "Mode",
+        "it": "Modalità",
+        "no": "Modus",
+        "sv": "Läge",
+        "pl": "Tryb",
+        "ru": "Режим",
+        "ko": "모드"
       },
       "type": "dropdown",
       "values": [
@@ -20,28 +50,68 @@
           "id": "0",
           "title": {
             "en": "Auto",
-            "nl": "Auto"
+            "nl": "Auto",
+            "da": "Auto",
+            "de": "Auto",
+            "es": "Auto",
+            "fr": "Auto",
+            "it": "Auto",
+            "no": "Auto",
+            "sv": "Auto",
+            "pl": "Auto",
+            "ru": "Автоматический",
+            "ko": "자동"
           }
         },
         {
           "id": "1",
           "title": {
             "en": "Night",
-            "nl": "Nacht"
+            "nl": "Nacht",
+            "da": "Nat",
+            "de": "Nacht",
+            "es": "Noche",
+            "fr": "Nuit",
+            "it": "Notte",
+            "no": "Natt",
+            "sv": "Natt",
+            "pl": "Noc",
+            "ru": "Ночной",
+            "ko": "야간"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "Favorite",
-            "nl": "Favoriet"
+            "nl": "Favoriet",
+            "da": "Favorit",
+            "de": "Favorit",
+            "es": "Favorito",
+            "fr": "Favori",
+            "it": "Preferito",
+            "no": "Favoritt",
+            "sv": "Favorit",
+            "pl": "Ulubiony",
+            "ru": "Избранное",
+            "ko": "즐겨찾기"
           }
         },
         {
           "id": "3",
           "title": {
             "en": "Idle",
-            "nl": "Inactief"
+            "nl": "Inactief",
+            "da": "Inaktiv",
+            "de": "Leerlauf",
+            "es": "Inactivo",
+            "fr": "Inactif",
+            "it": "Inattivo",
+            "no": "Inaktiv",
+            "sv": "Inaktiv",
+            "pl": "Bezczynny",
+            "ru": "Ожидание",
+            "ko": "대기"
           }
         }
       ]
@@ -51,10 +121,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Airpurifier",
-        "nl": "Selecteer Airpurifier"
+        "nl": "Selecteer Airpurifier",
+        "da": "Vælg luftrenser",
+        "de": "Luftreiniger auswählen",
+        "es": "Selecciona purificador",
+        "fr": "Sélectionnez l'purificateur",
+        "it": "Seleziona purificatore",
+        "no": "Velg luftrenser",
+        "sv": "Välj luftrenare",
+        "pl": "Wybierz oczyszczacz powietrza",
+        "ru": "Выбрать очиститель воздуха",
+        "ko": "공기 청정기 선택"
       },
       "filter": "driver_id=airpurifier_zhimi_advanced_miot|airpurifier_dmaker_airfresh_t2017"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

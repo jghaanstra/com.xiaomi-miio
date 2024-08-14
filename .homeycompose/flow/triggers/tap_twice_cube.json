@@ -2,7 +2,17 @@
   "id": "tap_twice_cube",
   "title": {
     "en": "Tap twice",
-    "nl": "2x tikken"
+    "nl": "2x tikken",
+    "da": "Tryk to gange",
+    "de": "Zweimal tippen",
+    "es": "Toca dos veces",
+    "fr": "Tapez deux fois",
+    "it": "Tocca due volte",
+    "no": "Trykk to ganger",
+    "sv": "Tryck två gånger",
+    "pl": "Dotknij dwa razy",
+    "ru": "Нажмите дважды",
+    "ko": "두 번 탭하세요"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionnez un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-aqara-cube"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

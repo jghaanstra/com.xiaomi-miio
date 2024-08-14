@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mi Motion Sensor (Gateway)",
-    "nl": "Mi bewegingssensor (Gateway)"
+    "nl": "Mi bewegingssensor (Gateway)",
+    "da": "Mi bevægelsessensor (Gateway)",
+    "de": "Mi Bewegungssensor (Gateway)",
+    "es": "Mi sensor de movimiento (Gateway)",
+    "fr": "Mi capteur de mouvement (Gateway)",
+    "it": "Sensore di movimento Mi (Gateway)",
+    "no": "Mi bevegelsessensor (Gateway)",
+    "sv": "Mi rörelsesensor (Gateway)",
+    "pl": "Czujnik ruchu Mi (Gateway)",
+    "ru": "Датчик движения Mi (Gateway)",
+    "ko": "미 모션 센서 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/mi-motion-sensor/assets/images/large.png",
@@ -18,6 +28,8 @@
     "alarm_battery"
   ],
   "energy": {
-    "batteries": ["CR2450"]
+    "batteries": [
+      "CR2450"
+    ]
   }
 }

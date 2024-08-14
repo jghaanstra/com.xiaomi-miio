@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mi Power Strip Generic (WiFi)",
-    "nl": "Mi Power Strip Generic (WiFi)"
+    "nl": "Mi Power Strip Generic (WiFi)",
+    "da": "Mi Power Strip Generic (WiFi)",
+    "de": "Mi Power Strip Generic (WiFi)",
+    "es": "Mi Power Strip Generic (WiFi)",
+    "fr": "Mi Power Strip Generic (WiFi)",
+    "it": "Mi Power Strip Generic (WiFi)",
+    "no": "Mi Power Strip Generic (WiFi)",
+    "sv": "Mi Power Strip Generic (WiFi)",
+    "pl": "Mi Power Strip Generic (WiFi)",
+    "ru": "Mi Power Strip Generic (WiFi)",
+    "ko": "Mi Power Strip Generic (WiFi)"
   },
   "images": {
     "large": "drivers/mi-power-strip/assets/images/large.jpg",

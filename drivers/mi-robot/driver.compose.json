@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Basic Vacuum Cleaner (WiFi)",
-    "nl": "Basis Vacuum Cleaner (WiFi)"
+    "nl": "Basis Vacuum Cleaner (WiFi)",
+    "da": "Basisstøvsuger (WiFi)",
+    "de": "Einfacher Staubsauger (WiFi)",
+    "es": "Aspiradora Básica (WiFi)",
+    "fr": "Aspirateur de base (WiFi)",
+    "it": "Aspirapolvere base (WiFi)",
+    "no": "Grunnleggende støvsuger (WiFi)",
+    "sv": "Grundläggande dammsugare (WiFi)",
+    "pl": "Podstawowy odkurzacz (WiFi)",
+    "ru": "Базовый пылесос (WiFi)",
+    "ko": "기본 청소기 (WiFi)"
   },
   "images": {
     "large": "drivers/mi-robot/assets/images/large.jpg",
@@ -17,6 +27,8 @@
     "measure_battery"
   ],
   "energy": {
-    "batteries": ["INTERNAL"]
+    "batteries": [
+      "INTERNAL"
+    ]
   }
 }

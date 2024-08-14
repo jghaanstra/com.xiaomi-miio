@@ -2,11 +2,31 @@
   "id": "findVacuum",
   "title": {
     "en": "Find vacuum cleaner",
-    "nl": "Vind stofzuiger"
+    "nl": "Vind stofzuiger",
+    "da": "Find støvsuger",
+    "de": "Staubsauger finden",
+    "es": "Encontrar aspiradora",
+    "fr": "Trouver l'aspirateur",
+    "it": "Trova l'aspirapolvere",
+    "no": "Finn støvsugeren",
+    "sv": "Hitta dammsugare",
+    "pl": "Znajdź odkurzacz",
+    "ru": "Найти пылесос",
+    "ko": "진공 청소기 찾기"
   },
   "hint": {
     "en": "Let the vacuum cleaner tell you where it's at",
-    "nl": "Laat de stofzuiger vertellen waar hij is"
+    "nl": "Laat de stofzuiger vertellen waar hij is",
+    "da": "Lad støvsugeren fortælle dig, hvor den er",
+    "de": "Lass den Staubsauger dir sagen, wo er ist",
+    "es": "Deja que la aspiradora te diga dónde está",
+    "fr": "Laisse l'aspirateur te dire où il est",
+    "it": "Lascia che l'aspirapolvere ti dica dove si trova",
+    "no": "La støvsugeren fortelle deg hvor den er",
+    "sv": "Låt dammsugaren berätta var den är",
+    "pl": "Pozwól odkurzaczowi powiedzieć, gdzie się znajduje",
+    "ru": "Пусть пылесос скажет, где он",
+    "ko": "진공 청소기가 어디에 있는지 알려주세요"
   },
   "args": [
     {
@@ -14,10 +34,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Mi Robot",
-        "nl": "Selecteer Mi Robot"
+        "nl": "Selecteer Mi Robot",
+        "da": "Vælg Mi Robot",
+        "de": "Wählen Sie Mi Robot",
+        "es": "Seleccionar Mi Robot",
+        "fr": "Sélectionner Mi Robot",
+        "it": "Seleziona Mi Robot",
+        "no": "Velg Mi Robot",
+        "sv": "Välj Mi Robot",
+        "pl": "Wybierz Mi Robot",
+        "ru": "Выберите Mi Robot",
+        "ko": "Mi Robot 선택"
       },
       "filter": "driver_id=mi-robot|vacuum_mi_rockrobo_vacuum_advanced|vacuum_mi_rockrobo_vacuum_t6"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

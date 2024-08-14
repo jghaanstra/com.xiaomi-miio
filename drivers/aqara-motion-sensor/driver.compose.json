@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Motion Sensor (Gateway)",
-    "nl": "Aqara bewegingssensor (Gateway)"
+    "nl": "Aqara bewegingssensor (Gateway)",
+    "da": "Aqara Bevægelsessensor (Gateway)",
+    "de": "Aqara Bewegungssensor (Gateway)",
+    "es": "Sensor de Movimiento Aqara (Gateway)",
+    "fr": "Capteur de Mouvement Aqara (Gateway)",
+    "it": "Sensore di Movimento Aqara (Gateway)",
+    "no": "Aqara Bevegelsessensor (Gateway)",
+    "sv": "Aqara Rörelsesensor (Gateway)",
+    "pl": "Czujnik Ruchu Aqara (Gateway)",
+    "ru": "Датчик движения Aqara (Gateway)",
+    "ko": "아카라 모션 센서 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/aqara-motion-sensor/assets/images/large.png",
@@ -18,6 +28,8 @@
     "alarm_battery"
   ],
   "energy": {
-    "batteries": ["CR2450"]
+    "batteries": [
+      "CR2450"
+    ]
   }
 }

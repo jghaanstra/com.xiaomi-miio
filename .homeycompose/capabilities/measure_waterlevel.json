@@ -2,7 +2,17 @@
   "type": "number",
   "title": {
     "en": "Waterlevel",
-    "nl": "Waterniveau"
+    "nl": "Waterniveau",
+    "da": "Vandstand",
+    "de": "Wasserstand",
+    "es": "Nivel del agua",
+    "fr": "Niveau d'eau",
+    "it": "Livello dell'acqua",
+    "no": "Vannstand",
+    "sv": "Vattennivå",
+    "pl": "Poziom wody",
+    "ru": "Уровень воды",
+    "ko": "수위"
   },
   "icon": "/assets/icons/measure_waterlevel.svg",
   "getable": true,

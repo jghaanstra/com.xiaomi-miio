@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "Duration of the sensor alarm",
-      "nl": "Duur van het sensor alarm"
+      "nl": "Duur van het sensor alarm",
+      "da": "Varighed af sensoralarmen",
+      "de": "Dauer des Sensoralarms",
+      "es": "Duración de la alarma del sensor",
+      "fr": "Durée de l'alarme du capteur",
+      "it": "Durata dell'allarme del sensore",
+      "no": "Varighet av sensoralarmen",
+      "sv": "Varaktighet för sensorlarmet",
+      "pl": "Czas trwania alarmu czujnika",
+      "ru": "Длительность сигнализации датчика",
+      "ko": "센서 알람 지속 시간"
     },
     "children": [
       {
@@ -11,7 +21,17 @@
         "type": "number",
         "label": {
           "en": "Disable after",
-          "nl": "Uitschakelen na"
+          "nl": "Uitschakelen na",
+          "da": "Deaktiver efter",
+          "de": "Deaktivieren nach",
+          "es": "Desactivar después de",
+          "fr": "Désactiver après",
+          "it": "Disattiva dopo",
+          "no": "Deaktiver etter",
+          "sv": "Avaktivera efter",
+          "pl": "Wyłącz po",
+          "ru": "Отключить после",
+          "ko": "이후 비활성화"
         },
         "value": 60,
         "attr": {
@@ -25,7 +45,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuración del dispositivo",
+      "fr": "Paramètres de l'appareil",
+      "it": "Impostazioni del dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia urządzenia",
+      "ru": "Настройки устройства",
+      "ko": "장치 설정"
     },
     "children": [
       {

@@ -1,7 +1,17 @@
 {
   "title": {
     "en": "Sensor Alert",
-    "nl": "Sensor waarschuwing"
+    "nl": "Sensor waarschuwing",
+    "da": "Sensoralarm",
+    "de": "Sensoralarm",
+    "es": "Alerta de sensor",
+    "fr": "Alerte de capteur",
+    "it": "Allarme sensore",
+    "no": "Sensorvarsel",
+    "sv": "Sensorlarm",
+    "pl": "Alarm czujnika",
+    "ru": "Оповещение датчика",
+    "ko": "센서 경고"
   },
   "type": "boolean",
   "getable": true,
