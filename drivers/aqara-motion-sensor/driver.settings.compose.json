@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "Duration of the motion alarm",
-      "nl": "Duur van het bewegingsalarm"
+      "nl": "Duur van het bewegingsalarm",
+      "da": "Varighed af bevægelsesalarm",
+      "de": "Dauer des Bewegungsalarms",
+      "es": "Duración de la alarma de movimiento",
+      "fr": "Durée de l'alarme de mouvement",
+      "it": "Durata dell'allarme di movimento",
+      "no": "Varighet på bevegelsesalarmen",
+      "sv": "Varaktighet för rörelselarmet",
+      "pl": "Czas trwania alarmu ruchu",
+      "ru": "Продолжительность сигнализации движения",
+      "ko": "움직임 경보 기간"
     },
     "children": [
       {
@@ -11,11 +21,31 @@
         "type": "number",
         "label": {
           "en": "Disable after",
-          "nl": "Uitschakelen na"
+          "nl": "Uitschakelen na",
+          "da": "Deaktiver efter",
+          "de": "Deaktivieren nach",
+          "es": "Desactivar después de",
+          "fr": "Désactiver après",
+          "it": "Disabilita dopo",
+          "no": "Deaktiver etter",
+          "sv": "Inaktivera efter",
+          "pl": "Wyłącz po",
+          "ru": "Отключить через",
+          "ko": "다음 후 비활성화"
         },
         "hint": {
           "en": "Here you can specify after what time the alarm signal from the motion sensor will be stopped, if a motion is detected it is not detected. Usually this is for 60 seconds, you can set from 5 to 86400 seconds. \n \n Attention! Values less than 60 seconds are relevant only for independently modified sensors that have the ability to transmit information about the movement with a frequency of 5 seconds.",
-          "nl": "Hier kunt u opgeven hoe laat het alarmsignaal van de bewegingssensor wordt gestopt, als een beweging wordt gedetecteerd, wordt deze niet gedetecteerd. Gewoonlijk is dit 60 seconden, u kunt 5 tot 86400 seconden instellen.  n  n Let op! Waarden minder dan 60 seconden zijn alleen relevant voor onafhankelijk aangepaste sensoren die de mogelijkheid hebben om informatie over de beweging te verzenden met een frequentie van 5 seconden."
+          "nl": "Hier kunt u opgeven hoe laat het alarmsignaal van de bewegingssensor wordt gestopt, als een beweging wordt gedetecteerd, wordt deze niet gedetecteerd. Gewoonlijk is dit 60 seconden, u kunt 5 tot 86400 seconden instellen.  n  n Let op! Waarden minder dan 60 seconden zijn alleen relevant voor onafhankelijk aangepaste sensoren die de mogelijkheid hebben om informatie over de beweging te verzenden met een frequentie van 5 seconden.",
+          "da": "Her kan du specificere, hvornår alarmsignalet fra bevægelsessensoren vil blive stoppet, hvis en bevægelse detekteres, men ikke bliver detekteret. Normalt er dette 60 sekunder, du kan indstille fra 5 til 86400 sekunder. \n \n Opmærksomhed! Værdier mindre end 60 sekunder er kun relevante for uafhængigt modificerede sensorer, der har mulighed for at sende information om bevægelsen med en frekvens på 5 sekunder.",
+          "de": "Hier können Sie angeben, nach welcher Zeit das Alarmsignal des Bewegungssensors gestoppt wird, wenn eine Bewegung erkannt wird, sie jedoch nicht erkannt wird. Normalerweise liegt dieser Wert bei 60 Sekunden, Sie können von 5 bis 86400 Sekunden einstellen. \n \n Achtung! Werte unter 60 Sekunden sind nur für unabhängig modifizierte Sensoren relevant, die die Fähigkeit haben, Informationen über die Bewegung mit einer Frequenz von 5 Sekunden zu übertragen.",
+          "es": "Aquí puedes especificar después de cuánto tiempo se detendrá la señal de alarma del sensor de movimiento, si se detecta un movimiento no se detecta. Normalmente esto es de 60 segundos, puedes establecer desde 5 hasta 86400 segundos. \n \n ¡Atención! Los valores inferiores a 60 segundos solo son relevantes para sensores modificados independientemente que tienen la capacidad de transmitir información sobre el movimiento con una frecuencia de 5 segundos.",
+          "fr": "Ici, vous pouvez spécifier après combien de temps le signal d'alarme du capteur de mouvement sera arrêté, si un mouvement est détecté, il n'est pas détecté. En général, cela dure 60 secondes, vous pouvez régler de 5 à 86400 secondes. \n \n Attention ! Les valeurs inférieures à 60 secondes ne sont pertinentes que pour les capteurs modifiés indépendamment qui ont la capacité de transmettre des informations sur le mouvement avec une fréquence de 5 secondes.",
+          "it": "Qui puoi specificare dopo quanto tempo il segnale di allarme dal sensore di movimento verrà interrotto, se un movimento viene rilevato non viene rilevato. Di solito questo è per 60 secondi, puoi impostare da 5 a 86400 secondi. \n \n Attenzione! I valori inferiori a 60 secondi sono rilevanti solo per i sensori modificati indipendentemente che hanno la capacità di trasmettere informazioni sul movimento con una frequenza di 5 secondi.",
+          "no": "Her kan du spesifisere etter hvor lang tid alarmsignalet fra bevegelsessensoren vil bli stoppet, dersom en bevegelse er detektert blir det ikke detektert. Vanligvis er dette for 60 sekunder, du kan sette fra 5 til 86400 sekunder. \n \n Oppmerksomhet! Verdier mindre enn 60 sekunder er kun relevant for uavhengig modifiserte sensorer som har muligheten til å sende informasjon om bevegelsen med en frekvens på 5 sekunder.",
+          "sv": "Här kan du specificera efter vilken tid alarmsignalen från rörelsesensorn ska stoppas, om en rörelse detekteras detekteras den inte. Vanligtvis är detta för 60 sekunder, du kan ställa in från 5 till 86400 sekunder. \n \n Uppmärksamhet! Värden mindre än 60 sekunder är endast relevanta för oberoende modifierade sensorer som har förmågan att skicka information om rörelsen med en frekvens på 5 sekunder.",
+          "pl": "Tutaj możesz określić, po jakim czasie sygnał alarmowy z czujnika ruchu zostanie zatrzymany, jeśli ruch jest wykrywany, ale nie jest wykrywany. Zwykle jest to 60 sekund, można ustawić od 5 do 86400 sekund. \n \n Uwaga! Wartości mniejsze niż 60 sekund są istotne tylko dla niezależnie zmodyfikowanych czujników, które mają możliwość przesyłania informacji o ruchu z częstotliwością 5 sekund.",
+          "ru": "Здесь вы можете указать, через какое время будет прекращен сигнал тревоги от датчика движения, если обнаружено движение. Обычно это 60 секунд, вы можете настроить от 5 до 86400 секунд. \n \n Внимание! Значения менее 60 секунд имеют значение только для независимо модифицированных датчиков, которые имеют возможность передавать информацию о движении с частотой 5 секунд.",
+          "ko": "여기에서 움직임이 감지된 후 모션 센서의 경보 신호가 중지되어야 하는 시간을 지정할 수 있습니다. 일반적으로 이것은 60초입니다. 5 ~ 86400초 사이에서 설정할 수 있습니다. \n \n 주의! 60초 미만의 값은 5초 간격으로 움직임에 관한 정보를 전송할 수 있는 독립적으로 수정된 센서에만 관련이 있습니다."
         },
         "value": 60,
         "attr": {
@@ -29,7 +59,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuraciones del dispositivo",
+      "fr": "Paramètres de l'appareil",
+      "it": "Impostazioni del dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia urządzenia",
+      "ru": "Настройки устройства",
+      "ko": "장치 설정"
     },
     "children": [
       {

@@ -2,7 +2,17 @@
   "id": "leftSwitchOff",
   "title": {
     "en": "Turn Left Switch Off",
-    "nl": "Schakel linkerschakelaar uit"
+    "nl": "Schakel linkerschakelaar uit",
+    "da": "Sluk venstre kontakt",
+    "de": "Schalten Sie den linken Schalter aus",
+    "es": "Apaga el interruptor izquierdo",
+    "fr": "Éteindre l'interrupteur de gauche",
+    "it": "Spegni l'interruttore sinistro",
+    "no": "Slå av venstre bryter",
+    "sv": "Stäng av vänstra brytaren",
+    "pl": "Wyłącz lewy przełącznik",
+    "ru": "Выключить левый переключатель",
+    "ko": "왼쪽 스위치 끄기"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

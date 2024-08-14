@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Set heatlevel",
-    "nl": "Stel hitte in"
+    "nl": "Stel hitte in",
+    "da": "Indstil varme niveau",
+    "de": "Heizstufe einstellen",
+    "es": "Establecer nivel de calor",
+    "fr": "Régler le niveau de chaleur",
+    "it": "Imposta livello di calore",
+    "no": "Sett varme nivå",
+    "sv": "Ställ in värmenivå",
+    "pl": "Ustaw poziom ciepła",
+    "ru": "Установить уровень нагрева",
+    "ko": "난방 수준 설정"
   },
   "titleFormatted": {
     "en": "Set heatlevel to [[heatlevel]]",
-    "nl": "Stel hitte in op [[heatlevel]]"
+    "nl": "Stel hitte in op [[heatlevel]]",
+    "da": "Indstil varme niveau til [[heatlevel]]",
+    "de": "Heizstufe einstellen auf [[heatlevel]]",
+    "es": "Establecer nivel de calor en [[heatlevel]]",
+    "fr": "Régler le niveau de chaleur à [[heatlevel]]",
+    "it": "Imposta livello di calore a [[heatlevel]]",
+    "no": "Sett varme nivå til [[heatlevel]]",
+    "sv": "Ställ in värmenivå till [[heatlevel]]",
+    "pl": "Ustaw poziom ciepła na [[heatlevel]]",
+    "ru": "Установить уровень нагрева до [[heatlevel]]",
+    "ko": "[[heatlevel]]로 난방 수준 설정"
   },
   "args": [
     {
       "name": "heatlevel",
       "title": {
         "en": "Heatlevel",
-        "nl": "Hitte"
+        "nl": "Hitte",
+        "da": "Varme niveau",
+        "de": "Heizstufe",
+        "es": "Nivel de calor",
+        "fr": "Niveau de chaleur",
+        "it": "Livello di calore",
+        "no": "Varme nivå",
+        "sv": "Värmenivå",
+        "pl": "Poziom ciepła",
+        "ru": "Уровень нагрева",
+        "ko": "난방 수준"
       },
       "type": "dropdown",
       "values": [
@@ -20,14 +50,34 @@
           "id": "1",
           "title": {
             "en": "High",
-            "nl": "Hoog"
+            "nl": "Hoog",
+            "da": "Høj",
+            "de": "Hoch",
+            "es": "Alto",
+            "fr": "Élevé",
+            "it": "Alto",
+            "no": "Høy",
+            "sv": "Hög",
+            "pl": "Wysoki",
+            "ru": "Высокий",
+            "ko": "높음"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "Low",
-            "nl": "Laag"
+            "nl": "Laag",
+            "da": "Lav",
+            "de": "Niedrig",
+            "es": "Bajo",
+            "fr": "Faible",
+            "it": "Basso",
+            "no": "Lav",
+            "sv": "Låg",
+            "pl": "Niski",
+            "ru": "Низкий",
+            "ko": "낮음"
           }
         }
       ]
@@ -37,10 +87,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Heater",
-        "nl": "Selecteer Heater"
+        "nl": "Selecteer Heater",
+        "da": "Vælg varmelegeme",
+        "de": "Heizung auswählen",
+        "es": "Seleccionar calentador",
+        "fr": "Sélectionner le chauffage",
+        "it": "Seleziona riscaldatore",
+        "no": "Velg varmeovn",
+        "sv": "Välj värmare",
+        "pl": "Wybierz grzejnik",
+        "ru": "Выберите обогреватель",
+        "ko": "히터 선택"
       },
       "filter": "driver_id=heater_zhimi_heater_miot&capabilities=heater_zhimi_heatlevel"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

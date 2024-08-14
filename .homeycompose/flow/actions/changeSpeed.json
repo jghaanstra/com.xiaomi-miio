@@ -2,18 +2,48 @@
   "id": "changeSpeed",
   "title": {
     "en": "Set Speed",
-    "nl": "Stel snelheid in"
+    "nl": "Stel snelheid in",
+    "da": "Indstil hastighed",
+    "de": "Geschwindigkeit einstellen",
+    "es": "Ajustar velocidad",
+    "fr": "Régler la vitesse",
+    "it": "Imposta velocità",
+    "no": "Sett hastighet",
+    "sv": "Ställ in hastighet",
+    "pl": "Ustaw prędkość",
+    "ru": "Установить скорость",
+    "ko": "속도 설정"
   },
   "titleFormatted": {
     "en": "Set speed to [[speed]]",
-    "nl": "Stel snelheid in op [[speed]]"
+    "nl": "Stel snelheid in op [[speed]]",
+    "da": "Indstil hastighed til [[speed]]",
+    "de": "Geschwindigkeit auf [[speed]] einstellen",
+    "es": "Ajustar velocidad a [[speed]]",
+    "fr": "Régler la vitesse à [[speed]]",
+    "it": "Imposta velocità a [[speed]]",
+    "no": "Sett hastighet til [[speed]]",
+    "sv": "Ställ in hastighet till [[speed]]",
+    "pl": "Ustaw prędkość na [[speed]]",
+    "ru": "Установить скорость на [[speed]]",
+    "ko": "[[speed]]으로 속도 설정"
   },
   "args": [
     {
       "name": "speed",
       "title": {
         "en": "Speed",
-        "nl": "Snelheid"
+        "nl": "Snelheid",
+        "da": "Hastighed",
+        "de": "Geschwindigkeit",
+        "es": "Velocidad",
+        "fr": "Vitesse",
+        "it": "Velocità",
+        "no": "Hastighet",
+        "sv": "Hastighet",
+        "pl": "Prędkość",
+        "ru": "Скорость",
+        "ko": "속도"
       },
       "type": "range",
       "min": 0,
@@ -27,10 +57,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выбрать устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=zhimi-fan|dmaker-fan"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

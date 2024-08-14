@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "User settings",
-      "nl": "Gebruikersinstellingen"
+      "nl": "Gebruikersinstellingen",
+      "da": "Brugerindstillinger",
+      "de": "Benutzereinstellungen",
+      "es": "Configuración de usuario",
+      "fr": "Paramètres utilisateur",
+      "it": "Impostazioni utente",
+      "no": "Brukerinnstillinger",
+      "sv": "Användarinställningar",
+      "pl": "Ustawienia użytkownika",
+      "ru": "Настройки пользователя",
+      "ko": "사용자 설정"
     },
     "children": [
       {
@@ -11,7 +21,17 @@
         "type": "checkbox",
         "label": {
           "en": "Inverted alarm",
-          "nl": "Omgekeerd alarm"
+          "nl": "Omgekeerd alarm",
+          "da": "Omvendt alarm",
+          "de": "Invertierter Alarm",
+          "es": "Alarma invertida",
+          "fr": "Alarme inversée",
+          "it": "Allarme invertito",
+          "no": "Omvendt alarm",
+          "sv": "Omvänt larm",
+          "pl": "Odwrócony alarm",
+          "ru": "Инвертированная тревога",
+          "ko": "역방향 알람"
         },
         "value": false
       }
@@ -21,7 +41,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuración del dispositivo",
+      "fr": "Paramètres du dispositif",
+      "it": "Impostazioni del dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia urządzenia",
+      "ru": "Настройки устройства",
+      "ko": "장치 설정"
     },
     "children": [
       {

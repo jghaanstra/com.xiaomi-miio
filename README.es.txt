@@ -1,0 +1,5 @@
+Usa Homey para controlar dispositivos WiFi que se conectan a través de la aplicación Xiaomi Mi Home. También puedes usar esta app para controlar dispositivos Zigbee de Xiaomi / Aqara que estén conectados a una puerta de enlace Xiaomi. No hay restricciones en el número de dispositivos Zigbee conectados, ya que puedes tener múltiples dispositivos Mi Gateway y distribuir todos los dispositivos Zigbee entre ellos.
+
+Xiaomi no admite oficialmente el control de dispositivos fuera de la aplicación Mi Home. Se requieren pasos adicionales para emparejar estos dispositivos con Homey que requieren algún conocimiento técnico. Esto también significa que no todos los dispositivos disponibles son compatibles. Además, debes tener en cuenta que Xiaomi puede hacer cambios en su ecosistema en cualquier momento, lo que podría resultar en que Homey no pueda controlar estos dispositivos.
+
+Por favor, visita el tema de soporte para conocer los dispositivos compatibles, las instrucciones de instalación y más detalles.

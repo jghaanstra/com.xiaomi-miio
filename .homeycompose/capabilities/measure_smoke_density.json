@@ -1,11 +1,31 @@
 {
   "title": {
     "en": "Smoke Density",
-    "nl": "Rook dichtheid"
+    "nl": "Rook dichtheid",
+    "da": "Røgtæthed",
+    "de": "Rauchdichte",
+    "es": "Densidad de humo",
+    "fr": "Densité de fumée",
+    "it": "Densità del fumo",
+    "no": "Røykdensitet",
+    "sv": "Röktäthet",
+    "pl": "Gęstość dymu",
+    "ru": "Плотность дыма",
+    "ko": "연기 밀도"
   },
   "type": "number",
   "units": {
-    "en": "kg/m3"
+    "en": "kg/m3",
+    "da": "kg/m3",
+    "de": "kg/m3",
+    "es": "kg/m3",
+    "fr": "kg/m3",
+    "it": "kg/m3",
+    "no": "kg/m3",
+    "sv": "kg/m3",
+    "pl": "kg/m3",
+    "ru": "кг/м³",
+    "ko": "kg/m3"
   },
   "getable": true,
   "setable": false,

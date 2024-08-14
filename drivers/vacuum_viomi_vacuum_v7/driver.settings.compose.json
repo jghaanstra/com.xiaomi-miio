@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "Vacuum Consumables",
-      "nl": "Stofzuiger verbruiksartikelen"
+      "nl": "Stofzuiger verbruiksartikelen",
+      "da": "Støvsuger forbrugsstoffer",
+      "de": "Staubsauger Verbrauchsmaterialien",
+      "es": "Consumibles de aspiradora",
+      "fr": "Consommables pour aspirateur",
+      "it": "Consumi aspirapolvere",
+      "no": "Støvsuger forbruksvarer",
+      "sv": "Dammsugare förbrukningsvaror",
+      "pl": "Materiały eksploatacyjne odkurzacza",
+      "ru": "Расходные материалы для пылесоса",
+      "ko": "진공 청소기 소모품"
     },
     "children": [
       {
@@ -11,11 +21,31 @@
         "type": "number",
         "label": {
           "en": "Alarm threshold",
-          "nl": "Alarm ondergrens"
+          "nl": "Alarm ondergrens",
+          "da": "Alarmgrænse",
+          "de": "Alarmschwelle",
+          "es": "Umbral de alarma",
+          "fr": "Seuil d'alarme",
+          "it": "Soglia d'allarme",
+          "no": "Alarmterskel",
+          "sv": "Alarmtröskel",
+          "pl": "Próg alarmowy",
+          "ru": "Порог срабатывания сигнала тревоги",
+          "ko": "알람 임계값"
         },
         "hint": {
           "en": "Threshold below which the alarm will be activated.",
-          "nl": "Ondergrens voor het triggeren van het alarm"
+          "nl": "Ondergrens voor het triggeren van het alarm",
+          "da": "Grænse, under hvilken alarmen vil blive aktiveret.",
+          "de": "Schwelle, unter der der Alarm ausgelöst wird.",
+          "es": "Umbral por debajo del cual se activará la alarma.",
+          "fr": "Seuil en dessous duquel l'alarme sera activée.",
+          "it": "Soglia al di sotto della quale si attiverà l'allarme.",
+          "no": "Terskel under hvilket alarmen vil bli aktivert.",
+          "sv": "Tröskel under vilken larmet aktiveras.",
+          "pl": "Próg, poniżej którego uruchomi się alarm.",
+          "ru": "Порог, при котором сработает сигнал тревоги.",
+          "ko": "경보가 활성화되는 임계값입니다."
         },
         "value": 20,
         "attr": {
@@ -28,7 +58,17 @@
         "type": "label",
         "label": {
           "en": "Main brush remaining (%)",
-          "nl": "Hoofdborstel over (%)"
+          "nl": "Hoofdborstel over (%)",
+          "da": "Resterende hovedbørste (%)",
+          "de": "Verbleibende Hauptbürste (%)",
+          "es": "Cepillo principal restante (%)",
+          "fr": "Brosse principale restante (%)",
+          "it": "Spazzola principale rimanente (%)",
+          "no": "Gjenværende hovedbørste (%)",
+          "sv": "Huvudborste kvar (%)",
+          "pl": "Pozostało głównego pędzla (%)",
+          "ru": "Оставшаяся основная щетка (%)",
+          "ko": "남은 메인 브러쉬 (%)"
         },
         "value": "0%"
       },
@@ -37,7 +77,17 @@
         "type": "label",
         "label": {
           "en": "Side brush remaining (%)",
-          "nl": "Zijborstel over (%)"
+          "nl": "Zijborstel over (%)",
+          "da": "Resterende sidebørste (%)",
+          "de": "Verbleibende Seitenbürste (%)",
+          "es": "Cepillo lateral restante (%)",
+          "fr": "Brosse latérale restante (%)",
+          "it": "Spazzola laterale rimanente (%)",
+          "no": "Gjenværende sidebørste (%)",
+          "sv": "Sidoborste kvar (%)",
+          "pl": "Pozostało bocznego pędzla (%)",
+          "ru": "Оставшаяся боковая щетка (%)",
+          "ko": "남은 사이드 브러쉬 (%)"
         },
         "value": "0%"
       },
@@ -46,7 +96,17 @@
         "type": "label",
         "label": {
           "en": "Filter over (%)",
-          "nl": "Filter over (%)"
+          "nl": "Filter over (%)",
+          "da": "Filter over (%)",
+          "de": "Filter übrig (%)",
+          "es": "Filtro restante (%)",
+          "fr": "Filtre restant (%)",
+          "it": "Filtro rimanente (%)",
+          "no": "Filter over (%)",
+          "sv": "Filter kvar (%)",
+          "pl": "Pozostało filtra (%)",
+          "ru": "Фильтр оставшийся (%)",
+          "ko": "남은 필터 (%)"
         },
         "value": "0%"
       }
@@ -56,7 +116,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuración del dispositivo",
+      "fr": "Paramètres de l'appareil",
+      "it": "Impostazioni dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia urządzenia",
+      "ru": "Настройки устройства",
+      "ko": "장치 설정"
     },
     "children": [
       {

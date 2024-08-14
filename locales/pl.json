@@ -1,0 +1,24 @@
+{
+  "pair": {
+    "title": "Dodaj urządzenie Mi Home",
+    "startpairing": "Aby Homey mógł komunikować się z urządzeniami za pomocą protokołu miIO, należy uzyskać unikalny token urządzenia. Wymagana jest wiedza techniczna do pozyskania tych tokenów. Jeśli nie jesteś zaawansowany technicznie, korzystanie z tej aplikacji może być trudne. Zobacz instrukcje w temacie wsparcia na forum społeczności, jak uzyskać tokeny urządzenia.",
+    "nosettings": "Proszę wypełnić wszystkie pola.",
+    "intro": "Wprowadź dane swojego urządzenia Mi Home.",
+    "address": "Adres IP",
+    "token": "Token (32 znaki cyfr i liter)",
+    "polling": "Częstotliwość odpytywania",
+    "test": "Testuj połączenie",
+    "testResult": "Test połączenia zakończony sukcesem, możesz teraz połączyć urządzenie z Homey.",
+    "connect": "Połącz",
+    "unknownerror": "Nieznany błąd, czy na pewno wprowadziłeś poprawny adres IP i token oraz czy Homey jest w tej samej sieci co urządzenie Mi Home? Sprawdź swoje ustawienia i spróbuj ponownie.",
+    "state": "Stan:",
+    "battery": "Poziom baterii:",
+    "fanspeed": "Prędkość wentylatora:",
+    "no_devices_found": "Nie znaleziono urządzeń.",
+    "no_gateways": "Nie znaleziono bramek. \n\n Przed dodaniem urządzeń, otwórz ustawienia wtyczki i dodaj swoją bramkę Xiaomi. \n Bramka Aqara nie jest jeszcze obsługiwana."
+  },
+  "device": {
+    "unreachable": "Urządzenie jest niedostępne: ",
+    "noupdates": "Urządzenie nie otrzymało jeszcze żadnych aktualizacji"
+  }
+}

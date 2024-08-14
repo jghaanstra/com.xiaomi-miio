@@ -2,28 +2,68 @@
   "type": "enum",
   "title": {
     "en": "Foodlevel",
-    "nl": "Voedselniveau"
+    "nl": "Voedselniveau",
+    "da": "Madniveau",
+    "de": "Futterstand",
+    "es": "Nivel de comida",
+    "fr": "Niveau de nourriture",
+    "it": "Livello di cibo",
+    "no": "Matenivå",
+    "sv": "Matnivå",
+    "pl": "Poziom jedzenia",
+    "ru": "Уровень еды",
+    "ko": "음식 수준"
   },
   "values": [
     {
       "id": "0",
       "title": {
         "en": "Normal",
-        "nl": "Normaal"
+        "nl": "Normaal",
+        "da": "Normal",
+        "de": "Normal",
+        "es": "Normal",
+        "fr": "Normal",
+        "it": "Normale",
+        "no": "Normal",
+        "sv": "Normal",
+        "pl": "Normalny",
+        "ru": "Нормальный",
+        "ko": "정상"
       }
     },
     {
       "id": "1",
       "title": {
         "en": "Low",
-        "nl": "Laag"
+        "nl": "Laag",
+        "da": "Lav",
+        "de": "Niedrig",
+        "es": "Bajo",
+        "fr": "Bas",
+        "it": "Basso",
+        "no": "Lav",
+        "sv": "Låg",
+        "pl": "Niski",
+        "ru": "Низкий",
+        "ko": "낮음"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Empty",
-        "nl": "Leeg"
+        "nl": "Leeg",
+        "da": "Tom",
+        "de": "Leer",
+        "es": "Vacío",
+        "fr": "Vide",
+        "it": "Vuoto",
+        "no": "Tom",
+        "sv": "Tom",
+        "pl": "Pusty",
+        "ru": "Пустой",
+        "ko": "비어 있음"
       }
     }
   ],

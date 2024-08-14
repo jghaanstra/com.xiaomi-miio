@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mi Magnet Sensor (Gateway)",
-    "nl": "Mi magneetsensor (Gateway)"
+    "nl": "Mi magneetsensor (Gateway)",
+    "da": "Mi Magnet Sensor (Gateway)",
+    "de": "Mi Magnetsensor (Gateway)",
+    "es": "Sensor Magnético Mi (Gateway)",
+    "fr": "Capteur Magnétique Mi (Gateway)",
+    "it": "Sensore Magnetico Mi (Gateway)",
+    "no": "Mi Magnet Sensor (Gateway)",
+    "sv": "Mi Magnet Sensor (Gateway)",
+    "pl": "Czujnik Magnetyczny Mi (Gateway)",
+    "ru": "Магнитный датчик Mi (Gateway)",
+    "ko": "미 자석 센서 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/mi-magnet-sensor/assets/images/large.png",
@@ -17,6 +27,8 @@
     "alarm_battery"
   ],
   "energy": {
-    "batteries": ["CR1632"]
+    "batteries": [
+      "CR1632"
+    ]
   }
 }

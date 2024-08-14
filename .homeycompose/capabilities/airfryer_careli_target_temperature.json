@@ -2,14 +2,34 @@
   "type": "number",
   "title": {
     "en": "Target Temperature",
-    "nl": "Target Temperature"
+    "nl": "Target Temperature",
+    "da": "Måltemperatur",
+    "de": "Zieltemperatur",
+    "es": "Temperatura Objetivo",
+    "fr": "Température Cible",
+    "it": "Temperatura Obiettivo",
+    "no": "Måltemperatur",
+    "sv": "Måltemperatur",
+    "pl": "Temperatura Docelowa",
+    "ru": "Целевая Температура",
+    "ko": "목표 온도"
   },
   "icon": "/assets/icons/target_temperature.svg",
   "getable": true,
   "setable": true,
   "units": {
     "en": "°C",
-    "nl": "°C"
+    "nl": "°C",
+    "da": "°C",
+    "de": "°C",
+    "es": "°C",
+    "fr": "°C",
+    "it": "°C",
+    "no": "°C",
+    "sv": "°C",
+    "pl": "°C",
+    "ru": "°C",
+    "ko": "°C"
   },
   "min": 40,
   "max": 200,

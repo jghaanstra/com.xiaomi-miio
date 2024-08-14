@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Philips Eyecare Lamp (WiFi)",
-    "nl": "Philips Eyecare Lamp (WiFi)"
+    "nl": "Philips Eyecare Lamp (WiFi)",
+    "da": "Philips Eyecare Lampe (WiFi)",
+    "de": "Philips Eyecare Lampe (WiFi)",
+    "es": "Lámpara Philips Eyecare (WiFi)",
+    "fr": "Lampe Philips Eyecare (WiFi)",
+    "it": "Lampada Philips Eyecare (WiFi)",
+    "no": "Philips Eyecare Lampe (WiFi)",
+    "sv": "Philips Eyecare Lampa (WiFi)",
+    "pl": "Lampa Philips Eyecare (WiFi)",
+    "ru": "Лампа Philips Eyecare (WiFi)",
+    "ko": "필립스 아이케어 램프 (WiFi)"
   },
   "images": {
     "large": "drivers/philips-eyecare/assets/images/large.jpg",
@@ -21,13 +31,33 @@
     "onoff.eyecare": {
       "title": {
         "en": "Eyecare",
-        "nl": "Eyecare"
+        "nl": "Eyecare",
+        "da": "Øjenpleje",
+        "de": "Augenpflege",
+        "es": "Cuidado de ojos",
+        "fr": "Soin des yeux",
+        "it": "Cura degli occhi",
+        "no": "Øyepleie",
+        "sv": "Ögonvård",
+        "pl": "Pielęgnacja oczu",
+        "ru": "Уход за глазами",
+        "ko": "아이케어"
       }
     },
     "onoff.ambilight": {
       "title": {
         "en": "Ambilight",
-        "nl": "Ambilight"
+        "nl": "Ambilight",
+        "da": "Ambilight",
+        "de": "Ambilight",
+        "es": "Ambilight",
+        "fr": "Ambilight",
+        "it": "Ambilight",
+        "no": "Ambilight",
+        "sv": "Ambilight",
+        "pl": "Ambilight",
+        "ru": "Ambilight",
+        "ko": "Ambilight"
       }
     }
   }

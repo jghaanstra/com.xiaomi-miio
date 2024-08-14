@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Smartmi Fresh Air System MIoT (WiFi)",
-    "nl": "Smartmi Fresh Air System MIoT (WiFi)"
+    "nl": "Smartmi Fresh Air System MIoT (WiFi)",
+    "da": "Smartmi Fresh Air System MIoT (WiFi)",
+    "de": "Smartmi Fresh Air System MIoT (WiFi)",
+    "es": "Smartmi Fresh Air System MIoT (WiFi)",
+    "fr": "Smartmi Fresh Air System MIoT (WiFi)",
+    "it": "Smartmi Fresh Air System MIoT (WiFi)",
+    "no": "Smartmi Fresh Air System MIoT (WiFi)",
+    "sv": "Smartmi Fresh Air System MIoT (WiFi)",
+    "pl": "Smartmi Fresh Air System MIoT (WiFi)",
+    "ru": "Smartmi Fresh Air System MIoT (WiFi)",
+    "ko": "Smartmi Fresh Air System MIoT (WiFi)"
   },
   "images": {
     "large": "drivers/airfresh_zhimi_airfresh_miot/assets/images/large.jpg",
@@ -20,7 +30,17 @@
     "onoff.ptc": {
       "title": {
         "en": "Heat",
-        "nl": "Verwarmen"
+        "nl": "Verwarmen",
+        "da": "Varme",
+        "de": "Heizen",
+        "es": "Calor",
+        "fr": "Chaleur",
+        "it": "Calore",
+        "no": "Varme",
+        "sv": "Värme",
+        "pl": "Ciepło",
+        "ru": "Тепло",
+        "ko": "난방"
       }
     }
   }

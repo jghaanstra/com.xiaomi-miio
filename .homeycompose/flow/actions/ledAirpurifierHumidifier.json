@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "LED display brightness",
-    "nl": "LED display helderheid"
+    "nl": "LED display helderheid",
+    "da": "LED skærm lysstyrke",
+    "de": "LED-Display-Helligkeit",
+    "es": "Brillo de la pantalla LED",
+    "fr": "Luminosité de l'affichage LED",
+    "it": "Luminosità del display LED",
+    "no": "LED-skjermens lysstyrke",
+    "sv": "LED-skärmens ljusstyrka",
+    "pl": "Jasność wyświetlacza LED",
+    "ru": "Яркость светодиодного дисплея",
+    "ko": "LED 디스플레이 밝기"
   },
   "titleFormatted": {
     "en": "Set LED display brightness to [[brightness]]",
-    "nl": "Stel LED display helderheid in op [[brightness]]"
+    "nl": "Stel LED display helderheid in op [[brightness]]",
+    "da": "Indstil LED skærm lysstyrke til [[brightness]]",
+    "de": "LED-Display-Helligkeit auf [[brightness]] einstellen",
+    "es": "Establecer el brillo de la pantalla LED a [[brightness]]",
+    "fr": "Régler la luminosité de l'affichage LED sur [[brightness]]",
+    "it": "Imposta la luminosità del display LED a [[brightness]]",
+    "no": "Sett LED-skjermens lysstyrke til [[brightness]]",
+    "sv": "Ställ in LED-skärmens ljusstyrka till [[brightness]]",
+    "pl": "Ustaw jasność wyświetlacza LED na [[brightness]]",
+    "ru": "Установить яркость светодиодного дисплея на [[brightness]]",
+    "ko": "LED 디스플레이 밝기를 [[brightness]]로 설정"
   },
   "args": [
     {
       "name": "brightness",
       "title": {
         "en": "Brightness",
-        "nl": "Helderheid"
+        "nl": "Helderheid",
+        "da": "Lysstyrke",
+        "de": "Helligkeit",
+        "es": "Brillo",
+        "fr": "Luminosité",
+        "it": "Luminosità",
+        "no": "Lysstyrke",
+        "sv": "Ljusstyrka",
+        "pl": "Jasność",
+        "ru": "Яркость",
+        "ko": "밝기"
       },
       "type": "dropdown",
       "values": [
@@ -20,21 +50,51 @@
           "id": "1",
           "label": {
             "en": "Bright",
-            "nl": "Helder"
+            "nl": "Helder",
+            "da": "Lys",
+            "de": "Hell",
+            "es": "Brillante",
+            "fr": "Éclatant",
+            "it": "Luminoso",
+            "no": "Lyst",
+            "sv": "Ljus",
+            "pl": "Jasny",
+            "ru": "Яркий",
+            "ko": "밝게"
           }
         },
         {
           "id": "2",
           "label": {
             "en": "Dim",
-            "nl": "Gedimd"
+            "nl": "Gedimd",
+            "da": "Dæmpet",
+            "de": "Gedimmt",
+            "es": "Atenuado",
+            "fr": "Tamiser",
+            "it": "Fioco",
+            "no": "Dempet",
+            "sv": "Dämpad",
+            "pl": "Ściemnić",
+            "ru": "Тусклый",
+            "ko": "어둡게"
           }
         },
         {
           "id": "3",
           "label": {
             "en": "Off",
-            "nl": "Uit"
+            "nl": "Uit",
+            "da": "Slukket",
+            "de": "Aus",
+            "es": "Apagado",
+            "fr": "Éteindre",
+            "it": "Spento",
+            "no": "Av",
+            "sv": "Av",
+            "pl": "Wyłączony",
+            "ru": "Выкл",
+            "ko": "끄기"
           }
         }
       ]
@@ -44,10 +104,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Device",
-        "nl": "Selecteer Apparaat"
+        "nl": "Selecteer Apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-airpurifier|humidifier_zhimi_humidifier|zhimi-fan"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

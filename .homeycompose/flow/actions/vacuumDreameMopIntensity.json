@@ -2,18 +2,48 @@
   "id": "vacuumDreameMopIntensity",
   "title": {
     "en": "Set Mop Intesity",
-    "nl": "Stel dweil intensiteit in"
+    "nl": "Stel dweil intensiteit in",
+    "da": "Indstil moppe intensitet",
+    "de": "Wischeintensität einstellen",
+    "es": "Establecer intensidad de fregado",
+    "fr": "Définir l'intensité de la serpillière",
+    "it": "Imposta l'intensità della mocio",
+    "no": "Sett moppens intensitet",
+    "sv": "Ställ in moppintensitet",
+    "pl": "Ustaw intensywność mopa",
+    "ru": "Установить интенсивность швабры",
+    "ko": "걸레 강도 설정"
   },
   "titleFormatted": {
     "en": "Set mop intensity to [[intensity]]",
-    "nl": "Stel dweil intensiteit in op [[intensity]]"
+    "nl": "Stel dweil intensiteit in op [[intensity]]",
+    "da": "Indstil moppe intensitet til [[intensity]]",
+    "de": "Wischeintensität auf [[intensity]] einstellen",
+    "es": "Establecer intensidad de fregado a [[intensity]]",
+    "fr": "Définir l'intensité de la serpillière à [[intensity]]",
+    "it": "Imposta l'intensità della mocio su [[intensity]]",
+    "no": "Sett moppens intensitet til [[intensity]]",
+    "sv": "Ställ in moppintensitet till [[intensity]]",
+    "pl": "Ustaw intensywność mopa na [[intensity]]",
+    "ru": "Установить интенсивность швабры на [[intensity]]",
+    "ko": "걸레 강도를 [[intensity]]로 설정"
   },
   "args": [
     {
       "name": "intensity",
       "title": {
         "en": "Mop Intensity",
-        "nl": "Dweil intensiteit"
+        "nl": "Dweil intensiteit",
+        "da": "Moppe intensitet",
+        "de": "Wischeintensität",
+        "es": "Intensidad de fregado",
+        "fr": "Intensité de la serpillière",
+        "it": "Intensità della mocio",
+        "no": "Moppens intensitet",
+        "sv": "Moppintensitet",
+        "pl": "Intensywność mopa",
+        "ru": "Интенсивность швабры",
+        "ko": "걸레 강도"
       },
       "type": "dropdown",
       "values": [
@@ -21,21 +51,51 @@
           "id": "0",
           "title": {
             "en": "Low",
-            "nl": "Laag"
+            "nl": "Laag",
+            "da": "Lav",
+            "de": "Niedrig",
+            "es": "Bajo",
+            "fr": "Bas",
+            "it": "Bassa",
+            "no": "Lav",
+            "sv": "Låg",
+            "pl": "Niski",
+            "ru": "Низкий",
+            "ko": "낮음"
           }
         },
         {
           "id": "1",
           "title": {
             "en": "Medium",
-            "nl": "Medium"
+            "nl": "Medium",
+            "da": "Mellem",
+            "de": "Mittel",
+            "es": "Medio",
+            "fr": "Moyen",
+            "it": "Media",
+            "no": "Middels",
+            "sv": "Medium",
+            "pl": "Średni",
+            "ru": "Средний",
+            "ko": "중간"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "High",
-            "nl": "Hoog"
+            "nl": "Hoog",
+            "da": "Høj",
+            "de": "Hoch",
+            "es": "Alto",
+            "fr": "Élevé",
+            "it": "Alta",
+            "no": "Høy",
+            "sv": "Hög",
+            "pl": "Wysoki",
+            "ru": "Высокий",
+            "ko": "높음"
           }
         }
       ]
@@ -45,10 +105,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer stofzuiger"
+        "nl": "Selecteer stofzuiger",
+        "da": "Vælg støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Seleccionar aspiradora",
+        "fr": "Sélectionnez l'aspirateur",
+        "it": "Seleziona aspirapolvere",
+        "no": "Velg støvsuger",
+        "sv": "Välj dammsugare",
+        "pl": "Wybierz odkurzacz",
+        "ru": "Выберите пылесос",
+        "ko": "청소기 선택"
       },
       "filter": "driver_id=vacuum_dreame_vacuum&capabilities=vacuum_dreame_mop_intensity"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

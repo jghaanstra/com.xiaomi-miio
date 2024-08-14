@@ -2,7 +2,17 @@
   "id": "click_single",
   "title": {
     "en": "Click",
-    "nl": "Klik"
+    "nl": "Klik",
+    "da": "Klik",
+    "de": "Klick",
+    "es": "Clic",
+    "fr": "Clic",
+    "it": "Clic",
+    "no": "Klikk",
+    "sv": "Klick",
+    "pl": "Kliknij",
+    "ru": "Клик",
+    "ko": "클릭"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner le dispositif",
+        "it": "Seleziona il dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выбрать устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-button|aqara-button|aqara-button-advanced|aqara-86sw1-advanced|aqara_86sw1_switch"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

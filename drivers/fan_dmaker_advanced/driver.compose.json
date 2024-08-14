@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Advanced Mi Smart Standing Fan MIoT (WiFi)",
-    "nl": "Geadvanceerde Mi Smart Standing Fan MIoT (WiFi)"
+    "nl": "Geadvanceerde Mi Smart Standing Fan MIoT (WiFi)",
+    "da": "Avanceret Mi Smart Standing Fan MIoT (WiFi)",
+    "de": "Erweiterter Mi Smart Standventilator MIoT (WiFi)",
+    "es": "Ventilador de pie avanzado Mi Smart MIoT (WiFi)",
+    "fr": "Ventilateur sur pied intelligent Mi avancé MIoT (WiFi)",
+    "it": "Ventilatore Smart Standing avanzato Mi MIoT (WiFi)",
+    "no": "Avansert Mi Smart stående vifte MIoT (WiFi)",
+    "sv": "Avancerad Mi Smart stående fläkt MIoT (WiFi)",
+    "pl": "Zaawansowany stojący wentylator Mi Smart MIoT (WiFi)",
+    "ru": "Продвинутый Mi Smart стоячий вентилятор MIoT (WiFi)",
+    "ko": "고급형 Mi 스마트 스탠딩 팬 MIoT (WiFi)"
   },
   "images": {
     "large": "drivers/fan_dmaker_advanced/assets/images/large.jpg",
@@ -23,13 +33,33 @@
     "onoff.swing": {
       "title": {
         "en": "Oscillation",
-        "nl": "Oscillatie"
+        "nl": "Oscillatie",
+        "da": "Svingning",
+        "de": "Oszillation",
+        "es": "Oscilación",
+        "fr": "Oscillation",
+        "it": "Oscillazione",
+        "no": "Svingning",
+        "sv": "Oscillation",
+        "pl": "Oscylacja",
+        "ru": "Колебание",
+        "ko": "진동"
       }
     },
     "dim": {
       "title": {
         "en": "Fanlevel",
-        "nl": "Ventilator niveau"
+        "nl": "Ventilator niveau",
+        "da": "Fan niveau",
+        "de": "Ventilatorebene",
+        "es": "Nivel de ventilador",
+        "fr": "Niveau de ventilateur",
+        "it": "Livello del ventilatore",
+        "no": "Viftenivå",
+        "sv": "Fläktnivå",
+        "pl": "Poziom wentylatora",
+        "ru": "Уровень вентилятора",
+        "ko": "팬 레벨"
       },
       "min": 1,
       "max": 4,
@@ -38,7 +68,17 @@
     "dim.fanspeed": {
       "title": {
         "en": "Fanspeed",
-        "nl": "Ventilator snelheid"
+        "nl": "Ventilator snelheid",
+        "da": "Fan hastighed",
+        "de": "Lüftergeschwindigkeit",
+        "es": "Velocidad del ventilador",
+        "fr": "Vitesse du ventilateur",
+        "it": "Velocità della ventola",
+        "no": "Viftehastighet",
+        "sv": "Fläkthastighet",
+        "pl": "Prędkość wentylatora",
+        "ru": "Скорость вентилятора",
+        "ko": "팬 속도"
       },
       "min": 1,
       "max": 100,

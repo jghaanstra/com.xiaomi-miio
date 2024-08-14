@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Lock (Gateway)",
-    "nl": "Aqara Lock (Gateway)"
+    "nl": "Aqara Lock (Gateway)",
+    "da": "Aqara Lock (Gateway)",
+    "de": "Aqara Lock (Gateway)",
+    "es": "Aqara Lock (Gateway)",
+    "fr": "Aqara Lock (Gateway)",
+    "it": "Aqara Lock (Gateway)",
+    "no": "Aqara Lock (Gateway)",
+    "sv": "Aqara Lock (Gateway)",
+    "pl": "Aqara Lock (Gateway)",
+    "ru": "Aqara Lock (Gateway)",
+    "ko": "Aqara Lock (Gateway)"
   },
   "images": {
     "large": "/drivers/lock_aq1/assets/images/large.jpg",
@@ -23,25 +33,65 @@
     "alarm_motion.finger": {
       "title": {
         "en": "Finger",
-        "nl": "Vinger"
+        "nl": "Vinger",
+        "da": "Finger",
+        "de": "Finger",
+        "es": "Finger",
+        "fr": "Doigt",
+        "it": "Dito",
+        "no": "Finger",
+        "sv": "Finger",
+        "pl": "Palec",
+        "ru": "Палец",
+        "ko": "손가락"
       }
     },
     "alarm_motion.code": {
       "title": {
         "en": "Code",
-        "nl": "Code"
+        "nl": "Code",
+        "da": "Kode",
+        "de": "Code",
+        "es": "Código",
+        "fr": "Code",
+        "it": "Codice",
+        "no": "Kode",
+        "sv": "Kod",
+        "pl": "Kod",
+        "ru": "Код",
+        "ko": "코드"
       }
     },
     "alarm_motion.card": {
       "title": {
         "en": "Card",
-        "nl": "Card"
+        "nl": "Card",
+        "da": "Kort",
+        "de": "Karte",
+        "es": "Tarjeta",
+        "fr": "Carte",
+        "it": "Carta",
+        "no": "Kort",
+        "sv": "Kort",
+        "pl": "Karta",
+        "ru": "Карта",
+        "ko": "카드"
       }
     },
     "alarm_motion.wrongID": {
       "title": {
         "en": "Wrong ID",
-        "nl": "Verkeerd ID"
+        "nl": "Verkeerd ID",
+        "da": "Forkert ID",
+        "de": "Falsche ID",
+        "es": "ID incorrecta",
+        "fr": "ID incorrecte",
+        "it": "ID sbagliato",
+        "no": "Feil ID",
+        "sv": "Fel ID",
+        "pl": "Błędne ID",
+        "ru": "Неправильный ID",
+        "ko": "잘못된 ID"
       }
     }
   },

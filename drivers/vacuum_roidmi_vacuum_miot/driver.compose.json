@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Roidmi Vacuum Cleaner MIoT (WiFi)",
-    "nl": "Roidmi stofzuiger MIoT (WiFi)"
+    "nl": "Roidmi stofzuiger MIoT (WiFi)",
+    "da": "Roidmi støvsuger MIoT (WiFi)",
+    "de": "Roidmi Staubsauger MIoT (WiFi)",
+    "es": "Aspiradora Roidmi MIoT (WiFi)",
+    "fr": "Aspirateur Roidmi MIoT (WiFi)",
+    "it": "Aspirapolvere Roidmi MIoT (WiFi)",
+    "no": "Roidmi støvsuger MIoT (WiFi)",
+    "sv": "Roidmi dammsugare MIoT (WiFi)",
+    "pl": "Odkurzacz Roidmi MIoT (WiFi)",
+    "ru": "Пылесос Roidmi MIoT (WiFi)",
+    "ko": "로이디미 진공 청소기 MIoT (WiFi)"
   },
   "images": {
     "large": "drivers/vacuum_roidmi_vacuum_miot/assets/images/large.jpg",
@@ -25,6 +35,8 @@
     "alarm_sensor_dirty_time"
   ],
   "energy": {
-    "batteries": ["INTERNAL"]
+    "batteries": [
+      "INTERNAL"
+    ]
   }
 }

@@ -2,77 +2,187 @@
   "type": "enum",
   "title": {
     "en": "Air Fryer Mode",
-    "nl": "Air Fryer Mode"
+    "nl": "Air Fryer Mode",
+    "da": "Airfryer-tilstand",
+    "de": "Airfryer Modus",
+    "es": "Modo Freidora de Aire",
+    "fr": "Mode Friteuse à Air",
+    "it": "Modalità Friggitrice ad Aria",
+    "no": "Luftfrityrmodus",
+    "sv": "Luftfritösläge",
+    "pl": "Tryb Frytownicy Powietrznej",
+    "ru": "Режим Аэрофритюрницы",
+    "ko": "에어프라이어 모드"
   },
   "values": [
     {
       "id": "0",
       "title": {
         "en": "Shutdown",
-        "nl": "Uitgeschakeld"
+        "nl": "Uitgeschakeld",
+        "da": "Luk ned",
+        "de": "Abschalten",
+        "es": "Apagado",
+        "fr": "Arrêt",
+        "it": "Spegnimento",
+        "no": "Avslutte",
+        "sv": "Stänga av",
+        "pl": "Wyłączone",
+        "ru": "Выключение",
+        "ko": "종료"
       }
     },
     {
       "id": "1",
       "title": {
         "en": "Standby",
-        "nl": "Standby"
+        "nl": "Standby",
+        "da": "Stand-by",
+        "de": "Standby",
+        "es": "En Espera",
+        "fr": "Veille",
+        "it": "Standby",
+        "no": "Standby",
+        "sv": "Standby",
+        "pl": "Czekanie",
+        "ru": "Режим ожидания",
+        "ko": "대기 중"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Pause",
-        "nl": "Pauze"
+        "nl": "Pauze",
+        "da": "Pause",
+        "de": "Pause",
+        "es": "Pausa",
+        "fr": "Pause",
+        "it": "Pausa",
+        "no": "Pause",
+        "sv": "Paus",
+        "pl": "Pauza",
+        "ru": "Пауза",
+        "ko": "일시 중지"
       }
     },
     {
       "id": "3",
       "title": {
         "en": "Schedule",
-        "nl": "Schema"
+        "nl": "Schema",
+        "da": "Planlægning",
+        "de": "Zeitplan",
+        "es": "Horario",
+        "fr": "Programme",
+        "it": "Programma",
+        "no": "Planlegge",
+        "sv": "Schema",
+        "pl": "Harmonogram",
+        "ru": "Расписание",
+        "ko": "일정"
       }
     },
     {
       "id": "4",
       "title": {
         "en": "Cooking",
-        "nl": "Bakken"
+        "nl": "Bakken",
+        "da": "Madlavning",
+        "de": "Kochen",
+        "es": "Cocinando",
+        "fr": "Cuisson",
+        "it": "Cottura",
+        "no": "Matlaging",
+        "sv": "Matlagning",
+        "pl": "Gotowanie",
+        "ru": "Готовка",
+        "ko": "요리 중"
       }
     },
     {
       "id": "5",
       "title": {
         "en": "Preheat",
-        "nl": "Voorverwarmen"
+        "nl": "Voorverwarmen",
+        "da": "Forvarm",
+        "de": "Vorheizen",
+        "es": "Precalentar",
+        "fr": "Préchauffage",
+        "it": "Preriscalda",
+        "no": "Forvarme",
+        "sv": "Förvärm",
+        "pl": "Rozgrzewanie",
+        "ru": "Предварительный нагрев",
+        "ko": "예열"
       }
     },
     {
       "id": "6",
       "title": {
         "en": "Cooked",
-        "nl": "Gebakken"
+        "nl": "Gebakken",
+        "da": "Tilberedt",
+        "de": "Gekocht",
+        "es": "Cocido",
+        "fr": "Cuit",
+        "it": "Cotto",
+        "no": "Kokt",
+        "sv": "Tillagad",
+        "pl": "Ugotowane",
+        "ru": "Приготовлено",
+        "ko": "조리 완료"
       }
     },
     {
       "id": "7",
       "title": {
         "en": "Preheat finished",
-        "nl": "Voorverwarmen klaar"
+        "nl": "Voorverwarmen klaar",
+        "da": "Forvarm færdig",
+        "de": "Vorheizen abgeschlossen",
+        "es": "Precalentamiento terminado",
+        "fr": "Préchauffage terminé",
+        "it": "Preriscaldamento finito",
+        "no": "Forvarming ferdig",
+        "sv": "Förvärmning klart",
+        "pl": "Rozgrzewanie zakończone",
+        "ru": "Предварительный нагрев завершен",
+        "ko": "예열 완료"
       }
     },
     {
       "id": "8",
       "title": {
         "en": "Preheat paused",
-        "nl": "Voorverwarmen gepauzeerd"
+        "nl": "Voorverwarmen gepauzeerd",
+        "da": "Forvarm sat på pause",
+        "de": "Vorheizen pausiert",
+        "es": "Precalentamiento en pausa",
+        "fr": "Préchauffage en pause",
+        "it": "Preriscaldamento in pausa",
+        "no": "Forvarming satt på pause",
+        "sv": "Förvärmning pausad",
+        "pl": "Rozgrzewanie wstrzymane",
+        "ru": "Предварительный нагрев приостановлен",
+        "ko": "예열 일시 중지"
       }
     },
     {
       "id": "9",
       "title": {
         "en": "Pause2",
-        "nl": "Pause2"
+        "nl": "Pause2",
+        "da": "Pause2",
+        "de": "Pause2",
+        "es": "Pause2",
+        "fr": "Pause2",
+        "it": "Pause2",
+        "no": "Pause2",
+        "sv": "Pause2",
+        "pl": "Pause2",
+        "ru": "Pause2",
+        "ko": "Pause2"
       }
     }
   ],

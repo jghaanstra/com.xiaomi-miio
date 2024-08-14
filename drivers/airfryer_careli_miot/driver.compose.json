@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Air Fryers MIoT (WiFi)",
-    "nl": "Air Fryers MIoT (WiFi)"
+    "nl": "Air Fryers MIoT (WiFi)",
+    "da": "Air Fryers MIoT (WiFi)",
+    "de": "Air Fryers MIoT (WiFi)",
+    "es": "Air Fryers MIoT (WiFi)",
+    "fr": "Air Fryers MIoT (WiFi)",
+    "it": "Air Fryers MIoT (WiFi)",
+    "no": "Air Fryers MIoT (WiFi)",
+    "sv": "Air Fryers MIoT (WiFi)",
+    "pl": "Air Fryers MIoT (WiFi)",
+    "ru": "Air Fryers MIoT (WiFi)",
+    "ko": "Air Fryers MIoT (WiFi)"
   },
   "images": {
     "large": "drivers/airfryer_careli_miot/assets/images/large.jpg",
@@ -23,7 +33,17 @@
     "measure_temperature": {
       "title": {
         "en": "Preheat switch",
-        "nl": "Preheat schakelaar"
+        "nl": "Preheat schakelaar",
+        "da": "Forvarmingskontakt",
+        "de": "Vorheizschalter",
+        "es": "Interruptor de precalentamiento",
+        "fr": "Interrupteur de préchauffage",
+        "it": "Interruttore di preriscaldamento",
+        "no": "Forvarmingsbryter",
+        "sv": "Förvärmningsbrytare",
+        "pl": "Przełącznik nagrzewania",
+        "ru": "Выключатель предварительного нагрева",
+        "ko": "예열 스위치"
       }
     }
   }

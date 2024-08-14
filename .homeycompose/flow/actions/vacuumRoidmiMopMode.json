@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Set Sweep and Mop Mode",
-    "nl": "Stel Sweep and Mop modus in"
+    "nl": "Stel Sweep and Mop modus in",
+    "da": "Indstil Sweep og Mop-tilstand",
+    "de": "Sweep und Mop Modus einstellen",
+    "es": "Configurar modo Barrer y Fregar",
+    "fr": "Définir le mode Balayage et Nettoyage",
+    "it": "Imposta modalità Spazza e Pulisci",
+    "no": "Angi Sweep og Mop-modus",
+    "sv": "Ställ in Sop- och Moppläge",
+    "pl": "Ustaw tryb Zamiatanie i Mopowanie",
+    "ru": "Установить режим Подметания и Мытья",
+    "ko": "청소 및 물걸레 모드 설정"
   },
   "titleFormatted": {
     "en": "Set Sweep and Mop Mode to [[mode]]",
-    "nl": "Stel Sweep and Mop modus in op [[mode]]"
+    "nl": "Stel Sweep and Mop modus in op [[mode]]",
+    "da": "Indstil Sweep og Mop-tilstand til [[mode]]",
+    "de": "Sweep und Mop Modus auf [[mode]] einstellen",
+    "es": "Configurar modo Barrer y Fregar a [[mode]]",
+    "fr": "Définir le mode Balayage et Nettoyage sur [[mode]]",
+    "it": "Imposta la modalità Spazza e Pulisci su [[mode]]",
+    "no": "Angi Sweep og Mop-modus til [[mode]]",
+    "sv": "Ställ in Sop- och Moppläge till [[mode]]",
+    "pl": "Ustaw tryb Zamiatanie i Mopowanie na [[mode]]",
+    "ru": "Установить режим Подметания и Мытья на [[mode]]",
+    "ko": "청소 및 물걸레 모드를 [[mode]]로 설정"
   },
   "args": [
     {
       "name": "mode",
       "title": {
         "en": "Sweep and Mop Mode",
-        "nl": "Sweep and Mop modus"
+        "nl": "Sweep and Mop modus",
+        "da": "Sweep og Mop-tilstand",
+        "de": "Sweep und Mop Modus",
+        "es": "Modo Barrer y Fregar",
+        "fr": "Mode Balayage et Nettoyage",
+        "it": "Modalità Spazza e Pulisci",
+        "no": "Sweep og Mop-modus",
+        "sv": "Sop- och Moppläge",
+        "pl": "Tryb Zamiatanie i Mopowanie",
+        "ru": "Режим Подметания и Мытья",
+        "ko": "청소 및 물걸레 모드"
       },
       "type": "dropdown",
       "values": [
@@ -20,21 +50,51 @@
           "id": "0",
           "title": {
             "en": "Sweep",
-            "nl": "Sweep"
+            "nl": "Sweep",
+            "da": "Sweep",
+            "de": "Sweep",
+            "es": "Barrer",
+            "fr": "Balayer",
+            "it": "Spazza",
+            "no": "Sweep",
+            "sv": "Sweep",
+            "pl": "Zamiatanie",
+            "ru": "Подметание",
+            "ko": "청소"
           }
         },
         {
           "id": "1",
           "title": {
             "en": "Mop",
-            "nl": "Mop"
+            "nl": "Mop",
+            "da": "Mop",
+            "de": "Mop",
+            "es": "Fregar",
+            "fr": "Nettoyer",
+            "it": "Pulisci",
+            "no": "Mop",
+            "sv": "Mop",
+            "pl": "Mopowanie",
+            "ru": "Мытьё",
+            "ko": "물걸레"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "Mop & Sweep",
-            "nl": "Mop & Sweep"
+            "nl": "Mop & Sweep",
+            "da": "Mop & Sweep",
+            "de": "Mop & Sweep",
+            "es": "Fregar y Barrer",
+            "fr": "Nettoyer et Balayer",
+            "it": "Pulisci & Spazza",
+            "no": "Mop & Sweep",
+            "sv": "Mop & Sweep",
+            "pl": "Mopowanie i Zamiatanie",
+            "ru": "Мытьё и Подметание",
+            "ko": "청소 및 물걸레"
           }
         }
       ]
@@ -44,10 +104,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer stofzuiger"
+        "nl": "Selecteer stofzuiger",
+        "da": "Vælg støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Seleccionar aspiradora",
+        "fr": "Sélectionner l'aspirateur",
+        "it": "Seleziona aspirapolvere",
+        "no": "Velg støvsuger",
+        "sv": "Välj dammsugare",
+        "pl": "Wybierz odkurzacz",
+        "ru": "Выберите пылесос",
+        "ko": "진공 청소기 선택"
       },
       "filter": "driver_id=vacuum_roidmi_vacuum_miot"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

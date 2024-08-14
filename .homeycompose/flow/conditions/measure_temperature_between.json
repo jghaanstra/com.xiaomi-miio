@@ -2,15 +2,45 @@
   "id": "measure_temperature_between",
   "title": {
     "en": "Temperature !{{is between|is not between}}",
-    "nl": "Temperatuur !{{ligt tussen|ligt niet tussen}}"
+    "nl": "Temperatuur !{{ligt tussen|ligt niet tussen}}",
+    "da": "Temperatur !{{er mellem|er ikke mellem}}",
+    "de": "Temperatur !{{liegt zwischen|liegt nicht zwischen}}",
+    "es": "Temperatura !{{está entre|no está entre}}",
+    "fr": "Température !{{est entre|n'est pas entre}}",
+    "it": "Temperatura !{{è tra|non è tra}}",
+    "no": "Temperatur !{{er mellom|er ikke mellom}}",
+    "sv": "Temperatur !{{är mellan|är inte mellan}}",
+    "pl": "Temperatura !{{jest między|nie jest między}}",
+    "ru": "Температура !{{между|не между}}",
+    "ko": "온도 !{{사이에 있음|사이에 없음}}"
   },
   "titleFormatted": {
     "en": "Temperature !{{is between|is not between}} [[value1]] and [[value2]]",
-    "nl": "Temperatuur !{{ligt tussen|ligt niet tussen}} [[value1]] en [[value2]]"
+    "nl": "Temperatuur !{{ligt tussen|ligt niet tussen}} [[value1]] en [[value2]]",
+    "da": "Temperatur !{{er mellem|er ikke mellem}} [[value1]] og [[value2]]",
+    "de": "Temperatur !{{liegt zwischen|liegt nicht zwischen}} [[value1]] und [[value2]]",
+    "es": "Temperatura !{{está entre|no está entre}} [[value1]] y [[value2]]",
+    "fr": "Température !{{est entre|n'est pas entre}} [[value1]] et [[value2]]",
+    "it": "Temperatura !{{è tra|non è tra}} [[value1]] e [[value2]]",
+    "no": "Temperatur !{{er mellom|er ikke mellom}} [[value1]] og [[value2]]",
+    "sv": "Temperatur !{{är mellan|är inte mellan}} [[value1]] och [[value2]]",
+    "pl": "Temperatura !{{jest między|nie jest między}} [[value1]] i [[value2]]",
+    "ru": "Температура !{{между|не между}} [[value1]] и [[value2]]",
+    "ko": "온도 !{{사이에 있음|사이에 없음}} [[value1]]와 [[value2]] 사이"
   },
   "hint": {
     "en": "Use this card to determine whether or not the zone temperature is between two values. The specified values are also valid.",
-    "nl": "Gebruik dit kaartje om te bepalen of de zone temperatuur tussen twee waarden ligt. De opgegeven waarden zijn ook geldig."
+    "nl": "Gebruik dit kaartje om te bepalen of de zone temperatuur tussen twee waarden ligt. De opgegeven waarden zijn ook geldig.",
+    "da": "Brug dette kort til at bestemme, om zonens temperatur er mellem to værdier. De angivne værdier er også gyldige.",
+    "de": "Verwenden Sie diese Karte, um festzustellen, ob die Zonentemperatur zwischen zwei Werten liegt. Die angegebenen Werte sind ebenfalls gültig.",
+    "es": "Usa esta tarjeta para determinar si la temperatura de la zona está entre dos valores. Los valores especificados también son válidos.",
+    "fr": "Utilisez cette carte pour déterminer si la température de la zone est comprise entre deux valeurs. Les valeurs spécifiées sont également valables.",
+    "it": "Usa questa scheda per determinare se la temperatura della zona è compresa tra due valori. Anche i valori specificati sono validi.",
+    "no": "Bruk dette kortet for å bestemme om sone-temperaturen er mellom to verdier. De spesifiserte verdiene er også gyldige.",
+    "sv": "Använd detta kort för att avgöra om zonens temperatur är mellan två värden. De specificerade värdena är också giltiga.",
+    "pl": "Użyj tej karty, aby określić, czy temperatura strefy mieści się pomiędzy dwoma wartościami. Podane wartości są również ważne.",
+    "ru": "Используйте эту карту, чтобы определить, находится ли температура в зоне между двумя значениями. Указанные значения также действительны.",
+    "ko": "이 카드를 사용하여 구역 온도가 두 값 사이에 있는지 여부를 결정하세요. 지정된 값도 유효합니다."
   },
   "args": [
     {
@@ -21,7 +51,17 @@
       "step": 1,
       "title": {
         "en": "Above",
-        "nl": "Boven"
+        "nl": "Boven",
+        "da": "Over",
+        "de": "Über",
+        "es": "Por encima",
+        "fr": "Au-dessus",
+        "it": "Sopra",
+        "no": "Over",
+        "sv": "Över",
+        "pl": "Powyżej",
+        "ru": "Выше",
+        "ko": "위"
       },
       "placeholder": {
         "en": "°C",
@@ -36,7 +76,17 @@
       "step": 1,
       "title": {
         "en": "Below",
-        "nl": "Onder"
+        "nl": "Onder",
+        "da": "Under",
+        "de": "Unter",
+        "es": "Por debajo",
+        "fr": "En dessous",
+        "it": "Sotto",
+        "no": "Under",
+        "sv": "Under",
+        "pl": "Poniżej",
+        "ru": "Ниже",
+        "ko": "아래"
       },
       "placeholder": {
         "en": "°C",
@@ -48,10 +98,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выбрать устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-temperature-humidity-sensor|aqara-temperature-humidity-sensor"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Set Mode",
-    "nl": "Stel modus in"
+    "nl": "Stel modus in",
+    "da": "Indstil tilstand",
+    "de": "Modus einstellen",
+    "es": "Establecer modo",
+    "fr": "Définir le mode",
+    "it": "Imposta modalità",
+    "no": "Angi modus",
+    "sv": "Ställ in läge",
+    "pl": "Ustaw tryb",
+    "ru": "Установить режим",
+    "ko": "모드 설정"
   },
   "titleFormatted": {
     "en": "Set mode to [[mode]]",
-    "nl": "Stel modus in op [[mode]]"
+    "nl": "Stel modus in op [[mode]]",
+    "da": "Indstil tilstand til [[mode]]",
+    "de": "Modus einstellen auf [[mode]]",
+    "es": "Establecer modo a [[mode]]",
+    "fr": "Définir le mode sur [[mode]]",
+    "it": "Imposta modalità su [[mode]]",
+    "no": "Angi modus til [[mode]]",
+    "sv": "Ställ in läge på [[mode]]",
+    "pl": "Ustaw tryb na [[mode]]",
+    "ru": "Установить режим на [[mode]]",
+    "ko": "[[mode]] 모드로 설정"
   },
   "args": [
     {
       "name": "mode",
       "title": {
         "en": "Mode",
-        "nl": "Modus"
+        "nl": "Modus",
+        "da": "Tilstand",
+        "de": "Modus",
+        "es": "Modo",
+        "fr": "Mode",
+        "it": "Modalità",
+        "no": "Modus",
+        "sv": "Läge",
+        "pl": "Tryb",
+        "ru": "Режим",
+        "ko": "모드"
       },
       "type": "dropdown",
       "values": [
@@ -21,7 +51,16 @@
           "title": {
             "en": "Off",
             "nl": "Uit",
-            "de": "Aus"
+            "de": "Aus",
+            "da": "Fra",
+            "es": "Apagado",
+            "fr": "Éteint",
+            "it": "Spento",
+            "no": "Av",
+            "sv": "Av",
+            "pl": "Wył.",
+            "ru": "Выкл.",
+            "ko": "끔"
           }
         },
         {
@@ -29,7 +68,16 @@
           "title": {
             "en": "Silent",
             "nl": "Stil",
-            "de": "Leise"
+            "de": "Leise",
+            "da": "Stille",
+            "es": "Silencioso",
+            "fr": "Silencieux",
+            "it": "Silenzioso",
+            "no": "Stille",
+            "sv": "Tyst",
+            "pl": "Cichy",
+            "ru": "Беззвучный",
+            "ko": "무음"
           }
         },
         {
@@ -37,7 +85,16 @@
           "title": {
             "en": "Medium",
             "nl": "Middel",
-            "de": "Mittel"
+            "de": "Mittel",
+            "da": "Medium",
+            "es": "Medio",
+            "fr": "Moyen",
+            "it": "Medio",
+            "no": "Medium",
+            "sv": "Medium",
+            "pl": "Średni",
+            "ru": "Средний",
+            "ko": "중간"
           }
         },
         {
@@ -45,7 +102,16 @@
           "title": {
             "en": "High",
             "nl": "Hoog",
-            "de": "Hoch"
+            "de": "Hoch",
+            "da": "Høj",
+            "es": "Alto",
+            "fr": "Haut",
+            "it": "Alto",
+            "no": "Høy",
+            "sv": "Hög",
+            "pl": "Wysoki",
+            "ru": "Высокий",
+            "ko": "높음"
           }
         },
         {
@@ -53,7 +119,16 @@
           "title": {
             "en": "Auto",
             "nl": "Auto",
-            "de": "Auto"
+            "de": "Auto",
+            "da": "Auto",
+            "es": "Auto",
+            "fr": "Auto",
+            "it": "Auto",
+            "no": "Auto",
+            "sv": "Auto",
+            "pl": "Auto",
+            "ru": "Авто",
+            "ko": "자동"
           }
         },
         {
@@ -61,7 +136,16 @@
           "title": {
             "en": "Strong",
             "nl": "Sterk",
-            "de": "Stark"
+            "de": "Stark",
+            "da": "Stærk",
+            "es": "Fuerte",
+            "fr": "Fort",
+            "it": "Forte",
+            "no": "Sterk",
+            "sv": "Stark",
+            "pl": "Silny",
+            "ru": "Сильный",
+            "ko": "강한"
           }
         }
       ]
@@ -71,10 +155,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Mi Humidifier",
-        "nl": "Selecteer Mi Humidifier"
+        "nl": "Selecteer Mi Humidifier",
+        "da": "Vælg Mi Humidifier",
+        "de": "Wählen Sie Mi Luftbefeuchter aus",
+        "es": "Selecciona Mi Humidificador",
+        "fr": "Sélectionnez Mi Humidificateur",
+        "it": "Seleziona Mi Umidificatore",
+        "no": "Velg Mi Humidifier",
+        "sv": "Välj Mi Humidifier",
+        "pl": "Wybierz Mi Humidifier",
+        "ru": "Выберите Mi Humidifier",
+        "ko": "Mi Humidifier 선택"
       },
       "filter": "driver_id=humidifier_zhimi_humidifier"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

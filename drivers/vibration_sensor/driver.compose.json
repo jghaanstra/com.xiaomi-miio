@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Vibration Sensor (Gateway)",
-    "nl": "Vibration Sensor (Gateway)"
+    "nl": "Vibration Sensor (Gateway)",
+    "da": "Vibrationssensor (Gateway)",
+    "de": "Vibrationssensor (Gateway)",
+    "es": "Sensor de Vibración (Gateway)",
+    "fr": "Capteur de Vibration (Passerelle)",
+    "it": "Sensore di Vibrazione (Gateway)",
+    "no": "Vibrasjonssensor (Gateway)",
+    "sv": "Vibrationssensor (Gateway)",
+    "pl": "Czujnik Wibracji (Gateway)",
+    "ru": "Датчик Вибрации (Шлюз)",
+    "ko": "진동 센서 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/vibration_sensor/assets/images/large.jpg",
@@ -22,23 +32,55 @@
     "alarm_tamper": {
       "title": {
         "en": "Vibrate",
-        "nl": "Vibratie"
+        "nl": "Vibratie",
+        "da": "Vibrering",
+        "de": "Vibrieren",
+        "es": "Vibrar",
+        "fr": "Vibrer",
+        "it": "Vibrare",
+        "no": "Vibrere",
+        "sv": "Vibrera",
+        "pl": "Wibracja",
+        "ru": "Вибрация",
+        "ko": "진동"
       }
     },
     "alarm_motion.tilt": {
       "title": {
         "en": "Tilt",
-        "nl": "Tilt"
+        "nl": "Tilt",
+        "da": "Vip",
+        "de": "Neigung",
+        "es": "Inclinación",
+        "fr": "Inclinaison",
+        "it": "Inclinazione",
+        "no": "Vippe",
+        "sv": "Lutning",
+        "pl": "Przechylenie",
+        "ru": "Наклон",
+        "ko": "기울기"
       }
     },
     "alarm_motion.freefall": {
       "title": {
         "en": "Free fall",
-        "nl": "Vrije val"
+        "nl": "Vrije val",
+        "da": "Frit fald",
+        "de": "Freier Fall",
+        "es": "Caída libre",
+        "fr": "Chute libre",
+        "it": "Caduta libera",
+        "no": "Fritt fall",
+        "sv": "Fritt fall",
+        "pl": "Upadek swobodny",
+        "ru": "Свободное падение",
+        "ko": "자유 낙하"
       }
     }
   },
   "energy": {
-    "batteries": ["CR2032"]
+    "batteries": [
+      "CR2032"
+    ]
   }
 }

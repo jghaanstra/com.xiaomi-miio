@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Smart Wall Single Switch With Neutral (Gateway)",
-    "nl": "Aqara Smart Wall Single Switch met nuldraad (Gateway)"
+    "nl": "Aqara Smart Wall Single Switch met nuldraad (Gateway)",
+    "da": "Aqara Smart Wall Single Switch med neutral (Gateway)",
+    "de": "Aqara Smart Wall Single Switch mit Neutralleiter (Gateway)",
+    "es": "Interruptor simple de pared inteligente Aqara con neutro (Gateway)",
+    "fr": "Interrupteur mural simple intelligent Aqara avec neutre (Gateway)",
+    "it": "Interruttore singolo da parete Aqara con neutro (Gateway)",
+    "no": "Aqara Smart veggbryter med nøytral (Gateway)",
+    "sv": "Aqara Smart Wall enkel brytare med neutral (Gateway)",
+    "pl": "Pojedynczy włącznik Aqara Smart Wall z neutralnym przewodem (Gateway)",
+    "ru": "Aqara умный настенный выключатель с нейтральным проводом (Gateway)",
+    "ko": "Aqara 스마트 벽 단일 스위치 중립선 포함 (Gateway)"
   },
   "images": {
     "large": "/drivers/aqara-ctrl-ln1/assets/images/large.png",
@@ -11,5 +21,7 @@
   "$extends": [
     "defaults_subdevice"
   ],
-  "capabilities": ["onoff"]
+  "capabilities": [
+    "onoff"
+  ]
 }

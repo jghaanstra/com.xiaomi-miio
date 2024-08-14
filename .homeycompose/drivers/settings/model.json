@@ -4,6 +4,16 @@
   "value": "lumi.device",
   "label": {
     "en": "Model",
-    "nl": "Model"
+    "nl": "Model",
+    "da": "Model",
+    "de": "Modell",
+    "es": "Modelo",
+    "fr": "Modèle",
+    "it": "Modello",
+    "no": "Modell",
+    "sv": "Modell",
+    "pl": "Model",
+    "ru": "Модель",
+    "ko": "모델"
   }
 }

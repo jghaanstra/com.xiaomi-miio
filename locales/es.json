@@ -1,0 +1,24 @@
+{
+  "pair": {
+    "title": "Agregar dispositivo Mi Home",
+    "startpairing": "Para que Homey pueda comunicarse con los dispositivos a través del protocolo miIO, es necesario obtener un token único del dispositivo. Se necesita conocimiento técnico para obtener estos tokens. Si no eres muy conocedor de la tecnología, usar esta aplicación puede ser un desafío. Ve las instrucciones en el tema de soporte del foro de la comunidad sobre cómo obtener los tokens de los dispositivos.",
+    "nosettings": "Por favor, completa todos los campos.",
+    "intro": "Ingresa los detalles de tu dispositivo Mi Home.",
+    "address": "Dirección IP",
+    "token": "Token (32 caracteres de números y letras)",
+    "polling": "Frecuencia de Polling",
+    "test": "Probar Conexión",
+    "testResult": "Prueba de conexión exitosa, ahora puedes conectar el dispositivo con Homey.",
+    "connect": "Conectar",
+    "unknownerror": "Error desconocido, ¿estás seguro de haber ingresado la dirección IP y el token correctos y de que Homey está en la misma red que el dispositivo Mi Home? Por favor, revisa tu configuración e inténtalo de nuevo.",
+    "state": "Estado:",
+    "battery": "Nivel de batería:",
+    "fanspeed": "Velocidad del ventilador:",
+    "no_devices_found": "No se encontraron dispositivos.",
+    "no_gateways": "No se encontraron gateways. \n\n Antes de agregar dispositivos, por favor abres la configuración del plugin y agregues tu gateway Xiaomi.\n El gateway Aqara aún no es compatible."
+  },
+  "device": {
+    "unreachable": "El dispositivo está inaccesible: ",
+    "noupdates": "El dispositivo aún no ha recibido ninguna actualización"
+  }
+}

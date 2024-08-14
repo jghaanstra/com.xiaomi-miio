@@ -146,6 +146,7 @@ class Util {
     'dreame.vacuum.p2114a': 'Xiaomi/Dreame Robot Vacuum X10+',
     'dreame.vacuum.r2211o': 'Xiaomi/Dreame Robot Vacuum S10+',
     'dreame.vacuum.r2232c': 'Dreame Bot L10s Prime',
+    'dreame.vacuum.r2338a': 'Dreame L10s Pro Ultra',
 
     'mijia.vacuum.v1': 'Xiaomi Mijia G1 Robot Vacuum Mop v1',
     'mijia.vacuum.v2': 'Xiaomi Mijia G1 Robot Vacuum Mop v2',

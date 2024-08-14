@@ -2,35 +2,85 @@
   "type": "enum",
   "title": {
     "en": "Air Purifier Heating Mode",
-    "nl": "Air Purifier verwarming modus"
+    "nl": "Air Purifier verwarming modus",
+    "da": "Luftrenser opvarmningsfunktion",
+    "de": "Luftreiniger-Heizmodus",
+    "es": "Modo de calefacción del purificador de aire",
+    "fr": "Mode chauffage purificateur d'air",
+    "it": "Modalità riscaldamento purificatore d'aria",
+    "no": "Luftrenser oppvarmingsmodus",
+    "sv": "Luftrenare värmeläge",
+    "pl": "Tryb ogrzewania oczyszczacza powietrza",
+    "ru": "Режим обогрева воздухоочистителя",
+    "ko": "공기 청정기 난방 모드"
   },
   "values": [
     {
       "id": "off",
       "title": {
         "en": "Off",
-        "nl": "Uit"
+        "nl": "Uit",
+        "da": "Slukket",
+        "de": "Aus",
+        "es": "Apagado",
+        "fr": "Éteint",
+        "it": "Spento",
+        "no": "Av",
+        "sv": "Av",
+        "pl": "Wył.",
+        "ru": "Выкл.",
+        "ko": "끄기"
       }
     },
     {
       "id": "low",
       "title": {
         "en": "Low",
-        "nl": "Laag"
+        "nl": "Laag",
+        "da": "Lav",
+        "de": "Niedrig",
+        "es": "Bajo",
+        "fr": "Faible",
+        "it": "Basso",
+        "no": "Lav",
+        "sv": "Låg",
+        "pl": "Niski",
+        "ru": "Низкий",
+        "ko": "낮음"
       }
     },
     {
       "id": "medium",
       "title": {
         "en": "Medium",
-        "nl": "Medium"
+        "nl": "Medium",
+        "da": "Mellem",
+        "de": "Mittel",
+        "es": "Medio",
+        "fr": "Moyen",
+        "it": "Medio",
+        "no": "Middels",
+        "sv": "Mellan",
+        "pl": "Średni",
+        "ru": "Средний",
+        "ko": "중간"
       }
     },
     {
       "id": "high",
       "title": {
         "en": "High",
-        "nl": "Hoog"
+        "nl": "Hoog",
+        "da": "Høj",
+        "de": "Hoch",
+        "es": "Alto",
+        "fr": "Élevé",
+        "it": "Alto",
+        "no": "Høy",
+        "sv": "Hög",
+        "pl": "Wysoki",
+        "ru": "Высокий",
+        "ko": "높음"
       }
     }
   ],

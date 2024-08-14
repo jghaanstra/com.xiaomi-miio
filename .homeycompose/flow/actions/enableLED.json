@@ -1,18 +1,48 @@
 {
   "title": {
     "en": "Enable LED",
-    "nl": "Instellen LED"
+    "nl": "Instellen LED",
+    "da": "Aktiver LED",
+    "de": "LED aktivieren",
+    "es": "Activar LED",
+    "fr": "Activer LED",
+    "it": "Abilita LED",
+    "no": "Aktiver LED",
+    "sv": "Aktivera LED",
+    "pl": "Włącz LED",
+    "ru": "Включить светодиод",
+    "ko": "LED 켜기"
   },
   "titleFormatted": {
     "en": "Set LED [[led]]",
-    "nl": "Wijzig LED naar [[led]]"
+    "nl": "Wijzig LED naar [[led]]",
+    "da": "Indstil LED [[led]]",
+    "de": "LED einstellen [[led]]",
+    "es": "Configurar LED [[led]]",
+    "fr": "Définir la LED [[led]]",
+    "it": "Imposta LED [[led]]",
+    "no": "Still inn LED [[led]]",
+    "sv": "Ställ in LED [[led]]",
+    "pl": "Ustaw LED [[led]]",
+    "ru": "Установить светодиод [[led]]",
+    "ko": "LED 설정 [[led]]"
   },
   "args": [
     {
       "name": "led",
       "title": {
         "en": "LED",
-        "nl": "LED"
+        "nl": "LED",
+        "da": "LED",
+        "de": "LED",
+        "es": "LED",
+        "fr": "LED",
+        "it": "LED",
+        "no": "LED",
+        "sv": "LED",
+        "pl": "LED",
+        "ru": "LED",
+        "ko": "LED"
       },
       "type": "dropdown",
       "values": [
@@ -20,14 +50,34 @@
           "id": "0",
           "label": {
             "en": "Off",
-            "nl": "Uit"
+            "nl": "Uit",
+            "da": "Slukket",
+            "de": "Aus",
+            "es": "Apagado",
+            "fr": "Éteint",
+            "it": "Spento",
+            "no": "Av",
+            "sv": "Av",
+            "pl": "Wyłączony",
+            "ru": "Выкл",
+            "ko": "끄기"
           }
         },
         {
           "id": "1",
           "label": {
             "en": "On",
-            "nl": "Aan"
+            "nl": "Aan",
+            "da": "Tændt",
+            "de": "Ein",
+            "es": "Encendido",
+            "fr": "Allumé",
+            "it": "Acceso",
+            "no": "På",
+            "sv": "På",
+            "pl": "Włączony",
+            "ru": "Вкл",
+            "ko": "켜기"
           }
         }
       ]
@@ -37,10 +87,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "기기 선택"
       },
       "filter": "driver_id=airpurifier_zhimi_advanced_miot|fan_dmaker_advanced|heater_zhimi_heater_miot|humidifier_xiaomi_humidifier|petfeeder_mmgg_miot|petwaterdispenser_mmgg_miot|humidifier_deerma_humidifier_miot|humidifier_zhimi_humidifier_miot"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

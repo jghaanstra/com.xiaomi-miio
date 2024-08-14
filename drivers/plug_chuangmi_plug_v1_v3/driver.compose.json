@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mi Smart Plug With 1 or 2 USB (WiFi)",
-    "nl": "Mi Smart Plug met 1 of 2 USB (WiFi)"
+    "nl": "Mi Smart Plug met 1 of 2 USB (WiFi)",
+    "da": "Mi Smart Plug med 1 eller 2 USB (WiFi)",
+    "de": "Mi Smart Plug mit 1 oder 2 USB (WiFi)",
+    "es": "Mi Smart Plug con 1 o 2 USB (WiFi)",
+    "fr": "Mi Smart Plug avec 1 ou 2 USB (WiFi)",
+    "it": "Mi Smart Plug con 1 o 2 USB (WiFi)",
+    "no": "Mi Smart Plug med 1 eller 2 USB (WiFi)",
+    "sv": "Mi Smart Plug med 1 eller 2 USB (WiFi)",
+    "pl": "Mi Smart Plug z 1 lub 2 USB (WiFi)",
+    "ru": "Mi Smart Plug с 1 или 2 USB (WiFi)",
+    "ko": "1 또는 2 USB(와이파이)를 갖춘 Mi 스마트 플러그"
   },
   "images": {
     "large": "drivers/plug_chuangmi_plug_v1_v3/assets/images/large.jpg",
@@ -21,13 +31,33 @@
     "onoff.usb": {
       "title": {
         "en": "USB power",
-        "nl": "USB stroom"
+        "nl": "USB stroom",
+        "da": "USB strøm",
+        "de": "USB Strom",
+        "es": "Potencia USB",
+        "fr": "Alimentation USB",
+        "it": "Alimentazione USB",
+        "no": "USB-strøm",
+        "sv": "USB-ström",
+        "pl": "Zasilanie USB",
+        "ru": "Питание USB",
+        "ko": "USB 전원"
       }
     },
     "onoff.led": {
       "title": {
         "en": "WiFi LED",
-        "nl": "WiFi LED"
+        "nl": "WiFi LED",
+        "da": "WiFi LED",
+        "de": "WiFi LED",
+        "es": "WiFi LED",
+        "fr": "WiFi LED",
+        "it": "WiFi LED",
+        "no": "WiFi LED",
+        "sv": "WiFi LED",
+        "pl": "WiFi LED",
+        "ru": "WiFi LED",
+        "ko": "와이파이 LED"
       }
     }
   }

@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Advanced Smartmi/ZhiMi Fan (WiFi)",
-    "nl": "Geadvanceerde Smartmi/ZhiMi Fan (WiFi)"
+    "nl": "Geadvanceerde Smartmi/ZhiMi Fan (WiFi)",
+    "da": "Avanceret Smartmi/ZhiMi Fan (WiFi)",
+    "de": "Erweiterter Smartmi/ZhiMi Ventilator (WiFi)",
+    "es": "Ventilador Smartmi/ZhiMi Avanzado (WiFi)",
+    "fr": "Ventilateur Smartmi/ZhiMi Avancé (WiFi)",
+    "it": "Ventilatore Smartmi/ZhiMi Avanzato (WiFi)",
+    "no": "Avansert Smartmi/ZhiMi Vifte (WiFi)",
+    "sv": "Avancerad Smartmi/ZhiMi Fläkt (WiFi)",
+    "pl": "Zaawansowany Smartmi/ZhiMi Wentylator (WiFi)",
+    "ru": "Продвинутый Smartmi/ZhiMi Вентилятор (WiFi)",
+    "ko": "고급 Smartmi/ZhiMi 팬 (WiFi)"
   },
   "images": {
     "large": "drivers/fan_zhimi_advanced/assets/images/large.jpg",
@@ -22,19 +32,49 @@
     "onoff.swing": {
       "title": {
         "en": "Horizontal Swing",
-        "nl": "Horizontale swing"
+        "nl": "Horizontale swing",
+        "da": "Horisontal Sving",
+        "de": "Horizontaler Schwung",
+        "es": "Oscilación Horizontal",
+        "fr": "Balancier Horizontal",
+        "it": "Oscillazione Orizzontale",
+        "no": "Horisontal Sving",
+        "sv": "Horisontell Sväng",
+        "pl": "Poziomy Swing",
+        "ru": "Горизонтальный Размах",
+        "ko": "수평 스윙"
       }
     },
     "dim": {
       "title": {
         "en": "Fanlevel",
-        "nl": "Ventilator niveau"
+        "nl": "Ventilator niveau",
+        "da": "Fan niveau",
+        "de": "Ventilatorstufe",
+        "es": "Nivel de ventilador",
+        "fr": "Niveau de ventilateur",
+        "it": "Livello di ventilatore",
+        "no": "Viftenivå",
+        "sv": "Fläktnivå",
+        "pl": "Poziom wentylatora",
+        "ru": "Уровень вентилятора",
+        "ko": "팬 레벨"
       }
     },
     "dim.angle": {
       "title": {
         "en": "Horizontal Angle",
-        "nl": "Horizontale hoek"
+        "nl": "Horizontale hoek",
+        "da": "Horisontal Vinkel",
+        "de": "Horizontaler Winkel",
+        "es": "Ángulo Horizontal",
+        "fr": "Angle Horizontal",
+        "it": "Angolo Orizzontale",
+        "no": "Horisontal Vinkel",
+        "sv": "Horisontell Vinkel",
+        "pl": "Poziomy Kąt",
+        "ru": "Горизонтальный Угол",
+        "ko": "수평 각도"
       },
       "min": 0,
       "max": 120,

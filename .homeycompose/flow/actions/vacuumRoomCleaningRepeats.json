@@ -2,34 +2,94 @@
   "id": "vacuumRoomCleaningRepeats",
   "title": {
     "en": "Start repeated room cleaning",
-    "nl": "Start herhaald kamer stofzuigen"
+    "nl": "Start herhaald kamer stofzuigen",
+    "da": "Start gentagne rum rengøring",
+    "de": "Beginne wiederholte Raumreinigung",
+    "es": "Iniciar limpieza repetida de habitaciones",
+    "fr": "Commencer le nettoyage répété de la pièce",
+    "it": "Inizia la pulizia ripetuta della stanza",
+    "no": "Start gjentatt romrengjøring",
+    "sv": "Start upprepad rumstädning",
+    "pl": "Rozpocznij powtarzane sprzątanie pokoju",
+    "ru": "Начать повторяющуюся уборку комнаты",
+    "ko": "반복 방 청소 시작"
   },
   "titleFormatted": {
     "en": "Send vacuum cleaner to clean room [[rooms]] and repeat [[repeats]] times",
-    "nl": "Stuur stofzuiger naar kamer [[rooms]] en herhaal [[repeats]] keer"
+    "nl": "Stuur stofzuiger naar kamer [[rooms]] en herhaal [[repeats]] keer",
+    "da": "Send støvsuger til at rengøre rum [[rooms]] og gentag [[repeats]] gange",
+    "de": "Schicke Staubsauger, um Raum [[rooms]] zu reinigen und [[repeats]] mal zu wiederholen",
+    "es": "Enviar aspiradora para limpiar la habitación [[rooms]] y repetir [[repeats]] veces",
+    "fr": "Envoyer l'aspirateur pour nettoyer la pièce [[rooms]] et répéter [[repeats]] fois",
+    "it": "Invia l'aspirapolvere a pulire la stanza [[rooms]] e ripeti [[repeats]] volte",
+    "no": "Send støvsuger for å rengjøre rommet [[rooms]] og gjenta [[repeats]] ganger",
+    "sv": "Skicka dammsugare för att städa rum [[rooms]] och upprepa [[repeats]] gånger",
+    "pl": "Wyślij odkurzacz, aby posprzątał pokój [[rooms]] i powtórz [[repeats]] razy",
+    "ru": "Отправить пылесос для уборки комнаты [[rooms]] и повторить [[repeats]] раз",
+    "ko": "방 [[rooms]]을 청소하도록 청소기를 보내고 [[repeats]]번 반복"
   },
   "hint": {
     "en": "Enter the room ID's (comma seperated)",
-    "nl": "Voer kamer ID's in (gescheiden door een komma)"
+    "nl": "Voer kamer ID's in (gescheiden door een komma)",
+    "da": "Indtast rum ID'erne (kommasepareret)",
+    "de": "Geben Sie die Raum-IDs ein (durch Kommas getrennt)",
+    "es": "Ingrese los ID de las habitaciones (separados por comas)",
+    "fr": "Entrez les ID des pièces (séparés par des virgules)",
+    "it": "Inserisci gli ID delle stanze (separati da virgole)",
+    "no": "Skriv inn rom-ID-er (kommaseparert)",
+    "sv": "Ange rums-ID:n (kommaseparerade)",
+    "pl": "Wprowadź identyfikatory pokoi (oddzielone przecinkami)",
+    "ru": "Введите идентификаторы комнат (через запятую)",
+    "ko": "방 ID 입력(쉼표로 구분)"
   },
   "args": [
     {
       "name": "rooms",
       "title": {
         "en": "Room(s)",
-        "nl": "Kamer(s)"
+        "nl": "Kamer(s)",
+        "da": "Rum",
+        "de": "Raum/Räume",
+        "es": "Habitación(es)",
+        "fr": "Pièce(s)",
+        "it": "Stanza/e",
+        "no": "Rom",
+        "sv": "Rum",
+        "pl": "Pokój(e)",
+        "ru": "Комната(ы)",
+        "ko": "방"
       },
       "type": "text",
       "placeholder": {
         "en": "Room(s)",
-        "nl": "Kamer(s)"
+        "nl": "Kamer(s)",
+        "da": "Rum",
+        "de": "Raum/Räume",
+        "es": "Habitación(es)",
+        "fr": "Pièce(s)",
+        "it": "Stanza/e",
+        "no": "Rom",
+        "sv": "Rum",
+        "pl": "Pokój(e)",
+        "ru": "Комната(ы)",
+        "ko": "방"
       }
     },
     {
       "name": "repeats",
       "title": {
         "en": "Repeat",
-        "nl": "Herhaal"
+        "nl": "Herhaal",
+        "da": "Gentag",
+        "de": "Wiederholen",
+        "es": "Repetir",
+        "fr": "Répéter",
+        "it": "Ripeti",
+        "no": "Gjenta",
+        "sv": "Upprepa",
+        "pl": "Powtórz",
+        "ru": "Повторить",
+        "ko": "반복"
       },
       "type": "number",
       "min": 1,
@@ -41,10 +101,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer stofzuiger"
+        "nl": "Selecteer stofzuiger",
+        "da": "Vælg støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Seleccione aspiradora",
+        "fr": "Sélectionnez l'aspirateur",
+        "it": "Seleziona l'aspirapolvere",
+        "no": "Velg støvsuger",
+        "sv": "Välj dammsugare",
+        "pl": "Wybierz odkurzacz",
+        "ru": "Выберите пылесос",
+        "ko": "청소기 선택"
       },
       "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

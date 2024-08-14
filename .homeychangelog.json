@@ -208,5 +208,8 @@
   },
   "3.2.24": {
     "en": "This release adds support for Xiaomi Smart Pet Food Feeder 2 (xiaomi.feeder.pi2001) and Dreame L10s Prime (dreame.vacuum.r2232c). And it fixes a bug for the Xiaomi Smart Air Purifier 4 Compact (xiaomi.airp.cpa4)."
+  },
+  "3.2.25": {
+    "en": "This release includes a fix for Mijia Smart Pet Food Feeder 2 (xiaomi.feeder.pi2001), tries to add support for Dreame L10s Pro Ultra (dreame.vacuum.r2338a) and updates device classes for airpurifiers, airfryers, humidifiers and petfeeders. It also adds localisation for other supported languages within Homey."
   }
 }

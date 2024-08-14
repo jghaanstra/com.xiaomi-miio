@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mi Aqara Cube (Gateway)",
-    "nl": "Mi Aqara Kubus (Gateway)"
+    "nl": "Mi Aqara Kubus (Gateway)",
+    "da": "Mi Aqara Cube (Gateway)",
+    "de": "Mi Aqara Würfel (Gateway)",
+    "es": "Mi Aqara Cubo (Gateway)",
+    "fr": "Mi Aqara Cube (Gateway)",
+    "it": "Mi Aqara Cubo (Gateway)",
+    "no": "Mi Aqara Cube (Gateway)",
+    "sv": "Mi Aqara Kub (Gateway)",
+    "pl": "Mi Aqara Kostka (Gateway)",
+    "ru": "Mi Aqara Куб (Gateway)",
+    "ko": "Mi Aqara 큐브 (Gateway)"
   },
   "images": {
     "large": "/drivers/mi-aqara-cube/assets/images/large.png",
@@ -16,6 +26,8 @@
     "alarm_battery"
   ],
   "energy": {
-    "batteries": ["CR2450"]
+    "batteries": [
+      "CR2450"
+    ]
   }
 }

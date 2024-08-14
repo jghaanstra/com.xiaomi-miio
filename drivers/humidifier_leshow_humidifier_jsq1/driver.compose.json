@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Xiaomi Humidifier Pro (WiFi)",
-    "nl": "Xiaomi Humidifier Pro (WiFi)"
+    "nl": "Xiaomi Humidifier Pro (WiFi)",
+    "da": "Xiaomi Luftfugter Pro (WiFi)",
+    "de": "Xiaomi Befeuchter Pro (WiFi)",
+    "es": "Xiaomi Humidificador Pro (WiFi)",
+    "fr": "Xiaomi Humidificateur Pro (WiFi)",
+    "it": "Xiaomi Umidificatore Pro (WiFi)",
+    "no": "Xiaomi Luftfukter Pro (WiFi)",
+    "sv": "Xiaomi Luftfuktare Pro (WiFi)",
+    "pl": "Xiaomi Nawilżacz Pro (WiFi)",
+    "ru": "Xiaomi Увлажнитель Pro (WiFi)",
+    "ko": "샤오미 가습기 프로 (WiFi)"
   },
   "images": {
     "large": "drivers/humidifier_leshow_humidifier_jsq1/assets/images/large.jpg",
@@ -22,7 +32,17 @@
     "dim": {
       "title": {
         "en": "Target Relative Humidity",
-        "nl": "Doel relatieve vochtigheid"
+        "nl": "Doel relatieve vochtigheid",
+        "da": "Mål relativ luftfugtighed",
+        "de": "Ziel relative Luftfeuchtigkeit",
+        "es": "Humedad relativa objetivo",
+        "fr": "Humidité relative cible",
+        "it": "Umidità relativa target",
+        "no": "Mål relativ fuktighet",
+        "sv": "Mål relativ luftfuktighet",
+        "pl": "Docelowa wilgotność względna",
+        "ru": "Целевая относительная влажность",
+        "ko": "목표 상대 습도"
       },
       "min": 0.3,
       "max": 0.8
@@ -30,7 +50,17 @@
     "measure_water": {
       "title": {
         "en": "Waterlevel",
-        "nl": "Waterniveau"
+        "nl": "Waterniveau",
+        "da": "Vandstand",
+        "de": "Wasserstand",
+        "es": "Nivel de agua",
+        "fr": "Niveau d'eau",
+        "it": "Livello dell'acqua",
+        "no": "Vannstand",
+        "sv": "Vattennivå",
+        "pl": "Poziom wody",
+        "ru": "Уровень воды",
+        "ko": "수위"
       }
     }
   }

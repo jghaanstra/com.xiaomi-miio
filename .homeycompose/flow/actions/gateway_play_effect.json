@@ -1,163 +1,433 @@
 {
   "title": {
     "en": "Play effect",
-    "nl": "Speel effect"
+    "nl": "Speel effect",
+    "da": "Afspil effekt",
+    "de": "Effekt abspielen",
+    "es": "Reproducir efecto",
+    "fr": "Jouer l'effet",
+    "it": "Riproduci effetto",
+    "no": "Spill av effekt",
+    "sv": "Spela effekt",
+    "pl": "Odtwórz efekt",
+    "ru": "Воспроизвести эффект",
+    "ko": "효과 재생"
   },
   "titleFormatted": {
     "en": "Play effect [[toneID]]",
-    "nl": "Speel effect [[toneID]]"
+    "nl": "Speel effect [[toneID]]",
+    "da": "Afspil effekt [[toneID]]",
+    "de": "Effekt abspielen [[toneID]]",
+    "es": "Reproducir efecto [[toneID]]",
+    "fr": "Jouer l'effet [[toneID]]",
+    "it": "Riproduci effetto [[toneID]]",
+    "no": "Spill av effekt [[toneID]]",
+    "sv": "Spela effekt [[toneID]]",
+    "pl": "Odtwórz efekt [[toneID]]",
+    "ru": "Воспроизвести эффект [[toneID]]",
+    "ko": "효과 재생 [[toneID]]"
   },
   "args": [
     {
       "type": "dropdown",
       "title": {
         "en": "Effect ID",
-        "nl": "Effect ID"
+        "nl": "Effect ID",
+        "da": "Effekt-ID",
+        "de": "Effekt-ID",
+        "es": "ID de efecto",
+        "fr": "ID d'effet",
+        "it": "ID effetto",
+        "no": "Effekt-ID",
+        "sv": "Effekt-ID",
+        "pl": "ID efektu",
+        "ru": "ID эффекта",
+        "ko": "효과 ID"
       },
       "name": "toneID",
       "values": [
         {
           "id": "0",
           "label": {
-            "en": "Police car 1"
+            "en": "Police car 1",
+            "da": "Politibil 1",
+            "de": "Polizeiauto 1",
+            "es": "Coche de policía 1",
+            "fr": "Voiture de police 1",
+            "it": "Auto della polizia 1",
+            "no": "Politibil 1",
+            "sv": "Polisbil 1",
+            "pl": "Radiowóz 1",
+            "ru": "Полицейская машина 1",
+            "ko": "경찰차 1"
           }
         },
         {
           "id": "1",
           "label": {
-            "en": "Police car 2"
+            "en": "Police car 2",
+            "da": "Politibil 2",
+            "de": "Polizeiauto 2",
+            "es": "Coche de policía 2",
+            "fr": "Voiture de police 2",
+            "it": "Auto della polizia 2",
+            "no": "Politibil 2",
+            "sv": "Polisbil 2",
+            "pl": "Radiowóz 2",
+            "ru": "Полицейская машина 2",
+            "ko": "경찰차 2"
           }
         },
         {
           "id": "2",
           "label": {
-            "en": "Accident"
+            "en": "Accident",
+            "da": "Uheld",
+            "de": "Unfall",
+            "es": "Accidente",
+            "fr": "Accident",
+            "it": "Incidente",
+            "no": "Ulykke",
+            "sv": "Olycka",
+            "pl": "Wypadek",
+            "ru": "Авария",
+            "ko": "사고"
           }
         },
         {
           "id": "3",
           "label": {
-            "en": "Countdown"
+            "en": "Countdown",
+            "da": "Nedtælling",
+            "de": "Countdown",
+            "es": "Cuenta regresiva",
+            "fr": "Compte à rebours",
+            "it": "Conto alla rovescia",
+            "no": "Nedtelling",
+            "sv": "Nedräkning",
+            "pl": "Odliczanie",
+            "ru": "Обратный отсчет",
+            "ko": "카운트다운"
           }
         },
         {
           "id": "4",
           "label": {
-            "en": "Ghost"
+            "en": "Ghost",
+            "da": "Spøgelse",
+            "de": "Gespenst",
+            "es": "Fantasma",
+            "fr": "Fantôme",
+            "it": "Fantasma",
+            "no": "Spøkelse",
+            "sv": "Spöke",
+            "pl": "Duch",
+            "ru": "Призрак",
+            "ko": "유령"
           }
         },
         {
           "id": "5",
           "label": {
-            "en": "Sniper rifle"
+            "en": "Sniper rifle",
+            "da": "Snigskytteriffel",
+            "de": "Scharfschützengewehr",
+            "es": "Rifle de francotirador",
+            "fr": "Fusil de sniper",
+            "it": "Fucile da cecchino",
+            "no": "Snikskytterifle",
+            "sv": "Krypskyttegevär",
+            "pl": "Karabin snajperski",
+            "ru": "Снайперская винтовка",
+            "ko": "저격 소총"
           }
         },
         {
           "id": "6",
           "label": {
-            "en": "Battle"
+            "en": "Battle",
+            "da": "Kamp",
+            "de": "Schlacht",
+            "es": "Batalla",
+            "fr": "Bataille",
+            "it": "Battaglia",
+            "no": "Kamp",
+            "sv": "Strid",
+            "pl": "Bitwa",
+            "ru": "Битва",
+            "ko": "전투"
           }
         },
         {
           "id": "7",
           "label": {
-            "en": "Air raid"
+            "en": "Air raid",
+            "da": "Luftangreb",
+            "de": "Luftangriff",
+            "es": "Ataque aéreo",
+            "fr": "Raid aérien",
+            "it": "Incursione aerea",
+            "no": "Luftangrep",
+            "sv": "Flyganfall",
+            "pl": "Nalot",
+            "ru": "Воздушный налет",
+            "ko": "공습"
           }
         },
         {
           "id": "8",
           "label": {
-            "en": "Bark"
+            "en": "Bark",
+            "da": "Gøen",
+            "de": "Bellen",
+            "es": "Ladrido",
+            "fr": "Aboiement",
+            "it": "Abbaiare",
+            "no": "Bjeffing",
+            "sv": "Skall",
+            "pl": "Szczekanie",
+            "ru": "Лай",
+            "ko": "짖다"
           }
         },
         {
           "id": "10",
           "label": {
-            "en": "Doorbell"
+            "en": "Doorbell",
+            "da": "Dørklokke",
+            "de": "Türklingel",
+            "es": "Timbre",
+            "fr": "Sonnette",
+            "it": "Campanello",
+            "no": "Ringeklokke",
+            "sv": "Dörrklocka",
+            "pl": "Dzwonek do drzwi",
+            "ru": "Дверной звонок",
+            "ko": "문 벨"
           }
         },
         {
           "id": "11",
           "label": {
-            "en": "Knock at a door"
+            "en": "Knock at a door",
+            "da": "Banke på en dør",
+            "de": "Klopfen an der Tür",
+            "es": "Llamar a la puerta",
+            "fr": "Frapper à une porte",
+            "it": "Bussare alla porta",
+            "no": "Banke på en dør",
+            "sv": "Knacka på en dörr",
+            "pl": "Pukanie do drzwi",
+            "ru": "стучать в дверь",
+            "ko": "문을 두드리다"
           }
         },
         {
           "id": "12",
           "label": {
-            "en": "Amuse"
+            "en": "Amuse",
+            "da": "Underholde",
+            "de": "Unterhalten",
+            "es": "Divertir",
+            "fr": "Amuser",
+            "it": "Divertire",
+            "no": "Underholde",
+            "sv": "Underhålla",
+            "pl": "Bawić",
+            "ru": "развлекать",
+            "ko": "즐겁게 하다"
           }
         },
         {
           "id": "13",
           "label": {
-            "en": "Alarm clock"
+            "en": "Alarm clock",
+            "da": "Vækkeur",
+            "de": "Wecker",
+            "es": "Reloj despertador",
+            "fr": "Réveil",
+            "it": "Sveglia",
+            "no": "Vekkerklokke",
+            "sv": "Väckarklocka",
+            "pl": "Budzik",
+            "ru": "Будильник",
+            "ko": "알람 시계"
           }
         },
         {
           "id": "20",
           "label": {
-            "en": "MiMix"
+            "en": "MiMix",
+            "da": "MiMix",
+            "de": "MiMix",
+            "es": "MiMix",
+            "fr": "MiMix",
+            "it": "MiMix",
+            "no": "MiMix",
+            "sv": "MiMix",
+            "pl": "MiMix",
+            "ru": "MiMix",
+            "ko": "MiMix"
           }
         },
         {
           "id": "21",
           "label": {
-            "en": "Enthusiastic"
+            "en": "Enthusiastic",
+            "da": "Entusiastisk",
+            "de": "Enthusiastisch",
+            "es": "Entusiasta",
+            "fr": "Enthousiaste",
+            "it": "Entusiasta",
+            "no": "Entusiastisk",
+            "sv": "Entusiastisk",
+            "pl": "Entuzjastyczny",
+            "ru": "Восторженный",
+            "ko": "열렬한"
           }
         },
         {
           "id": "22",
           "label": {
-            "en": "GuitarClassic"
+            "en": "GuitarClassic",
+            "da": "GuitarClassic",
+            "de": "GuitarClassic",
+            "es": "GuitarClassic",
+            "fr": "GuitarClassic",
+            "it": "GuitarClassic",
+            "no": "GuitarClassic",
+            "sv": "GuitarClassic",
+            "pl": "GuitarClassic",
+            "ru": "GuitarClassic",
+            "ko": "GuitarClassic"
           }
         },
         {
           "id": "23",
           "label": {
-            "en": "IceWorldPiano"
+            "en": "IceWorldPiano",
+            "da": "IceWorldPiano",
+            "de": "IceWorldPiano",
+            "es": "IceWorldPiano",
+            "fr": "IceWorldPiano",
+            "it": "IceWorldPiano",
+            "no": "IceWorldPiano",
+            "sv": "IceWorldPiano",
+            "pl": "IceWorldPiano",
+            "ru": "IceWorldPiano",
+            "ko": "IceWorldPiano"
           }
         },
         {
           "id": "24",
           "label": {
-            "en": "LeisureTime"
+            "en": "LeisureTime",
+            "da": "LeisureTime",
+            "de": "LeisureTime",
+            "es": "LeisureTime",
+            "fr": "LeisureTime",
+            "it": "LeisureTime",
+            "no": "LeisureTime",
+            "sv": "LeisureTime",
+            "pl": "LeisureTime",
+            "ru": "LeisureTime",
+            "ko": "LeisureTime"
           }
         },
         {
           "id": "25",
           "label": {
-            "en": "ChildHood"
+            "en": "ChildHood",
+            "da": "ChildHood",
+            "de": "ChildHood",
+            "es": "ChildHood",
+            "fr": "ChildHood",
+            "it": "ChildHood",
+            "no": "ChildHood",
+            "sv": "ChildHood",
+            "pl": "ChildHood",
+            "ru": "ChildHood",
+            "ko": "ChildHood"
           }
         },
         {
           "id": "26",
           "label": {
-            "en": "MorningStreamLiet"
+            "en": "MorningStreamLiet",
+            "da": "MorningStreamLiet",
+            "de": "MorningStreamLiet",
+            "es": "MorningStreamLiet",
+            "fr": "MorningStreamLiet",
+            "it": "MorningStreamLiet",
+            "no": "MorningStreamLiet",
+            "sv": "MorningStreamLiet",
+            "pl": "MorningStreamLiet",
+            "ru": "MorningStreamLiet",
+            "ko": "MorningStreamLiet"
           }
         },
         {
           "id": "27",
           "label": {
-            "en": "MusicBox"
+            "en": "MusicBox",
+            "da": "MusicBox",
+            "de": "MusicBox",
+            "es": "MusicBox",
+            "fr": "MusicBox",
+            "it": "MusicBox",
+            "no": "MusicBox",
+            "sv": "MusicBox",
+            "pl": "MusicBox",
+            "ru": "MusicBox",
+            "ko": "MusicBox"
           }
         },
         {
           "id": "28",
           "label": {
-            "en": "Orange"
+            "en": "Orange",
+            "da": "Orange",
+            "de": "Orange",
+            "es": "Naranja",
+            "fr": "Orange",
+            "it": "Arancio",
+            "no": "Oransje",
+            "sv": "Orange",
+            "pl": "Pomarańczowy",
+            "ru": "Оранжевый",
+            "ko": "오렌지"
           }
         },
         {
           "id": "29",
           "label": {
-            "en": "Thinker"
+            "en": "Thinker",
+            "da": "Tænker",
+            "de": "Denker",
+            "es": "Pensador",
+            "fr": "Penseur",
+            "it": "Pensatore",
+            "no": "Tenker",
+            "sv": "Tänker",
+            "pl": "Myśliciel",
+            "ru": "Мыслитель",
+            "ko": "사색가"
           }
         },
         {
           "id": "10000",
           "label": {
-            "en": "MUTE"
+            "en": "MUTE",
+            "da": "STUM",
+            "de": "STUMM",
+            "es": "MUDO",
+            "fr": "SILENCE",
+            "it": "MUTO",
+            "no": "STILLE",
+            "sv": "TYST",
+            "pl": "WYŁĄCZONY",
+            "ru": "БЕСШУМНЫЙ",
+            "ko": "무음"
           }
         }
       ]
@@ -167,10 +437,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Gateway",
-        "nl": "Selecteer Gateway"
+        "nl": "Selecteer Gateway",
+        "da": "Vælg Gateway",
+        "de": "Gateway auswählen",
+        "es": "Seleccionar Gateway",
+        "fr": "Sélectionner la passerelle",
+        "it": "Seleziona Gateway",
+        "no": "Velg Gateway",
+        "sv": "Välj Gateway",
+        "pl": "Wybierz Gateway",
+        "ru": "Выберите шлюз",
+        "ko": "게이트웨이 선택"
       },
       "filter": "driver_id=gateway"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

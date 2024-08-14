@@ -1,7 +1,17 @@
 {
   "title": {
     "en": "Pause cleaning",
-    "nl": "Schoonmaken pauzeren"
+    "nl": "Schoonmaken pauzeren",
+    "da": "Pause rengøring",
+    "de": "Reinigung pausieren",
+    "es": "Pausar la limpieza",
+    "fr": "Mettre en pause le nettoyage",
+    "it": "Metti in pausa la pulizia",
+    "no": "Pause rengjøring",
+    "sv": "Pausa städningen",
+    "pl": "Wstrzymaj sprzątanie",
+    "ru": "Приостановить уборку",
+    "ko": "청소 일시중지"
   },
   "args": [
     {
@@ -9,10 +19,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer stofzuiger"
+        "nl": "Selecteer stofzuiger",
+        "da": "Vælg støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Seleccionar aspiradora",
+        "fr": "Sélectionner l'aspirateur",
+        "it": "Selezionare l'aspirapolvere",
+        "no": "Velg støvsuger",
+        "sv": "Välj dammsugare",
+        "pl": "Wybierz odkurzacz",
+        "ru": "Выберите пылесос",
+        "ko": "진공 청소기 선택"
       },
       "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

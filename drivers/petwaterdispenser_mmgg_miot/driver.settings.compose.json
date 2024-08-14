@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "User Settings",
-      "nl": "Gebruikersinstellingem"
+      "nl": "Gebruikersinstellingem",
+      "da": "Brugerindstillinger",
+      "de": "Benutzereinstellungen",
+      "es": "Configuración del usuario",
+      "fr": "Paramètres utilisateur",
+      "it": "Impostazioni utente",
+      "no": "Brukerinnstillinger",
+      "sv": "Användarinställningar",
+      "pl": "Ustawienia użytkownika",
+      "ru": "Настройки пользователя",
+      "ko": "사용자 설정"
     },
     "children": [
       {
@@ -21,7 +31,17 @@
     "type": "group",
     "label": {
       "en": "Device Data",
-      "nl": "Apparaat Data"
+      "nl": "Apparaat Data",
+      "da": "Enhedsdata",
+      "de": "Gerätedaten",
+      "es": "Datos del dispositivo",
+      "fr": "Données de l'appareil",
+      "it": "Dati del dispositivo",
+      "no": "Enhetsdata",
+      "sv": "Enhetsdata",
+      "pl": "Dane urządzenia",
+      "ru": "Данные устройства",
+      "ko": "디바이스 데이터"
     },
     "children": [
       {
@@ -29,7 +49,17 @@
         "type": "label",
         "label": {
           "en": "Filter remaining",
-          "nl": "Filter over"
+          "nl": "Filter over",
+          "da": "Filter tilbage",
+          "de": "Filter verbleibend",
+          "es": "Filtro restante",
+          "fr": "Filtre restant",
+          "it": "Filtro rimanente",
+          "no": "Filter gjenstår",
+          "sv": "Filter kvar",
+          "pl": "Filtr pozostały",
+          "ru": "Фильтр остался",
+          "ko": "남은 필터"
         },
         "value": "0%"
       },
@@ -38,7 +68,17 @@
         "type": "label",
         "label": {
           "en": "Cotton remaining",
-          "nl": "Cotton over"
+          "nl": "Cotton over",
+          "da": "Bomuld tilbage",
+          "de": "Baumwolle verbleibend",
+          "es": "Algodón restante",
+          "fr": "Coton restant",
+          "it": "Cotone rimanente",
+          "no": "Bomull gjenstår",
+          "sv": "Bomull kvar",
+          "pl": "Bawełna pozostała",
+          "ru": "Осталось хлопка",
+          "ko": "남은 면"
         },
         "value": "0%"
       },
@@ -47,7 +87,17 @@
         "type": "label",
         "label": {
           "en": "Cleaning time remaining",
-          "nl": "Opschoon tijd over"
+          "nl": "Opschoon tijd over",
+          "da": "Rengøringstid tilbage",
+          "de": "Reinigungszeit verbleibend",
+          "es": "Tiempo de limpieza restante",
+          "fr": "Temps de nettoyage restant",
+          "it": "Tempo di pulizia rimanente",
+          "no": "Rengjøringstid gjenstår",
+          "sv": "Rengöringstid kvar",
+          "pl": "Pozostały czas czyszczenia",
+          "ru": "Осталось времени на уборку",
+          "ko": "남은 청소 시간"
         },
         "value": "6"
       }
@@ -57,7 +107,17 @@
     "type": "group",
     "label": {
       "en": "Device data",
-      "nl": "Apparaat data"
+      "nl": "Apparaat data",
+      "da": "Enhedsdata",
+      "de": "Gerätedaten",
+      "es": "Datos del dispositivo",
+      "fr": "Données de l'appareil",
+      "it": "Dati del dispositivo",
+      "no": "Enhetsdata",
+      "sv": "Enhetsdata",
+      "pl": "Dane urządzenia",
+      "ru": "Данные устройства",
+      "ko": "디바이스 데이터"
     },
     "children": [
       {
@@ -75,7 +135,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuración del dispositivo",
+      "fr": "Paramètres de l'appareil",
+      "it": "Impostazioni del dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia urządzenia",
+      "ru": "Настройки устройства",
+      "ko": "디바이스 설정"
     },
     "children": [
       {

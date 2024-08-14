@@ -3,7 +3,16 @@
   "title": {
     "en": "Waterlevel has changed",
     "nl": "Waterniveau is veranderd",
-    "de": "Der Wasserstand hat sich geändert"
+    "de": "Der Wasserstand hat sich geändert",
+    "da": "Vandniveauet er ændret",
+    "es": "El nivel de agua ha cambiado",
+    "fr": "Le niveau de l'eau a changé",
+    "it": "Il livello dell'acqua è cambiato",
+    "no": "Vannstanden har endret seg",
+    "sv": "Vattennivån har ändrats",
+    "pl": "Poziom wody się zmienił",
+    "ru": "Уровень воды изменился",
+    "ko": "수위가 변경되었습니다"
   },
   "tokens": [
     {
@@ -12,7 +21,16 @@
       "title": {
         "en": "current waterlevel",
         "nl": "actueel waterniveau",
-        "de": "aktueller Wasserstand"
+        "de": "aktueller Wasserstand",
+        "da": "nuværende vandniveau",
+        "es": "nivel de agua actual",
+        "fr": "niveau d'eau actuel",
+        "it": "livello dell'acqua attuale",
+        "no": "nåværende vannstand",
+        "sv": "nuvarande vattennivå",
+        "pl": "aktualny poziom wody",
+        "ru": "текущий уровень воды",
+        "ko": "현재 수위"
       },
       "example": 88
     },
@@ -22,7 +40,16 @@
       "title": {
         "en": "previous waterlevel",
         "nl": "vorige waterniveau",
-        "de": "bisheriger Wasserstand"
+        "de": "bisheriger Wasserstand",
+        "da": "tidligere vandniveau",
+        "es": "nivel de agua anterior",
+        "fr": "niveau d'eau précédent",
+        "it": "livello dell'acqua precedente",
+        "no": "forrige vannstand",
+        "sv": "tidigare vattennivå",
+        "pl": "wcześniejszy poziom wody",
+        "ru": "предыдущий уровень воды",
+        "ko": "이전 수위"
       },
       "example": 90
     }
@@ -33,10 +60,21 @@
       "type": "device",
       "placeholder": {
         "en": "Select Humidifier 2",
-        "nl": "Selecteer Humidifier 2"
+        "nl": "Selecteer Humidifier 2",
+        "da": "Vælg Humidifier 2",
+        "es": "Selecciona Humidifier 2",
+        "fr": "Sélectionnez Humidifier 2",
+        "it": "Seleziona Humidifier 2",
+        "no": "Velg Humidifier 2",
+        "sv": "Välj Humidifier 2",
+        "pl": "Wybierz Humidifier 2",
+        "ru": "Выберите Humidifier 2",
+        "ko": "Humidifier 2 선택"
       },
       "filter": "driver_id=humidifier_zhimi_humidifier|humidifier_zhimi_humidifier_miot|humidifier_xiaomi_humidifier"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

@@ -23,7 +23,17 @@
     "dim": {
       "title": {
         "en": "Speed",
-        "nl": "Snelheid"
+        "nl": "Snelheid",
+        "da": "Hastighed",
+        "de": "Geschwindigkeit",
+        "es": "Velocidad",
+        "fr": "Vitesse",
+        "it": "Velocità",
+        "no": "Hastighet",
+        "sv": "Hastighet",
+        "pl": "Prędkość",
+        "ru": "Скорость",
+        "ko": "속도"
       },
       "min": 0,
       "max": 3,
@@ -32,7 +42,17 @@
     "dim.water": {
       "title": {
         "en": "Mop mode",
-        "nl": "Dweil modus"
+        "nl": "Dweil modus",
+        "da": "Moppe tilstand",
+        "de": "Wischmodus",
+        "es": "Modo de fregona",
+        "fr": "Mode serpillière",
+        "it": "Modalità mocio",
+        "no": "Moppemodus",
+        "sv": "Mopp-läge",
+        "pl": "Tryb mopa",
+        "ru": "Режим швабры",
+        "ko": "물걸레 모드"
       },
       "min": 0,
       "max": 3,
@@ -42,15 +62,37 @@
       "maintenanceAction": true,
       "title": {
         "en": "Reset consumables",
-        "nl": "Reset verbruiksartikelen"
+        "nl": "Reset verbruiksartikelen",
+        "da": "Nulstil forbrugsvarer",
+        "de": "Verbrauchsmaterialien zurücksetzen",
+        "es": "Restablecer consumibles",
+        "fr": "Réinitialiser les consommables",
+        "it": "Reimposta i consumabili",
+        "no": "Tilbakestill forbruksvarer",
+        "sv": "Återställ förbrukningsvaror",
+        "pl": "Resetuj materiały eksploatacyjne",
+        "ru": "Сбросить расходные материалы",
+        "ko": "소모품 초기화"
       },
       "desc": {
         "en": "Reset the usage of vacuum cleaner consumables.",
-        "nl": "Reset het gebruik van de verbruiksartikelen"
+        "nl": "Reset het gebruik van de verbruiksartikelen",
+        "da": "Nulstil brugen af støvsugerens forbrugsvarer.",
+        "de": "Verwendungsdauer der Staubsauger-Verbrauchsmaterialien zurücksetzen.",
+        "es": "Restablecer el uso de los consumibles de la aspiradora.",
+        "fr": "Réinitialiser l'utilisation des consommables de l'aspirateur.",
+        "it": "Reimposta l'uso dei consumabili dell'aspirapolvere.",
+        "no": "Tilbakestill bruken av støvsugerens forbruksvarer.",
+        "sv": "Återställ användningen av dammsugarens förbrukningsvaror.",
+        "pl": "Resetuj użycie materiałów eksploatacyjnych odkurzacza.",
+        "ru": "Сбросить использование расходных материалов пылесоса.",
+        "ko": "진공 청소기 소모품 사용량 재설정."
       }
     }
   },
   "energy": {
-    "batteries": ["INTERNAL"]
+    "batteries": [
+      "INTERNAL"
+    ]
   }
 }

@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "Duration of the natural gas detected alarm in seconds",
-      "nl": "Duur van het gas gedetecteerd alarm in seconden"
+      "nl": "Duur van het gas gedetecteerd alarm in seconden",
+      "da": "Varighed af detekteret naturgasalarm i sekunder",
+      "de": "Dauer des erkannten Erdgasalarm in Sekunden",
+      "es": "Duración de la alarma de gas natural detectado en segundos",
+      "fr": "Durée de l'alarme de gaz naturel détecté en secondes",
+      "it": "Durata dell'allarme di gas naturale rilevato in secondi",
+      "no": "Varighet av naturliggassalarm oppdaget i sekunder",
+      "sv": "Varaktighet av detekterat naturgaslarm i sekunder",
+      "pl": "Czas trwania alarmu wykrycia gazu ziemnego w sekundach",
+      "ru": "Продолжительность сработавшей тревоги по обнаружению природного газа в секундах",
+      "ko": "천연가스 감지 경보 지속 시간 (초)"
     },
     "children": [
       {
@@ -11,7 +21,17 @@
         "type": "number",
         "label": {
           "en": "Disable after",
-          "nl": "Uitschakelen na"
+          "nl": "Uitschakelen na",
+          "da": "Deaktiver efter",
+          "de": "Deaktivieren nach",
+          "es": "Desactivar después de",
+          "fr": "Désactiver après",
+          "it": "Disabilita dopo",
+          "no": "Deaktiver etter",
+          "sv": "Inaktivera efter",
+          "pl": "Wyłącz po",
+          "ru": "Отключить через",
+          "ko": "비활성화 시간"
         },
         "value": 60,
         "attr": {
@@ -25,7 +45,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuración del dispositivo",
+      "fr": "Paramètres de l'appareil",
+      "it": "Impostazioni del dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia urządzenia",
+      "ru": "Настройки устройства",
+      "ko": "장치 설정"
     },
     "children": [
       {

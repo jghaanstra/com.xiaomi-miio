@@ -2,18 +2,48 @@
   "id": "vacuumRoborockFanspeed",
   "title": {
     "en": "Set Fanspeed",
-    "nl": "Stel ventilator in"
+    "nl": "Stel ventilator in",
+    "da": "Indstil blæserhastighed",
+    "de": "Lüftergeschwindigkeit einstellen",
+    "es": "Ajustar velocidad del ventilador",
+    "fr": "Régler la vitesse du ventilateur",
+    "it": "Imposta velocità ventola",
+    "no": "Sett vifthastighet",
+    "sv": "Ställ in fläkthastighet",
+    "pl": "Ustaw prędkość wentylatora",
+    "ru": "Установить скорость вентилятора",
+    "ko": "팬 속도 설정"
   },
   "titleFormatted": {
     "en": "Set Fanspeed [[fanspeed]]",
-    "nl": "Stel ventilator in op [[fanspeed]]"
+    "nl": "Stel ventilator in op [[fanspeed]]",
+    "da": "Indstil blæserhastighed [[fanspeed]]",
+    "de": "Lüftergeschwindigkeit einstellen [[fanspeed]]",
+    "es": "Ajustar velocidad del ventilador [[fanspeed]]",
+    "fr": "Régler la vitesse du ventilateur [[fanspeed]]",
+    "it": "Imposta velocità ventola [[fanspeed]]",
+    "no": "Sett vifthastighet [[fanspeed]]",
+    "sv": "Ställ in fläkthastighet [[fanspeed]]",
+    "pl": "Ustaw prędkość wentylatora [[fanspeed]]",
+    "ru": "Установить скорость вентилятора [[fanspeed]]",
+    "ko": "팬 속도 설정 [[fanspeed]]"
   },
   "args": [
     {
       "name": "fanspeed",
       "title": {
         "en": "Fanspeed",
-        "nl": "Fan snelheid"
+        "nl": "Fan snelheid",
+        "da": "Blæserhastighed",
+        "de": "Lüftergeschwindigkeit",
+        "es": "Velocidad del ventilador",
+        "fr": "Vitesse du ventilateur",
+        "it": "Velocità ventola",
+        "no": "Vifthastighet",
+        "sv": "Fläkthastighet",
+        "pl": "Prędkość wentylatora",
+        "ru": "Скорость вентилятора",
+        "ko": "팬 속도"
       },
       "type": "dropdown",
       "values": [
@@ -21,35 +51,85 @@
           "id": "1",
           "title": {
             "en": "Quiet",
-            "nl": "Stil"
+            "nl": "Stil",
+            "da": "Stille",
+            "de": "Leise",
+            "es": "Silencioso",
+            "fr": "Silencieux",
+            "it": "Silenzioso",
+            "no": "Stille",
+            "sv": "Tyst",
+            "pl": "Cichy",
+            "ru": "Тихий",
+            "ko": "조용히"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "Standard",
-            "nl": "Standaard"
+            "nl": "Standaard",
+            "da": "Standard",
+            "de": "Standard",
+            "es": "Estándar",
+            "fr": "Standard",
+            "it": "Standard",
+            "no": "Standard",
+            "sv": "Standard",
+            "pl": "Standardowy",
+            "ru": "Стандарт",
+            "ko": "표준"
           }
         },
         {
           "id": "3",
           "title": {
             "en": "Medium",
-            "nl": "Medium"
+            "nl": "Medium",
+            "da": "Medium",
+            "de": "Mittel",
+            "es": "Medio",
+            "fr": "Moyen",
+            "it": "Medio",
+            "no": "Medium",
+            "sv": "Medium",
+            "pl": "Średni",
+            "ru": "Средний",
+            "ko": "중간"
           }
         },
         {
           "id": "4",
           "title": {
             "en": "Turbo",
-            "nl": "Turbo"
+            "nl": "Turbo",
+            "da": "Turbo",
+            "de": "Turbo",
+            "es": "Turbo",
+            "fr": "Turbo",
+            "it": "Turbo",
+            "no": "Turbo",
+            "sv": "Turbo",
+            "pl": "Turbo",
+            "ru": "Турбо",
+            "ko": "터보"
           }
         },
         {
           "id": "5",
           "title": {
             "en": "Max",
-            "nl": "Max"
+            "nl": "Max",
+            "da": "Maks.",
+            "de": "Max",
+            "es": "Máximo",
+            "fr": "Max",
+            "it": "Max",
+            "no": "Max",
+            "sv": "Max",
+            "pl": "Maks.",
+            "ru": "Макс.",
+            "ko": "최대"
           }
         }
       ]
@@ -59,10 +139,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Vacuum",
-        "nl": "Selecteer stofzuiger"
+        "nl": "Selecteer stofzuiger",
+        "da": "Vælg støvsuger",
+        "de": "Staubsauger auswählen",
+        "es": "Seleccionar aspiradora",
+        "fr": "Sélectionner un aspirateur",
+        "it": "Seleziona aspirapolvere",
+        "no": "Velg støvsuger",
+        "sv": "Välj dammsugare",
+        "pl": "Wybierz odkurzacz",
+        "ru": "Выберите пылесос",
+        "ko": "진공 청소기 선택"
       },
       "filter": "driver_id=vacuum_mi_rockrobo_vacuum_advanced"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

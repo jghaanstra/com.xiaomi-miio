@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Philips Bedside Lamp (WiFi)",
-    "nl": "Philips Bedside Lamp (WiFi)"
+    "nl": "Philips Bedside Lamp (WiFi)",
+    "da": "Philips Sengelampe (WiFi)",
+    "de": "Philips Nachttischlampe (WiFi)",
+    "es": "Lámpara de Noche Philips (WiFi)",
+    "fr": "Lampe de Chevet Philips (WiFi)",
+    "it": "Lampada da Comodino Philips (WiFi)",
+    "no": "Philips Nattbordslampe (WiFi)",
+    "sv": "Philips Sänglampa (WiFi)",
+    "pl": "Lampka Nocna Philips (WiFi)",
+    "ru": "Прикроватная лампа Philips (WiFi)",
+    "ko": "필립스 침대 옆 램프 (WiFi)"
   },
   "images": {
     "large": "drivers/philips_light_moonlight/assets/images/large.jpg",

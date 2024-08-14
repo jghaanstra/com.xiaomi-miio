@@ -2,15 +2,45 @@
   "id": "measure_humidity_between",
   "title": {
     "en": "Humidity !{{is between|is not between}}",
-    "nl": "Luchtvochtigheid !{{ligt tussen|ligt niet tussen}}"
+    "nl": "Luchtvochtigheid !{{ligt tussen|ligt niet tussen}}",
+    "da": "Fugtighed !{{er mellem|er ikke mellem}}",
+    "de": "Feuchtigkeit !{{liegt zwischen|liegt nicht zwischen}}",
+    "es": "Humedad !{{está entre|no está entre}}",
+    "fr": "Humidité !{{est entre|n'est pas entre}}",
+    "it": "Umidità !{{è tra|non è tra}}",
+    "no": "Fuktighet !{{er mellom|er ikke mellom}}",
+    "sv": "Fuktighet !{{är mellan|är inte mellan}}",
+    "pl": "Wilgotność !{{jest między|nie jest między}}",
+    "ru": "Влажность !{{между|не между}}",
+    "ko": "습도 !{{사이에 있음|사이에 없음}}"
   },
   "titleFormatted": {
     "en": "Humidity !{{is between|is not between}} [[value1]] and [[value2]]",
-    "nl": "Luchtvochtigheid !{{ligt tussen|ligt niet tussen}} [[value1]] en [[value2]]"
+    "nl": "Luchtvochtigheid !{{ligt tussen|ligt niet tussen}} [[value1]] en [[value2]]",
+    "da": "Fugtighed !{{er mellem|er ikke mellem}} [[value1]] og [[value2]]",
+    "de": "Feuchtigkeit !{{liegt zwischen|liegt nicht zwischen}} [[value1]] und [[value2]]",
+    "es": "Humedad !{{está entre|no está entre}} [[value1]] y [[value2]]",
+    "fr": "Humidité !{{est entre|n'est pas entre}} [[value1]] et [[value2]]",
+    "it": "Umidità !{{è tra|non è tra}} [[value1]] e [[value2]]",
+    "no": "Fuktighet !{{er mellom|er ikke mellom}} [[value1]] og [[value2]]",
+    "sv": "Fuktighet !{{är mellan|är inte mellan}} [[value1]] och [[value2]]",
+    "pl": "Wilgotność !{{jest między|nie jest między}} [[value1]] i [[value2]]",
+    "ru": "Влажность !{{между|не между}} [[value1]] и [[value2]]",
+    "ko": "습도 !{{사이에 있음|사이에 없음}} [[value1]] 과 [[value2]]"
   },
   "hint": {
     "en": "Use this card to determine whether or not the humidity for the zone is between two values. The specified values are also valid.",
-    "nl": "Gebruik dit kaartje om te bepalen of de luchtvochtigheid voor de zone tussen twee waarden ligt. De opgegeven waarden zijn ook geldig."
+    "nl": "Gebruik dit kaartje om te bepalen of de luchtvochtigheid voor de zone tussen twee waarden ligt. De opgegeven waarden zijn ook geldig.",
+    "da": "Brug dette kort til at afgøre, om fugtigheden i zonen er mellem to værdier. De angivne værdier er også gyldige.",
+    "de": "Verwenden Sie diese Karte, um festzustellen, ob die Feuchtigkeit in der Zone zwischen zwei Werten liegt. Die angegebenen Werte sind ebenfalls gültig.",
+    "es": "Utilice esta tarjeta para determinar si la humedad de la zona está entre dos valores. Los valores especificados también son válidos.",
+    "fr": "Utilisez cette carte pour déterminer si l'humidité de la zone est entre deux valeurs. Les valeurs spécifiées sont également valides.",
+    "it": "Usa questa scheda per determinare se l'umidità della zona è tra due valori. Anche i valori specificati sono validi.",
+    "no": "Bruk dette kortet for å avgjøre om fuktigheten for sonen er mellom to verdier. De spesifiserte verdiene er også gyldige.",
+    "sv": "Använd detta kort för att avgöra om fuktigheten för zonen är mellan två värden. De angivna värdena är också giltiga.",
+    "pl": "Użyj tej karty, aby sprawdzić, czy wilgotność w strefie mieści się między dwiema wartościami. Podane wartości są również ważne.",
+    "ru": "Используйте эту карту, чтобы определить, находится ли влажность в зоне между двумя значениями. Указанные значения также действительны.",
+    "ko": "이 카드를 사용하여 구역의 습도가 두 값 사이에 있는지 여부를 결정하세요. 지정된 값도 유효합니다."
   },
   "args": [
     {
@@ -21,11 +51,31 @@
       "step": 1,
       "title": {
         "en": "Above",
-        "nl": "Boven"
+        "nl": "Boven",
+        "da": "Over",
+        "de": "Über",
+        "es": "Por encima de",
+        "fr": "Au dessus de",
+        "it": "Sopra",
+        "no": "Over",
+        "sv": "Över",
+        "pl": "Powyżej",
+        "ru": "Над",
+        "ko": "이상"
       },
       "placeholder": {
         "en": "%",
-        "nl": "%"
+        "nl": "%",
+        "da": "%",
+        "de": "%",
+        "es": "%",
+        "fr": "%",
+        "it": "%",
+        "no": "%",
+        "sv": "%",
+        "pl": "%",
+        "ru": "%",
+        "ko": "%"
       }
     },
     {
@@ -36,11 +86,31 @@
       "step": 1,
       "title": {
         "en": "Below",
-        "nl": "Onder"
+        "nl": "Onder",
+        "da": "Under",
+        "de": "Unter",
+        "es": "Por debajo de",
+        "fr": "En dessous de",
+        "it": "Sotto",
+        "no": "Under",
+        "sv": "Under",
+        "pl": "Poniżej",
+        "ru": "Под",
+        "ko": "이하"
       },
       "placeholder": {
         "en": "%",
-        "nl": "%"
+        "nl": "%",
+        "da": "%",
+        "de": "%",
+        "es": "%",
+        "fr": "%",
+        "it": "%",
+        "no": "%",
+        "sv": "%",
+        "pl": "%",
+        "ru": "%",
+        "ko": "%"
       }
     },
     {
@@ -48,10 +118,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выбрать устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-temperature-humidity-sensor|aqara-temperature-humidity-sensor"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

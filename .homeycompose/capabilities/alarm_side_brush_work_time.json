@@ -1,7 +1,17 @@
 {
   "title": {
     "en": "Side Brush Alert",
-    "nl": "Zijborstel waarschuwing"
+    "nl": "Zijborstel waarschuwing",
+    "da": "Sidebørste Advarsel",
+    "de": "Seitenbürstenalarm",
+    "es": "Alerta de Cepillo Lateral",
+    "fr": "Alerte de Brosse Latérale",
+    "it": "Allarme Spazzola Laterale",
+    "no": "Sidebørste Varsel",
+    "sv": "Sidoborste Varning",
+    "pl": "Ostrzeżenie o Szczotce Boczne",
+    "ru": "Предупреждение о Боковой Щетке",
+    "ko": "옆 브러시 알림"
   },
   "type": "boolean",
   "getable": true,

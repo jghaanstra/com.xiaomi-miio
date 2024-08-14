@@ -1,7 +1,17 @@
 {
   "title": {
     "en": "Main Brush Alert",
-    "nl": "Hoofdborstel waarschuwing"
+    "nl": "Hoofdborstel waarschuwing",
+    "da": "Hovedbørstealarm",
+    "de": "Hauptbürstenalarm",
+    "es": "Alerta de cepillo principal",
+    "fr": "Alerte brosse principale",
+    "it": "Allarme spazzola principale",
+    "no": "Hovedbørstevarsel",
+    "sv": "Huvudborstevarning",
+    "pl": "Alarm głównej szczotki",
+    "ru": "Предупреждение о главной щетке",
+    "ko": "메인 브러쉬 경고"
   },
   "type": "boolean",
   "getable": true,

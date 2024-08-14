@@ -2,14 +2,34 @@
   "type": "number",
   "title": {
     "en": "TVOC",
-    "nl": "TVOC"
+    "nl": "TVOC",
+    "da": "TVOC",
+    "de": "TVOC",
+    "es": "TVOC",
+    "fr": "TVOC",
+    "it": "TVOC",
+    "no": "TVOC",
+    "sv": "TVOC",
+    "pl": "TVOC",
+    "ru": "TVOC",
+    "ko": "TVOC"
   },
   "icon": "/assets/icons/measure_tvoc.svg",
   "getable": true,
   "setable": false,
   "units": {
     "en": "µg/m³",
-    "nl": "µg/m³"
+    "nl": "µg/m³",
+    "da": "µg/m³",
+    "de": "µg/m³",
+    "es": "µg/m³",
+    "fr": "µg/m³",
+    "it": "µg/m³",
+    "no": "µg/m³",
+    "sv": "µg/m³",
+    "pl": "µg/m³",
+    "ru": "µg/m³",
+    "ko": "µg/m³"
   },
   "min": 0,
   "max": 10,

@@ -2,49 +2,119 @@
   "type": "enum",
   "title": {
     "en": "Mop Intensity",
-    "nl": "Dweil intensiteit"
+    "nl": "Dweil intensiteit",
+    "da": "Mop intensitet",
+    "de": "Wischintensität",
+    "es": "Intensidad de fregado",
+    "fr": "Intensité du nettoyage",
+    "it": "Intensità di pulizia",
+    "no": "Mop intesitet",
+    "sv": "Moppens intensitet",
+    "pl": "Intensywność mopowania",
+    "ru": "Интенсивность мытья",
+    "ko": "걸레질 강도"
   },
   "values": [
     {
       "id": "200",
       "title": {
         "en": "Off",
-        "nl": "Uit"
+        "nl": "Uit",
+        "da": "Slukket",
+        "de": "Aus",
+        "es": "Apagado",
+        "fr": "Éteint",
+        "it": "Spento",
+        "no": "Av",
+        "sv": "Av",
+        "pl": "Wyłączone",
+        "ru": "Выкл",
+        "ko": "꺼짐"
       }
     },
     {
       "id": "201",
       "title": {
         "en": "Mild",
-        "nl": "Mild"
+        "nl": "Mild",
+        "da": "Let",
+        "de": "Mild",
+        "es": "Suave",
+        "fr": "Doux",
+        "it": "Leggero",
+        "no": "Mild",
+        "sv": "Mild",
+        "pl": "Łagodny",
+        "ru": "Слабый",
+        "ko": "약한"
       }
     },
     {
       "id": "202",
       "title": {
         "en": "Moderate",
-        "nl": "Gemiddeld"
+        "nl": "Gemiddeld",
+        "da": "Moderat",
+        "de": "Mittel",
+        "es": "Moderado",
+        "fr": "Modéré",
+        "it": "Moderato",
+        "no": "Moderat",
+        "sv": "Medel",
+        "pl": "Umiarkowany",
+        "ru": "Средний",
+        "ko": "보통"
       }
     },
     {
       "id": "203",
       "title": {
         "en": "Intense",
-        "nl": "Intens"
+        "nl": "Intens",
+        "da": "Intens",
+        "de": "Intensiv",
+        "es": "Intenso",
+        "fr": "Intense",
+        "it": "Intenso",
+        "no": "Intens",
+        "sv": "Intensiv",
+        "pl": "Intensywny",
+        "ru": "Сильный",
+        "ko": "강한"
       }
     },
     {
       "id": "204",
       "title": {
         "en": "Unknown mop intensity",
-        "nl": "Unknown mop intensity"
+        "nl": "Unknown mop intensity",
+        "da": "Ukendt mop intensitet",
+        "de": "Unbekannte Wischintensität",
+        "es": "Intensidad de fregado desconocida",
+        "fr": "Intensité de nettoyage inconnue",
+        "it": "Intensità di pulizia sconosciuta",
+        "no": "Ukjent mop intesitet",
+        "sv": "Okänd moppens intensitet",
+        "pl": "Nieznana intensywność mopowania",
+        "ru": "Неизвестная интенсивность мытья",
+        "ko": "알 수 없는 걸레질 강도"
       }
     },
     {
       "id": "207",
       "title": {
         "en": "Unknown mop intensity",
-        "nl": "Unknown mop intensity"
+        "nl": "Unknown mop intensity",
+        "da": "Ukendt mop intensitet",
+        "de": "Unbekannte Wischintensität",
+        "es": "Intensidad de fregado desconocida",
+        "fr": "Intensité de nettoyage inconnue",
+        "it": "Intensità di pulizia sconosciuta",
+        "no": "Ukjent mop intesitet",
+        "sv": "Okänd moppens intensitet",
+        "pl": "Nieznana intensywność mopowania",
+        "ru": "Неизвестная интенсивность мытья",
+        "ko": "알 수 없는 걸레질 강도"
       }
     }
   ],

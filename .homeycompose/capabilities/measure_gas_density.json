@@ -1,12 +1,32 @@
 {
   "title": {
     "en": "Gas Density",
-    "nl": "Gas dichtheid"
+    "nl": "Gas dichtheid",
+    "da": "Gasdensitet",
+    "de": "Gasdichte",
+    "es": "Densidad del gas",
+    "fr": "Densité de gaz",
+    "it": "Densità del gas",
+    "no": "Gassdensitet",
+    "sv": "Gasdensitet",
+    "pl": "Gęstość gazu",
+    "ru": "Плотность газа",
+    "ko": "가스 밀도"
   },
   "type": "number",
   "units": {
     "en": "kg/m3",
-    "nl": "kg/m3"
+    "nl": "kg/m3",
+    "da": "kg/m3",
+    "de": "kg/m3",
+    "es": "kg/m3",
+    "fr": "kg/m3",
+    "it": "kg/m3",
+    "no": "kg/m3",
+    "sv": "kg/m3",
+    "pl": "kg/m3",
+    "ru": "kg/m3",
+    "ko": "kg/m3"
   },
   "getable": true,
   "setable": false,

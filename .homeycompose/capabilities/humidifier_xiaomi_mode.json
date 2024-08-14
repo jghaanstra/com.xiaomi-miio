@@ -2,49 +2,119 @@
   "type": "enum",
   "title": {
     "en": "Mode",
-    "nl": "Modus"
+    "nl": "Modus",
+    "da": "Mode",
+    "de": "Modus",
+    "es": "Modo",
+    "fr": "Mode",
+    "it": "Modalità",
+    "no": "Modus",
+    "sv": "Läge",
+    "pl": "Tryb",
+    "ru": "Режим",
+    "ko": "모드"
   },
   "values": [
     {
       "id": "0",
       "title": {
         "en": "Constant Humidity",
-        "nl": "Constante luchtvochtigheid"
+        "nl": "Constante luchtvochtigheid",
+        "da": "Konstant fugtighed",
+        "de": "Konstante Luftfeuchtigkeit",
+        "es": "Humedad constante",
+        "fr": "Humidité constante",
+        "it": "Umidità costante",
+        "no": "Konstant fuktighet",
+        "sv": "Konstant fuktighet",
+        "pl": "Stała wilgotność",
+        "ru": "Постоянная влажность",
+        "ko": "항상 습도"
       }
     },
     {
       "id": "1",
       "title": {
         "en": "Strong",
-        "nl": "Sterk"
+        "nl": "Sterk",
+        "da": "Stærk",
+        "de": "Stark",
+        "es": "Fuerte",
+        "fr": "Fort",
+        "it": "Forte",
+        "no": "Sterk",
+        "sv": "Stark",
+        "pl": "Mocny",
+        "ru": "Сильный",
+        "ko": "강한"
       }
     },
     {
       "id": "2",
       "title": {
         "en": "Sleep",
-        "nl": "Slaapstand"
+        "nl": "Slaapstand",
+        "da": "Søvn",
+        "de": "Schlaf",
+        "es": "Sueño",
+        "fr": "Sommeil",
+        "it": "Sonno",
+        "no": "Søvn",
+        "sv": "Sömn",
+        "pl": "Sen",
+        "ru": "Сон",
+        "ko": "수면"
       }
     },
     {
       "id": "3",
       "title": {
         "en": "Air-dry",
-        "nl": "Air-dry"
+        "nl": "Air-dry",
+        "da": "Lufttørre",
+        "de": "Lufttrocknen",
+        "es": "Secado al aire",
+        "fr": "Sécher à l'air",
+        "it": "Asciuga all'aria",
+        "no": "Lufttørk",
+        "sv": "Lufttorka",
+        "pl": "Suszenie powietrzem",
+        "ru": "Воздушная сушка",
+        "ko": "공기 건조"
       }
     },
     {
       "id": "4",
       "title": {
         "en": "Clean",
-        "nl": "Schonen"
+        "nl": "Schonen",
+        "da": "Rengør",
+        "de": "Reinigen",
+        "es": "Limpiar",
+        "fr": "Nettoyer",
+        "it": "Pulito",
+        "no": "Rengjør",
+        "sv": "Rengöra",
+        "pl": "Czystość",
+        "ru": "Чистка",
+        "ko": "청소"
       }
     },
     {
       "id": "5",
       "title": {
         "en": "Descale",
-        "nl": "Descale"
+        "nl": "Descale",
+        "da": "Afkalkning",
+        "de": "Entkalken",
+        "es": "Desincrustar",
+        "fr": "Détartrage",
+        "it": "Decalcificare",
+        "no": "Avkalking",
+        "sv": "Avkalka",
+        "pl": "Odkamienianie",
+        "ru": "Удаление накипи",
+        "ko": "제거"
       }
     }
   ],

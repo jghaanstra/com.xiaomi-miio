@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Wall Outlet (Gateway)",
-    "nl": "Aqara Wall Outlet (Gateway)"
+    "nl": "Aqara Wall Outlet (Gateway)",
+    "da": "Aqara Vægudtag (Gateway)",
+    "de": "Aqara Wandsteckdose (Gateway)",
+    "es": "Aqara Toma de Pared (Gateway)",
+    "fr": "Prise Murale Aqara (Gateway)",
+    "it": "Presa da Muro Aqara (Gateway)",
+    "no": "Aqara Veggkontakt (Gateway)",
+    "sv": "Aqara Vägguttag (Gateway)",
+    "pl": "Gniazdko Ścienne Aqara (Gateway)",
+    "ru": "Настенная Розетка Aqara (Gateway)",
+    "ko": "아카라 벽면 콘센트 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/ctrl_86plug_aq1/assets/images/large.jpg",

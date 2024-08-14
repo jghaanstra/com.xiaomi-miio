@@ -1,7 +1,17 @@
 {
   "title": {
     "en": "Lock Event",
-    "nl": "Lock event"
+    "nl": "Lock event",
+    "da": "Låsebegivenhed",
+    "de": "Schlossereignis",
+    "es": "Evento de Bloqueo",
+    "fr": "Événement de Verrouillage",
+    "it": "Evento di Blocco",
+    "no": "Låshendelse",
+    "sv": "Låshändelse",
+    "pl": "Wydarzenie Blokady",
+    "ru": "Событие Блокировки",
+    "ko": "잠금 이벤트"
   },
   "tokens": [
     {
@@ -9,7 +19,17 @@
       "type": "number",
       "title": {
         "en": "fingerprint id",
-        "nl": "vingerafdruk id"
+        "nl": "vingerafdruk id",
+        "da": "fingeraftryk id",
+        "de": "Fingerabdruck ID",
+        "es": "ID de huella digital",
+        "fr": "ID d'empreinte digitale",
+        "it": "ID dell'impronta digitale",
+        "no": "fingeravtrykk id",
+        "sv": "fingeravtryck id",
+        "pl": "ID odcisku palca",
+        "ru": "ID отпечатка пальца",
+        "ko": "지문 ID"
       },
       "example": 0
     },
@@ -18,7 +38,17 @@
       "type": "number",
       "title": {
         "en": "code id",
-        "nl": "code id"
+        "nl": "code id",
+        "da": "kode id",
+        "de": "Code ID",
+        "es": "ID de código",
+        "fr": "ID de code",
+        "it": "ID del codice",
+        "no": "kode id",
+        "sv": "kod id",
+        "pl": "ID kodu",
+        "ru": "ID кода",
+        "ko": "코드 ID"
       },
       "example": 0
     },
@@ -27,7 +57,17 @@
       "type": "number",
       "title": {
         "en": "card id",
-        "nl": "kaart id"
+        "nl": "kaart id",
+        "da": "kort id",
+        "de": "Karten ID",
+        "es": "ID de tarjeta",
+        "fr": "ID de carte",
+        "it": "ID della carta",
+        "no": "kort id",
+        "sv": "kort id",
+        "pl": "ID karty",
+        "ru": "ID карты",
+        "ko": "카드 ID"
       },
       "example": 0
     },
@@ -36,7 +76,17 @@
       "type": "string",
       "title": {
         "en": "User",
-        "nl": "Gebruiker"
+        "nl": "Gebruiker",
+        "da": "Bruger",
+        "de": "Benutzer",
+        "es": "Usuario",
+        "fr": "Utilisateur",
+        "it": "Utente",
+        "no": "Bruker",
+        "sv": "Användare",
+        "pl": "Użytkownik",
+        "ru": "Пользователь",
+        "ko": "사용자"
       },
       "example": {
         "en": "John Doe"
@@ -47,7 +97,17 @@
       "type": "number",
       "title": {
         "en": "wrong id",
-        "nl": "verkeerd id"
+        "nl": "verkeerd id",
+        "da": "forkert id",
+        "de": "falsche ID",
+        "es": "ID incorrecta",
+        "fr": "ID incorrecte",
+        "it": "ID errato",
+        "no": "feil id",
+        "sv": "fel id",
+        "pl": "błędne ID",
+        "ru": "неверный ID",
+        "ko": "잘못된 ID"
       },
       "example": 3
     }

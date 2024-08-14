@@ -2,18 +2,48 @@
   "id": "fanPowerVacuum",
   "title": {
     "en": "Set Fanspeed",
-    "nl": "Stel ventilator in"
+    "nl": "Stel ventilator in",
+    "da": "Indstil ventilatorhastighed",
+    "de": "Lüftergeschwindigkeit einstellen",
+    "es": "Ajustar la velocidad del ventilador",
+    "fr": "Régler la vitesse du ventilateur",
+    "it": "Imposta velocità ventola",
+    "no": "Sett viftespeed",
+    "sv": "Ställ in fläkthastigheten",
+    "pl": "Ustaw prędkość wentylatora",
+    "ru": "Установить скорость вентилятора",
+    "ko": "팬 속도 설정"
   },
   "titleFormatted": {
     "en": "Set Fanspeed [[fanspeed]]",
-    "nl": "Stel ventilator in op [[fanspeed]]"
+    "nl": "Stel ventilator in op [[fanspeed]]",
+    "da": "Indstil ventilatorhastighed [[fanspeed]]",
+    "de": "Lüftergeschwindigkeit einstellen [[fanspeed]]",
+    "es": "Ajustar la velocidad del ventilador [[fanspeed]]",
+    "fr": "Régler la vitesse du ventilateur [[fanspeed]]",
+    "it": "Imposta velocità ventola [[fanspeed]]",
+    "no": "Sett viftespeed [[fanspeed]]",
+    "sv": "Ställ in fläkthastigheten [[fanspeed]]",
+    "pl": "Ustaw prędkość wentylatora [[fanspeed]]",
+    "ru": "Установить скорость вентилятора [[fanspeed]]",
+    "ko": "팬 속도 설정 [[fanspeed]]"
   },
   "args": [
     {
       "name": "fanspeed",
       "title": {
         "en": "Fanspeed",
-        "nl": "Fan snelheid"
+        "nl": "Fan snelheid",
+        "da": "Ventilatorhastighed",
+        "de": "Lüftergeschwindigkeit",
+        "es": "Velocidad del ventilador",
+        "fr": "Vitesse du ventilateur",
+        "it": "Velocità della ventola",
+        "no": "Viftespeed",
+        "sv": "Fläkthastighet",
+        "pl": "Prędkość wentylatora",
+        "ru": "Скорость вентилятора",
+        "ko": "팬 속도"
       },
       "type": "dropdown",
       "values": [
@@ -21,28 +51,68 @@
           "id": "38",
           "label": {
             "en": "Quiet",
-            "nl": "Stil"
+            "nl": "Stil",
+            "da": "Stille",
+            "de": "Leise",
+            "es": "Silencioso",
+            "fr": "Silencieux",
+            "it": "Silenzioso",
+            "no": "Stille",
+            "sv": "Tyst",
+            "pl": "Cichy",
+            "ru": "Тихий",
+            "ko": "조용한"
           }
         },
         {
           "id": "66",
           "label": {
             "en": "Balanced",
-            "nl": "Gebalanceerd"
+            "nl": "Gebalanceerd",
+            "da": "Balanceret",
+            "de": "Ausgewogen",
+            "es": "Equilibrado",
+            "fr": "Équilibré",
+            "it": "Bilanciato",
+            "no": "Balansert",
+            "sv": "Balanserad",
+            "pl": "Zrównoważony",
+            "ru": "Сбалансированный",
+            "ko": "균형 잡힌"
           }
         },
         {
           "id": "77",
           "label": {
             "en": "Turbo",
-            "nl": "Turbo"
+            "nl": "Turbo",
+            "da": "Turbo",
+            "de": "Turbo",
+            "es": "Turbo",
+            "fr": "Turbo",
+            "it": "Turbo",
+            "no": "Turbo",
+            "sv": "Turbo",
+            "pl": "Turbo",
+            "ru": "Турбо",
+            "ko": "터보"
           }
         },
         {
           "id": "90",
           "label": {
             "en": "Max",
-            "nl": "Maximum"
+            "nl": "Maximum",
+            "da": "Maks",
+            "de": "Max",
+            "es": "Max",
+            "fr": "Max",
+            "it": "Max",
+            "no": "Maks",
+            "sv": "Maks",
+            "pl": "Maks",
+            "ru": "Макс",
+            "ko": "맥스"
           }
         }
       ]
@@ -52,10 +122,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Mi Robot",
-        "nl": "Selecteer Mi Robot"
+        "nl": "Selecteer Mi Robot",
+        "da": "Vælg Mi Robot",
+        "de": "Mi Roboter auswählen",
+        "es": "Selecciona Mi Robot",
+        "fr": "Sélectionnez Mi Robot",
+        "it": "Seleziona Mi Robot",
+        "no": "Velg Mi Robot",
+        "sv": "Välj Mi Robot",
+        "pl": "Wybierz Mi Robot",
+        "ru": "Выберите Mi Robot",
+        "ko": "Mi 로봇 선택"
       },
       "filter": "driver_id=mi-robot"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

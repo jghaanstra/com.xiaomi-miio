@@ -3,7 +3,17 @@
     "type": "group",
     "label": {
       "en": "User settings",
-      "nl": "Gebruikersinstellingen"
+      "nl": "Gebruikersinstellingen",
+      "da": "Brugerindstillinger",
+      "de": "Benutzereinstellungen",
+      "es": "Configuración de usuario",
+      "fr": "Paramètres utilisateur",
+      "it": "Impostazioni utente",
+      "no": "Brukerinnstillinger",
+      "sv": "Användarinställningar",
+      "pl": "Ustawienia użytkownika",
+      "ru": "Настройки пользователя",
+      "ko": "사용자 설정"
     },
     "children": [
       {
@@ -12,7 +22,17 @@
         "value": false,
         "label": {
           "en": "Inverted operation mode",
-          "nl": "Omgekeerde operatie modus"
+          "nl": "Omgekeerde operatie modus",
+          "da": "Omvendt driftstilstand",
+          "de": "Umgekehrter Betriebsmodus",
+          "es": "Modo de operación inverso",
+          "fr": "Mode de fonctionnement inversé",
+          "it": "Modalità di funzionamento invertita",
+          "no": "Omvendt driftmodus",
+          "sv": "Inverterat driftläge",
+          "pl": "Odwrócony tryb pracy",
+          "ru": "Обратный режим работы",
+          "ko": "역방향 작동 모드"
         }
       },
       {
@@ -21,7 +41,17 @@
         "value": false,
         "label": {
           "en": "Inverted state",
-          "nl": "Omgekeerde status"
+          "nl": "Omgekeerde status",
+          "da": "Omvendt tilstand",
+          "de": "Umgekehrter Zustand",
+          "es": "Estado invertido",
+          "fr": "État inversé",
+          "it": "Stato invertito",
+          "no": "Omvendt tilstand",
+          "sv": "Inverterat tillstånd",
+          "pl": "Odwrócony stan",
+          "ru": "Обратное состояние",
+          "ko": "역방향 상태"
         }
       }
     ]
@@ -30,7 +60,17 @@
     "type": "group",
     "label": {
       "en": "Device Settings",
-      "nl": "Apparaat instellingen"
+      "nl": "Apparaat instellingen",
+      "da": "Enhedsindstillinger",
+      "de": "Geräteeinstellungen",
+      "es": "Configuración del dispositivo",
+      "fr": "Paramètres de l'appareil",
+      "it": "Impostazioni dispositivo",
+      "no": "Enhetsinnstillinger",
+      "sv": "Enhetsinställningar",
+      "pl": "Ustawienia urządzenia",
+      "ru": "Настройки устройства",
+      "ko": "장치 설정"
     },
     "children": [
       {

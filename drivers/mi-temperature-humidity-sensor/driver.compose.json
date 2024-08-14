@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mi Temperature & Humidity Sensor (Gateway)",
-    "nl": "Mi temperatuur & luchtvochtigheid sensor (Gateway)"
+    "nl": "Mi temperatuur & luchtvochtigheid sensor (Gateway)",
+    "da": "Mi Temperatur- og Fugtighedssensor (Gateway)",
+    "de": "Mi Temperatur- und Feuchtigkeitssensor (Gateway)",
+    "es": "Mi Sensor de Temperatura y Humedad (Gateway)",
+    "fr": "Capteur de Température et d'Humidité Mi (Gateway)",
+    "it": "Sensore di Temperatura e Umidità Mi (Gateway)",
+    "no": "Mi Temperatur- og Fuktighetssensor (Gateway)",
+    "sv": "Mi Temperatur- och Fuktighetssensor (Gateway)",
+    "pl": "Czujnik Temperatury i Wilgotności Mi (Gateway)",
+    "ru": "Датчик температуры и влажности Mi (Gateway)",
+    "ko": "Mi 온습도 센서 (Gateway)"
   },
   "images": {
     "large": "/drivers/mi-temperature-humidity-sensor/assets/images/large.png",
@@ -18,6 +28,8 @@
     "alarm_battery"
   ],
   "energy": {
-    "batteries": ["CR2032"]
+    "batteries": [
+      "CR2032"
+    ]
   }
 }

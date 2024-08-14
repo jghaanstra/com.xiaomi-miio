@@ -1,0 +1,5 @@
+Brug Homey til at styre WiFi-enheder, der forbinder via Xiaomi Mi Home-appen. Du kan også bruge denne app til at styre Xiaomi / Aqara Zigbee-enheder, som er forbundet til en Xiaomi-gateway. Der er ingen begrænsninger for antallet af tilkoblede Zigbee-enheder, da du kan have flere Mi Gateway-enheder og fordele alle Zigbee-enheder mellem dem.
+
+Xiaomi understøtter officielt ikke styring af enheder uden for Mi Home-appen. Yderligere trin er nødvendige for at parre disse enheder med Homey, hvilket kræver noget teknisk viden. Det betyder også, at ikke alle tilgængelige enheder er understøttet. Vær også opmærksom på, at Xiaomi kan foretage ændringer i deres økosystem til enhver tid, hvilket kan resultere i, at Homey ikke længere kan styre disse enheder.
+
+Besøg venligst supportsiden for understøttede enheder, installationsvejledninger og yderligere detaljer.

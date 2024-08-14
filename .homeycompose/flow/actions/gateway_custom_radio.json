@@ -1,42 +1,112 @@
 {
   "title": {
     "en": "Play custom radio station",
-    "nl": "Afspelen custom radio station"
+    "nl": "Afspelen custom radio station",
+    "da": "Afspil tilpasset radiostation",
+    "de": "Spiele benutzerdefinierten Radiosender",
+    "es": "Reproduce emisora de radio personalizada",
+    "fr": "Lire station de radio personnalisée",
+    "it": "Riproduci stazione radio personalizzata",
+    "no": "Spill tilpasset radiostasjon",
+    "sv": "Spela anpassad radiostation",
+    "pl": "Odtwórz dostosowaną stację radiową",
+    "ru": "Воспроизвести пользовательскую радиостанцию",
+    "ko": "맞춤형 라디오 방송국 재생"
   },
   "titleFormatted": {
     "en": "Play custom radio station [[id]] on url [[url]] with volume [[volume]]",
-    "nl": "Afspelen custom radio station [[id]] op [[url]] met volume [[volume]]"
+    "nl": "Afspelen custom radio station [[id]] op [[url]] met volume [[volume]]",
+    "da": "Afspil tilpasset radiostation [[id]] på url [[url]] med lydstyrke [[volume]]",
+    "de": "Spiele benutzerdefinierten Radiosender [[id]] auf URL [[url]] mit Lautstärke [[volume]]",
+    "es": "Reproduce emisora de radio personalizada [[id]] en url [[url]] con volumen [[volume]]",
+    "fr": "Lire station de radio personnalisée [[id]] sur url [[url]] avec volume [[volume]]",
+    "it": "Riproduci stazione radio personalizzata [[id]] su url [[url]] con volume [[volume]]",
+    "no": "Spill tilpasset radiostasjon [[id]] på url [[url]] med volum [[volume]]",
+    "sv": "Spela anpassad radiostation [[id]] på url [[url]] med volym [[volume]]",
+    "pl": "Odtwórz dostosowaną stację radiową [[id]] na url [[url]] z głośnością [[volume]]",
+    "ru": "Воспроизведите пользовательскую радиостанцию [[id]] на url [[url]] с громкостью [[volume]]",
+    "ko": "맞춤형 라디오 방송국 [[id]]의 url [[url]]에서 볼륨 [[volume]]으로 재생"
   },
   "args": [
     {
       "name": "id",
       "title": {
         "en": "Station ID",
-        "nl": "Station ID"
+        "nl": "Station ID",
+        "da": "Station ID",
+        "de": "Sender-ID",
+        "es": "ID de estación",
+        "fr": "ID de la station",
+        "it": "ID stazione",
+        "no": "Stasjons-ID",
+        "sv": "Stations-ID",
+        "pl": "ID stacji",
+        "ru": "ID станции",
+        "ko": "방송국 ID"
       },
       "type": "text",
       "placeholder": {
         "en": "ID",
-        "nl": "ID"
+        "nl": "ID",
+        "da": "ID",
+        "de": "ID",
+        "es": "ID",
+        "fr": "ID",
+        "it": "ID",
+        "no": "ID",
+        "sv": "ID",
+        "pl": "ID",
+        "ru": "ID",
+        "ko": "ID"
       }
     },
     {
       "name": "url",
       "title": {
         "en": "URL",
-        "nl": "URL"
+        "nl": "URL",
+        "da": "URL",
+        "de": "URL",
+        "es": "URL",
+        "fr": "URL",
+        "it": "URL",
+        "no": "URL",
+        "sv": "URL",
+        "pl": "URL",
+        "ru": "URL",
+        "ko": "URL"
       },
       "type": "text",
       "placeholder": {
         "en": "URL",
-        "nl": "URL"
+        "nl": "URL",
+        "da": "URL",
+        "de": "URL",
+        "es": "URL",
+        "fr": "URL",
+        "it": "URL",
+        "no": "URL",
+        "sv": "URL",
+        "pl": "URL",
+        "ru": "URL",
+        "ko": "URL"
       }
     },
     {
       "type": "range",
       "title": {
         "en": "Volume",
-        "nl": "Volume"
+        "nl": "Volume",
+        "da": "Volumen",
+        "de": "Lautstärke",
+        "es": "Volumen",
+        "fr": "Volume",
+        "it": "Volume",
+        "no": "Volum",
+        "sv": "Volym",
+        "pl": "Głośność",
+        "ru": "Громкость",
+        "ko": "볼륨"
       },
       "name": "volume",
       "min": 0,
@@ -51,10 +121,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Gateway",
-        "nl": "Selecteer Gateway"
+        "nl": "Selecteer Gateway",
+        "da": "Vælg Gateway",
+        "de": "Gateway auswählen",
+        "es": "Seleccionar Gateway",
+        "fr": "Sélectionner la passerelle",
+        "it": "Seleziona Gateway",
+        "no": "Velg Gateway",
+        "sv": "Välj Gateway",
+        "pl": "Wybierz bramę",
+        "ru": "Выберите шлюз",
+        "ko": "게이트웨이 선택"
       },
       "filter": "driver_id=gateway"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

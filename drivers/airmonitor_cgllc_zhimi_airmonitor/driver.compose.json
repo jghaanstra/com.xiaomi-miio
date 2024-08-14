@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Mi Air Quality Monitor (WiFi)",
-    "nl": "Mi Air Quality Monitor (WiFi)"
+    "nl": "Mi Air Quality Monitor (WiFi)",
+    "da": "Mi Luftkvalitetsmonitor (WiFi)",
+    "de": "Mi Luftqualitätsmonitor (WiFi)",
+    "es": "Monitor de Calidad del Aire Mi (WiFi)",
+    "fr": "Moniteur de Qualité de l'Air Mi (WiFi)",
+    "it": "Monitor della Qualità dell'Aria Mi (WiFi)",
+    "no": "Mi Luftkvalitetsmonitor (WiFi)",
+    "sv": "Mi Luftkvalitetsmonitor (WiFi)",
+    "pl": "Monitor Jakości Powietrza Mi (WiFi)",
+    "ru": "Монитор качества воздуха Mi (WiFi)",
+    "ko": "미 에어 퀄리티 모니터 (WiFi)"
   },
   "images": {
     "large": "drivers/airmonitor_cgllc_zhimi_airmonitor/assets/images/large.jpg",
@@ -15,6 +25,8 @@
     "measure_pm25"
   ],
   "energy": {
-    "batteries": [ "INTERNAL" ]
+    "batteries": [
+      "INTERNAL"
+    ]
   }
 }

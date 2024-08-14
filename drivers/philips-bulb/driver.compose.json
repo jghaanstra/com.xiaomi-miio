@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Philips Lights Generic (WiFi)",
-    "nl": "Philips Lights Generic (WiFi)"
+    "nl": "Philips Lights Generic (WiFi)",
+    "da": "Philips Lights Generisk (WiFi)",
+    "de": "Philips Licht Allgemein (WiFi)",
+    "es": "Philips Luces Genéricas (WiFi)",
+    "fr": "Philips Lumières Génériques (WiFi)",
+    "it": "Philips Luci Generiche (WiFi)",
+    "no": "Philips Lys Generisk (WiFi)",
+    "sv": "Philips Ljus Generisk (WiFi)",
+    "pl": "Philips Światła Ogólne (WiFi)",
+    "ru": "Philips Лампы Общие (WiFi)",
+    "ko": "필립스 조명 일반 (WiFi)"
   },
   "images": {
     "large": "drivers/philips-bulb/assets/images/large.jpg",

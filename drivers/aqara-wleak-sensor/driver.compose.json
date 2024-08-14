@@ -1,7 +1,17 @@
 {
   "name": {
     "en": "Aqara Waterleak Sensor (Gateway)",
-    "nl": "Aqara waterlek sensor (Gateway)"
+    "nl": "Aqara waterlek sensor (Gateway)",
+    "da": "Aqara Vandlækagesensor (Gateway)",
+    "de": "Aqara Wasseraustrittsensor (Gateway)",
+    "es": "Sensor de fugas de agua Aqara (Gateway)",
+    "fr": "Capteur de fuite d'eau Aqara (Gateway)",
+    "it": "Sensore di perdita d'acqua Aqara (Gateway)",
+    "no": "Aqara Vannlekkasjesensor (Gateway)",
+    "sv": "Aqara Vattenläckagesensor (Gateway)",
+    "pl": "Czujnik wycieku wody Aqara (Gateway)",
+    "ru": "Датчик утечки воды Aqara (Gateway)",
+    "ko": "아카라 물 누수 센서 (게이트웨이)"
   },
   "images": {
     "large": "/drivers/aqara-wleak-sensor/assets/images/large.png",
@@ -17,6 +27,8 @@
     "alarm_battery"
   ],
   "energy": {
-    "batteries": ["CR2032"]
+    "batteries": [
+      "CR2032"
+    ]
   }
 }

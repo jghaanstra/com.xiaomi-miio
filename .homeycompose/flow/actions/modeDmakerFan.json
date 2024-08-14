@@ -2,18 +2,48 @@
   "id": "modeDmakerFan",
   "title": {
     "en": "Set Mode",
-    "nl": "Stel modus in"
+    "nl": "Stel modus in",
+    "da": "Indstil tilstand",
+    "de": "Modus einstellen",
+    "es": "Establecer modo",
+    "fr": "Définir le mode",
+    "it": "Imposta modalità",
+    "no": "Sett modus",
+    "sv": "Ställ in läge",
+    "pl": "Ustaw tryb",
+    "ru": "Установить режим",
+    "ko": "모드 설정"
   },
   "titleFormatted": {
     "en": "Set mode to [[mode]]",
-    "nl": "Stel modus in op [[mode]]"
+    "nl": "Stel modus in op [[mode]]",
+    "da": "Indstil tilstand til [[mode]]",
+    "de": "Modus einstellen auf [[mode]]",
+    "es": "Establecer modo a [[mode]]",
+    "fr": "Définir le mode sur [[mode]]",
+    "it": "Imposta modalità su [[mode]]",
+    "no": "Sett modus til [[mode]]",
+    "sv": "Ställ in läge till [[mode]]",
+    "pl": "Ustaw tryb na [[mode]]",
+    "ru": "Установить режим на [[mode]]",
+    "ko": "[[mode]] 모드로 설정"
   },
   "args": [
     {
       "name": "mode",
       "title": {
         "en": "Mode",
-        "nl": "Modus"
+        "nl": "Modus",
+        "da": "Tilstand",
+        "de": "Modus",
+        "es": "Modo",
+        "fr": "Mode",
+        "it": "Modalità",
+        "no": "Modus",
+        "sv": "Läge",
+        "pl": "Tryb",
+        "ru": "Режим",
+        "ko": "모드"
       },
       "type": "dropdown",
       "values": [
@@ -21,14 +51,34 @@
           "id": "normal",
           "label": {
             "en": "Normal",
-            "nl": "Normaal"
+            "nl": "Normaal",
+            "da": "Normal",
+            "de": "Normal",
+            "es": "Normal",
+            "fr": "Normal",
+            "it": "Normale",
+            "no": "Normal",
+            "sv": "Normal",
+            "pl": "Normalny",
+            "ru": "Нормальный",
+            "ko": "일반"
           }
         },
         {
           "id": "nature",
           "label": {
             "en": "Nature",
-            "nl": "Natuur"
+            "nl": "Natuur",
+            "da": "Natur",
+            "de": "Natur",
+            "es": "Naturaleza",
+            "fr": "Nature",
+            "it": "Natura",
+            "no": "Natur",
+            "sv": "Natur",
+            "pl": "Natura",
+            "ru": "Природный",
+            "ko": "자연"
           }
         }
       ]
@@ -38,10 +88,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Dmaker Fan",
-        "nl": "Selecteer Dmaker Ventilator"
+        "nl": "Selecteer Dmaker Ventilator",
+        "da": "Vælg Dmaker Fan",
+        "de": "Wählen Sie Dmaker Fan",
+        "es": "Seleccione Dmaker Fan",
+        "fr": "Sélectionnez Dmaker Fan",
+        "it": "Seleziona Dmaker Fan",
+        "no": "Velg Dmaker-vifte",
+        "sv": "Välj Dmaker-fläkt",
+        "pl": "Wybierz wentylator Dmaker",
+        "ru": "Выбрать вентилятор Dmaker",
+        "ko": "Dmaker 선풍기 선택"
       },
       "filter": "driver_id=dmaker-fan"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

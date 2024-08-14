@@ -2,7 +2,17 @@
   "id": "leftSwitchToggle",
   "title": {
     "en": "Toggle Left Switch",
-    "nl": "Schakel linkerschakelaar"
+    "nl": "Schakel linkerschakelaar",
+    "da": "Skift venstre kontakt",
+    "de": "Linken Schalter umlegen",
+    "es": "Alternar interruptor izquierdo",
+    "fr": "Basculer l'interrupteur gauche",
+    "it": "Attiva/disattiva l'interruttore sinistro",
+    "no": "Veksle venstre bryter",
+    "sv": "Växla vänster brytare",
+    "pl": "Przełącz lewy włącznik",
+    "ru": "Переключить левый выключатель",
+    "ko": "왼쪽 스위치 전환"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select Device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner un appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "기기 선택"
       },
       "filter": "driver_id=aqara-ctrl-neutral2|aqara-ctrl-ln2|relay_c2acn01"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }

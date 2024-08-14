@@ -2,7 +2,17 @@
   "id": "shake_air_cube",
   "title": {
     "en": "Shake in air",
-    "nl": "Schudden in de lucht"
+    "nl": "Schudden in de lucht",
+    "da": "Ryst i luften",
+    "de": "Schütteln in der Luft",
+    "es": "Agitar en el aire",
+    "fr": "Secouer dans les airs",
+    "it": "Sbattere in aria",
+    "no": "Rist i lufta",
+    "sv": "Skaka i luften",
+    "pl": "Potrząśnij w powietrzu",
+    "ru": "Встряхнуть в воздухе",
+    "ko": "공중에서 흔들기"
   },
   "args": [
     {
@@ -10,10 +20,22 @@
       "type": "device",
       "placeholder": {
         "en": "Select device",
-        "nl": "Selecteer apparaat"
+        "nl": "Selecteer apparaat",
+        "da": "Vælg enhed",
+        "de": "Gerät auswählen",
+        "es": "Seleccionar dispositivo",
+        "fr": "Sélectionner l'appareil",
+        "it": "Seleziona dispositivo",
+        "no": "Velg enhet",
+        "sv": "Välj enhet",
+        "pl": "Wybierz urządzenie",
+        "ru": "Выберите устройство",
+        "ko": "장치 선택"
       },
       "filter": "driver_id=mi-aqara-cube"
     }
   ],
-  "platforms": ["local"]
+  "platforms": [
+    "local"
+  ]
 }
