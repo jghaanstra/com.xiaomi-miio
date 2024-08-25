@@ -11,6 +11,7 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/dmaker.fan.p15
 // https://home.miot-spec.com/spec/dmaker.fan.p18
 // https://home.miot-spec.com/spec/dmaker.fan.p33
+// https://home.miot-spec.com/spec/dmaker.fan.p44
 // https://home.miot-spec.com/spec/dmaker.fan.1c
 
 const mapping = {
@@ -20,6 +21,7 @@ const mapping = {
 	"dmaker.fan.p15": "properties_p11",
 	"dmaker.fan.p18": "properties_p10",
 	"dmaker.fan.p33": "properties_p33",
+  "dmaker.fan.p44": "properties_p44",
 	"dmaker.fan.1c": "properties_1c",
   "dmaker.fan.*": "properties_p9"
 };
@@ -113,6 +115,24 @@ const properties = {
       "child_lock": { siid: 7, piid: 1 }
     }
   },
+  "properties_p44": {
+    "get_properties": [
+      { did: "power", siid: 2, piid: 1 }, // onoff
+      { did: "fan_level", siid: 2, piid: 2 }, // dim
+      { did: "mode", siid: 2, piid: 3 }, // fan_dmaker_mode
+      { did: "swing_mode", siid: 2, piid: 4 }, // onoff.swing
+      { did: "light", siid: 4, piid: 1 }, // settings.led
+      { did: "buzzer", siid: 5, piid: 1 }, // settings.buzzer
+      { did: "child_lock", siid: 7, piid: 1 } // settings.childLock
+    ],
+    "set_properties": {
+      "swing_mode": { siid: 2, piid: 4 },
+      "mode": { siid: 2, piid: 3 },
+      "light": { siid: 4, piid: 1 },
+      "buzzer": { siid: 5, piid: 1 },
+      "child_lock": { siid: 7, piid: 1 }
+    }
+  },
   "properties_1c": {
     "get_properties": [
       { did: "power", siid: 2, piid: 1 }, // onoff
@@ -148,7 +168,7 @@ class AdvancedDmakerFanMiotDevice extends Device {
       this.bootSequence();
 
       // ADD DEVICES DEPENDANT CAPABILITIES
-      if (this.getStoreValue('model') === 'dmaker.fan.1c') {
+      if (this.getStoreValue('model') === 'dmaker.fan.p44' || this.getStoreValue('model') === 'dmaker.fan.1c') {
         if (this.hasCapability('dim.fanspeed')) {
           this.removeCapability('dim.fanspeed');
         }

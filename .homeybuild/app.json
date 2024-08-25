@@ -187,7 +187,7 @@
       "게이트웨이"
     ]
   },
-  "version": "3.2.25",
+  "version": "3.2.26",
   "compatibility": ">=12.0.0",
   "platforms": [
     "local"
@@ -7554,6 +7554,41 @@
           "ko": "음식 제공"
         },
         "args": [
+          {
+            "name": "servings",
+            "title": {
+              "en": "Servings",
+              "nl": "Porties",
+              "da": "Portioner",
+              "de": "Portionen",
+              "es": "Raciones",
+              "fr": "Portions",
+              "it": "Porzioni",
+              "no": "Porsjoner",
+              "sv": "Portioner",
+              "pl": "Porcje",
+              "ru": "Порции",
+              "ko": "서빙"
+            },
+            "type": "number",
+            "placeholder": {
+              "en": "Servings",
+              "nl": "Porties",
+              "da": "Portioner",
+              "de": "Portionen",
+              "es": "Raciones",
+              "fr": "Portions",
+              "it": "Porzioni",
+              "no": "Porsjoner",
+              "sv": "Portioner",
+              "pl": "Porcje",
+              "ru": "Порции",
+              "ko": "서빙"
+            },
+            "min": 1,
+            "max": 30,
+            "step": 1
+          },
           {
             "name": "device",
             "type": "device",

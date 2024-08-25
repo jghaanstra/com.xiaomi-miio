@@ -211,5 +211,8 @@
   },
   "3.2.25": {
     "en": "This release includes a fix for Mijia Smart Pet Food Feeder 2 (xiaomi.feeder.pi2001), tries to add support for Dreame L10s Pro Ultra (dreame.vacuum.r2338a) and updates device classes for airpurifiers, airfryers, humidifiers and petfeeders. It also adds localisation for other supported languages within Homey."
+  },
+  "3.2.26": {
+    "en": "This release adds support for Mi Smart Evaporative Cooling Fan (dmaker.fan.p44) and allows to set the number of servings in the Pet Feeder serve food action card."
   }
 }
