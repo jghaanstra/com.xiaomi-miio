@@ -186,9 +186,11 @@
       "게이트웨이"
     ]
   },
-  "version": "3.2.26",
+  "version": "3.2.28",
   "compatibility": ">=12.0.0",
-  "platforms": ["local"],
+  "platforms": [
+    "local"
+  ],
   "author": {
     "name": "Jelger Haanstra",
     "email": "homey@solidewebservices.com"

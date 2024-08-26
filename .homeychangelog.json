@@ -214,5 +214,11 @@
   },
   "3.2.26": {
     "en": "This release adds support for Mi Smart Evaporative Cooling Fan (dmaker.fan.p44) and allows to set the number of servings in the Pet Feeder serve food action card."
+  },
+  "3.2.27": {
+    "en": "This release fixes the Mi Smart Evaporative Cooling Fan (dmaker.fan.p44) going offline and fixes the Pet Feeder serve food action card."
+  },
+  "3.2.28": {
+    "en": "This release fixes the Mi Smart Evaporative Cooling Fan (dmaker.fan.p44) going offline and fixes the Pet Feeder serve food action card."
   }
 }

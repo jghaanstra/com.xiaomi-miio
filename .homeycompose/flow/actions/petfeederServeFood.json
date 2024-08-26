@@ -13,6 +13,20 @@
     "ru": "Подавать еду",
     "ko": "음식 제공"
   },
+  "titleFormatted": {
+    "en": "Serve [[servings]] servings",
+    "nl": "Serveer [[servings]] porties",
+    "da": "Server [[servings]] portioner",
+    "de": "Serviere [[servings]] Portionen",
+    "es": "Servir [[servings]] raciones",
+    "fr": "Servir [[servings]] portions",
+    "it": "Servi [[servings]] porzioni",
+    "no": "Server [[servings]] porsjoner",
+    "sv": "Servera [[servings]] portioner",
+    "pl": "Podaj [[servings]] porcje",
+    "ru": "Подать [[servings]] порций",
+    "ko": "[[servings]] 서빙 제공"
+  },
   "args": [
     {
       "name": "servings",

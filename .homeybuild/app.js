@@ -330,7 +330,7 @@ class XiaomiMiioApp extends Homey.App {
         try {
           //return await args.device.miio.call("action", args.device.deviceProperties.set_properties.serve_food, { retries: 1 });
           let servings = args.servings || 1;
-          return await this.miio.call("set_properties", [{ did: "call-2-1", siid: 2, aiid: 1, "in":[servings] }], { retries: 1 });
+          return await args.device.miio.call("set_properties", [{ did: "call-2-1", siid: 2, aiid: 1, "in":[servings] }], { retries: 1 });
         } catch (error) {
           return Promise.reject(error.message);
         }

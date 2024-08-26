@@ -187,7 +187,7 @@
       "게이트웨이"
     ]
   },
-  "version": "3.2.26",
+  "version": "3.2.28",
   "compatibility": ">=12.0.0",
   "platforms": [
     "local"
@@ -7552,6 +7552,20 @@
           "pl": "Podawaj jedzenie",
           "ru": "Подавать еду",
           "ko": "음식 제공"
+        },
+        "titleFormatted": {
+          "en": "Serve [[servings]] servings",
+          "nl": "Serveer [[servings]] porties",
+          "da": "Server [[servings]] portioner",
+          "de": "Serviere [[servings]] Portionen",
+          "es": "Servir [[servings]] raciones",
+          "fr": "Servir [[servings]] portions",
+          "it": "Servi [[servings]] porzioni",
+          "no": "Server [[servings]] porsjoner",
+          "sv": "Servera [[servings]] portioner",
+          "pl": "Podaj [[servings]] porcje",
+          "ru": "Подать [[servings]] порций",
+          "ko": "[[servings]] 서빙 제공"
         },
         "args": [
           {
@@ -26250,6 +26264,40 @@
             "pl": "Naturalny wiatr",
             "ru": "Естественный ветер",
             "ko": "자연 바람"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Sleep",
+            "nl": "Slaap",
+            "da": "Søvn",
+            "de": "Schlaf",
+            "es": "Dormir",
+            "fr": "Sommeil",
+            "it": "Sonno",
+            "no": "Søvn",
+            "sv": "Sömn",
+            "pl": "Sen",
+            "ru": "Сон",
+            "ko": "수면"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Cold Air",
+            "nl": "Koude Lucht",
+            "da": "Kold Luft",
+            "de": "Kalte Luft",
+            "es": "Aire Frío",
+            "fr": "Air Froid",
+            "it": "Aria Fredda",
+            "no": "Kald Luft",
+            "sv": "Kall Luft",
+            "pl": "Zimne Powietrze",
+            "ru": "Холодный воздух",
+            "ko": "찬 공기"
           }
         }
       ],
