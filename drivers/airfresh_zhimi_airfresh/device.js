@@ -83,7 +83,7 @@ class MiAirFreshDevice extends Device {
     }
 
     if (changedKeys.includes("led")) {
-      const led = await this.miio.call("set_led", [newSettings.led ? "on" : "off"], { retries: 1 });
+      const led = await this.miio.call("set_led_level", [newSettings.led ? 0 : 2], { retries: 1 });
     }
 
     if (changedKeys.includes("buzzer")) {
