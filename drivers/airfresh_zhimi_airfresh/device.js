@@ -105,7 +105,6 @@ class MiAirFreshDevice extends Device {
 
       /* capabilities */
       await this.updateCapabilityValue("onoff", result[0] === "on" ? true : false);
-      await this.updateCapabilityValue("measure_temperature", parseFloat(result[1]));
       await this.updateCapabilityValue("measure_pm25", parseInt(result[2]));
       await this.updateCapabilityValue("measure_co2", parseInt(result[3]));
       await this.updateCapabilityValue("measure_humidity", parseFloat(result[4]));
@@ -127,11 +126,14 @@ class MiAirFreshDevice extends Device {
       /* model specific capabilities */
       switch (this.getStoreValue('model')) {
         case 'zhimi.airfresh.va4':
+          await this.updateCapabilityValue("measure_temperature", parseFloat(result[1]));
           await this.util.sleep(2000);
           const result_va4 = await this.miio.call("get_prop", ["ptc_state"], { retries: 1 });
           if (!this.hasCapability('onoff.ptc')) { await this.addCapability('onoff.ptc')};
           await this.updateCapabilityValue("onoff.ptc", result_va4[0] === "on" ? true : false);
           break;
+        case 'zhimi.airfresh.va2':
+          await this.updateCapabilityValue("measure_temperature", parseFloat(result[1] * 0.1));
         default:
           break;
       }
