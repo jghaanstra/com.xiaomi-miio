@@ -134,6 +134,7 @@ class MiAirFreshDevice extends Device {
           break;
         case 'zhimi.airfresh.va2':
           await this.updateCapabilityValue("measure_temperature", parseFloat(result[1] * 0.1));
+          break;
         default:
           break;
       }
