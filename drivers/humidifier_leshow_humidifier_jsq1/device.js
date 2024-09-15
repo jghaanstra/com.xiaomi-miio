@@ -29,12 +29,6 @@ class MiHumidifierLeshowJSQ1Device extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove with the next release
-      if (this.getClass() !== 'humidifier') {
-        this.log('Updating device class from', this.getClass(), 'to humidifier');
-        this.setClass('humidifier')
-      }
-
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 

@@ -16,7 +16,7 @@ const mapping = {
 const properties = {
   "mapping_default": {
     "get_properties": [
-      { did: "error", siid : 2, piid: 1 }, // settings.error
+      { did: "fault", siid : 2, piid: 1 }, // settings.error
       { did: "controls", siid : 2, piid: 2 }, // windowcoverings_state
       { did: "position", siid : 2, piid: 3 }, // not in use
       { did: "movement", siid : 2, piid: 3 }, // windowcoverings_state
@@ -108,6 +108,7 @@ class ClothesDryerHydAirerMiotDevice extends Device {
       /* data */
       const light = result.find(obj => obj.did === 'light');
       const movement = result.find(obj => obj.did === 'movement');
+      const fault = result.find(obj => obj.did === 'fault');
 
       /* capabilities */
       if (light !== undefined) {

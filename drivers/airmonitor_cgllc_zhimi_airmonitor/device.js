@@ -18,12 +18,6 @@ class AirmonitorZhimiCgllcDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove with the next release
-      if (this.getClass() !== 'airtreatment') {
-        this.log('Updating device class from', this.getClass(), 'to airtreatment');
-        this.setClass('airtreatment')
-      }
-
       // ADD DEVICES DEPENDANT CAPABILITIES
       if (this.getStoreValue('model') === 'cgllc.airmonitor.s1') {
         if (this.hasCapability('measure_battery')) {

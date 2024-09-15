@@ -69,12 +69,6 @@ class PetwaterdispenserMmggMiotDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove with the next release
-      if (this.getClass() !== 'petfeeder') {
-        this.log('Updating device class from', this.getClass(), 'to petfeeder');
-        this.setClass('petfeeder')
-      }
-
       // DEVICE VARIABLES
       this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('mmgg.pet_waterer.*')]];
 

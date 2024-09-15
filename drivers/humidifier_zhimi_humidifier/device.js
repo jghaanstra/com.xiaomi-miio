@@ -18,13 +18,7 @@ class MiHumidifierDevice extends Device {
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
-
-      // TODO: remove with the next release
-      if (this.getClass() !== 'humidifier') {
-        this.log('Updating device class from', this.getClass(), 'to humidifier');
-        this.setClass('humidifier')
-      }
-
+      
       // DEVICE SPECIFIC INIT ACTIONS
       if (this.getStoreValue('model') !== 'zhimi.humidifier.v1') {
         if (!this.hasCapability('measure_waterlevel')) {
