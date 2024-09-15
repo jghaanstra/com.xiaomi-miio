@@ -187,7 +187,7 @@
       "게이트웨이"
     ]
   },
-  "version": "3.2.28",
+  "version": "3.2.29",
   "compatibility": ">=12.0.0",
   "platforms": [
     "local"
@@ -14063,6 +14063,245 @@
                 "pl": "Kod modelu urządzenia",
                 "ru": "Код модели устройства",
                 "ko": "장치 모델 코드"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "/drivers/clothesdryer_hyd_airer_miot/assets/icon.svg",
+      "pair": [
+        {
+          "id": "start",
+          "navigation": {
+            "next": "pair"
+          }
+        },
+        {
+          "id": "pair"
+        },
+        {
+          "id": "add_device"
+        }
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "name": {
+        "en": "Mijia Smart Clothes Drying Rack MIoT (WiFi)",
+        "nl": "Slim Mijia Droogrek MIoT (WiFi)",
+        "da": "Mijia Smart Tørrerist MIoT (WiFi)",
+        "de": "Mijia Smarter Wäscheständer MIoT (WiFi)",
+        "es": "Mijia Estante de Secado Inteligente MIoT (WiFi)",
+        "fr": "Séchoir à vêtements intelligent Mijia MIoT (WiFi)",
+        "it": "Stendibiancheria Intelligente Mijia MIoT (WiFi)",
+        "no": "Mijia Smart Tørkestativ MIoT (WiFi)",
+        "sv": "Mijia Smart Klädtorkställning MIoT (WiFi)",
+        "pl": "Mijia Inteligentny Wieszaki Suszarki MIoT (WiFi)",
+        "ru": "Умная сушилка для одежды Mijia MIoT (WiFi)",
+        "ko": "미지아 스마트 건조대 MIoT (WiFi)"
+      },
+      "images": {
+        "large": "drivers/clothesdryer_hyd_airer_miot/assets/images/large.jpg",
+        "small": "drivers/clothesdryer_hyd_airer_miot/assets/images/small.jpg"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "onoff",
+        "windowcoverings_state"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "title": {
+            "en": "Light",
+            "nl": "Licht",
+            "da": "Lys",
+            "de": "Licht",
+            "es": "Luz",
+            "fr": "Lumière",
+            "it": "Luce",
+            "no": "Lys",
+            "sv": "Ljus",
+            "pl": "Światło",
+            "ru": "Свет",
+            "ko": "빛"
+          }
+        },
+        "windowcoverings_state": {
+          "title": {
+            "en": "Position",
+            "nl": "Positie",
+            "da": "Position",
+            "de": "Position",
+            "es": "Posición",
+            "fr": "Position",
+            "it": "Posizione",
+            "no": "Posisjon",
+            "sv": "Position",
+            "pl": "Pozycja",
+            "ru": "Позиция",
+            "ko": "위치"
+          }
+        }
+      },
+      "id": "clothesdryer_hyd_airer_miot",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "User Settings",
+            "nl": "Gebruikersinstellingem",
+            "da": "Brugerindstillinger",
+            "de": "Benutzereinstellungen",
+            "es": "Configuración de usuario",
+            "fr": "Paramètres utilisateur",
+            "it": "Impostazioni utente",
+            "no": "Brukerinnstillinger",
+            "sv": "Användarinställningar",
+            "pl": "Ustawienia użytkownika",
+            "ru": "Настройки пользователя",
+            "ko": "사용자 설정"
+          },
+          "children": [
+            {
+              "id": "led",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "LED",
+                "nl": "LED",
+                "da": "LED",
+                "de": "LED",
+                "es": "LED",
+                "fr": "LED",
+                "it": "LED",
+                "no": "LED",
+                "sv": "LED",
+                "pl": "LED",
+                "ru": "Светодиод",
+                "ko": "LED"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device data",
+            "nl": "Apparaat data",
+            "da": "Enhedsdata",
+            "de": "Gerätedaten",
+            "es": "Datos del dispositivo",
+            "fr": "Données de l'appareil",
+            "it": "Dati del dispositivo",
+            "no": "Enhetsdata",
+            "sv": "Enhetsdata",
+            "pl": "Dane urządzenia",
+            "ru": "Данные устройства",
+            "ko": "장치 데이터"
+          },
+          "children": [
+            {
+              "id": "error",
+              "type": "label",
+              "label": {
+                "en": "Error",
+                "nl": "Error",
+                "da": "Fejl",
+                "de": "Fehler",
+                "es": "Error",
+                "fr": "Erreur",
+                "it": "Errore",
+                "no": "Feil",
+                "sv": "Fel",
+                "pl": "Błąd",
+                "ru": "Ошибка",
+                "ko": "오류"
+              },
+              "value": "No error"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device Settings",
+            "nl": "Apparaat instellingen",
+            "da": "Enhedsindstillinger",
+            "de": "Geräteeinstellungen",
+            "es": "Configuración del dispositivo",
+            "fr": "Paramètres de l'appareil",
+            "it": "Impostazioni del dispositivo",
+            "no": "Enhetsinnstillinger",
+            "sv": "Enhetsinställningar",
+            "pl": "Ustawienia urządzenia",
+            "ru": "Настройки устройства",
+            "ko": "기기 설정"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "value": "0.0.0.0",
+              "label": {
+                "en": "IP Address",
+                "nl": "IP adres",
+                "da": "IP-adresse",
+                "de": "IP-Adresse",
+                "es": "Dirección IP",
+                "fr": "Adresse IP",
+                "it": "Indirizzo IP",
+                "no": "IP-adresse",
+                "sv": "IP-adress",
+                "pl": "Adres IP",
+                "ru": "IP-адрес",
+                "ko": "IP 주소"
+              }
+            },
+            {
+              "id": "token",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Mi Device Token",
+                "nl": "Mi Apparaat Token",
+                "da": "Mi Enheds Token",
+                "de": "Mi Gerätetoken",
+                "es": "Token del Dispositivo Mi",
+                "fr": "Jeton de l'Appareil Mi",
+                "it": "Token Dispositivo Mi",
+                "no": "Mi Enhet Token",
+                "sv": "Mi Enhetstoken",
+                "pl": "Token Urządzenia Mi",
+                "ru": "Токен Устройства Mi",
+                "ko": "Mi 기기 토큰"
+              }
+            },
+            {
+              "id": "polling",
+              "type": "number",
+              "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+              "label": {
+                "en": "Polling Frequency",
+                "nl": "Polling frequentie",
+                "da": "Polling Frekvens",
+                "de": "Abfragefrequenz",
+                "es": "Frecuencia de sondeo",
+                "fr": "Fréquence de sondage",
+                "it": "Frequenza di polling",
+                "no": "Polling Frekvens",
+                "sv": "Pollingfrekvens",
+                "pl": "Częstotliwość odpytywania",
+                "ru": "Частота опроса",
+                "ko": "폴링 빈도"
               }
             }
           ]

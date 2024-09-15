@@ -1,0 +1,62 @@
+{
+  "name": {
+    "en": "Mijia Smart Clothes Drying Rack MIoT (WiFi)",
+    "nl": "Slim Mijia Droogrek MIoT (WiFi)",
+    "da": "Mijia Smart Tørrerist MIoT (WiFi)",
+    "de": "Mijia Smarter Wäscheständer MIoT (WiFi)",
+    "es": "Mijia Estante de Secado Inteligente MIoT (WiFi)",
+    "fr": "Séchoir à vêtements intelligent Mijia MIoT (WiFi)",
+    "it": "Stendibiancheria Intelligente Mijia MIoT (WiFi)",
+    "no": "Mijia Smart Tørkestativ MIoT (WiFi)",
+    "sv": "Mijia Smart Klädtorkställning MIoT (WiFi)",
+    "pl": "Mijia Inteligentny Wieszaki Suszarki MIoT (WiFi)",
+    "ru": "Умная сушилка для одежды Mijia MIoT (WiFi)",
+    "ko": "미지아 스마트 건조대 MIoT (WiFi)"
+  },
+  "images": {
+    "large": "drivers/clothesdryer_hyd_airer_miot/assets/images/large.jpg",
+    "small": "drivers/clothesdryer_hyd_airer_miot/assets/images/small.jpg"
+  },
+  "class": "sensor",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "windowcoverings_state"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "title": {
+        "en": "Light",
+        "nl": "Licht",
+        "da": "Lys",
+        "de": "Licht",
+        "es": "Luz",
+        "fr": "Lumière",
+        "it": "Luce",
+        "no": "Lys",
+        "sv": "Ljus",
+        "pl": "Światło",
+        "ru": "Свет",
+        "ko": "빛"
+      }
+    },
+    "windowcoverings_state": {
+      "title": {
+        "en": "Position",
+        "nl": "Positie",
+        "da": "Position",
+        "de": "Position",
+        "es": "Posición",
+        "fr": "Position",
+        "it": "Posizione",
+        "no": "Posisjon",
+        "sv": "Position",
+        "pl": "Pozycja",
+        "ru": "Позиция",
+        "ko": "위치"
+      }
+    }
+  }
+}

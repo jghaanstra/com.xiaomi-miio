@@ -96,6 +96,8 @@ class Util {
     'zhimi.heater.nb1': 'Smartmi Smart Fan Heater',
     'zhimi.heater.zb1a': 'Smartmi Smart Convector Heater 1S',
 
+    'hyd.airer.znlyj4': 'Mijia Smart Clothes Drying Rack',
+
     'rockrobo.vacuum.v1': 'Roborock Vacuum v1',
     'roborock.vacuum.c1': 'Roborock Vacuum S5 Max',
     'rockrobo.vacuum.1s': 'Roborock Vacuum 1S',

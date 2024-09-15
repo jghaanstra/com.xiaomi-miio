@@ -220,5 +220,8 @@
   },
   "3.2.28": {
     "en": "This release fixes the Mi Smart Evaporative Cooling Fan (dmaker.fan.p44) going offline and fixes the Pet Feeder serve food action card."
+  },
+  "3.2.29": {
+    "en": "This release adds support for Mijia Smart Clothes Drying Rack (hyd.airer.znlyj4) and includes possible fixes for the Pet Feeder serve food action card, incorrect temperature and LED setting for zhimi.airfresh.va2 and the controls of the Xiaomi Smart Evaporative Cooling Fan (dmaker.fan.p44)."
   }
 }

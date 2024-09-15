@@ -83,7 +83,7 @@ class MiAirFreshDevice extends Device {
     }
 
     if (changedKeys.includes("led")) {
-      const led = await this.miio.call("set_led", [newSettings.led ? "on" : "off"], { retries: 1 });
+      const led = await this.miio.call("set_led_level", [newSettings.led ? 0 : 2], { retries: 1 });
     }
 
     if (changedKeys.includes("buzzer")) {
@@ -105,7 +105,7 @@ class MiAirFreshDevice extends Device {
 
       /* capabilities */
       await this.updateCapabilityValue("onoff", result[0] === "on" ? true : false);
-      await this.updateCapabilityValue("measure_temperature", parseFloat(result[1]));
+      await this.updateCapabilityValue("measure_temperature", result[1] * 0.1);
       await this.updateCapabilityValue("measure_pm25", parseInt(result[2]));
       await this.updateCapabilityValue("measure_co2", parseInt(result[3]));
       await this.updateCapabilityValue("measure_humidity", parseFloat(result[4]));
