@@ -237,7 +237,7 @@ const properties = {
       { did: "child_lock", siid: 8, piid: 1 }, // settings.childLock
       { did: "light", siid: 13, piid: 2 }, // settings.led
       { did: "filter_life_remaining", siid: 4, piid: 1 }, // settings.filter_life_remaining
-      { did: "filter_hours_used", siid: 4, piid: 2 } // settings.filter_hours_used
+      { did: "filter_hours_used", siid: 4, piid: 3 } // settings.filter_hours_used
     ],
     "set_properties": {
       "power": { siid: 2, piid: 1 },

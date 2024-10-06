@@ -65,6 +65,23 @@
         "ru": "Высокий",
         "ko": "높음"
       }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "High (specific models)",
+        "nl": "Hoog (specifieke modellen)",
+        "da": "Høj (specifikke modeller)",
+        "de": "Hoch (spezifische Modelle)",
+        "es": "Alto (modelos específicos)",
+        "fr": "Élevé (modèles spécifiques)",
+        "it": "Alto (modelli specifici)",
+        "no": "Høy (spesifikke modeller)",
+        "sv": "Hög (specifika modeller)",
+        "pl": "Wysoki (specyficzne modele)",
+        "ru": "Высокий (определённые модели)",
+        "ko": "높음 (특정 모델)"
+      }
     }
   ],
   "getable": true,

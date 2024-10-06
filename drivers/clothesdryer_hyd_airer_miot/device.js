@@ -17,13 +17,13 @@ const properties = {
   "mapping_default": {
     "get_properties": [
       { did: "fault", siid : 2, piid: 1 }, // settings.error
-      { did: "controls", siid : 2, piid: 2 }, // windowcoverings_state
       { did: "position", siid : 2, piid: 3 }, // not in use
       { did: "movement", siid : 2, piid: 3 }, // windowcoverings_state
       { did: "light", siid: 3, piid: 1 }, // onoff
     ],
     "set_properties": {
-      "light": { siid: 3, aiid: 1, did: "call-3-1", in: [] }
+      "controls": { siid : 2, piid: 2 }, // windowcoverings_state
+      "light": { siid: 3, aiid: 1, did: "call-3-1", in: [] } // onoff
     }
   }
 }

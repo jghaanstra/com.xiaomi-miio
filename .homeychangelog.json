@@ -226,5 +226,8 @@
   },
   "3.2.30": {
     "en": "This release adds support for Mijia Smart Clothes Drying Rack (hyd.airer.znlyj4) and includes possible fixes for the Pet Feeder serve food action card, incorrect temperature and LED setting for zhimi.airfresh.va2 and the controls of the Xiaomi Smart Evaporative Cooling Fan (dmaker.fan.p44)."
+  },
+  "3.2.31": {
+    "en": "This release adds support for Smartmi Humidifier Rainforest (zhimi.humidifier.jd1) and Xiaomi Smart Tower Fan (dmaker.fan.p39). It reverts recent changes to the petfeeder servings flowcard as they do not work. And includes fixes for controlling the Mijia Smart Clothes Drying Rack (hyd.airer.znlyj4) and setting the mode on certain Dreame vacuum cleaners (mode names will be incorrect but it wont generate errors)."
   }
 }

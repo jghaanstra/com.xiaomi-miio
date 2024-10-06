@@ -6,9 +6,11 @@ const Util = require('../../lib/util.js');
 
 /* supported devices */
 // https://home.miot-spec.com/spec/zhimi.humidifier.ca4
+// https://home.miot-spec.com/spec/zhimi.humidifier.jd1
 
 const mapping = {
   "zhimi.humidifier.ca4": "mapping_default",
+  "zhimi.humidifier.jd1": "mapping_jd1",
   "zhimi.humidifier.*": "mapping_default",
 };
 
@@ -18,14 +20,14 @@ const properties = {
       { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "mode", siid: 2, piid: 5 }, // humidifier_zhimi_mode_miot
       { did: "target_humidity", siid: 2, piid: 6 }, // dim.target [30, 40, 50, 60, 70, 80]
-      { did: "humidity", siid: 3, piid: 9 }, // measure_humidity
       { did: "water_level", siid: 2, piid: 7 }, // measure_waterlevel
       { did: "dry", siid: 2, piid: 8 }, // onoff.dry
       { did: "speed_level", siid: 2, piid: 11 }, // dim [200 - 2000]
       { did: "temperature", siid: 3, piid: 7 }, // measure_temperature
+      { did: "humidity", siid: 3, piid: 9 }, // measure_humidity
       { did: "buzzer", siid: 4, piid: 1 }, // settings.buzzer
-      { did: "child_lock", siid: 6, piid: 1 }, // settings.childLock
-      { did: "light", siid: 5, piid: 2 } // settings.led
+      { did: "light", siid: 5, piid: 2 }, // settings.led
+      { did: "child_lock", siid: 6, piid: 1 } // settings.childLock
     ],
     "set_properties": {
       "power": { siid: 2, piid: 1 },
@@ -34,8 +36,27 @@ const properties = {
       "dry":  { siid: 2, piid: 8 },
       "speed_level":  { siid: 2, piid: 11 },
       "buzzer": { siid: 4, piid: 1 },
-      "child_lock": { siid: 6, piid: 1 },
-      "light": { siid: 5, piid: 2 }
+      "light": { siid: 5, piid: 2 },
+      "child_lock": { siid: 6, piid: 1 }
+    }
+  },
+  "mapping_jd1": {
+    "get_properties": [
+      { did: "power", siid: 2, piid: 1 }, // onoff
+      { did: "mode", siid: 2, piid: 12 }, // humidifier_zhimi_mode_miot
+      { did: "target_humidity", siid: 2, piid: 6 }, // dim.target [30, 40, 50, 60, 70, 80]
+      { did: "water_level", siid: 2, piid: 7 }, // measure_waterlevel
+      { did: "temperature", siid: 3, piid: 7 }, // measure_temperature
+      { did: "humidity", siid: 3, piid: 9 }, // measure_humidity
+      { did: "buzzer", siid: 4, piid: 1 }, // settings.buzzer
+      { did: "light", siid: 5, piid: 2 } // settings.led
+    ],
+    "set_properties": {
+      "power": { siid: 2, piid: 1 },
+      "mode": { siid: 2, piid: 12 },
+      "target_humidity": { siid: 2, piid: 6 },
+      "light": { siid: 5, piid: 2 },
+      "buzzer": { siid: 4, piid: 1 }
     }
   }
 }
@@ -58,6 +79,14 @@ class MiHumidifierCa4Device extends Device {
 
       // DEVICE VARIABLES
       this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['zhimi.humidifier.*']];
+
+      // DEVICE CAPABILITIES
+      if (this.getStoreValue('model') === 'zhimi.humidifier.jd1' && this.hasCapability('dim')) {
+        this.removeCapability('dim');
+      }
+      if (this.getStoreValue('model') === 'zhimi.humidifier.jd1' && this.hasCapability('onoff.dry')) {
+        this.removeCapability('onoff.dry');
+      }
 
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
@@ -154,7 +183,7 @@ class MiHumidifierCa4Device extends Device {
       const led = await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.light.siid, piid: this.deviceProperties.set_properties.light.piid, value: newSettings.led ? 2 : 0 }], { retries: 1 });
     }
 
-    if (changedKeys.includes("buzzer")) {
+    if (changedKeys.includes("buzzer") && this.getStoreValue('model') !== 'zhimi.humidifier.jd1') {
       const buzzer = await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.buzzer.siid, piid: this.deviceProperties.set_properties.buzzer.piid, value: newSettings.buzzer }], { retries: 1 });
     }
 
@@ -185,14 +214,20 @@ class MiHumidifierCa4Device extends Device {
       await this.updateCapabilityValue("onoff", onoff.value);
       await this.updateCapabilityValue("dim.target", dim_target.value);
       await this.updateCapabilityValue("measure_humidity", measure_humidity.value);
-      await this.updateCapabilityValue("onoff.dry", onoff_dry.value);
-      await this.updateCapabilityValue("dim", this.util.normalize(dim.value, 200, 2000));
+      if (onoff_dry !== undefined && this.hasCapability('onoff.dry')) {
+        await this.updateCapabilityValue("onoff.dry", onoff_dry.value);
+      }
+      if (dim !== undefined && this.hasCapability('dim')) {
+        await this.updateCapabilityValue("dim", this.util.normalize(dim.value, 200, 2000));
+      }
       await this.updateCapabilityValue("measure_temperature", measure_temperature.value);
       
       /* settings */
       await this.updateSettingValue("led", led.value);
       await this.updateSettingValue("buzzer", buzzer.value);
-      await this.updateSettingValue("childLock", child_lock.value);      
+      if (child_lock !== undefined) {
+        await this.updateSettingValue("childLock", child_lock.value);
+      }
 
       /* mode capability */
       const mode = result.find(obj => obj.did === 'mode');
