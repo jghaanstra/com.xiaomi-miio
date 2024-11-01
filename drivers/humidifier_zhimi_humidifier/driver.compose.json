@@ -25,63 +25,14 @@
     "onoff",
     "measure_temperature",
     "measure_humidity",
-    "dim",
+    "target_humidity",
     "humidifier_zhimi_mode"
   ],
   "capabilitiesOptions": {
-    "dim": {
-      "title": {
-        "en": "Target Humidity",
-        "nl": "Doel vochtigheid",
-        "da": "Målfugtighed",
-        "de": "Ziel-Luftfeuchtigkeit",
-        "es": "Humedad Objetivo",
-        "fr": "Humidité Cible",
-        "it": "Umidità Target",
-        "no": "Målfuktighet",
-        "sv": "Målfuktighet",
-        "pl": "Docelowa wilgotność",
-        "ru": "Целевая влажность",
-        "ko": "목표 습도"
-      },
+    "target_humidity": {
       "min": 30,
       "max": 80,
       "step": 10
-    },
-    "onoff.dry": {
-      "title": {
-        "en": "Dry mode",
-        "nl": "Droog modus",
-        "da": "Tør tilstand",
-        "de": "Trockenmodus",
-        "es": "Modo Seco",
-        "fr": "Mode Séchage",
-        "it": "Modalità Asciutta",
-        "no": "Tørrmodus",
-        "sv": "Torr läge",
-        "pl": "Tryb Suchy",
-        "ru": "Режим сушки",
-        "ko": "건조 모드"
-      }
-    },
-    "measure_water": {
-      "title": {
-        "en": "Waterlevel",
-        "nl": "Waterniveau",
-        "da": "Vandniveau",
-        "de": "Wasserstand",
-        "es": "Nivel de agua",
-        "fr": "Niveau d’eau",
-        "it": "Livello dell’acqua",
-        "no": "Vannivå",
-        "sv": "Vattennivå",
-        "pl": "Poziom wod",
-        "ru": "Уровень воды",
-        "ko": "물 수위"
-      },
-      "units": {
-        "en": "%"
-      }
     }
   }
 }

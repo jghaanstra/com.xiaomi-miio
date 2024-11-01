@@ -100,18 +100,18 @@
         {
           "id": "3",
           "title": {
-            "en": "Idle",
-            "nl": "Inactief",
-            "da": "Inaktiv",
-            "de": "Leerlauf",
-            "es": "Inactivo",
-            "fr": "Inactif",
-            "it": "Inattivo",
-            "no": "Inaktiv",
-            "sv": "Inaktiv",
-            "pl": "Bezczynny",
-            "ru": "Ожидание",
-            "ko": "대기"
+            "en": "Idle / Manual",
+            "nl": "Inactief / Handmatig",
+            "da": "Inaktiv / Manuel",
+            "de": "Leerlauf / Manuell",
+            "es": "Inactivo / Manual",
+            "fr": "Inactif / Manuel",
+            "it": "Inattivo / Manuale",
+            "no": "Inaktiv / Manuell",
+            "sv": "Inaktiv / Manuell",
+            "pl": "Bezczynny / Ręczny",
+            "ru": "Ожидание / Ручной",
+            "ko": "대기 / 수동"
           }
         }
       ]

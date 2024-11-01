@@ -24,7 +24,7 @@ const properties = {
       { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "watertank_shortage_fault", siid: 7, piid: 1 }, // alarm.water
       { did: "mode", siid: 2, piid: 5 }, // humidifier_deerma_jsq_mode
-      { did: "target_humidity", siid: 2, piid: 6 }, // dim [30, 40, 50, 60, 70, 80]
+      { did: "target_humidity", siid: 2, piid: 6 }, // target_humidity [30, 40, 50, 60, 70, 80]
       { did: "relative_humidity", siid: 3, piid: 1 }, // measure_humidity
       { did: "temperature", siid: 3, piid: 7 }, // measure_temperature
       { did: "buzzer", siid: 5, piid: 1 }, // settings.buzzer
@@ -56,6 +56,20 @@ class HumidifierDeermaMiotDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // TODO: remove after the next release
+      if (this.hasCapability('alarm_water.tank')) {
+        this.removeCapability('alarm_water.tank');
+      }
+      if (this.hasCapability('dim')) {
+        this.removeCapability('dim');
+      }
+      if (!this.hasCapability('alarm_tank_empty')) {
+        this.addCapability('alarm_tank_empty');
+      }
+      if (!this.hasCapability('target_humidity')) {
+        this.addCapability('target_humidity');
+      }
+
       // DEVICE VARIABLES
       this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['deerma.humidifier.*']];
 
@@ -78,7 +92,7 @@ class HumidifierDeermaMiotDevice extends Device {
         }
       });
 
-      this.registerCapabilityListener('dim', async ( value ) => {
+      this.registerCapabilityListener('target_humidity', async ( value ) => {
         try {
           if (this.miio) {
             let humidity = value * 100;
@@ -138,8 +152,8 @@ class HumidifierDeermaMiotDevice extends Device {
 
       /* data */
       const onoff = result.find(obj => obj.did === 'power');
-      const alarm_water = result.find(obj => obj.did === 'watertank_shortage_fault');
-      const dim_target_humidity = result.find(obj => obj.did === 'target_humidity');
+      const alarm_tank_empty = result.find(obj => obj.did === 'watertank_shortage_fault');
+      const target_humidity = result.find(obj => obj.did === 'target_humidity');
       const measure_humidity = result.find(obj => obj.did === 'relative_humidity');
       const measure_temperature = result.find(obj => obj.did === 'temperature');
       const buzzer = result.find(obj => obj.did === 'buzzer');
@@ -147,8 +161,8 @@ class HumidifierDeermaMiotDevice extends Device {
 
       /* capabilities */
       await this.updateCapabilityValue("onoff", onoff.value);
-      await this.updateCapabilityValue("alarm_water", alarm_water.value);
-      await this.updateCapabilityValue("dim", dim_target_humidity.value / 100);
+      await this.updateCapabilityValue("alarm_tank_empty", alarm_tank_empty.value);
+      await this.updateCapabilityValue("target_humidity", target_humidity.value / 100);
       await this.updateCapabilityValue("measure_humidity", measure_humidity.value);
       await this.updateCapabilityValue("measure_temperature", measure_temperature.value);    
 

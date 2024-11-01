@@ -30,7 +30,7 @@
     "airfryer_careli_food_quantity"
   ],
   "capabilitiesOptions": {
-    "measure_temperature": {
+    "onoff.preheat": {
       "title": {
         "en": "Preheat switch",
         "nl": "Preheat schakelaar",

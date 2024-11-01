@@ -28,24 +28,10 @@
     "measure_temperature",
     "measure_luminance",
     "airpurifier_mode",
-    "dim"
+    "fan_speed"
   ],
   "capabilitiesOptions": {
-    "dim": {
-      "title": {
-        "en": "Favorite Level",
-        "nl": "Favoriet niveau",
-        "da": "Favorit Niveau",
-        "de": "Lieblingsstufe",
-        "es": "Nivel Favorito",
-        "fr": "Niveau Favori",
-        "it": "Livello Preferito",
-        "no": "Favorittnivå",
-        "sv": "Favoritnivå",
-        "pl": "Ulubiony poziom",
-        "ru": "Любимый Уровень",
-        "ko": "즐겨찾기 레벨"
-      },
+    "fan_speed": {
       "min": 0,
       "max": 16,
       "step": 1

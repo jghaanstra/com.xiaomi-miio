@@ -18,7 +18,7 @@ const properties = {
       { did: "onoff", siid: 2, piid: 1 }, // onoff
       { did: "error", siid: 2, piid: 2 }, // settings.error
       { did: "mode", siid: 2, piid: 3 }, // humidifier_xiaomi_mode
-      { did: "target_humidity", siid: 2, piid: 6 }, // dim.target [40, 50, 60, 70]
+      { did: "target_humidity", siid: 2, piid: 6 }, // target_humidity [40, 50, 60, 70]
       { did: "water_level", siid: 2, piid: 7 }, // measure_waterlevel
       { did: "dry", siid: 2, piid: 12 }, // onoff.dry
       { did: "humidity", siid: 3, piid: 1 }, // measure_humidity
@@ -47,6 +47,14 @@ class XiaomiHumidifierMIoTDevice extends Device {
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
+
+      // TODO: remove after the next release
+      if (this.hasCapability('dim')) {
+        this.removeCapability('dim');
+      }
+      if (!this.hasCapability('target_humidity')) {
+        this.addCapability('target_humidity');
+      }
 
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
@@ -102,7 +110,7 @@ class XiaomiHumidifierMIoTDevice extends Device {
         }
       });
 
-      this.registerCapabilityListener('dim', async ( value ) => {
+      this.registerCapabilityListener('target_humidity', async ( value ) => {
         try {
           if (this.miio) {
             return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.target_humidity.siid, piid: this.deviceProperties.set_properties.target_humidity.piid, value: value }], { retries: 1 });
@@ -174,7 +182,7 @@ class XiaomiHumidifierMIoTDevice extends Device {
 
       /* capabilities */
       await this.updateCapabilityValue("onoff", onoff.value);
-      await this.updateCapabilityValue("dim", target_humidity.value);
+      await this.updateCapabilityValue("target_humidity", target_humidity.value);
       await this.updateCapabilityValue("onoff.dry", onoff_dry.value);
       await this.updateCapabilityValue("measure_humidity", measure_humidity.value);
       await this.updateCapabilityValue("measure_temperature", measure_temperature.value);

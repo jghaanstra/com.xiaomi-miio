@@ -26,6 +26,26 @@ class ZhiMiFanAdvancedDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // TODO: remove after the next release
+      if (this.hasCapability('onoff.swing')) {
+        this.removeCapability('onoff.swing');
+      }
+      if (this.hasCapability('dim.angle')) {
+        this.removeCapability('dim.angle');
+      }
+      if (this.hasCapability('dim')) {
+        this.removeCapability('dim');
+      }
+      if (!this.hasCapability('oscillating')) {
+        this.addCapability('oscillating');
+      }
+      if (!this.hasCapability('measure_wind_angle')) {
+        this.addCapability('measure_wind_angle');
+      }
+      if (!this.hasCapability('fan_speed')) {
+        this.addCapability('fan_speed');
+      }
+
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 
@@ -45,7 +65,7 @@ class ZhiMiFanAdvancedDevice extends Device {
         }
       });
 
-      this.registerCapabilityListener('onoff.swing', async ( value ) => {
+      this.registerCapabilityListener('oscillating', async ( value ) => {
         try {
           if (this.miio) {
             return await this.miio.call("set_angle_enable", [value ? "on" : "off"], { retries: 1 });
@@ -60,7 +80,7 @@ class ZhiMiFanAdvancedDevice extends Device {
         }
       });
 
-      this.registerCapabilityListener('dim', async ( value ) => {
+      this.registerCapabilityListener('fan_speed', async ( value ) => {
         try {
           if (this.miio) {
             return await this.miio.call("set_speed_level", [value * 100], { retries: 1 });
@@ -75,7 +95,7 @@ class ZhiMiFanAdvancedDevice extends Device {
         }
       });
 
-      this.registerCapabilityListener('dim.angle', async ( value ) => {
+      this.registerCapabilityListener('measure_wind_angle', async ( value ) => {
         try {
           if (this.miio) {
             return await this.miio.call("set_angle", [value], { retries: 1 });
@@ -140,9 +160,9 @@ class ZhiMiFanAdvancedDevice extends Device {
 
       /* capabilities */
       await this.updateCapabilityValue("onoff", result[0] == "on");
-      await this.updateCapabilityValue("dim.angle", +result[1]);
-      await this.updateCapabilityValue("onoff.swing", result[2] == "on");
-      await this.updateCapabilityValue("dim", +result[3]);
+      await this.updateCapabilityValue("measure_wind_angle", +result[1]);
+      await this.updateCapabilityValue("oscillating", result[2] == "on");
+      await this.updateCapabilityValue("fan_speed", result[3] / 100);
 
       /* settings */
       await this.updateSettingValue("childLock", result[5] == "on");

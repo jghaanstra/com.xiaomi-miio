@@ -23,29 +23,15 @@
   ],
   "capabilities": [
     "onoff",
-    "dim",
+    "target_humidity",
     "humidifier_deerma_jsq_mode",
     "measure_temperature",
     "measure_humidity",
     "alarm_water",
-    "alarm_water.tank"
+    "alarm_tank_empty"
   ],
   "capabilitiesOptions": {
-    "dim": {
-      "title": {
-        "en": "Target Relative Humidity",
-        "nl": "Doel relatieve vochtigheid",
-        "da": "Målfugtighed",
-        "de": "Zielrelative Luftfeuchtigkeit",
-        "es": "Humedad Relativa Objetivo",
-        "fr": "Humidité Relative Cible",
-        "it": "Umidità Relativa Obiettivo",
-        "no": "Mål relativ fuktighet",
-        "sv": "Målrelativ luftfuktighet",
-        "pl": "Docelowa wilgotność względna",
-        "ru": "Целевая относительная влажность",
-        "ko": "목표 상대 습도"
-      },
+    "target_humidity": {
       "min": 0.4,
       "max": 0.7
     },
@@ -63,22 +49,6 @@
         "pl": "Poziom wody",
         "ru": "Уровень воды",
         "ko": "수위"
-      }
-    },
-    "alarm_water.tank": {
-      "title": {
-        "en": "Water tank status",
-        "nl": "Watertank status",
-        "da": "Vandtankstatus",
-        "de": "Wassertankstatus",
-        "es": "Estado del tanque de agua",
-        "fr": "Statut du réservoir d'eau",
-        "it": "Stato del serbatoio d'acqua",
-        "no": "Vanntankstatus",
-        "sv": "Vattentanksstatus",
-        "pl": "Stan zbiornika na wodę",
-        "ru": "Состояние водяного бака",
-        "ko": "물탱크 상태"
       }
     }
   }

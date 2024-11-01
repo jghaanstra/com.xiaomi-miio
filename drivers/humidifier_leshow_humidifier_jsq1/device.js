@@ -29,6 +29,20 @@ class MiHumidifierLeshowJSQ1Device extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // TODO: remove after the next release
+      if (this.hasCapability('dim')) {
+        this.removeCapability('dim');
+      }
+      if (this.hasCapability('measure_water')) {
+        this.removeCapability('measure_water');
+      }
+      if (!this.hasCapability('target_humidity')) {
+        this.addCapability('target_humidity');
+      }
+      if (!this.hasCapability('measure_waterlevel')) {
+        this.addCapability('measure_waterlevel');
+      }
+
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 
@@ -48,7 +62,7 @@ class MiHumidifierLeshowJSQ1Device extends Device {
         }
       });
 
-      this.registerCapabilityListener('dim', async ( value ) => {
+      this.registerCapabilityListener('target_humidity', async ( value ) => {
         try {
           if (this.miio) {
             const humidity = value * 100;
@@ -103,15 +117,15 @@ class MiHumidifierLeshowJSQ1Device extends Device {
 
       const deviceStatusResult = result.filter((r) => r.siid == 2 && r.piid == 1)[0];
       const deviceModeResult = result.filter((r) => r.siid == 2 && r.piid == 3)[0];
-      const deviceTargetHumidityResult = result.filter((r) => r.siid == 2 && r.piid == 6)[0];
+      const target_humidity = result.filter((r) => r.siid == 2 && r.piid == 6)[0];
       const deviceHumidityResult = result.filter((r) => r.siid == 3 && r.piid == 1)[0];
-      const deviceWaterLevelResult = result.filter((r) => r.siid == 8 && r.piid == 1)[0];
+      const measure_waterlevel = result.filter((r) => r.siid == 8 && r.piid == 1)[0];
       const deviceLedResult = result.filter((r) => r.siid == 8 && r.piid == 6)[0];
 
       await this.updateCapabilityValue("onoff", deviceStatusResult.value);
       await this.updateCapabilityValue("measure_humidity", deviceHumidityResult.value / 100);
-      await this.updateCapabilityValue("dim", deviceTargetHumidityResult.value);
-      await this.updateCapabilityValue("measure_water", deviceWaterLevelResult.value);
+      await this.updateCapabilityValue("target_humidity", target_humidity.value);
+      await this.updateCapabilityValue("measure_waterlevel", measure_waterlevel.value);
       
       await this.updateSettingValue("led", !!deviceLedResult.value);
 

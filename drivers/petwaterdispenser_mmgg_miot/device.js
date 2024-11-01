@@ -21,8 +21,8 @@ const properties = {
     "get_properties": [
       { did: "onoff", siid: 2, piid: 2 }, // onoff
       { did: "mode", siid: 2, piid: 3 }, // petwaterdispenser_mmgg_mode
-      { did: "no_water_flag", siid : 7, piid: 1 }, // alarm_water
-      { did: "pump_block_flag", siid : 7, piid: 3 }, // alarm_generic
+      { did: "no_water_flag", siid : 7, piid: 1 }, // alarm_tank_empty
+      { did: "pump_block_flag", siid : 7, piid: 3 }, // alarm_pump_supply
       { did: "error", siid: 2, piid: 1 }, // settings.error
       { did: "filter_life_remaining", siid: 3, piid: 1 }, // settings.filter_life_remaining
       { did: "cotton_life_remaining", siid: 5, piid: 1 }, // settings.cotton_life_remaining
@@ -39,8 +39,8 @@ const properties = {
     "get_properties": [
       { did: "onoff", siid: 2, piid: 1 }, // onoff
       { did: "mode", siid: 2, piid: 3 }, // petwaterdispenser_mmgg_mode
-      { did: "no_water_flag", siid : 7, piid: 1 }, // alarm_water
-      { did: "pump_block_flag", siid : 7, piid: 3 }, // alarm_generic
+      { did: "no_water_flag", siid : 7, piid: 1 }, // alarm_tank_empty
+      { did: "pump_block_flag", siid : 7, piid: 3 }, // alarm_pump_supply
       { did: "error", siid: 2, piid: 2 }, // settings.error
       { did: "filter_life_remaining", siid: 3, piid: 1 }, // settings.filter_life_remaining
       { did: "cotton_life_remaining", siid: 5, piid: 1 }, // settings.cotton_life_remaining
@@ -68,6 +68,20 @@ class PetwaterdispenserMmggMiotDevice extends Device {
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
+
+      // TODO: remove after the next release
+      if (this.hasCapability('alarm_water')) {
+        this.removeCapability('alarm_water');
+      }
+      if (this.hasCapability('alarm_generic')) {
+        this.removeCapability('alarm_generic');
+      }
+      if (!this.hasCapability('alarm_tank_empty')) {
+        this.addCapability('alarm_tank_empty');
+      }
+      if (!this.hasCapability('alarm_pump_supply')) {
+        this.addCapability('alarm_pump_supply');
+      }   
 
       // DEVICE VARIABLES
       this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('mmgg.pet_waterer.*')]];
@@ -132,8 +146,8 @@ class PetwaterdispenserMmggMiotDevice extends Device {
 
       /* data */
       const onoff = result.find(obj => obj.did === 'onoff');
-      const alarm_water = result.find(obj => obj.did === 'no_water_flag');
-      const alarm_generic = result.find(obj => obj.did === 'pump_block_flag');
+      const alarm_tank_empty = result.find(obj => obj.did === 'no_water_flag');
+      const alarm_pump_supply = result.find(obj => obj.did === 'pump_block_flag');
       const error_value = result.find(obj => obj.did === 'error');
       const led = result.find(obj => obj.did === 'light');
       const filter_life_remaining = result.find(obj => obj.did === 'filter_life_remaining');
@@ -142,8 +156,8 @@ class PetwaterdispenserMmggMiotDevice extends Device {
 
       /* capabilities */
       await this.updateCapabilityValue("onoff", onoff.value);
-      await this.updateCapabilityValue("alarm_water", alarm_water.value ? false : true);
-      await this.updateCapabilityValue("alarm_generic", alarm_generic.value);
+      await this.updateCapabilityValue("alarm_tank_empty", alarm_tank_empty.value ? false : true);
+      await this.updateCapabilityValue("alarm_pump_supply", alarm_pump_supply.value);
 
       /* settings */
       await this.updateSettingValue("led", led.value === 0 ? false : true);

@@ -29,6 +29,14 @@ class AdvancedOlderMiAirPurifierDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // TODO: remove after the next release
+      if (this.hasCapability('dim')) {
+        this.removeCapability('dim');
+      }
+      if (!this.hasCapability('fan_speed')) {
+        this.addCapability('fan_speed');
+      }
+
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 
@@ -48,7 +56,7 @@ class AdvancedOlderMiAirPurifierDevice extends Device {
         }
       });
 
-      this.registerCapabilityListener('dim', async (value) => {
+      this.registerCapabilityListener('fan_speed', async (value) => {
         try {
           if (this.miio) {
             return await this.miio.call("set_level_favorite", [value], { retries: 1 });
@@ -115,7 +123,7 @@ class AdvancedOlderMiAirPurifierDevice extends Device {
       await this.updateCapabilityValue("measure_humidity", result[2]);
       await this.updateCapabilityValue("measure_temperature", result[3] / 10);
       await this.updateCapabilityValue("measure_luminance", result[4]);
-      await this.updateCapabilityValue("dim", result[6]);
+      await this.updateCapabilityValue("fan_speed", result[6]);
 
       /* settings */
       await this.updateSettingValue("buzzer", result[7] === "on" ? true : false);

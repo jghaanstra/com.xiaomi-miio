@@ -9,8 +9,8 @@ const Util = require('../../lib/util.js');
 
 const params = [
   { did: "power", siid: 2, piid: 1 }, // onoff
-  { did: "fan_level", siid: 2, piid: 2 }, // dim
-  { did: "swing_mode", siid: 2, piid: 3 }, // onoff.swing
+  { did: "fan_speed", siid: 2, piid: 2 }, // fan_speed
+  { did: "swing_mode", siid: 2, piid: 3 }, // oscillating
   { did: "swing_mode_angle", siid: 2, piid: 5 }, // fan_zhimi_angle
   { did: "mode", siid: 2, piid: 7 }, // fan_zhimi_mode
   { did: "anion", siid: 2, piid: 11 }, // onoff.ion
@@ -35,6 +35,20 @@ class ZhiMiFanZA5Device extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // TODO: remove after the next release
+      if (this.hasCapability('onoff.swing')) {
+        this.removeCapability('onoff.swing');
+      }
+      if (this.hasCapability('dim')) {
+        this.removeCapability('dim');
+      }
+      if (!this.hasCapability('oscillating')) {
+        this.addCapability('oscillating');
+      }
+      if (!this.hasCapability('fan_speed')) {
+        this.addCapability('fan_speed');
+      }
+
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 
@@ -54,7 +68,7 @@ class ZhiMiFanZA5Device extends Device {
         }
       });
 
-      this.registerCapabilityListener('onoff.swing', async ( value ) => {
+      this.registerCapabilityListener('oscillating', async ( value ) => {
         try {
           if (this.miio) {
             return await this.miio.call("set_properties", [{ siid: 2, piid: 3, value: value }], { retries: 1 });
@@ -84,7 +98,7 @@ class ZhiMiFanZA5Device extends Device {
         }
       });
 
-      this.registerCapabilityListener('dim', async ( value ) => {
+      this.registerCapabilityListener('fan_speed', async ( value ) => {
         try {
           if (this.miio) {
             return await this.miio.call("set_properties", [{ siid: 2, piid: 2, value: value }], { retries: 1 });
@@ -161,8 +175,8 @@ class ZhiMiFanZA5Device extends Device {
 
       /* data */
       const onoff = result.find(obj => obj.did === 'power');
-      const dim = result.find(obj => obj.did === 'fan_level');
-      const onoff_swing = result.find(obj => obj.did === 'swing_mode');
+      const fan_speed = result.find(obj => obj.did === 'fan_speed');
+      const oscillating = result.find(obj => obj.did === 'swing_mode');
       const onoff_ion = result.find(obj => obj.did === 'anion');
       const fan_zhimi_angle = result.find(obj => obj.did === 'swing_mode_angle');
       const measure_humidity = result.find(obj => obj.did === 'humidity');
@@ -174,8 +188,8 @@ class ZhiMiFanZA5Device extends Device {
       
       /* capabilities */
       await this.updateCapabilityValue("onoff", onoff.value);
-      await this.updateCapabilityValue("dim", dim.value);
-      await this.updateCapabilityValue("onoff.swing", onoff_swing.value);
+      await this.updateCapabilityValue("fan_speed", fan_speed.value);
+      await this.updateCapabilityValue("oscillating", oscillating.value);
       await this.updateCapabilityValue("onoff.ion", onoff_ion.value);
       await this.updateCapabilityValue("fan_zhimi_angle", fan_zhimi_angle.value.toString());
       await this.updateCapabilityValue("measure_humidity", measure_humidity.value);

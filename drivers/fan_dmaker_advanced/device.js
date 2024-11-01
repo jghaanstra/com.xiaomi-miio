@@ -22,7 +22,7 @@ const mapping = {
 	"dmaker.fan.p15": "properties_p11",
 	"dmaker.fan.p18": "properties_p10",
 	"dmaker.fan.p33": "properties_p33",
-  "dmaker.fan.p39": "properties_p33",
+  "dmaker.fan.p39": "properties_p39",
   "dmaker.fan.p44": "properties_p44",
 	"dmaker.fan.1c": "properties_1c",
   "dmaker.fan.*": "properties_p9"
@@ -34,16 +34,16 @@ const properties = {
       { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 4 }, // fan_dmaker_mode
-      { did: "swing_mode", siid: 2, piid: 5 }, // onoff.swing
-      { did: "swing_mode_angle", siid: 2, piid: 6 }, // fan_zhimi_angle
-      { did: "fan_speed", siid: 2, piid: 11 }, // dim.fanspeed
+      { did: "oscillating_mode", siid: 2, piid: 5 }, // oscillating
+      { did: "oscillating_mode_angle", siid: 2, piid: 6 }, // fan_zhimi_angle
+      { did: "fan_speed", siid: 2, piid: 11 }, // fan_speed
       { did: "light", siid: 2, piid: 9 }, // settings.led
       { did: "buzzer", siid: 2, piid: 7 }, // settings.buzzer
       { did: "child_lock", siid: 3, piid: 1 } // settings.childLock
     ],
     "set_properties": {
-      "swing_mode": { siid: 2, piid: 5 },
-      "swing_mode_angle": { siid: 2, piid: 6 },
+      "oscillating_mode": { siid: 2, piid: 5 },
+      "oscillating_mode_angle": { siid: 2, piid: 6 },
       "fan_speed": { siid: 2, piid: 11 },
       "mode": { siid: 2, piid: 4 },
       "light": {siid: 2, piid: 9 },
@@ -56,16 +56,16 @@ const properties = {
       { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 3 }, // fan_dmaker_mode
-      { did: "swing_mode", siid: 2, piid: 4 }, // onoff.swing
-      { did: "swing_mode_angle", siid: 2, piid: 5 }, // fan_zhimi_angle
-      { did: "fan_speed", siid: 2, piid: 10 }, // dim.fanspeed
+      { did: "oscillating_mode", siid: 2, piid: 4 }, // oscillating
+      { did: "oscillating_mode_angle", siid: 2, piid: 5 }, // fan_zhimi_angle
+      { did: "fan_speed", siid: 2, piid: 10 }, // fan_speed
       { did: "light", siid: 2, piid: 7 }, // settings.led
       { did: "buzzer", siid: 2, piid: 8 }, // settings.buzzer
       { did: "child_lock", siid: 3, piid: 1 } // settings.childLock
     ],
     "set_properties": {
-      "swing_mode": { siid: 2, piid: 4 },
-      "swing_mode_angle": { siid: 2, piid: 5 },
+      "oscillating_mode": { siid: 2, piid: 4 },
+      "oscillating_mode_angle": { siid: 2, piid: 5 },
       "fan_speed": { siid: 2, piid: 10 },
       "mode": { siid: 2, piid: 3 },
       "light": { siid: 2, piid: 7 },
@@ -78,16 +78,16 @@ const properties = {
       { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 3 }, // fan_dmaker_mode
-      { did: "swing_mode", siid: 2, piid: 4 }, // onoff.swing
-      { did: "swing_mode_angle", siid: 2, piid: 5 }, // fan_zhimi_angle
-      { did: "fan_speed", siid: 2, piid: 6 }, // dim.fanspeed
+      { did: "oscillating_mode", siid: 2, piid: 4 }, // oscillating
+      { did: "oscillating_mode_angle", siid: 2, piid: 5 }, // fan_zhimi_angle
+      { did: "fan_speed", siid: 2, piid: 6 }, // fan_speed
       { did: "light", siid: 4, piid: 1 }, // settings.led
       { did: "buzzer", siid: 5, piid: 1 }, // settings.buzzer
       { did: "child_lock", siid: 7, piid: 1 } // settings.childLock
     ],
     "set_properties": {
-      "swing_mode": { siid: 2, piid: 4 },
-      "swing_mode_angle": { siid: 2, piid: 5 },
+      "oscillating_mode": { siid: 2, piid: 4 },
+      "oscillating_mode_angle": { siid: 2, piid: 5 },
       "fan_speed": { siid: 2, piid: 6 },
       "mode": { siid: 2, piid: 3 },
       "light": { siid: 4, piid: 1 },
@@ -100,16 +100,16 @@ const properties = {
       { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 3 }, // fan_dmaker_mode
-      { did: "swing_mode", siid: 2, piid: 4 }, // onoff.swing
-      { did: "swing_mode_angle", siid: 2, piid: 5 }, // fan_zhimi_angle
-      { did: "fan_speed", siid: 2, piid: 6 }, // dim.fanspeed
+      { did: "oscillating_mode", siid: 2, piid: 4 }, // oscillating
+      { did: "oscillating_mode_angle", siid: 2, piid: 5 }, // fan_zhimi_angle
+      { did: "fan_speed", siid: 2, piid: 6 }, // fan_speed
       { did: "light", siid: 4, piid: 1 }, // settings.led
       { did: "buzzer", siid: 5, piid: 1 }, // settings.buzzer
       { did: "child_lock", siid: 7, piid: 1 } // settings.childLock
     ],
     "set_properties": {
-      "swing_mode": { siid: 2, piid: 4 },
-      "swing_mode_angle": { siid: 2, piid: 5 },
+      "oscillating_mode": { siid: 2, piid: 4 },
+      "oscillating_mode_angle": { siid: 2, piid: 5 },
       "fan_speed": { siid: 2, piid: 6 },
       "mode": { siid: 2, piid: 3 },
       "light": { siid: 4, piid: 1 },
@@ -122,14 +122,14 @@ const properties = {
       { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 4 }, // fan_dmaker_mode
-      { did: "swing_mode", siid: 2, piid: 5 }, // onoff.swing
-      { did: "swing_mode_angle", siid: 2, piid: 6 }, // fan_zhimi_angle
-      { did: "fan_speed", siid: 2, piid: 11 }, // dim.fanspeed
+      { did: "oscillating_mode", siid: 2, piid: 5 }, // oscillating
+      { did: "oscillating_mode_angle", siid: 2, piid: 6 }, // fan_zhimi_angle
+      { did: "fan_speed", siid: 2, piid: 11 }, // fan_speed
       { did: "child_lock", siid: 3, piid: 1 } // settings.childLock
     ],
     "set_properties": {
-      "swing_mode": { siid: 2, piid: 5 },
-      "swing_mode_angle": { siid: 2, piid: 6 },
+      "oscillating_mode": { siid: 2, piid: 5 },
+      "oscillating_mode_angle": { siid: 2, piid: 6 },
       "fan_speed": { siid: 2, piid: 11 },
       "mode": { siid: 2, piid: 4 },
       "child_lock": { siid: 3, piid: 1 }
@@ -140,13 +140,13 @@ const properties = {
       { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 3 }, // fan_dmaker_mode
-      { did: "swing_mode", siid: 2, piid: 4 }, // onoff.swing
+      { did: "oscillating_mode", siid: 2, piid: 4 }, // oscillating
       { did: "light", siid: 4, piid: 1 }, // settings.led
       { did: "buzzer", siid: 5, piid: 1 }, // settings.buzzer
       { did: "child_lock", siid: 7, piid: 1 } // settings.childLock
     ],
     "set_properties": {
-      "swing_mode": { siid: 2, piid: 4 },
+      "oscillating_mode": { siid: 2, piid: 4 },
       "mode": { siid: 2, piid: 3 },
       "light": { siid: 4, piid: 1 },
       "buzzer": { siid: 5, piid: 1 },
@@ -158,13 +158,13 @@ const properties = {
       { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "fan_level", siid: 2, piid: 2 }, // dim
       { did: "mode", siid: 2, piid: 7 }, // fan_dmaker_mode
-      { did: "swing_mode", siid: 2, piid: 3 }, // onoff.swing
+      { did: "oscillating_mode", siid: 2, piid: 3 }, // oscillating
       { did: "light", siid: 2, piid: 12 }, // setting.led
       { did: "buzzer", siid: 2, piid: 11 }, // settings.buzzer
       { did: "child_lock", siid: 3, piid: 1 } // settings.childLock
     ],
     "set_properties": {
-      "swing_mode": { siid: 2, piid: 3 },
+      "oscillating_mode": { siid: 2, piid: 3 },
       "mode": { siid: 2, piid: 7 },
       "light": { siid: 2, piid: 12 },
       "buzzer": { siid: 2, piid: 11 },
@@ -187,10 +187,24 @@ class AdvancedDmakerFanMiotDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // TODO: remove after the next release
+      if (this.hasCapability('onoff.swing')) {
+        this.removeCapability('onoff.swing');
+      }
+      if (this.hasCapability('dim.fanspeed')) {
+        this.removeCapability('dim.fanspeed');
+      }
+      if (!this.hasCapability('oscillating')) {
+        this.addCapability('oscillating');
+      }
+      if (!this.hasCapability('fan_speed') && (this.getStoreValue('model') === 'dmaker.fan.p44' || this.getStoreValue('model') === 'dmaker.fan.1c')) {
+        this.addCapability('fan_speed');
+      }
+
       // ADD DEVICES DEPENDANT CAPABILITIES
       if (this.getStoreValue('model') === 'dmaker.fan.p44' || this.getStoreValue('model') === 'dmaker.fan.1c') {
-        if (this.hasCapability('dim.fanspeed')) {
-          this.removeCapability('dim.fanspeed');
+        if (this.hasCapability('fan_speed')) {
+          this.removeCapability('fan_speed');
         }
         if (this.hasCapability('fan_zhimi_angle')) {
           this.removeCapability('fan_zhimi_angle');
@@ -219,10 +233,10 @@ class AdvancedDmakerFanMiotDevice extends Device {
         }
       });
 
-      this.registerCapabilityListener('onoff.swing', async ( value ) => {
+      this.registerCapabilityListener('oscillating', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ did: "swing_mode", siid: this.deviceProperties.set_properties.swing_mode.siid, piid: this.deviceProperties.set_properties.swing_mode.piid, value: value ? 1 : 0 }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ did: "oscillating_mode", siid: this.deviceProperties.set_properties.oscillating_mode.siid, piid: this.deviceProperties.set_properties.oscillating_mode.piid, value: value ? 1 : 0 }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -252,7 +266,7 @@ class AdvancedDmakerFanMiotDevice extends Device {
       this.registerCapabilityListener('fan_zhimi_angle', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ did: "fan_zhimi_angle", siid: this.deviceProperties.set_properties.swing_mode_angle.siid, piid: this.deviceProperties.set_properties.swing_mode_angle.piid, value: +value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ did: "fan_zhimi_angle", siid: this.deviceProperties.set_properties.oscillating_mode_angle.siid, piid: this.deviceProperties.set_properties.oscillating_mode_angle.piid, value: +value }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -264,10 +278,10 @@ class AdvancedDmakerFanMiotDevice extends Device {
         }
       });
 
-      this.registerCapabilityListener('dim.fanspeed', async ( value ) => {
+      this.registerCapabilityListener('fan_speed', async ( value ) => {
         try {
           if (this.miio) {
-            return await this.miio.call("set_properties", [{ did: "fan_speed", siid: this.deviceProperties.set_properties.fan_speed.siid, piid: this.deviceProperties.set_properties.fan_speed.piid, value: value }], { retries: 1 });
+            return await this.miio.call("set_properties", [{ did: "fan_speed", siid: this.deviceProperties.set_properties.fan_speed.siid, piid: this.deviceProperties.set_properties.fan_speed.piid, value: value * 100 }], { retries: 1 });
           } else {
             this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
             this.createDevice();
@@ -326,7 +340,7 @@ class AdvancedDmakerFanMiotDevice extends Device {
 
       /* data */
       const onoff = result.find(obj => obj.did === 'power');
-      const onoff_swing_mode = result.find(obj => obj.did === 'swing_mode');
+      const oscillating_mode = result.find(obj => obj.did === 'oscillating_mode');
       const dim_fan_level = result.find(obj => obj.did === 'fan_level');
       const mode = result.find(obj => obj.did === 'mode');
       
@@ -336,16 +350,16 @@ class AdvancedDmakerFanMiotDevice extends Device {
 
       /* capabilities */
       await this.updateCapabilityValue("onoff", onoff.value);
-      await this.updateCapabilityValue("onoff.swing", onoff_swing_mode.value);
+      await this.updateCapabilityValue("oscillating", oscillating_mode.value);
       await this.updateCapabilityValue("dim", +dim_fan_level.value);
       
       if (this.hasCapability('fan_zhimi_angle')) {
-        const dim_swing_mode_angle = result.find(obj => obj.did === 'swing_mode_angle');
-        await this.updateCapabilityValue("fan_zhimi_angle", dim_swing_mode_angle.value.toString());
+        const dim_oscillating_mode_angle = result.find(obj => obj.did === 'oscillating_mode_angle');
+        await this.updateCapabilityValue("fan_zhimi_angle", dim_oscillating_mode_angle.value.toString());
       }
-      if (this.hasCapability('dim.fanspeed')) {
-        const dim_fan_speed = result.find(obj => obj.did === 'fan_speed');
-        await this.updateCapabilityValue("dim.fanspeed", +dim_fan_speed.value);
+      if (this.hasCapability('fan_speed')) {
+        const fan_speed = result.find(obj => obj.did === 'fan_speed');
+        await this.updateCapabilityValue("fan_speed", fan_speed.value / 100);
       }
       
       /* settings */

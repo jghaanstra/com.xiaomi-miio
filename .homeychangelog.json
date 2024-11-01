@@ -229,5 +229,8 @@
   },
   "3.2.31": {
     "en": "This release adds support for Smartmi Humidifier Rainforest (zhimi.humidifier.jd1) and Xiaomi Smart Tower Fan (dmaker.fan.p39). It reverts recent changes to the petfeeder servings flowcard as they do not work. And includes fixes for controlling the Mijia Smart Clothes Drying Rack (hyd.airer.znlyj4) and setting the mode on certain Dreame vacuum cleaners (mode names will be incorrect but it wont generate errors)."
+  },
+  "3.3.0": {
+    "en": "Breaking change: subcapabilities have been replaced by new capabilities available since Homey firmware 12.2.0. In some cases this might break your flows. You will have to update them with the new flow cards. This release also contains a fix for setting the fanlevel through a flowcard for the Advanced Mi Air Purifier MIoT driver and a fix for the Xiaomi Smart Tower Fan (dmaker.fan.p39)."
   }
 }

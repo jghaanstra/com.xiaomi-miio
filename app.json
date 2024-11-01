@@ -187,8 +187,8 @@
       "게이트웨이"
     ]
   },
-  "version": "3.2.31",
-  "compatibility": ">=12.0.0",
+  "version": "3.3.0",
+  "compatibility": ">=12.2.0",
   "platforms": [
     "local"
   ],
@@ -2803,18 +2803,18 @@
       },
       {
         "title": {
-          "en": "Set Mode",
-          "nl": "Stel modus in",
-          "da": "Indstil tilstand",
-          "de": "Modus einstellen",
-          "es": "Establecer modo",
-          "fr": "Définir le mode",
-          "it": "Imposta modalità",
-          "no": "Still inn modus",
-          "sv": "Ställ in läge",
-          "pl": "Ustaw tryb",
-          "ru": "Установить режим",
-          "ko": "모드 설정"
+          "en": "Set fan level",
+          "nl": "Ventilatieniveau instellen",
+          "da": "Indstil ventilatorniveau",
+          "de": "Lüfterstufe einstellen",
+          "es": "Establecer nivel de ventilador",
+          "fr": "Définir le niveau du ventilateur",
+          "it": "Imposta livello ventola",
+          "no": "Still inn viftetrinn",
+          "sv": "Ställ in fläkthastighet",
+          "pl": "Ustaw poziom wentylatora",
+          "ru": "Установить уровень вентилятора",
+          "ko": "팬 레벨 설정"
         },
         "titleFormatted": {
           "en": "Set fan level to [[fanlevel]]",
@@ -3029,18 +3029,18 @@
               {
                 "id": "3",
                 "title": {
-                  "en": "Idle",
-                  "nl": "Inactief",
-                  "da": "Inaktiv",
-                  "de": "Leerlauf",
-                  "es": "Inactivo",
-                  "fr": "Inactif",
-                  "it": "Inattivo",
-                  "no": "Inaktiv",
-                  "sv": "Inaktiv",
-                  "pl": "Bezczynny",
-                  "ru": "Ожидание",
-                  "ko": "대기"
+                  "en": "Idle / Manual",
+                  "nl": "Inactief / Handmatig",
+                  "da": "Inaktiv / Manuel",
+                  "de": "Leerlauf / Manuell",
+                  "es": "Inactivo / Manual",
+                  "fr": "Inactif / Manuel",
+                  "it": "Inattivo / Manuale",
+                  "no": "Inaktiv / Manuell",
+                  "sv": "Inaktiv / Manuell",
+                  "pl": "Bezczynny / Ręczny",
+                  "ru": "Ожидание / Ручной",
+                  "ko": "대기 / 수동"
                 }
               }
             ]
@@ -10189,7 +10189,7 @@
         "airfryer_careli_food_quantity"
       ],
       "capabilitiesOptions": {
-        "measure_temperature": {
+        "onoff.preheat": {
           "title": {
             "en": "Preheat switch",
             "nl": "Preheat schakelaar",
@@ -10697,6 +10697,22 @@
             "ru": "Уровень скорости",
             "ko": "속도 레벨"
           }
+        },
+        "onoff.ptc": {
+          "title": {
+            "en": "Heat",
+            "nl": "Verwarmen",
+            "da": "Varme",
+            "de": "Heizen",
+            "es": "Calor",
+            "fr": "Chaleur",
+            "it": "Calore",
+            "no": "Varme",
+            "sv": "Värme",
+            "pl": "Ciepło",
+            "ru": "Тепло",
+            "ko": "난방"
+          }
         }
       },
       "id": "airpurifier_dmaker_airfresh_t2017",
@@ -11013,24 +11029,10 @@
         "measure_temperature",
         "measure_luminance",
         "airpurifier_mode",
-        "dim"
+        "fan_speed"
       ],
       "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Favorite Level",
-            "nl": "Favoriet niveau",
-            "da": "Favorit Niveau",
-            "de": "Lieblingsstufe",
-            "es": "Nivel Favorito",
-            "fr": "Niveau Favori",
-            "it": "Livello Preferito",
-            "no": "Favorittnivå",
-            "sv": "Favoritnivå",
-            "pl": "Ulubiony poziom",
-            "ru": "Любимый Уровень",
-            "ko": "즐겨찾기 레벨"
-          },
+        "fan_speed": {
           "min": 0,
           "max": 16,
           "step": 1
@@ -14607,29 +14609,13 @@
       "class": "fan",
       "capabilities": [
         "onoff",
-        "onoff.swing",
+        "oscillating",
         "dim",
         "fan_zhimi_angle",
-        "dim.fanspeed",
+        "fan_speed",
         "fan_dmaker_mode"
       ],
       "capabilitiesOptions": {
-        "onoff.swing": {
-          "title": {
-            "en": "Oscillation",
-            "nl": "Oscillatie",
-            "da": "Svingning",
-            "de": "Oszillation",
-            "es": "Oscilación",
-            "fr": "Oscillation",
-            "it": "Oscillazione",
-            "no": "Svingning",
-            "sv": "Oscillation",
-            "pl": "Oscylacja",
-            "ru": "Колебание",
-            "ko": "진동"
-          }
-        },
         "dim": {
           "title": {
             "en": "Fanlevel",
@@ -14647,25 +14633,6 @@
           },
           "min": 1,
           "max": 4,
-          "step": 1
-        },
-        "dim.fanspeed": {
-          "title": {
-            "en": "Fanspeed",
-            "nl": "Ventilator snelheid",
-            "da": "Fan hastighed",
-            "de": "Lüftergeschwindigkeit",
-            "es": "Velocidad del ventilador",
-            "fr": "Vitesse du ventilateur",
-            "it": "Velocità della ventola",
-            "no": "Viftehastighet",
-            "sv": "Fläkthastighet",
-            "pl": "Prędkość wentylatora",
-            "ru": "Скорость вентилятора",
-            "ko": "팬 속도"
-          },
-          "min": 1,
-          "max": 100,
           "step": 1
         }
       },
@@ -14872,59 +14839,13 @@
       "class": "fan",
       "capabilities": [
         "onoff",
-        "onoff.swing",
-        "dim",
-        "dim.angle",
+        "oscillating",
+        "fan_speed",
+        "measure_wind_angle",
         "fan_zhimi_mode"
       ],
       "capabilitiesOptions": {
-        "onoff.swing": {
-          "title": {
-            "en": "Horizontal Swing",
-            "nl": "Horizontale swing",
-            "da": "Horisontal Sving",
-            "de": "Horizontaler Schwung",
-            "es": "Oscilación Horizontal",
-            "fr": "Balancier Horizontal",
-            "it": "Oscillazione Orizzontale",
-            "no": "Horisontal Sving",
-            "sv": "Horisontell Sväng",
-            "pl": "Poziomy Swing",
-            "ru": "Горизонтальный Размах",
-            "ko": "수평 스윙"
-          }
-        },
-        "dim": {
-          "title": {
-            "en": "Fanlevel",
-            "nl": "Ventilator niveau",
-            "da": "Fan niveau",
-            "de": "Ventilatorstufe",
-            "es": "Nivel de ventilador",
-            "fr": "Niveau de ventilateur",
-            "it": "Livello di ventilatore",
-            "no": "Viftenivå",
-            "sv": "Fläktnivå",
-            "pl": "Poziom wentylatora",
-            "ru": "Уровень вентилятора",
-            "ko": "팬 레벨"
-          }
-        },
-        "dim.angle": {
-          "title": {
-            "en": "Horizontal Angle",
-            "nl": "Horizontale hoek",
-            "da": "Horisontal Vinkel",
-            "de": "Horizontaler Winkel",
-            "es": "Ángulo Horizontal",
-            "fr": "Angle Horizontal",
-            "it": "Angolo Orizzontale",
-            "no": "Horisontal Vinkel",
-            "sv": "Horisontell Vinkel",
-            "pl": "Poziomy Kąt",
-            "ru": "Горизонтальный Угол",
-            "ko": "수평 각도"
-          },
+        "measure_wind_angle": {
           "min": 0,
           "max": 120,
           "step": 1
@@ -15133,31 +15054,15 @@
       "class": "fan",
       "capabilities": [
         "onoff",
-        "onoff.swing",
+        "oscillating",
         "onoff.ion",
-        "dim",
+        "fan_speed",
         "fan_zhimi_angle",
         "fan_zhimi_mode",
         "measure_humidity",
         "measure_temperature"
       ],
       "capabilitiesOptions": {
-        "onoff.swing": {
-          "title": {
-            "en": "Enable oscillation",
-            "nl": "Inschakelen oscillation",
-            "da": "Aktiver svingning",
-            "de": "Oszillation aktivieren",
-            "es": "Activar oscilación",
-            "fr": "Activer l'oscillation",
-            "it": "Abilita l'oscillazione",
-            "no": "Aktiver svingning",
-            "sv": "Aktivera oscillation",
-            "pl": "Włącz oscylację",
-            "ru": "Включить осцилляцию",
-            "ko": "진동 활성화"
-          }
-        },
         "onoff.ion": {
           "title": {
             "en": "Enable ions",
@@ -15174,24 +15079,11 @@
             "ko": "이온 활성화"
           }
         },
-        "dim": {
-          "title": {
-            "en": "Fanlevel",
-            "nl": "Ventilator niveau",
-            "da": "Fan niveau",
-            "de": "Ventilatorstufe",
-            "es": "Nivel del ventilador",
-            "fr": "Niveau du ventilateur",
-            "it": "Livello del ventilatore",
-            "no": "Viftenivå",
-            "sv": "Fläktnivå",
-            "pl": "Poziom wentylatora",
-            "ru": "Уровень вентилятора",
-            "ko": "팬 레벨"
-          },
+        "fan_speed": {
           "min": 1,
           "max": 4,
-          "step": 1
+          "step": 1,
+          "units": "level"
         }
       },
       "id": "fan_zhimi_fan_za5",
@@ -16235,29 +16127,15 @@
       "class": "humidifier",
       "capabilities": [
         "onoff",
-        "dim",
+        "target_humidity",
         "humidifier_deerma_jsq_mode",
         "measure_temperature",
         "measure_humidity",
         "alarm_water",
-        "alarm_water.tank"
+        "alarm_tank_empty"
       ],
       "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Target Relative Humidity",
-            "nl": "Doel relatieve vochtigheid",
-            "da": "Målfugtighed",
-            "de": "Zielrelative Luftfeuchtigkeit",
-            "es": "Humedad Relativa Objetivo",
-            "fr": "Humidité Relative Cible",
-            "it": "Umidità Relativa Obiettivo",
-            "no": "Mål relativ fuktighet",
-            "sv": "Målrelativ luftfuktighet",
-            "pl": "Docelowa wilgotność względna",
-            "ru": "Целевая относительная влажность",
-            "ko": "목표 상대 습도"
-          },
+        "target_humidity": {
           "min": 0.4,
           "max": 0.7
         },
@@ -16275,22 +16153,6 @@
             "pl": "Poziom wody",
             "ru": "Уровень воды",
             "ko": "수위"
-          }
-        },
-        "alarm_water.tank": {
-          "title": {
-            "en": "Water tank status",
-            "nl": "Watertank status",
-            "da": "Vandtankstatus",
-            "de": "Wassertankstatus",
-            "es": "Estado del tanque de agua",
-            "fr": "Statut du réservoir d'eau",
-            "it": "Stato del serbatoio d'acqua",
-            "no": "Vanntankstatus",
-            "sv": "Vattentanksstatus",
-            "pl": "Stan zbiornika na wodę",
-            "ru": "Состояние водяного бака",
-            "ko": "물탱크 상태"
           }
         }
       },
@@ -16478,46 +16340,16 @@
       "class": "humidifier",
       "capabilities": [
         "onoff",
-        "dim",
+        "target_humidity",
         "humidifier_deerma_jsq_mode",
         "measure_temperature",
         "measure_humidity",
-        "alarm_water"
+        "alarm_tank_empty"
       ],
       "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Target humidity",
-            "nl": "Doel luchtvochtigheid",
-            "de": "Ziel-Luftfeuchtigkeit",
-            "fr": "Humidité cible",
-            "it": "Umidità obiettivo",
-            "sv": "Måluftfuktighet",
-            "no": "Måluftfuktighet",
-            "es": "Humedad objetivo",
-            "da": "Mål luftfugtighed",
-            "ru": "Целевая влажность",
-            "pl": "Docelowa wilgotność",
-            "ko": "목표 습도"
-          },
+        "target_humidity": {
           "min": 0.4,
           "max": 0.8
-        },
-        "alarm_water": {
-          "title": {
-            "en": "Waterlevel",
-            "nl": "Waterniveau",
-            "de": "Wasserstand",
-            "fr": "Niveau d'eau",
-            "it": "Livello dell'acqua",
-            "sv": "Vattennivå",
-            "no": "Vannivå",
-            "es": "Nivel de agua",
-            "da": "Vandniveau",
-            "ru": "Уровень воды",
-            "pl": "Poziom wody",
-            "ko": "수위"
-          }
         }
       },
       "id": "humidifier_deerma_humidifier_miot",
@@ -16704,45 +16536,15 @@
       "class": "humidifier",
       "capabilities": [
         "onoff",
-        "dim",
+        "target_humidity",
         "humidifier_leshow_jsq1_mode",
         "measure_humidity",
-        "measure_water"
+        "measure_waterlevel"
       ],
       "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Target Relative Humidity",
-            "nl": "Doel relatieve vochtigheid",
-            "da": "Mål relativ luftfugtighed",
-            "de": "Ziel relative Luftfeuchtigkeit",
-            "es": "Humedad relativa objetivo",
-            "fr": "Humidité relative cible",
-            "it": "Umidità relativa target",
-            "no": "Mål relativ fuktighet",
-            "sv": "Mål relativ luftfuktighet",
-            "pl": "Docelowa wilgotność względna",
-            "ru": "Целевая относительная влажность",
-            "ko": "목표 상대 습도"
-          },
+        "target_humidity": {
           "min": 0.3,
           "max": 0.8
-        },
-        "measure_water": {
-          "title": {
-            "en": "Waterlevel",
-            "nl": "Waterniveau",
-            "da": "Vandstand",
-            "de": "Wasserstand",
-            "es": "Nivel de agua",
-            "fr": "Niveau d'eau",
-            "it": "Livello dell'acqua",
-            "no": "Vannstand",
-            "sv": "Vattennivå",
-            "pl": "Poziom wody",
-            "ru": "Уровень воды",
-            "ko": "수위"
-          }
         }
       },
       "id": "humidifier_leshow_humidifier_jsq1",
@@ -16911,7 +16713,7 @@
       "capabilities": [
         "onoff",
         "onoff.dry",
-        "dim",
+        "target_humidity",
         "measure_temperature",
         "measure_humidity",
         "measure_waterlevel",
@@ -16934,21 +16736,7 @@
             "ko": "건조 모드"
           }
         },
-        "dim": {
-          "title": {
-            "en": "Target Humidity",
-            "nl": "Doel luchtvochtigheid",
-            "da": "Mål fugtighed",
-            "de": "Ziel-Luftfeuchtigkeit",
-            "es": "Humedad objetivo",
-            "fr": "Humidité cible",
-            "it": "Umidità target",
-            "no": "Mål fuktighet",
-            "sv": "Målfuktighet",
-            "pl": "Docelowa wilgotność",
-            "ru": "Целевая влажность",
-            "ko": "목표 습도"
-          },
+        "target_humidity": {
           "min": 40,
           "max": 70,
           "step": 10
@@ -17197,63 +16985,14 @@
         "onoff",
         "measure_temperature",
         "measure_humidity",
-        "dim",
+        "target_humidity",
         "humidifier_zhimi_mode"
       ],
       "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Target Humidity",
-            "nl": "Doel vochtigheid",
-            "da": "Målfugtighed",
-            "de": "Ziel-Luftfeuchtigkeit",
-            "es": "Humedad Objetivo",
-            "fr": "Humidité Cible",
-            "it": "Umidità Target",
-            "no": "Målfuktighet",
-            "sv": "Målfuktighet",
-            "pl": "Docelowa wilgotność",
-            "ru": "Целевая влажность",
-            "ko": "목표 습도"
-          },
+        "target_humidity": {
           "min": 30,
           "max": 80,
           "step": 10
-        },
-        "onoff.dry": {
-          "title": {
-            "en": "Dry mode",
-            "nl": "Droog modus",
-            "da": "Tør tilstand",
-            "de": "Trockenmodus",
-            "es": "Modo Seco",
-            "fr": "Mode Séchage",
-            "it": "Modalità Asciutta",
-            "no": "Tørrmodus",
-            "sv": "Torr läge",
-            "pl": "Tryb Suchy",
-            "ru": "Режим сушки",
-            "ko": "건조 모드"
-          }
-        },
-        "measure_water": {
-          "title": {
-            "en": "Waterlevel",
-            "nl": "Waterniveau",
-            "da": "Vandniveau",
-            "de": "Wasserstand",
-            "es": "Nivel de agua",
-            "fr": "Niveau d’eau",
-            "it": "Livello dell’acqua",
-            "no": "Vannivå",
-            "sv": "Vattennivå",
-            "pl": "Poziom wod",
-            "ru": "Уровень воды",
-            "ko": "물 수위"
-          },
-          "units": {
-            "en": "%"
-          }
         }
       },
       "id": "humidifier_zhimi_humidifier",
@@ -17461,7 +17200,7 @@
         "onoff",
         "onoff.dry",
         "dim",
-        "dim.target",
+        "target_humidity",
         "humidifier_zhimi_mode_miot",
         "measure_temperature",
         "measure_humidity",
@@ -17503,21 +17242,7 @@
           "max": 1,
           "step": 0.1
         },
-        "dim.target": {
-          "title": {
-            "en": "Target Humidity",
-            "nl": "Doel luchtvochtigheid",
-            "da": "Mål fugtighed",
-            "de": "Ziel-Luftfeuchtigkeit",
-            "es": "Humedad objetivo",
-            "fr": "Humidité cible",
-            "it": "Umidità target",
-            "no": "Mål luftfuktighet",
-            "sv": "Målfuktighet",
-            "pl": "Docelowa wilgotność",
-            "ru": "Целевая влажность",
-            "ko": "목표 습도"
-          },
+        "target_humidity": {
           "min": 30,
           "max": 80,
           "step": 10
@@ -20708,43 +20433,9 @@
       "capabilities": [
         "onoff",
         "petwaterdispenser_mmgg_mode",
-        "alarm_water",
-        "alarm_generic"
+        "alarm_tank_empty",
+        "alarm_pump_supply"
       ],
-      "capabilitiesOptions": {
-        "alarm_water": {
-          "title": {
-            "en": "No Water",
-            "nl": "Geen Water",
-            "da": "Ingen vand",
-            "de": "Kein Wasser",
-            "es": "Sin agua",
-            "fr": "Pas d'eau",
-            "it": "Niente acqua",
-            "no": "Ingen vann",
-            "sv": "Inget vatten",
-            "pl": "Brak wody",
-            "ru": "Нет воды",
-            "ko": "물이 없음"
-          }
-        },
-        "alarm_generic": {
-          "title": {
-            "en": "Pump Blocked",
-            "nl": "Pomp geblokkeerd",
-            "da": "Pumpe blokeret",
-            "de": "Pumpe blockiert",
-            "es": "Bomba bloqueada",
-            "fr": "Pompe bloquée",
-            "it": "Pompa bloccata",
-            "no": "Pumpe blokkert",
-            "sv": "Pump blockerad",
-            "pl": "Pompa zablokowana",
-            "ru": "Насос заблокирован",
-            "ko": "펌프 차단됨"
-          }
-        }
-      },
       "id": "petwaterdispenser_mmgg_miot",
       "settings": [
         {

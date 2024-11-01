@@ -25,7 +25,7 @@
     "onoff",
     "onoff.dry",
     "dim",
-    "dim.target",
+    "target_humidity",
     "humidifier_zhimi_mode_miot",
     "measure_temperature",
     "measure_humidity",
@@ -67,21 +67,7 @@
       "max": 1,
       "step": 0.1
     },
-    "dim.target": {
-      "title": {
-        "en": "Target Humidity",
-        "nl": "Doel luchtvochtigheid",
-        "da": "Mål fugtighed",
-        "de": "Ziel-Luftfeuchtigkeit",
-        "es": "Humedad objetivo",
-        "fr": "Humidité cible",
-        "it": "Umidità target",
-        "no": "Mål luftfuktighet",
-        "sv": "Målfuktighet",
-        "pl": "Docelowa wilgotność",
-        "ru": "Целевая влажность",
-        "ko": "목표 습도"
-      },
+    "target_humidity": {
       "min": 30,
       "max": 80,
       "step": 10

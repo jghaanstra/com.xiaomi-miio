@@ -24,7 +24,7 @@
   "capabilities": [
     "onoff",
     "onoff.dry",
-    "dim",
+    "target_humidity",
     "measure_temperature",
     "measure_humidity",
     "measure_waterlevel",
@@ -47,21 +47,7 @@
         "ko": "건조 모드"
       }
     },
-    "dim": {
-      "title": {
-        "en": "Target Humidity",
-        "nl": "Doel luchtvochtigheid",
-        "da": "Mål fugtighed",
-        "de": "Ziel-Luftfeuchtigkeit",
-        "es": "Humedad objetivo",
-        "fr": "Humidité cible",
-        "it": "Umidità target",
-        "no": "Mål fuktighet",
-        "sv": "Målfuktighet",
-        "pl": "Docelowa wilgotność",
-        "ru": "Целевая влажность",
-        "ko": "목표 습도"
-      },
+    "target_humidity": {
       "min": 40,
       "max": 70,
       "step": 10

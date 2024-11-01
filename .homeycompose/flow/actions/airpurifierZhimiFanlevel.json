@@ -1,17 +1,17 @@
 {
   "title": {
-    "en": "Set Mode",
-    "nl": "Stel modus in",
-    "da": "Indstil tilstand",
-    "de": "Modus einstellen",
-    "es": "Establecer modo",
-    "fr": "Définir le mode",
-    "it": "Imposta modalità",
-    "no": "Still inn modus",
-    "sv": "Ställ in läge",
-    "pl": "Ustaw tryb",
-    "ru": "Установить режим",
-    "ko": "모드 설정"
+    "en": "Set fan level",
+    "nl": "Ventilatieniveau instellen",
+    "da": "Indstil ventilatorniveau",
+    "de": "Lüfterstufe einstellen",
+    "es": "Establecer nivel de ventilador",
+    "fr": "Définir le niveau du ventilateur",
+    "it": "Imposta livello ventola",
+    "no": "Still inn viftetrinn",
+    "sv": "Ställ in fläkthastighet",
+    "pl": "Ustaw poziom wentylatora",
+    "ru": "Установить уровень вентилятора",
+    "ko": "팬 레벨 설정"
   },
   "titleFormatted": {
     "en": "Set fan level to [[fanlevel]]",

@@ -18,6 +18,14 @@ class MiHumidifierDevice extends Device {
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
+
+      // TODO: remove after the next release
+      if (this.hasCapability('dim')) {
+        this.removeCapability('dim');
+      }
+      if (!this.hasCapability('target_humidity')) {
+        this.addCapability('target_humidity');
+      }
       
       // DEVICE SPECIFIC INIT ACTIONS
       if (this.getStoreValue('model') !== 'zhimi.humidifier.v1') {
@@ -46,22 +54,7 @@ class MiHumidifierDevice extends Device {
         }
       });
 
-      this.registerCapabilityListener('onoff.dry', async ( value ) => {
-        try {
-          if (this.miio) {
-            return await this.miio.call("set_dry", [value ? "on" : "off"]);
-          } else {
-            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
-            this.createDevice();
-            return Promise.reject('Device unreachable, please try again ...');
-          }
-        } catch (error) {
-          this.error(error);
-          return Promise.reject(error);
-        }
-      });
-
-      this.registerCapabilityListener('dim', async ( value ) => {
+      this.registerCapabilityListener('target_humidity', async ( value ) => {
         try {
           if (this.miio) {
             return await this.miio.call("set_limit_hum", [value], { retries: 1 });
@@ -126,7 +119,7 @@ class MiHumidifierDevice extends Device {
       /* capabilities */
       await this.updateCapabilityValue("onoff", result[0] === "on" ? true : false);
       await this.updateCapabilityValue("measure_humidity", result[2]);
-      await this.updateCapabilityValue("dim", result[6]);
+      await this.updateCapabilityValue("target_humidity", result[6]);
       
       /* settings */
       await this.updateSettingValue("led", result[4] === 2 ? false : true);

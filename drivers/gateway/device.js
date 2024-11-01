@@ -66,7 +66,7 @@ class GatewayDevice extends Device {
               var saturation_value = this.getCapabilityValue('light_saturation');
             }
     
-            const hue = hue_value * 359;
+            const hue = hue_value * 360;
             const saturation = saturation_value * 100;
             const dim = this.getCapabilityValue('dim') * 100;
             const colorUpdate = tinycolor({ h: Math.round(hue), s: Math.round(saturation), v: dim });
@@ -260,7 +260,7 @@ class GatewayDevice extends Device {
 
             const colorChanged = tinycolor({r: color.values[0], g: color.values[1], b: color.values[2]});
             const hsv = colorChanged.toHsv();
-            const hue = Math.round(hsv.h) / 359;
+            const hue = Math.round(hsv.h) / 360;
             const saturation = Math.round(hsv.s);
 
             await this.setCapabilityValue('light_hue', hue);

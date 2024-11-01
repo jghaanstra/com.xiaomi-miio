@@ -19,7 +19,7 @@ const properties = {
     "get_properties": [
       { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "mode", siid: 2, piid: 5 }, // humidifier_zhimi_mode_miot
-      { did: "target_humidity", siid: 2, piid: 6 }, // dim.target [30, 40, 50, 60, 70, 80]
+      { did: "target_humidity", siid: 2, piid: 6 }, // target_humidity [30, 40, 50, 60, 70, 80]
       { did: "water_level", siid: 2, piid: 7 }, // measure_waterlevel
       { did: "dry", siid: 2, piid: 8 }, // onoff.dry
       { did: "speed_level", siid: 2, piid: 11 }, // dim [200 - 2000]
@@ -44,7 +44,7 @@ const properties = {
     "get_properties": [
       { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "mode", siid: 2, piid: 12 }, // humidifier_zhimi_mode_miot
-      { did: "target_humidity", siid: 2, piid: 6 }, // dim.target [30, 40, 50, 60, 70, 80]
+      { did: "target_humidity", siid: 2, piid: 6 }, // target_humidity [30, 40, 50, 60, 70, 80]
       { did: "water_level", siid: 2, piid: 7 }, // measure_waterlevel
       { did: "temperature", siid: 3, piid: 7 }, // measure_temperature
       { did: "humidity", siid: 3, piid: 9 }, // measure_humidity
@@ -76,6 +76,14 @@ class MiHumidifierCa4Device extends Device {
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
+
+      // TODO: remove after the next release
+      if (this.hasCapability('dim.target')) {
+        this.removeCapability('dim.target');
+      }
+      if (!this.hasCapability('target_humidity')) {
+        this.addCapability('target_humidity');
+      }
 
       // DEVICE VARIABLES
       this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['zhimi.humidifier.*']];
@@ -139,7 +147,7 @@ class MiHumidifierCa4Device extends Device {
         }
       });
 
-      this.registerCapabilityListener('dim.target', async ( value ) => {
+      this.registerCapabilityListener('target_humidity', async ( value ) => {
         try {
           if (this.miio) {
             return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.target_humidity.siid, piid: this.deviceProperties.set_properties.target_humidity.piid, value: value }], { retries: 1 });
@@ -201,7 +209,7 @@ class MiHumidifierCa4Device extends Device {
 
       /* data */
       const onoff = result.find(obj => obj.did === 'power');
-      const dim_target = result.find(obj => obj.did === 'target_humidity');
+      const target_humidity = result.find(obj => obj.did === 'target_humidity');
       const measure_humidity = result.find(obj => obj.did === 'humidity');
       const onoff_dry = result.find(obj => obj.did === 'dry');
       const dim = result.find(obj => obj.did === 'speed_level');
@@ -212,7 +220,7 @@ class MiHumidifierCa4Device extends Device {
 
       /* capabilities */
       await this.updateCapabilityValue("onoff", onoff.value);
-      await this.updateCapabilityValue("dim.target", dim_target.value);
+      await this.updateCapabilityValue("target_humidity", target_humidity.value);
       await this.updateCapabilityValue("measure_humidity", measure_humidity.value);
       if (onoff_dry !== undefined && this.hasCapability('onoff.dry')) {
         await this.updateCapabilityValue("onoff.dry", onoff_dry.value);

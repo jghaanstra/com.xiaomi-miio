@@ -46,6 +46,22 @@
         "ru": "Уровень скорости",
         "ko": "속도 레벨"
       }
+    },
+    "onoff.ptc": {
+      "title": {
+        "en": "Heat",
+        "nl": "Verwarmen",
+        "da": "Varme",
+        "de": "Heizen",
+        "es": "Calor",
+        "fr": "Chaleur",
+        "it": "Calore",
+        "no": "Varme",
+        "sv": "Värme",
+        "pl": "Ciepło",
+        "ru": "Тепло",
+        "ko": "난방"
+      }
     }
   }
 }

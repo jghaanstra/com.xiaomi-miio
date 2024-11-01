@@ -23,29 +23,13 @@
   ],
   "capabilities": [
     "onoff",
-    "onoff.swing",
+    "oscillating",
     "dim",
     "fan_zhimi_angle",
-    "dim.fanspeed",
+    "fan_speed",
     "fan_dmaker_mode"
   ],
   "capabilitiesOptions": {
-    "onoff.swing": {
-      "title": {
-        "en": "Oscillation",
-        "nl": "Oscillatie",
-        "da": "Svingning",
-        "de": "Oszillation",
-        "es": "Oscilación",
-        "fr": "Oscillation",
-        "it": "Oscillazione",
-        "no": "Svingning",
-        "sv": "Oscillation",
-        "pl": "Oscylacja",
-        "ru": "Колебание",
-        "ko": "진동"
-      }
-    },
     "dim": {
       "title": {
         "en": "Fanlevel",
@@ -63,25 +47,6 @@
       },
       "min": 1,
       "max": 4,
-      "step": 1
-    },
-    "dim.fanspeed": {
-      "title": {
-        "en": "Fanspeed",
-        "nl": "Ventilator snelheid",
-        "da": "Fan hastighed",
-        "de": "Lüftergeschwindigkeit",
-        "es": "Velocidad del ventilador",
-        "fr": "Vitesse du ventilateur",
-        "it": "Velocità della ventola",
-        "no": "Viftehastighet",
-        "sv": "Fläkthastighet",
-        "pl": "Prędkość wentylatora",
-        "ru": "Скорость вентилятора",
-        "ko": "팬 속도"
-      },
-      "min": 1,
-      "max": 100,
       "step": 1
     }
   }

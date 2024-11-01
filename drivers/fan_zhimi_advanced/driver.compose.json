@@ -23,59 +23,13 @@
   ],
   "capabilities": [
     "onoff",
-    "onoff.swing",
-    "dim",
-    "dim.angle",
+    "oscillating",
+    "fan_speed",
+    "measure_wind_angle",
     "fan_zhimi_mode"
   ],
   "capabilitiesOptions": {
-    "onoff.swing": {
-      "title": {
-        "en": "Horizontal Swing",
-        "nl": "Horizontale swing",
-        "da": "Horisontal Sving",
-        "de": "Horizontaler Schwung",
-        "es": "Oscilación Horizontal",
-        "fr": "Balancier Horizontal",
-        "it": "Oscillazione Orizzontale",
-        "no": "Horisontal Sving",
-        "sv": "Horisontell Sväng",
-        "pl": "Poziomy Swing",
-        "ru": "Горизонтальный Размах",
-        "ko": "수평 스윙"
-      }
-    },
-    "dim": {
-      "title": {
-        "en": "Fanlevel",
-        "nl": "Ventilator niveau",
-        "da": "Fan niveau",
-        "de": "Ventilatorstufe",
-        "es": "Nivel de ventilador",
-        "fr": "Niveau de ventilateur",
-        "it": "Livello di ventilatore",
-        "no": "Viftenivå",
-        "sv": "Fläktnivå",
-        "pl": "Poziom wentylatora",
-        "ru": "Уровень вентилятора",
-        "ko": "팬 레벨"
-      }
-    },
-    "dim.angle": {
-      "title": {
-        "en": "Horizontal Angle",
-        "nl": "Horizontale hoek",
-        "da": "Horisontal Vinkel",
-        "de": "Horizontaler Winkel",
-        "es": "Ángulo Horizontal",
-        "fr": "Angle Horizontal",
-        "it": "Angolo Orizzontale",
-        "no": "Horisontal Vinkel",
-        "sv": "Horisontell Vinkel",
-        "pl": "Poziomy Kąt",
-        "ru": "Горизонтальный Угол",
-        "ko": "수평 각도"
-      },
+    "measure_wind_angle": {
       "min": 0,
       "max": 120,
       "step": 1

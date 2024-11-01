@@ -23,45 +23,15 @@
   ],
   "capabilities": [
     "onoff",
-    "dim",
+    "target_humidity",
     "humidifier_leshow_jsq1_mode",
     "measure_humidity",
-    "measure_water"
+    "measure_waterlevel"
   ],
   "capabilitiesOptions": {
-    "dim": {
-      "title": {
-        "en": "Target Relative Humidity",
-        "nl": "Doel relatieve vochtigheid",
-        "da": "Mål relativ luftfugtighed",
-        "de": "Ziel relative Luftfeuchtigkeit",
-        "es": "Humedad relativa objetivo",
-        "fr": "Humidité relative cible",
-        "it": "Umidità relativa target",
-        "no": "Mål relativ fuktighet",
-        "sv": "Mål relativ luftfuktighet",
-        "pl": "Docelowa wilgotność względna",
-        "ru": "Целевая относительная влажность",
-        "ko": "목표 상대 습도"
-      },
+    "target_humidity": {
       "min": 0.3,
       "max": 0.8
-    },
-    "measure_water": {
-      "title": {
-        "en": "Waterlevel",
-        "nl": "Waterniveau",
-        "da": "Vandstand",
-        "de": "Wasserstand",
-        "es": "Nivel de agua",
-        "fr": "Niveau d'eau",
-        "it": "Livello dell'acqua",
-        "no": "Vannstand",
-        "sv": "Vattennivå",
-        "pl": "Poziom wody",
-        "ru": "Уровень воды",
-        "ko": "수위"
-      }
     }
   }
 }

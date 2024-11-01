@@ -253,7 +253,7 @@ class XiaomiMiioApp extends Homey.App {
     this.homey.flow.getActionCard('airpurifierZhimiFanlevel')
       .registerRunListener(async (args) => {
         try {
-          return await args.device.triggerCapabilityListener('airpurifier_zhimi_fanlevel', args.mode);
+          return await args.device.triggerCapabilityListener('airpurifier_zhimi_fanlevel', args.fanlevel);
         } catch (error) {
           return Promise.reject(error.message);
         }

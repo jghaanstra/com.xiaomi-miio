@@ -25,6 +25,20 @@ class HumidifierDeermaJSQDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
+      // TODO: remove after the next release
+      if (this.hasCapability('alarm_water.tank')) {
+        this.removeCapability('alarm_water.tank');
+      }
+      if (this.hasCapability('dim')) {
+        this.removeCapability('dim');
+      }
+      if (!this.hasCapability('alarm_tank_empty')) {
+        this.addCapability('alarm_tank_empty');
+      }
+      if (!this.hasCapability('target_humidity')) {
+        this.addCapability('target_humidity');
+      }
+
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 
@@ -44,7 +58,7 @@ class HumidifierDeermaJSQDevice extends Device {
         }
       });
 
-      this.registerCapabilityListener('dim', async ( value ) => {
+      this.registerCapabilityListener('target_humidity', async ( value ) => {
         try {
           if (this.miio) {
             const humidity = value * 100;
@@ -104,11 +118,11 @@ class HumidifierDeermaJSQDevice extends Device {
 
       /* capabilities */
       await this.updateCapabilityValue("measure_humidity", parseInt(result[1]));
-      await this.updateCapabilityValue("dim", parseInt(result[2]) / 100);
+      await this.updateCapabilityValue("target_humidity", parseInt(result[2]) / 100);
       await this.updateCapabilityValue("onoff", result[4] === 1 ? true : false);
       await this.updateCapabilityValue("measure_temperature", parseInt(result[5]));
       await this.updateCapabilityValue("alarm_water", result[7] === 0 ? true : false);
-      await this.updateCapabilityValue("alarm_water.tank", result[8] === 0 ? false : true);
+      await this.updateCapabilityValue("alarm_tank_empty", result[8] === 0 ? false : true);
       
       /* settings */
       await this.updateSettingValue("led", result[3] === 1 ? true : false);

@@ -24,41 +24,7 @@
   "capabilities": [
     "onoff",
     "petwaterdispenser_mmgg_mode",
-    "alarm_water",
-    "alarm_generic"
-  ],
-  "capabilitiesOptions": {
-    "alarm_water": {
-      "title": {
-        "en": "No Water",
-        "nl": "Geen Water",
-        "da": "Ingen vand",
-        "de": "Kein Wasser",
-        "es": "Sin agua",
-        "fr": "Pas d'eau",
-        "it": "Niente acqua",
-        "no": "Ingen vann",
-        "sv": "Inget vatten",
-        "pl": "Brak wody",
-        "ru": "Нет воды",
-        "ko": "물이 없음"
-      }
-    },
-    "alarm_generic": {
-      "title": {
-        "en": "Pump Blocked",
-        "nl": "Pomp geblokkeerd",
-        "da": "Pumpe blokeret",
-        "de": "Pumpe blockiert",
-        "es": "Bomba bloqueada",
-        "fr": "Pompe bloquée",
-        "it": "Pompa bloccata",
-        "no": "Pumpe blokkert",
-        "sv": "Pump blockerad",
-        "pl": "Pompa zablokowana",
-        "ru": "Насос заблокирован",
-        "ko": "펌프 차단됨"
-      }
-    }
-  }
+    "alarm_tank_empty",
+    "alarm_pump_supply"
+  ]
 }
