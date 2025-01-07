@@ -77,14 +77,6 @@ class MiHumidifierCa4Device extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove after the next release
-      if (this.hasCapability('dim.target')) {
-        this.removeCapability('dim.target');
-      }
-      if (!this.hasCapability('target_humidity')) {
-        this.addCapability('target_humidity');
-      }
-
       // DEVICE VARIABLES
       this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['zhimi.humidifier.*']];
 

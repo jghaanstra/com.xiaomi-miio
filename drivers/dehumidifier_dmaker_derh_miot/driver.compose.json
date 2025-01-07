@@ -1,0 +1,37 @@
+{
+  "name": {
+    "en": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+    "nl": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+    "da": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+    "de": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+    "es": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+    "fr": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+    "it": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+    "no": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+    "sv": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+    "pl": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+    "ru": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+    "ko": "Xiaomi Smart Dehumidifier MIoT (WiFi)"
+  },
+  "images": {
+    "large": "drivers/dehumidifier_dmaker_derh_miot/assets/images/large.jpg",
+    "small": "drivers/dehumidifier_dmaker_derh_miot/assets/images/small.jpg"
+  },
+  "class": "dehumidifier",
+  "$extends": [
+    "defaults"
+  ],
+  "capabilities": [
+    "onoff",
+    "dehumidifier_dmaker_mode",
+    "target_humidity",
+    "measure_humidity",
+    "measure_temperature"
+  ],
+  "capabilitiesOptions": {
+    "target_humidity": {
+      "min": 0.4,
+      "max": 0.8
+    }
+  }
+}

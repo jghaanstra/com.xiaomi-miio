@@ -9,12 +9,14 @@ const Util = require('../../lib/util.js');
 // https://home.miot-spec.com/spec/xiaomi.vacuum.b106eu
 // https://home.miot-spec.com/spec/xiaomi.vacuum.b112
 // https://home.miot-spec.com/spec/xiaomi.vacuum.c101
+// https://home.miot-spec.com/spec/xiaomi.vacuum.c102gl // Xiaomi Robot Vacuum X20+
 
 const mapping = {
   "xiaomi.vacuum.b112gl": "properties_default",
   "xiaomi.vacuum.b106eu": "properties_default",
   "xiaomi.vacuum.b112": "properties_default",
   "xiaomi.vacuum.c101": "properties_c101",
+  "xiaomi.vacuum.c102gl": "properties_c102",
   "xiaomi.vacuum.*": "properties_default",
 };
 
@@ -107,6 +109,51 @@ const properties = {
       "charging": [4],
       "stopped": [1, 2, 8],
       "stopped_error": []
+    }
+  },
+  "properties_c102": {
+    "get_properties": [
+      { did: "device_status", siid: 2, piid: 1 }, // vacuumcleaner_state
+      { did: "device_fault", siid : 2, piid: 2 }, // settings.error
+      { did: "mode", siid : 2, piid: 3 }, // vacuum_xiaomi_mop_mode
+      { did: "battery", siid: 3, piid: 1 }, // measure_battery
+      { did: "main_brush_life_level", siid: 9, piid: 1 }, // settings.main_brush_work_time
+      { did: "side_brush_life_level", siid: 10, piid: 1 }, // settings.side_brush_work_time
+      { did: "filter_life_level", siid: 11, piid: 1 }, // settings.filter_work_time
+      { did: "total_clean_time", siid: 12, piid: 2 }, // settings.total_work_time
+      { did: "total_clean_count", siid: 12, piid: 23 }, // settings.clean_count
+      { did: "total_clean_area", siid: 12, piid: 4 } // settings.total_cleared_area
+    ],
+    "set_properties": {
+      "start_clean": { siid: 2, aiid: 1, did: "call-2-1", in: [] },
+      "stop_clean": { siid: 2, aiid: 2, did: "call-2-2", in: [] },
+      "find": { siid: 7, aiid: 2, did: "call-7-2", in: [] },
+      "home": { siid: 3, aiid: 1, did: "call-3-1", in: [] },
+      "mopmode": { siid: 2, piid: 6 }
+    },
+    "error_codes": {
+      0: "No Error",
+      1: "Left-wheel-error",
+      2: "Right-wheel-error",
+      3: "Cliff-error",
+      4: "Low-battery-error",
+      5: "Bump-error",
+      6: "Main-brush-error",
+      7: "Side-brush-error",
+      8: "Fan-motor-error",
+      9: "Dustbin-error",
+      10: "Charging-error",
+      11: "No-water-error",
+      0: "Everything-is-ok",
+      12: "Pick-up-error"
+    },
+    "status_mapping": {
+      "cleaning": [1, 5, 7, 8, 9, 10, 12],
+      "spot_cleaning": [],
+      "docked": [0, 11, 13, 14, 19],
+      "charging": [6],
+      "stopped": [2, 3, 21, 22, 23],
+      "stopped_error": [4]
     }
   }
 }

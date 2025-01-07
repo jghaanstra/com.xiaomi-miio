@@ -25,20 +25,6 @@ class HumidifierDeermaJSQDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove after the next release
-      if (this.hasCapability('alarm_water.tank')) {
-        this.removeCapability('alarm_water.tank');
-      }
-      if (this.hasCapability('dim')) {
-        this.removeCapability('dim');
-      }
-      if (!this.hasCapability('alarm_tank_empty')) {
-        this.addCapability('alarm_tank_empty');
-      }
-      if (!this.hasCapability('target_humidity')) {
-        this.addCapability('target_humidity');
-      }
-
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 

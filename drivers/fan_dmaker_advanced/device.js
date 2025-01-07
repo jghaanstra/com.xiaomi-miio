@@ -187,20 +187,6 @@ class AdvancedDmakerFanMiotDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove after the next release
-      if (this.hasCapability('onoff.swing')) {
-        this.removeCapability('onoff.swing');
-      }
-      if (this.hasCapability('dim.fanspeed')) {
-        this.removeCapability('dim.fanspeed');
-      }
-      if (!this.hasCapability('oscillating')) {
-        this.addCapability('oscillating');
-      }
-      if (!this.hasCapability('fan_speed') && (this.getStoreValue('model') === 'dmaker.fan.p44' || this.getStoreValue('model') === 'dmaker.fan.1c')) {
-        this.addCapability('fan_speed');
-      }
-
       // ADD DEVICES DEPENDANT CAPABILITIES
       if (this.getStoreValue('model') === 'dmaker.fan.p44' || this.getStoreValue('model') === 'dmaker.fan.1c') {
         if (this.hasCapability('fan_speed')) {

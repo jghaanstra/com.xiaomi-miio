@@ -19,21 +19,6 @@ class MiHumidifierDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove after the next release
-      if (this.hasCapability('dim')) {
-        this.removeCapability('dim');
-      }
-      if (!this.hasCapability('target_humidity')) {
-        this.addCapability('target_humidity');
-      }
-      
-      // DEVICE SPECIFIC INIT ACTIONS
-      if (this.getStoreValue('model') !== 'zhimi.humidifier.v1') {
-        if (!this.hasCapability('measure_waterlevel')) {
-          this.addCapability('measure_waterlevel');
-        }
-      }
-
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
       this.homey.flow.getDeviceTriggerCard('humidifier2Waterlevel');

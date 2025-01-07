@@ -35,20 +35,6 @@ class ZhiMiFanZA5Device extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove after the next release
-      if (this.hasCapability('onoff.swing')) {
-        this.removeCapability('onoff.swing');
-      }
-      if (this.hasCapability('dim')) {
-        this.removeCapability('dim');
-      }
-      if (!this.hasCapability('oscillating')) {
-        this.addCapability('oscillating');
-      }
-      if (!this.hasCapability('fan_speed')) {
-        this.addCapability('fan_speed');
-      }
-
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 

@@ -48,7 +48,7 @@ const properties = {
   "mapping_default": {
     "get_properties": [
       { did: "power", siid: 2, piid: 2 }, // onoff
-      { did: "fan_level", siid : 2, piid: 4 }, // airpurifier_zhimi_fanlevel
+      { did: "fanlevel", siid : 2, piid: 4 }, // airpurifier_zhimi_fanlevel
       { did: "mode", siid: 2, piid: 5 }, // airpurifier_zhimi_mode
       { did: "humidity", siid: 3, piid: 7 }, // measure_humidity
       { did: "temperature", siid: 3, piid: 8 }, // measure_temperature
@@ -97,7 +97,7 @@ const properties = {
   "mapping_va2": {
     "get_properties": [
       { did: "power", siid: 2, piid: 1 }, // onoff
-      { did: "fan_level", siid : 2, piid: 5 }, // airpurifier_zhimi_fanlevel
+      { did: "fanlevel", siid : 2, piid: 5 }, // airpurifier_zhimi_fanlevel
       { did: "mode", siid: 2, piid: 4 }, // airpurifier_zhimi_mode
       { did: "humidity", siid: 3, piid: 1 }, // measure_humidity
       { did: "temperature", siid: 3, piid: 7 }, // measure_temperature
@@ -126,7 +126,7 @@ const properties = {
   "mapping_vb4": {
     "get_properties": [
       { did: "power", siid: 2, piid: 1 }, // onoff
-      { did: "fan_level", siid : 2, piid: 5 }, // airpurifier_zhimi_fanlevel
+      { did: "fanlevel", siid : 2, piid: 5 }, // airpurifier_zhimi_fanlevel
       { did: "mode", siid: 2, piid: 4 }, // airpurifier_zhimi_mode
       { did: "humidity", siid: 3, piid: 1 }, // measure_humidity
       { did: "temperature", siid: 3, piid: 7 }, // measure_temperature
@@ -229,7 +229,7 @@ const properties = {
     "get_properties": [
       { did: "power", siid: 2, piid: 1 }, // onoff
       { did: "mode", siid: 2, piid: 4 }, // airpurifier_zhimi_mode
-      { did: "fan_level", siid : 2, piid: 5 }, // airpurifier_zhimi_fanlevel
+      { did: "fanlevel", siid : 2, piid: 5 }, // airpurifier_zhimi_fanlevel
       { did: "humidity", siid: 3, piid: 1 }, // measure_humidity
       { did: "aqi", siid: 3, piid: 4 }, // measure_pm25
       { did: "temperature", siid: 3, piid: 7 }, // measure_temperature
@@ -260,14 +260,16 @@ const properties = {
       { did: "child_lock", siid: 8, piid: 1 }, // settings.childLock
       { did: "light", siid: 13, piid: 2 }, // settings.led
       { did: "filter_life_remaining", siid: 4, piid: 1 }, // settings.filter_life_remaining
-      { did: "filter_hours_used", siid: 4, piid: 3 } // settings.filter_hours_used
+      { did: "filter_hours_used", siid: 4, piid: 3 }, // settings.filter_hours_used
+      { did: "fanlevel", siid: 9, piid: 11 }, // airpurifier_xiaomi_fanlevel
     ],
     "set_properties": {
       "power": { siid: 2, piid: 1 },
       "mode": { siid: 2, piid: 4 },
       "buzzer": { siid: 6, piid: 1 },
       "child_lock": { siid: 8, piid: 1 },
-      "light": { siid: 13, piid: 2 }
+      "light": { siid: 13, piid: 2 },
+      "fanlevel": { siid: 9, piid: 11 }
     },
     "device_properties": {
       "light": { "min": 0, "max": 2 }
@@ -290,6 +292,14 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
       
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
+
+      // ADD DEVICES DEPENDANT CAPABILITIES
+      if (this.getStoreValue('model') === 'xiaomi.airp.cpa4' && this.hasCapability('airpurifier_zhimi_fanlevel')) {
+        this.removeCapability('airpurifier_zhimi_fanlevel');
+      }
+      if (this.getStoreValue('model') === 'xiaomi.airp.cpa4' && !this.hasCapability('airpurifier_xiaomi_fanlevel')) {
+        this.addCapability('airpurifier_xiaomi_fanlevel');
+      }
 
       // DEVICE VARIABLES
       this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['zhimi.airpurifier.*']];
@@ -329,6 +339,21 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
       });
 
       this.registerCapabilityListener('airpurifier_zhimi_fanlevel', async (value) => {
+        try {
+          if (this.miio) {
+            return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.fanlevel.siid, piid: this.deviceProperties.set_properties.fanlevel.piid, value: +value }], { retries: 1 });
+          } else {
+            this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });
+            this.createDevice();
+            return Promise.reject('Device unreachable, please try again ...');
+          }
+        } catch (error) {
+          this.error(error);
+          return Promise.reject(error);
+        }
+      });
+
+      this.registerCapabilityListener('airpurifier_xiaomi_fanlevel', async (value) => {
         try {
           if (this.miio) {
             return await this.miio.call("set_properties", [{ siid: this.deviceProperties.set_properties.fanlevel.siid, piid: this.deviceProperties.set_properties.fanlevel.piid, value: +value }], { retries: 1 });
@@ -392,7 +417,7 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
 
       /* data */
       const onoff = result.find(obj => obj.did === 'power');
-      const fan_level = result.find(obj => obj.did === 'fan_level');
+      const fanlevel = result.find(obj => obj.did === 'fanlevel');
       const measure_humidity = result.find(obj => obj.did === 'humidity');
       const measure_temperature = result.find(obj => obj.did === 'temperature');
       const measure_pm25 = result.find(obj => obj.did === 'aqi');
@@ -407,9 +432,6 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
 
       /* capabilities */
       await this.updateCapabilityValue("onoff", onoff.value);
-      if (fan_level !== undefined) {
-        await this.updateCapabilityValue("airpurifier_zhimi_fanlevel", fan_level.value.toString());
-      }
       if (measure_humidity !== undefined) {
         await this.updateCapabilityValue("measure_humidity", measure_humidity.value);
       }
@@ -438,6 +460,13 @@ class AdvancedMiAirPurifierMiotDevice extends Device {
         const previous_mode = this.getCapabilityValue('airpurifier_zhimi_mode');
         await this.setCapabilityValue('airpurifier_zhimi_mode', mode.value.toString());
         await this.homey.flow.getDeviceTriggerCard('triggerModeChanged').trigger(this, {"new_mode": modes[mode.value], "previous_mode": modes[+previous_mode] }).catch(error => { this.error(error) });
+      }
+
+      /* device specific settings */
+      if (this.getStoreValue('model') === 'xiaomi.airp.cpa4' && fanlevel !== undefined) {
+        await this.updateCapabilityValue("airpurifier_xiaomi_fanlevel", Number(fanlevel.value));
+      } else if (fanlevel !== undefined) {
+        await this.updateCapabilityValue("airpurifier_zhimi_fanlevel", fanlevel.value.toString());
       }
 
     } catch (error) {

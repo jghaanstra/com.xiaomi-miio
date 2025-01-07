@@ -29,14 +29,6 @@ class AdvancedOlderMiAirPurifierDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove after the next release
-      if (this.hasCapability('dim')) {
-        this.removeCapability('dim');
-      }
-      if (!this.hasCapability('fan_speed')) {
-        this.addCapability('fan_speed');
-      }
-
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
 

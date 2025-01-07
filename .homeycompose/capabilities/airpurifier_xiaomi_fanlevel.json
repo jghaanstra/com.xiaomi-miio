@@ -1,0 +1,23 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Fan Level",
+    "nl": "Fan Level",
+    "da": "Ventilatorniveau",
+    "de": "Lüfterstufe",
+    "es": "Nivel del ventilador",
+    "fr": "Niveau du ventilateur",
+    "it": "Livello della ventola",
+    "no": "Viftenivå",
+    "sv": "Fläktnivå",
+    "pl": "Poziom wentylatora",
+    "ru": "Уровень вентилятора",
+    "ko": "팬 레벨"
+  },
+  "getable": true,
+  "setable": true,
+  "min": 0,
+  "max": 14,
+  "step": 1,
+  "icon": "/assets/icons/fanlevel.svg"
+}

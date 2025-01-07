@@ -48,14 +48,6 @@ class XiaomiHumidifierMIoTDevice extends Device {
       // GENERIC DEVICE INIT ACTIONS
       this.bootSequence();
 
-      // TODO: remove after the next release
-      if (this.hasCapability('dim')) {
-        this.removeCapability('dim');
-      }
-      if (!this.hasCapability('target_humidity')) {
-        this.addCapability('target_humidity');
-      }
-
       // FLOW TRIGGER CARDS
       this.homey.flow.getDeviceTriggerCard('triggerModeChanged');
       this.homey.flow.getDeviceTriggerCard('humidifier2Waterlevel');

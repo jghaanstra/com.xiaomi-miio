@@ -67,21 +67,7 @@ class PetwaterdispenserMmggMiotDevice extends Device {
       if (!this.util) this.util = new Util({homey: this.homey});
       
       // GENERIC DEVICE INIT ACTIONS
-      this.bootSequence();
-
-      // TODO: remove after the next release
-      if (this.hasCapability('alarm_water')) {
-        this.removeCapability('alarm_water');
-      }
-      if (this.hasCapability('alarm_generic')) {
-        this.removeCapability('alarm_generic');
-      }
-      if (!this.hasCapability('alarm_tank_empty')) {
-        this.addCapability('alarm_tank_empty');
-      }
-      if (!this.hasCapability('alarm_pump_supply')) {
-        this.addCapability('alarm_pump_supply');
-      }   
+      this.bootSequence(); 
 
       // DEVICE VARIABLES
       this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping[this.getStoreValue('mmgg.pet_waterer.*')]];
