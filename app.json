@@ -187,14 +187,13 @@
       "게이트웨이"
     ]
   },
-  "version": "3.3.0",
+  "version": "3.4.0",
   "compatibility": ">=12.2.0",
   "platforms": [
     "local"
   ],
   "author": {
-    "name": "Jelger Haanstra",
-    "email": "homey@solidewebservices.com"
+    "name": "Bretislav Kubesa"
   },
   "contributing": {
     "donate": {
@@ -207,16 +206,19 @@
     "developers": [
       {
         "name": "Maxmudjon"
+      },
+      {
+        "name": "Jelger Haanstra"
       }
     ]
   },
   "bugs": {
-    "url": "https://github.com/jghaanstra/com.xiaomi-miio/issues"
+    "url": "https://github.com/shaarkys/com.xiaomi-miio/issues"
   },
   "homeyCommunityTopicId": 118,
-  "source": "https://github.com/jghaanstra/com.xiaomi-miio",
+  "source": "https://github.com/shaarkys/com.xiaomi-miio",
   "homepage": "https://community.athom.com/t/118",
-  "support": "https://community.athom.com/t/118",
+  "support": "https://community.homey.app/t/app-pro-xiaomi-mi-home-app/118/1770?u=sharkys",
   "images": {
     "large": "./assets/images/large.jpg",
     "small": "./assets/images/small.jpg"
@@ -2077,7 +2079,7 @@
               "ru": "Выберите устройство",
               "ko": "디바이스 선택"
             },
-            "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_advanced|airpurifier_zhimi_advanced_miot|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh|humidifier_zhimi_humidifier|humidifier_zhimi_humidifier_miot|humidifier_deerma_humidifier_jsq|humidifier_deerma_humidifier_miot|dmaker_fan_1c|fan_zhimi_advanced|zhimi_fan_za5|airfryer_careli_miot|petwaterdispenser_mmgg_miot|petfeeder_mmgg_miot|humidifier_xiaomi_humidifier"
+            "filter": "driver_id=mi-airpurifier|airpurifier_zhimi_advanced|airpurifier_zhimi_advanced_miot|airpurifier_zhimi_airpurifier_ma2|airpurifier_dmaker_airfresh_t2017|airfresh_zhimi_airfresh|humidifier_zhimi_humidifier|humidifier_zhimi_humidifier_miot|humidifier_deerma_humidifier_jsq|humidifier_deerma_humidifier_miot|dmaker_fan_1c|fan_zhimi_advanced|zhimi_fan_za5|airfryer_careli_miot|petwaterdispenser_mmgg_miot|petfeeder_mmgg_miot|humidifier_xiaomi_humidifier|dehumidifier_dmaker_derh_miot"
           }
         ],
         "platforms": [
@@ -2847,6 +2849,82 @@
               "ru": "Уровень вентилятора",
               "ko": "팬 레벨"
             },
+            "type": "number",
+            "min": 0,
+            "max": 14,
+            "step": 1
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Airpurifier",
+              "nl": "Selecteer Airpurifier",
+              "da": "Vælg luftrenser",
+              "de": "Luftreiniger auswählen",
+              "es": "Seleccionar purificador de aire",
+              "fr": "Sélectionner le purificateur d'air",
+              "it": "Seleziona purificatore d'aria",
+              "no": "Velg luftrenser",
+              "sv": "Välj luftrenare",
+              "pl": "Wybierz oczyszczacz powietrza",
+              "ru": "Выберите очиститель воздуха",
+              "ko": "공기청정기 선택"
+            },
+            "filter": "driver_id=airpurifier_zhimi_advanced_miot&capabilities=airpurifier_xiaomi_fanlevel"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "airpurifierXiaomiFanlevel"
+      },
+      {
+        "title": {
+          "en": "Set fan level",
+          "nl": "Ventilatieniveau instellen",
+          "da": "Indstil ventilatorniveau",
+          "de": "Lüfterstufe einstellen",
+          "es": "Establecer nivel de ventilador",
+          "fr": "Définir le niveau du ventilateur",
+          "it": "Imposta livello ventola",
+          "no": "Still inn viftetrinn",
+          "sv": "Ställ in fläkthastighet",
+          "pl": "Ustaw poziom wentylatora",
+          "ru": "Установить уровень вентилятора",
+          "ko": "팬 레벨 설정"
+        },
+        "titleFormatted": {
+          "en": "Set fan level to [[fanlevel]]",
+          "nl": "Stel fan level in op [[fanlevel]]",
+          "da": "Indstil blæserniveau til [[fanlevel]]",
+          "de": "Lüfterstufe auf [[fanlevel]] einstellen",
+          "es": "Establecer el nivel del ventilador a [[fanlevel]]",
+          "fr": "Définir le niveau du ventilateur à [[fanlevel]]",
+          "it": "Imposta il livello della ventola a [[fanlevel]]",
+          "no": "Still inn viftenivå til [[fanlevel]]",
+          "sv": "Ställ in fläkthastighet till [[fanlevel]]",
+          "pl": "Ustaw poziom wentylatora na [[fanlevel]]",
+          "ru": "Установите уровень вентилятора на [[fanlevel]]",
+          "ko": "팬 레벨 [[fanlevel]]로 설정"
+        },
+        "args": [
+          {
+            "name": "fanlevel",
+            "title": {
+              "en": "Fan Level",
+              "nl": "Fan Level",
+              "da": "Blæserniveau",
+              "de": "Lüfterstufe",
+              "es": "Nivel del ventilador",
+              "fr": "Niveau de ventilateur",
+              "it": "Livello ventola",
+              "no": "Viftenivå",
+              "sv": "Fläkthastighet",
+              "pl": "Poziom wentylatora",
+              "ru": "Уровень вентилятора",
+              "ko": "팬 레벨"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2919,7 +2997,7 @@
               "ru": "Выберите очиститель воздуха",
               "ko": "공기청정기 선택"
             },
-            "filter": "driver_id=airpurifier_zhimi_advanced_miot"
+            "filter": "driver_id=airpurifier_zhimi_advanced_miot&capabilities=airpurifier_zhimi_fanlevel"
           }
         ],
         "platforms": [
@@ -3069,84 +3147,6 @@
           "local"
         ],
         "id": "airpurifierZhimiMode"
-      },
-      {
-        "id": "changeSpeed",
-        "title": {
-          "en": "Set Speed",
-          "nl": "Stel snelheid in",
-          "da": "Indstil hastighed",
-          "de": "Geschwindigkeit einstellen",
-          "es": "Ajustar velocidad",
-          "fr": "Régler la vitesse",
-          "it": "Imposta velocità",
-          "no": "Sett hastighet",
-          "sv": "Ställ in hastighet",
-          "pl": "Ustaw prędkość",
-          "ru": "Установить скорость",
-          "ko": "속도 설정"
-        },
-        "titleFormatted": {
-          "en": "Set speed to [[speed]]",
-          "nl": "Stel snelheid in op [[speed]]",
-          "da": "Indstil hastighed til [[speed]]",
-          "de": "Geschwindigkeit auf [[speed]] einstellen",
-          "es": "Ajustar velocidad a [[speed]]",
-          "fr": "Régler la vitesse à [[speed]]",
-          "it": "Imposta velocità a [[speed]]",
-          "no": "Sett hastighet til [[speed]]",
-          "sv": "Ställ in hastighet till [[speed]]",
-          "pl": "Ustaw prędkość na [[speed]]",
-          "ru": "Установить скорость на [[speed]]",
-          "ko": "[[speed]]으로 속도 설정"
-        },
-        "args": [
-          {
-            "name": "speed",
-            "title": {
-              "en": "Speed",
-              "nl": "Snelheid",
-              "da": "Hastighed",
-              "de": "Geschwindigkeit",
-              "es": "Velocidad",
-              "fr": "Vitesse",
-              "it": "Velocità",
-              "no": "Hastighet",
-              "sv": "Hastighet",
-              "pl": "Prędkość",
-              "ru": "Скорость",
-              "ko": "속도"
-            },
-            "type": "range",
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "label": "%",
-            "labelDecimals": 0
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "placeholder": {
-              "en": "Select Device",
-              "nl": "Selecteer apparaat",
-              "da": "Vælg enhed",
-              "de": "Gerät auswählen",
-              "es": "Seleccionar dispositivo",
-              "fr": "Sélectionner un appareil",
-              "it": "Seleziona dispositivo",
-              "no": "Velg enhet",
-              "sv": "Välj enhet",
-              "pl": "Wybierz urządzenie",
-              "ru": "Выбрать устройство",
-              "ko": "장치 선택"
-            },
-            "filter": "driver_id=zhimi-fan|dmaker-fan"
-          }
-        ],
-        "platforms": [
-          "local"
-        ]
       },
       {
         "id": "cleanZoneVacuum",
@@ -3468,115 +3468,6 @@
         "id": "enableBuzzer"
       },
       {
-        "id": "enableChildLock",
-        "title": {
-          "en": "Enable Child Lock",
-          "nl": "Instellen kindbeveiliging",
-          "da": "Aktivér børnelås",
-          "de": "Kindersicherung aktivieren",
-          "es": "Activar bloqueo infantil",
-          "fr": "Activer le verrouillage enfant",
-          "it": "Abilita blocco bambini",
-          "no": "Aktiver barnelås",
-          "sv": "Aktivera barnlås",
-          "pl": "Włącz blokadę rodzicielską",
-          "ru": "Включить детский замок",
-          "ko": "어린이 잠금 장치를 활성화"
-        },
-        "titleFormatted": {
-          "en": "Set child lock [[childlock]]",
-          "nl": "Wijzig kindbeveiliging naar [[childlock]]",
-          "da": "Indstil børnelås [[childlock]]",
-          "de": "Kindersicherung setzen [[childlock]]",
-          "es": "Configurar bloqueo infantil [[childlock]]",
-          "fr": "Définir le verrouillage enfant [[childlock]]",
-          "it": "Imposta blocco bambini [[childlock]]",
-          "no": "Sett barnelås [[childlock]]",
-          "sv": "Ställ in barnlåset [[childlock]]",
-          "pl": "Ustaw blokadę rodzicielską [[childlock]]",
-          "ru": "Установить детский замок [[childlock]]",
-          "ko": "어린이 잠금 설정 [[childlock]]"
-        },
-        "args": [
-          {
-            "name": "childlock",
-            "title": {
-              "en": "Childlock",
-              "nl": "Kinderslot",
-              "da": "Børnelås",
-              "de": "Kindersicherung",
-              "es": "Bloqueo infantil",
-              "fr": "Verrouillage enfant",
-              "it": "Blocco bambini",
-              "no": "Barnelås",
-              "sv": "Barnlås",
-              "pl": "Blokada rodzicielska",
-              "ru": "Детский замок",
-              "ko": "어린이 잠금 장치"
-            },
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "on",
-                "label": {
-                  "en": "On",
-                  "nl": "Aan",
-                  "da": "Til",
-                  "de": "Ein",
-                  "es": "Encendido",
-                  "fr": "Activé",
-                  "it": "Acceso",
-                  "no": "På",
-                  "sv": "På",
-                  "pl": "Włączone",
-                  "ru": "Вкл",
-                  "ko": "켜기"
-                }
-              },
-              {
-                "id": "off",
-                "label": {
-                  "en": "Off",
-                  "nl": "Uit",
-                  "da": "Fra",
-                  "de": "Aus",
-                  "es": "Apagado",
-                  "fr": "Désactivé",
-                  "it": "Spento",
-                  "no": "Av",
-                  "sv": "Av",
-                  "pl": "Wyłączone",
-                  "ru": "Выкл",
-                  "ko": "끄기"
-                }
-              }
-            ]
-          },
-          {
-            "name": "device",
-            "type": "device",
-            "placeholder": {
-              "en": "Select Device",
-              "nl": "Selecteer apparaat",
-              "da": "Vælg enhed",
-              "de": "Gerät auswählen",
-              "es": "Seleccionar dispositivo",
-              "fr": "Sélectionner l'appareil",
-              "it": "Seleziona dispositivo",
-              "no": "Velg enhet",
-              "sv": "Välj enhet",
-              "pl": "Wybierz urządzenie",
-              "ru": "Выберите устройство",
-              "ko": "장치 선택"
-            },
-            "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5"
-          }
-        ],
-        "platforms": [
-          "local"
-        ]
-      },
-      {
         "id": "enableEyecare",
         "title": {
           "en": "Switch Eyecare",
@@ -3696,6 +3587,115 @@
               "ko": "필립스 아이케어 램프 선택"
             },
             "filter": "driver_id=philips-eyecare"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "enableChildLock",
+        "title": {
+          "en": "Enable Child Lock",
+          "nl": "Instellen kindbeveiliging",
+          "da": "Aktivér børnelås",
+          "de": "Kindersicherung aktivieren",
+          "es": "Activar bloqueo infantil",
+          "fr": "Activer le verrouillage enfant",
+          "it": "Abilita blocco bambini",
+          "no": "Aktiver barnelås",
+          "sv": "Aktivera barnlås",
+          "pl": "Włącz blokadę rodzicielską",
+          "ru": "Включить детский замок",
+          "ko": "어린이 잠금 장치를 활성화"
+        },
+        "titleFormatted": {
+          "en": "Set child lock [[childlock]]",
+          "nl": "Wijzig kindbeveiliging naar [[childlock]]",
+          "da": "Indstil børnelås [[childlock]]",
+          "de": "Kindersicherung setzen [[childlock]]",
+          "es": "Configurar bloqueo infantil [[childlock]]",
+          "fr": "Définir le verrouillage enfant [[childlock]]",
+          "it": "Imposta blocco bambini [[childlock]]",
+          "no": "Sett barnelås [[childlock]]",
+          "sv": "Ställ in barnlåset [[childlock]]",
+          "pl": "Ustaw blokadę rodzicielską [[childlock]]",
+          "ru": "Установить детский замок [[childlock]]",
+          "ko": "어린이 잠금 설정 [[childlock]]"
+        },
+        "args": [
+          {
+            "name": "childlock",
+            "title": {
+              "en": "Childlock",
+              "nl": "Kinderslot",
+              "da": "Børnelås",
+              "de": "Kindersicherung",
+              "es": "Bloqueo infantil",
+              "fr": "Verrouillage enfant",
+              "it": "Blocco bambini",
+              "no": "Barnelås",
+              "sv": "Barnlås",
+              "pl": "Blokada rodzicielska",
+              "ru": "Детский замок",
+              "ko": "어린이 잠금 장치"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "da": "Til",
+                  "de": "Ein",
+                  "es": "Encendido",
+                  "fr": "Activé",
+                  "it": "Acceso",
+                  "no": "På",
+                  "sv": "På",
+                  "pl": "Włączone",
+                  "ru": "Вкл",
+                  "ko": "켜기"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "da": "Fra",
+                  "de": "Aus",
+                  "es": "Apagado",
+                  "fr": "Désactivé",
+                  "it": "Spento",
+                  "no": "Av",
+                  "sv": "Av",
+                  "pl": "Wyłączone",
+                  "ru": "Выкл",
+                  "ko": "끄기"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Device",
+              "nl": "Selecteer apparaat",
+              "da": "Vælg enhed",
+              "de": "Gerät auswählen",
+              "es": "Seleccionar dispositivo",
+              "fr": "Sélectionner l'appareil",
+              "it": "Seleziona dispositivo",
+              "no": "Velg enhet",
+              "sv": "Välj enhet",
+              "pl": "Wybierz urządzenie",
+              "ru": "Выберите устройство",
+              "ko": "장치 선택"
+            },
+            "filter": "driver_id=zhimi-fan|dmaker-fan|fan_zhimi_advanced|fan_zhimi_fan_za5"
           }
         ],
         "platforms": [
@@ -6272,6 +6272,84 @@
         "id": "humidifierZhimiModeMIoT"
       },
       {
+        "id": "changeSpeed",
+        "title": {
+          "en": "Set Speed",
+          "nl": "Stel snelheid in",
+          "da": "Indstil hastighed",
+          "de": "Geschwindigkeit einstellen",
+          "es": "Ajustar velocidad",
+          "fr": "Régler la vitesse",
+          "it": "Imposta velocità",
+          "no": "Sett hastighet",
+          "sv": "Ställ in hastighet",
+          "pl": "Ustaw prędkość",
+          "ru": "Установить скорость",
+          "ko": "속도 설정"
+        },
+        "titleFormatted": {
+          "en": "Set speed to [[speed]]",
+          "nl": "Stel snelheid in op [[speed]]",
+          "da": "Indstil hastighed til [[speed]]",
+          "de": "Geschwindigkeit auf [[speed]] einstellen",
+          "es": "Ajustar velocidad a [[speed]]",
+          "fr": "Régler la vitesse à [[speed]]",
+          "it": "Imposta velocità a [[speed]]",
+          "no": "Sett hastighet til [[speed]]",
+          "sv": "Ställ in hastighet till [[speed]]",
+          "pl": "Ustaw prędkość na [[speed]]",
+          "ru": "Установить скорость на [[speed]]",
+          "ko": "[[speed]]으로 속도 설정"
+        },
+        "args": [
+          {
+            "name": "speed",
+            "title": {
+              "en": "Speed",
+              "nl": "Snelheid",
+              "da": "Hastighed",
+              "de": "Geschwindigkeit",
+              "es": "Velocidad",
+              "fr": "Vitesse",
+              "it": "Velocità",
+              "no": "Hastighet",
+              "sv": "Hastighet",
+              "pl": "Prędkość",
+              "ru": "Скорость",
+              "ko": "속도"
+            },
+            "type": "range",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "label": "%",
+            "labelDecimals": 0
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Device",
+              "nl": "Selecteer apparaat",
+              "da": "Vælg enhed",
+              "de": "Gerät auswählen",
+              "es": "Seleccionar dispositivo",
+              "fr": "Sélectionner un appareil",
+              "it": "Seleziona dispositivo",
+              "no": "Velg enhet",
+              "sv": "Välj enhet",
+              "pl": "Wybierz urządzenie",
+              "ru": "Выбрать устройство",
+              "ko": "장치 선택"
+            },
+            "filter": "driver_id=zhimi-fan|dmaker-fan"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
         "title": {
           "en": "LED display brightness",
           "nl": "LED display helderheid",
@@ -6730,6 +6808,132 @@
           "local"
         ],
         "id": "modeAirpurifier"
+      },
+      {
+        "title": {
+          "en": "Set Mode",
+          "nl": "Stel modus in",
+          "da": "Sæt tilstand",
+          "de": "Modus einstellen",
+          "es": "Establecer modo",
+          "fr": "Définir le mode",
+          "it": "Imposta modalità",
+          "no": "Sett modus",
+          "sv": "Ställ in läge",
+          "pl": "Ustaw tryb",
+          "ru": "Установить режим",
+          "ko": "모드 설정"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Stel modus in op [[mode]]",
+          "da": "Indstil tilstand til [[mode]]",
+          "de": "Modus auf [[mode]] einstellen",
+          "es": "Establecer modo en [[mode]]",
+          "fr": "Définir le mode sur [[mode]]",
+          "it": "Imposta modalità su [[mode]]",
+          "no": "Sett modus til [[mode]]",
+          "sv": "Ställ in läge till [[mode]]",
+          "pl": "Ustaw tryb na [[mode]]",
+          "ru": "Установить режим на [[mode]]",
+          "ko": "[[mode]] 모드로 설정"
+        },
+        "args": [
+          {
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Modus",
+              "da": "Tilstand",
+              "de": "Modus",
+              "es": "Modo",
+              "fr": "Mode",
+              "it": "Modalità",
+              "no": "Modus",
+              "sv": "Läge",
+              "pl": "Tryb",
+              "ru": "Режим",
+              "ko": "모드"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Smart",
+                  "nl": "Slim",
+                  "da": "Smart",
+                  "de": "Intelligent",
+                  "es": "Inteligente",
+                  "fr": "Intelligent",
+                  "it": "Intelligente",
+                  "no": "Smart",
+                  "sv": "Smart",
+                  "pl": "Inteligentny",
+                  "ru": "Умный",
+                  "ko": "스마트"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Sleep",
+                  "nl": "Slaap",
+                  "da": "Søvn",
+                  "de": "Schlaf",
+                  "es": "Dormir",
+                  "fr": "Sommeil",
+                  "it": "Sonno",
+                  "no": "Søvn",
+                  "sv": "Sömn",
+                  "pl": "Sen",
+                  "ru": "Сон",
+                  "ko": "수면"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Clothes Drying",
+                  "nl": "Kleding drogen",
+                  "da": "Tørring af tøj",
+                  "de": "Kleidung trocknen",
+                  "es": "Secado de ropa",
+                  "fr": "Séchage des vêtements",
+                  "it": "Asciugatura dei vestiti",
+                  "no": "Klær tørking",
+                  "sv": "Klädtorkning",
+                  "pl": "Suszenie ubrań",
+                  "ru": "Сушка одежды",
+                  "ko": "의류 건조"
+                }
+              }
+            ]
+          },
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select Mi Humidifier",
+              "nl": "Selecteer Mi Luchtbevochtiger",
+              "da": "Vælg Mi Luftfugter",
+              "de": "Wählen Sie Mi Luftbefeuchter",
+              "es": "Seleccione Mi Humidificador",
+              "fr": "Sélectionnez Mi Humidificateur",
+              "it": "Seleziona Mi Umidificatore",
+              "no": "Velg Mi Luftfukter",
+              "sv": "Välj Mi Luftfuktare",
+              "pl": "Wybierz Mi Nawilżacz",
+              "ru": "Выберите Mi Увлажнитель",
+              "ko": "Mi 가습기 선택"
+            },
+            "filter": "driver_id=dehumidifier_dmaker_derh_miot"
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "id": "modeDehumidifierDmaker"
       },
       {
         "id": "modeDmakerFan",
@@ -14432,6 +14636,258 @@
                 "pl": "Kod modelu urządzenia",
                 "ru": "Код модели устройства",
                 "ko": "장치 모델 코드"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "/drivers/dehumidifier_dmaker_derh_miot/assets/icon.svg",
+      "pair": [
+        {
+          "id": "start",
+          "navigation": {
+            "next": "pair"
+          }
+        },
+        {
+          "id": "pair"
+        },
+        {
+          "id": "add_device"
+        }
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "name": {
+        "en": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+        "nl": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+        "da": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+        "de": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+        "es": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+        "fr": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+        "it": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+        "no": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+        "sv": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+        "pl": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+        "ru": "Xiaomi Smart Dehumidifier MIoT (WiFi)",
+        "ko": "Xiaomi Smart Dehumidifier MIoT (WiFi)"
+      },
+      "images": {
+        "large": "drivers/dehumidifier_dmaker_derh_miot/assets/images/large.jpg",
+        "small": "drivers/dehumidifier_dmaker_derh_miot/assets/images/small.jpg"
+      },
+      "class": "dehumidifier",
+      "capabilities": [
+        "onoff",
+        "dehumidifier_dmaker_mode",
+        "target_humidity",
+        "measure_humidity",
+        "measure_temperature"
+      ],
+      "capabilitiesOptions": {
+        "target_humidity": {
+          "min": 0.4,
+          "max": 0.8
+        }
+      },
+      "id": "dehumidifier_dmaker_derh_miot",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "User Settings",
+            "nl": "Gebruikersinstellingem",
+            "da": "Brugerindstillinger",
+            "de": "Benutzereinstellungen",
+            "es": "Configuración del usuario",
+            "fr": "Paramètres utilisateur",
+            "it": "Impostazioni utente",
+            "no": "Brukerinnstillinger",
+            "sv": "Användarinställningar",
+            "pl": "Ustawienia użytkownika",
+            "ru": "Настройки пользователя",
+            "ko": "사용자 설정"
+          },
+          "children": [
+            {
+              "id": "led",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "LED",
+                "nl": "LED",
+                "da": "LED",
+                "de": "LED",
+                "es": "LED",
+                "fr": "LED",
+                "it": "LED",
+                "no": "LED",
+                "sv": "LED",
+                "pl": "LED",
+                "ru": "LED",
+                "ko": "LED"
+              }
+            },
+            {
+              "id": "buzzer",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Buzzer",
+                "nl": "Buzzer",
+                "da": "Summer",
+                "de": "Summer",
+                "es": "Zumbador",
+                "fr": "Vibreur",
+                "it": "Cicalino",
+                "no": "Summerton",
+                "sv": "Summer",
+                "pl": "Buzer",
+                "ru": "Зуммер",
+                "ko": "부저"
+              }
+            },
+            {
+              "id": "childLock",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Child Lock",
+                "nl": "Kinderslot",
+                "da": "Børnelås",
+                "de": "Kindersicherung",
+                "es": "Bloqueo infantil",
+                "fr": "Verrouillage enfants",
+                "it": "Blocco bambini",
+                "no": "Barnelås",
+                "sv": "Barnlås",
+                "pl": "Blokada dla dzieci",
+                "ru": "Блокировка от детей",
+                "ko": "잠금 기능"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device data",
+            "nl": "Apparaat data",
+            "da": "Enhedsdata",
+            "de": "Gerätedaten",
+            "es": "Datos del dispositivo",
+            "fr": "Données de l'appareil",
+            "it": "Dati del dispositivo",
+            "no": "Enhetsdata",
+            "sv": "Enhetsdata",
+            "pl": "Dane urządzenia",
+            "ru": "Данные устройства",
+            "ko": "장치 데이터"
+          },
+          "children": [
+            {
+              "id": "error",
+              "type": "label",
+              "label": {
+                "en": "Error",
+                "nl": "Error",
+                "da": "Fejl",
+                "de": "Fehler",
+                "es": "Error",
+                "fr": "Erreur",
+                "it": "Errore",
+                "no": "Feil",
+                "sv": "Fel",
+                "pl": "Błąd",
+                "ru": "Ошибка",
+                "ko": "오류"
+              },
+              "value": "No error"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device Settings",
+            "nl": "Apparaat instellingen",
+            "da": "Enhedsindstillinger",
+            "de": "Geräteeinstellungen",
+            "es": "Configuración del dispositivo",
+            "fr": "Paramètres de l'appareil",
+            "it": "Impostazioni del dispositivo",
+            "no": "Enhetsinnstillinger",
+            "sv": "Enhetsinställningar",
+            "pl": "Ustawienia urządzenia",
+            "ru": "Настройки устройства",
+            "ko": "장치 설정"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "value": "0.0.0.0",
+              "label": {
+                "en": "IP Address",
+                "nl": "IP adres",
+                "da": "IP-adresse",
+                "de": "IP-Adresse",
+                "es": "Dirección IP",
+                "fr": "Adresse IP",
+                "it": "Indirizzo IP",
+                "no": "IP-adresse",
+                "sv": "IP-adress",
+                "pl": "Adres IP",
+                "ru": "IP-адрес",
+                "ko": "IP 주소"
+              }
+            },
+            {
+              "id": "token",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Mi Device Token",
+                "nl": "Mi Apparaat Token",
+                "da": "Mi Enheds Token",
+                "de": "Mi Gerätetoken",
+                "es": "Token del Dispositivo Mi",
+                "fr": "Jeton de l'Appareil Mi",
+                "it": "Token Dispositivo Mi",
+                "no": "Mi Enhet Token",
+                "sv": "Mi Enhetstoken",
+                "pl": "Token Urządzenia Mi",
+                "ru": "Токен Устройства Mi",
+                "ko": "Mi 기기 토큰"
+              }
+            },
+            {
+              "id": "polling",
+              "type": "number",
+              "value": 60,
+              "attr": {
+                "min": 5,
+                "max": 3600
+              },
+              "label": {
+                "en": "Polling Frequency",
+                "nl": "Polling frequentie",
+                "da": "Polling Frekvens",
+                "de": "Abfragefrequenz",
+                "es": "Frecuencia de sondeo",
+                "fr": "Fréquence de sondage",
+                "it": "Frequenza di polling",
+                "no": "Polling Frekvens",
+                "sv": "Pollingfrekvens",
+                "pl": "Częstotliwość odpytywania",
+                "ru": "Частота опроса",
+                "ko": "폴링 빈도"
               }
             }
           ]
@@ -25688,6 +26144,29 @@
       ],
       "icon": "/assets/icons/airpurifier-mode.svg"
     },
+    "airpurifier_xiaomi_fanlevel": {
+      "type": "number",
+      "title": {
+        "en": "Fan Level",
+        "nl": "Fan Level",
+        "da": "Ventilatorniveau",
+        "de": "Lüfterstufe",
+        "es": "Nivel del ventilador",
+        "fr": "Niveau du ventilateur",
+        "it": "Livello della ventola",
+        "no": "Viftenivå",
+        "sv": "Fläktnivå",
+        "pl": "Poziom wentylatora",
+        "ru": "Уровень вентилятора",
+        "ko": "팬 레벨"
+      },
+      "getable": true,
+      "setable": true,
+      "min": 0,
+      "max": 14,
+      "step": 1,
+      "icon": "/assets/icons/fanlevel.svg"
+    },
     "airpurifier_zhimi_airfresh_mode": {
       "type": "enum",
       "title": {
@@ -26144,6 +26623,79 @@
       "getable": true,
       "setable": false,
       "icon": "/assets/icons/vacuum_side_brush.svg"
+    },
+    "dehumidifier_dmaker_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus",
+        "da": "Tilstand",
+        "de": "Modus",
+        "es": "Modo",
+        "fr": "Mode",
+        "it": "Modalità",
+        "no": "Modus",
+        "sv": "Läge",
+        "pl": "Tryb",
+        "ru": "Режим",
+        "ko": "모드"
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Smart",
+            "nl": "Slim",
+            "da": "Smart",
+            "de": "Intelligent",
+            "es": "Inteligente",
+            "fr": "Intelligent",
+            "it": "Intelligente",
+            "no": "Smart",
+            "sv": "Smart",
+            "pl": "Inteligentny",
+            "ru": "Умный",
+            "ko": "스마트"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Sleep",
+            "nl": "Slaap",
+            "da": "Søvn",
+            "de": "Schlaf",
+            "es": "Dormir",
+            "fr": "Sommeil",
+            "it": "Sonno",
+            "no": "Søvn",
+            "sv": "Sömn",
+            "pl": "Sen",
+            "ru": "Сон",
+            "ko": "수면"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Clothes Drying",
+            "nl": "Kleding drogen",
+            "da": "Tørring af tøj",
+            "de": "Kleidung trocknen",
+            "es": "Secado de ropa",
+            "fr": "Séchage des vêtements",
+            "it": "Asciugatura dei vestiti",
+            "no": "Klær tørking",
+            "sv": "Klädtorkning",
+            "pl": "Suszenie ubrań",
+            "ru": "Сушка одежды",
+            "ko": "의류 건조"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "icon": "/assets/icons/humidifier-mode.svg"
     },
     "fan_dmaker_mode": {
       "type": "enum",

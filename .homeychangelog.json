@@ -232,5 +232,8 @@
   },
   "3.3.0": {
     "en": "Breaking change: subcapabilities have been replaced by new capabilities available since Homey firmware 12.2.0. In some cases this might break your flows. You will have to update them with the new flow cards. This release also contains a fix for setting the fanlevel through a flowcard for the Advanced Mi Air Purifier MIoT driver and a fix for the Xiaomi Smart Tower Fan (dmaker.fan.p39)."
+  },
+  "3.4.0": {
+    "en": "Fan level fix for Xiaomi Mi Air Purifier Pro, Added support for Xiaomi Robot Vacuum X20+ and Xiaomi Smart Dehumidifier - all credits goes to https://www.paypal.me/jghaanstra"
   }
 }
