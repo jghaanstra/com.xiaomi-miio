@@ -192,13 +192,12 @@
     "local"
   ],
   "author": {
-    "name": "Jelger Haanstra",
-    "email": "homey@solidewebservices.com"
+    "name": "Bretislav Kubesa"
   },
   "contributing": {
     "donate": {
       "paypal": {
-        "username": "jghaanstra"
+        "username": "jghaanstra"        
       }
     }
   },
@@ -206,16 +205,19 @@
     "developers": [
       {
         "name": "Maxmudjon"
+      },
+      {
+        "name": "Jelger Haanstra"
       }
     ]
   },
   "bugs": {
-    "url": "https://github.com/jghaanstra/com.xiaomi-miio/issues"
+    "url": "https://github.com/shaarkys/com.xiaomi-miio/issues"
   },
   "homeyCommunityTopicId": 118,
-  "source": "https://github.com/jghaanstra/com.xiaomi-miio",
+  "source": "https://github.com/shaarkys/com.xiaomi-miio",
   "homepage": "https://community.athom.com/t/118",
-  "support": "https://community.athom.com/t/118",
+  "support": "https://community.homey.app/t/app-pro-xiaomi-mi-home-app/118/1770?u=sharkys",
   "images": {
     "large": "./assets/images/large.jpg",
     "small": "./assets/images/small.jpg"
