@@ -238,5 +238,8 @@
   },
   "3.4.1": {
     "en": "Fan level fix for Xiaomi Mi Air Purifier Pro, Added support for Xiaomi Robot Vacuum X20+ and Xiaomi Smart Dehumidifier - all credits goes to https://www.paypal.me/jghaanstra"
+  },
+  "3.4.2": {
+    "en": "Fan level fix for Xiaomi Mi Air Purifier Pro, Added support for Xiaomi Robot Vacuum X20+ and Xiaomi Smart Dehumidifier - all credits goes to [Phuturist](https://www.paypal.me/jghaanstra)"
   }
 }
