@@ -1,5 +1,9 @@
 'use strict';
 
+process.env.APPDATA = "C:\\Users\\breti\\AppData\\Roaming";
+process.env.LOCALAPPDATA = "C:\\Users\\breti\\AppData\\Local";
+process.env.USERPROFILE = "C:\\Users\\breti";
+
 const Homey = require('homey');
 const miio = require("miio");
 const MiHub = require("./lib/MiHub");
@@ -259,7 +263,16 @@ class XiaomiMiioApp extends Homey.App {
         }
       });
 
-    // AIR PURIFIER, HUMIDIFIER
+    this.homey.flow.getActionCard('airpurifierXiaomiFanlevel')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.triggerCapabilityListener('airpurifier_xiaomi_fanlevel', args.fanlevel);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    // AIR PURIFIER, HUMIDIFIER, DEHUMIDIFIER
     this.homey.flow.getActionCard('humidifierZhimiMode')
       .registerRunListener(async (args) => {
         try {
@@ -309,6 +322,15 @@ class XiaomiMiioApp extends Homey.App {
       .registerRunListener(async (args) => {
         try {
           return await args.device.triggerCapabilityListener('humidifier_leshow_jsq1_mode', args.mode);
+        } catch (error) {
+          return Promise.reject(error.message);
+        }
+      });
+
+    this.homey.flow.getActionCard('modeDehumidifierDmaker')
+      .registerRunListener(async (args) => {
+        try {
+          return await args.device.triggerCapabilityListener('dehumidifier_dmaker_mode', args.mode);
         } catch (error) {
           return Promise.reject(error.message);
         }
