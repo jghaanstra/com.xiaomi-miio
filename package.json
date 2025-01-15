@@ -4,12 +4,13 @@
   "main": "app.js",
   "scripts": {},
   "devDependencies": {
-    "@tsconfig/node12": "^1.0.11",
-    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.3",
-    "@types/node": "^18.11.18"
+    "@tsconfig/node12": "^12.1.4",
+    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.10",
+    "@types/node": "^22.10.6"
   },
   "dependencies": {
-    "miio": "^0.15.6",
+    "abstract-things": "github:shaarkys/abstract-things-react-native",
+    "miio": "github:shaarkys/miio",
     "mimorelinks": "^1.2.1",
     "tinycolor2": "^1.6.0"
   },
@@ -20,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jghaanstra/com.xiaomi-miio.git"
+    "url": "git+https://github.com/shaarkys/com.xiaomi-miio.git"
   },
   "keywords": [
     "xiaomi",
@@ -30,7 +31,7 @@
   "author": "Jelger Haanstra",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jghaanstra/com.xiaomi-miio/issues"
+    "url": "https://github.com/shaarkys/com.xiaomi-miio/issues"
   },
-  "homepage": "https://github.com/jghaanstra/com.xiaomi-miio#readme"
+  "homepage": "https://github.com/shaarkys/com.xiaomi-miio#readme"
 }

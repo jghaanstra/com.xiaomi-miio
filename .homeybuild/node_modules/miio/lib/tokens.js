@@ -4,8 +4,6 @@ const fs = require('fs');
 const path = require('path');
 
 const mkdirp = require('mkdirp');
-const AppDirectory = require('appdirectory');
-const dirs = new AppDirectory('miio');
 
 const CHECK_TIME = 1000;
 const MAX_STALE_TIME = 120000;
@@ -18,7 +16,7 @@ const debug = require('debug')('miio:tokens');
  */
 class Tokens {
 	constructor() {
-		this._file = path.join(dirs.userData(), 'tokens.json');
+		this._file = '/userdata/tokens.json';
 		this._data = {};
 		this._lastSync = 0;
 	}
@@ -113,14 +111,6 @@ class Tokens {
 						});
 					};
 
-					mkdirp(dirs.userData(), (err) => {
-						if(err) {
-							reject(err);
-							return;
-						}
-
-						save();
-					});
 				});
 			});
 	}

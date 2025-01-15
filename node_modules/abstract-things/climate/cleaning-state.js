@@ -59,10 +59,17 @@ module.exports = Thing.mixin(Parent => class extends Parent.with(ErrorState, Sta
 
 	updateCleaning(cleaning) {
 		cleaning = boolean(cleaning);
+
+		if(cleaning) {
+			// Assume error state has been cleared
+			this.updateError(null);
+		}
+
 		if(this.updateState('cleaning', cleaning)) {
 			this.emitEvent('cleaningChanged', cleaning);
 
 			if(cleaning) {
+				// Emit the cleaning started event
 				this.emitEvent('cleaningStarted');
 			} else {
 

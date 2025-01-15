@@ -1,6 +1,6 @@
 'use strict';
 
-const Network = require('./lib/network');
+const { ObjectNetwork } = require('local-machine-network');
 const Data = require('./lib/data');
 
 const debug = require('debug')('dwaal');
@@ -30,10 +30,12 @@ module.exports = class Storage {
 
 		debug('Opening storage connection to', this.path);
 		// Start the network using a socket under the storage path
-		this.network = new Network(path.join(this.path, '.dwaal-socket'));
+		this.network = new ObjectNetwork({
+			path: path.join(this.path, '.dwaal-socket')
+		});
 		this.network.on('message', this._handleMessage.bind(this));
 
-		return this.openPromise = this.network.open()
+		return this.openPromise = this.network.connect()
 			.then(() => {
 				debug('Storage connection has been opened to', this.path);
 				this.isOpen = true;
@@ -42,24 +44,30 @@ module.exports = class Storage {
 	}
 
 	close() {
-		this.network.close();
-		this.isOpen = false;
-		if(this.data) {
-			return this.data.close();
-		} else {
-			return Promise.resolve();
-		}
+		return this.network.disconnect()
+			.then(() => {
+				this.isOpen = false;
+				if(this.data) {
+					return this.data.close();
+				} else {
+					return Promise.resolve();
+				}
+			});
 	}
 
 	_rpc(action, args) {
 		return this.open().then(() =>
 			new Promise((resolve, reject) => {
 				const seq = this.seq++;
-				this.network.sendToLeader(seq, action, args );
+				this.network.send([
+					seq,
+					action,
+					args
+				]);
 				this.requests.set(seq, { resolve, reject });
 
 				setTimeout(() => {
-					reject();
+					reject(new Error('Request timed out'));
 					this.requests.delete(seq);
 				}, 1500);
 			})
@@ -89,7 +97,8 @@ module.exports = class Storage {
 		return this._rpc('set', [ key, value ]);
 	}
 
-	_handleMessage({ returnPath, seq, type, payload }) {
+	_handleMessage({ returnPath, data }) {
+		const [ seq, type, payload ] = data;
 		if(type === 'success') {
 			/*
 			 * Operation was successful. Resolve the promise associated with

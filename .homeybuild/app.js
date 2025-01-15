@@ -1,9 +1,5 @@
 'use strict';
 
-process.env.APPDATA = "C:\\Users\\breti\\AppData\\Roaming";
-process.env.LOCALAPPDATA = "C:\\Users\\breti\\AppData\\Local";
-process.env.USERPROFILE = "C:\\Users\\breti";
-
 const Homey = require('homey');
 const miio = require("miio");
 const MiHub = require("./lib/MiHub");

@@ -67,6 +67,8 @@ const Gateway = Thing.type(Parent => class Gateway extends Parent.with(MiioApi, 
 			name: 'illuminance'
 		});
 
+    this.defineProperty('alarm', v => v === 'off');
+
 		this.defineProperty('rgb', {
 			handler: (result, rgba) => {
 				result['rgb'] = {
@@ -98,6 +100,16 @@ const Gateway = Thing.type(Parent => class Gateway extends Parent.with(MiioApi, 
 
 			return device;
 		});
+	}
+
+  /**
+	 * Switch the alarm state
+	 */
+	setArming(status) {
+		return this.call('set_arming', [ status ? 'on' : 'off' ], {
+			refresh: [ 'alarm' ]
+		})
+			.then(MiioApi.checkOk);
 	}
 
 	_report(properties) {
@@ -134,7 +146,7 @@ const Gateway = Thing.type(Parent => class Gateway extends Parent.with(MiioApi, 
 
 	_updateDeviceList() {
 		function stripLumiFromId(id) {
-			if(id.indexOf('lumi.') === 0) {
+			if(String(id).indexOf('lumi.') === 0) {
 				return id.substring(5);
 			}
 			return id;

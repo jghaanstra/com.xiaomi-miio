@@ -15,7 +15,7 @@ module.exports = class BallLamp extends LightBulb
 	.with(MiioApi, Power, Dimmable, Colorable, ColorTemperature)
 {
 	static get type() {
-		return 'miio:philiphs-ball-lamp';
+		return 'miio:philips-light';
 	}
 
 	constructor(options) {
@@ -69,5 +69,4 @@ module.exports = class BallLamp extends LightBulb
 			refresh: [ 'color']
 		}).then(MiioApi.checkOk);
 	}
-
 };

@@ -11,22 +11,22 @@ module.exports = Thing.mixin(Parent => class extends Parent.with(State, Cleaning
 	}
 
 	static availableAPI(builder) {
-		builder.action('spotClean')
+		builder.action('cleanSpot')
 			.description('Request that the thing performs spot cleaning')
 			.done();
 	}
 
-	spotClean() {
+	cleanSpot() {
 		try {
-			return Promise.resolve(this.activateSpotClean())
+			return Promise.resolve(this.activateCleanSpot())
 				.then(() => null);
 		} catch(ex) {
 			return Promise.reject(ex);
 		}
 	}
 
-	activateSpotClean() {
-		throw new Error('activateSpotClean not implemented');
+	activateCleanSpot() {
+		throw new Error('activateCleanSpot not implemented');
 	}
 
 });

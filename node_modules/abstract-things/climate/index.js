@@ -19,3 +19,8 @@ module.exports.AdjustableFanSpeed = require('./adjustable-fan-speed');
 module.exports.CleaningState = require('./cleaning-state');
 module.exports.AutonomousCleaning = require('./autonomous-cleaning');
 module.exports.SpotCleaning = require('./spot-cleaning');
+
+module.exports.Thermostat = require('./thermostat');
+
+module.exports.TargetTemperature = require('./target-temperature');
+module.exports.AdjustableTargetTemperature = require('./adjustable-target-temperature');
