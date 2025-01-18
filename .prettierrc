@@ -1,0 +1,14 @@
+{
+  "overrides": [
+    {
+      "files": ["*.html", "**/*.js"],
+      "options": {
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 4,
+        "printWidth": 500,
+        "trailingComma": "none"
+      }
+    }
+  ]
+}
