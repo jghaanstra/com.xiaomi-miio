@@ -269,36 +269,12 @@ class XiaomiVacuumMiotDevice extends Device {
             /* vacuumcleaner xiaomi mop mode */
             this.registerCapabilityListener('vacuum_xiaomi_mop_mode', async (value) => {
                 try {
+                    //temporary debug
+                    const result = await this.miio.call('get_properties', [{ siid: 2, piid: 6 }], { retries: 1 });
+                    this.log('Supported mop mode values:', result);
+
                     if (this.miio) {
-                        // Check if the device uses properties_c102 (specific to xiaomi.vacuum.c102gl)
-                        if (this.deviceProperties === properties.properties_c102) {
-                            // Remap the values specifically for xiaomi.vacuum.c102gl
-                            const correctedValue = {
-                                1: 2, // Sweep → Sweep and Mop
-                                2: 3, // Sweep and Mop → Mop
-                                3: 1 // Mop → Sweep
-                            }[value];
-
-                            if (correctedValue === undefined) {
-                                this.error(`Invalid mop mode value: ${value}`);
-                                return Promise.reject('Invalid mop mode value.');
-                            }
-
-                            value = correctedValue; // Assign the corrected value
-                        }
-
-                        // Send the adjusted (or original) value to the device
-                        return await this.miio.call(
-                            'set_properties',
-                            [
-                                {
-                                    siid: this.deviceProperties.set_properties.mopmode.siid,
-                                    piid: this.deviceProperties.set_properties.mopmode.piid,
-                                    value: Number(value)
-                                }
-                            ],
-                            { retries: 1 }
-                        );
+                        return await this.miio.call('set_properties', [{ siid: this.deviceProperties.set_properties.mopmode.siid, piid: this.deviceProperties.set_properties.mopmode.piid, value: Number(value) }], { retries: 1 });
                     } else {
                         this.setUnavailable(this.homey.__('unreachable')).catch((error) => {
                             this.error(error);
