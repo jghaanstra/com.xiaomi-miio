@@ -247,5 +247,8 @@
   },
   "3.4.4": {
     "en": "Temporary debug for Mi ClearGrass Air Detector"
+  },
+  "3.4.5": {
+    "en": "Attempt to fix modes for X20+"
   }
 }
