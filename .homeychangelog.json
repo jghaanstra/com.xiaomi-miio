@@ -244,5 +244,8 @@
   },
   "3.4.3": {
     "en": "Fixes for used NodeJS modules"
+  },
+  "3.4.4": {
+    "en": "Temporary debug for Mi ClearGrass Air Detector"
   }
 }
