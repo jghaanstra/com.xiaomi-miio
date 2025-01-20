@@ -135,7 +135,7 @@ class MiWifiDeviceDevice extends Homey.Device {
             await this.miio.activateCharging();
             return await this.setCapabilityValue('onoff', false);
           default:
-            this.error("Not a valid vacuumcleaner_state");
+            this.error("Not a valid vacuumcleaner_state (wifi_device)");
         }
       } else {
         this.setUnavailable(this.homey.__('unreachable')).catch(error => { this.error(error) });

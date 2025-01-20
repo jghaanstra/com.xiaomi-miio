@@ -272,7 +272,9 @@ class XiaomiVacuumMiotDevice extends Device {
                     //temporary debug
                     const result = await this.miio.call('get_properties', [{ siid: 2, piid: 6 }], { retries: 1 });
                     this.log('Supported mop mode values:', result);
-
+                    this.log('Device Properties:', this.deviceProperties);
+                    this.log('Status Mapping:', this.deviceProperties.status_mapping);
+                    this.log('Device Status Value:', device_status.value);
                     if (this.miio) {
                         return await this.miio.call('set_properties', [{ siid: this.deviceProperties.set_properties.mopmode.siid, piid: this.deviceProperties.set_properties.mopmode.piid, value: Number(value) }], { retries: 1 });
                     } else {
@@ -335,7 +337,7 @@ class XiaomiVacuumMiotDevice extends Device {
                         this.vacuumCleanerState(key);
                     }
                 } else {
-                    this.log('Not a valid vacuumcleaner_state', device_status.value);
+                    this.log('Not a valid vacuumcleaner_state (driver level)', device_status.value);
                 }
             }
 
