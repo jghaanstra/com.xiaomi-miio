@@ -58,8 +58,13 @@ class AirmonitorZhimiCgllcDevice extends Device {
                     if (!this.getAvailable()) {
                         await this.setAvailable();
                     }
+
+                    if (!this.hasCapability('measure_pm25')) await this.addCapability('measure_pm25');
+                    if (!this.hasCapability('measure_battery')) await this.addCapability('measure_battery');
+                    if (!this.hasCapability('alarm_battery')) await this.addCapability('alarm_battery');
+
                     if (result_v1[0] !== undefined) await this.updateCapabilityValue('onoff', result_v1[0]);
-                    if (result_v1[1] !== undefined) await this.updateCapabilityValue('measure_pm25', parseInt(result_v1[1]));
+                    if (result_v1[1] !== undefined && result_v1[1] !== 99999) await this.updateCapabilityValue('measure_pm25', parseInt(result_v1[1]));
                     if (result_v1[2] !== undefined) await this.updateCapabilityValue('measure_battery', this.util.clamp(parseInt(result_v1[2]), 0, 100));
                     if (result_v1[2] !== undefined) await this.updateCapabilityValue('alarm_battery', this.util.clamp(parseInt(result_v1[2]), 0, 100) > 20 ? false : true);
                     break;
@@ -73,7 +78,14 @@ class AirmonitorZhimiCgllcDevice extends Device {
                     if (!this.hasCapability('measure_tvoc')) {
                         await this.addCapability('measure_tvoc');
                     }
-                    if (result_b1.result.pm25 !== undefined) await this.updateCapabilityValue('measure_pm25', parseInt(result_b1.result.pm25));
+
+                    if (!this.hasCapability('measure_pm25')) await this.addCapability('measure_pm25');
+                    if (!this.hasCapability('measure_co2')) await this.addCapability('measure_co2');
+                    if (!this.hasCapability('measure_humidity')) await this.addCapability('measure_humidity');
+                    if (!this.hasCapability('measure_temperature')) await this.addCapability('measure_temperature');
+                    if (!this.hasCapability('measure_tvoc')) await this.addCapability('measure_tvoc');
+
+                    if (result_b1.result.pm25 !== undefined && result_b1.result.pm25 !== 99999) await this.updateCapabilityValue('measure_pm25', parseInt(result_b1.result.pm25));
                     if (result_b1.result.co2e !== undefined) await this.updateCapabilityValue('measure_co2', parseInt(result_b1.result.co2e));
                     if (result_b1.result.humidity !== undefined) await this.updateCapabilityValue('measure_humidity', parseInt(result_b1.result.humidity));
                     if (result_b1.result.temperature !== undefined) await this.updateCapabilityValue('measure_temperature', parseFloat(result_b1.result.temperature));
@@ -86,9 +98,18 @@ class AirmonitorZhimiCgllcDevice extends Device {
                     if (!this.getAvailable()) {
                         await this.setAvailable();
                     }
+
+                    // user reported missing capabilities when pairing the device
+                    if (!this.hasCapability('measure_pm25')) await this.addCapability('measure_pm25');
+                    if (!this.hasCapability('measure_co2')) await this.addCapability('measure_co2');
+                    if (!this.hasCapability('measure_humidity')) await this.addCapability('measure_humidity');
+                    if (!this.hasCapability('measure_temperature')) await this.addCapability('measure_temperature');
+                    if (!this.hasCapability('measure_tvoc')) await this.addCapability('measure_tvoc');
+
                     if (result_s1[0] !== undefined) await this.updateCapabilityValue('measure_co2', result_s1[0]);
                     if (result_s1[1] !== undefined) await this.updateCapabilityValue('measure_humidity', result_s1[1]);
-                    if (result_s1[2] !== undefined) await this.updateCapabilityValue('measure_pm25', parseFloat(result_s1[2]));
+                    // saw in the logs reports of PM25 being 99999, so added a check for that
+                    if (result_s1[2] !== undefined && result_s1[2] !== 99999) await this.updateCapabilityValue("measure_pm25", parseFloat(result_s1[2]));
                     if (result_s1[3] !== undefined) await this.updateCapabilityValue('measure_temperature', parseFloat(result_s1[3]));
                     if (result_s1[4] !== undefined) await this.updateCapabilityValue('measure_tvoc', parseInt(result_s1[4]));
                     break;
