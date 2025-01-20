@@ -253,5 +253,8 @@
   },
   "3.4.6": {
     "en": "Attempt to fix modes for X20+"
+  },
+  "3.4.7": {
+    "en": "Mi ClearGrass Air Detector related improvements"
   }
 }
