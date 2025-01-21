@@ -259,5 +259,8 @@
   },
   "3.4.8": {
     "en": "Additional logging for X20+"
+  },
+  "3.4.9": {
+    "en": "Additional logging for Mi ClearGrass Air Detector, fixes for X20+ (mopmodes still not working as desired)"
   }
 }
