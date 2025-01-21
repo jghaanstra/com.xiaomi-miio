@@ -42,7 +42,7 @@ const properties = {
             mopmode: { siid: 2, piid: 4 }
         },
         error_codes: {
-            0: 'No Error',
+            0: 'Everything-is-ok',
             1: 'Left-wheel-error',
             2: 'Right-wheel-error',
             3: 'Cliff-error',
@@ -54,7 +54,6 @@ const properties = {
             9: 'Dustbin-error',
             10: 'Charging-error',
             11: 'No-water-error',
-            0: 'Everything-is-ok',
             12: 'Pick-up-error'
         },
         status_mapping: {
@@ -117,12 +116,12 @@ const properties = {
             { did: 'device_fault', siid: 2, piid: 2 }, // settings.error
             { did: 'mode', siid: 2, piid: 3 }, // vacuum_xiaomi_mop_mode
             { did: 'battery', siid: 3, piid: 1 }, // measure_battery
-            { did: 'main_brush_life_level', siid: 9, piid: 1 }, // settings.main_brush_work_time
-            { did: 'side_brush_life_level', siid: 10, piid: 1 }, // settings.side_brush_work_time
-            { did: 'filter_life_level', siid: 11, piid: 1 }, // settings.filter_work_time
+            { did: 'main_brush_life_level', siid: 9, piid: 2 }, // settings.main_brush_work_level
+            { did: 'side_brush_life_level', siid: 10, piid: 2 }, // settings.side_brush_work_level
+            { did: 'filter_life_level', siid: 11, piid: 1 }, // settings.filter_work_level
             { did: 'total_clean_time', siid: 12, piid: 2 }, // settings.total_work_time
-            { did: 'total_clean_count', siid: 12, piid: 23 }, // settings.clean_count
-            { did: 'total_clean_area', siid: 12, piid: 4 } // settings.total_cleared_area
+            { did: 'total_clean_count', siid: 12, piid: 3 }, // settings.clean_count
+            { did: 'total_clean_area', siid: 12, piid: 4 }, // settings.total_cleared_area
         ],
         set_properties: {
             start_clean: { siid: 2, aiid: 1, did: 'call-2-1', in: [] },
@@ -168,6 +167,13 @@ class XiaomiVacuumMiotDevice extends Device {
 
             // ADD/REMOVE DEVICES DEPENDANT CAPABILITIES
 
+            // Device-specific logic - currently for xiaomi.vacuum.c102gl only as generic logic is using slighly different calcalutions
+            if (this.getStoreValue('model') === 'xiaomi.vacuum.c102gl') {
+                this.log('Using custom vacuumTotals and custom vacuumConsumables method for xiaomi.vacuum.c102gl');
+                this.vacuumTotals = this.customVacuumTotals; // Override method dynamically
+                this.vacuumConsumables = this.customVacuumConsumables; // Override method dynamically
+            }
+
             // DEVICE VARIABLES
             this.deviceProperties = properties[mapping[this.getStoreValue('model')]] !== undefined ? properties[mapping[this.getStoreValue('model')]] : properties[mapping['xiaomi.vacuum.*']];
 
@@ -199,6 +205,8 @@ class XiaomiVacuumMiotDevice extends Device {
             // FLOW TRIGGER CARDS
             this.homey.flow.getDeviceTriggerCard('alertVacuum');
             this.homey.flow.getDeviceTriggerCard('statusVacuum');
+            // not implemented
+            //this.homey.flow.getDeviceTriggerCard('triggerVacuumRoomSegments');
 
             // LISTENERS FOR UPDATING CAPABILITIES
             this.registerCapabilityListener('onoff', async (value) => {
@@ -269,15 +277,23 @@ class XiaomiVacuumMiotDevice extends Device {
             /* vacuumcleaner xiaomi mop mode */
             this.registerCapabilityListener('vacuum_xiaomi_mop_mode', async (value) => {
                 try {
-                    //temporary debug
-                    const result = await this.miio.call('get_properties', [{ siid: 2, piid: 6 }], { retries: 1 });
-                    this.log('Supported mop mode values:', result);
-                    this.log('Device Properties:', this.deviceProperties);
-                    this.log('Status Mapping:', this.deviceProperties.status_mapping);
-                    this.log('Device Status Value:', device_status.value);
+                    const numericValue = Number(value); // Ensure value is treated as a number
+                    this.log(`Received mop mode value: ${value} (type: ${typeof value}), Converted: ${numericValue}`);
+                    let adjustedValue = numericValue; // Default to original numeric value
                     if (this.miio) {
-                        return await this.miio.call('set_properties', [{ siid: this.deviceProperties.set_properties.mopmode.siid, piid: this.deviceProperties.set_properties.mopmode.piid, value: Number(value) }], { retries: 1 });
+                        return await this.miio.call(
+                            'set_properties',
+                            [
+                                {
+                                    siid: this.deviceProperties.set_properties.mopmode.siid,
+                                    piid: this.deviceProperties.set_properties.mopmode.piid,
+                                    value: adjustedValue
+                                }
+                            ],
+                            { retries: 1 }
+                        );
                     } else {
+                        // Handle device unreachable scenario
                         this.setUnavailable(this.homey.__('unreachable')).catch((error) => {
                             this.error(error);
                         });
@@ -300,6 +316,50 @@ class XiaomiVacuumMiotDevice extends Device {
             if (!this.getAvailable()) {
                 await this.setAvailable();
             }
+
+            // debug purposes only
+            //this.log('Raw property data:', result);
+
+            //temporary debug !!!
+            //const resultmop = await this.miio.call('get_properties', [{ siid: 2, piid: 6 }], { retries: 1 });
+            //this.log('Supported mop mode values:', resultmop);
+            //this.log('Device Properties:', this.deviceProperties);
+            //this.log('Status Mapping:', this.deviceProperties.status_mapping);
+            //this.log('Device Status Value:', device_status.value);
+
+            //temporary debug !!!
+            /*
+            try {
+                this.log('Starting full property scan...');
+                
+                const results = [];
+                
+               
+                // Iterate over a reasonable range of SIIDs and PIIDs
+                for (let siid = 1; siid <= 18; siid++) {
+                    for (let piid = 1; piid <= 50; piid++) {
+                        try {
+                            // Attempt to fetch property for the current SIID and PIID
+                            const response = await this.miio.call('get_properties', [{ siid, piid }], { retries: 1 });
+                            
+                            // Log successful responses and add them to results
+                            if (response && response.length > 0 && response[0].code === 0) {
+                                this.log(`Fetched property SIID ${siid}, PIID ${piid}:`, JSON.stringify(response[0]));
+                                results.push(response[0]);
+                            }
+                        } catch (error) {
+                            // Ignore errors for invalid SIID/PIID combinations
+                            this.log(`SIID ${siid}, PIID ${piid} not accessible.`);
+                        }
+                    }
+                }
+        
+                // Log all successfully fetched properties
+                this.log('Complete property scan result:', JSON.stringify(results, null, 2));
+        
+            } catch (error) {
+                this.error('Error during full property scan:', error);
+            } */
 
             /* data */
             const device_status = result.find((obj) => obj.did === 'device_status');
@@ -329,16 +389,22 @@ class XiaomiVacuumMiotDevice extends Device {
             };
 
             /* onoff & vacuumcleaner_state */
+            let matched = false;
+
             for (let key in this.deviceProperties.status_mapping) {
                 if (this.deviceProperties.status_mapping[key].includes(device_status.value)) {
+                    matched = true;
                     if (this.getCapabilityValue('measure_battery') === 100 && (key === 'stopped' || key === 'charging')) {
                         this.vacuumCleanerState('docked');
                     } else {
                         this.vacuumCleanerState(key);
                     }
-                } else {
-                    this.log('Not a valid vacuumcleaner_state (driver level)', device_status.value);
+                    break; // Exit the loop once a match is found - it was causing errors previously
                 }
+            }
+
+            if (!matched) {
+                this.log('Not a valid vacuumcleaner_state (driver level)', device_status.value);
             }
 
             /* measure_battery & alarm_battery */
@@ -386,6 +452,162 @@ class XiaomiVacuumMiotDevice extends Device {
             }, 60000);
 
             this.error(error.message);
+        }
+    }
+
+    /* Custom vacuumTotals for xiaomi.vacuum.c102gl */
+    async customVacuumTotals(totals) {
+        try {
+            let worktime = 0;
+            let cleared_area = 0;
+            let clean_count = 0;
+
+            // Use correct properties for the totals
+            if (totals.hasOwnProperty('clean_time')) {
+                worktime = totals.clean_time;
+                cleared_area = totals.clean_area;
+                clean_count = totals.clean_count;
+            } else {
+                worktime = totals[0];
+                cleared_area = totals[1];
+                clean_count = totals[2];
+            }
+
+            /* Corrected total_work_time calculation */
+            const total_work_time_value = Math.round(worktime / 60); // Convert minutes to hours
+            const total_work_time = total_work_time_value + ' h';
+            if (this.getSetting('total_work_time') !== total_work_time) {
+                await this.setSettings({ total_work_time: total_work_time });
+                await this.total_work_time_token.setValue(total_work_time_value);
+            }
+
+            /* Corrected total_cleared_area calculation */
+            const total_cleared_area_value = cleared_area; // Already in m²
+            const total_cleared_area = total_cleared_area_value + ' m2';
+            if (this.getSetting('total_cleared_area') !== total_cleared_area) {
+                await this.setSettings({ total_cleared_area: total_cleared_area });
+                await this.total_cleared_area_token.setValue(total_cleared_area_value);
+            }
+
+            /* Corrected total_clean_count */
+            if (this.getSetting('total_clean_count') !== clean_count) {
+                await this.setSettings({ total_clean_count: String(clean_count) });
+                await this.total_clean_count_token.setValue(clean_count);
+            }
+
+            /* Initial token updates */
+            if (!this.initialTokenTotal || this.initialTokenTotal == undefined) {
+                await this.total_work_time_token.setValue(total_work_time_value);
+                await this.total_cleared_area_token.setValue(total_cleared_area_value);
+                await this.total_clean_count_token.setValue(clean_count);
+                this.initialTokenTotal = true;
+            }
+        } catch (error) {
+            this.error('Custom vacuumTotals error:', error);
+        }
+    }
+
+    /* Custom VacuumConsumables for xiaomi.vacuum.c102gl */
+
+    async customVacuumConsumables(consumables) {
+        try {
+            let main_brush_remaining_value = 0;
+            let side_brush_remaining_value = 0;
+            let filter_remaining_value = 0;
+
+            // debug purposes only
+            // this.log('Consumables input:', JSON.stringify(consumables));
+
+            if (Array.isArray(consumables) && consumables.length > 0) {
+                const data = consumables[0];
+
+                /* main_brush_work_time */
+                if (data.hasOwnProperty('main_brush_work_time')) {
+                    main_brush_remaining_value = data.main_brush_work_time;
+                    const main_brush_remaining = main_brush_remaining_value + '%';
+
+                    if (this.getSetting('main_brush_work_time') !== main_brush_remaining) {
+                        await this.setSettings({ main_brush_work_time: main_brush_remaining });
+                        await this.main_brush_lifetime_token.setValue(main_brush_remaining_value);
+                    }
+
+                    if (main_brush_remaining_value < this.getSetting('alarm_threshold') && !this.getCapabilityValue('alarm_main_brush_work_time')) {
+                        this.log('Triggering alarm for main brush...');
+                        await this.updateCapabilityValue('alarm_main_brush_work_time', true);
+                        await this.homey.flow
+                            .getDeviceTriggerCard('alertVacuum')
+                            .trigger(this, { consumable: 'Main Brush', value: main_brush_remaining })
+                            .catch((error) => this.error('Error triggering alert for main brush:', error));
+                    } else if (main_brush_remaining_value > this.getSetting('alarm_threshold') && this.getCapabilityValue('alarm_main_brush_work_time')) {
+                        this.log('Clearing alarm for main brush...');
+                        this.updateCapabilityValue('alarm_main_brush_work_time', false);
+                    }
+                } else {
+                    this.log('main_brush_work_time not found in consumables.');
+                }
+
+                /* side_brush_work_time */
+                if (data.hasOwnProperty('side_brush_work_time')) {
+                    side_brush_remaining_value = data.side_brush_work_time;
+                    const side_brush_remaining = side_brush_remaining_value + '%';
+
+                    if (this.getSetting('side_brush_work_time') !== side_brush_remaining) {
+                        await this.setSettings({ side_brush_work_time: side_brush_remaining });
+                        await this.side_brush_lifetime_token.setValue(side_brush_remaining_value);
+                    }
+
+                    if (side_brush_remaining_value < this.getSetting('alarm_threshold') && !this.getCapabilityValue('alarm_side_brush_work_time')) {
+                        this.log('Triggering alarm for side brush...');
+                        await this.updateCapabilityValue('alarm_side_brush_work_time', true);
+                        await this.homey.flow
+                            .getDeviceTriggerCard('alertVacuum')
+                            .trigger(this, { consumable: 'Side Brush', value: side_brush_remaining })
+                            .catch((error) => this.error('Error triggering alert for side brush:', error));
+                    } else if (side_brush_remaining_value > this.getSetting('alarm_threshold') && this.getCapabilityValue('alarm_side_brush_work_time')) {
+                        this.log('Clearing alarm for side brush...');
+                        this.updateCapabilityValue('alarm_side_brush_work_time', false);
+                    }
+                } else {
+                    this.log('side_brush_work_time not found in consumables.');
+                }
+
+                /* filter_work_time */
+                if (data.hasOwnProperty('filter_work_time')) {
+                    filter_remaining_value = data.filter_work_time;
+                    const filter_remaining = filter_remaining_value + '%';
+
+                    if (this.getSetting('filter_work_time') !== filter_remaining) {
+                        await this.setSettings({ filter_work_time: filter_remaining });
+                        await this.filter_lifetime_token.setValue(filter_remaining_value);
+                    }
+
+                    if (filter_remaining_value < this.getSetting('alarm_threshold') && !this.getCapabilityValue('alarm_filter_work_time')) {
+                        this.log('Triggering alarm for filter...');
+                        await this.updateCapabilityValue('alarm_filter_work_time', true);
+                        await this.homey.flow
+                            .getDeviceTriggerCard('alertVacuum')
+                            .trigger(this, { consumable: 'Filter', value: filter_remaining })
+                            .catch((error) => this.error('Error triggering alert for filter:', error));
+                    } else if (filter_remaining_value > this.getSetting('alarm_threshold') && this.getCapabilityValue('alarm_filter_work_time')) {
+                        this.log('Clearing alarm for filter...');
+                        this.updateCapabilityValue('alarm_filter_work_time', false);
+                    }
+                } else {
+                    this.log('filter_work_time not found in consumables.');
+                }
+
+                /* initial update tokens */
+                if (!this.initialTokenConsumable || this.initialTokenConsumable === undefined) {
+                    await this.main_brush_lifetime_token.setValue(main_brush_remaining_value);
+                    await this.side_brush_lifetime_token.setValue(side_brush_remaining_value);
+                    await this.filter_lifetime_token.setValue(filter_remaining_value);
+                    this.initialTokenConsumable = true;
+                }
+            } else {
+                this.log('Consumables array is empty or invalid.');
+            }
+        } catch (error) {
+            this.error('Error in customVacuumConsumables:', error);
         }
     }
 }
