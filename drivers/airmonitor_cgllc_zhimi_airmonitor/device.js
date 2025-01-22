@@ -17,13 +17,59 @@ class AirmonitorZhimiCgllcDevice extends Device {
             // GENERIC DEVICE INIT ACTIONS
             this.bootSequence();
 
-            // ADD DEVICES DEPENDANT CAPABILITIES
+            // ADD / REMOVE DEVICES DEPENDANT CAPABILITIES
             if (this.getStoreValue('model') === 'cgllc.airmonitor.s1') {
                 if (this.hasCapability('measure_battery')) {
-                    this.removeCapability('measure_battery');
+                    await this.removeCapability('measure_battery');
                 }
                 if (this.hasCapability('alarm_battery')) {
-                    this.removeCapability('alarm_battery');
+                    await this.removeCapability('alarm_battery');
+                }
+
+                if (!this.hasCapability('measure_pm25')) {
+                    await this.addCapability('measure_pm25');
+                }
+                if (!this.hasCapability('measure_co2')) {
+                    await this.addCapability('measure_co2');
+                }
+                if (!this.hasCapability('measure_humidity')) {
+                    await this.addCapability('measure_humidity');
+                }
+                if (!this.hasCapability('measure_temperature')) {
+                    await this.addCapability('measure_temperature');
+                }
+                if (!this.hasCapability('measure_tvoc')) {
+                    await this.addCapability('measure_tvoc');
+                }
+            }
+
+            if (this.getStoreValue('model') === 'cgllc.airmonitor.v1') {
+                if (!this.hasCapability('measure_pm25')) {
+                    await this.addCapability('measure_pm25');
+                }
+                if (!this.hasCapability('measure_battery')) {
+                    await this.addCapability('measure_battery');
+                }
+                if (!this.hasCapability('alarm_battery')) {
+                    await this.addCapability('alarm_battery');
+                }
+            }
+
+            if (this.getStoreValue('model') === 'cgllc.airmonitor.b1') {
+                if (!this.hasCapability('measure_pm25')) {
+                    await this.addCapability('measure_pm25');
+                }
+                if (!this.hasCapability('measure_co2')) {
+                    await this.addCapability('measure_co2');
+                }
+                if (!this.hasCapability('measure_humidity')) {
+                    await this.addCapability('measure_humidity');
+                }
+                if (!this.hasCapability('measure_temperature')) {
+                    await this.addCapability('measure_temperature');
+                }
+                if (!this.hasCapability('measure_tvoc')) {
+                    await this.addCapability('measure_tvoc');
                 }
             }
 
@@ -59,15 +105,12 @@ class AirmonitorZhimiCgllcDevice extends Device {
                         await this.setAvailable();
                     }
 
-                    if (!this.hasCapability('measure_pm25')) await this.addCapability('measure_pm25');
-                    if (!this.hasCapability('measure_battery')) await this.addCapability('measure_battery');
-                    if (!this.hasCapability('alarm_battery')) await this.addCapability('alarm_battery');
-
                     if (result_v1[0] !== undefined) await this.updateCapabilityValue('onoff', result_v1[0]);
                     if (result_v1[1] !== undefined && result_v1[1] !== 99999) await this.updateCapabilityValue('measure_pm25', parseInt(result_v1[1]));
                     if (result_v1[2] !== undefined) await this.updateCapabilityValue('measure_battery', this.util.clamp(parseInt(result_v1[2]), 0, 100));
                     if (result_v1[2] !== undefined) await this.updateCapabilityValue('alarm_battery', this.util.clamp(parseInt(result_v1[2]), 0, 100) > 20 ? false : true);
                     break;
+
                 case 'cgllc.airmonitor.b1':
                     const result_b1 = await this.miio.call('get_air_data', []);
                     // temporary debug
@@ -75,106 +118,91 @@ class AirmonitorZhimiCgllcDevice extends Device {
                     if (!this.getAvailable()) {
                         await this.setAvailable();
                     }
-                    if (!this.hasCapability('measure_tvoc')) {
-                        await this.addCapability('measure_tvoc');
-                    }
 
-                    if (!this.hasCapability('measure_pm25')) await this.addCapability('measure_pm25');
-                    if (!this.hasCapability('measure_co2')) await this.addCapability('measure_co2');
-                    if (!this.hasCapability('measure_humidity')) await this.addCapability('measure_humidity');
-                    if (!this.hasCapability('measure_temperature')) await this.addCapability('measure_temperature');
-                    if (!this.hasCapability('measure_tvoc')) await this.addCapability('measure_tvoc');
                     if (result_b1.result.pm25 !== undefined && result_b1.result.pm25 !== 99999) await this.updateCapabilityValue('measure_pm25', parseInt(result_b1.result.pm25));
                     if (result_b1.result.co2e !== undefined) await this.updateCapabilityValue('measure_co2', parseInt(result_b1.result.co2e));
                     if (result_b1.result.humidity !== undefined) await this.updateCapabilityValue('measure_humidity', parseInt(result_b1.result.humidity));
                     if (result_b1.result.temperature !== undefined) await this.updateCapabilityValue('measure_temperature', parseFloat(result_b1.result.temperature));
                     if (result_b1.result.tvoc !== undefined) await this.updateCapabilityValue('measure_tvoc', parseInt(result_b1.result.tvoc));
+
                     break;
+
                 case 'cgllc.airmonitor.s1':
                     const result_s1 = await this.miio.call('get_value', ['co2', 'humidity', 'pm25', 'temperature', 'tvoc'], { retries: 1 });
-                    // temporary debug
+                    // Temporary debug
                     this.log('Retrieved data for cgllc.airmonitor.s1:', result_s1);
                     if (!this.getAvailable()) {
                         await this.setAvailable();
+                        this.log('Device marked as available');
                     }
 
-                    // user reported missing capabilities when pairing the device
-                    if (!this.hasCapability('measure_pm25')) await this.addCapability('measure_pm25');
-                    if (!this.hasCapability('measure_co2')) await this.addCapability('measure_co2');
-                    if (!this.hasCapability('measure_humidity')) await this.addCapability('measure_humidity');
-                    if (!this.hasCapability('measure_temperature')) await this.addCapability('measure_temperature');
-                    if (!this.hasCapability('measure_tvoc')) await this.addCapability('measure_tvoc');
-                    /*
-                    if (result_s1[0] !== undefined) await this.updateCapabilityValue('measure_co2', result_s1[0]);
-                    if (result_s1[1] !== undefined) await this.updateCapabilityValue('measure_humidity', result_s1[1]);
-                    // saw in the logs reports of PM25 being 99999, so added a check for that
-                    if (result_s1[2] !== undefined && result_s1[2] !== 99999) await this.updateCapabilityValue("measure_pm25", parseFloat(result_s1[2]));
-                    if (result_s1[3] !== undefined) await this.updateCapabilityValue('measure_temperature', parseFloat(result_s1[3]));
-                    if (result_s1[4] !== undefined) await this.updateCapabilityValue('measure_tvoc', parseInt(result_s1[4]));
-                    */
-
-                    // Retrieve and update capabilities for cgllc.airmonitor.s1
-                    if (result_s1[0] !== undefined) {
-                        const co2Value = parseInt(result_s1[0]);
+                    // Update 'measure_co2'
+                    if (result_s1.co2 !== undefined) {
+                        const co2Value = parseInt(result_s1.co2);
                         this.log(`Updating 'measure_co2' with value: ${co2Value}`);
                         await this.updateCapabilityValue('measure_co2', co2Value);
                         this.log(`Successfully updated 'measure_co2' to: ${co2Value}`);
                     } else {
-                        this.log(`Skipped updating 'measure_co2'. Received value: ${result_s1[0]}`);
+                        this.log(`Skipped updating 'measure_co2'. Received value: ${result_s1.co2}`);
                     }
 
-                    if (result_s1[1] !== undefined) {
-                        const humidityValue = parseFloat(result_s1[1]);
+                    // Update 'measure_humidity'
+                    if (result_s1.humidity !== undefined) {
+                        const humidityValue = parseFloat(result_s1.humidity);
                         this.log(`Updating 'measure_humidity' with value: ${humidityValue}`);
                         await this.updateCapabilityValue('measure_humidity', humidityValue);
                         this.log(`Successfully updated 'measure_humidity' to: ${humidityValue}`);
                     } else {
-                        this.log(`Skipped updating 'measure_humidity'. Received value: ${result_s1[1]}`);
+                        this.log(`Skipped updating 'measure_humidity'. Received value: ${result_s1.humidity}`);
                     }
 
                     // Handle PM2.5 with special case check
-                    if (result_s1[2] !== undefined && result_s1[2] !== 99999) {
-                        const pm25Value = parseFloat(result_s1[2]);
+                    if (result_s1.pm25 !== undefined && result_s1.pm25 !== 99999) {
+                        const pm25Value = parseFloat(result_s1.pm25);
                         this.log(`Updating 'measure_pm25' with value: ${pm25Value}`);
                         await this.updateCapabilityValue('measure_pm25', pm25Value);
                         this.log(`Successfully updated 'measure_pm25' to: ${pm25Value}`);
                     } else {
-                        this.log(`Skipped updating 'measure_pm25'. Received value: ${result_s1[2]}`);
+                        this.log(`Skipped updating 'measure_pm25'. Received value: ${result_s1.pm25}`);
                     }
 
-                    if (result_s1[3] !== undefined) {
-                        const temperatureValue = parseFloat(result_s1[3]);
+                    // Update 'measure_temperature'
+                    if (result_s1.temperature !== undefined) {
+                        const temperatureValue = parseFloat(result_s1.temperature);
                         this.log(`Updating 'measure_temperature' with value: ${temperatureValue}`);
                         await this.updateCapabilityValue('measure_temperature', temperatureValue);
                         this.log(`Successfully updated 'measure_temperature' to: ${temperatureValue}`);
                     } else {
-                        this.log(`Skipped updating 'measure_temperature'. Received value: ${result_s1[3]}`);
+                        this.log(`Skipped updating 'measure_temperature'. Received value: ${result_s1.temperature}`);
                     }
 
-                    if (result_s1[4] !== undefined) {
-                        const tvocValue = parseInt(result_s1[4]);
+                    // Update 'measure_tvoc'
+                    if (result_s1.tvoc !== undefined) {
+                        const tvocValue = parseInt(result_s1.tvoc);
                         this.log(`Updating 'measure_tvoc' with value: ${tvocValue}`);
                         await this.updateCapabilityValue('measure_tvoc', tvocValue);
                         this.log(`Successfully updated 'measure_tvoc' to: ${tvocValue}`);
                     } else {
-                        this.log(`Skipped updating 'measure_tvoc'. Received value: ${result_s1[4]}`);
+                        this.log(`Skipped updating 'measure_tvoc'. Received value: ${result_s1.tvoc}`);
                     }
 
                     break;
                 default:
+                    this.log(`Unknown model: ${this.getStoreValue('model')}`);
                     break;
             }
         } catch (error) {
             this.homey.clearInterval(this.pollingInterval);
             if (this.getAvailable()) {
-                this.setUnavailable(this.homey.__('device.unreachable') + error.message).catch((error) => {
+                await this.setUnavailable(this.homey.__('device.unreachable') + error.message).catch((error) => {
                     this.error(error);
                 });
+                this.log(`Device marked as unavailable due to error: ${error.message}`);
             }
             this.homey.setTimeout(() => {
                 this.createDevice();
             }, 60000);
-            this.error(error.message);
+            this.error(`Error in retrieveDeviceData: ${error.message}`);
         }
     }
 }
