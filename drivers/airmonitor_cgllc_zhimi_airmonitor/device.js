@@ -101,10 +101,12 @@ class AirmonitorZhimiCgllcDevice extends Device {
             switch (this.getStoreValue('model')) {
                 case 'cgllc.airmonitor.v1':
                     const result_v1 = await this.miio.call('get_prop', ['power', 'aqi', 'battery']);
+                    // temporary debug
+                    this.log('Retrieved data for cgllc.airmonitor.v1:', JSON.stringify(result_v1));
                     if (!this.getAvailable()) {
                         await this.setAvailable();
                     }
-
+                    // if there will be complains on v1 version, we have to make adjustments like in case of s1
                     if (result_v1[0] !== undefined) await this.updateCapabilityValue('onoff', result_v1[0]);
                     if (result_v1[1] !== undefined && result_v1[1] !== 99999) await this.updateCapabilityValue('measure_pm25', parseInt(result_v1[1]));
                     if (result_v1[2] !== undefined) await this.updateCapabilityValue('measure_battery', this.util.clamp(parseInt(result_v1[2]), 0, 100));
@@ -114,7 +116,7 @@ class AirmonitorZhimiCgllcDevice extends Device {
                 case 'cgllc.airmonitor.b1':
                     const result_b1 = await this.miio.call('get_air_data', []);
                     // temporary debug
-                    this.log('Retrieved data for cgllc.airmonitor.b1:', result_b1);
+                    this.log('Retrieved data for cgllc.airmonitor.b1:', JSON.stringify(result_b1));
                     if (!this.getAvailable()) {
                         await this.setAvailable();
                     }
@@ -124,7 +126,6 @@ class AirmonitorZhimiCgllcDevice extends Device {
                     if (result_b1.result.humidity !== undefined) await this.updateCapabilityValue('measure_humidity', parseInt(result_b1.result.humidity));
                     if (result_b1.result.temperature !== undefined) await this.updateCapabilityValue('measure_temperature', parseFloat(result_b1.result.temperature));
                     if (result_b1.result.tvoc !== undefined) await this.updateCapabilityValue('measure_tvoc', parseInt(result_b1.result.tvoc));
-
                     break;
 
                 case 'cgllc.airmonitor.s1':
@@ -136,52 +137,37 @@ class AirmonitorZhimiCgllcDevice extends Device {
                         this.log('Device marked as available');
                     }
 
-                    // Update 'measure_co2'
                     if (result_s1.co2 !== undefined) {
                         const co2Value = parseInt(result_s1.co2);
-                        this.log(`Updating 'measure_co2' with value: ${co2Value}`);
                         await this.updateCapabilityValue('measure_co2', co2Value);
-                        this.log(`Successfully updated 'measure_co2' to: ${co2Value}`);
                     } else {
                         this.log(`Skipped updating 'measure_co2'. Received value: ${result_s1.co2}`);
                     }
 
-                    // Update 'measure_humidity'
                     if (result_s1.humidity !== undefined) {
                         const humidityValue = parseFloat(result_s1.humidity);
-                        this.log(`Updating 'measure_humidity' with value: ${humidityValue}`);
                         await this.updateCapabilityValue('measure_humidity', humidityValue);
-                        this.log(`Successfully updated 'measure_humidity' to: ${humidityValue}`);
                     } else {
                         this.log(`Skipped updating 'measure_humidity'. Received value: ${result_s1.humidity}`);
                     }
 
-                    // Handle PM2.5 with special case check
                     if (result_s1.pm25 !== undefined && result_s1.pm25 !== 99999) {
                         const pm25Value = parseFloat(result_s1.pm25);
-                        this.log(`Updating 'measure_pm25' with value: ${pm25Value}`);
                         await this.updateCapabilityValue('measure_pm25', pm25Value);
-                        this.log(`Successfully updated 'measure_pm25' to: ${pm25Value}`);
                     } else {
                         this.log(`Skipped updating 'measure_pm25'. Received value: ${result_s1.pm25}`);
                     }
 
-                    // Update 'measure_temperature'
                     if (result_s1.temperature !== undefined) {
                         const temperatureValue = parseFloat(result_s1.temperature);
-                        this.log(`Updating 'measure_temperature' with value: ${temperatureValue}`);
                         await this.updateCapabilityValue('measure_temperature', temperatureValue);
-                        this.log(`Successfully updated 'measure_temperature' to: ${temperatureValue}`);
                     } else {
                         this.log(`Skipped updating 'measure_temperature'. Received value: ${result_s1.temperature}`);
                     }
 
-                    // Update 'measure_tvoc'
                     if (result_s1.tvoc !== undefined) {
                         const tvocValue = parseInt(result_s1.tvoc);
-                        this.log(`Updating 'measure_tvoc' with value: ${tvocValue}`);
                         await this.updateCapabilityValue('measure_tvoc', tvocValue);
-                        this.log(`Successfully updated 'measure_tvoc' to: ${tvocValue}`);
                     } else {
                         this.log(`Skipped updating 'measure_tvoc'. Received value: ${result_s1.tvoc}`);
                     }
