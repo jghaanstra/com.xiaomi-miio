@@ -123,7 +123,7 @@ class AirmonitorZhimiCgllcDevice extends Device {
 
                     if (result_b1.result.pm25 !== undefined && result_b1.result.pm25 !== 99999) await this.updateCapabilityValue('measure_pm25', parseInt(result_b1.result.pm25));
                     if (result_b1.result.co2e !== undefined) await this.updateCapabilityValue('measure_co2', parseInt(result_b1.result.co2e));
-                    if (result_b1.result.humidity !== undefined) await this.updateCapabilityValue('measure_humidity', parseInt(result_b1.result.humidity));
+                    if (result_b1.result.humidity !== undefined) await this.updateCapabilityValue('measure_humidity', parseFloat(result_b1.result.humidity));
                     if (result_b1.result.temperature !== undefined) await this.updateCapabilityValue('measure_temperature', parseFloat(result_b1.result.temperature));
                     if (result_b1.result.tvoc !== undefined) await this.updateCapabilityValue('measure_tvoc', parseInt(result_b1.result.tvoc));
                     break;
