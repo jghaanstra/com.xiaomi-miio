@@ -121,7 +121,7 @@ const properties = {
             { did: 'filter_life_level', siid: 11, piid: 1 }, // settings.filter_work_level
             { did: 'total_clean_time', siid: 12, piid: 2 }, // settings.total_work_time
             { did: 'total_clean_count', siid: 12, piid: 3 }, // settings.clean_count
-            { did: 'total_clean_area', siid: 12, piid: 4 }, // settings.total_cleared_area
+            { did: 'total_clean_area', siid: 12, piid: 4 } // settings.total_cleared_area
         ],
         set_properties: {
             start_clean: { siid: 2, aiid: 1, did: 'call-2-1', in: [] },
@@ -131,7 +131,7 @@ const properties = {
             mopmode: { siid: 2, piid: 6 }
         },
         error_codes: {
-            0: 'No Error',
+            0: 'Everything-is-ok',
             1: 'Left-wheel-error',
             2: 'Right-wheel-error',
             3: 'Cliff-error',
@@ -143,7 +143,6 @@ const properties = {
             9: 'Dustbin-error',
             10: 'Charging-error',
             11: 'No-water-error',
-            0: 'Everything-is-ok',
             12: 'Pick-up-error'
         },
         status_mapping: {
@@ -277,9 +276,35 @@ class XiaomiVacuumMiotDevice extends Device {
             /* vacuumcleaner xiaomi mop mode */
             this.registerCapabilityListener('vacuum_xiaomi_mop_mode', async (value) => {
                 try {
+                    // Existing code, do not remove:
                     const numericValue = Number(value); // Ensure value is treated as a number
                     this.log(`Received mop mode value: ${value} (type: ${typeof value}), Converted: ${numericValue}`);
-                    let adjustedValue = numericValue; // Default to original numeric value
+
+                    // Default to original numeric value for non-c102gl models
+                    let adjustedValue = numericValue;
+
+                    // Outbound (setting to the vacuum) mapping ONLY if model is xiaomi.vacuum.c102gl
+                    if (this.getStoreValue('model') === 'xiaomi.vacuum.c102gl') {
+                        // Example: device sees 0 => Mop & Sweep, 1 => Mop, 2 => Sweep
+                        // but our JSON is 0 => Sweep, 1 => Sweep & Mop, 2 => Mop
+                        // We'll invert them as needed. 
+                        const mapOutboundMopMode = (homeyValue) => {
+                            switch (homeyValue) {
+                                case 0: // Homey 0 => "Sweep"
+                                    return 2; // Device wants 2 => "Sweep"
+                                case 1: // Homey 1 => "Sweep & Mop"
+                                    return 0; // Device wants 0 => "Sweep & Mop"
+                                case 2: // Homey 2 => "Mop"
+                                    return 1; // Device wants 1 => "Mop"
+                                default:
+                                    return 2; // fallback, or pick something safe
+                            }
+                        };
+                        const mapped = mapOutboundMopMode(numericValue);
+                        this.log(`(c102gl) Outbound remap: Homey value=${numericValue} => deviceValue=${mapped}`);
+                        adjustedValue = mapped;
+                    }
+
                     if (this.miio) {
                         return await this.miio.call(
                             'set_properties',
@@ -331,10 +356,9 @@ class XiaomiVacuumMiotDevice extends Device {
             /*
             try {
                 this.log('Starting full property scan...');
-                
+    
                 const results = [];
                 
-               
                 // Iterate over a reasonable range of SIIDs and PIIDs
                 for (let siid = 1; siid <= 18; siid++) {
                     for (let piid = 1; piid <= 50; piid++) {
@@ -353,10 +377,10 @@ class XiaomiVacuumMiotDevice extends Device {
                         }
                     }
                 }
-        
+    
                 // Log all successfully fetched properties
                 this.log('Complete property scan result:', JSON.stringify(results, null, 2));
-        
+    
             } catch (error) {
                 this.error('Error during full property scan:', error);
             } */
@@ -417,8 +441,33 @@ class XiaomiVacuumMiotDevice extends Device {
             }
 
             /* vacuum_xiaomi_mop_mode */
-            await this.updateCapabilityValue('vacuum_xiaomi_mop_mode', mop_mode.value.toString());
+            // Original code
+            let finalMopModeValue = mop_mode.value;
 
+            // Inbound (getting status from Vacuum) mapping ONLY if model is c102gl
+            if (this.getStoreValue('model') === 'xiaomi.vacuum.c102gl') {
+                const deviceVal = device_status.value;
+                const mapInboundMopMode = (statusVal) => {
+                    switch (statusVal) {
+                        case 1: // Sweeping
+                            return 0; // Homey’s "0" => Sweep
+                        case 7: // Mopping
+                            return 2; // Homey’s "2" => Mop
+                        case 12: // Sweeping & Mopping
+                            return 1; // Homey’s "1" => Sweep & Mop
+                        default:
+                            // fallback: pick "0" => Sweep if unknown
+                            return 0;
+                    }
+                };
+
+                finalMopModeValue = mapInboundMopMode(deviceVal);
+                this.log(`(c102gl) inbound statusVal=${deviceVal}, mapped to Homey mop mode=${finalMopModeValue}`);
+            }
+
+            // Now set the capability with finalMopModeValue
+            await this.updateCapabilityValue('vacuum_xiaomi_mop_mode', finalMopModeValue.toString());
+            
             /* consumable settings */
             this.vacuumConsumables(consumables);
 
@@ -427,12 +476,14 @@ class XiaomiVacuumMiotDevice extends Device {
 
             /* settings device error */
             const error = this.deviceProperties.error_codes[device_fault.value];
+            // If the lookup failed, error is undefined. Provide a fallback string:
+            let safeError = typeof error === 'string' ? error : 'Unknown Error';
             if (this.getSetting('error') !== error) {
                 await this.setSettings({ error: error });
                 if (error !== 0) {
                     await this.homey.flow
                         .getDeviceTriggerCard('statusVacuum')
-                        .trigger(this, { status: error })
+                        .trigger(this, { status: safeError })
                         .catch((error) => {
                             this.error(error);
                         });
