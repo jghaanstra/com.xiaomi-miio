@@ -268,5 +268,8 @@
   },
   "3.4.11": {
     "en": "X20+ mop mode fixes"
+  },
+  "3.4.12": {
+    "en": "Added support for Mi Smart Pet Feeder 2 CN"
   }
 }
