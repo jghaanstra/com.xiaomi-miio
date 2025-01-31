@@ -9,6 +9,7 @@
     "@types/node": "^22.10.6"
   },
   "dependencies": {
+    "@thingbound/discovery": "github:thingbound/discovery",
     "abstract-things": "github:shaarkys/abstract-things-react-native",
     "miio": "github:shaarkys/miio",
     "mimorelinks": "^1.2.1",
