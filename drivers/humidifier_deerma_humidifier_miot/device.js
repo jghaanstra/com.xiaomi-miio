@@ -14,7 +14,7 @@ const mapping = {
   "deerma.humidifier.jsqs": "mapping_default",
   "deerma.humidifier.jsq4": "mapping_default",
   "deerma.humidifier.jsq5": "mapping_default",
-  "deerma.humidifier.jsq2w": "mapping_default",
+  "deerma.humidifier.jsq2w": "mapping_jsq2w",  // custom mapping for jsq2w
   "deerma.humidifier.*": "mapping_default",
 };
 
@@ -37,8 +37,28 @@ const properties = {
       "buzzer": { siid: 5, piid: 1 },
       "light": { siid: 6, piid: 1 }
     }
+  },
+
+  "mapping_jsq2w": {
+    "get_properties": [
+      { did: "power", siid: 2, piid: 1 },
+      { did: "watertank_shortage_fault", siid: 7, piid: 2 }, // custom: corrected piid for jsq2w
+      { did: "mode", siid: 2, piid: 5 },
+      { did: "target_humidity", siid: 2, piid: 6 },
+      { did: "relative_humidity", siid: 3, piid: 1 },
+      { did: "temperature", siid: 3, piid: 7 },
+      { did: "buzzer", siid: 5, piid: 1 },
+      { did: "led_light", siid: 6, piid: 1 },
+    ],
+    "set_properties": {
+      "power": { siid: 2, piid: 1 },
+      "mode": { siid: 2, piid: 5 },
+      "target_humidity": { siid: 2, piid: 6 },
+      "buzzer": { siid: 5, piid: 1 },
+      "light": { siid: 6, piid: 1 }
+    }
   }
-}
+};
 
 const modes = {
   1: "Level 1",
