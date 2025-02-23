@@ -271,5 +271,8 @@
   },
   "3.4.12": {
     "en": "Added support for Mi Smart Pet Feeder 2 CN"
+  },
+  "3.4.13": {
+    "en": "Fix for Mi Smart Antibacterial Humidifier JSQ2W - the tank is empty"
   }
 }
